@@ -22,11 +22,10 @@ unsigned char topAdjustSide = 1;    //0 for adding power to left, 1 for adding p
 
 unsigned char turningGear = 42;     //speed from 0 to 100
 
-unsigned int forward1Delay = 200;           //delay in ms
 unsigned int turnLeft90Delay = 175;         //delay in ms
 unsigned int turnRight90Delay = 175;        //delay in ms
 unsigned int turnLeft135Delay = 300;        //delay in ms
-unsigned int turnRight135Delay = 300;
+unsigned int turnRight135Delay = 300;       //delay in ms
 unsigned int turn180Delay = 510;            //delay in ms
 
 //function prototypes
@@ -38,7 +37,6 @@ void turnLeft(DC_motor *mL, DC_motor *mR);
 void turnRight(DC_motor *mL, DC_motor *mR);
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
 
-void forward1(DC_motor *mL, DC_motor *mR);
 void turnLeft90(DC_motor *mL, DC_motor *mR);
 void turnRight90(DC_motor *mL, DC_motor *mR);
 void turnLeft135(DC_motor *mL, DC_motor *mR);

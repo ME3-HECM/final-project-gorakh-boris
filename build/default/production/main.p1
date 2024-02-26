@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"33 ./dc_motor.h
-[; ;./dc_motor.h: 33: void initDCmotorsPWM(unsigned int PWMperiod);
+"32 ./dc_motor.h
+[; ;./dc_motor.h: 32: void initDCmotorsPWM(unsigned int PWMperiod);
 [v _initDCmotorsPWM `(v ~T0 @X0 0 ef1`ui ]
 "8
 [; ;./dc_motor.h: 8: typedef struct DC_motor {
@@ -2100,37 +2100,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 42 `i `uc
 ]
 "25
-[; ;./dc_motor.h: 25: unsigned int forward1Delay = 200;
-[v _forward1Delay `ui ~T0 @X0 1 e ]
-[i _forward1Delay
--> -> 200 `i `ui
-]
-"26
-[; ;./dc_motor.h: 26: unsigned int turnLeft90Delay = 175;
+[; ;./dc_motor.h: 25: unsigned int turnLeft90Delay = 175;
 [v _turnLeft90Delay `ui ~T0 @X0 1 e ]
 [i _turnLeft90Delay
 -> -> 175 `i `ui
 ]
-"27
-[; ;./dc_motor.h: 27: unsigned int turnRight90Delay = 175;
+"26
+[; ;./dc_motor.h: 26: unsigned int turnRight90Delay = 175;
 [v _turnRight90Delay `ui ~T0 @X0 1 e ]
 [i _turnRight90Delay
 -> -> 175 `i `ui
 ]
-"28
-[; ;./dc_motor.h: 28: unsigned int turnLeft135Delay = 300;
+"27
+[; ;./dc_motor.h: 27: unsigned int turnLeft135Delay = 300;
 [v _turnLeft135Delay `ui ~T0 @X0 1 e ]
 [i _turnLeft135Delay
 -> -> 300 `i `ui
 ]
-"29
-[; ;./dc_motor.h: 29: unsigned int turnRight135Delay = 300;
+"28
+[; ;./dc_motor.h: 28: unsigned int turnRight135Delay = 300;
 [v _turnRight135Delay `ui ~T0 @X0 1 e ]
 [i _turnRight135Delay
 -> -> 300 `i `ui
 ]
-"30
-[; ;./dc_motor.h: 30: unsigned int turn180Delay = 510;
+"29
+[; ;./dc_motor.h: 29: unsigned int turn180Delay = 510;
 [v _turn180Delay `ui ~T0 @X0 1 e ]
 [i _turn180Delay
 -> -> 510 `i `ui

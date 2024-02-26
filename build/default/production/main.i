@@ -24129,7 +24129,6 @@ unsigned char topAdjustSide = 1;
 
 unsigned char turningGear = 42;
 
-unsigned int forward1Delay = 200;
 unsigned int turnLeft90Delay = 175;
 unsigned int turnRight90Delay = 175;
 unsigned int turnLeft135Delay = 300;
@@ -24145,7 +24144,6 @@ void turnLeft(DC_motor *mL, DC_motor *mR);
 void turnRight(DC_motor *mL, DC_motor *mR);
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
 
-void forward1(DC_motor *mL, DC_motor *mR);
 void turnLeft90(DC_motor *mL, DC_motor *mR);
 void turnRight90(DC_motor *mL, DC_motor *mR);
 void turnLeft135(DC_motor *mL, DC_motor *mR);

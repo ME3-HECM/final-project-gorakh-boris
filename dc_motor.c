@@ -153,14 +153,6 @@ void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
     }
 }
 
-void forward1(DC_motor *mL, DC_motor *mR)
-{
-    fullSpeedAhead(mL, mR);
-    __delay_ms(forward1Delay);  //adjust until 1 metre
-    stop(mL, mR);
-
-}
-
 void turnLeft90(DC_motor *mL, DC_motor *mR)
 {
     turnLeft(mL, mR);

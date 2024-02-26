@@ -7,11 +7,10 @@ Linker command line:
   -cn \
   -h+dist/default/production\final-project-gorakh-boris.X.production.sym \
   --cmf=dist/default/production\final-project-gorakh-boris.X.production.cmf \
-  -z -Q18F67K40 \
-  -oC:\Users\boris\AppData\Local\Temp\xcCs5go.2\driver_tmp_3.o \
+  -z -Q18F67K40 -oC:\Users\boris\AppData\Local\Temp\xcAsiko.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/final-project-gorakh-boris.X.production.map \
-  --md=C:\Users\boris\AppData\Local\Temp\xcCs5go.2\driver_tmp_0.dat -E1 \
+  --md=C:\Users\boris\AppData\Local\Temp\xcAsiko.\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh \
   -ASMALLCONST=0E00h-0EFFhx498 -AMEDIUMCONST=0E00h-0FFFFh,010E00h-01FFFFh \
   -ACOMRAM=01h-05Fh -AABS1=00h-0DE9h -ABIGRAM=01h-0DE9h \
@@ -31,7 +30,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\boris\AppData\Local\Temp\xcCs5go.2\driver_tmp_9.o \
+  C:\Users\boris\AppData\Local\Temp\xcAsiko.\driver_tmp_9.o \
   dist/default/production\final-project-gorakh-boris.X.production.o 
 
 Object code version is 3.11
@@ -41,7 +40,7 @@ Machine type is 18F67K40
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\boris\AppData\Local\Temp\xcCs5go.2\driver_tmp_9.o
+C:\Users\boris\AppData\Local\Temp\xcAsiko.\driver_tmp_9.o
                 config                           300000   300000        6        0       4
                 init                                  0        0        4        0       0
 dist/default/production\final-project-gorakh-boris.X.production.o
@@ -51,9 +50,9 @@ dist/default/production\final-project-gorakh-boris.X.production.o
                 text1                               EFA      EFA       90      701       0
                 text0                               E02      E02       F8      701       0
                 cstackCOMRAM                          1        1       16        1       1
-                dataCOMRAM                           17       17       11        1       1
+                dataCOMRAM                           17       17        F        1       1
                 cinit                               F8A      F8A       26      701       0
-                idataCOMRAM                         FC6      FC6       11      701       0
+                idataCOMRAM                         FC6      FC6        F      701       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
@@ -62,7 +61,7 @@ TOTAL           Name                               Link     Load   Length     Sp
                 text1                               EFA      EFA       90         0
                 text0                               E02      E02       F8         0
                 cinit                               F8A      F8A       26         0
-                idataCOMRAM                         FC6      FC6       11         0
+                idataCOMRAM                         FC6      FC6        F         0
 
         CLASS   CONST          
 
@@ -73,7 +72,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 
         CLASS   COMRAM         
                 cstackCOMRAM                          1        1       16         1
-                dataCOMRAM                           17       17       11         1
+                dataCOMRAM                           17       17        F         1
 
         CLASS   ABS1           
 
@@ -131,9 +130,9 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
-                cstackCOMRAM                   000001  000027  000028         1       1  COMRAM  
+                cstackCOMRAM                   000001  000025  000026         1       1  COMRAM  
                 smallconst                     000E00  000002  000E02       700       0  SMALLCON
-                text0                          000E02  0001D5  000FD7       701       0  CODE    
+                text0                          000E02  0001D3  000FD5       701       0  CODE    
 
 
 UNUSED ADDRESS RANGES
@@ -153,21 +152,21 @@ UNUSED ADDRESS RANGES
         BANK7            000700-0007FF              100
         BANK8            000800-0008FF              100
         BANK9            000900-0009FF              100
-        BIGRAM           000028-000DE9              DC2
+        BIGRAM           000026-000DE9              DC4
         BIGSFR           000DEF-000FFF              211
         CODE             000004-000DFF              DFC
-                         000FD7-01FFFF            1F029
-        COMRAM           000028-00005F               38
+                         000FD5-01FFFF            1F02B
+        COMRAM           000026-00005F               3A
         CONFIG           300006-30000B                6
         CONST            000004-000DFF              DFC
-                         000FD7-01FFFF            1F029
+                         000FD5-01FFFF            1F02B
         EEDATA           310000-3103FF              400
         IDLOC            200000-20000F               10
-        MEDIUMCONST      000FD7-00FFFF             F029
+        MEDIUMCONST      000FD5-00FFFF             F02B
                          010E00-01FFFF             F200
         RAM              000060-000DE9              100
         SFR              000DEF-000FFF              100
-        SMALLCONST       000FD7-01FFFF              100
+        SMALLCONST       000FD5-01FFFF              100
 
                                   Symbol Table
 
@@ -262,8 +261,8 @@ __Hreset_vec               reset_vec    000000
 __Hrparam                  rparam       000000
 __Hsfr                     sfr          000000
 __Hsmallconst              smallconst   000E02
-__Hspace_0                 (abs)        000FD7
-__Hspace_1                 (abs)        000028
+__Hspace_0                 (abs)        000FD5
+__Hspace_1                 (abs)        000026
 __Hspace_2                 (abs)        000000
 __Hspace_4                 (abs)        600006
 __Hstack                   stack        000000
@@ -346,8 +345,8 @@ __Ltext                    text         000000
 __Ltext0                   text0        000000
 __Ltext1                   text1        000000
 __Ltext2                   text2        000000
-__S0                       (abs)        000FD7
-__S1                       (abs)        000028
+__S0                       (abs)        000FD5
+__S1                       (abs)        000026
 __S4                       (abs)        000000
 __S5                       (abs)        000000
 ___heap_hi                 (abs)        000000
@@ -382,19 +381,18 @@ __ptext2                   text2        000FB0
 __ramtop                   ramtop       000E00
 __smallconst               smallconst   000E00
 _buggy_lights_init         text2        000FB0
-_forward1Delay             dataCOMRAM   000021
 _initDCmotorsPWM           text1        000EFA
 _main                      text0        000E02
-_rampDelay                 dataCOMRAM   000027
-_topAdjustPower            dataCOMRAM   000025
-_topAdjustSide             dataCOMRAM   000024
-_topGear                   dataCOMRAM   000026
+_rampDelay                 dataCOMRAM   000025
+_topAdjustPower            dataCOMRAM   000023
+_topAdjustSide             dataCOMRAM   000022
+_topGear                   dataCOMRAM   000024
 _turn180Delay              dataCOMRAM   000017
 _turnLeft135Delay          dataCOMRAM   00001B
 _turnLeft90Delay           dataCOMRAM   00001F
 _turnRight135Delay         dataCOMRAM   000019
 _turnRight90Delay          dataCOMRAM   00001D
-_turningGear               dataCOMRAM   000023
+_turningGear               dataCOMRAM   000021
 end_of_initialization      cinit        000FAA
 initDCmotorsPWM@PWMperiod  cstackCOMRAM 000001
 intlevel0                  text         000000
