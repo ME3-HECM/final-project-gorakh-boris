@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.45 build 20230818022343 
-                                                                                               Mon Feb 26 16:54:28 2024
+                                                                                               Mon Feb 26 17:13:54 2024
 
 Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1 
      1                           	processor	18F67K40
@@ -295,7 +295,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    281 ;;
    282 ;; *************** function _main *****************
    283 ;; Defined at:
-   284 ;;		line 23 in file "main.c"
+   284 ;;		line 24 in file "main.c"
    285 ;; Parameters:    Size  Location     Type
    286 ;;		None
    287 ;; Auto vars:     Size  Location     Type
@@ -338,7 +338,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    319   000F2C                     _main:
    320                           	callstack 30
    321   000F2C                     
-   322                           ;main.c: 24:     _delay((unsigned long)((500)*(64000000/4000.0)));
+   322                           ;main.c: 25:     _delay((unsigned long)((500)*(64000000/4000.0)));
    323   000F2C  0E29               	movlw	41
    324   000F2E  6E1C               	movwf	(??_main+1)^0,c
    325   000F30  0E96               	movlw	150
@@ -353,78 +353,78 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    334   000F40  D7FA               	bra	u467
    335   000F42  0000               	nop	
    336   000F44                     
-   337                           ;main.c: 27:     initDCmotorsPWM(PWMcycle);
+   337                           ;main.c: 28:     initDCmotorsPWM(PWMcycle);
    338   000F44  0E00               	movlw	0
    339   000F46  6E1A               	movwf	(initDCmotorsPWM@PWMperiod+1)^0,c
    340   000F48  0E63               	movlw	99
    341   000F4A  6E19               	movwf	initDCmotorsPWM@PWMperiod^0,c
    342   000F4C  EC4E  F007         	call	_initDCmotorsPWM	;wreg free
    343   000F50                     
-   344                           ;main.c: 29:     struct DC_motor motorL, motorR;;main.c: 31:     motorL.power = 0;
+   344                           ;main.c: 30:     struct DC_motor motorL, motorR;;main.c: 32:     motorL.power = 0;
    345   000F50  0E00               	movlw	0
    346   000F52  6E1D               	movwf	main@motorL^0,c
    347   000F54                     
-   348                           ;main.c: 32:     motorL.direction = 1;
+   348                           ;main.c: 33:     motorL.direction = 1;
    349   000F54  0E01               	movlw	1
    350   000F56  6E1E               	movwf	(main@motorL+1)^0,c
    351   000F58                     
-   352                           ;main.c: 33:     motorL.brakemode = 1;
+   352                           ;main.c: 34:     motorL.brakemode = 1;
    353   000F58  0E01               	movlw	1
    354   000F5A  6E1F               	movwf	(main@motorL+2)^0,c
    355   000F5C                     
-   356                           ;main.c: 34:     motorL.PWMperiod = PWMcycle;
+   356                           ;main.c: 35:     motorL.PWMperiod = PWMcycle;
    357   000F5C  0E00               	movlw	0
    358   000F5E  6E21               	movwf	(main@motorL+4)^0,c
    359   000F60  0E63               	movlw	99
    360   000F62  6E20               	movwf	(main@motorL+3)^0,c
    361   000F64                     
-   362                           ;main.c: 35:     motorL.posDutyHighByte = (unsigned char *)(&CCPR1H);
+   362                           ;main.c: 36:     motorL.posDutyHighByte = (unsigned char *)(&CCPR1H);
    363   000F64  0EAA               	movlw	170
    364   000F66  6E22               	movwf	(main@motorL+5)^0,c
    365   000F68  0E0F               	movlw	15
    366   000F6A  6E23               	movwf	(main@motorL+6)^0,c
    367   000F6C                     
-   368                           ;main.c: 36:     motorL.negDutyHighByte = (unsigned char *)(&CCPR2H);
+   368                           ;main.c: 37:     motorL.negDutyHighByte = (unsigned char *)(&CCPR2H);
    369   000F6C  0EA6               	movlw	166
    370   000F6E  6E24               	movwf	(main@motorL+7)^0,c
    371   000F70  0E0F               	movlw	15
    372   000F72  6E25               	movwf	(main@motorL+8)^0,c
    373   000F74                     
-   374                           ;main.c: 38:     motorR.power = 0;
+   374                           ;main.c: 39:     motorR.power = 0;
    375   000F74  0E00               	movlw	0
    376   000F76  6E26               	movwf	main@motorR^0,c
    377   000F78                     
-   378                           ;main.c: 39:     motorR.direction = 1;
+   378                           ;main.c: 40:     motorR.direction = 1;
    379   000F78  0E01               	movlw	1
    380   000F7A  6E27               	movwf	(main@motorR+1)^0,c
    381   000F7C                     
-   382                           ;main.c: 40:     motorR.brakemode = 1;
+   382                           ;main.c: 41:     motorR.brakemode = 1;
    383   000F7C  0E01               	movlw	1
    384   000F7E  6E28               	movwf	(main@motorR+2)^0,c
    385   000F80                     
-   386                           ;main.c: 41:     motorR.PWMperiod = PWMcycle;
+   386                           ;main.c: 42:     motorR.PWMperiod = PWMcycle;
    387   000F80  0E00               	movlw	0
    388   000F82  6E2A               	movwf	(main@motorR+4)^0,c
    389   000F84  0E63               	movlw	99
    390   000F86  6E29               	movwf	(main@motorR+3)^0,c
    391   000F88                     
-   392                           ;main.c: 42:     motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
+   392                           ;main.c: 43:     motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
    393   000F88  0E25               	movlw	37
    394   000F8A  6E2B               	movwf	(main@motorR+5)^0,c
    395   000F8C  0E0F               	movlw	15
    396   000F8E  6E2C               	movwf	(main@motorR+6)^0,c
    397   000F90                     
-   398                           ;main.c: 43:     motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
+   398                           ;main.c: 44:     motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
    399   000F90  0E21               	movlw	33
    400   000F92  6E2D               	movwf	(main@motorR+7)^0,c
    401   000F94  0E0F               	movlw	15
    402   000F96  6E2E               	movwf	(main@motorR+8)^0,c
    403   000F98                     
-   404                           ;main.c: 45:     buggy_lights_init();
+   404                           ;main.c: 46:     buggy_lights_init();
    405   000F98  ECF3  F007         	call	_buggy_lights_init	;wreg free
    406   000F9C                     l1681:
    407                           
-   408                           ;main.c: 59:         lights_flashing();
+   408                           ;main.c: 60:         lights_flashing();
    409   000F9C  EC01  F007         	call	_lights_flashing	;wreg free
    410   000FA0  EFCE  F007         	goto	l1681
    411   000FA4  EF00  F000         	goto	start
@@ -1205,7 +1205,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.45 build 20230818022343 
-Symbol Table                                                                                   Mon Feb 26 16:54:28 2024
+Symbol Table                                                                                   Mon Feb 26 17:13:54 2024
 
              _turn180Delay 0033                         l20 0E9A                         l17 1002  
                       l130 0F2A                        u210 0E34                        u211 0E2C  

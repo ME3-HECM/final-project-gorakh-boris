@@ -1,6 +1,7 @@
 /*
  * File:   main.c
  * Author: boris
+ * This is a test
  *
  * Created on 26 February 2024, 11:27
  */

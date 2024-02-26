@@ -7,14 +7,7 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-
-
-
-
-
-
-
-
+# 10 "main.c"
 #pragma config FEXTOSC = HS
 #pragma config RSTOSC = EXTOSC_4PLL
 
@@ -24102,7 +24095,7 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 16 "main.c" 2
+# 17 "main.c" 2
 
 # 1 "./dc_motor.h" 1
 
@@ -24154,13 +24147,13 @@ void turnRight135(DC_motor *mL, DC_motor *mR);
 void UTurn(DC_motor *mL, DC_motor *mR);
 void headbuttReverse(DC_motor *mL, DC_motor *mR);
 void squareReverse(DC_motor *mL, DC_motor *mR);
-# 17 "main.c" 2
+# 18 "main.c" 2
 
 # 1 "./buggy_lights.h" 1
 # 15 "./buggy_lights.h"
 void buggy_lights_init(void);
 void lights_flashing(void);
-# 18 "main.c" 2
+# 19 "main.c" 2
 
 # 1 "./manoeuvres.h" 1
 # 13 "./manoeuvres.h"
@@ -24172,7 +24165,7 @@ void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void cardWhite(DC_motor *mL, DC_motor *mR);
-# 19 "main.c" 2
+# 20 "main.c" 2
 
 
 
@@ -24202,7 +24195,7 @@ void main(void) {
     buggy_lights_init();
 
     unsigned char backtrack = 0;
-# 58 "main.c"
+# 59 "main.c"
     while (1) {
         lights_flashing();
     }
