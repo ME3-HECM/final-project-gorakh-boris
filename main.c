@@ -44,9 +44,14 @@ void main(void) {
     
     buggy_lights_init();
     
-    unsigned char backtrack = 1;
+    unsigned char backtrack = 0;
     //fullSpeedAhead(&motorL, &motorR);
-    cardOrange(&motorL, &motorR, backtrack);
+    //cardRed(&motorL, &motorR, backtrack);
+    //cardGreen(&motorL, &motorR, backtrack);
+    //cardBlue(&motorL, &motorR, backtrack);
+    //cardYellow(&motorL, &motorR, backtrack);
+    //cardPink(&motorL, &motorR, backtrack);
+    //cardOrange(&motorL, &motorR, backtrack);
     //cardCyan(&motorL, &motorR, backtrack);
     //cardWhite(&motorL, &motorR);
     

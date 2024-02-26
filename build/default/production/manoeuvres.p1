@@ -6,15 +6,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "48
 [; ;./dc_motor.h: 48: void headbuttReverse(DC_motor *mL, DC_motor *mR);
 [v _headbuttReverse `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"44
+[; ;./dc_motor.h: 44: void turnRight90(DC_motor *mL, DC_motor *mR);
+[v _turnRight90 `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"43
+[; ;./dc_motor.h: 43: void turnLeft90(DC_motor *mL, DC_motor *mR);
+[v _turnLeft90 `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"47
+[; ;./dc_motor.h: 47: void UTurn(DC_motor *mL, DC_motor *mR);
+[v _UTurn `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"49
+[; ;./dc_motor.h: 49: void squareReverse(DC_motor *mL, DC_motor *mR);
+[v _squareReverse `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "46
 [; ;./dc_motor.h: 46: void turnRight135(DC_motor *mL, DC_motor *mR);
 [v _turnRight135 `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "45
 [; ;./dc_motor.h: 45: void turnLeft135(DC_motor *mL, DC_motor *mR);
 [v _turnLeft135 `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"47
-[; ;./dc_motor.h: 47: void UTurn(DC_motor *mL, DC_motor *mR);
-[v _UTurn `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2059,7 +2068,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;manoeuvres.c: 4: void cardRed(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 [v _cardRed `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
 "5
-[; ;manoeuvres.c: 5: {}
+[; ;manoeuvres.c: 5: {
 {
 [e :U _cardRed ]
 "4
@@ -2068,123 +2077,94 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
 [v _backtrack `uc ~T0 @X0 1 r3 ]
 "5
-[; ;manoeuvres.c: 5: {}
+[; ;manoeuvres.c: 5: {
 [f ]
+"6
+[; ;manoeuvres.c: 6:     switch (backtrack) {
+[e $U 2018  ]
+{
+"7
+[; ;manoeuvres.c: 7:         case 0:
+[e :U 2019 ]
+"8
+[; ;manoeuvres.c: 8:             headbuttReverse(mL, mR);
+[e ( _headbuttReverse (2 , _mL _mR ]
+"9
+[; ;manoeuvres.c: 9:             turnRight90(mL, mR);
+[e ( _turnRight90 (2 , _mL _mR ]
+"10
+[; ;manoeuvres.c: 10:             break;
+[e $U 2017  ]
+"11
+[; ;manoeuvres.c: 11:         case 1:
+[e :U 2020 ]
+"12
+[; ;manoeuvres.c: 12:             turnLeft90(mL, mR);
+[e ( _turnLeft90 (2 , _mL _mR ]
+"13
+[; ;manoeuvres.c: 13:             headbuttReverse(mL, mR);
+[e ( _headbuttReverse (2 , _mL _mR ]
+"14
+[; ;manoeuvres.c: 14:             break;
+[e $U 2017  ]
+"15
+[; ;manoeuvres.c: 15:     }
+}
+[e $U 2017  ]
+[e :U 2018 ]
+[e [\ -> _backtrack `i , $ -> 0 `i 2019
+ , $ -> 1 `i 2020
+ 2017 ]
+[e :U 2017 ]
+"16
+[; ;manoeuvres.c: 16: }
 [e :UE 2016 ]
 }
-"6
-[; ;manoeuvres.c: 6: void cardGreen(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+"18
+[; ;manoeuvres.c: 18: void cardGreen(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 [v _cardGreen `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
-"7
-[; ;manoeuvres.c: 7: {}
+"19
+[; ;manoeuvres.c: 19: {
 {
 [e :U _cardGreen ]
-"6
-[; ;manoeuvres.c: 6: void cardGreen(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+"18
+[; ;manoeuvres.c: 18: void cardGreen(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 [v _mL `*S2015 ~T0 @X0 1 r1 ]
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
 [v _backtrack `uc ~T0 @X0 1 r3 ]
-"7
-[; ;manoeuvres.c: 7: {}
+"19
+[; ;manoeuvres.c: 19: {
 [f ]
-[e :UE 2017 ]
-}
-"8
-[; ;manoeuvres.c: 8: void cardBlue(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _cardBlue `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
-"9
-[; ;manoeuvres.c: 9: {}
-{
-[e :U _cardBlue ]
-"8
-[; ;manoeuvres.c: 8: void cardBlue(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _mL `*S2015 ~T0 @X0 1 r1 ]
-[v _mR `*S2015 ~T0 @X0 1 r2 ]
-[v _backtrack `uc ~T0 @X0 1 r3 ]
-"9
-[; ;manoeuvres.c: 9: {}
-[f ]
-[e :UE 2018 ]
-}
-"10
-[; ;manoeuvres.c: 10: void cardYellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _cardYellow `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
-"11
-[; ;manoeuvres.c: 11: {}
-{
-[e :U _cardYellow ]
-"10
-[; ;manoeuvres.c: 10: void cardYellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _mL `*S2015 ~T0 @X0 1 r1 ]
-[v _mR `*S2015 ~T0 @X0 1 r2 ]
-[v _backtrack `uc ~T0 @X0 1 r3 ]
-"11
-[; ;manoeuvres.c: 11: {}
-[f ]
-[e :UE 2019 ]
-}
-"12
-[; ;manoeuvres.c: 12: void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _cardPink `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
-"13
-[; ;manoeuvres.c: 13: {}
-{
-[e :U _cardPink ]
-"12
-[; ;manoeuvres.c: 12: void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _mL `*S2015 ~T0 @X0 1 r1 ]
-[v _mR `*S2015 ~T0 @X0 1 r2 ]
-[v _backtrack `uc ~T0 @X0 1 r3 ]
-"13
-[; ;manoeuvres.c: 13: {}
-[f ]
-[e :UE 2020 ]
-}
-"14
-[; ;manoeuvres.c: 14: void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _cardOrange `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
-"15
-[; ;manoeuvres.c: 15: {
-{
-[e :U _cardOrange ]
-"14
-[; ;manoeuvres.c: 14: void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _mL `*S2015 ~T0 @X0 1 r1 ]
-[v _mR `*S2015 ~T0 @X0 1 r2 ]
-[v _backtrack `uc ~T0 @X0 1 r3 ]
-"15
-[; ;manoeuvres.c: 15: {
-[f ]
-"16
-[; ;manoeuvres.c: 16:     switch (backtrack) {
+"20
+[; ;manoeuvres.c: 20:     switch (backtrack) {
 [e $U 2023  ]
 {
-"17
-[; ;manoeuvres.c: 17:         case 0:
-[e :U 2024 ]
-"18
-[; ;manoeuvres.c: 18:             headbuttReverse(mL, mR);
-[e ( _headbuttReverse (2 , _mL _mR ]
-"19
-[; ;manoeuvres.c: 19:             turnRight135(mL, mR);
-[e ( _turnRight135 (2 , _mL _mR ]
-"20
-[; ;manoeuvres.c: 20:             break;
-[e $U 2022  ]
 "21
-[; ;manoeuvres.c: 21:         case 1:
-[e :U 2025 ]
+[; ;manoeuvres.c: 21:         case 0:
+[e :U 2024 ]
 "22
-[; ;manoeuvres.c: 22:             turnLeft135(mL, mR);
-[e ( _turnLeft135 (2 , _mL _mR ]
-"23
-[; ;manoeuvres.c: 23:             headbuttReverse(mL, mR);
+[; ;manoeuvres.c: 22:             headbuttReverse(mL, mR);
 [e ( _headbuttReverse (2 , _mL _mR ]
+"23
+[; ;manoeuvres.c: 23:             turnLeft90(mL, mR);
+[e ( _turnLeft90 (2 , _mL _mR ]
 "24
 [; ;manoeuvres.c: 24:             break;
 [e $U 2022  ]
 "25
-[; ;manoeuvres.c: 25:     }
+[; ;manoeuvres.c: 25:         case 1:
+[e :U 2025 ]
+"26
+[; ;manoeuvres.c: 26:             turnRight90(mL, mR);
+[e ( _turnRight90 (2 , _mL _mR ]
+"27
+[; ;manoeuvres.c: 27:             headbuttReverse(mL, mR);
+[e ( _headbuttReverse (2 , _mL _mR ]
+"28
+[; ;manoeuvres.c: 28:             break;
+[e $U 2022  ]
+"29
+[; ;manoeuvres.c: 29:     }
 }
 [e $U 2022  ]
 [e :U 2023 ]
@@ -2192,55 +2172,55 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 1 `i 2025
  2022 ]
 [e :U 2022 ]
-"26
-[; ;manoeuvres.c: 26: }
+"30
+[; ;manoeuvres.c: 30: }
 [e :UE 2021 ]
 }
-"28
-[; ;manoeuvres.c: 28: void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _cardCyan `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
-"29
-[; ;manoeuvres.c: 29: {
+"32
+[; ;manoeuvres.c: 32: void cardBlue(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[v _cardBlue `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
+"33
+[; ;manoeuvres.c: 33: {
 {
-[e :U _cardCyan ]
-"28
-[; ;manoeuvres.c: 28: void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[e :U _cardBlue ]
+"32
+[; ;manoeuvres.c: 32: void cardBlue(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 [v _mL `*S2015 ~T0 @X0 1 r1 ]
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
 [v _backtrack `uc ~T0 @X0 1 r3 ]
-"29
-[; ;manoeuvres.c: 29: {
+"33
+[; ;manoeuvres.c: 33: {
 [f ]
-"30
-[; ;manoeuvres.c: 30:     switch (backtrack) {
+"34
+[; ;manoeuvres.c: 34:     switch (backtrack) {
 [e $U 2028  ]
 {
-"31
-[; ;manoeuvres.c: 31:         case 0:
-[e :U 2029 ]
-"32
-[; ;manoeuvres.c: 32:             headbuttReverse(mL, mR);
-[e ( _headbuttReverse (2 , _mL _mR ]
-"33
-[; ;manoeuvres.c: 33:             turnLeft135(mL, mR);
-[e ( _turnLeft135 (2 , _mL _mR ]
-"34
-[; ;manoeuvres.c: 34:             break;
-[e $U 2027  ]
 "35
-[; ;manoeuvres.c: 35:         case 1:
-[e :U 2030 ]
+[; ;manoeuvres.c: 35:         case 0:
+[e :U 2029 ]
 "36
-[; ;manoeuvres.c: 36:             turnRight135(mL, mR);
-[e ( _turnRight135 (2 , _mL _mR ]
-"37
-[; ;manoeuvres.c: 37:             headbuttReverse(mL, mR);
+[; ;manoeuvres.c: 36:             headbuttReverse(mL, mR);
 [e ( _headbuttReverse (2 , _mL _mR ]
+"37
+[; ;manoeuvres.c: 37:             UTurn(mL, mR);
+[e ( _UTurn (2 , _mL _mR ]
 "38
 [; ;manoeuvres.c: 38:             break;
 [e $U 2027  ]
 "39
-[; ;manoeuvres.c: 39:     }
+[; ;manoeuvres.c: 39:         case 1:
+[e :U 2030 ]
+"40
+[; ;manoeuvres.c: 40:             UTurn(mL, mR);
+[e ( _UTurn (2 , _mL _mR ]
+"41
+[; ;manoeuvres.c: 41:             headbuttReverse(mL, mR);
+[e ( _headbuttReverse (2 , _mL _mR ]
+"42
+[; ;manoeuvres.c: 42:             break;
+[e $U 2027  ]
+"43
+[; ;manoeuvres.c: 43:     }
 }
 [e $U 2027  ]
 [e :U 2028 ]
@@ -2248,34 +2228,270 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 1 `i 2030
  2027 ]
 [e :U 2027 ]
-"40
-[; ;manoeuvres.c: 40: }
+"44
+[; ;manoeuvres.c: 44: }
 [e :UE 2026 ]
 }
-"42
-[; ;manoeuvres.c: 42: void cardWhite(DC_motor *mL, DC_motor *mR)
-[v _cardWhite `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
-"43
-[; ;manoeuvres.c: 43: {
+"46
+[; ;manoeuvres.c: 46: void cardYellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[v _cardYellow `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
+"47
+[; ;manoeuvres.c: 47: {
 {
-[e :U _cardWhite ]
-"42
-[; ;manoeuvres.c: 42: void cardWhite(DC_motor *mL, DC_motor *mR)
+[e :U _cardYellow ]
+"46
+[; ;manoeuvres.c: 46: void cardYellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 [v _mL `*S2015 ~T0 @X0 1 r1 ]
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
-"43
-[; ;manoeuvres.c: 43: {
-[f ]
-"44
-[; ;manoeuvres.c: 44:     headbuttReverse(mL, mR);
-[e ( _headbuttReverse (2 , _mL _mR ]
-"45
-[; ;manoeuvres.c: 45:     UTurn(mL, mR);
-[e ( _UTurn (2 , _mL _mR ]
-"46
-[; ;manoeuvres.c: 46:     headbuttReverse(mL, mR);
-[e ( _headbuttReverse (2 , _mL _mR ]
+[v _backtrack `uc ~T0 @X0 1 r3 ]
 "47
-[; ;manoeuvres.c: 47: }
+[; ;manoeuvres.c: 47: {
+[f ]
+"48
+[; ;manoeuvres.c: 48:     switch (backtrack) {
+[e $U 2033  ]
+{
+"49
+[; ;manoeuvres.c: 49:         case 0:
+[e :U 2034 ]
+"50
+[; ;manoeuvres.c: 50:             headbuttReverse(mL, mR);
+[e ( _headbuttReverse (2 , _mL _mR ]
+"51
+[; ;manoeuvres.c: 51:             squareReverse(mL, mR);
+[e ( _squareReverse (2 , _mL _mR ]
+"52
+[; ;manoeuvres.c: 52:             turnRight90(mL, mR);
+[e ( _turnRight90 (2 , _mL _mR ]
+"53
+[; ;manoeuvres.c: 53:             break;
+[e $U 2032  ]
+"54
+[; ;manoeuvres.c: 54:         case 1:
+[e :U 2035 ]
+"55
+[; ;manoeuvres.c: 55:             turnLeft90(mL, mR);
+[e ( _turnLeft90 (2 , _mL _mR ]
+"56
+[; ;manoeuvres.c: 56:             squareReverse(mL, mR);
+[e ( _squareReverse (2 , _mL _mR ]
+"57
+[; ;manoeuvres.c: 57:             headbuttReverse(mL, mR);
+[e ( _headbuttReverse (2 , _mL _mR ]
+"58
+[; ;manoeuvres.c: 58:             break;
+[e $U 2032  ]
+"59
+[; ;manoeuvres.c: 59:     }
+}
+[e $U 2032  ]
+[e :U 2033 ]
+[e [\ -> _backtrack `i , $ -> 0 `i 2034
+ , $ -> 1 `i 2035
+ 2032 ]
+[e :U 2032 ]
+"60
+[; ;manoeuvres.c: 60: }
 [e :UE 2031 ]
+}
+"62
+[; ;manoeuvres.c: 62: void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[v _cardPink `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
+"63
+[; ;manoeuvres.c: 63: {
+{
+[e :U _cardPink ]
+"62
+[; ;manoeuvres.c: 62: void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[v _mL `*S2015 ~T0 @X0 1 r1 ]
+[v _mR `*S2015 ~T0 @X0 1 r2 ]
+[v _backtrack `uc ~T0 @X0 1 r3 ]
+"63
+[; ;manoeuvres.c: 63: {
+[f ]
+"64
+[; ;manoeuvres.c: 64:     switch (backtrack) {
+[e $U 2038  ]
+{
+"65
+[; ;manoeuvres.c: 65:         case 0:
+[e :U 2039 ]
+"66
+[; ;manoeuvres.c: 66:             headbuttReverse(mL, mR);
+[e ( _headbuttReverse (2 , _mL _mR ]
+"67
+[; ;manoeuvres.c: 67:             squareReverse(mL, mR);
+[e ( _squareReverse (2 , _mL _mR ]
+"68
+[; ;manoeuvres.c: 68:             turnLeft90(mL, mR);
+[e ( _turnLeft90 (2 , _mL _mR ]
+"69
+[; ;manoeuvres.c: 69:             break;
+[e $U 2037  ]
+"70
+[; ;manoeuvres.c: 70:         case 1:
+[e :U 2040 ]
+"71
+[; ;manoeuvres.c: 71:             turnRight90(mL, mR);
+[e ( _turnRight90 (2 , _mL _mR ]
+"72
+[; ;manoeuvres.c: 72:             squareReverse(mL, mR);
+[e ( _squareReverse (2 , _mL _mR ]
+"73
+[; ;manoeuvres.c: 73:             headbuttReverse(mL, mR);
+[e ( _headbuttReverse (2 , _mL _mR ]
+"74
+[; ;manoeuvres.c: 74:             break;
+[e $U 2037  ]
+"75
+[; ;manoeuvres.c: 75:     }
+}
+[e $U 2037  ]
+[e :U 2038 ]
+[e [\ -> _backtrack `i , $ -> 0 `i 2039
+ , $ -> 1 `i 2040
+ 2037 ]
+[e :U 2037 ]
+"76
+[; ;manoeuvres.c: 76: }
+[e :UE 2036 ]
+}
+"78
+[; ;manoeuvres.c: 78: void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[v _cardOrange `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
+"79
+[; ;manoeuvres.c: 79: {
+{
+[e :U _cardOrange ]
+"78
+[; ;manoeuvres.c: 78: void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[v _mL `*S2015 ~T0 @X0 1 r1 ]
+[v _mR `*S2015 ~T0 @X0 1 r2 ]
+[v _backtrack `uc ~T0 @X0 1 r3 ]
+"79
+[; ;manoeuvres.c: 79: {
+[f ]
+"80
+[; ;manoeuvres.c: 80:     switch (backtrack) {
+[e $U 2043  ]
+{
+"81
+[; ;manoeuvres.c: 81:         case 0:
+[e :U 2044 ]
+"82
+[; ;manoeuvres.c: 82:             headbuttReverse(mL, mR);
+[e ( _headbuttReverse (2 , _mL _mR ]
+"83
+[; ;manoeuvres.c: 83:             turnRight135(mL, mR);
+[e ( _turnRight135 (2 , _mL _mR ]
+"84
+[; ;manoeuvres.c: 84:             break;
+[e $U 2042  ]
+"85
+[; ;manoeuvres.c: 85:         case 1:
+[e :U 2045 ]
+"86
+[; ;manoeuvres.c: 86:             turnLeft135(mL, mR);
+[e ( _turnLeft135 (2 , _mL _mR ]
+"87
+[; ;manoeuvres.c: 87:             headbuttReverse(mL, mR);
+[e ( _headbuttReverse (2 , _mL _mR ]
+"88
+[; ;manoeuvres.c: 88:             break;
+[e $U 2042  ]
+"89
+[; ;manoeuvres.c: 89:     }
+}
+[e $U 2042  ]
+[e :U 2043 ]
+[e [\ -> _backtrack `i , $ -> 0 `i 2044
+ , $ -> 1 `i 2045
+ 2042 ]
+[e :U 2042 ]
+"90
+[; ;manoeuvres.c: 90: }
+[e :UE 2041 ]
+}
+"92
+[; ;manoeuvres.c: 92: void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[v _cardCyan `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
+"93
+[; ;manoeuvres.c: 93: {
+{
+[e :U _cardCyan ]
+"92
+[; ;manoeuvres.c: 92: void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[v _mL `*S2015 ~T0 @X0 1 r1 ]
+[v _mR `*S2015 ~T0 @X0 1 r2 ]
+[v _backtrack `uc ~T0 @X0 1 r3 ]
+"93
+[; ;manoeuvres.c: 93: {
+[f ]
+"94
+[; ;manoeuvres.c: 94:     switch (backtrack) {
+[e $U 2048  ]
+{
+"95
+[; ;manoeuvres.c: 95:         case 0:
+[e :U 2049 ]
+"96
+[; ;manoeuvres.c: 96:             headbuttReverse(mL, mR);
+[e ( _headbuttReverse (2 , _mL _mR ]
+"97
+[; ;manoeuvres.c: 97:             turnLeft135(mL, mR);
+[e ( _turnLeft135 (2 , _mL _mR ]
+"98
+[; ;manoeuvres.c: 98:             break;
+[e $U 2047  ]
+"99
+[; ;manoeuvres.c: 99:         case 1:
+[e :U 2050 ]
+"100
+[; ;manoeuvres.c: 100:             turnRight135(mL, mR);
+[e ( _turnRight135 (2 , _mL _mR ]
+"101
+[; ;manoeuvres.c: 101:             headbuttReverse(mL, mR);
+[e ( _headbuttReverse (2 , _mL _mR ]
+"102
+[; ;manoeuvres.c: 102:             break;
+[e $U 2047  ]
+"103
+[; ;manoeuvres.c: 103:     }
+}
+[e $U 2047  ]
+[e :U 2048 ]
+[e [\ -> _backtrack `i , $ -> 0 `i 2049
+ , $ -> 1 `i 2050
+ 2047 ]
+[e :U 2047 ]
+"104
+[; ;manoeuvres.c: 104: }
+[e :UE 2046 ]
+}
+"106
+[; ;manoeuvres.c: 106: void cardWhite(DC_motor *mL, DC_motor *mR)
+[v _cardWhite `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
+"107
+[; ;manoeuvres.c: 107: {
+{
+[e :U _cardWhite ]
+"106
+[; ;manoeuvres.c: 106: void cardWhite(DC_motor *mL, DC_motor *mR)
+[v _mL `*S2015 ~T0 @X0 1 r1 ]
+[v _mR `*S2015 ~T0 @X0 1 r2 ]
+"107
+[; ;manoeuvres.c: 107: {
+[f ]
+"108
+[; ;manoeuvres.c: 108:     headbuttReverse(mL, mR);
+[e ( _headbuttReverse (2 , _mL _mR ]
+"109
+[; ;manoeuvres.c: 109:     UTurn(mL, mR);
+[e ( _UTurn (2 , _mL _mR ]
+"110
+[; ;manoeuvres.c: 110:     headbuttReverse(mL, mR);
+[e ( _headbuttReverse (2 , _mL _mR ]
+"111
+[; ;manoeuvres.c: 111: }
+[e :UE 2051 ]
 }

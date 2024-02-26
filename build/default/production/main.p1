@@ -26,10 +26,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "15 ./buggy_lights.h
 [; ;./buggy_lights.h: 15: void buggy_lights_init(void);
 [v _buggy_lights_init `(v ~T0 @X0 0 ef ]
-"18 ./manoeuvres.h
-[; ;./manoeuvres.h: 18: void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-[v _cardOrange `(v ~T0 @X0 0 ef3`*S2015`*S2015`uc ]
-"16 ./buggy_lights.h
+"16
 [; ;./buggy_lights.h: 16: void lights_flashing(void);
 [v _lights_flashing `(v ~T0 @X0 0 ef ]
 "9 main.c
@@ -2141,26 +2138,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 45:     buggy_lights_init();
 [e ( _buggy_lights_init ..  ]
 "47
-[; ;main.c: 47:     unsigned char backtrack = 1;
+[; ;main.c: 47:     unsigned char backtrack = 0;
 [v _backtrack `uc ~T0 @X0 1 a ]
-[e = _backtrack -> -> 1 `i `uc ]
-"49
-[; ;main.c: 49:     cardOrange(&motorL, &motorR, backtrack);
-[e ( _cardOrange (3 , , &U _motorL &U _motorR _backtrack ]
-"53
-[; ;main.c: 53:     while (1) {
+[e = _backtrack -> -> 0 `i `uc ]
+"58
+[; ;main.c: 58:     while (1) {
 [e :U 2018 ]
 {
-"54
-[; ;main.c: 54:         lights_flashing();
+"59
+[; ;main.c: 59:         lights_flashing();
 [e ( _lights_flashing ..  ]
-"55
-[; ;main.c: 55:     }
+"60
+[; ;main.c: 60:     }
 }
 [e :U 2017 ]
 [e $U 2018  ]
 [e :U 2019 ]
-"56
-[; ;main.c: 56: }
+"61
+[; ;main.c: 61: }
 [e :UE 2016 ]
 }

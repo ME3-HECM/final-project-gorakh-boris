@@ -24155,15 +24155,79 @@ void cardWhite(DC_motor *mL, DC_motor *mR);
 
 
 void cardRed(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-{}
+{
+    switch (backtrack) {
+        case 0:
+            headbuttReverse(mL, mR);
+            turnRight90(mL, mR);
+            break;
+        case 1:
+            turnLeft90(mL, mR);
+            headbuttReverse(mL, mR);
+            break;
+    }
+}
+
 void cardGreen(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-{}
+{
+    switch (backtrack) {
+        case 0:
+            headbuttReverse(mL, mR);
+            turnLeft90(mL, mR);
+            break;
+        case 1:
+            turnRight90(mL, mR);
+            headbuttReverse(mL, mR);
+            break;
+    }
+}
+
 void cardBlue(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-{}
+{
+    switch (backtrack) {
+        case 0:
+            headbuttReverse(mL, mR);
+            UTurn(mL, mR);
+            break;
+        case 1:
+            UTurn(mL, mR);
+            headbuttReverse(mL, mR);
+            break;
+    }
+}
+
 void cardYellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-{}
+{
+    switch (backtrack) {
+        case 0:
+            headbuttReverse(mL, mR);
+            squareReverse(mL, mR);
+            turnRight90(mL, mR);
+            break;
+        case 1:
+            turnLeft90(mL, mR);
+            squareReverse(mL, mR);
+            headbuttReverse(mL, mR);
+            break;
+    }
+}
+
 void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-{}
+{
+    switch (backtrack) {
+        case 0:
+            headbuttReverse(mL, mR);
+            squareReverse(mL, mR);
+            turnLeft90(mL, mR);
+            break;
+        case 1:
+            turnRight90(mL, mR);
+            squareReverse(mL, mR);
+            headbuttReverse(mL, mR);
+            break;
+    }
+}
+
 void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 {
     switch (backtrack) {
