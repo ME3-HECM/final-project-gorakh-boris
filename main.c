@@ -1,6 +1,6 @@
 /*
  * File:   main.c
- * Author: boris
+ * Author: boris, gorakh
  *
  * Created on 26 February 2024, 11:27
  */
