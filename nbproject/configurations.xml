@@ -12,6 +12,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       <itemPath>color.c</itemPath>
       <itemPath>color.h</itemPath>
@@ -28,6 +29,15 @@
       <itemPath>manoeuvres.c</itemPath>
       <itemPath>manoeuvres.h</itemPath>
 >>>>>>> Stashed changes
+=======
+      <itemPath>main.c</itemPath>
+      <itemPath>dc_motor.c</itemPath>
+      <itemPath>dc_motor.h</itemPath>
+      <itemPath>buggy_lights.h</itemPath>
+      <itemPath>buggy_lights.c</itemPath>
+      <itemPath>manoeuvres.h</itemPath>
+      <itemPath>manoeuvres.c</itemPath>
+>>>>>>> main
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
