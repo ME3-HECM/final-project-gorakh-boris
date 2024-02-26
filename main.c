@@ -16,7 +16,7 @@
 #include <xc.h>
 #include "dc_motor.h"
 #include "buggy_lights.h"
-#include "maneuvers.h"
+#include "manoeuvres.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 

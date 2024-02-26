@@ -24158,7 +24158,7 @@ void UTurn(DC_motor *mL, DC_motor *mR);
 void buggy_lights_init(void);
 # 18 "main.c" 2
 
-# 1 "./maneuvers.h" 1
+# 1 "./manoeuvres.h" 1
 # 19 "main.c" 2
 
 

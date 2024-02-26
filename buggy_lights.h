@@ -5,8 +5,8 @@
  * Created on 26 February 2024, 12:20
  */
 
-#ifndef _BUGGY_LIGHTS_H
-#define	_BUGGY_LIGHTS_H
+#ifndef BUGGY_LIGHTS_H
+#define	BUGGY_LIGHTS_H
 
 #include <xc.h>
 
