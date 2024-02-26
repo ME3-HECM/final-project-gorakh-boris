@@ -24158,6 +24158,9 @@ void UTurn(DC_motor *mL, DC_motor *mR);
 void buggy_lights_init(void);
 # 18 "main.c" 2
 
+# 1 "./maneuvers.h" 1
+# 19 "main.c" 2
+
 
 
 
@@ -24188,5 +24191,7 @@ void main(void) {
         LATDbits.LATD4 = !LATDbits.LATD4;
         LATDbits.LATD3 = !LATDbits.LATD3;
         _delay((unsigned long)((500)*(64000000/4000.0)));
+        LATFbits.LATF0 = !LATFbits.LATF0;
+        LATHbits.LATH0 = !LATHbits.LATH0;
     }
 }

@@ -16,6 +16,7 @@
 #include <xc.h>
 #include "dc_motor.h"
 #include "buggy_lights.h"
+#include "maneuvers.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
@@ -46,5 +47,7 @@ void main(void) {
         LATDbits.LATD4 = !LATDbits.LATD4;       //flash brake lights (DOESN'T WORK)
         LATDbits.LATD3 = !LATDbits.LATD3;       //flash main beam
         __delay_ms(500);
+        LATFbits.LATF0 = !LATFbits.LATF0;       //flash left indicators
+        LATHbits.LATH0 = !LATHbits.LATH0;       //flash right indicators
     }
 }

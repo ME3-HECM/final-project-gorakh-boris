@@ -17,6 +17,8 @@
       <itemPath>dc_motor.h</itemPath>
       <itemPath>buggy_lights.h</itemPath>
       <itemPath>buggy_lights.c</itemPath>
+      <itemPath>maneuvers.c</itemPath>
+      <itemPath>maneuvers.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
