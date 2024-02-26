@@ -93,6 +93,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28732
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28732: extern volatile LATFbits_t LATFbits __attribute__((address(0xF7E)));
 [v _LATFbits `VS1354 ~T0 @X0 0 e@3966 ]
+[v F205 `(v ~T0 @X0 1 tf1`ul ]
+"20 C:\Program Files\Microchip\xc8\v2.45\pic\include\builtins.h
+[v __delay `JF205 ~T0 @X0 0 e ]
+[p i __delay ]
 "54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2108,4 +2112,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19
 [; ;buggy_lights.c: 19: }
 [e :UE 2015 ]
+}
+"21
+[; ;buggy_lights.c: 21: void lights_flashing(void)
+[v _lights_flashing `(v ~T0 @X0 1 ef ]
+"22
+[; ;buggy_lights.c: 22: {
+{
+[e :U _lights_flashing ]
+[f ]
+"23
+[; ;buggy_lights.c: 23:     LATDbits.LATD4 = !LATDbits.LATD4;
+[e = . . _LATDbits 0 4 -> -> ! != -> . . _LATDbits 0 4 `i -> 0 `i `i `uc ]
+"24
+[; ;buggy_lights.c: 24:     LATDbits.LATD3 = !LATDbits.LATD3;
+[e = . . _LATDbits 0 3 -> -> ! != -> . . _LATDbits 0 3 `i -> 0 `i `i `uc ]
+"25
+[; ;buggy_lights.c: 25:     _delay((unsigned long)((500)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"26
+[; ;buggy_lights.c: 26:     LATFbits.LATF0 = !LATFbits.LATF0;
+[e = . . _LATFbits 0 0 -> -> ! != -> . . _LATFbits 0 0 `i -> 0 `i `i `uc ]
+"27
+[; ;buggy_lights.c: 27:     LATHbits.LATH0 = !LATHbits.LATH0;
+[e = . . _LATHbits 0 0 -> -> ! != -> . . _LATHbits 0 0 `i -> 0 `i `i `uc ]
+"28
+[; ;buggy_lights.c: 28: }
+[e :UE 2016 ]
 }

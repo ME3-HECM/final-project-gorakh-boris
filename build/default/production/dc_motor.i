@@ -24107,9 +24107,8 @@ typedef struct DC_motor {
 
 unsigned char rampDelay = 8;
 
-unsigned char topGear = 30;
-unsigned char topAdjustPower = 2;
-unsigned char topAdjustSide = 1;
+unsigned char topGearLeft = 30;
+unsigned char topGearRight = 32;
 
 unsigned char turningGear = 42;
 
@@ -24119,6 +24118,9 @@ unsigned int turnLeft135Delay = 300;
 unsigned int turnRight135Delay = 300;
 unsigned int turn180Delay = 510;
 
+unsigned int headbuttDelay = 70;
+unsigned int squareDelay = 300;
+
 
 void initDCmotorsPWM(unsigned int PWMperiod);
 void setMotorPWM(DC_motor *m);
@@ -24127,12 +24129,15 @@ void stop(DC_motor *mL, DC_motor *mR);
 void turnLeft(DC_motor *mL, DC_motor *mR);
 void turnRight(DC_motor *mL, DC_motor *mR);
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
+void fullSpeedReverse(DC_motor *mL, DC_motor *mR);
 
 void turnLeft90(DC_motor *mL, DC_motor *mR);
 void turnRight90(DC_motor *mL, DC_motor *mR);
 void turnLeft135(DC_motor *mL, DC_motor *mR);
 void turnRight135(DC_motor *mL, DC_motor *mR);
 void UTurn(DC_motor *mL, DC_motor *mR);
+void headbuttReverse(DC_motor *mL, DC_motor *mR);
+void squareReverse(DC_motor *mL, DC_motor *mR);
 # 2 "dc_motor.c" 2
 
 
@@ -24268,17 +24273,25 @@ void turnRight(DC_motor *mL, DC_motor *mR)
 
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
 {
-    unsigned char leftGear = topGear;
-    unsigned char rightGear = topGear;
-
-    if (topAdjustSide) {
-        rightGear += topAdjustPower;
-    } else {
-        leftGear += topAdjustPower;
-    }
-
+    unsigned char leftGear = topGearLeft;
+    unsigned char rightGear = topGearRight;
     (mL -> direction) = 1;
     (mR -> direction) = 1;
+    while ((mL->power<leftGear) || (mR->power<rightGear)){
+        if (mL->power<leftGear) {mL->power++;}
+        if (mR->power<rightGear) {mR->power++;}
+        setMotorPWM(mL);
+        setMotorPWM(mR);
+        _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
+    }
+}
+
+void fullSpeedReverse(DC_motor *mL, DC_motor *mR)
+{
+    unsigned char leftGear = topGearLeft;
+    unsigned char rightGear = topGearRight;
+    (mL -> direction) = 0;
+    (mR -> direction) = 0;
     while ((mL->power<leftGear) || (mR->power<rightGear)){
         if (mL->power<leftGear) {mL->power++;}
         if (mR->power<rightGear) {mR->power++;}
@@ -24320,5 +24333,19 @@ void UTurn(DC_motor *mL, DC_motor *mR)
 {
     turnLeft(mL, mR);
     _delay((unsigned long)((turn180Delay)*(64000000/4000.0)));
+    stop(mL, mR);
+}
+
+void headbuttReverse(DC_motor *mL, DC_motor *mR)
+{
+    fullSpeedReverse(mL, mR);
+    _delay((unsigned long)((headbuttDelay)*(64000000/4000.0)));
+    stop(mL, mR);
+}
+
+void squareReverse(DC_motor *mL, DC_motor *mR)
+{
+    fullSpeedReverse(mL, mR);
+    _delay((unsigned long)((squareDelay)*(64000000/4000.0)));
     stop(mL, mR);
 }

@@ -24123,9 +24123,8 @@ typedef struct DC_motor {
 
 unsigned char rampDelay = 8;
 
-unsigned char topGear = 30;
-unsigned char topAdjustPower = 2;
-unsigned char topAdjustSide = 1;
+unsigned char topGearLeft = 30;
+unsigned char topGearRight = 32;
 
 unsigned char turningGear = 42;
 
@@ -24135,6 +24134,9 @@ unsigned int turnLeft135Delay = 300;
 unsigned int turnRight135Delay = 300;
 unsigned int turn180Delay = 510;
 
+unsigned int headbuttDelay = 70;
+unsigned int squareDelay = 300;
+
 
 void initDCmotorsPWM(unsigned int PWMperiod);
 void setMotorPWM(DC_motor *m);
@@ -24143,26 +24145,41 @@ void stop(DC_motor *mL, DC_motor *mR);
 void turnLeft(DC_motor *mL, DC_motor *mR);
 void turnRight(DC_motor *mL, DC_motor *mR);
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
+void fullSpeedReverse(DC_motor *mL, DC_motor *mR);
 
 void turnLeft90(DC_motor *mL, DC_motor *mR);
 void turnRight90(DC_motor *mL, DC_motor *mR);
 void turnLeft135(DC_motor *mL, DC_motor *mR);
 void turnRight135(DC_motor *mL, DC_motor *mR);
 void UTurn(DC_motor *mL, DC_motor *mR);
+void headbuttReverse(DC_motor *mL, DC_motor *mR);
+void squareReverse(DC_motor *mL, DC_motor *mR);
 # 17 "main.c" 2
 
 # 1 "./buggy_lights.h" 1
 # 15 "./buggy_lights.h"
 void buggy_lights_init(void);
+void lights_flashing(void);
 # 18 "main.c" 2
 
 # 1 "./manoeuvres.h" 1
+# 13 "./manoeuvres.h"
+void cardRed(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void cardGreen(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void cardBlue(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void cardYellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void cardWhite(DC_motor *mL, DC_motor *mR);
 # 19 "main.c" 2
 
 
 
 
 void main(void) {
+    _delay((unsigned long)((500)*(64000000/4000.0)));
+
     unsigned int PWMcycle = 99;
     initDCmotorsPWM(PWMcycle);
 
@@ -24184,12 +24201,9 @@ void main(void) {
 
     buggy_lights_init();
 
-    while (1) {
+    cardWhite(&motorL, &motorR);
 
-        LATDbits.LATD4 = !LATDbits.LATD4;
-        LATDbits.LATD3 = !LATDbits.LATD3;
-        _delay((unsigned long)((500)*(64000000/4000.0)));
-        LATFbits.LATF0 = !LATFbits.LATF0;
-        LATHbits.LATH0 = !LATHbits.LATH0;
+    while (1) {
+        lights_flashing();
     }
 }

@@ -24091,6 +24091,7 @@ unsigned char __t3rd16on(void);
 # 1 "./buggy_lights.h" 1
 # 15 "./buggy_lights.h"
 void buggy_lights_init(void);
+void lights_flashing(void);
 # 2 "buggy_lights.c" 2
 
 
@@ -24109,4 +24110,13 @@ void buggy_lights_init(void)
     LATDbits.LATD3 = 1;
     LATFbits.LATF0 = 1;
     LATHbits.LATH0 = 1;
+}
+
+void lights_flashing(void)
+{
+    LATDbits.LATD4 = !LATDbits.LATD4;
+    LATDbits.LATD3 = !LATDbits.LATD3;
+    _delay((unsigned long)((500)*(64000000/4000.0)));
+    LATFbits.LATF0 = !LATFbits.LATF0;
+    LATHbits.LATH0 = !LATHbits.LATH0;
 }

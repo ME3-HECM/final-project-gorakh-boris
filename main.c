@@ -21,6 +21,8 @@
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
 void main(void) {
+    __delay_ms(500);    //initial delay
+    
     unsigned int PWMcycle = 99;
     initDCmotorsPWM(PWMcycle);
     
@@ -41,13 +43,10 @@ void main(void) {
     motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
     
     buggy_lights_init();
+    //fullSpeedAhead(&motorL, &motorR);
+    //cardWhite(&motorL, &motorR);
     
     while (1) {
-        //fullSpeedAhead(&motorL, &motorR);
-        LATDbits.LATD4 = !LATDbits.LATD4;       //flash brake lights (DOESN'T WORK)
-        LATDbits.LATD3 = !LATDbits.LATD3;       //flash main beam
-        __delay_ms(500);
-        LATFbits.LATF0 = !LATFbits.LATF0;       //flash left indicators
-        LATHbits.LATH0 = !LATHbits.LATH0;       //flash right indicators
+        lights_flashing();
     }
 }

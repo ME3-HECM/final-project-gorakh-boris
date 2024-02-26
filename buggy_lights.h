@@ -13,5 +13,6 @@
 #define _XTAL_FREQ 64000000
 
 void buggy_lights_init(void);
+void lights_flashing(void);
 
 #endif
