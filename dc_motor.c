@@ -133,15 +133,8 @@ void turnRight(DC_motor *mL, DC_motor *mR)
 //function to make the robot go straight
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
 {    
-    unsigned char leftGear = topGear; 
-    unsigned char rightGear = topGear; 
-    
-    if (topAdjustSide) {
-        rightGear += topAdjustPower;
-    } else {
-        leftGear += topAdjustPower;
-    }
-    
+    unsigned char leftGear = topGearLeft; 
+    unsigned char rightGear = topGearRight; 
     (mL -> direction) = 1;              //set forward direction
     (mR -> direction) = 1;              //set forward direction
     while ((mL->power<leftGear) || (mR->power<rightGear)){ //
@@ -153,6 +146,23 @@ void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
     }
 }
 
+//function to make the robot go reverse
+void fullSpeedReverse(DC_motor *mL, DC_motor *mR)
+{
+    unsigned char leftGear = topGearLeft; 
+    unsigned char rightGear = topGearRight; 
+    (mL -> direction) = 0;              //set reverse direction
+    (mR -> direction) = 0;              //set reverse direction
+    while ((mL->power<leftGear) || (mR->power<rightGear)){ //
+        if (mL->power<leftGear) {mL->power++;}
+        if (mR->power<rightGear) {mR->power++;}
+        setMotorPWM(mL);
+        setMotorPWM(mR);
+        __delay_ms(rampDelay);
+    }
+}
+
+//function to make the robot turn left for 90 degrees
 void turnLeft90(DC_motor *mL, DC_motor *mR)
 {
     turnLeft(mL, mR);
@@ -160,6 +170,7 @@ void turnLeft90(DC_motor *mL, DC_motor *mR)
     stop(mL, mR);
 }
 
+//function to make the robot turn right for 90 degrees
 void turnRight90(DC_motor *mL, DC_motor *mR)
 {
     turnRight(mL, mR);
@@ -167,6 +178,7 @@ void turnRight90(DC_motor *mL, DC_motor *mR)
     stop(mL, mR);
 }
 
+//function to make the robot turn left for 135 degrees
 void turnLeft135(DC_motor *mL, DC_motor *mR)
 {
     turnLeft(mL, mR);
@@ -174,6 +186,7 @@ void turnLeft135(DC_motor *mL, DC_motor *mR)
     stop(mL, mR);
 }
 
+//function to make the robot turn right for 135 degrees
 void turnRight135(DC_motor *mL, DC_motor *mR)
 {
     turnRight(mL, mR);
@@ -181,9 +194,26 @@ void turnRight135(DC_motor *mL, DC_motor *mR)
     stop(mL, mR);
 }
 
+//function to make the robot turn 180
 void UTurn(DC_motor *mL, DC_motor *mR)
 {
     turnLeft(mL, mR);
     __delay_ms(turn180Delay);   //adjust until 180 degrees
+    stop(mL, mR);
+}
+
+//function to make the robot reverse from the wall of a square to the centre of the square
+void headbuttReverse(DC_motor *mL, DC_motor *mR)
+{
+    fullSpeedReverse(mL, mR);
+    __delay_ms(headbuttDelay);      //adjust until centre of square
+    stop(mL, mR);
+}
+
+//function to make the robot reverse 1 square length
+void squareReverse(DC_motor *mL, DC_motor *mR)
+{
+    fullSpeedReverse(mL, mR);
+    __delay_ms(squareDelay);        //adjust until 1 square length
     stop(mL, mR);
 }
