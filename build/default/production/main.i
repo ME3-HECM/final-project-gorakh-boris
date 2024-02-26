@@ -24122,25 +24122,41 @@ typedef struct DC_motor {
 } DC_motor;
 
 unsigned char rampDelay = 8;
-unsigned char topGear = 69;
+
+unsigned char topGear = 30;
+unsigned char topAdjustPower = 2;
+unsigned char topAdjustSide = 1;
+
 unsigned char turningGear = 42;
+
 unsigned int forward1Delay = 200;
 unsigned int turnLeft90Delay = 175;
 unsigned int turnRight90Delay = 175;
+unsigned int turnLeft135Delay = 300;
+unsigned int turnRight135Delay = 300;
 unsigned int turn180Delay = 510;
 
 
 void initDCmotorsPWM(unsigned int PWMperiod);
 void setMotorPWM(DC_motor *m);
+
 void stop(DC_motor *mL, DC_motor *mR);
 void turnLeft(DC_motor *mL, DC_motor *mR);
 void turnRight(DC_motor *mL, DC_motor *mR);
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
+
 void forward1(DC_motor *mL, DC_motor *mR);
 void turnLeft90(DC_motor *mL, DC_motor *mR);
 void turnRight90(DC_motor *mL, DC_motor *mR);
+void turnLeft135(DC_motor *mL, DC_motor *mR);
+void turnRight135(DC_motor *mL, DC_motor *mR);
 void UTurn(DC_motor *mL, DC_motor *mR);
 # 17 "main.c" 2
+
+# 1 "./buggy_lights.h" 1
+# 15 "./buggy_lights.h"
+void buggy_lights_init(void);
+# 18 "main.c" 2
 
 
 
@@ -24164,6 +24180,8 @@ void main(void) {
     motorR.PWMperiod = PWMcycle;
     motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
     motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
+
+    buggy_lights_init();
 
     while (1) {
 

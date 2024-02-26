@@ -15,6 +15,7 @@
 
 #include <xc.h>
 #include "dc_motor.h"
+#include "buggy_lights.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
@@ -38,7 +39,9 @@ void main(void) {
     motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
     motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
     
+    buggy_lights_init();
+    
     while (1) {
-        
+        //fullSpeedAhead(&motorL, &motorR);
     }
 }

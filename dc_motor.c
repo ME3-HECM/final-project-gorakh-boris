@@ -87,8 +87,8 @@ void setMotorPWM(DC_motor *m)
 //function to stop the robot gradually 
 void stop(DC_motor *mL, DC_motor *mR)
 {
-    mL->brakemode = 1;                  //set brake mode, probably not needed but doesn't hurt (so far)
-    mR->brakemode = 1;                  //set brake mode, probably not needed but doesn't hurt (so far))
+    //mL->brakemode = 1;                  //set brake mode, probably not needed but doesn't hurt (so far)
+    //mR->brakemode = 1;                  //set brake mode, probably not needed but doesn't hurt (so far)
     while ((mL->power>0) || (mR->power>0)){
         if (mL->power>0) {mL->power--;}
         if (mR->power>0) {mR->power--;}
@@ -102,11 +102,12 @@ void stop(DC_motor *mL, DC_motor *mR)
 void turnLeft(DC_motor *mL, DC_motor *mR)
 {
     unsigned char leftGear = turningGear; 
+    unsigned char rightGear = turningGear; 
     (mL->direction) = 0;                //set backward direction
     (mR->direction) = 1;                //set forward direction
-    while ((mL->power<leftGear) || (mR->power<leftGear)){ //
+    while ((mL->power<leftGear) || (mR->power<rightGear)){ //
         if (mL->power<leftGear) {mL->power++;}
-        if (mR->power<leftGear) {mR->power++;}
+        if (mR->power<rightGear) {mR->power++;}
         setMotorPWM(mL);
         setMotorPWM(mR);
         __delay_ms(rampDelay);
@@ -116,11 +117,12 @@ void turnLeft(DC_motor *mL, DC_motor *mR)
 //function to make the robot turn right 
 void turnRight(DC_motor *mL, DC_motor *mR)
 {
+    unsigned char leftGear = turningGear; 
     unsigned char rightGear = turningGear; 
     (mL->direction) = 1;                //set forward direction
     (mR->direction) = 0;                //set backward direction
-    while ((mL->power<rightGear) || (mR->power<rightGear)){ //
-        if (mL->power<rightGear) {mL->power++;}
+    while ((mL->power<leftGear) || (mR->power<rightGear)){ //
+        if (mL->power<leftGear) {mL->power++;}
         if (mR->power<rightGear) {mR->power++;}
         setMotorPWM(mL);
         setMotorPWM(mR);
@@ -131,11 +133,20 @@ void turnRight(DC_motor *mL, DC_motor *mR)
 //function to make the robot go straight
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
 {    
+    unsigned char leftGear = topGear; 
+    unsigned char rightGear = topGear; 
+    
+    if (topAdjustSide) {
+        rightGear += topAdjustPower;
+    } else {
+        leftGear += topAdjustPower;
+    }
+    
     (mL -> direction) = 1;              //set forward direction
     (mR -> direction) = 1;              //set forward direction
-    while ((mL -> power) < topGear || (mR -> power) < topGear) {
-        if ((mL -> power) < topGear) {(mL -> power)++;}
-        if ((mR -> power) < topGear) {(mR -> power)++;}
+    while ((mL->power<leftGear) || (mR->power<rightGear)){ //
+        if (mL->power<leftGear) {mL->power++;}
+        if (mR->power<rightGear) {mR->power++;}
         setMotorPWM(mL);
         setMotorPWM(mR);
         __delay_ms(rampDelay);
@@ -161,6 +172,20 @@ void turnRight90(DC_motor *mL, DC_motor *mR)
 {
     turnRight(mL, mR);
     __delay_ms(turnRight90Delay);   //adjust until 90 degrees
+    stop(mL, mR);
+}
+
+void turnLeft135(DC_motor *mL, DC_motor *mR)
+{
+    turnLeft(mL, mR);
+    __delay_ms(turnLeft135Delay);   //adjust until 135 degrees
+    stop(mL, mR);
+}
+
+void turnRight135(DC_motor *mL, DC_motor *mR)
+{
+    turnRight(mL, mR);
+    __delay_ms(turnRight135Delay);  //adjust until 135 degrees
     stop(mL, mR);
 }
 
