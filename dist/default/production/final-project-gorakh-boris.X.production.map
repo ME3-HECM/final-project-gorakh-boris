@@ -7,10 +7,11 @@ Linker command line:
   -cn \
   -h+dist/default/production\final-project-gorakh-boris.X.production.sym \
   --cmf=dist/default/production\final-project-gorakh-boris.X.production.cmf \
-  -z -Q18F67K40 -oC:\Users\boris\AppData\Local\Temp\xcAsiko.\driver_tmp_3.o \
+  -z -Q18F67K40 \
+  -oC:\Users\boris\AppData\Local\Temp\xcBsd30.1\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/final-project-gorakh-boris.X.production.map \
-  --md=C:\Users\boris\AppData\Local\Temp\xcAsiko.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\boris\AppData\Local\Temp\xcBsd30.1\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh \
   -ASMALLCONST=0E00h-0EFFhx498 -AMEDIUMCONST=0E00h-0FFFFh,010E00h-01FFFFh \
   -ACOMRAM=01h-05Fh -AABS1=00h-0DE9h -ABIGRAM=01h-0DE9h \
@@ -30,7 +31,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\boris\AppData\Local\Temp\xcAsiko.\driver_tmp_9.o \
+  C:\Users\boris\AppData\Local\Temp\xcBsd30.1\driver_tmp_9.o \
   dist/default/production\final-project-gorakh-boris.X.production.o 
 
 Object code version is 3.11
@@ -40,7 +41,7 @@ Machine type is 18F67K40
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\boris\AppData\Local\Temp\xcAsiko.\driver_tmp_9.o
+C:\Users\boris\AppData\Local\Temp\xcBsd30.1\driver_tmp_9.o
                 config                           300000   300000        6        0       4
                 init                                  0        0        4        0       0
 dist/default/production\final-project-gorakh-boris.X.production.o
@@ -170,6 +171,7 @@ UNUSED ADDRESS RANGES
 
                                   Symbol Table
 
+_ANSELDbits                (abs)        000EA7
 _CCP1CONbits               (abs)        000FAB
 _CCP2CONbits               (abs)        000FA7
 _CCP3CONbits               (abs)        000F26
@@ -186,9 +188,19 @@ _LATFbits                  (abs)        000F7E
 _LATGbits                  (abs)        000F7F
 _LATHbits                  (abs)        000F80
 _RC7PPS                    (abs)        000E69
+_RD5PPS                    (abs)        000E6F
+_RD6PPS                    (abs)        000E70
 _RE2PPS                    (abs)        000E74
 _RE4PPS                    (abs)        000E76
 _RG6PPS                    (abs)        000E88
+_SSP2ADD                   (abs)        000ED6
+_SSP2BUF                   (abs)        000ED5
+_SSP2CLKPPS                (abs)        000E1C
+_SSP2CON1bits              (abs)        000ED9
+_SSP2CON2                  (abs)        000EDA
+_SSP2CON2bits              (abs)        000EDA
+_SSP2DATPPS                (abs)        000E1D
+_SSP2STAT                  (abs)        000ED8
 _T2CLKCONbits              (abs)        000FBF
 _T2CONbits                 (abs)        000FBD
 _T2HLTbits                 (abs)        000FBE

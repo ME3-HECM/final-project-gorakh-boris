@@ -76,6 +76,8 @@ __Habs1 0 0 ABS 0
 __Labs1 0 0 ABS 0
 _RE2PPS E74 0 ABS 0
 _RE4PPS E76 0 ABS 0
+_RD5PPS E6F 0 ABS 0
+_RD6PPS E70 0 ABS 0
 isa$xinst 0 0 ABS 0
 _RC7PPS E69 0 ABS 0
 _RG6PPS E88 0 ABS 0
@@ -106,6 +108,7 @@ __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 ___heap_lo 0 0 ABS 0
 end_of_initialization FAA 0 CODE 0
+_SSP2ADD ED6 0 ABS 0
 _rampDelay 25 0 COMRAM 1
 _TRISCbits F83 0 ABS 0
 _TRISDbits F84 0 ABS 0
@@ -115,6 +118,7 @@ _T2CONbits FBD 0 ABS 0
 _TRISGbits F87 0 ABS 0
 _TRISHbits F88 0 ABS 0
 _T2HLTbits FBE 0 ABS 0
+_SSP2BUF ED5 0 ABS 0
 __Hibigdata 0 0 CODE 0
 __Libigdata 0 0 CODE 0
 __Hifardata 0 0 CODE 0
@@ -153,6 +157,8 @@ __ptext2 FB0 0 CODE 0
 ___stack_hi 0 0 STACK 2
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
+_SSP2CLKPPS E1C 0 ABS 0
+_SSP2DATPPS E1D 0 ABS 0
 __end_of__initialization FAA 0 CODE 0
 _CCP1CONbits FAB 0 ABS 0
 _CCP2CONbits FA7 0 ABS 0
@@ -201,6 +207,7 @@ ___stack_lo 0 0 STACK 2
 _turn180Delay 17 0 COMRAM 1
 __Hbank10 0 0 ABS 0
 __Lbank10 0 0 ABS 0
+_SSP2CON2 EDA 0 ABS 0
 __Hbank11 0 0 ABS 0
 __Lbank11 0 0 ABS 0
 __Hbank12 0 0 ABS 0
@@ -209,6 +216,7 @@ __Hbank13 0 0 ABS 0
 __Lbank13 0 0 ABS 0
 _topAdjustSide 22 0 COMRAM 1
 ___inthi_sp 0 0 STACK 2
+_ANSELDbits EA7 0 ABS 0
 ___intlo_sp 0 0 STACK 2
 _turnRight90Delay 1D 0 COMRAM 1
 _topAdjustPower 23 0 COMRAM 1
@@ -223,8 +231,11 @@ __Hintcode_body 0 0 ABS 0
 __Lintcode_body 0 0 ABS 0
 intlevel0 0 0 CODE 0
 intlevel1 0 0 CODE 0
+_SSP2STAT ED8 0 ABS 0
 intlevel2 0 0 CODE 0
 intlevel3 0 0 CODE 0
+_SSP2CON1bits ED9 0 ABS 0
+_SSP2CON2bits EDA 0 ABS 0
 ___inthi_stack_lo 0 0 STACK 2
 __HdataCOMRAM 0 0 ABS 0
 __LdataCOMRAM 0 0 ABS 0
@@ -242,27 +253,27 @@ cstackCOMRAM 1 25 COMRAM 1 1
 text0 E02 FD4 CODE E02 0
 %locals
 dist/default/production\final-project-gorakh-boris.X.production.o
-C:\Users\boris\AppData\Local\Temp\xcAsiko.\driver_tmp_1.s
-4176 F8A 0 CODE 0
-4178 F8A 0 CODE 0
-4181 F8A 0 CODE 0
-4250 F8A 0 CODE 0
-4251 F8C 0 CODE 0
-4252 F8E 0 CODE 0
-4253 F90 0 CODE 0
-4254 F92 0 CODE 0
-4255 F94 0 CODE 0
-4256 F96 0 CODE 0
-4257 F9A 0 CODE 0
-4258 F9E 0 CODE 0
-4259 F9E 0 CODE 0
-4260 FA0 0 CODE 0
-4261 FA4 0 CODE 0
-4262 FA6 0 CODE 0
-4263 FA8 0 CODE 0
-4269 FAA 0 CODE 0
-4271 FAA 0 CODE 0
-4272 FAC 0 CODE 0
+C:\Users\boris\AppData\Local\Temp\xcBsd30.1\driver_tmp_1.s
+6830 F8A 0 CODE 0
+6832 F8A 0 CODE 0
+6835 F8A 0 CODE 0
+6904 F8A 0 CODE 0
+6905 F8C 0 CODE 0
+6906 F8E 0 CODE 0
+6907 F90 0 CODE 0
+6908 F92 0 CODE 0
+6909 F94 0 CODE 0
+6910 F96 0 CODE 0
+6911 F9A 0 CODE 0
+6912 F9E 0 CODE 0
+6913 F9E 0 CODE 0
+6914 FA0 0 CODE 0
+6915 FA4 0 CODE 0
+6916 FA6 0 CODE 0
+6917 FA8 0 CODE 0
+6923 FAA 0 CODE 0
+6925 FAA 0 CODE 0
+6926 FAC 0 CODE 0
 main.c
 23 E02 0 CODE 0
 24 E02 0 CODE 0

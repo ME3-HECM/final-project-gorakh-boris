@@ -24148,14 +24148,14 @@ void color_click_init(void)
     I2C_2_Master_Init();
 
 
-  color_writetoaddr(0x00, 0x01)
+  color_writetoaddr(0x00, 0x01);
     _delay((unsigned long)((3)*(64000000/4000.0)));
 
 
- color_writetoaddr(0x00, 0x03)
+ color_writetoaddr(0x00, 0x03);
 
 
- color_writetoaddr(0x01, 0xD5)
+ color_writetoaddr(0x01, 0xD5);
 }
 
 void color_writetoaddr(char address, char value){
