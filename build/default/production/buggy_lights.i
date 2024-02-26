@@ -24097,12 +24097,12 @@ void buggy_lights_init(void);
 void buggy_lights_init(void)
 {
 
-    TRISAbits.TRISA0 = 0;
-    TRISDbits.TRISD0 = 0;
-    TRISCbits.TRISC5 = 0;
 
+    TRISDbits.TRISD4 = 0;
+    TRISHbits.TRISH1 = 0;
+    TRISDbits.TRISD3 = 0;
 
-    LATAbits.LATA0 = 1;
-    LATDbits.LATD0 = 1;
-    LATCbits.LATC5 = 1;
+    LATDbits.LATD4 = 1;
+    LATHbits.LATH1 = 1;
+    LATDbits.LATD3 = 1;
 }

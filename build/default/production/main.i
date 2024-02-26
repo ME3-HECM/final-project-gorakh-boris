@@ -24185,5 +24185,8 @@ void main(void) {
 
     while (1) {
 
+        LATDbits.LATD4 = !LATDbits.LATD4;
+        LATDbits.LATD3 = !LATDbits.LATD3;
+        _delay((unsigned long)((500)*(64000000/4000.0)));
     }
 }

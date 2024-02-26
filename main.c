@@ -43,5 +43,8 @@ void main(void) {
     
     while (1) {
         //fullSpeedAhead(&motorL, &motorR);
+        LATDbits.LATD4 = !LATDbits.LATD4;       //flash brake lights (DOESN'T WORK)
+        LATDbits.LATD3 = !LATDbits.LATD3;       //flash main beam
+        __delay_ms(500);
     }
 }

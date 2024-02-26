@@ -3,13 +3,13 @@
 
 void buggy_lights_init(void)
 {
+    //brake lights don't seem to be working, likely hardware failure
     //set up TRIS registers (0 for output)
-    TRISAbits.TRISA0 = 0;               //BRAKE pin
-    TRISDbits.TRISD0 = 0;               //HEADLAMPS pin
-    TRISCbits.TRISC5 = 0;               //MAIN BEAM pin
-    
+    TRISDbits.TRISD4 = 0;               //BRAKE pin
+    TRISHbits.TRISH1 = 0;               //HEADLAMPS pin
+    TRISDbits.TRISD3 = 0;               //MAIN BEAM pin
     //set up initial LAT values
-    LATAbits.LATA0 = 1;                 //BRAKE pin
-    LATDbits.LATD0 = 1;                 //HEADLAMPS pin
-    LATCbits.LATC5 = 1;                 //MAIN BEAM pin
+    LATDbits.LATD4 = 1;                 //BRAKE pin
+    LATHbits.LATH1 = 1;                 //HEADLAMPS pin
+    LATDbits.LATD3 = 1;                 //MAIN BEAM pin
 }
