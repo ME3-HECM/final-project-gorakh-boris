@@ -5,7 +5,13 @@
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
-
+//definition of RGB structure
+typedef struct RGBC_val { 
+	unsigned int R;
+	unsigned int G;
+	unsigned int B;
+    unsigned int C;
+};
 /********************************************//**
  *  Function to initialise the colour click module using I2C
  ***********************************************/
@@ -24,4 +30,27 @@ void color_writetoaddr(char address, char value);
  ***********************************************/
 unsigned int color_read_Red(void);
 
+/********************************************//**
+ *  Function to read the blue channel
+ *	Returns a 16 bit ADC value representing colour intensity
+ ***********************************************/
+unsigned int color_read_Blue(void);
+
+/********************************************//**
+ *  Function to read the green channel
+ *	Returns a 16 bit ADC value representing colour intensity
+ ***********************************************/
+unsigned int color_read_Green(void);
+
+/********************************************//**
+ *  Function to read the clear channel
+ *	Returns a 16 bit ADC value representing colour intensity
+ ***********************************************/
+unsigned int color_read_Clear(void);
+
+/********************************************//**
+ *  Function to update structure variables (RGBC) in RGBCval
+ *	Updates variables R, G, B, C with the values read 
+ ***********************************************/
+unsigned int getRGBCval(struct RGBC_val *p);
 #endif
