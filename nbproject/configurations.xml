@@ -21,6 +21,8 @@
       <itemPath>main.c</itemPath>
       <itemPath>manoeuvres.c</itemPath>
       <itemPath>manoeuvres.h</itemPath>
+      <itemPath>color.c</itemPath>
+      <itemPath>color.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
