@@ -24,6 +24,16 @@ void buggy_lights_init(void)
     //set up initial LAT values
     LATDbits.LATD7 = 1;
     LATHbits.LATH3 = 1;
+    
+    //initialise the three LEDS on the colour board
+    //set up TRIS registers (0 for output)
+    TRISGbits.TRISG1 = 0;               //red LED pin
+    TRISAbits.TRISA4 = 0;               //green LED pin
+    TRISFbits.TRISF7 = 0;               //blue LED pin
+    //set up initial LAT values
+    LATGbits.LATG1 = 1;                 //red LED pin
+    LATAbits.LATA4 = 1;                 //green LED pin
+    LATFbits.LATF7 = 1;                 //blue LED pin
 }
 
 void lights_flashing(void)
