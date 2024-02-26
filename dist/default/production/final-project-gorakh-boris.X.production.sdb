@@ -37,6 +37,16 @@
 [v ___omul __omul `(uo  1 e 8 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+"21 C:\Users\ga621\OneDrive - Imperial College London\Mech Eng\ME3\Embedded C\final-project-gorakh-boris.X\color.c
+[v _color_writetoaddr color_writetoaddr `(v  1 e 1 0 ]
+"29
+[v _color_read_Red color_read_Red `(ui  1 e 2 0 ]
+"43
+[v _color_read_Blue color_read_Blue `(ui  1 e 2 0 ]
+"57
+[v _color_read_Green color_read_Green `(ui  1 e 2 0 ]
+"71
+[v _color_read_Clear color_read_Clear `(ui  1 e 2 0 ]
 "5 C:\Users\ga621\OneDrive - Imperial College London\Mech Eng\ME3\Embedded C\final-project-gorakh-boris.X\dc_motor.c
 [v _initDCmotorsPWM initDCmotorsPWM `(v  1 e 1 0 ]
 "65
@@ -47,14 +57,64 @@
 [v _turnLeft turnLeft `(v  1 e 1 0 ]
 "118
 [v _turnRight turnRight `(v  1 e 1 0 ]
-"22 C:\Users\ga621\OneDrive - Imperial College London\Mech Eng\ME3\Embedded C\final-project-gorakh-boris.X\i2c.c
+"4 C:\Users\ga621\OneDrive - Imperial College London\Mech Eng\ME3\Embedded C\final-project-gorakh-boris.X\i2c.c
+[v _I2C_2_Master_Init I2C_2_Master_Init `(v  1 e 1 0 ]
+"22
 [v _I2C_2_Master_Idle I2C_2_Master_Idle `(v  1 e 1 0 ]
+"27
+[v _I2C_2_Master_Start I2C_2_Master_Start `(v  1 e 1 0 ]
+"33
+[v _I2C_2_Master_RepStart I2C_2_Master_RepStart `(v  1 e 1 0 ]
+"39
+[v _I2C_2_Master_Stop I2C_2_Master_Stop `(v  1 e 1 0 ]
+"45
+[v _I2C_2_Master_Write I2C_2_Master_Write `(v  1 e 1 0 ]
+"51
+[v _I2C_2_Master_Read I2C_2_Master_Read `(uc  1 e 1 0 ]
 "23 C:\Users\ga621\OneDrive - Imperial College London\Mech Eng\ME3\Embedded C\final-project-gorakh-boris.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"3796 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h
+"78 C:\Users\ga621\OneDrive - Imperial College London\Mech Eng\ME3\Embedded C\final-project-gorakh-boris.X\serial.c
+[v _isDataInTxBuf isDataInTxBuf `(uc  1 e 1 0 ]
+"13 C:\Users\ga621\OneDrive - Imperial College London\Mech Eng\ME3\Embedded C\final-project-gorakh-boris.X/serial.h
+[v _EUSART4RXbuf EUSART4RXbuf `VE[20]uc  1 e 20 0 ]
+"14
+[v _RxBufWriteCnt RxBufWriteCnt `VEuc  1 e 1 0 ]
+"15
+[v _RxBufReadCnt RxBufReadCnt `VEuc  1 e 1 0 ]
+"17
+[v _EUSART4TXbuf EUSART4TXbuf `VE[60]uc  1 e 60 0 ]
+"18
+[v _TxBufWriteCnt TxBufWriteCnt `VEuc  1 e 1 0 ]
+"19
+[v _TxBufReadCnt TxBufReadCnt `VEuc  1 e 1 0 ]
+"3182 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h
+[v _RX4PPS RX4PPS `VEuc  1 e 1 @3605 ]
+"3796
 [v _SSP2CLKPPS SSP2CLKPPS `VEuc  1 e 1 @3612 ]
 "3862
 [v _SSP2DATPPS SSP2DATPPS `VEuc  1 e 1 @3613 ]
+[s S1511 . 1 `uc 1 TX3IE 1 0 :1:0 
+`uc 1 RC3IE 1 0 :1:1 
+`uc 1 TX4IE 1 0 :1:2 
+`uc 1 RC4IE 1 0 :1:3 
+`uc 1 TX5IE 1 0 :1:4 
+`uc 1 RC5IE 1 0 :1:5 
+]
+"4819
+[u S1518 . 1 `S1511 1 . 1 0 ]
+[v _PIE4bits PIE4bits `VES1518  1 e 1 @3629 ]
+[s S1492 . 1 `uc 1 TX3IF 1 0 :1:0 
+`uc 1 RC3IF 1 0 :1:1 
+`uc 1 TX4IF 1 0 :1:2 
+`uc 1 RC4IF 1 0 :1:3 
+`uc 1 TX5IF 1 0 :1:4 
+`uc 1 RC5IF 1 0 :1:5 
+]
+"5332
+[u S1499 . 1 `S1492 1 . 1 0 ]
+[v _PIR4bits PIR4bits `VES1499  1 e 1 @3639 ]
+"7858
+[v _RC0PPS RC0PPS `VEuc  1 e 1 @3682 ]
 "8208
 [v _RC7PPS RC7PPS `VEuc  1 e 1 @3689 ]
 "8508
@@ -148,6 +208,50 @@
 ]
 [u S1182 . 1 `S1147 1 . 1 0 `S1156 1 . 1 0 `S1159 1 . 1 0 `S1166 1 . 1 0 `S1175 1 . 1 0 ]
 [v _SSP2CON2bits SSP2CON2bits `VES1182  1 e 1 @3802 ]
+"15782
+[v _RC4REG RC4REG `VEuc  1 e 1 @3811 ]
+"15820
+[v _TX4REG TX4REG `VEuc  1 e 1 @3812 ]
+"15865
+[v _SP4BRGL SP4BRGL `VEuc  1 e 1 @3813 ]
+"15903
+[v _SP4BRGH SP4BRGH `VEuc  1 e 1 @3814 ]
+[s S1471 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"15963
+[u S1480 . 1 `S1471 1 . 1 0 ]
+[v _RC4STAbits RC4STAbits `VES1480  1 e 1 @3815 ]
+[s S1448 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"16085
+[u S1457 . 1 `S1448 1 . 1 0 ]
+[v _TX4STAbits TX4STAbits `VES1457  1 e 1 @3816 ]
+[s S1427 . 1 `uc 1 ABDEN 1 0 :1:0 
+`uc 1 WUE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG16 1 0 :1:3 
+`uc 1 SCKP 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 RCIDL 1 0 :1:6 
+`uc 1 ABDOVF 1 0 :1:7 
+]
+"16211
+[u S1436 . 1 `S1427 1 . 1 0 ]
+[v _BAUD4CONbits BAUD4CONbits `VES1436  1 e 1 @3817 ]
 "21113
 [v _CCPR4H CCPR4H `VEuc  1 e 1 @3873 ]
 [s S724 . 1 `uc 1 MODE 1 0 :4:0 
