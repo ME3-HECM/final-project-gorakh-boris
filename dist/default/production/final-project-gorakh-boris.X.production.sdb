@@ -5,7 +5,7 @@
 [d frameptr 4065 ]
 "4 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
 [v _buggy_lights_init buggy_lights_init `(v  1 e 1 0 ]
-"21
+"29
 [v _lights_flashing lights_flashing `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
@@ -586,10 +586,10 @@
 [v main@motorL motorL `S864  1 a 9 4 ]
 "61
 } 0
-"21 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+"29 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
 [v _lights_flashing lights_flashing `(v  1 e 1 0 ]
 {
-"28
+"36
 } 0
 "5 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
 [v _initDCmotorsPWM initDCmotorsPWM `(v  1 e 1 0 ]
@@ -600,5 +600,5 @@
 "4 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
 [v _buggy_lights_init buggy_lights_init `(v  1 e 1 0 ]
 {
-"19
+"27
 } 0

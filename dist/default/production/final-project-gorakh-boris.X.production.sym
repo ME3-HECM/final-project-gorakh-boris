@@ -1,5 +1,5 @@
 _T2CLKCONbits FBF 0 ABS 0
-__S0 FF6 0 ABS 0
+__S0 FFE 0 ABS 0
 __S1 29 0 ABS 0
 __S4 0 0 ABS 0
 __S5 0 0 ABS 0
@@ -11,7 +11,7 @@ _T2PR FBC 0 ABS 0
 _main F2C 0 CODE 0
 ___sp 0 0 STACK 2
 start 0 0 CODE 0
-__end_of_buggy_lights_init FE4 0 CODE 0
+__end_of_buggy_lights_init FEC 0 CODE 0
 __Hirdata 0 0 CODE 0
 __Lirdata 0 0 CODE 0
 __HRAM 0 0 ABS 0
@@ -184,7 +184,7 @@ __Hstack 0 0 STACK 2
 __Lstack 0 0 STACK 2
 __Hparam 0 0 COMRAM 1
 __Lparam 0 0 COMRAM 1
-__Hspace_0 FF6 0 ABS 0
+__Hspace_0 FFE 0 ABS 0
 __HcstackCOMRAM 0 0 ABS 0
 __Lspace_0 0 0 ABS 0
 __LcstackCOMRAM 0 0 ABS 0
@@ -225,7 +225,7 @@ ___intlo_sp 0 0 STACK 2
 _turnRight90Delay 21 0 COMRAM 1
 __HidataCOMRAM 0 0 ABS 0
 __LidataCOMRAM 0 0 ABS 0
-__pidataCOMRAM FE4 0 CODE 0
+__pidataCOMRAM FEC 0 CODE 0
 __smallconst E00 0 SMALLCONST 0
 _topGearRight 26 0 COMRAM 1
 __Hreset_vec 0 0 CODE 0
@@ -256,10 +256,10 @@ _lights_flashing E02 0 CODE 0
 reset_vec 0 3 CODE 0 0
 smallconst E00 E01 SMALLCONST E00 0
 cstackCOMRAM 1 28 COMRAM 1 1
-text1 E02 FF5 CODE E02 0
+text1 E02 FFD CODE E02 0
 %locals
 dist/default/production\final-project-gorakh-boris.X.production.o
-C:\Users\boris\AppData\Local\Temp\xcBshk0.1\driver_tmp_1.s
+C:\Users\boris\AppData\Local\Temp\xcBscoc.1\driver_tmp_1.s
 8151 FA8 0 CODE 0
 8153 FA8 0 CODE 0
 8156 FA8 0 CODE 0
@@ -301,13 +301,13 @@ main.c
 47 F9C 0 CODE 0
 59 F9C 0 CODE 0
 buggy_lights.c
-21 E02 0 CODE 0
-23 E02 0 CODE 0
-24 E22 0 CODE 0
-25 E46 0 CODE 0
-26 E5E 0 CODE 0
-27 E7C 0 CODE 0
-28 E9A 0 CODE 0
+29 E02 0 CODE 0
+31 E02 0 CODE 0
+32 E22 0 CODE 0
+33 E46 0 CODE 0
+34 E5E 0 CODE 0
+35 E7C 0 CODE 0
+36 E9A 0 CODE 0
 dc_motor.c
 5 E9C 0 CODE 0
 7 E9C 0 CODE 0
@@ -360,4 +360,8 @@ buggy_lights.c
 16 FDC 0 CODE 0
 17 FDE 0 CODE 0
 18 FE0 0 CODE 0
-19 FE2 0 CODE 0
+22 FE2 0 CODE 0
+23 FE4 0 CODE 0
+25 FE6 0 CODE 0
+26 FE8 0 CODE 0
+27 FEA 0 CODE 0

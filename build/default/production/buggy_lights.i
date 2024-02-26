@@ -24110,6 +24110,14 @@ void buggy_lights_init(void)
     LATDbits.LATD3 = 1;
     LATFbits.LATF0 = 1;
     LATHbits.LATH0 = 1;
+
+
+
+    TRISDbits.TRISD7 = 0;
+    TRISHbits.TRISH3 = 0;
+
+    LATDbits.LATD7 = 1;
+    LATHbits.LATH3 = 1;
 }
 
 void lights_flashing(void)

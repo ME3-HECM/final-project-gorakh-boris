@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.45 build 20230818022343 
-                                                                                               Mon Feb 26 16:24:31 2024
+                                                                                               Mon Feb 26 16:34:01 2024
 
 Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1 
      1                           	processor	18F67K40
@@ -65,41 +65,41 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
     51                           ; SFR Addresses
     52   000000                     
     53                           	psect	idataCOMRAM
-    54   000FE4                     __pidataCOMRAM:
+    54   000FEC                     __pidataCOMRAM:
     55                           	callstack 0
     56                           
     57                           ;initializer for _squareDelay
-    58   000FE4  012C               	dw	300
+    58   000FEC  012C               	dw	300
     59                           
     60                           ;initializer for _headbuttDelay
-    61   000FE6  0046               	dw	70
+    61   000FEE  0046               	dw	70
     62                           
     63                           ;initializer for _turn180Delay
-    64   000FE8  01FE               	dw	510
+    64   000FF0  01FE               	dw	510
     65                           
     66                           ;initializer for _turnRight135Delay
-    67   000FEA  012C               	dw	300
+    67   000FF2  012C               	dw	300
     68                           
     69                           ;initializer for _turnLeft135Delay
-    70   000FEC  012C               	dw	300
+    70   000FF4  012C               	dw	300
     71                           
     72                           ;initializer for _turnRight90Delay
-    73   000FEE  00AF               	dw	175
+    73   000FF6  00AF               	dw	175
     74                           
     75                           ;initializer for _turnLeft90Delay
-    76   000FF0  00AF               	dw	175
+    76   000FF8  00AF               	dw	175
     77                           
     78                           ;initializer for _turningGear
-    79   000FF2  2A                 	db	42
+    79   000FFA  2A                 	db	42
     80                           
     81                           ;initializer for _topGearRight
-    82   000FF3  20                 	db	32
+    82   000FFB  20                 	db	32
     83                           
     84                           ;initializer for _topGearLeft
-    85   000FF4  1E                 	db	30
+    85   000FFC  1E                 	db	30
     86                           
     87                           ;initializer for _rampDelay
-    88   000FF5  08                 	db	8
+    88   000FFD  08                 	db	8
     89   000000                     _LATGbits	set	3967
     90   000000                     _LATEbits	set	3965
     91   000000                     _TRISGbits	set	3975
@@ -153,7 +153,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    139                           
    140                           ; Initialize objects allocated to COMRAM (18 bytes)
    141                           ; load TBLPTR registers with __pidataCOMRAM
-   142   000FA8  0EE4               	movlw	low __pidataCOMRAM
+   142   000FA8  0EEC               	movlw	low __pidataCOMRAM
    143   000FAA  6EF6               	movwf	tblptrl,c
    144   000FAC  0E0F               	movlw	high __pidataCOMRAM
    145   000FAE  6EF7               	movwf	tblptrh,c
@@ -378,7 +378,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    359                           
    360 ;; *************** function _lights_flashing *****************
    361 ;; Defined at:
-   362 ;;		line 21 in file "buggy_lights.c"
+   362 ;;		line 29 in file "buggy_lights.c"
    363 ;; Parameters:    Size  Location     Type
    364 ;;		None
    365 ;; Auto vars:     Size  Location     Type
@@ -416,7 +416,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    392   000E02                     _lights_flashing:
    393                           	callstack 30
    394   000E02                     
-   395                           ;buggy_lights.c: 23:     LATDbits.LATD4 = !LATDbits.LATD4;
+   395                           ;buggy_lights.c: 31:     LATDbits.LATD4 = !LATDbits.LATD4;
    396   000E02  A87C               	btfss	124,4,c	;volatile
    397   000E04  EF06  F007         	goto	u191
    398   000E08  EF0A  F007         	goto	u190
@@ -434,7 +434,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    410   000E1E  1801               	xorwf	??_lights_flashing^0,w,c
    411   000E20  6E7C               	movwf	124,c	;volatile
    412                           
-   413                           ;buggy_lights.c: 24:     LATDbits.LATD3 = !LATDbits.LATD3;
+   413                           ;buggy_lights.c: 32:     LATDbits.LATD3 = !LATDbits.LATD3;
    414   000E22  A67C               	btfss	124,3,c	;volatile
    415   000E24  EF16  F007         	goto	u211
    416   000E28  EF1A  F007         	goto	u210
@@ -454,7 +454,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    430   000E42  1801               	xorwf	??_lights_flashing^0,w,c
    431   000E44  6E7C               	movwf	124,c	;volatile
    432   000E46                     
-   433                           ;buggy_lights.c: 25:     _delay((unsigned long)((500)*(64000000/4000.0)));
+   433                           ;buggy_lights.c: 33:     _delay((unsigned long)((500)*(64000000/4000.0)));
    434   000E46  0E29               	movlw	41
    435   000E48  6E02               	movwf	(??_lights_flashing+1)^0,c
    436   000E4A  0E96               	movlw	150
@@ -469,7 +469,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    445   000E5A  D7FA               	bra	u367
    446   000E5C  0000               	nop	
    447   000E5E                     
-   448                           ;buggy_lights.c: 26:     LATFbits.LATF0 = !LATFbits.LATF0;
+   448                           ;buggy_lights.c: 34:     LATFbits.LATF0 = !LATFbits.LATF0;
    449   000E5E  A07E               	btfss	126,0,c	;volatile
    450   000E60  EF34  F007         	goto	u231
    451   000E64  EF38  F007         	goto	u230
@@ -486,7 +486,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    462   000E78  1801               	xorwf	??_lights_flashing^0,w,c
    463   000E7A  6E7E               	movwf	126,c	;volatile
    464   000E7C                     
-   465                           ;buggy_lights.c: 27:     LATHbits.LATH0 = !LATHbits.LATH0;
+   465                           ;buggy_lights.c: 35:     LATHbits.LATH0 = !LATHbits.LATH0;
    466   000E7C  A080               	btfss	128,0,c	;volatile
    467   000E7E  EF43  F007         	goto	u251
    468   000E82  EF47  F007         	goto	u250
@@ -774,92 +774,104 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    740                           
    741                           ;buggy_lights.c: 18:     LATHbits.LATH0 = 1;
    742   000FE0  8080               	bsf	128,0,c	;volatile
-   743   000FE2  0012               	return		;funcret
-   744   000FE4                     __end_of_buggy_lights_init:
-   745                           	callstack 0
+   743                           
+   744                           ;buggy_lights.c: 22:     TRISDbits.TRISD7 = 0;
+   745   000FE2  9E84               	bcf	132,7,c	;volatile
    746                           
-   747                           	psect	smallconst
-   748   000E00                     __psmallconst:
-   749                           	callstack 0
-   750   000E00  00                 	db	0
-   751   000E01  00                 	db	0	; dummy byte at the end
-   752   000000                     
-   753                           	psect	rparam
-   754   000000                     
-   755                           	psect	config
-   756                           
-   757                           ;Config register CONFIG1L @ 0x300000
-   758                           ;	External Oscillator mode Selection bits
-   759                           ;	FEXTOSC = HS, HS (crystal oscillator) above 8 MHz; PFM set to high power
-   760                           ;	Power-up default value for COSC bits
-   761                           ;	RSTOSC = EXTOSC_4PLL, EXTOSC with 4x PLL, with EXTOSC operating per FEXTOSC bits
-   762   300000                     	org	3145728
-   763   300000  AA                 	db	170
-   764                           
-   765                           ;Config register CONFIG1H @ 0x300001
-   766                           ;	unspecified, using default values
-   767                           ;	Clock Out Enable bit
-   768                           ;	CLKOUTEN = 0x1, unprogrammed default
-   769                           ;	Clock Switch Enable bit
-   770                           ;	CSWEN = 0x1, unprogrammed default
-   771                           ;	Fail-Safe Clock Monitor Enable bit
-   772                           ;	FCMEN = 0x1, unprogrammed default
-   773   300001                     	org	3145729
-   774   300001  FF                 	db	255
-   775                           
-   776                           ;Config register CONFIG3L @ 0x300004
-   777                           ;	WDT Period Select bits
-   778                           ;	WDTCPS = WDTCPS_31, Divider ratio 1:65536; software control of WDTPS
-   779                           ;	WDT operating mode
-   780                           ;	WDTE = OFF, WDT Disabled
-   781   300004                     	org	3145732
-   782   300004  9F                 	db	159
-   783                           
-   784                           ;Config register CONFIG3H @ 0x300005
-   785                           ;	unspecified, using default values
-   786                           ;	WDT Window Select bits
-   787                           ;	WDTCWS = 0x7, unprogrammed default
-   788                           ;	WDT input clock selector
-   789                           ;	WDTCCS = 0x7, unprogrammed default
-   790   300005                     	org	3145733
-   791   300005  FF                 	db	255
-   792                           tosu	equ	0xFFF
-   793                           tosh	equ	0xFFE
-   794                           tosl	equ	0xFFD
-   795                           stkptr	equ	0xFFC
-   796                           pclatu	equ	0xFFB
-   797                           pclath	equ	0xFFA
-   798                           pcl	equ	0xFF9
-   799                           tblptru	equ	0xFF8
-   800                           tblptrh	equ	0xFF7
-   801                           tblptrl	equ	0xFF6
-   802                           tablat	equ	0xFF5
-   803                           prodh	equ	0xFF4
-   804                           prodl	equ	0xFF3
-   805                           indf0	equ	0xFEF
-   806                           postinc0	equ	0xFEE
-   807                           postdec0	equ	0xFED
-   808                           preinc0	equ	0xFEC
-   809                           plusw0	equ	0xFEB
-   810                           fsr0h	equ	0xFEA
-   811                           fsr0l	equ	0xFE9
-   812                           wreg	equ	0xFE8
-   813                           indf1	equ	0xFE7
-   814                           postinc1	equ	0xFE6
-   815                           postdec1	equ	0xFE5
-   816                           preinc1	equ	0xFE4
-   817                           plusw1	equ	0xFE3
-   818                           fsr1h	equ	0xFE2
-   819                           fsr1l	equ	0xFE1
-   820                           bsr	equ	0xFE0
-   821                           indf2	equ	0xFDF
-   822                           postinc2	equ	0xFDE
-   823                           postdec2	equ	0xFDD
-   824                           preinc2	equ	0xFDC
-   825                           plusw2	equ	0xFDB
-   826                           fsr2h	equ	0xFDA
-   827                           fsr2l	equ	0xFD9
-   828                           status	equ	0xFD8
+   747                           ;buggy_lights.c: 23:     TRISHbits.TRISH3 = 0;
+   748   000FE4  9688               	bcf	136,3,c	;volatile
+   749                           
+   750                           ;buggy_lights.c: 25:     LATDbits.LATD7 = 1;
+   751   000FE6  8E7C               	bsf	124,7,c	;volatile
+   752                           
+   753                           ;buggy_lights.c: 26:     LATHbits.LATH3 = 1;
+   754   000FE8  8680               	bsf	128,3,c	;volatile
+   755   000FEA  0012               	return		;funcret
+   756   000FEC                     __end_of_buggy_lights_init:
+   757                           	callstack 0
+   758                           
+   759                           	psect	smallconst
+   760   000E00                     __psmallconst:
+   761                           	callstack 0
+   762   000E00  00                 	db	0
+   763   000E01  00                 	db	0	; dummy byte at the end
+   764   000000                     
+   765                           	psect	rparam
+   766   000000                     
+   767                           	psect	config
+   768                           
+   769                           ;Config register CONFIG1L @ 0x300000
+   770                           ;	External Oscillator mode Selection bits
+   771                           ;	FEXTOSC = HS, HS (crystal oscillator) above 8 MHz; PFM set to high power
+   772                           ;	Power-up default value for COSC bits
+   773                           ;	RSTOSC = EXTOSC_4PLL, EXTOSC with 4x PLL, with EXTOSC operating per FEXTOSC bits
+   774   300000                     	org	3145728
+   775   300000  AA                 	db	170
+   776                           
+   777                           ;Config register CONFIG1H @ 0x300001
+   778                           ;	unspecified, using default values
+   779                           ;	Clock Out Enable bit
+   780                           ;	CLKOUTEN = 0x1, unprogrammed default
+   781                           ;	Clock Switch Enable bit
+   782                           ;	CSWEN = 0x1, unprogrammed default
+   783                           ;	Fail-Safe Clock Monitor Enable bit
+   784                           ;	FCMEN = 0x1, unprogrammed default
+   785   300001                     	org	3145729
+   786   300001  FF                 	db	255
+   787                           
+   788                           ;Config register CONFIG3L @ 0x300004
+   789                           ;	WDT Period Select bits
+   790                           ;	WDTCPS = WDTCPS_31, Divider ratio 1:65536; software control of WDTPS
+   791                           ;	WDT operating mode
+   792                           ;	WDTE = OFF, WDT Disabled
+   793   300004                     	org	3145732
+   794   300004  9F                 	db	159
+   795                           
+   796                           ;Config register CONFIG3H @ 0x300005
+   797                           ;	unspecified, using default values
+   798                           ;	WDT Window Select bits
+   799                           ;	WDTCWS = 0x7, unprogrammed default
+   800                           ;	WDT input clock selector
+   801                           ;	WDTCCS = 0x7, unprogrammed default
+   802   300005                     	org	3145733
+   803   300005  FF                 	db	255
+   804                           tosu	equ	0xFFF
+   805                           tosh	equ	0xFFE
+   806                           tosl	equ	0xFFD
+   807                           stkptr	equ	0xFFC
+   808                           pclatu	equ	0xFFB
+   809                           pclath	equ	0xFFA
+   810                           pcl	equ	0xFF9
+   811                           tblptru	equ	0xFF8
+   812                           tblptrh	equ	0xFF7
+   813                           tblptrl	equ	0xFF6
+   814                           tablat	equ	0xFF5
+   815                           prodh	equ	0xFF4
+   816                           prodl	equ	0xFF3
+   817                           indf0	equ	0xFEF
+   818                           postinc0	equ	0xFEE
+   819                           postdec0	equ	0xFED
+   820                           preinc0	equ	0xFEC
+   821                           plusw0	equ	0xFEB
+   822                           fsr0h	equ	0xFEA
+   823                           fsr0l	equ	0xFE9
+   824                           wreg	equ	0xFE8
+   825                           indf1	equ	0xFE7
+   826                           postinc1	equ	0xFE6
+   827                           postdec1	equ	0xFE5
+   828                           preinc1	equ	0xFE4
+   829                           plusw1	equ	0xFE3
+   830                           fsr1h	equ	0xFE2
+   831                           fsr1l	equ	0xFE1
+   832                           bsr	equ	0xFE0
+   833                           indf2	equ	0xFDF
+   834                           postinc2	equ	0xFDE
+   835                           postdec2	equ	0xFDD
+   836                           preinc2	equ	0xFDC
+   837                           plusw2	equ	0xFDB
+   838                           fsr2h	equ	0xFDA
+   839                           fsr2l	equ	0xFD9
+   840                           status	equ	0xFD8
 
 Data Sizes:
     Strings     0
@@ -1133,9 +1145,9 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.45 build 20230818022343 
-Symbol Table                                                                                   Mon Feb 26 16:24:31 2024
+Symbol Table                                                                                   Mon Feb 26 16:34:01 2024
 
-             _turn180Delay 001B                         l20 0E9A                         l17 0FE2  
+             _turn180Delay 001B                         l20 0E9A                         l17 0FEA  
                       l118 0F2A                        u210 0E34                        u211 0E2C  
                       u230 0E70                        u231 0E68                        u208 0E16  
                       u250 0E8E                        u251 0E86                        u228 0E36  
@@ -1167,7 +1179,7 @@ Symbol Table                                                                    
                    tblptru 0FF8          ??_initDCmotorsPWM 0003          _buggy_lights_init 0FCE  
                __accesstop 0060    __end_of__initialization 0FC8         ?_buggy_lights_init 0001  
             ___rparam_used 0001             __pcstackCOMRAM 0001        ??_buggy_lights_init 0001  
-__end_of_buggy_lights_init 0FE4    __end_of_lights_flashing 0E9C               _T2CLKCONbits 0FBF  
+__end_of_buggy_lights_init 0FEC    __end_of_lights_flashing 0E9C               _T2CLKCONbits 0FBF  
                   _SSP2ADD 0ED6                    _SSP2BUF 0ED5                    __Hparam 0000  
                   __Lparam 0000               __psmallconst 0E00                    __pcinit 0FA8  
                   __ramtop 0E00                    __ptext0 0F2C                    __ptext1 0E02  
@@ -1178,7 +1190,7 @@ __end_of_buggy_lights_init 0FE4    __end_of_lights_flashing 0E9C               _
                 _TRISFbits 0F86                  _TRISGbits 0F87                  _TRISHbits 0F88  
               _CCP1CONbits 0FAB                _CCP2CONbits 0FA7                _CCP3CONbits 0F26  
               _CCP4CONbits 0F22                 main@motorL 0005                 main@motorR 000E  
-            __pidataCOMRAM 0FE4        start_initialization 0FA8           _turnRight90Delay 0021  
+            __pidataCOMRAM 0FEC        start_initialization 0FA8           _turnRight90Delay 0021  
   __end_of_initDCmotorsPWM 0F2C                __smallconst 0E00              _headbuttDelay 0019  
  initDCmotorsPWM@PWMperiod 0001                  _rampDelay 0028                   _LATCbits 0F7B  
                  _LATDbits 0F7C                   _LATEbits 0F7D                   _LATFbits 0F7E  

@@ -16,6 +16,14 @@ void buggy_lights_init(void)
     LATDbits.LATD3 = 1;                 //MAIN BEAM pin
     LATFbits.LATF0 = 1;                 //TURN L pin
     LATHbits.LATH0 = 1;                 //TURN R pin
+    
+    //initialise the two LEDs on the clicker board
+    //set up TRIS registers (0 for output)
+    TRISDbits.TRISD7 = 0;
+    TRISHbits.TRISH3 = 0;
+    //set up initial LAT values
+    LATDbits.LATD7 = 1;
+    LATHbits.LATH3 = 1;
 }
 
 void lights_flashing(void)
