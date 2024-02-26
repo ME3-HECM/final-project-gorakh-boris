@@ -24286,6 +24286,7 @@ void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
     }
 }
 
+
 void fullSpeedReverse(DC_motor *mL, DC_motor *mR)
 {
     unsigned char leftGear = topGearLeft;
@@ -24301,12 +24302,14 @@ void fullSpeedReverse(DC_motor *mL, DC_motor *mR)
     }
 }
 
+
 void turnLeft90(DC_motor *mL, DC_motor *mR)
 {
     turnLeft(mL, mR);
     _delay((unsigned long)((turnLeft90Delay)*(64000000/4000.0)));
     stop(mL, mR);
 }
+
 
 void turnRight90(DC_motor *mL, DC_motor *mR)
 {
@@ -24315,12 +24318,14 @@ void turnRight90(DC_motor *mL, DC_motor *mR)
     stop(mL, mR);
 }
 
+
 void turnLeft135(DC_motor *mL, DC_motor *mR)
 {
     turnLeft(mL, mR);
     _delay((unsigned long)((turnLeft135Delay)*(64000000/4000.0)));
     stop(mL, mR);
 }
+
 
 void turnRight135(DC_motor *mL, DC_motor *mR)
 {
@@ -24329,6 +24334,7 @@ void turnRight135(DC_motor *mL, DC_motor *mR)
     stop(mL, mR);
 }
 
+
 void UTurn(DC_motor *mL, DC_motor *mR)
 {
     turnLeft(mL, mR);
@@ -24336,12 +24342,14 @@ void UTurn(DC_motor *mL, DC_motor *mR)
     stop(mL, mR);
 }
 
+
 void headbuttReverse(DC_motor *mL, DC_motor *mR)
 {
     fullSpeedReverse(mL, mR);
     _delay((unsigned long)((headbuttDelay)*(64000000/4000.0)));
     stop(mL, mR);
 }
+
 
 void squareReverse(DC_motor *mL, DC_motor *mR)
 {

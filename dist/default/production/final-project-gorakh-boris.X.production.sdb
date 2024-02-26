@@ -51,11 +51,15 @@
 [v _turnLeft turnLeft `(v  1 e 1 0 ]
 "118
 [v _turnRight turnRight `(v  1 e 1 0 ]
-"149
+"150
 [v _fullSpeedReverse fullSpeedReverse `(v  1 e 1 0 ]
-"192
+"182
+[v _turnLeft135 turnLeft135 `(v  1 e 1 0 ]
+"190
+[v _turnRight135 turnRight135 `(v  1 e 1 0 ]
+"198
 [v _UTurn UTurn `(v  1 e 1 0 ]
-"199
+"206
 [v _headbuttReverse headbuttReverse `(v  1 e 1 0 ]
 "4 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
 [v _I2C_2_Master_Init I2C_2_Master_Init `(v  1 e 1 0 ]
@@ -73,8 +77,8 @@
 [v _I2C_2_Master_Read I2C_2_Master_Read `(uc  1 e 1 0 ]
 "23 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"18 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\manoeuvres.c
-[v _cardWhite cardWhite `(v  1 e 1 0 ]
+"14 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\manoeuvres.c
+[v _cardOrange cardOrange `(v  1 e 1 0 ]
 "3796 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
 [v _SSP2CLKPPS SSP2CLKPPS `VEuc  1 e 1 @3612 ]
 "3862
@@ -574,9 +578,9 @@
 {
 [s S864 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 "29
-[v main@motorR motorR `S864  1 a 9 40 ]
-[v main@motorL motorL `S864  1 a 9 31 ]
-"52
+[v main@motorR motorR `S864  1 a 9 43 ]
+[v main@motorL motorL `S864  1 a 9 34 ]
+"56
 } 0
 "21 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
 [v _lights_flashing lights_flashing `(v  1 e 1 0 ]
@@ -589,42 +593,43 @@
 [v initDCmotorsPWM@PWMperiod PWMperiod `ui  1 p 2 0 ]
 "62
 } 0
-"18 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\manoeuvres.c
-[v _cardWhite cardWhite `(v  1 e 1 0 ]
+"14 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\manoeuvres.c
+[v _cardOrange cardOrange `(v  1 e 1 0 ]
 {
 [s S864 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
-[v cardWhite@mL mL `*.30S864  1 p 1 27 ]
-[v cardWhite@mR mR `*.30S864  1 p 1 28 ]
-"23
+[v cardOrange@mL mL `*.30S864  1 p 1 27 ]
+[v cardOrange@mR mR `*.30S864  1 p 1 28 ]
+[v cardOrange@backtrack backtrack `uc  1 p 1 29 ]
+"26
 } 0
-"199 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-[v _headbuttReverse headbuttReverse `(v  1 e 1 0 ]
+"190 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+[v _turnRight135 turnRight135 `(v  1 e 1 0 ]
 {
 [s S864 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
-[v headbuttReverse@mL mL `*.30S864  1 p 1 23 ]
-[v headbuttReverse@mR mR `*.30S864  1 p 1 24 ]
-"204
+[v turnRight135@mL mL `*.30S864  1 p 1 23 ]
+[v turnRight135@mR mR `*.30S864  1 p 1 24 ]
+"195
 } 0
-"149
-[v _fullSpeedReverse fullSpeedReverse `(v  1 e 1 0 ]
+"118
+[v _turnRight turnRight `(v  1 e 1 0 ]
 {
-"152
-[v fullSpeedReverse@rightGear rightGear `uc  1 a 1 22 ]
-"151
-[v fullSpeedReverse@leftGear leftGear `uc  1 a 1 21 ]
+"121
+[v turnRight@rightGear rightGear `uc  1 a 1 22 ]
+"120
+[v turnRight@leftGear leftGear `uc  1 a 1 21 ]
 [s S864 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
-"149
-[v fullSpeedReverse@mL mL `*.30S864  1 p 1 18 ]
-[v fullSpeedReverse@mR mR `*.30S864  1 p 1 19 ]
-"162
+"118
+[v turnRight@mL mL `*.30S864  1 p 1 18 ]
+[v turnRight@mR mR `*.30S864  1 p 1 19 ]
+"131
 } 0
-"192
-[v _UTurn UTurn `(v  1 e 1 0 ]
+"182
+[v _turnLeft135 turnLeft135 `(v  1 e 1 0 ]
 {
 [s S864 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
-[v UTurn@mL mL `*.30S864  1 p 1 23 ]
-[v UTurn@mR mR `*.30S864  1 p 1 24 ]
-"197
+[v turnLeft135@mL mL `*.30S864  1 p 1 23 ]
+[v turnLeft135@mR mR `*.30S864  1 p 1 24 ]
+"187
 } 0
 "102
 [v _turnLeft turnLeft `(v  1 e 1 0 ]
@@ -639,6 +644,14 @@
 [v turnLeft@mR mR `*.30S864  1 p 1 19 ]
 "115
 } 0
+"206
+[v _headbuttReverse headbuttReverse `(v  1 e 1 0 ]
+{
+[s S864 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
+[v headbuttReverse@mL mL `*.30S864  1 p 1 23 ]
+[v headbuttReverse@mR mR `*.30S864  1 p 1 24 ]
+"211
+} 0
 "88
 [v _stop stop `(v  1 e 1 0 ]
 {
@@ -646,6 +659,19 @@
 [v stop@mL mL `*.30S864  1 p 1 18 ]
 [v stop@mR mR `*.30S864  1 p 1 19 ]
 "99
+} 0
+"150
+[v _fullSpeedReverse fullSpeedReverse `(v  1 e 1 0 ]
+{
+"153
+[v fullSpeedReverse@rightGear rightGear `uc  1 a 1 22 ]
+"152
+[v fullSpeedReverse@leftGear leftGear `uc  1 a 1 21 ]
+[s S864 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
+"150
+[v fullSpeedReverse@mL mL `*.30S864  1 p 1 18 ]
+[v fullSpeedReverse@mR mR `*.30S864  1 p 1 19 ]
+"163
 } 0
 "65
 [v _setMotorPWM setMotorPWM `(v  1 e 1 0 ]

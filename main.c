@@ -43,7 +43,11 @@ void main(void) {
     motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
     
     buggy_lights_init();
+    
+    unsigned char backtrack = 1;
     //fullSpeedAhead(&motorL, &motorR);
+    cardOrange(&motorL, &motorR, backtrack);
+    //cardCyan(&motorL, &motorR, backtrack);
     //cardWhite(&motorL, &motorR);
     
     while (1) {

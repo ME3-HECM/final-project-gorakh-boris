@@ -24201,7 +24201,11 @@ void main(void) {
 
     buggy_lights_init();
 
-    cardWhite(&motorL, &motorR);
+    unsigned char backtrack = 1;
+
+    cardOrange(&motorL, &motorR, backtrack);
+
+
 
     while (1) {
         lights_flashing();

@@ -24165,9 +24165,33 @@ void cardYellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 {}
 void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-{}
+{
+    switch (backtrack) {
+        case 0:
+            headbuttReverse(mL, mR);
+            turnRight135(mL, mR);
+            break;
+        case 1:
+            turnLeft135(mL, mR);
+            headbuttReverse(mL, mR);
+            break;
+    }
+}
+
 void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-{}
+{
+    switch (backtrack) {
+        case 0:
+            headbuttReverse(mL, mR);
+            turnLeft135(mL, mR);
+            break;
+        case 1:
+            turnRight135(mL, mR);
+            headbuttReverse(mL, mR);
+            break;
+    }
+}
+
 void cardWhite(DC_motor *mL, DC_motor *mR)
 {
     headbuttReverse(mL, mR);
