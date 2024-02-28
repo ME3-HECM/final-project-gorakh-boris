@@ -24104,7 +24104,7 @@ typedef struct RGBC_val {
  unsigned int G;
  unsigned int B;
     unsigned int C;
-};
+} RGBC_val;
 
 
 
@@ -24145,7 +24145,7 @@ unsigned int color_read_Clear(void);
 
 
 
-unsigned int getRGBCval(struct RGBC_val *p);
+void getRGBCval(struct RGBC_val *p);
 # 2 "color.c" 2
 
 # 1 "./i2c.h" 1
@@ -24264,7 +24264,7 @@ unsigned int color_read_Clear(void)
  return tmp;
 }
 
-unsigned int getRGBCval(struct RGBC_val *p)
+void getRGBCval(struct RGBC_val *p)
 {
     p->R = color_read_Red();
     p->B = color_read_Blue();

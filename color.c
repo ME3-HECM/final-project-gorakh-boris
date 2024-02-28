@@ -82,7 +82,7 @@ unsigned int color_read_Clear(void)
 	return tmp;
 }
 
-unsigned int getRGBCval(struct RGBC_val *p)// function getRGB_val updates variables in the structure RGBC 
+void getRGBCval(struct RGBC_val *p)// function getRGB_val updates variables in the structure RGBC 
 {
     p->R = color_read_Red();        //value of p = color_read_Red(), stored in RBGC_val variable R
     p->B = color_read_Blue();       //value of p = color_read_Blue(), stored in RBGC_val variable B

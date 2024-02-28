@@ -24190,7 +24190,7 @@ typedef struct RGBC_val {
  unsigned int G;
  unsigned int B;
     unsigned int C;
-};
+} RGBC_val;
 
 
 
@@ -24231,7 +24231,7 @@ unsigned int color_read_Clear(void);
 
 
 
-unsigned int getRGBCval(struct RGBC_val *p);
+void getRGBCval(struct RGBC_val *p);
 # 20 "main.c" 2
 
 # 1 "./serial.h" 1

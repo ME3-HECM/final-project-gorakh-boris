@@ -2229,14 +2229,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2021 ]
 }
 "85
-[; ;color.c: 85: unsigned int getRGBCval(struct RGBC_val *p)
-[v _getRGBCval `(ui ~T0 @X0 1 ef1`*S2015 ]
+[; ;color.c: 85: void getRGBCval(struct RGBC_val *p)
+[v _getRGBCval `(v ~T0 @X0 1 ef1`*S2015 ]
 "86
 [; ;color.c: 86: {
 {
 [e :U _getRGBCval ]
 "85
-[; ;color.c: 85: unsigned int getRGBCval(struct RGBC_val *p)
+[; ;color.c: 85: void getRGBCval(struct RGBC_val *p)
 [v _p `*S2015 ~T0 @X0 1 r1 ]
 "86
 [; ;color.c: 86: {
