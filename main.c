@@ -18,11 +18,12 @@
 #include "buggy_lights.h"
 #include "manoeuvres.h"
 #include "color.h"
+#include "serial.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
 void main(void) {
-    __delay_ms(500);    //initial delay
+    __delay_ms(1000);    //initial delay
     
     unsigned int PWMcycle = 99;
     initDCmotorsPWM(PWMcycle);
@@ -45,6 +46,7 @@ void main(void) {
     
     buggy_lights_init();
     color_click_init();
+    initUSART4();
     
     unsigned char backtrack = 0;
     //fullSpeedAhead(&motorL, &motorR);
@@ -57,7 +59,11 @@ void main(void) {
     //cardCyan(&motorL, &motorR, backtrack);
     //cardWhite(&motorL, &motorR);
     
+    int count = 0;
+    
     while (1) {
         lights_flashing();
+        sendIntSerial4(count);
+        count++;
     }
 }

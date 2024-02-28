@@ -1,4 +1,5 @@
 #include <xc.h>
+#include <stdio.h>
 #include "serial.h"
 
 void initUSART4(void) {
@@ -10,7 +11,8 @@ void initUSART4(void) {
     
     BAUD4CONbits.BRG16 = 0; 	//set baud rate scaling
     TX4STAbits.BRGH = 0; 		//high baud rate select bit
-    SP4BRGL = 103; 			//set baud rate to 103 = 9600bps
+    //SP4BRGL = 103; 			//set baud rate to 103 = 9600bps
+    SP4BRGL = 51; 			//set baud rate to 51 = 19200bps
     SP4BRGH = 0;			//not used
 
     RC4STAbits.CREN = 1; 		//enable continuos reception
@@ -30,12 +32,20 @@ void sendCharSerial4(char charToSend) {
     TX4REG = charToSend; //transfer char to transmitter
 }
 
-
 //function to send a string over the serial interface
-void sendStringSerial4(char *string){
+void sendStringSerial4(char *string) {
 	//Hint: look at how you did this for the LCD lab 
+    while(*string != 0){  // While the data pointed to isn?t a 0x00 do below (strings in C must end with a NULL byte) 
+		sendCharSerial4(*string++); 	//Send out the current byte pointed to and increment the pointer
+	}
 }
 
+//function to send an integer over the serial interface
+void sendIntSerial4(int integer) {
+    char string[sizeof(int) * 8 + 1]; //Referenced from https://www.ibm.com/docs/en/zos/2.1.0?topic=functions-itoa-convert-int-into-string
+    sprintf(string, "%d \r", integer);
+    sendStringSerial4(string);
+}
 
 //functions below are for Ex3 and 4 (optional)
 
@@ -82,6 +92,9 @@ char isDataInTxBuf (void){
 //add a string to the buffer
 void TxBufferedString(char *string){
 	//Hint: look at how you did this for the LCD lab 
+    while(*string != 0) {
+        putCharToTxBuf(*string++);
+    }
 }
 
 //initialise interrupt driven transmission of the Tx buf

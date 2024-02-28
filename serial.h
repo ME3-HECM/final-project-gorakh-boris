@@ -19,11 +19,12 @@ volatile char TxBufWriteCnt=0;
 volatile char TxBufReadCnt=0;
 
 
-//basic EUSART funcitons
+//basic EUSART functions
 void initUSART4(void);
 char getCharSerial4(void);
 void sendCharSerial4(char charToSend);
 void sendStringSerial4(char *string);
+void sendIntSerial4(int integer);
 
 // circular Rx buffer functions (Ex3+)
 char getCharFromRxBuf(void);

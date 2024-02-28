@@ -29,9 +29,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "18 ./color.h
 [; ;./color.h: 18: void color_click_init(void);
 [v _color_click_init `(v ~T0 @X0 0 ef ]
+"23 ./serial.h
+[; ;./serial.h: 23: void initUSART4(void);
+[v _initUSART4 `(v ~T0 @X0 0 ef ]
 "16 ./buggy_lights.h
 [; ;./buggy_lights.h: 16: void lights_flashing(void);
 [v _lights_flashing `(v ~T0 @X0 0 ef ]
+"27 ./serial.h
+[; ;./serial.h: 27: void sendIntSerial4(int integer);
+[v _sendIntSerial4 `(v ~T0 @X0 0 ef1`i ]
 "9 main.c
 [p x FEXTOSC  =  HS      ]
 "10
@@ -2080,87 +2086,130 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _squareDelay
 -> -> 300 `i `ui
 ]
+"13 ./serial.h
+[; ;./serial.h: 13: volatile char EUSART4RXbuf[20];
+[v _EUSART4RXbuf `Vuc ~T0 @X0 -> 20 `i e ]
+"14
+[; ;./serial.h: 14: volatile char RxBufWriteCnt=0;
+[v _RxBufWriteCnt `Vuc ~T0 @X0 1 e ]
+[i _RxBufWriteCnt
+-> -> 0 `i `uc
+]
+"15
+[; ;./serial.h: 15: volatile char RxBufReadCnt=0;
+[v _RxBufReadCnt `Vuc ~T0 @X0 1 e ]
+[i _RxBufReadCnt
+-> -> 0 `i `uc
+]
+"17
+[; ;./serial.h: 17: volatile char EUSART4TXbuf[60];
+[v _EUSART4TXbuf `Vuc ~T0 @X0 -> 60 `i e ]
+"18
+[; ;./serial.h: 18: volatile char TxBufWriteCnt=0;
+[v _TxBufWriteCnt `Vuc ~T0 @X0 1 e ]
+[i _TxBufWriteCnt
+-> -> 0 `i `uc
+]
+"19
+[; ;./serial.h: 19: volatile char TxBufReadCnt=0;
+[v _TxBufReadCnt `Vuc ~T0 @X0 1 e ]
+[i _TxBufReadCnt
+-> -> 0 `i `uc
+]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"24 main.c
-[; ;main.c: 24: void main(void) {
+"25 main.c
+[; ;main.c: 25: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"25
-[; ;main.c: 25:     _delay((unsigned long)((500)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"27
-[; ;main.c: 27:     unsigned int PWMcycle = 99;
+"26
+[; ;main.c: 26:     _delay((unsigned long)((1000)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"28
+[; ;main.c: 28:     unsigned int PWMcycle = 99;
 [v _PWMcycle `ui ~T0 @X0 1 a ]
 [e = _PWMcycle -> -> 99 `i `ui ]
-"28
-[; ;main.c: 28:     initDCmotorsPWM(PWMcycle);
+"29
+[; ;main.c: 29:     initDCmotorsPWM(PWMcycle);
 [e ( _initDCmotorsPWM (1 _PWMcycle ]
-"30
-[; ;main.c: 30:     struct DC_motor motorL, motorR;
+"31
+[; ;main.c: 31:     struct DC_motor motorL, motorR;
 [v _motorL `S2015 ~T0 @X0 1 a ]
 [v _motorR `S2015 ~T0 @X0 1 a ]
-"32
-[; ;main.c: 32:     motorL.power = 0;
-[e = . _motorL 0 -> -> 0 `i `uc ]
 "33
-[; ;main.c: 33:     motorL.direction = 1;
-[e = . _motorL 1 -> -> 1 `i `uc ]
+[; ;main.c: 33:     motorL.power = 0;
+[e = . _motorL 0 -> -> 0 `i `uc ]
 "34
-[; ;main.c: 34:     motorL.brakemode = 1;
-[e = . _motorL 2 -> -> 1 `i `uc ]
+[; ;main.c: 34:     motorL.direction = 1;
+[e = . _motorL 1 -> -> 1 `i `uc ]
 "35
-[; ;main.c: 35:     motorL.PWMperiod = PWMcycle;
-[e = . _motorL 3 _PWMcycle ]
+[; ;main.c: 35:     motorL.brakemode = 1;
+[e = . _motorL 2 -> -> 1 `i `uc ]
 "36
-[; ;main.c: 36:     motorL.posDutyHighByte = (unsigned char *)(&CCPR1H);
-[e = . _motorL 4 -> &U _CCPR1H `*uc ]
+[; ;main.c: 36:     motorL.PWMperiod = PWMcycle;
+[e = . _motorL 3 _PWMcycle ]
 "37
-[; ;main.c: 37:     motorL.negDutyHighByte = (unsigned char *)(&CCPR2H);
+[; ;main.c: 37:     motorL.posDutyHighByte = (unsigned char *)(&CCPR1H);
+[e = . _motorL 4 -> &U _CCPR1H `*uc ]
+"38
+[; ;main.c: 38:     motorL.negDutyHighByte = (unsigned char *)(&CCPR2H);
 [e = . _motorL 5 -> &U _CCPR2H `*uc ]
-"39
-[; ;main.c: 39:     motorR.power = 0;
-[e = . _motorR 0 -> -> 0 `i `uc ]
 "40
-[; ;main.c: 40:     motorR.direction = 1;
-[e = . _motorR 1 -> -> 1 `i `uc ]
+[; ;main.c: 40:     motorR.power = 0;
+[e = . _motorR 0 -> -> 0 `i `uc ]
 "41
-[; ;main.c: 41:     motorR.brakemode = 1;
-[e = . _motorR 2 -> -> 1 `i `uc ]
+[; ;main.c: 41:     motorR.direction = 1;
+[e = . _motorR 1 -> -> 1 `i `uc ]
 "42
-[; ;main.c: 42:     motorR.PWMperiod = PWMcycle;
-[e = . _motorR 3 _PWMcycle ]
+[; ;main.c: 42:     motorR.brakemode = 1;
+[e = . _motorR 2 -> -> 1 `i `uc ]
 "43
-[; ;main.c: 43:     motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
-[e = . _motorR 4 -> &U _CCPR3H `*uc ]
+[; ;main.c: 43:     motorR.PWMperiod = PWMcycle;
+[e = . _motorR 3 _PWMcycle ]
 "44
-[; ;main.c: 44:     motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
+[; ;main.c: 44:     motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
+[e = . _motorR 4 -> &U _CCPR3H `*uc ]
+"45
+[; ;main.c: 45:     motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
 [e = . _motorR 5 -> &U _CCPR4H `*uc ]
-"46
-[; ;main.c: 46:     buggy_lights_init();
-[e ( _buggy_lights_init ..  ]
 "47
-[; ;main.c: 47:     color_click_init();
+[; ;main.c: 47:     buggy_lights_init();
+[e ( _buggy_lights_init ..  ]
+"48
+[; ;main.c: 48:     color_click_init();
 [e ( _color_click_init ..  ]
 "49
-[; ;main.c: 49:     unsigned char backtrack = 0;
+[; ;main.c: 49:     initUSART4();
+[e ( _initUSART4 ..  ]
+"51
+[; ;main.c: 51:     unsigned char backtrack = 0;
 [v _backtrack `uc ~T0 @X0 1 a ]
 [e = _backtrack -> -> 0 `i `uc ]
-"60
-[; ;main.c: 60:     while (1) {
+"62
+[; ;main.c: 62:     int count = 0;
+[v _count `i ~T0 @X0 1 a ]
+[e = _count -> 0 `i ]
+"64
+[; ;main.c: 64:     while (1) {
 [e :U 2019 ]
 {
-"61
-[; ;main.c: 61:         lights_flashing();
+"65
+[; ;main.c: 65:         lights_flashing();
 [e ( _lights_flashing ..  ]
-"62
-[; ;main.c: 62:     }
+"66
+[; ;main.c: 66:         sendIntSerial4(count);
+[e ( _sendIntSerial4 (1 _count ]
+"67
+[; ;main.c: 67:         count++;
+[e ++ _count -> 1 `i ]
+"68
+[; ;main.c: 68:     }
 }
 [e :U 2018 ]
 [e $U 2019  ]
 [e :U 2020 ]
-"63
-[; ;main.c: 63: }
+"69
+[; ;main.c: 69: }
 [e :UE 2017 ]
 }

@@ -24234,11 +24234,42 @@ unsigned int color_read_Clear(void);
 unsigned int getRGBCval(struct RGBC_val *p);
 # 20 "main.c" 2
 
+# 1 "./serial.h" 1
+# 13 "./serial.h"
+volatile char EUSART4RXbuf[20];
+volatile char RxBufWriteCnt=0;
+volatile char RxBufReadCnt=0;
+
+volatile char EUSART4TXbuf[60];
+volatile char TxBufWriteCnt=0;
+volatile char TxBufReadCnt=0;
+
+
+
+void initUSART4(void);
+char getCharSerial4(void);
+void sendCharSerial4(char charToSend);
+void sendStringSerial4(char *string);
+void sendIntSerial4(int integer);
+
+
+char getCharFromRxBuf(void);
+void putCharToRxBuf(char byte);
+char isDataInRxBuf (void);
+
+
+char getCharFromTxBuf(void);
+void putCharToTxBuf(char byte);
+char isDataInTxBuf (void);
+void TxBufferedString(char *string);
+void sendTxBuf(void);
+# 21 "main.c" 2
+
 
 
 
 void main(void) {
-    _delay((unsigned long)((500)*(64000000/4000.0)));
+    _delay((unsigned long)((1000)*(64000000/4000.0)));
 
     unsigned int PWMcycle = 99;
     initDCmotorsPWM(PWMcycle);
@@ -24261,10 +24292,15 @@ void main(void) {
 
     buggy_lights_init();
     color_click_init();
+    initUSART4();
 
     unsigned char backtrack = 0;
-# 60 "main.c"
+# 62 "main.c"
+    int count = 0;
+
     while (1) {
         lights_flashing();
+        sendIntSerial4(count);
+        count++;
     }
 }
