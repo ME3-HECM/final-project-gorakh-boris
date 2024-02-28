@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "timers.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,23 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-
-
-
-
-
-
-
-
-#pragma config FEXTOSC = HS
-#pragma config RSTOSC = EXTOSC_4PLL
-
-
-#pragma config WDTCPS = WDTCPS_31
-#pragma config WDTE = OFF
-
-
+# 1 "timers.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24104,166 +24088,7 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 16 "main.c" 2
-
-# 1 "./dc_motor.h" 1
-
-
-
-
-
-
-
-typedef struct DC_motor {
-    char power;
-    char direction;
-    char brakemode;
-    unsigned int PWMperiod;
-    unsigned char *posDutyHighByte;
-    unsigned char *negDutyHighByte;
-} DC_motor;
-
-unsigned char rampDelay = 8;
-
-unsigned char topGearLeft = 30;
-unsigned char topGearRight = 32;
-
-unsigned char turningGear = 42;
-
-unsigned int turnLeft90Delay = 175;
-unsigned int turnRight90Delay = 175;
-unsigned int turnLeft135Delay = 300;
-unsigned int turnRight135Delay = 300;
-unsigned int turn180Delay = 510;
-
-unsigned int headbuttDelay = 70;
-unsigned int squareDelay = 300;
-
-
-void initDCmotorsPWM(unsigned int PWMperiod);
-void setMotorPWM(DC_motor *m);
-
-void stop(DC_motor *mL, DC_motor *mR);
-void turnLeft(DC_motor *mL, DC_motor *mR);
-void turnRight(DC_motor *mL, DC_motor *mR);
-void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
-void fullSpeedReverse(DC_motor *mL, DC_motor *mR);
-
-void turnLeft90(DC_motor *mL, DC_motor *mR);
-void turnRight90(DC_motor *mL, DC_motor *mR);
-void turnLeft135(DC_motor *mL, DC_motor *mR);
-void turnRight135(DC_motor *mL, DC_motor *mR);
-void UTurn(DC_motor *mL, DC_motor *mR);
-void headbuttReverse(DC_motor *mL, DC_motor *mR);
-void squareReverse(DC_motor *mL, DC_motor *mR);
-# 17 "main.c" 2
-
-# 1 "./buggy_lights.h" 1
-# 15 "./buggy_lights.h"
-void buggy_lights_init(void);
-void lights_flashing(void);
-# 18 "main.c" 2
-
-# 1 "./manoeuvres.h" 1
-# 13 "./manoeuvres.h"
-void cardRed(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardGreen(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardBlue(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardYellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardWhite(DC_motor *mL, DC_motor *mR);
-# 19 "main.c" 2
-
-# 1 "./color.h" 1
-
-
-
-
-
-
-
-
-typedef struct RGBC_val {
- unsigned int R;
- unsigned int G;
- unsigned int B;
-    unsigned int C;
-};
-
-
-
-void color_click_init(void);
-
-
-
-
-
-
-void color_writetoaddr(char address, char value);
-
-
-
-
-
-unsigned int color_read_Red(void);
-
-
-
-
-
-unsigned int color_read_Blue(void);
-
-
-
-
-
-unsigned int color_read_Green(void);
-
-
-
-
-
-unsigned int color_read_Clear(void);
-
-
-
-
-
-unsigned int getRGBCval(struct RGBC_val *p);
-# 20 "main.c" 2
-
-# 1 "./serial.h" 1
-# 13 "./serial.h"
-volatile char EUSART4RXbuf[20];
-volatile char RxBufWriteCnt=0;
-volatile char RxBufReadCnt=0;
-
-volatile char EUSART4TXbuf[60];
-volatile char TxBufWriteCnt=0;
-volatile char TxBufReadCnt=0;
-
-
-
-void initUSART4(void);
-char getCharSerial4(void);
-void sendCharSerial4(char charToSend);
-void sendStringSerial4(char *string);
-void sendIntSerial4(int integer);
-
-
-char getCharFromRxBuf(void);
-void putCharToRxBuf(char byte);
-char isDataInRxBuf (void);
-
-
-char getCharFromTxBuf(void);
-void putCharToTxBuf(char byte);
-char isDataInTxBuf (void);
-void TxBufferedString(char *string);
-void sendTxBuf(void);
-# 21 "main.c" 2
+# 1 "timers.c" 2
 
 # 1 "./timers.h" 1
 
@@ -24277,42 +24102,36 @@ unsigned int timer_count = 0;
 
 void Timer0_init(void);
 void __attribute__((picinterrupt(("")))) ISR();
-# 22 "main.c" 2
+# 2 "timers.c" 2
 
 
 
 
-void main(void) {
-    _delay((unsigned long)((1000)*(64000000/4000.0)));
 
-    unsigned int PWMcycle = 99;
-    initDCmotorsPWM(PWMcycle);
+void Timer0_init(void)
+{
+    T0CON1bits.T0CS=0b010;
+    T0CON1bits.T0ASYNC=1;
+    T0CON0bits.T016BIT=1;
 
-    struct DC_motor motorL, motorR;
+    T0CON1bits.T0CKPS=0b1000;
+    TMR0H=0b00001011;
+    TMR0L=0b11011100;
+# 39 "timers.c"
+    T0CON0bits.T0EN=1;
+    PIE0bits.TMR0IE = 1;
+    INTCONbits.PEIE = 1;
+    INTCONbits.GIE = 1;
+}
 
-    motorL.power = 0;
-    motorL.direction = 1;
-    motorL.brakemode = 1;
-    motorL.PWMperiod = PWMcycle;
-    motorL.posDutyHighByte = (unsigned char *)(&CCPR1H);
-    motorL.negDutyHighByte = (unsigned char *)(&CCPR2H);
+void __attribute__((picinterrupt(("")))) ISR()
+{
 
-    motorR.power = 0;
-    motorR.direction = 1;
-    motorR.brakemode = 1;
-    motorR.PWMperiod = PWMcycle;
-    motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
-    motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
-
-    buggy_lights_init();
-    color_click_init();
-    initUSART4();
-    Timer0_init();
-
-    unsigned char backtrack = 0;
-# 64 "main.c"
-    while (1) {
-        sendIntSerial4((int)timer_count);
-        lights_flashing();
+    if (PIR0bits.TMR0IF) {
+# 67 "timers.c"
+        timer_count++;
+        TMR0H=0b00001011;
+        TMR0L=0b11011100;
+        PIR0bits.TMR0IF = 0;
     }
 }
