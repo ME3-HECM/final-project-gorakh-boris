@@ -24310,5 +24310,9 @@ void main(void) {
     Timer0_init();
 
     unsigned char backtrack = 0;
-# 68 "main.c"
+# 64 "main.c"
+    while (1) {
+        sendIntSerial4((int)timer_count);
+        lights_flashing();
+    }
 }

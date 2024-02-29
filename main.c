@@ -61,8 +61,8 @@ void main(void) {
     //cardCyan(&motorL, &motorR, backtrack);
     //cardWhite(&motorL, &motorR);
     
-    //while (1) {
-        //sendIntSerial4((int)timer_count);
-        //lights_flashing();
-    //}
+    while (1) {
+        sendIntSerial4((int)timer_count);
+        lights_flashing();
+    }
 }

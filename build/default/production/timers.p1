@@ -37,12 +37,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "39277
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 39277: extern volatile T0CON0bits_t T0CON0bits __attribute__((address(0xFD5)));
 [v _T0CON0bits `VS1921 ~T0 @X0 0 e@4053 ]
-"39003
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 39003: extern volatile unsigned char TMR0H __attribute__((address(0xFD4)));
-[v _TMR0H `Vuc ~T0 @X0 0 e@4052 ]
-"38865
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 38865: extern volatile unsigned char TMR0L __attribute__((address(0xFD3)));
-[v _TMR0L `Vuc ~T0 @X0 0 e@4051 ]
 "4548
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 4548:     struct {
 [s S262 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -2084,60 +2078,48 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;timers.c: 11:     T0CON0bits.T016BIT=1;
 [e = . . _T0CON0bits 0 1 -> -> 1 `i `uc ]
 "13
-[; ;timers.c: 13:     T0CON1bits.T0CKPS=0b1000;
-[e = . . _T0CON1bits 0 0 -> -> 8 `i `uc ]
-"14
-[; ;timers.c: 14:     TMR0H=0b00001011;
-[e = _TMR0H -> -> 11 `i `uc ]
-"15
-[; ;timers.c: 15:     TMR0L=0b11011100;
-[e = _TMR0L -> -> 220 `i `uc ]
-"39
-[; ;timers.c: 39:     T0CON0bits.T0EN=1;
+[; ;timers.c: 13:     T0CON1bits.T0CKPS=0b1110;
+[e = . . _T0CON1bits 0 0 -> -> 14 `i `uc ]
+"21
+[; ;timers.c: 21:     T0CON0bits.T0EN=1;
 [e = . . _T0CON0bits 0 4 -> -> 1 `i `uc ]
-"40
-[; ;timers.c: 40:     PIE0bits.TMR0IE = 1;
+"22
+[; ;timers.c: 22:     PIE0bits.TMR0IE = 1;
 [e = . . _PIE0bits 0 5 -> -> 1 `i `uc ]
-"41
-[; ;timers.c: 41:     INTCONbits.PEIE = 1;
+"23
+[; ;timers.c: 23:     INTCONbits.PEIE = 1;
 [e = . . _INTCONbits 1 1 -> -> 1 `i `uc ]
-"42
-[; ;timers.c: 42:     INTCONbits.GIE = 1;
+"24
+[; ;timers.c: 24:     INTCONbits.GIE = 1;
 [e = . . _INTCONbits 1 2 -> -> 1 `i `uc ]
-"43
-[; ;timers.c: 43: }
+"25
+[; ;timers.c: 25: }
 [e :UE 2015 ]
 }
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"45
-[; ;timers.c: 45: void __attribute__((picinterrupt(("")))) ISR()
+"27
+[; ;timers.c: 27: void __attribute__((picinterrupt(("")))) ISR()
 [v _ISR `(v ~T2 @X0 1 ef ]
-"46
-[; ;timers.c: 46: {
+"28
+[; ;timers.c: 28: {
 {
 [e :U _ISR ]
 [f ]
-"48
-[; ;timers.c: 48:     if (PIR0bits.TMR0IF) {
+"30
+[; ;timers.c: 30:     if (PIR0bits.TMR0IF) {
 [e $ ! != -> . . _PIR0bits 0 5 `i -> 0 `i 2017  ]
 {
-"67
-[; ;timers.c: 67:         timer_count++;
+"31
+[; ;timers.c: 31:         timer_count++;
 [e ++ _timer_count -> -> 1 `i `ui ]
-"68
-[; ;timers.c: 68:         TMR0H=0b00001011;
-[e = _TMR0H -> -> 11 `i `uc ]
-"69
-[; ;timers.c: 69:         TMR0L=0b11011100;
-[e = _TMR0L -> -> 220 `i `uc ]
-"70
-[; ;timers.c: 70:         PIR0bits.TMR0IF = 0;
+"32
+[; ;timers.c: 32:         PIR0bits.TMR0IF = 0;
 [e = . . _PIR0bits 0 5 -> -> 0 `i `uc ]
-"71
-[; ;timers.c: 71:     }
+"33
+[; ;timers.c: 33:     }
 }
 [e :U 2017 ]
-"72
-[; ;timers.c: 72: }
+"34
+[; ;timers.c: 34: }
 [e :UE 2016 ]
 }

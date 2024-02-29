@@ -1,4 +1,4 @@
-# 1 "timers.c"
+# 1 "calibration.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "timers.c" 2
+# 1 "calibration.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24088,51 +24088,8 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 1 "timers.c" 2
+# 1 "calibration.c" 2
 
-# 1 "./timers.h" 1
+# 1 "./calibration.h" 1
+# 2 "calibration.c" 2
 
-
-
-
-
-
-
-unsigned int timer_count = 0;
-
-void Timer0_init(void);
-void __attribute__((picinterrupt(("")))) ISR();
-# 2 "timers.c" 2
-
-
-
-
-
-void Timer0_init(void)
-{
-    T0CON1bits.T0CS=0b010;
-    T0CON1bits.T0ASYNC=1;
-    T0CON0bits.T016BIT=1;
-
-    T0CON1bits.T0CKPS=0b1110;
-
-
-
-
-
-
-
-    T0CON0bits.T0EN=1;
-    PIE0bits.TMR0IE = 1;
-    INTCONbits.PEIE = 1;
-    INTCONbits.GIE = 1;
-}
-
-void __attribute__((picinterrupt(("")))) ISR()
-{
-
-    if (PIR0bits.TMR0IF) {
-        timer_count++;
-        PIR0bits.TMR0IF = 0;
-    }
-}
