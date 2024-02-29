@@ -22,8 +22,8 @@ void buggy_lights_init(void)
     TRISDbits.TRISD7 = 0;
     TRISHbits.TRISH3 = 0;
     //set up initial LAT values
-    LATDbits.LATD7 = 0;
-    LATHbits.LATH3 = 0;
+    LATDbits.LATD7 = 1;
+    LATHbits.LATH3 = 1;
     
     //initialise the three LED pins on the colour board
     

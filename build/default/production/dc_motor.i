@@ -24169,7 +24169,7 @@ void initDCmotorsPWM(unsigned int PWMperiod){
 
 
 
-    T2PR=PWMperiod;
+    T2PR=(unsigned char)PWMperiod;
     T2CONbits.ON=1;
 
 
@@ -24209,12 +24209,12 @@ void setMotorPWM(DC_motor *m)
     unsigned char posDuty, negDuty;
 
     if(m->brakemode) {
-        posDuty=m->PWMperiod - ((unsigned int)(m->power)*(m->PWMperiod))/100;
-        negDuty=m->PWMperiod;
+        posDuty=(unsigned char)(m->PWMperiod - ((unsigned int)(m->power)*(m->PWMperiod))/100);
+        negDuty=(unsigned char)(m->PWMperiod);
     }
     else {
         posDuty=0;
-  negDuty=((unsigned int)(m->power)*(m->PWMperiod))/100;
+  negDuty=(unsigned char)(((unsigned int)(m->power)*(m->PWMperiod))/100);
     }
 
     if (m->direction) {

@@ -2385,7 +2385,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 26:     T2CLKCONbits.CS=0b0001;
 [e = . . _T2CLKCONbits 0 0 -> -> 1 `i `uc ]
 "30
-[; ;dc_motor.c: 30:     T2PR=PWMperiod;
+[; ;dc_motor.c: 30:     T2PR=(unsigned char)PWMperiod;
 [e = _T2PR -> _PWMperiod `uc ]
 "31
 [; ;dc_motor.c: 31:     T2CONbits.ON=1;
@@ -2476,10 +2476,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! != -> . *U _m 2 `i -> 0 `i 2018  ]
 {
 "70
-[; ;dc_motor.c: 70:         posDuty=m->PWMperiod - ((unsigned int)(m->power)*(m->PWMperiod))/100;
+[; ;dc_motor.c: 70:         posDuty=(unsigned char)(m->PWMperiod - ((unsigned int)(m->power)*(m->PWMperiod))/100);
 [e = _posDuty -> - . *U _m 3 / * -> . *U _m 0 `ui . *U _m 3 -> -> 100 `i `ui `uc ]
 "71
-[; ;dc_motor.c: 71:         negDuty=m->PWMperiod;
+[; ;dc_motor.c: 71:         negDuty=(unsigned char)(m->PWMperiod);
 [e = _negDuty -> . *U _m 3 `uc ]
 "72
 [; ;dc_motor.c: 72:     }
@@ -2493,7 +2493,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 74:         posDuty=0;
 [e = _posDuty -> -> 0 `i `uc ]
 "75
-[; ;dc_motor.c: 75:   negDuty=((unsigned int)(m->power)*(m->PWMperiod))/100;
+[; ;dc_motor.c: 75:   negDuty=(unsigned char)(((unsigned int)(m->power)*(m->PWMperiod))/100);
 [e = _negDuty -> / * -> . *U _m 0 `ui . *U _m 3 -> -> 100 `i `ui `uc ]
 "76
 [; ;dc_motor.c: 76:     }

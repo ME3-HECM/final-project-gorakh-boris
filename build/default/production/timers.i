@@ -24098,8 +24098,6 @@ unsigned char __t3rd16on(void);
 
 
 
-unsigned int timer_count = 0;
-
 void Timer0_init(void);
 void __attribute__((picinterrupt(("")))) ISR();
 # 2 "timers.c" 2
@@ -24121,6 +24119,8 @@ void Timer0_init(void)
 
 
 
+    TMR0H = 0;
+    TMR0L = 0;
 
     T0CON0bits.T0EN=1;
     PIE0bits.TMR0IE = 1;
@@ -24132,7 +24132,9 @@ void __attribute__((picinterrupt(("")))) ISR()
 {
 
     if (PIR0bits.TMR0IF) {
-        timer_count++;
+
+
+
         PIR0bits.TMR0IF = 0;
     }
 }

@@ -24273,8 +24273,6 @@ void sendTxBuf(void);
 
 
 
-unsigned int timer_count = 0;
-
 void Timer0_init(void);
 void __attribute__((picinterrupt(("")))) ISR();
 # 22 "main.c" 2
@@ -24312,7 +24310,8 @@ void main(void) {
     unsigned char backtrack = 0;
 # 64 "main.c"
     while (1) {
-        sendIntSerial4((int)timer_count);
+        sendIntSerial4((int)TMR0L);
+        sendIntSerial4((int)TMR0H);
         lights_flashing();
     }
 }

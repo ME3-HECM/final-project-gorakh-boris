@@ -27,7 +27,7 @@ void initDCmotorsPWM(unsigned int PWMperiod){
 
     // Tpwm*(Fosc/4)/prescaler - 1 = PTPER
     // 0.0001s*16MHz/16 -1 = 99
-    T2PR=PWMperiod; //Period reg 10kHz base period
+    T2PR=(unsigned char)PWMperiod; //Period reg 10kHz base period
     T2CONbits.ON=1;
     
     //setup CCP modules to output PMW signals
@@ -67,12 +67,12 @@ void setMotorPWM(DC_motor *m)
     unsigned char posDuty, negDuty; //duty cycle values for different sides of the motor
     
     if(m->brakemode) {
-        posDuty=m->PWMperiod - ((unsigned int)(m->power)*(m->PWMperiod))/100; //inverted PWM duty
-        negDuty=m->PWMperiod; //other side of motor is high all the time
+        posDuty=(unsigned char)(m->PWMperiod - ((unsigned int)(m->power)*(m->PWMperiod))/100); //inverted PWM duty
+        negDuty=(unsigned char)(m->PWMperiod); //other side of motor is high all the time
     }
     else {
         posDuty=0; //other side of motor is low all the time
-		negDuty=((unsigned int)(m->power)*(m->PWMperiod))/100; // PWM duty
+		negDuty=(unsigned char)(((unsigned int)(m->power)*(m->PWMperiod))/100); // PWM duty
     }
     
     if (m->direction) {

@@ -17,6 +17,8 @@ void Timer0_init(void)
     //REMEMBER TIMER READ AND WRITE ORDER
     //Read TMR0L first before TMR0H
     //Write TMR0H first before TMR0L
+    TMR0H = 0;                  //initial zero value
+    TMR0L = 0;                  //initial zero value
     
     T0CON0bits.T0EN=1;      //start the timer
     PIE0bits.TMR0IE = 1;    //initialise timer 0 interrupt
@@ -28,7 +30,9 @@ void __interrupt() ISR()
 {    
     // timer interrupt
     if (PIR0bits.TMR0IF) {
-        timer_count++;
+        /*
+         (some code about being lost and backtracking)
+         */
         PIR0bits.TMR0IF = 0;        //reset timer interrupt flag
     }
 }

@@ -125,7 +125,7 @@
 [v _isDataInTxBuf isDataInTxBuf `(uc  1 e 1 0 ]
 "7 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
 [v _Timer0_init Timer0_init `(v  1 e 1 0 ]
-"27
+"29
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 "13 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X/serial.h
 [v _EUSART4RXbuf EUSART4RXbuf `VE[20]uc  1 e 20 0 ]
@@ -139,15 +139,13 @@
 [v _TxBufWriteCnt TxBufWriteCnt `VEuc  1 e 1 0 ]
 "19
 [v _TxBufReadCnt TxBufReadCnt `VEuc  1 e 1 0 ]
-"8 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X/timers.h
-[v _timer_count timer_count `ui  1 e 2 0 ]
 "3182 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
 [v _RX4PPS RX4PPS `VEuc  1 e 1 @3605 ]
 "3796
 [v _SSP2CLKPPS SSP2CLKPPS `VEuc  1 e 1 @3612 ]
 "3862
 [v _SSP2DATPPS SSP2DATPPS `VEuc  1 e 1 @3613 ]
-[s S1881 . 1 `uc 1 INT0IE 1 0 :1:0 
+[s S1884 . 1 `uc 1 INT0IE 1 0 :1:0 
 `uc 1 INT1IE 1 0 :1:1 
 `uc 1 INT2IE 1 0 :1:2 
 `uc 1 INT3IE 1 0 :1:3 
@@ -155,9 +153,9 @@
 `uc 1 TMR0IE 1 0 :1:5 
 ]
 "4557
-[u S1888 . 1 `S1881 1 . 1 0 ]
-[v _PIE0bits PIE0bits `VES1888  1 e 1 @3625 ]
-[s S1662 . 1 `uc 1 TX3IE 1 0 :1:0 
+[u S1891 . 1 `S1884 1 . 1 0 ]
+[v _PIE0bits PIE0bits `VES1891  1 e 1 @3625 ]
+[s S1663 . 1 `uc 1 TX3IE 1 0 :1:0 
 `uc 1 RC3IE 1 0 :1:1 
 `uc 1 TX4IE 1 0 :1:2 
 `uc 1 RC4IE 1 0 :1:3 
@@ -165,9 +163,9 @@
 `uc 1 RC5IE 1 0 :1:5 
 ]
 "4819
-[u S1669 . 1 `S1662 1 . 1 0 ]
-[v _PIE4bits PIE4bits `VES1669  1 e 1 @3629 ]
-[s S1937 . 1 `uc 1 INT0IF 1 0 :1:0 
+[u S1670 . 1 `S1663 1 . 1 0 ]
+[v _PIE4bits PIE4bits `VES1670  1 e 1 @3629 ]
+[s S1940 . 1 `uc 1 INT0IF 1 0 :1:0 
 `uc 1 INT1IF 1 0 :1:1 
 `uc 1 INT2IF 1 0 :1:2 
 `uc 1 INT3IF 1 0 :1:3 
@@ -175,9 +173,9 @@
 `uc 1 TMR0IF 1 0 :1:5 
 ]
 "5102
-[u S1944 . 1 `S1937 1 . 1 0 ]
-[v _PIR0bits PIR0bits `VES1944  1 e 1 @3635 ]
-[s S1637 . 1 `uc 1 TX3IF 1 0 :1:0 
+[u S1947 . 1 `S1940 1 . 1 0 ]
+[v _PIR0bits PIR0bits `VES1947  1 e 1 @3635 ]
+[s S1638 . 1 `uc 1 TX3IF 1 0 :1:0 
 `uc 1 RC3IF 1 0 :1:1 
 `uc 1 TX4IF 1 0 :1:2 
 `uc 1 RC4IF 1 0 :1:3 
@@ -185,8 +183,8 @@
 `uc 1 RC5IF 1 0 :1:5 
 ]
 "5332
-[u S1644 . 1 `S1637 1 . 1 0 ]
-[v _PIR4bits PIR4bits `VES1644  1 e 1 @3639 ]
+[u S1645 . 1 `S1638 1 . 1 0 ]
+[v _PIR4bits PIR4bits `VES1645  1 e 1 @3639 ]
 "7858
 [v _RC0PPS RC0PPS `VEuc  1 e 1 @3682 ]
 "8208
@@ -290,7 +288,7 @@
 [v _SP4BRGL SP4BRGL `VEuc  1 e 1 @3813 ]
 "15807
 [v _SP4BRGH SP4BRGH `VEuc  1 e 1 @3814 ]
-[s S1616 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S1617 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -300,9 +298,9 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "15867
-[u S1625 . 1 `S1616 1 . 1 0 ]
-[v _RC4STAbits RC4STAbits `VES1625  1 e 1 @3815 ]
-[s S1593 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S1626 . 1 `S1617 1 . 1 0 ]
+[v _RC4STAbits RC4STAbits `VES1626  1 e 1 @3815 ]
+[s S1594 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -312,9 +310,9 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "15989
-[u S1602 . 1 `S1593 1 . 1 0 ]
-[v _TX4STAbits TX4STAbits `VES1602  1 e 1 @3816 ]
-[s S1572 . 1 `uc 1 ABDEN 1 0 :1:0 
+[u S1603 . 1 `S1594 1 . 1 0 ]
+[v _TX4STAbits TX4STAbits `VES1603  1 e 1 @3816 ]
+[s S1573 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -324,8 +322,8 @@
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "16115
-[u S1581 . 1 `S1572 1 . 1 0 ]
-[v _BAUD4CONbits BAUD4CONbits `VES1581  1 e 1 @3817 ]
+[u S1582 . 1 `S1573 1 . 1 0 ]
+[v _BAUD4CONbits BAUD4CONbits `VES1582  1 e 1 @3817 ]
 "20738
 [v _CCPR4H CCPR4H `VEuc  1 e 1 @3873 ]
 [s S1009 . 1 `uc 1 MODE 1 0 :4:0 
@@ -756,29 +754,33 @@
 "35949
 "35949
 [v _T2CLKCONbits T2CLKCONbits `VES845  1 e 1 @4031 ]
-[s S1855 . 1 `uc 1 T0OUTPS 1 0 :4:0 
+"38865
+[v _TMR0L TMR0L `VEuc  1 e 1 @4051 ]
+"39003
+[v _TMR0H TMR0H `VEuc  1 e 1 @4052 ]
+[s S1856 . 1 `uc 1 T0OUTPS 1 0 :4:0 
 `uc 1 T016BIT 1 0 :1:4 
 `uc 1 T0OUT 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 T0EN 1 0 :1:7 
 ]
 "39277
-[s S1861 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
+[s S1862 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
 `uc 1 T0OUTPS1 1 0 :1:1 
 `uc 1 T0OUTPS2 1 0 :1:2 
 `uc 1 T0OUTPS3 1 0 :1:3 
 ]
 "39277
-[u S1866 . 1 `S1855 1 . 1 0 `S1861 1 . 1 0 ]
+[u S1867 . 1 `S1856 1 . 1 0 `S1862 1 . 1 0 ]
 "39277
 "39277
-[v _T0CON0bits T0CON0bits `VES1866  1 e 1 @4053 ]
-[s S1809 . 1 `uc 1 T0CKPS 1 0 :4:0 
+[v _T0CON0bits T0CON0bits `VES1867  1 e 1 @4053 ]
+[s S1810 . 1 `uc 1 T0CKPS 1 0 :4:0 
 `uc 1 T0ASYNC 1 0 :1:4 
 `uc 1 T0CS 1 0 :3:5 
 ]
 "39353
-[s S1813 . 1 `uc 1 T0CKPS0 1 0 :1:0 
+[s S1814 . 1 `uc 1 T0CKPS0 1 0 :1:0 
 `uc 1 T0CKPS1 1 0 :1:1 
 `uc 1 T0CKPS2 1 0 :1:2 
 `uc 1 T0CKPS3 1 0 :1:3 
@@ -788,20 +790,20 @@
 `uc 1 T0CS2 1 0 :1:7 
 ]
 "39353
-[s S1822 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S1823 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 `uc 1 T0PS3 1 0 :1:3 
 ]
 "39353
-[s S1827 . 1 `uc 1 T0PS 1 0 :4:0 
+[s S1828 . 1 `uc 1 T0PS 1 0 :4:0 
 ]
 "39353
-[u S1829 . 1 `S1809 1 . 1 0 `S1813 1 . 1 0 `S1822 1 . 1 0 `S1827 1 . 1 0 ]
+[u S1830 . 1 `S1810 1 . 1 0 `S1814 1 . 1 0 `S1823 1 . 1 0 `S1828 1 . 1 0 ]
 "39353
 "39353
-[v _T0CON1bits T0CON1bits `VES1829  1 e 1 @4054 ]
-[s S1898 . 1 `uc 1 INT0EDG 1 0 :1:0 
+[v _T0CON1bits T0CON1bits `VES1830  1 e 1 @4054 ]
+[s S1901 . 1 `uc 1 INT0EDG 1 0 :1:0 
 `uc 1 INT1EDG 1 0 :1:1 
 `uc 1 INT2EDG 1 0 :1:2 
 `uc 1 INT3EDG 1 0 :1:3 
@@ -811,20 +813,20 @@
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "40176
-[s S1907 . 1 `uc 1 . 1 0 :6:0 
+[s S1910 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
 "40176
-[s S1911 . 1 `uc 1 . 1 0 :6:0 
+[s S1914 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
 "40176
-[u S1915 . 1 `S1898 1 . 1 0 `S1907 1 . 1 0 `S1911 1 . 1 0 ]
+[u S1918 . 1 `S1901 1 . 1 0 `S1910 1 . 1 0 `S1914 1 . 1 0 ]
 "40176
 "40176
-[v _INTCONbits INTCONbits `VES1915  1 e 1 @4082 ]
+[v _INTCONbits INTCONbits `VES1918  1 e 1 @4082 ]
 "153 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
 [v _prec prec `i  1 s 2 prec ]
 [v _width width `i  1 s 2 width ]
@@ -839,7 +841,7 @@
 "32
 [v main@motorR motorR `S1109  1 a 9 72 ]
 [v main@motorL motorL `S1109  1 a 9 63 ]
-"68
+"69
 } 0
 "44 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
 [v _sendIntSerial4 sendIntSerial4 `(v  1 e 1 0 ]
@@ -853,10 +855,10 @@
 "9 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[u S2421 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[u S2423 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
 "13
-[s S2424 _IO_FILE 12 `S2421 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v sprintf@f f `S2424  1 a 12 30 ]
+[s S2426 _IO_FILE 12 `S2423 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v sprintf@f f `S2426  1 a 12 30 ]
 "12
 [v sprintf@ap ap `[1]*.30v  1 a 1 29 ]
 "9
@@ -869,9 +871,9 @@
 {
 "1820
 [v vfprintf@cfmt cfmt `*.31uc  1 a 1 24 ]
-[s S2456 _IO_FILE 0 ]
+[s S2458 _IO_FILE 0 ]
 "1817
-[v vfprintf@fp fp `*.30S2456  1 p 1 21 ]
+[v vfprintf@fp fp `*.30S2458  1 p 1 21 ]
 [v vfprintf@fmt fmt `*.31Cuc  1 p 1 22 ]
 [v vfprintf@ap ap `*.30*.30v  1 p 1 23 ]
 "1840
@@ -879,17 +881,17 @@
 "1177
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-[u S2469 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
+[u S2471 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
 "1188
-[v vfpfcnvrt@convarg convarg `S2469  1 a 4 16 ]
+[v vfpfcnvrt@convarg convarg `S2471  1 a 4 16 ]
 "1179
 [v vfpfcnvrt@c c `uc  1 a 1 20 ]
 [v vfpfcnvrt@cp cp `*.31uc  1 a 1 15 ]
 "1180
 [v vfpfcnvrt@done done `a  1 a 1 14 ]
-[s S2456 _IO_FILE 0 ]
+[s S2458 _IO_FILE 0 ]
 "1177
-[v vfpfcnvrt@fp fp `*.30S2456  1 p 1 10 ]
+[v vfpfcnvrt@fp fp `*.30S2458  1 p 1 10 ]
 [v vfpfcnvrt@fmt fmt `*.30*.31uc  1 p 1 11 ]
 [v vfpfcnvrt@ap ap `*.30*.30v  1 p 1 12 ]
 "1814
@@ -898,9 +900,9 @@
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 0 ]
-[u S2421 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S2424 _IO_FILE 12 `S2421 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v fputc@fp fp `*.30S2424  1 p 1 2 ]
+[u S2423 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S2426 _IO_FILE 12 `S2423 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v fputc@fp fp `*.30S2426  1 p 1 2 ]
 "24
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\putch.c
@@ -1019,10 +1021,10 @@
 "7 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
 [v _Timer0_init Timer0_init `(v  1 e 1 0 ]
 {
-"25
-} 0
 "27
+} 0
+"29
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 {
-"34
+"38
 } 0

@@ -2220,11 +2220,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;buggy_lights.c: 23:     TRISHbits.TRISH3 = 0;
 [e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
 "25
-[; ;buggy_lights.c: 25:     LATDbits.LATD7 = 0;
-[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 25:     LATDbits.LATD7 = 1;
+[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
 "26
-[; ;buggy_lights.c: 26:     LATHbits.LATH3 = 0;
-[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 26:     LATHbits.LATH3 = 1;
+[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
 "32
 [; ;buggy_lights.c: 32:         TRISAbits.TRISA0 = 0;
 [e = . . _TRISAbits 0 0 -> -> 0 `i `uc ]

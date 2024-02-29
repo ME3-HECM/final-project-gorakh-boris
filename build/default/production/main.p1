@@ -32,12 +32,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "23 ./serial.h
 [; ;./serial.h: 23: void initUSART4(void);
 [v _initUSART4 `(v ~T0 @X0 0 ef ]
-"10 ./timers.h
-[; ;./timers.h: 10: void Timer0_init(void);
+"8 ./timers.h
+[; ;./timers.h: 8: void Timer0_init(void);
 [v _Timer0_init `(v ~T0 @X0 0 ef ]
 "27 ./serial.h
 [; ;./serial.h: 27: void sendIntSerial4(int integer);
 [v _sendIntSerial4 `(v ~T0 @X0 0 ef1`i ]
+"38865 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 38865: extern volatile unsigned char TMR0L __attribute__((address(0xFD3)));
+[v _TMR0L `Vuc ~T0 @X0 0 e@4051 ]
+"39003
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 39003: extern volatile unsigned char TMR0H __attribute__((address(0xFD4)));
+[v _TMR0H `Vuc ~T0 @X0 0 e@4052 ]
 "16 ./buggy_lights.h
 [; ;./buggy_lights.h: 16: void lights_flashing(void);
 [v _lights_flashing `(v ~T0 @X0 0 ef ]
@@ -2119,12 +2125,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _TxBufReadCnt
 -> -> 0 `i `uc
 ]
-"8 ./timers.h
-[; ;./timers.h: 8: unsigned int timer_count = 0;
-[v _timer_count `ui ~T0 @X0 1 e ]
-[i _timer_count
--> -> 0 `i `ui
-]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "26 main.c
 [; ;main.c: 26: void main(void) {
@@ -2203,18 +2203,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2019 ]
 {
 "65
-[; ;main.c: 65:         sendIntSerial4((int)timer_count);
-[e ( _sendIntSerial4 (1 -> _timer_count `i ]
+[; ;main.c: 65:         sendIntSerial4((int)TMR0L);
+[e ( _sendIntSerial4 (1 -> _TMR0L `i ]
 "66
-[; ;main.c: 66:         lights_flashing();
-[e ( _lights_flashing ..  ]
+[; ;main.c: 66:         sendIntSerial4((int)TMR0H);
+[e ( _sendIntSerial4 (1 -> _TMR0H `i ]
 "67
-[; ;main.c: 67:     }
+[; ;main.c: 67:         lights_flashing();
+[e ( _lights_flashing ..  ]
+"68
+[; ;main.c: 68:     }
 }
 [e :U 2018 ]
 [e $U 2019  ]
 [e :U 2020 ]
-"68
-[; ;main.c: 68: }
+"69
+[; ;main.c: 69: }
 [e :UE 2017 ]
 }

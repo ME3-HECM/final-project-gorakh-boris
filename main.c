@@ -62,7 +62,8 @@ void main(void) {
     //cardWhite(&motorL, &motorR);
     
     while (1) {
-        sendIntSerial4((int)timer_count);
+        sendIntSerial4((int)TMR0L);
+        sendIntSerial4((int)TMR0H);
         lights_flashing();
     }
 }

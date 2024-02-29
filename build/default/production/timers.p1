@@ -37,6 +37,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "39277
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 39277: extern volatile T0CON0bits_t T0CON0bits __attribute__((address(0xFD5)));
 [v _T0CON0bits `VS1921 ~T0 @X0 0 e@4053 ]
+"39003
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 39003: extern volatile unsigned char TMR0H __attribute__((address(0xFD4)));
+[v _TMR0H `Vuc ~T0 @X0 0 e@4052 ]
+"38865
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 38865: extern volatile unsigned char TMR0L __attribute__((address(0xFD3)));
+[v _TMR0L `Vuc ~T0 @X0 0 e@4051 ]
 "4548
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 4548:     struct {
 [s S262 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -2054,12 +2060,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40592
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 40592: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"8 ./timers.h
-[; ;./timers.h: 8: unsigned int timer_count = 0;
-[v _timer_count `ui ~T0 @X0 1 e ]
-[i _timer_count
--> -> 0 `i `ui
-]
 "7 timers.c
 [; ;timers.c: 7: void Timer0_init(void)
 [v _Timer0_init `(v ~T0 @X0 1 ef ]
@@ -2080,46 +2080,49 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13
 [; ;timers.c: 13:     T0CON1bits.T0CKPS=0b1110;
 [e = . . _T0CON1bits 0 0 -> -> 14 `i `uc ]
+"20
+[; ;timers.c: 20:     TMR0H = 0;
+[e = _TMR0H -> -> 0 `i `uc ]
 "21
-[; ;timers.c: 21:     T0CON0bits.T0EN=1;
-[e = . . _T0CON0bits 0 4 -> -> 1 `i `uc ]
-"22
-[; ;timers.c: 22:     PIE0bits.TMR0IE = 1;
-[e = . . _PIE0bits 0 5 -> -> 1 `i `uc ]
+[; ;timers.c: 21:     TMR0L = 0;
+[e = _TMR0L -> -> 0 `i `uc ]
 "23
-[; ;timers.c: 23:     INTCONbits.PEIE = 1;
-[e = . . _INTCONbits 1 1 -> -> 1 `i `uc ]
+[; ;timers.c: 23:     T0CON0bits.T0EN=1;
+[e = . . _T0CON0bits 0 4 -> -> 1 `i `uc ]
 "24
-[; ;timers.c: 24:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 1 2 -> -> 1 `i `uc ]
+[; ;timers.c: 24:     PIE0bits.TMR0IE = 1;
+[e = . . _PIE0bits 0 5 -> -> 1 `i `uc ]
 "25
-[; ;timers.c: 25: }
+[; ;timers.c: 25:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 1 1 -> -> 1 `i `uc ]
+"26
+[; ;timers.c: 26:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 1 2 -> -> 1 `i `uc ]
+"27
+[; ;timers.c: 27: }
 [e :UE 2015 ]
 }
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"27
-[; ;timers.c: 27: void __attribute__((picinterrupt(("")))) ISR()
+"29
+[; ;timers.c: 29: void __attribute__((picinterrupt(("")))) ISR()
 [v _ISR `(v ~T2 @X0 1 ef ]
-"28
-[; ;timers.c: 28: {
+"30
+[; ;timers.c: 30: {
 {
 [e :U _ISR ]
 [f ]
-"30
-[; ;timers.c: 30:     if (PIR0bits.TMR0IF) {
+"32
+[; ;timers.c: 32:     if (PIR0bits.TMR0IF) {
 [e $ ! != -> . . _PIR0bits 0 5 `i -> 0 `i 2017  ]
 {
-"31
-[; ;timers.c: 31:         timer_count++;
-[e ++ _timer_count -> -> 1 `i `ui ]
-"32
-[; ;timers.c: 32:         PIR0bits.TMR0IF = 0;
+"36
+[; ;timers.c: 36:         PIR0bits.TMR0IF = 0;
 [e = . . _PIR0bits 0 5 -> -> 0 `i `uc ]
-"33
-[; ;timers.c: 33:     }
+"37
+[; ;timers.c: 37:     }
 }
 [e :U 2017 ]
-"34
-[; ;timers.c: 34: }
+"38
+[; ;timers.c: 38: }
 [e :UE 2016 ]
 }
