@@ -86,6 +86,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5102
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 5102: extern volatile PIR0bits_t PIR0bits __attribute__((address(0xE33)));
 [v _PIR0bits `VS285 ~T0 @X0 0 e@3635 ]
+"28912
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28912:     struct {
+[s S1361 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1361 . LATH0 LATH1 LATH2 LATH3 ]
+"28918
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28918:     struct {
+[s S1362 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1362 . LH0 LH1 LH2 LH3 ]
+"28924
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28924:     struct {
+[s S1363 :4 `uc 1 :1 `uc 1 ]
+[n S1363 . . LH4 ]
+"28928
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28928:     struct {
+[s S1364 :5 `uc 1 :1 `uc 1 ]
+[n S1364 . . LH5 ]
+"28932
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28932:     struct {
+[s S1365 :6 `uc 1 :1 `uc 1 ]
+[n S1365 . . LH6 ]
+"28936
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28936:     struct {
+[s S1366 :7 `uc 1 :1 `uc 1 ]
+[n S1366 . . LH7 ]
+"28911
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28911: typedef union {
+[u S1360 `S1361 1 `S1362 1 `S1363 1 `S1364 1 `S1365 1 `S1366 1 ]
+[n S1360 . . . . . . . ]
+"28941
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28941: extern volatile LATHbits_t LATHbits __attribute__((address(0xF80)));
+[v _LATHbits `VS1360 ~T0 @X0 0 e@3968 ]
 "54 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2060,6 +2091,51 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40592
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 40592: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
+"8 ./timers.h
+[; ;./timers.h: 8: unsigned char backtrack = 0;
+[v _backtrack `uc ~T0 @X0 1 e ]
+[i _backtrack
+-> -> 0 `i `uc
+]
+"9
+[; ;./timers.h: 9: unsigned char trail_timer_high[20];
+[v _trail_timer_high `uc ~T0 @X0 -> 20 `i e ]
+"10
+[; ;./timers.h: 10: unsigned char trail_timer_low[20];
+[v _trail_timer_low `uc ~T0 @X0 -> 20 `i e ]
+"11
+[; ;./timers.h: 11: unsigned char trail_manoeuvre[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+[v _trail_manoeuvre `uc ~T0 @X0 -> 20 `i e ]
+[i _trail_manoeuvre
+:U ..
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+-> -> 3 `i `uc
+-> -> 4 `i `uc
+-> -> 5 `i `uc
+-> -> 6 `i `uc
+-> -> 7 `i `uc
+-> -> 8 `i `uc
+-> -> 9 `i `uc
+-> -> 0 `i `uc
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+-> -> 3 `i `uc
+-> -> 4 `i `uc
+-> -> 5 `i `uc
+-> -> 6 `i `uc
+-> -> 7 `i `uc
+-> -> 8 `i `uc
+-> -> 9 `i `uc
+-> -> 0 `i `uc
+..
+]
+"12
+[; ;./timers.h: 12: unsigned char *manoeuvre_pointer = &trail_manoeuvre;
+[v _manoeuvre_pointer `*uc ~T0 @X0 1 e ]
+[i _manoeuvre_pointer
+-> &U _trail_manoeuvre `*uc
+]
 "7 timers.c
 [; ;timers.c: 7: void Timer0_init(void)
 [v _Timer0_init `(v ~T0 @X0 1 ef ]
@@ -2115,14 +2191,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;timers.c: 32:     if (PIR0bits.TMR0IF) {
 [e $ ! != -> . . _PIR0bits 0 5 `i -> 0 `i 2017  ]
 {
+"33
+[; ;timers.c: 33:         if (backtrack) {
+[e $ ! != -> _backtrack `i -> 0 `i 2018  ]
+{
 "36
-[; ;timers.c: 36:         PIR0bits.TMR0IF = 0;
+[; ;timers.c: 36:         } else {
+}
+[e $U 2019  ]
+[e :U 2018 ]
+{
+"38
+[; ;timers.c: 38:         }
+}
+[e :U 2019 ]
+"39
+[; ;timers.c: 39:         LATHbits.LATH3 = !LATHbits.LATH3;
+[e = . . _LATHbits 0 3 -> -> ! != -> . . _LATHbits 0 3 `i -> 0 `i `i `uc ]
+"40
+[; ;timers.c: 40:         PIR0bits.TMR0IF = 0;
 [e = . . _PIR0bits 0 5 -> -> 0 `i `uc ]
-"37
-[; ;timers.c: 37:     }
+"41
+[; ;timers.c: 41:     }
 }
 [e :U 2017 ]
-"38
-[; ;timers.c: 38: }
+"42
+[; ;timers.c: 42: }
 [e :UE 2016 ]
 }

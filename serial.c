@@ -11,7 +11,6 @@ void initUSART4(void) {
     
     BAUD4CONbits.BRG16 = 0; 	//set baud rate scaling
     TX4STAbits.BRGH = 0; 		//high baud rate select bit
-    //SP4BRGL = 103; 			//set baud rate to 103 = 9600bps
     SP4BRGL = 51; 			//set baud rate to 51 = 19200bps
     SP4BRGH = 0;			//not used
 
@@ -45,6 +44,19 @@ void sendIntSerial4(int integer) {
     char string[sizeof(int) * 8 + 1]; //Referenced from https://www.ibm.com/docs/en/zos/2.1.0?topic=functions-itoa-convert-int-into-string
     sprintf(string, "%d \r", integer);
     sendStringSerial4(string);
+}
+
+//function to send an array of unsigned characters over the serial interface
+void sendArraySerial4(unsigned char *arr) {
+    unsigned char index = 0;
+    //20 is the length of the input array, I don't know how to get this from arr itself
+    //something sizeof but idk
+    char tempStr[20 + 1];
+    for (unsigned int i = 0; i < 20; i++) {     //Referenced from https://stackoverflow.com/questions/30234363/how-can-i-convert-an-int-array-into-a-string-array
+        index += sprintf(&tempStr[index], "%d", arr[i]);
+    }
+    sendStringSerial4(tempStr);
+    sendStringSerial4(" \r");
 }
 
 //functions below are for Ex3 and 4 (optional)

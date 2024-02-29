@@ -32,21 +32,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 "23 ./serial.h
 [; ;./serial.h: 23: void initUSART4(void);
 [v _initUSART4 `(v ~T0 @X0 0 ef ]
-"8 ./timers.h
-[; ;./timers.h: 8: void Timer0_init(void);
+"14 ./timers.h
+[; ;./timers.h: 14: void Timer0_init(void);
 [v _Timer0_init `(v ~T0 @X0 0 ef ]
-"27 ./serial.h
-[; ;./serial.h: 27: void sendIntSerial4(int integer);
-[v _sendIntSerial4 `(v ~T0 @X0 0 ef1`i ]
-"38865 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 38865: extern volatile unsigned char TMR0L __attribute__((address(0xFD3)));
-[v _TMR0L `Vuc ~T0 @X0 0 e@4051 ]
-"39003
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 39003: extern volatile unsigned char TMR0H __attribute__((address(0xFD4)));
-[v _TMR0H `Vuc ~T0 @X0 0 e@4052 ]
-"16 ./buggy_lights.h
-[; ;./buggy_lights.h: 16: void lights_flashing(void);
-[v _lights_flashing `(v ~T0 @X0 0 ef ]
+"29622 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29622:     struct {
+[s S1388 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1388 . TRISF0 TRISF1 TRISF2 TRISF3 TRISF4 TRISF5 TRISF6 TRISF7 ]
+"29621
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29621: typedef union {
+[u S1387 `S1388 1 ]
+[n S1387 . . ]
+"29633
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29633: extern volatile TRISFbits_t TRISFbits __attribute__((address(0xF86)));
+[v _TRISFbits `VS1387 ~T0 @X0 0 e@3974 ]
+"12308
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 12308:     struct {
+[s S568 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S568 . ANSELF0 ANSELF1 ANSELF2 ANSELF3 ANSELF4 ANSELF5 ANSELF6 ANSELF7 ]
+"12307
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 12307: typedef union {
+[u S567 `S568 1 ]
+[n S567 . . ]
+"12319
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 12319: extern volatile ANSELFbits_t ANSELFbits __attribute__((address(0xEB4)));
+[v _ANSELFbits `VS567 ~T0 @X0 0 e@3764 ]
+"28 ./serial.h
+[; ;./serial.h: 28: void sendArraySerial4(unsigned char *arr);
+[v _sendArraySerial4 `(v ~T0 @X0 0 ef1`*uc ]
 "9 main.c
 [p x FEXTOSC  =  HS      ]
 "10
@@ -2125,6 +2138,51 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _TxBufReadCnt
 -> -> 0 `i `uc
 ]
+"8 ./timers.h
+[; ;./timers.h: 8: unsigned char backtrack = 0;
+[v _backtrack `uc ~T0 @X0 1 e ]
+[i _backtrack
+-> -> 0 `i `uc
+]
+"9
+[; ;./timers.h: 9: unsigned char trail_timer_high[20];
+[v _trail_timer_high `uc ~T0 @X0 -> 20 `i e ]
+"10
+[; ;./timers.h: 10: unsigned char trail_timer_low[20];
+[v _trail_timer_low `uc ~T0 @X0 -> 20 `i e ]
+"11
+[; ;./timers.h: 11: unsigned char trail_manoeuvre[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+[v _trail_manoeuvre `uc ~T0 @X0 -> 20 `i e ]
+[i _trail_manoeuvre
+:U ..
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+-> -> 3 `i `uc
+-> -> 4 `i `uc
+-> -> 5 `i `uc
+-> -> 6 `i `uc
+-> -> 7 `i `uc
+-> -> 8 `i `uc
+-> -> 9 `i `uc
+-> -> 0 `i `uc
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+-> -> 3 `i `uc
+-> -> 4 `i `uc
+-> -> 5 `i `uc
+-> -> 6 `i `uc
+-> -> 7 `i `uc
+-> -> 8 `i `uc
+-> -> 9 `i `uc
+-> -> 0 `i `uc
+..
+]
+"12
+[; ;./timers.h: 12: unsigned char *manoeuvre_pointer = &trail_manoeuvre;
+[v _manoeuvre_pointer `*uc ~T0 @X0 1 e ]
+[i _manoeuvre_pointer
+-> &U _trail_manoeuvre `*uc
+]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "26 main.c
 [; ;main.c: 26: void main(void) {
@@ -2194,30 +2252,35 @@ Version 4.0 HI-TECH Software Intermediate Code
 "51
 [; ;main.c: 51:     Timer0_init();
 [e ( _Timer0_init ..  ]
-"53
-[; ;main.c: 53:     unsigned char backtrack = 0;
-[v _backtrack `uc ~T0 @X0 1 a ]
-[e = _backtrack -> -> 0 `i `uc ]
-"64
-[; ;main.c: 64:     while (1) {
+"55
+[; ;main.c: 55:     TRISFbits.TRISF2 = 1;
+[e = . . _TRISFbits 0 2 -> -> 1 `i `uc ]
+"56
+[; ;main.c: 56:     TRISFbits.TRISF3 = 1;
+[e = . . _TRISFbits 0 3 -> -> 1 `i `uc ]
+"58
+[; ;main.c: 58:     ANSELFbits.ANSELF2 = 0;
+[e = . . _ANSELFbits 0 2 -> -> 0 `i `uc ]
+"59
+[; ;main.c: 59:     ANSELFbits.ANSELF3 = 0;
+[e = . . _ANSELFbits 0 3 -> -> 0 `i `uc ]
+"71
+[; ;main.c: 71:     while (1) {
 [e :U 2019 ]
 {
-"65
-[; ;main.c: 65:         sendIntSerial4((int)TMR0L);
-[e ( _sendIntSerial4 (1 -> _TMR0L `i ]
-"66
-[; ;main.c: 66:         sendIntSerial4((int)TMR0H);
-[e ( _sendIntSerial4 (1 -> _TMR0H `i ]
-"67
-[; ;main.c: 67:         lights_flashing();
-[e ( _lights_flashing ..  ]
-"68
-[; ;main.c: 68:     }
+"76
+[; ;main.c: 76:         sendArraySerial4(trail_manoeuvre);
+[e ( _sendArraySerial4 (1 &U _trail_manoeuvre ]
+"77
+[; ;main.c: 77:         _delay((unsigned long)((1000)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"78
+[; ;main.c: 78:     }
 }
 [e :U 2018 ]
 [e $U 2019  ]
 [e :U 2020 ]
-"69
-[; ;main.c: 69: }
+"79
+[; ;main.c: 79: }
 [e :UE 2017 ]
 }

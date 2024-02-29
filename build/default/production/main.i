@@ -24251,6 +24251,7 @@ char getCharSerial4(void);
 void sendCharSerial4(char charToSend);
 void sendStringSerial4(char *string);
 void sendIntSerial4(int integer);
+void sendArraySerial4(unsigned char *arr);
 
 
 char getCharFromRxBuf(void);
@@ -24272,6 +24273,12 @@ void sendTxBuf(void);
 
 
 
+
+unsigned char backtrack = 0;
+unsigned char trail_timer_high[20];
+unsigned char trail_timer_low[20];
+unsigned char trail_manoeuvre[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+unsigned char *manoeuvre_pointer = &trail_manoeuvre;
 
 void Timer0_init(void);
 void __attribute__((picinterrupt(("")))) ISR();
@@ -24307,11 +24314,20 @@ void main(void) {
     initUSART4();
     Timer0_init();
 
-    unsigned char backtrack = 0;
-# 64 "main.c"
+
+
+    TRISFbits.TRISF2 = 1;
+    TRISFbits.TRISF3 = 1;
+
+    ANSELFbits.ANSELF2 = 0;
+    ANSELFbits.ANSELF3 = 0;
+# 71 "main.c"
     while (1) {
-        sendIntSerial4((int)TMR0L);
-        sendIntSerial4((int)TMR0H);
-        lights_flashing();
+
+
+
+
+        sendArraySerial4(trail_manoeuvre);
+        _delay((unsigned long)((1000)*(64000000/4000.0)));
     }
 }

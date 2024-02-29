@@ -30,9 +30,13 @@ void __interrupt() ISR()
 {    
     // timer interrupt
     if (PIR0bits.TMR0IF) {
-        /*
-         (some code about being lost and backtracking)
-         */
+        if (backtrack) {            //is backtracking
+            //some code on performing the next manoeuvre when backtracking
+            //the timer will be used to time the straight distances travelled when backtracking
+        } else {                    //is not backtracking
+            //trigger a lost function
+        }
+        LATHbits.LATH3 = !LATHbits.LATH3;       //toggle LED for debugging
         PIR0bits.TMR0IF = 0;        //reset timer interrupt flag
     }
 }

@@ -1,7 +1,7 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\boris\AppData\Local\Temp\xcBse9s.1\driver_tmp_3.o
+ C:\Users\boris\AppData\Local\Temp\xcBsigc.1\driver_tmp_3.o
  -Odist/default/production\final-project-gorakh-boris.X.production.hex
  -logfile=dist/default/production\final-project-gorakh-boris.X.production.hxl
  -addressing=1
@@ -9,31 +9,33 @@
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(C:\Users\boris\AppData\Local\Temp\xcBse9s.1\driver_tmp_3.o)
-  8h - 23h		(C:\Users\boris\AppData\Local\Temp\xcBse9s.1\driver_tmp_3.o)
-  E00h - E06h		(C:\Users\boris\AppData\Local\Temp\xcBse9s.1\driver_tmp_3.o)
-  E08h - 168Dh		(C:\Users\boris\AppData\Local\Temp\xcBse9s.1\driver_tmp_3.o)
-  200000h - 20000Fh		(C:\Users\boris\AppData\Local\Temp\xcBse9s.1\driver_tmp_3.o)
-  300000h - 30000Bh		(C:\Users\boris\AppData\Local\Temp\xcBse9s.1\driver_tmp_3.o)
+  0h - 3h		(C:\Users\boris\AppData\Local\Temp\xcBsigc.1\driver_tmp_3.o)
+  8h - 49h		(C:\Users\boris\AppData\Local\Temp\xcBsigc.1\driver_tmp_3.o)
+  E00h - 165Ah		(C:\Users\boris\AppData\Local\Temp\xcBsigc.1\driver_tmp_3.o)
+  165Ch - 16D3h		(C:\Users\boris\AppData\Local\Temp\xcBsigc.1\driver_tmp_3.o)
+  200000h - 20000Fh		(C:\Users\boris\AppData\Local\Temp\xcBsigc.1\driver_tmp_3.o)
+  300000h - 30000Bh		(C:\Users\boris\AppData\Local\Temp\xcBsigc.1\driver_tmp_3.o)
  Unused ranges:
   4h - 7h
-  24h - DFFh
-  E07h - E07h
-  168Eh - 1FFFFFh
+  4Ah - DFFh
+  165Bh - 165Bh
+  16D4h - 1FFFFFh
   200010h - 2FFFFFh
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\boris\AppData\Local\Temp\xcBse9s.1\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\boris\AppData\Local\Temp\xcBsigc.1\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
 00000000 | H1 H1 H1 H1 -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1
 00000010 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00000020 | H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- -- -- --
+00000020 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000030 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000040 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- --
 ----------------------------------------------------------
-00000E00 | H1 H1 H1 H1 H1 H1 H1 -- H1 H1 H1 H1 H1 H1 H1 H1
+00000E00 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000E10 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000E20 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000E30 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
@@ -166,10 +168,15 @@
 00001620 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001630 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001640 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00001650 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001650 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- H1 H1 H1 H1
 00001660 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001670 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00001680 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- --
+00001680 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001690 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000016A0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000016B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000016C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000016D0 | H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 ----------------------------------------------------------

@@ -24259,6 +24259,7 @@ char getCharSerial4(void);
 void sendCharSerial4(char charToSend);
 void sendStringSerial4(char *string);
 void sendIntSerial4(int integer);
+void sendArraySerial4(unsigned char *arr);
 
 
 char getCharFromRxBuf(void);
@@ -24282,7 +24283,6 @@ void initUSART4(void) {
 
     BAUD4CONbits.BRG16 = 0;
     TX4STAbits.BRGH = 0;
-
     SP4BRGL = 51;
     SP4BRGH = 0;
 
@@ -24316,6 +24316,19 @@ void sendIntSerial4(int integer) {
     char string[sizeof(int) * 8 + 1];
     sprintf(string, "%d \r", integer);
     sendStringSerial4(string);
+}
+
+
+void sendArraySerial4(unsigned char *arr) {
+    unsigned char index = 0;
+
+
+    char tempStr[20 + 1];
+    for (unsigned int i = 0; i < 20; i++) {
+        index += sprintf(&tempStr[index], "%d", arr[i]);
+    }
+    sendStringSerial4(tempStr);
+    sendStringSerial4(" \r");
 }
 
 
