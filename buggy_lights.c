@@ -11,29 +11,29 @@ void buggy_lights_init(void)
     TRISFbits.TRISF0 = 0;               //TURN L pin
     TRISHbits.TRISH0 = 0;               //TURN R pin
     //set up initial LAT values
-    LATDbits.LATD4 = 1;                 //BRAKE pin (DOESN'T WORK)
-    LATHbits.LATH1 = 1;                 //HEADLAMPS pin
-    LATDbits.LATD3 = 1;                 //MAIN BEAM pin
-    LATFbits.LATF0 = 1;                 //TURN L pin
-    LATHbits.LATH0 = 1;                 //TURN R pin
+    LATDbits.LATD4 = 0;                 //BRAKE pin (DOESN'T WORK)
+    LATHbits.LATH1 = 0;                 //HEADLAMPS pin
+    LATDbits.LATD3 = 0;                 //MAIN BEAM pin
+    LATFbits.LATF0 = 0;                 //TURN L pin
+    LATHbits.LATH0 = 0;                 //TURN R pin
     
     //initialise the two LEDs on the clicker board
     //set up TRIS registers (0 for output)
     TRISDbits.TRISD7 = 0;
     TRISHbits.TRISH3 = 0;
     //set up initial LAT values
-    LATDbits.LATD7 = 1;
-    LATHbits.LATH3 = 1;
+    LATDbits.LATD7 = 0;
+    LATHbits.LATH3 = 0;
     
     //initialise the three LEDS on the colour board
     //set up TRIS registers (0 for output)
-    TRISGbits.TRISG1 = 0;               //red LED pin
-    TRISAbits.TRISA4 = 0;               //green LED pin
-    TRISFbits.TRISF7 = 0;               //blue LED pin
+    TRISAbits.TRISA0 = 0;               //red LED pin
+    TRISCbits.TRISC2 = 0;               //green LED pin
+    TRISDbits.TRISD0 = 0;               //blue LED pin
     //set up initial LAT values
-    LATGbits.LATG1 = 1;                 //red LED pin
-    LATAbits.LATA4 = 1;                 //green LED pin
-    LATFbits.LATF7 = 1;                 //blue LED pin
+    LATAbits.LATA0 = 0;                 //red LED pin
+    LATCbits.LATC2 = 0;                 //green LED pin
+    LATDbits.LATD0 = 0;                 //blue LED pin
 }
 
 void lights_flashing(void)

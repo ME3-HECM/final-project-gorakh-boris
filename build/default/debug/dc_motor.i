@@ -1,4 +1,4 @@
-# 1 "serial.c"
+# 1 "dc_motor.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "serial.c" 2
+# 1 "dc_motor.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24088,291 +24088,274 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 1 "serial.c" 2
+# 1 "dc_motor.c" 2
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 12 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef void * va_list[1];
+# 1 "./dc_motor.h" 1
 
 
 
 
-typedef void * __isoc_va_list[1];
-# 143 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __int24 ssize_t;
-# 255 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long long off_t;
-# 409 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 2 3
-# 52 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
 
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
 
 
+typedef struct DC_motor {
+    char power;
+    char direction;
+    char brakemode;
+    unsigned int PWMperiod;
+    unsigned char *posDutyHighByte;
+    unsigned char *negDutyHighByte;
+} DC_motor;
 
+unsigned char rampDelay = 8;
 
+unsigned char topGearLeft = 30;
+unsigned char topGearRight = 32;
 
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
+unsigned char turningGear = 42;
 
-int remove(const char *);
-int rename(const char *, const char *);
+unsigned int turnLeft90Delay = 175;
+unsigned int turnRight90Delay = 175;
+unsigned int turnLeft135Delay = 300;
+unsigned int turnRight135Delay = 300;
+unsigned int turn180Delay = 510;
 
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
+unsigned int headbuttDelay = 70;
+unsigned int squareDelay = 300;
 
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
 
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
+void initDCmotorsPWM(unsigned int PWMperiod);
+void setMotorPWM(DC_motor *m);
 
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+void stop(DC_motor *mL, DC_motor *mR);
+void turnLeft(DC_motor *mL, DC_motor *mR);
+void turnRight(DC_motor *mL, DC_motor *mR);
+void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
+void fullSpeedReverse(DC_motor *mL, DC_motor *mR);
 
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
+void turnLeft90(DC_motor *mL, DC_motor *mR);
+void turnRight90(DC_motor *mL, DC_motor *mR);
+void turnLeft135(DC_motor *mL, DC_motor *mR);
+void turnRight135(DC_motor *mL, DC_motor *mR);
+void UTurn(DC_motor *mL, DC_motor *mR);
+void headbuttReverse(DC_motor *mL, DC_motor *mR);
+void squareReverse(DC_motor *mL, DC_motor *mR);
+# 2 "dc_motor.c" 2
 
 
 
+void initDCmotorsPWM(unsigned int PWMperiod){
 
+    TRISEbits.TRISE2 = 0;
+    TRISEbits.TRISE4 = 0;
+    TRISCbits.TRISC7 = 0;
+    TRISGbits.TRISG6 = 0;
 
-int ungetc(int, FILE *);
-int getch(void);
+    LATEbits.LATE2 = 0;
+    LATEbits.LATE4 = 0;
+    LATCbits.LATC7 = 0;
+    LATGbits.LATG6 = 0;
 
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
 
+    RE2PPS=0x05;
+    RE4PPS=0x06;
+    RC7PPS=0x07;
+    RG6PPS=0x08;
 
 
+    T2CONbits.CKPS=0b100;
+    T2HLTbits.MODE=0b00000;
+    T2CLKCONbits.CS=0b0001;
 
 
-void putch(char);
 
-char *fgets(char *restrict, int, FILE *restrict);
+    T2PR=PWMperiod;
+    T2CONbits.ON=1;
 
-char *gets(char *);
 
 
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
+    CCPR1H=0;
+    CCPR2H=0;
+    CCPR3H=0;
+    CCPR4H=0;
 
-__attribute__((__format__(__printf__, 1, 2)))
-int printf(const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int fprintf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int sprintf(char *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 3, 4)))
-int snprintf(char *restrict, size_t, const char *restrict, ...);
 
-__attribute__((__format__(__printf__, 1, 0)))
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 2, 0)))
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 3, 0)))
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+    CCPTMRS0bits.C1TSEL=0;
+    CCPTMRS0bits.C2TSEL=0;
+    CCPTMRS0bits.C3TSEL=0;
+    CCPTMRS0bits.C4TSEL=0;
 
-__attribute__((__format__(__scanf__, 1, 2)))
-int scanf(const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int fscanf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int sscanf(const char *restrict, const char *restrict, ...);
 
-__attribute__((__format__(__scanf__, 1, 0)))
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__scanf__, 2, 0)))
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
-
-
-
-
-
-
-
-char *tempnam(const char *, const char *);
-# 2 "serial.c" 2
-
-# 1 "./serial.h" 1
-# 13 "./serial.h"
-volatile char EUSART4RXbuf[20];
-volatile char RxBufWriteCnt=0;
-volatile char RxBufReadCnt=0;
-
-volatile char EUSART4TXbuf[60];
-volatile char TxBufWriteCnt=0;
-volatile char TxBufReadCnt=0;
-
-
-
-void initUSART4(void);
-char getCharSerial4(void);
-void sendCharSerial4(char charToSend);
-void sendStringSerial4(char *string);
-void sendIntSerial4(int integer);
-
-
-char getCharFromRxBuf(void);
-void putCharToRxBuf(char byte);
-char isDataInRxBuf (void);
-
-
-char getCharFromTxBuf(void);
-void putCharToTxBuf(char byte);
-char isDataInTxBuf (void);
-void TxBufferedString(char *string);
-void sendTxBuf(void);
-# 3 "serial.c" 2
-
-
-void initUSART4(void) {
-
-
-
-    RC0PPS = 0x12;
-    RX4PPS = 0x11;
-
-    BAUD4CONbits.BRG16 = 0;
-    TX4STAbits.BRGH = 0;
-
-    SP4BRGL = 51;
-    SP4BRGH = 0;
-
-    RC4STAbits.CREN = 1;
-    TX4STAbits.TXEN = 1;
-    RC4STAbits.SPEN = 1;
+    CCP1CONbits.FMT=1;
+    CCP1CONbits.CCP1MODE=0b1100;
+    CCP1CONbits.EN=1;
+
+    CCP2CONbits.FMT=1;
+    CCP2CONbits.CCP2MODE=0b1100;
+    CCP2CONbits.EN=1;
+
+    CCP3CONbits.FMT=1;
+    CCP3CONbits.CCP3MODE=0b1100;
+    CCP3CONbits.EN=1;
+
+    CCP4CONbits.FMT=1;
+    CCP4CONbits.CCP4MODE=0b1100;
+    CCP4CONbits.EN=1;
 }
 
 
-char getCharSerial4(void) {
-    while (!PIR4bits.RC4IF);
-    return RC4REG;
-}
+void setMotorPWM(DC_motor *m)
+{
+    unsigned char posDuty, negDuty;
 
+    if(m->brakemode) {
+        posDuty=m->PWMperiod - ((unsigned int)(m->power)*(m->PWMperiod))/100;
+        negDuty=m->PWMperiod;
+    }
+    else {
+        posDuty=0;
+  negDuty=((unsigned int)(m->power)*(m->PWMperiod))/100;
+    }
 
-void sendCharSerial4(char charToSend) {
-    while (!PIR4bits.TX4IF);
-    TX4REG = charToSend;
-}
-
-
-void sendStringSerial4(char *string) {
-
-    while(*string != 0){
-  sendCharSerial4(*string++);
- }
-}
-
-
-void sendIntSerial4(int integer) {
-    char string[sizeof(int) * 8 + 1];
-    sprintf(string, "%d \r", integer);
-    sendStringSerial4(string);
-}
-
-
-
-
-
-char getCharFromRxBuf(void){
-    if (RxBufReadCnt>=20) {RxBufReadCnt=0;}
-    return EUSART4RXbuf[RxBufReadCnt++];
-}
-
-
-void putCharToRxBuf(char byte){
-    if (RxBufWriteCnt>=20) {RxBufWriteCnt=0;}
-    EUSART4RXbuf[RxBufWriteCnt++]=byte;
-}
-
-
-
-
-char isDataInRxBuf (void){
-    return (RxBufWriteCnt!=RxBufReadCnt);
-}
-
-
-
-char getCharFromTxBuf(void){
-    if (TxBufReadCnt>=60) {TxBufReadCnt=0;}
-    return EUSART4TXbuf[TxBufReadCnt++];
-}
-
-
-void putCharToTxBuf(char byte){
-    if (TxBufWriteCnt>=60) {TxBufWriteCnt=0;}
-    EUSART4TXbuf[TxBufWriteCnt++]=byte;
-}
-
-
-
-
-char isDataInTxBuf (void){
-    return (TxBufWriteCnt!=TxBufReadCnt);
-}
-
-
-void TxBufferedString(char *string){
-
-    while(*string != 0) {
-        putCharToTxBuf(*string++);
+    if (m->direction) {
+        *(m->posDutyHighByte)=posDuty;
+        *(m->negDutyHighByte)=negDuty;
+    } else {
+        *(m->posDutyHighByte)=negDuty;
+        *(m->negDutyHighByte)=posDuty;
     }
 }
 
 
+void stop(DC_motor *mL, DC_motor *mR)
+{
 
-void sendTxBuf(void){
-    if (isDataInTxBuf()) {PIE4bits.TX4IE=1;}
+
+    while ((mL->power>0) || (mR->power>0)){
+        if (mL->power>0) {mL->power--;}
+        if (mR->power>0) {mR->power--;}
+        setMotorPWM(mL);
+        setMotorPWM(mR);
+        _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
+    }
+}
+
+
+void turnLeft(DC_motor *mL, DC_motor *mR)
+{
+    unsigned char leftGear = turningGear;
+    unsigned char rightGear = turningGear;
+    (mL->direction) = 0;
+    (mR->direction) = 1;
+    while ((mL->power<leftGear) || (mR->power<rightGear)){
+        if (mL->power<leftGear) {mL->power++;}
+        if (mR->power<rightGear) {mR->power++;}
+        setMotorPWM(mL);
+        setMotorPWM(mR);
+        _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
+    }
+}
+
+
+void turnRight(DC_motor *mL, DC_motor *mR)
+{
+    unsigned char leftGear = turningGear;
+    unsigned char rightGear = turningGear;
+    (mL->direction) = 1;
+    (mR->direction) = 0;
+    while ((mL->power<leftGear) || (mR->power<rightGear)){
+        if (mL->power<leftGear) {mL->power++;}
+        if (mR->power<rightGear) {mR->power++;}
+        setMotorPWM(mL);
+        setMotorPWM(mR);
+        _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
+    }
+}
+
+
+void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
+{
+    unsigned char leftGear = topGearLeft;
+    unsigned char rightGear = topGearRight;
+    (mL -> direction) = 1;
+    (mR -> direction) = 1;
+    while ((mL->power<leftGear) || (mR->power<rightGear)){
+        if (mL->power<leftGear) {mL->power++;}
+        if (mR->power<rightGear) {mR->power++;}
+        setMotorPWM(mL);
+        setMotorPWM(mR);
+        _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
+    }
+}
+
+
+void fullSpeedReverse(DC_motor *mL, DC_motor *mR)
+{
+    unsigned char leftGear = topGearLeft;
+    unsigned char rightGear = topGearRight;
+    (mL -> direction) = 0;
+    (mR -> direction) = 0;
+    while ((mL->power<leftGear) || (mR->power<rightGear)){
+        if (mL->power<leftGear) {mL->power++;}
+        if (mR->power<rightGear) {mR->power++;}
+        setMotorPWM(mL);
+        setMotorPWM(mR);
+        _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
+    }
+}
+
+
+void turnLeft90(DC_motor *mL, DC_motor *mR)
+{
+    turnLeft(mL, mR);
+    _delay((unsigned long)((turnLeft90Delay)*(64000000/4000.0)));
+    stop(mL, mR);
+}
+
+
+void turnRight90(DC_motor *mL, DC_motor *mR)
+{
+    turnRight(mL, mR);
+    _delay((unsigned long)((turnRight90Delay)*(64000000/4000.0)));
+    stop(mL, mR);
+}
+
+
+void turnLeft135(DC_motor *mL, DC_motor *mR)
+{
+    turnLeft(mL, mR);
+    _delay((unsigned long)((turnLeft135Delay)*(64000000/4000.0)));
+    stop(mL, mR);
+}
+
+
+void turnRight135(DC_motor *mL, DC_motor *mR)
+{
+    turnRight(mL, mR);
+    _delay((unsigned long)((turnRight135Delay)*(64000000/4000.0)));
+    stop(mL, mR);
+}
+
+
+void UTurn(DC_motor *mL, DC_motor *mR)
+{
+    turnLeft(mL, mR);
+    _delay((unsigned long)((turn180Delay)*(64000000/4000.0)));
+    stop(mL, mR);
+}
+
+
+void headbuttReverse(DC_motor *mL, DC_motor *mR)
+{
+    fullSpeedReverse(mL, mR);
+    _delay((unsigned long)((headbuttDelay)*(64000000/4000.0)));
+    stop(mL, mR);
+}
+
+
+void squareReverse(DC_motor *mL, DC_motor *mR)
+{
+    fullSpeedReverse(mL, mR);
+    _delay((unsigned long)((squareDelay)*(64000000/4000.0)));
+    stop(mL, mR);
 }

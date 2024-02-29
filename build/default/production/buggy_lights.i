@@ -24107,29 +24107,29 @@ void buggy_lights_init(void)
     TRISFbits.TRISF0 = 0;
     TRISHbits.TRISH0 = 0;
 
-    LATDbits.LATD4 = 1;
-    LATHbits.LATH1 = 1;
-    LATDbits.LATD3 = 1;
-    LATFbits.LATF0 = 1;
-    LATHbits.LATH0 = 1;
+    LATDbits.LATD4 = 0;
+    LATHbits.LATH1 = 0;
+    LATDbits.LATD3 = 0;
+    LATFbits.LATF0 = 0;
+    LATHbits.LATH0 = 0;
 
 
 
     TRISDbits.TRISD7 = 0;
     TRISHbits.TRISH3 = 0;
 
-    LATDbits.LATD7 = 1;
-    LATHbits.LATH3 = 1;
+    LATDbits.LATD7 = 0;
+    LATHbits.LATH3 = 0;
 
 
 
-    TRISGbits.TRISG1 = 0;
-    TRISAbits.TRISA4 = 0;
-    TRISFbits.TRISF7 = 0;
+    TRISAbits.TRISA0 = 0;
+    TRISCbits.TRISC2 = 0;
+    TRISDbits.TRISD0 = 0;
 
-    LATGbits.LATG1 = 1;
-    LATAbits.LATA4 = 1;
-    LATFbits.LATF7 = 1;
+    LATAbits.LATA0 = 0;
+    LATCbits.LATC2 = 0;
+    LATDbits.LATD0 = 0;
 }
 
 void lights_flashing(void)

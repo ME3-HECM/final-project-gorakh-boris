@@ -35,12 +35,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "10 ./timers.h
 [; ;./timers.h: 10: void Timer0_init(void);
 [v _Timer0_init `(v ~T0 @X0 0 ef ]
-"27 ./serial.h
-[; ;./serial.h: 27: void sendIntSerial4(int integer);
-[v _sendIntSerial4 `(v ~T0 @X0 0 ef1`i ]
-"16 ./buggy_lights.h
-[; ;./buggy_lights.h: 16: void lights_flashing(void);
-[v _lights_flashing `(v ~T0 @X0 0 ef ]
 "9 main.c
 [p x FEXTOSC  =  HS      ]
 "10
@@ -2198,22 +2192,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 53:     unsigned char backtrack = 0;
 [v _backtrack `uc ~T0 @X0 1 a ]
 [e = _backtrack -> -> 0 `i `uc ]
-"64
-[; ;main.c: 64:     while (1) {
-[e :U 2019 ]
-{
-"65
-[; ;main.c: 65:         sendIntSerial4((int)timer_count);
-[e ( _sendIntSerial4 (1 -> _timer_count `i ]
-"66
-[; ;main.c: 66:         lights_flashing();
-[e ( _lights_flashing ..  ]
-"67
-[; ;main.c: 67:     }
-}
-[e :U 2018 ]
-[e $U 2019  ]
-[e :U 2020 ]
 "68
 [; ;main.c: 68: }
 [e :UE 2017 ]

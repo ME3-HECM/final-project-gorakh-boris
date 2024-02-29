@@ -93,6 +93,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28732
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28732: extern volatile LATFbits_t LATFbits __attribute__((address(0xF7E)));
 [v _LATFbits `VS1354 ~T0 @X0 0 e@3966 ]
+"29684
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29684:     struct {
+[s S1390 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1390 . TRISG0 TRISG1 TRISG2 TRISG3 TRISG4 . TRISG6 TRISG7 ]
+"29683
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29683: typedef union {
+[u S1389 `S1390 1 ]
+[n S1389 . . ]
+"29695
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29695: extern volatile TRISGbits_t TRISGbits __attribute__((address(0xF87)));
+[v _TRISGbits `VS1389 ~T0 @X0 0 e@3975 ]
 "29017
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29017:     struct {
 [s S1368 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -104,17 +115,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29028
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29028: extern volatile TRISAbits_t TRISAbits __attribute__((address(0xF81)));
 [v _TRISAbits `VS1367 ~T0 @X0 0 e@3969 ]
-"29261
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29261:     struct {
-[s S1376 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1376 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"29260
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29260: typedef union {
-[u S1375 `S1376 1 ]
-[n S1375 . . ]
-"29272
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29272: extern volatile TRISCbits_t TRISCbits __attribute__((address(0xF83)));
-[v _TRISCbits `VS1375 ~T0 @X0 0 e@3971 ]
+"28823
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28823:     struct {
+[s S1358 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1358 . LATG0 LATG1 LATG2 LATG3 LATG4 . LATG6 LATG7 ]
+"28833
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28833:     struct {
+[s S1359 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1359 . LG0 LG1 LG2 LG3 LG4 ]
+"28822
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28822: typedef union {
+[u S1357 `S1358 1 `S1359 1 ]
+[n S1357 . . . ]
+"28841
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28841: extern volatile LATGbits_t LATGbits __attribute__((address(0xF7F)));
+[v _LATGbits `VS1357 ~T0 @X0 0 e@3967 ]
 "28151
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28151:     struct {
 [s S1340 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -130,21 +145,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28172
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28172: extern volatile LATAbits_t LATAbits __attribute__((address(0xF79)));
 [v _LATAbits `VS1339 ~T0 @X0 0 e@3961 ]
-"28375
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28375:     struct {
-[s S1346 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1346 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
-"28385
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28385:     struct {
-[s S1347 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1347 . LC0 LC1 LC2 LC3 LC4 LC5 LC6 LC7 ]
-"28374
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28374: typedef union {
-[u S1345 `S1346 1 `S1347 1 ]
-[n S1345 . . . ]
-"28396
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28396: extern volatile LATCbits_t LATCbits __attribute__((address(0xF7B)));
-[v _LATCbits `VS1345 ~T0 @X0 0 e@3963 ]
 [v F205 `(v ~T0 @X0 1 tf1`ul ]
 "20 C:\Program Files\Microchip\xc8\v2.45\pic\include\builtins.h
 [v __delay `JF205 ~T0 @X0 0 e ]
@@ -2147,20 +2147,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;buggy_lights.c: 12:     TRISHbits.TRISH0 = 0;
 [e = . . _TRISHbits 0 0 -> -> 0 `i `uc ]
 "14
-[; ;buggy_lights.c: 14:     LATDbits.LATD4 = 0;
-[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 14:     LATDbits.LATD4 = 1;
+[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
 "15
-[; ;buggy_lights.c: 15:     LATHbits.LATH1 = 0;
-[e = . . _LATHbits 0 1 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 15:     LATHbits.LATH1 = 1;
+[e = . . _LATHbits 0 1 -> -> 1 `i `uc ]
 "16
-[; ;buggy_lights.c: 16:     LATDbits.LATD3 = 0;
-[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 16:     LATDbits.LATD3 = 1;
+[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
 "17
-[; ;buggy_lights.c: 17:     LATFbits.LATF0 = 0;
-[e = . . _LATFbits 0 0 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 17:     LATFbits.LATF0 = 1;
+[e = . . _LATFbits 0 0 -> -> 1 `i `uc ]
 "18
-[; ;buggy_lights.c: 18:     LATHbits.LATH0 = 0;
-[e = . . _LATHbits 0 0 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 18:     LATHbits.LATH0 = 1;
+[e = . . _LATHbits 0 0 -> -> 1 `i `uc ]
 "22
 [; ;buggy_lights.c: 22:     TRISDbits.TRISD7 = 0;
 [e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
@@ -2168,29 +2168,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;buggy_lights.c: 23:     TRISHbits.TRISH3 = 0;
 [e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
 "25
-[; ;buggy_lights.c: 25:     LATDbits.LATD7 = 0;
-[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 25:     LATDbits.LATD7 = 1;
+[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
 "26
-[; ;buggy_lights.c: 26:     LATHbits.LATH3 = 0;
-[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 26:     LATHbits.LATH3 = 1;
+[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
 "30
-[; ;buggy_lights.c: 30:     TRISAbits.TRISA0 = 0;
-[e = . . _TRISAbits 0 0 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 30:     TRISGbits.TRISG1 = 0;
+[e = . . _TRISGbits 0 1 -> -> 0 `i `uc ]
 "31
-[; ;buggy_lights.c: 31:     TRISCbits.TRISC2 = 0;
-[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 31:     TRISAbits.TRISA4 = 0;
+[e = . . _TRISAbits 0 4 -> -> 0 `i `uc ]
 "32
-[; ;buggy_lights.c: 32:     TRISDbits.TRISD0 = 0;
-[e = . . _TRISDbits 0 0 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 32:     TRISFbits.TRISF7 = 0;
+[e = . . _TRISFbits 0 7 -> -> 0 `i `uc ]
 "34
-[; ;buggy_lights.c: 34:     LATAbits.LATA0 = 0;
-[e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 34:     LATGbits.LATG1 = 1;
+[e = . . _LATGbits 0 1 -> -> 1 `i `uc ]
 "35
-[; ;buggy_lights.c: 35:     LATCbits.LATC2 = 0;
-[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 35:     LATAbits.LATA4 = 1;
+[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
 "36
-[; ;buggy_lights.c: 36:     LATDbits.LATD0 = 0;
-[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 36:     LATFbits.LATF7 = 1;
+[e = . . _LATFbits 0 7 -> -> 1 `i `uc ]
 "37
 [; ;buggy_lights.c: 37: }
 [e :UE 2015 ]
