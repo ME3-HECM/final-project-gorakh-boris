@@ -7,10 +7,10 @@ Linker command line:
   -cn \
   -h+dist/default/production\final-project-gorakh-boris.X.production.sym \
   --cmf=dist/default/production\final-project-gorakh-boris.X.production.cmf \
-  -z -Q18F67K40 -oC:\Users\Gorak\AppData\Local\Temp\xcAs7gc.\driver_tmp_3.o \
+  -z -Q18F67K40 -oC:\Users\boris\AppData\Local\Temp\xcAshu4.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/final-project-gorakh-boris.X.production.map \
-  --md=C:\Users\Gorak\AppData\Local\Temp\xcAs7gc.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\boris\AppData\Local\Temp\xcAshu4.\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh \
   -ASMALLCONST=0E00h-0EFFhx498 -AMEDIUMCONST=0E00h-0FFFFh,010E00h-01FFFFh \
   -ACOMRAM=01h-05Fh -AABS1=00h-0DE9h -ABIGRAM=01h-0DE9h \
@@ -30,7 +30,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\Gorak\AppData\Local\Temp\xcAs7gc.\driver_tmp_9.o \
+  C:\Users\boris\AppData\Local\Temp\xcAshu4.\driver_tmp_9.o \
   dist/default/production\final-project-gorakh-boris.X.production.o 
 
 Object code version is 3.11
@@ -40,7 +40,7 @@ Machine type is 18F67K40
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Gorak\AppData\Local\Temp\xcAs7gc.\driver_tmp_9.o
+C:\Users\boris\AppData\Local\Temp\xcAshu4.\driver_tmp_9.o
                 idloc                            200000   200000       10        0       5
                 config                           300000   300000        C        0       4
                 init                                 2C       2C        4        4       0
@@ -51,44 +51,44 @@ dist/default/production\final-project-gorakh-boris.X.production.o
                 config                           300000   300000        C        0       4
                 temp                                 46       46        1        1       1
                 smallconst                          E00      E00        8      700       0
-                text11                             100A     100A       28      704       0
-                text10                              FB8      FB8       2A      704       0
-                text9                               F8E      F8E       2A      704       0
-                text8                               FE2      FE2       28      704       0
-                text7                              1098     1098        A      704       0
-                text6                              108E     108E        A      704       0
-                text5                              1082     1082        C      704       0
-                text4                              1032     1032       20      704       0
-                text3                               F5A      F5A       34      704       0
+                text11                             102E     102E       28      704       0
+                text10                              F18      F18       4E      704       0
+                text9                               FDC      FDC       2A      704       0
+                text8                              1006     1006       28      704       0
+                text7                              10BC     10BC        A      704       0
+                text6                              10B2     10B2        A      704       0
+                text5                              10A6     10A6        C      704       0
+                text4                              1056     1056       20      704       0
+                text3                               FA8      FA8       34      704       0
                 text2                               E08      E08       90      704       0
-                text1                              1052     1052       1E      704       0
+                text1                              1076     1076       1E      704       0
                 text0                               E98      E98       80      704       0
                 cstackCOMRAM                         1B       1B       19        1       1
                 bssBANK0                             60       60       3C       60       1
                 dataCOMRAM                           34       34       12        1       1
                 bssCOMRAM                             1        1       1A        1       1
-                cinit                               F18      F18       42      704       0
-                idataCOMRAM                        1070     1070       12      704       0
+                cinit                               F66      F66       42      704       0
+                idataCOMRAM                        1094     1094       12      704       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
                 intcode                               8        8       24         0
                 init                                 2C       2C        4         0
                 reset_vec                             0        0        4         0
-                text11                             100A     100A       28         0
-                text10                              FB8      FB8       2A         0
-                text9                               F8E      F8E       2A         0
-                text8                               FE2      FE2       28         0
-                text7                              1098     1098        A         0
-                text6                              108E     108E        A         0
-                text5                              1082     1082        C         0
-                text4                              1032     1032       20         0
-                text3                               F5A      F5A       34         0
+                text11                             102E     102E       28         0
+                text10                              F18      F18       4E         0
+                text9                               FDC      FDC       2A         0
+                text8                              1006     1006       28         0
+                text7                              10BC     10BC        A         0
+                text6                              10B2     10B2        A         0
+                text5                              10A6     10A6        C         0
+                text4                              1056     1056       20         0
+                text3                               FA8      FA8       34         0
                 text2                               E08      E08       90         0
-                text1                              1052     1052       1E         0
+                text1                              1076     1076       1E         0
                 text0                               E98      E98       80         0
-                cinit                               F18      F18       42         0
-                idataCOMRAM                        1070     1070       12         0
+                cinit                               F66      F66       42         0
+                idataCOMRAM                        1094     1094       12         0
 
         CLASS   CONST          
 
@@ -165,7 +165,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 intcode                        000008  000028  000030         4       0  CODE    
                 bssBANK0                       000060  00003C  00009C        60       1  BANK0   
                 smallconst                     000E00  000008  000E08       700       0  SMALLCON
-                text2                          000E08  00029A  0010A2       704       0  CODE    
+                text2                          000E08  0002BE  0010C6       704       0  CODE    
 
 
 UNUSED ADDRESS RANGES
@@ -190,17 +190,17 @@ UNUSED ADDRESS RANGES
         BIGSFR           000DEF-000FFF              211
         CODE             000004-000007                4
                          000030-000DFF              DD0
-                         0010A2-01FFFF            1EF5E
+                         0010C6-01FFFF            1EF3A
         COMRAM           000047-00005F               19
         CONST            000004-000007                4
                          000030-000DFF              DD0
-                         0010A2-01FFFF            1EF5E
+                         0010C6-01FFFF            1EF3A
         EEDATA           310000-3103FF              400
-        MEDIUMCONST      0010A2-00FFFF             EF5E
+        MEDIUMCONST      0010C6-00FFFF             EF3A
                          010E00-01FFFF             F200
         RAM              00009C-000DE9              100
         SFR              000DEF-000FFF              100
-        SMALLCONST       0010A2-01FFFF              100
+        SMALLCONST       0010C6-01FFFF              100
 
                                   Symbol Table
 
@@ -218,11 +218,11 @@ _CCPR4H                      (abs)        000F21
 _CCPTMRS0bits                (abs)        000FAD
 _EUSART4RXbuf                bssCOMRAM    000001
 _EUSART4TXbuf                bssBANK0     000060
-_I2C_2_Master_Idle           text8        000FE2
-_I2C_2_Master_Init           text9        000F8E
-_I2C_2_Master_Start          text7        001098
-_I2C_2_Master_Stop           text6        00108E
-_I2C_2_Master_Write          text5        001082
+_I2C_2_Master_Idle           text8        001006
+_I2C_2_Master_Init           text9        000FDC
+_I2C_2_Master_Start          text7        0010BC
+_I2C_2_Master_Stop           text6        0010B2
+_I2C_2_Master_Write          text5        0010A6
 _INTCONbits                  (abs)        000FF2
 _ISR                         intcode      000008
 _LATAbits                    (abs)        000F79
@@ -275,7 +275,7 @@ _TRISGbits                   (abs)        000F87
 _TRISHbits                   (abs)        000F88
 _TX4REG                      (abs)        000EE4
 _TX4STAbits                  (abs)        000EE8
-_Timer0_init                 text11       00100A
+_Timer0_init                 text11       00102E
 _TxBufReadCnt                bssCOMRAM    000017
 _TxBufWriteCnt               bssCOMRAM    000018
 __HRAM                       (abs)        000000
@@ -342,7 +342,7 @@ __Hreset_vec                 reset_vec    000004
 __Hrparam                    rparam       000000
 __Hsfr                       sfr          000000
 __Hsmallconst                smallconst   000E08
-__Hspace_0                   (abs)        0010A2
+__Hspace_0                   (abs)        0010C6
 __Hspace_1                   (abs)        00009C
 __Hspace_2                   (abs)        000000
 __Hspace_4                   (abs)        60000C
@@ -446,7 +446,7 @@ __Ltext6                     text6        000000
 __Ltext7                     text7        000000
 __Ltext8                     text8        000000
 __Ltext9                     text9        000000
-__S0                         (abs)        0010A2
+__S0                         (abs)        0010C6
 __S1                         (abs)        00009C
 __S4                         (abs)        000000
 __S5                         (abs)        000000
@@ -465,50 +465,50 @@ ___stack_hi                  stack        000000
 ___stack_lo                  stack        000000
 __accesstop                  (abs)        000060
 __activetblptr               (abs)        000003
-__end_of_I2C_2_Master_Idle   text8        00100A
-__end_of_I2C_2_Master_Init   text9        000FB8
-__end_of_I2C_2_Master_Start  text7        0010A2
-__end_of_I2C_2_Master_Stop   text6        001098
-__end_of_I2C_2_Master_Write  text5        00108E
+__end_of_I2C_2_Master_Idle   text8        00102E
+__end_of_I2C_2_Master_Init   text9        001006
+__end_of_I2C_2_Master_Start  text7        0010C6
+__end_of_I2C_2_Master_Stop   text6        0010BC
+__end_of_I2C_2_Master_Write  text5        0010B2
 __end_of_ISR                 intcode      00002C
-__end_of_Timer0_init         text11       001032
-__end_of__initialization     cinit        000F50
-__end_of_buggy_lights_init   text10       000FE2
-__end_of_color_click_init    text3        000F8E
-__end_of_color_writetoaddr   text4        001052
+__end_of_Timer0_init         text11       001056
+__end_of__initialization     cinit        000F9E
+__end_of_buggy_lights_init   text10       000F66
+__end_of_color_click_init    text3        000FDC
+__end_of_color_writetoaddr   text4        001076
 __end_of_initDCmotorsPWM     text2        000E98
-__end_of_initUSART4          text1        001070
+__end_of_initUSART4          text1        001094
 __end_of_main                text0        000F18
-__initialization             cinit        000F18
+__initialization             cinit        000F66
 __mediumconst                mediumconst  000000
 __pbssBANK0                  bssBANK0     000060
 __pbssCOMRAM                 bssCOMRAM    000001
-__pcinit                     cinit        000F18
+__pcinit                     cinit        000F66
 __pcstackCOMRAM              cstackCOMRAM 00001B
 __pdataCOMRAM                dataCOMRAM   000034
-__pidataCOMRAM               idataCOMRAM  001070
+__pidataCOMRAM               idataCOMRAM  001094
 __pintcode                   intcode      000008
 __psmallconst                smallconst   000E00
 __ptext0                     text0        000E98
-__ptext1                     text1        001052
-__ptext10                    text10       000FB8
-__ptext11                    text11       00100A
+__ptext1                     text1        001076
+__ptext10                    text10       000F18
+__ptext11                    text11       00102E
 __ptext2                     text2        000E08
-__ptext3                     text3        000F5A
-__ptext4                     text4        001032
-__ptext5                     text5        001082
-__ptext6                     text6        00108E
-__ptext7                     text7        001098
-__ptext8                     text8        000FE2
-__ptext9                     text9        000F8E
+__ptext3                     text3        000FA8
+__ptext4                     text4        001056
+__ptext5                     text5        0010A6
+__ptext6                     text6        0010B2
+__ptext7                     text7        0010BC
+__ptext8                     text8        001006
+__ptext9                     text9        000FDC
 __ramtop                     ramtop       000E00
 __smallconst                 smallconst   000E00
-_buggy_lights_init           text10       000FB8
-_color_click_init            text3        000F5A
-_color_writetoaddr           text4        001032
+_buggy_lights_init           text10       000F18
+_color_click_init            text3        000FA8
+_color_writetoaddr           text4        001056
 _headbuttDelay               dataCOMRAM   000036
 _initDCmotorsPWM             text2        000E08
-_initUSART4                  text1        001052
+_initUSART4                  text1        001076
 _main                        text0        000E98
 _rampDelay                   dataCOMRAM   000045
 _squareDelay                 dataCOMRAM   000034
@@ -524,7 +524,7 @@ _turningGear                 dataCOMRAM   000042
 btemp                        temp         000046
 color_writetoaddr@address    cstackCOMRAM 00001E
 color_writetoaddr@value      cstackCOMRAM 00001D
-end_of_initialization        cinit        000F50
+end_of_initialization        cinit        000F9E
 initDCmotorsPWM@PWMperiod    cstackCOMRAM 00001B
 int$flags                    temp         000046
 intlevel0                    text         000000
@@ -538,7 +538,7 @@ main@motorR                  cstackCOMRAM 00002B
 stackhi                      (abs)        000000
 stacklo                      (abs)        000000
 start                        init         00002C
-start_initialization         cinit        000F18
+start_initialization         cinit        000F66
 ttemp5                       temp         000047
 ttemp6                       temp         00004A
 ttemp7                       temp         00004E
@@ -549,19 +549,19 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 serial.c
-		_initUSART4    		CODE           	1052	0000	30
+		_initUSART4    		CODE           	1076	0000	30
 
 serial.c estimated size: 30
 
 timers.c
-		_Timer0_init   		CODE           	100A	0000	40
+		_Timer0_init   		CODE           	102E	0000	40
 		_ISR           		CODE           	0008	0000	36
 
 timers.c estimated size: 76
 
 color.c
-		_color_writetoaddr		CODE           	1032	0000	32
-		_color_click_init		CODE           	0F5A	0000	52
+		_color_writetoaddr		CODE           	1056	0000	32
+		_color_click_init		CODE           	0FA8	0000	52
 
 color.c estimated size: 84
 
@@ -571,21 +571,21 @@ dc_motor.c
 dc_motor.c estimated size: 144
 
 buggy_lights.c
-		_buggy_lights_init		CODE           	0FB8	0000	42
+		_buggy_lights_init		CODE           	0F18	0000	78
 
-buggy_lights.c estimated size: 42
+buggy_lights.c estimated size: 78
 
 i2c.c
-		_I2C_2_Master_Start		CODE           	1098	0000	10
-		_I2C_2_Master_Idle		CODE           	0FE2	0000	40
-		_I2C_2_Master_Init		CODE           	0F8E	0000	42
-		_I2C_2_Master_Stop		CODE           	108E	0000	10
-		_I2C_2_Master_Write		CODE           	1082	0000	12
+		_I2C_2_Master_Start		CODE           	10BC	0000	10
+		_I2C_2_Master_Idle		CODE           	1006	0000	40
+		_I2C_2_Master_Init		CODE           	0FDC	0000	42
+		_I2C_2_Master_Stop		CODE           	10B2	0000	10
+		_I2C_2_Master_Write		CODE           	10A6	0000	12
 
 i2c.c estimated size: 114
 
 shared
-		__initialization		CODE           	0F18	0000	56
+		__initialization		CODE           	0F66	0000	56
 
 shared estimated size: 56
 

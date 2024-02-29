@@ -25,15 +25,47 @@ void buggy_lights_init(void)
     LATDbits.LATD7 = 0;
     LATHbits.LATH3 = 0;
     
-    //initialise the three LEDS on the colour board
-    //set up TRIS registers (0 for output)
-    TRISAbits.TRISA0 = 0;               //red LED pin
-    TRISCbits.TRISC2 = 0;               //green LED pin
-    TRISDbits.TRISD0 = 0;               //blue LED pin
-    //set up initial LAT values
-    LATAbits.LATA0 = 0;                 //red LED pin
-    LATCbits.LATC2 = 0;                 //green LED pin
-    LATDbits.LATD0 = 0;                 //blue LED pin
+    //initialise the three LED pins on the colour board
+    
+    //colour click mounted on mikroBUS1 on clicker board
+        //set up TRIS registers (0 for output)
+        TRISAbits.TRISA0 = 0;               //red LED pin
+        TRISCbits.TRISC2 = 0;               //green LED pin
+        TRISDbits.TRISD0 = 0;               //blue LED pin
+        //set up initial LAT values
+        LATAbits.LATA0 = 1;                 //red LED pin
+        LATCbits.LATC2 = 1;                 //green LED pin
+        LATDbits.LATD0 = 1;                 //blue LED pin
+        
+    //colour click mounted on mikroBUS2 on clicker board
+        //set up TRIS registers (0 for output)
+        TRISAbits.TRISA1 = 0;               //red LED pin
+        TRISCbits.TRISC6 = 0;               //green LED pin
+        TRISHbits.TRISH2 = 0;               //blue LED pin
+        //set up initial LAT values
+        LATAbits.LATA1 = 1;                 //red LED pin
+        LATCbits.LATC6 = 1;                 //green LED pin
+        LATHbits.LATH2 = 1;                 //blue LED pin
+
+    //colour click mounted on mikroBUS1 on buggy
+        //set up TRIS registers (0 for output)
+        TRISGbits.TRISG1 = 0;               //red LED pin
+        TRISAbits.TRISA4 = 0;               //green LED pin
+        TRISFbits.TRISF7 = 0;               //blue LED pin
+        //set up initial LAT values
+        LATGbits.LATG1 = 1;                 //red LED pin
+        LATAbits.LATA4 = 1;                 //green LED pin
+        LATFbits.LATF7 = 1;                 //blue LED pin
+    
+    //colour click mounted on mikroBUS2 on buggy
+        //set up TRIS registers (0 for output)
+        TRISGbits.TRISG0 = 0;               //red LED pin
+        TRISEbits.TRISE7 = 0;               //green LED pin
+        TRISAbits.TRISA3 = 0;               //blue LED pin
+        //set up initial LAT values
+        LATGbits.LATG0 = 1;                 //red LED pin
+        LATEbits.LATE7 = 1;                 //green LED pin
+        LATAbits.LATA3 = 1;                 //blue LED pin
 }
 
 void lights_flashing(void)

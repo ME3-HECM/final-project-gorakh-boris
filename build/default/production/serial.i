@@ -24088,8 +24088,7 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 1 "serial.c" 2
-
+# 2 "serial.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -24242,8 +24241,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 2 "serial.c" 2
-
+# 3 "serial.c" 2
 # 1 "./serial.h" 1
 # 13 "./serial.h"
 volatile char EUSART4RXbuf[20];
@@ -24273,8 +24271,7 @@ void putCharToTxBuf(char byte);
 char isDataInTxBuf (void);
 void TxBufferedString(char *string);
 void sendTxBuf(void);
-# 3 "serial.c" 2
-
+# 4 "serial.c" 2
 
 void initUSART4(void) {
 
