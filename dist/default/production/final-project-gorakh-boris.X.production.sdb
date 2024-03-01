@@ -79,6 +79,8 @@
 [v _turnLeft turnLeft `(v  1 e 1 0 ]
 "118
 [v _turnRight turnRight `(v  1 e 1 0 ]
+"134
+[v _fullSpeedAhead fullSpeedAhead `(v  1 e 1 0 ]
 "150
 [v _fullSpeedReverse fullSpeedReverse `(v  1 e 1 0 ]
 "166
@@ -123,11 +125,13 @@
 [v _putCharToTxBuf putCharToTxBuf `(v  1 e 1 0 ]
 "99
 [v _isDataInTxBuf isDataInTxBuf `(uc  1 e 1 0 ]
-"8 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+"10 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
 [v _Timer0_init Timer0_init `(v  1 e 1 0 ]
-"42
+"44
 [v _readTrail readTrail `(v  1 e 1 0 ]
-"52
+"56
+[v _returnToSender returnToSender `(v  1 e 1 0 ]
+"71
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 "13 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X/serial.h
 [v _EUSART4RXbuf EUSART4RXbuf `VE[20]uc  1 e 20 0 ]
@@ -141,21 +145,21 @@
 [v _TxBufWriteCnt TxBufWriteCnt `VEuc  1 e 1 0 ]
 "19
 [v _TxBufReadCnt TxBufReadCnt `VEuc  1 e 1 0 ]
-"8 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X/timers.h
+"9 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X/timers.h
 [v _backtrack backtrack `uc  1 e 1 0 ]
-"13
-[v _trail_timer_high trail_timer_high `[20]uc  1 e 20 0 ]
-"14
-[v _trail_timer_low trail_timer_low `[20]uc  1 e 20 0 ]
-"15
-[v _trail_manoeuvre trail_manoeuvre `[20]uc  1 e 20 0 ]
 "16
-[v _timer_high_pointer timer_high_pointer `*.30uc  1 e 1 0 ]
+[v _trail_timer_high trail_timer_high `[20]uc  1 e 20 0 ]
 "17
-[v _timer_low_pointer timer_low_pointer `*.30uc  1 e 1 0 ]
+[v _trail_timer_low trail_timer_low `[20]uc  1 e 20 0 ]
 "18
+[v _trail_manoeuvre trail_manoeuvre `[20]uc  1 e 20 0 ]
+"26
+[v _timer_high_pointer timer_high_pointer `*.30uc  1 e 1 0 ]
+"27
+[v _timer_low_pointer timer_low_pointer `*.30uc  1 e 1 0 ]
+"28
 [v _manoeuvre_pointer manoeuvre_pointer `*.30uc  1 e 1 0 ]
-"19
+"29
 [v _manoeuvre_count manoeuvre_count `uc  1 e 1 0 ]
 "3182 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
 [v _RX4PPS RX4PPS `VEuc  1 e 1 @3605 ]
@@ -163,7 +167,7 @@
 [v _SSP2CLKPPS SSP2CLKPPS `VEuc  1 e 1 @3612 ]
 "3862
 [v _SSP2DATPPS SSP2DATPPS `VEuc  1 e 1 @3613 ]
-[s S2004 . 1 `uc 1 INT0IE 1 0 :1:0 
+[s S1995 . 1 `uc 1 INT0IE 1 0 :1:0 
 `uc 1 INT1IE 1 0 :1:1 
 `uc 1 INT2IE 1 0 :1:2 
 `uc 1 INT3IE 1 0 :1:3 
@@ -171,9 +175,9 @@
 `uc 1 TMR0IE 1 0 :1:5 
 ]
 "4557
-[u S2011 . 1 `S2004 1 . 1 0 ]
-[v _PIE0bits PIE0bits `VES2011  1 e 1 @3625 ]
-[s S1775 . 1 `uc 1 TX3IE 1 0 :1:0 
+[u S2002 . 1 `S1995 1 . 1 0 ]
+[v _PIE0bits PIE0bits `VES2002  1 e 1 @3625 ]
+[s S1766 . 1 `uc 1 TX3IE 1 0 :1:0 
 `uc 1 RC3IE 1 0 :1:1 
 `uc 1 TX4IE 1 0 :1:2 
 `uc 1 RC4IE 1 0 :1:3 
@@ -181,9 +185,9 @@
 `uc 1 RC5IE 1 0 :1:5 
 ]
 "4819
-[u S1782 . 1 `S1775 1 . 1 0 ]
-[v _PIE4bits PIE4bits `VES1782  1 e 1 @3629 ]
-[s S2060 . 1 `uc 1 INT0IF 1 0 :1:0 
+[u S1773 . 1 `S1766 1 . 1 0 ]
+[v _PIE4bits PIE4bits `VES1773  1 e 1 @3629 ]
+[s S2091 . 1 `uc 1 INT0IF 1 0 :1:0 
 `uc 1 INT1IF 1 0 :1:1 
 `uc 1 INT2IF 1 0 :1:2 
 `uc 1 INT3IF 1 0 :1:3 
@@ -191,9 +195,9 @@
 `uc 1 TMR0IF 1 0 :1:5 
 ]
 "5102
-[u S2067 . 1 `S2060 1 . 1 0 ]
-[v _PIR0bits PIR0bits `VES2067  1 e 1 @3635 ]
-[s S1750 . 1 `uc 1 TX3IF 1 0 :1:0 
+[u S2098 . 1 `S2091 1 . 1 0 ]
+[v _PIR0bits PIR0bits `VES2098  1 e 1 @3635 ]
+[s S1741 . 1 `uc 1 TX3IF 1 0 :1:0 
 `uc 1 RC3IF 1 0 :1:1 
 `uc 1 TX4IF 1 0 :1:2 
 `uc 1 RC4IF 1 0 :1:3 
@@ -201,8 +205,8 @@
 `uc 1 RC5IF 1 0 :1:5 
 ]
 "5332
-[u S1757 . 1 `S1750 1 . 1 0 ]
-[v _PIR4bits PIR4bits `VES1757  1 e 1 @3639 ]
+[u S1748 . 1 `S1741 1 . 1 0 ]
+[v _PIR4bits PIR4bits `VES1748  1 e 1 @3639 ]
 "7858
 [v _RC0PPS RC0PPS `VEuc  1 e 1 @3682 ]
 "8208
@@ -318,7 +322,7 @@
 [v _SP4BRGL SP4BRGL `VEuc  1 e 1 @3813 ]
 "15807
 [v _SP4BRGH SP4BRGH `VEuc  1 e 1 @3814 ]
-[s S1729 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S1720 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -328,9 +332,9 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "15867
-[u S1738 . 1 `S1729 1 . 1 0 ]
-[v _RC4STAbits RC4STAbits `VES1738  1 e 1 @3815 ]
-[s S1706 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S1729 . 1 `S1720 1 . 1 0 ]
+[v _RC4STAbits RC4STAbits `VES1729  1 e 1 @3815 ]
+[s S1697 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -340,9 +344,9 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "15989
-[u S1715 . 1 `S1706 1 . 1 0 ]
-[v _TX4STAbits TX4STAbits `VES1715  1 e 1 @3816 ]
-[s S1685 . 1 `uc 1 ABDEN 1 0 :1:0 
+[u S1706 . 1 `S1697 1 . 1 0 ]
+[v _TX4STAbits TX4STAbits `VES1706  1 e 1 @3816 ]
+[s S1676 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -352,8 +356,8 @@
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "16115
-[u S1694 . 1 `S1685 1 . 1 0 ]
-[v _BAUD4CONbits BAUD4CONbits `VES1694  1 e 1 @3817 ]
+[u S1685 . 1 `S1676 1 . 1 0 ]
+[v _BAUD4CONbits BAUD4CONbits `VES1685  1 e 1 @3817 ]
 "20738
 [v _CCPR4H CCPR4H `VEuc  1 e 1 @3873 ]
 [s S1007 . 1 `uc 1 MODE 1 0 :4:0 
@@ -625,7 +629,7 @@
 "29748
 [u S50 . 1 `S45 1 . 1 0 ]
 [v _TRISHbits TRISHbits `VES50  1 e 1 @3976 ]
-[s S1552 . 1 `uc 1 RF0 1 0 :1:0 
+[s S1558 . 1 `uc 1 RF0 1 0 :1:0 
 `uc 1 RF1 1 0 :1:1 
 `uc 1 RF2 1 0 :1:2 
 `uc 1 RF3 1 0 :1:3 
@@ -635,12 +639,12 @@
 `uc 1 RF7 1 0 :1:7 
 ]
 "30278
-[s S1561 . 1 `uc 1 . 1 0 :1:0 
+[s S1567 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 C2OUTF 1 0 :1:1 
 `uc 1 C1OUTF 1 0 :1:2 
 ]
-[u S1565 . 1 `S1552 1 . 1 0 `S1561 1 . 1 0 ]
-[v _PORTFbits PORTFbits `VES1565  1 e 1 @3982 ]
+[u S1571 . 1 `S1558 1 . 1 0 `S1567 1 . 1 0 ]
+[v _PORTFbits PORTFbits `VES1571  1 e 1 @3982 ]
 "33876
 [v _CCPR2H CCPR2H `VEuc  1 e 1 @4006 ]
 [s S900 . 1 `uc 1 MODE 1 0 :4:0 
@@ -804,29 +808,29 @@
 [v _TMR0L TMR0L `VEuc  1 e 1 @4051 ]
 "39003
 [v _TMR0H TMR0H `VEuc  1 e 1 @4052 ]
-[s S1976 . 1 `uc 1 T0OUTPS 1 0 :4:0 
+[s S1967 . 1 `uc 1 T0OUTPS 1 0 :4:0 
 `uc 1 T016BIT 1 0 :1:4 
 `uc 1 T0OUT 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 T0EN 1 0 :1:7 
 ]
 "39277
-[s S1982 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
+[s S1973 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
 `uc 1 T0OUTPS1 1 0 :1:1 
 `uc 1 T0OUTPS2 1 0 :1:2 
 `uc 1 T0OUTPS3 1 0 :1:3 
 ]
 "39277
-[u S1987 . 1 `S1976 1 . 1 0 `S1982 1 . 1 0 ]
+[u S1978 . 1 `S1967 1 . 1 0 `S1973 1 . 1 0 ]
 "39277
 "39277
-[v _T0CON0bits T0CON0bits `VES1987  1 e 1 @4053 ]
-[s S1930 . 1 `uc 1 T0CKPS 1 0 :4:0 
+[v _T0CON0bits T0CON0bits `VES1978  1 e 1 @4053 ]
+[s S1921 . 1 `uc 1 T0CKPS 1 0 :4:0 
 `uc 1 T0ASYNC 1 0 :1:4 
 `uc 1 T0CS 1 0 :3:5 
 ]
 "39353
-[s S1934 . 1 `uc 1 T0CKPS0 1 0 :1:0 
+[s S1925 . 1 `uc 1 T0CKPS0 1 0 :1:0 
 `uc 1 T0CKPS1 1 0 :1:1 
 `uc 1 T0CKPS2 1 0 :1:2 
 `uc 1 T0CKPS3 1 0 :1:3 
@@ -836,20 +840,20 @@
 `uc 1 T0CS2 1 0 :1:7 
 ]
 "39353
-[s S1943 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S1934 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 `uc 1 T0PS3 1 0 :1:3 
 ]
 "39353
-[s S1948 . 1 `uc 1 T0PS 1 0 :4:0 
+[s S1939 . 1 `uc 1 T0PS 1 0 :4:0 
 ]
 "39353
-[u S1950 . 1 `S1930 1 . 1 0 `S1934 1 . 1 0 `S1943 1 . 1 0 `S1948 1 . 1 0 ]
+[u S1941 . 1 `S1921 1 . 1 0 `S1925 1 . 1 0 `S1934 1 . 1 0 `S1939 1 . 1 0 ]
 "39353
 "39353
-[v _T0CON1bits T0CON1bits `VES1950  1 e 1 @4054 ]
-[s S2021 . 1 `uc 1 INT0EDG 1 0 :1:0 
+[v _T0CON1bits T0CON1bits `VES1941  1 e 1 @4054 ]
+[s S2012 . 1 `uc 1 INT0EDG 1 0 :1:0 
 `uc 1 INT1EDG 1 0 :1:1 
 `uc 1 INT2EDG 1 0 :1:2 
 `uc 1 INT3EDG 1 0 :1:3 
@@ -859,20 +863,20 @@
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "40176
-[s S2030 . 1 `uc 1 . 1 0 :6:0 
+[s S2021 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
 "40176
-[s S2034 . 1 `uc 1 . 1 0 :6:0 
+[s S2025 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
 "40176
-[u S2038 . 1 `S2021 1 . 1 0 `S2030 1 . 1 0 `S2034 1 . 1 0 ]
+[u S2029 . 1 `S2012 1 . 1 0 `S2021 1 . 1 0 `S2025 1 . 1 0 ]
 "40176
 "40176
-[v _INTCONbits INTCONbits `VES2038  1 e 1 @4082 ]
+[v _INTCONbits INTCONbits `VES2029  1 e 1 @4082 ]
 "153 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
 [v _prec prec `i  1 s 2 prec ]
 [v _width width `i  1 s 2 width ]
@@ -886,16 +890,33 @@
 [v _main main `(v  1 e 1 0 ]
 {
 [s S1107 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
-"32
-[v main@motorR motorR `S1107  1 a 9 80 ]
-[v main@motorL motorL `S1107  1 a 9 71 ]
-"73
-[v main@mann mann `uc  1 a 1 70 ]
-"72
-[v main@timerL timerL `uc  1 a 1 69 ]
-"71
-[v main@timerH timerH `uc  1 a 1 68 ]
-"91
+"30
+[v main@motorR motorR `S1107  1 a 9 83 ]
+[v main@motorL motorL `S1107  1 a 9 74 ]
+"83
+} 0
+"56 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+[v _returnToSender returnToSender `(v  1 e 1 0 ]
+{
+"60
+[v returnToSender@mann mann `uc  1 a 1 71 ]
+"59
+[v returnToSender@timerL timerL `uc  1 a 1 70 ]
+"58
+[v returnToSender@timerH timerH `uc  1 a 1 69 ]
+[s S1107 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
+"56
+[v returnToSender@mL mL `*.30S1107  1 p 1 66 ]
+[v returnToSender@mR mR `*.30S1107  1 p 1 67 ]
+"69
+} 0
+"88 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+[v _stop stop `(v  1 e 1 0 ]
+{
+[s S1107 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
+[v stop@mL mL `*.30S1107  1 p 1 18 ]
+[v stop@mR mR `*.30S1107  1 p 1 19 ]
+"99
 } 0
 "43 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
 [v _sendIntSerial4 sendIntSerial4 `(v  1 e 1 0 ]
@@ -909,10 +930,10 @@
 "9 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[u S2567 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[u S2614 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
 "13
-[s S2570 _IO_FILE 12 `S2567 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v sprintf@f f `S2570  1 a 12 35 ]
+[s S2617 _IO_FILE 12 `S2614 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v sprintf@f f `S2617  1 a 12 35 ]
 "11
 [v sprintf@ret ret `i  1 a 2 32 ]
 "12
@@ -927,9 +948,9 @@
 {
 "1820
 [v vfprintf@cfmt cfmt `*.31uc  1 a 1 26 ]
-[s S2602 _IO_FILE 0 ]
+[s S2649 _IO_FILE 0 ]
 "1817
-[v vfprintf@fp fp `*.30S2602  1 p 1 23 ]
+[v vfprintf@fp fp `*.30S2649  1 p 1 23 ]
 [v vfprintf@fmt fmt `*.31Cuc  1 p 1 24 ]
 [v vfprintf@ap ap `*.30*.30v  1 p 1 25 ]
 "1840
@@ -937,9 +958,9 @@
 "1177
 [v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
 {
-[u S2620 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
+[u S2667 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
 "1188
-[v vfpfcnvrt@convarg convarg `S2620  1 a 4 18 ]
+[v vfpfcnvrt@convarg convarg `S2667  1 a 4 18 ]
 "1191
 [v vfpfcnvrt@cnt cnt `i  1 a 2 15 ]
 "1179
@@ -947,9 +968,9 @@
 [v vfpfcnvrt@cp cp `*.31uc  1 a 1 17 ]
 "1180
 [v vfpfcnvrt@done done `a  1 a 1 14 ]
-[s S2602 _IO_FILE 0 ]
+[s S2649 _IO_FILE 0 ]
 "1177
-[v vfpfcnvrt@fp fp `*.30S2602  1 p 1 10 ]
+[v vfpfcnvrt@fp fp `*.30S2649  1 p 1 10 ]
 [v vfpfcnvrt@fmt fmt `*.30*.31uc  1 p 1 11 ]
 [v vfpfcnvrt@ap ap `*.30*.30v  1 p 1 12 ]
 "1814
@@ -958,9 +979,9 @@
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 0 ]
-[u S2567 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S2570 _IO_FILE 12 `S2567 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v fputc@fp fp `*.30S2570  1 p 1 2 ]
+[u S2614 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S2617 _IO_FILE 12 `S2614 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v fputc@fp fp `*.30S2617  1 p 1 2 ]
 "24
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\putch.c
@@ -1012,13 +1033,59 @@
 [v sendCharSerial4@charToSend charToSend `uc  1 a 1 0 ]
 "32
 } 0
-"42 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+"44 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
 [v _readTrail readTrail `(v  1 e 1 0 ]
 {
 [v readTrail@tH tH `*.30uc  1 p 1 0 ]
 [v readTrail@tL tL `*.30uc  1 p 1 1 ]
 [v readTrail@man man `*.30uc  1 p 1 2 ]
-"50
+"54
+} 0
+"134 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+[v _fullSpeedAhead fullSpeedAhead `(v  1 e 1 0 ]
+{
+"137
+[v fullSpeedAhead@rightGear rightGear `uc  1 a 1 22 ]
+"136
+[v fullSpeedAhead@leftGear leftGear `uc  1 a 1 21 ]
+[s S1107 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
+"134
+[v fullSpeedAhead@mL mL `*.30S1107  1 p 1 18 ]
+[v fullSpeedAhead@mR mR `*.30S1107  1 p 1 19 ]
+"147
+} 0
+"65
+[v _setMotorPWM setMotorPWM `(v  1 e 1 0 ]
+{
+"67
+[v setMotorPWM@negDuty negDuty `uc  1 a 1 17 ]
+[v setMotorPWM@posDuty posDuty `uc  1 a 1 16 ]
+[s S1107 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
+"65
+[v setMotorPWM@m m `*.30S1107  1 p 1 13 ]
+"85
+} 0
+"15 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwdiv@quotient quotient `ui  1 a 2 10 ]
+"11
+[v ___lwdiv@counter counter `uc  1 a 1 12 ]
+"7
+[v ___lwdiv@dividend dividend `ui  1 p 2 6 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 8 ]
+"30
 } 0
 "5 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
 [v _initUSART4 initUSART4 `(v  1 e 1 0 ]
@@ -1079,13 +1146,13 @@
 {
 "68
 } 0
-"8 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+"10 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
 [v _Timer0_init Timer0_init `(v  1 e 1 0 ]
 {
-"28
+"30
 } 0
-"52
+"71
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 {
-"65
+"84
 } 0

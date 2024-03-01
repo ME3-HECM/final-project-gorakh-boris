@@ -26,9 +26,7 @@
 void main(void) {
     __delay_ms(1000);    //initial delay
     
-    unsigned int PWMcycle = 99;
-    initDCmotorsPWM(PWMcycle);
-    
+    unsigned int PWMcycle = 99;    
     struct DC_motor motorL, motorR;
     
     motorL.power = 0;
@@ -45,6 +43,7 @@ void main(void) {
     motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
     motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
     
+    initDCmotorsPWM(PWMcycle);
     buggy_lights_init();
     color_click_init();
     initUSART4();
@@ -68,24 +67,17 @@ void main(void) {
     //cardCyan(&motorL, &motorR, backtrack);
     //cardWhite(&motorL, &motorR);
     
-    unsigned char timerH = 0;
-    unsigned char timerL = 0;
-    unsigned char mann = 0;
-        
+    returnToSender(&motorL, &motorR);
+    
     while (1) {
         //sendIntSerial4((int)TMR0L);
         //sendIntSerial4((int)TMR0H);
         if (!PORTFbits.RF2) {  //on button press
-            //writeTrail();
-            readTrail(&timerH, &timerL, &mann);
             LATDbits.LATD7 = !LATDbits.LATD7;
         }
         //sendArrayCharSerial4(trail_timer_high);
         //sendArrayCharSerial4(trail_timer_low);
         //sendArrayCharSerial4(trail_manoeuvre);
-        sendIntSerial4(timerH);
-        sendIntSerial4(timerL);
-        sendIntSerial4(mann);
         __delay_ms(500);
     }
 }

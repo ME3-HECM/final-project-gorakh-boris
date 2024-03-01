@@ -4,10 +4,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "20 C:\Program Files\Microchip\xc8\v2.45\pic\include\builtins.h
 [v __delay `JF205 ~T0 @X0 0 e ]
 [p i __delay ]
-"34 ./dc_motor.h
-[; ;./dc_motor.h: 34: void initDCmotorsPWM(unsigned int PWMperiod);
-[v _initDCmotorsPWM `(v ~T0 @X0 0 ef1`ui ]
-"8
+"8 ./dc_motor.h
 [; ;./dc_motor.h: 8: typedef struct DC_motor {
 [s S2015 `uc 1 `uc 1 `uc 1 `ui 1 `*uc 1 `*uc 1 ]
 [n S2015 DC_motor power direction brakemode PWMperiod posDutyHighByte negDutyHighByte ]
@@ -23,6 +20,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "20738
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 20738: extern volatile unsigned char CCPR4H __attribute__((address(0xF21)));
 [v _CCPR4H `Vuc ~T0 @X0 0 e@3873 ]
+"34 ./dc_motor.h
+[; ;./dc_motor.h: 34: void initDCmotorsPWM(unsigned int PWMperiod);
+[v _initDCmotorsPWM `(v ~T0 @X0 0 ef1`ui ]
 "15 ./buggy_lights.h
 [; ;./buggy_lights.h: 15: void buggy_lights_init(void);
 [v _buggy_lights_init `(v ~T0 @X0 0 ef ]
@@ -32,8 +32,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "23 ./serial.h
 [; ;./serial.h: 23: void initUSART4(void);
 [v _initUSART4 `(v ~T0 @X0 0 ef ]
-"21 ./timers.h
-[; ;./timers.h: 21: void Timer0_init(void);
+"31 ./timers.h
+[; ;./timers.h: 31: void Timer0_init(void);
 [v _Timer0_init `(v ~T0 @X0 0 ef ]
 "29622 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29622:     struct {
@@ -57,7 +57,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12319
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 12319: extern volatile ANSELFbits_t ANSELFbits __attribute__((address(0xEB4)));
 [v _ANSELFbits `VS567 ~T0 @X0 0 e@3764 ]
-"30262
+"34 ./timers.h
+[; ;./timers.h: 34: void returnToSender(DC_motor *mL, DC_motor *mR);
+[v _returnToSender `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"30262 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 30262:     struct {
 [s S1412 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1412 . RF0 RF1 RF2 RF3 RF4 RF5 RF6 RF7 ]
@@ -72,10 +75,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "30278
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 30278: extern volatile PORTFbits_t PORTFbits __attribute__((address(0xF8E)));
 [v _PORTFbits `VS1411 ~T0 @X0 0 e@3982 ]
-"23 ./timers.h
-[; ;./timers.h: 23: void readTrail(unsigned char *tH, unsigned char *tL, unsigned char *man);
-[v _readTrail `(v ~T0 @X0 0 ef3`*uc`*uc`*uc ]
-"28487 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
+"28487
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28487:     struct {
 [s S1349 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1349 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
@@ -90,9 +90,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28508
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28508: extern volatile LATDbits_t LATDbits __attribute__((address(0xF7C)));
 [v _LATDbits `VS1348 ~T0 @X0 0 e@3964 ]
-"27 ./serial.h
-[; ;./serial.h: 27: void sendIntSerial4(int integer);
-[v _sendIntSerial4 `(v ~T0 @X0 0 ef1`i ]
 "9 main.c
 [p x FEXTOSC  =  HS      ]
 "10
@@ -2171,116 +2168,116 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _TxBufReadCnt
 -> -> 0 `i `uc
 ]
-"8 ./timers.h
-[; ;./timers.h: 8: unsigned char backtrack = 0;
+"9 ./timers.h
+[; ;./timers.h: 9: unsigned char backtrack = 0;
 [v _backtrack `uc ~T0 @X0 1 e ]
 [i _backtrack
 -> -> 0 `i `uc
 ]
-"13
-[; ;./timers.h: 13: unsigned char trail_timer_high[20] = {101, 102, 103, 104, 105, 106, 107, 108, 109, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 100};
+"16
+[; ;./timers.h: 16: unsigned char trail_timer_high[20] = {5, 10, 5, 10, 5, 10, 5, 10, 5, 10, 5, 10, 5, 10, 5, 10, 5, 10, 5, 10};
 [v _trail_timer_high `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_timer_high
 :U ..
--> -> 101 `i `uc
--> -> 102 `i `uc
--> -> 103 `i `uc
--> -> 104 `i `uc
--> -> 105 `i `uc
--> -> 106 `i `uc
--> -> 107 `i `uc
--> -> 108 `i `uc
--> -> 109 `i `uc
--> -> 100 `i `uc
--> -> 101 `i `uc
--> -> 102 `i `uc
--> -> 103 `i `uc
--> -> 104 `i `uc
--> -> 105 `i `uc
--> -> 106 `i `uc
--> -> 107 `i `uc
--> -> 108 `i `uc
--> -> 109 `i `uc
--> -> 100 `i `uc
+-> -> 5 `i `uc
+-> -> 10 `i `uc
+-> -> 5 `i `uc
+-> -> 10 `i `uc
+-> -> 5 `i `uc
+-> -> 10 `i `uc
+-> -> 5 `i `uc
+-> -> 10 `i `uc
+-> -> 5 `i `uc
+-> -> 10 `i `uc
+-> -> 5 `i `uc
+-> -> 10 `i `uc
+-> -> 5 `i `uc
+-> -> 10 `i `uc
+-> -> 5 `i `uc
+-> -> 10 `i `uc
+-> -> 5 `i `uc
+-> -> 10 `i `uc
+-> -> 5 `i `uc
+-> -> 10 `i `uc
 ..
 ]
-"14
-[; ;./timers.h: 14: unsigned char trail_timer_low[20] = {101, 102, 103, 104, 105, 106, 107, 108, 109, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 100};
+"17
+[; ;./timers.h: 17: unsigned char trail_timer_low[20] = {100, 200, 100, 200, 100, 200, 100, 200, 100, 200, 100, 200, 100, 200, 100, 200, 100, 200, 100, 200};
 [v _trail_timer_low `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_timer_low
 :U ..
--> -> 101 `i `uc
--> -> 102 `i `uc
--> -> 103 `i `uc
--> -> 104 `i `uc
--> -> 105 `i `uc
--> -> 106 `i `uc
--> -> 107 `i `uc
--> -> 108 `i `uc
--> -> 109 `i `uc
 -> -> 100 `i `uc
--> -> 101 `i `uc
--> -> 102 `i `uc
--> -> 103 `i `uc
--> -> 104 `i `uc
--> -> 105 `i `uc
--> -> 106 `i `uc
--> -> 107 `i `uc
--> -> 108 `i `uc
--> -> 109 `i `uc
+-> -> 200 `i `uc
 -> -> 100 `i `uc
+-> -> 200 `i `uc
+-> -> 100 `i `uc
+-> -> 200 `i `uc
+-> -> 100 `i `uc
+-> -> 200 `i `uc
+-> -> 100 `i `uc
+-> -> 200 `i `uc
+-> -> 100 `i `uc
+-> -> 200 `i `uc
+-> -> 100 `i `uc
+-> -> 200 `i `uc
+-> -> 100 `i `uc
+-> -> 200 `i `uc
+-> -> 100 `i `uc
+-> -> 200 `i `uc
+-> -> 100 `i `uc
+-> -> 200 `i `uc
 ..
 ]
-"15
-[; ;./timers.h: 15: unsigned char trail_manoeuvre[20] = {101, 102, 103, 104, 105, 106, 107, 108, 109, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 100};
+"18
+[; ;./timers.h: 18: unsigned char trail_manoeuvre[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
 [v _trail_manoeuvre `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_manoeuvre
 :U ..
--> -> 101 `i `uc
--> -> 102 `i `uc
--> -> 103 `i `uc
--> -> 104 `i `uc
--> -> 105 `i `uc
--> -> 106 `i `uc
--> -> 107 `i `uc
--> -> 108 `i `uc
--> -> 109 `i `uc
--> -> 100 `i `uc
--> -> 101 `i `uc
--> -> 102 `i `uc
--> -> 103 `i `uc
--> -> 104 `i `uc
--> -> 105 `i `uc
--> -> 106 `i `uc
--> -> 107 `i `uc
--> -> 108 `i `uc
--> -> 109 `i `uc
--> -> 100 `i `uc
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+-> -> 3 `i `uc
+-> -> 4 `i `uc
+-> -> 5 `i `uc
+-> -> 6 `i `uc
+-> -> 7 `i `uc
+-> -> 8 `i `uc
+-> -> 9 `i `uc
+-> -> 0 `i `uc
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+-> -> 3 `i `uc
+-> -> 4 `i `uc
+-> -> 5 `i `uc
+-> -> 6 `i `uc
+-> -> 7 `i `uc
+-> -> 8 `i `uc
+-> -> 9 `i `uc
+-> -> 0 `i `uc
 ..
 ]
-"16
-[; ;./timers.h: 16: unsigned char *timer_high_pointer = &trail_timer_high[19];
+"26
+[; ;./timers.h: 26: unsigned char *timer_high_pointer = &trail_timer_high[20];
 [v _timer_high_pointer `*uc ~T0 @X0 1 e ]
 [i _timer_high_pointer
-&U *U + &U _trail_timer_high * -> -> -> 19 `i `ui `ux -> -> # *U &U _trail_timer_high `ui `ux
+&U *U + &U _trail_timer_high * -> -> -> 20 `i `ui `ux -> -> # *U &U _trail_timer_high `ui `ux
 ]
-"17
-[; ;./timers.h: 17: unsigned char *timer_low_pointer = &trail_timer_low[19];
+"27
+[; ;./timers.h: 27: unsigned char *timer_low_pointer = &trail_timer_low[20];
 [v _timer_low_pointer `*uc ~T0 @X0 1 e ]
 [i _timer_low_pointer
-&U *U + &U _trail_timer_low * -> -> -> 19 `i `ui `ux -> -> # *U &U _trail_timer_low `ui `ux
+&U *U + &U _trail_timer_low * -> -> -> 20 `i `ui `ux -> -> # *U &U _trail_timer_low `ui `ux
 ]
-"18
-[; ;./timers.h: 18: unsigned char *manoeuvre_pointer = &trail_manoeuvre[19];
+"28
+[; ;./timers.h: 28: unsigned char *manoeuvre_pointer = &trail_manoeuvre[20];
 [v _manoeuvre_pointer `*uc ~T0 @X0 1 e ]
 [i _manoeuvre_pointer
-&U *U + &U _trail_manoeuvre * -> -> -> 19 `i `ui `ux -> -> # *U &U _trail_manoeuvre `ui `ux
+&U *U + &U _trail_manoeuvre * -> -> -> 20 `i `ui `ux -> -> # *U &U _trail_manoeuvre `ui `ux
 ]
-"19
-[; ;./timers.h: 19: unsigned char manoeuvre_count = 0;
+"29
+[; ;./timers.h: 29: unsigned char manoeuvre_count = 20;
 [v _manoeuvre_count `uc ~T0 @X0 1 e ]
 [i _manoeuvre_count
--> -> 0 `i `uc
+-> -> 20 `i `uc
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "26 main.c
@@ -2297,121 +2294,100 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _PWMcycle `ui ~T0 @X0 1 a ]
 [e = _PWMcycle -> -> 99 `i `ui ]
 "30
-[; ;main.c: 30:     initDCmotorsPWM(PWMcycle);
-[e ( _initDCmotorsPWM (1 _PWMcycle ]
-"32
-[; ;main.c: 32:     struct DC_motor motorL, motorR;
+[; ;main.c: 30:     struct DC_motor motorL, motorR;
 [v _motorL `S2015 ~T0 @X0 1 a ]
 [v _motorR `S2015 ~T0 @X0 1 a ]
-"34
-[; ;main.c: 34:     motorL.power = 0;
+"32
+[; ;main.c: 32:     motorL.power = 0;
 [e = . _motorL 0 -> -> 0 `i `uc ]
-"35
-[; ;main.c: 35:     motorL.direction = 1;
+"33
+[; ;main.c: 33:     motorL.direction = 1;
 [e = . _motorL 1 -> -> 1 `i `uc ]
-"36
-[; ;main.c: 36:     motorL.brakemode = 1;
+"34
+[; ;main.c: 34:     motorL.brakemode = 1;
 [e = . _motorL 2 -> -> 1 `i `uc ]
-"37
-[; ;main.c: 37:     motorL.PWMperiod = PWMcycle;
+"35
+[; ;main.c: 35:     motorL.PWMperiod = PWMcycle;
 [e = . _motorL 3 _PWMcycle ]
-"38
-[; ;main.c: 38:     motorL.posDutyHighByte = (unsigned char *)(&CCPR1H);
+"36
+[; ;main.c: 36:     motorL.posDutyHighByte = (unsigned char *)(&CCPR1H);
 [e = . _motorL 4 -> &U _CCPR1H `*uc ]
-"39
-[; ;main.c: 39:     motorL.negDutyHighByte = (unsigned char *)(&CCPR2H);
+"37
+[; ;main.c: 37:     motorL.negDutyHighByte = (unsigned char *)(&CCPR2H);
 [e = . _motorL 5 -> &U _CCPR2H `*uc ]
-"41
-[; ;main.c: 41:     motorR.power = 0;
+"39
+[; ;main.c: 39:     motorR.power = 0;
 [e = . _motorR 0 -> -> 0 `i `uc ]
-"42
-[; ;main.c: 42:     motorR.direction = 1;
+"40
+[; ;main.c: 40:     motorR.direction = 1;
 [e = . _motorR 1 -> -> 1 `i `uc ]
-"43
-[; ;main.c: 43:     motorR.brakemode = 1;
+"41
+[; ;main.c: 41:     motorR.brakemode = 1;
 [e = . _motorR 2 -> -> 1 `i `uc ]
-"44
-[; ;main.c: 44:     motorR.PWMperiod = PWMcycle;
+"42
+[; ;main.c: 42:     motorR.PWMperiod = PWMcycle;
 [e = . _motorR 3 _PWMcycle ]
-"45
-[; ;main.c: 45:     motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
+"43
+[; ;main.c: 43:     motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
 [e = . _motorR 4 -> &U _CCPR3H `*uc ]
-"46
-[; ;main.c: 46:     motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
+"44
+[; ;main.c: 44:     motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
 [e = . _motorR 5 -> &U _CCPR4H `*uc ]
-"48
-[; ;main.c: 48:     buggy_lights_init();
+"46
+[; ;main.c: 46:     initDCmotorsPWM(PWMcycle);
+[e ( _initDCmotorsPWM (1 _PWMcycle ]
+"47
+[; ;main.c: 47:     buggy_lights_init();
 [e ( _buggy_lights_init ..  ]
-"49
-[; ;main.c: 49:     color_click_init();
+"48
+[; ;main.c: 48:     color_click_init();
 [e ( _color_click_init ..  ]
-"50
-[; ;main.c: 50:     initUSART4();
+"49
+[; ;main.c: 49:     initUSART4();
 [e ( _initUSART4 ..  ]
-"51
-[; ;main.c: 51:     Timer0_init();
+"50
+[; ;main.c: 50:     Timer0_init();
 [e ( _Timer0_init ..  ]
-"55
-[; ;main.c: 55:         TRISFbits.TRISF2 = 1;
+"54
+[; ;main.c: 54:         TRISFbits.TRISF2 = 1;
 [e = . . _TRISFbits 0 2 -> -> 1 `i `uc ]
-"56
-[; ;main.c: 56:         TRISFbits.TRISF3 = 1;
+"55
+[; ;main.c: 55:         TRISFbits.TRISF3 = 1;
 [e = . . _TRISFbits 0 3 -> -> 1 `i `uc ]
-"58
-[; ;main.c: 58:         ANSELFbits.ANSELF2 = 0;
+"57
+[; ;main.c: 57:         ANSELFbits.ANSELF2 = 0;
 [e = . . _ANSELFbits 0 2 -> -> 0 `i `uc ]
-"59
-[; ;main.c: 59:         ANSELFbits.ANSELF3 = 0;
+"58
+[; ;main.c: 58:         ANSELFbits.ANSELF3 = 0;
 [e = . . _ANSELFbits 0 3 -> -> 0 `i `uc ]
-"71
-[; ;main.c: 71:     unsigned char timerH = 0;
-[v _timerH `uc ~T0 @X0 1 a ]
-[e = _timerH -> -> 0 `i `uc ]
+"70
+[; ;main.c: 70:     returnToSender(&motorL, &motorR);
+[e ( _returnToSender (2 , &U _motorL &U _motorR ]
 "72
-[; ;main.c: 72:     unsigned char timerL = 0;
-[v _timerL `uc ~T0 @X0 1 a ]
-[e = _timerL -> -> 0 `i `uc ]
-"73
-[; ;main.c: 73:     unsigned char mann = 0;
-[v _mann `uc ~T0 @X0 1 a ]
-[e = _mann -> -> 0 `i `uc ]
-"75
-[; ;main.c: 75:     while (1) {
+[; ;main.c: 72:     while (1) {
 [e :U 2019 ]
 {
-"78
-[; ;main.c: 78:         if (!PORTFbits.RF2) {
+"75
+[; ;main.c: 75:         if (!PORTFbits.RF2) {
 [e $ ! ! != -> . . _PORTFbits 0 2 `i -> 0 `i 2021  ]
 {
-"80
-[; ;main.c: 80:             readTrail(&timerH, &timerL, &mann);
-[e ( _readTrail (3 , , &U _timerH &U _timerL &U _mann ]
-"81
-[; ;main.c: 81:             LATDbits.LATD7 = !LATDbits.LATD7;
+"76
+[; ;main.c: 76:             LATDbits.LATD7 = !LATDbits.LATD7;
 [e = . . _LATDbits 0 7 -> -> ! != -> . . _LATDbits 0 7 `i -> 0 `i `i `uc ]
-"82
-[; ;main.c: 82:         }
+"77
+[; ;main.c: 77:         }
 }
 [e :U 2021 ]
-"86
-[; ;main.c: 86:         sendIntSerial4(timerH);
-[e ( _sendIntSerial4 (1 -> _timerH `i ]
-"87
-[; ;main.c: 87:         sendIntSerial4(timerL);
-[e ( _sendIntSerial4 (1 -> _timerL `i ]
-"88
-[; ;main.c: 88:         sendIntSerial4(mann);
-[e ( _sendIntSerial4 (1 -> _mann `i ]
-"89
-[; ;main.c: 89:         _delay((unsigned long)((500)*(64000000/4000.0)));
+"81
+[; ;main.c: 81:         _delay((unsigned long)((500)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"90
-[; ;main.c: 90:     }
+"82
+[; ;main.c: 82:     }
 }
 [e :U 2018 ]
 [e $U 2019  ]
 [e :U 2020 ]
-"91
-[; ;main.c: 91: }
+"83
+[; ;main.c: 83: }
 [e :UE 2017 ]
 }

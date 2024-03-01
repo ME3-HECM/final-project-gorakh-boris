@@ -24274,22 +24274,33 @@ void sendTxBuf(void);
 
 
 
+
 unsigned char backtrack = 0;
 
 
 
 
-unsigned char trail_timer_high[20] = {101, 102, 103, 104, 105, 106, 107, 108, 109, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 100};
-unsigned char trail_timer_low[20] = {101, 102, 103, 104, 105, 106, 107, 108, 109, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 100};
-unsigned char trail_manoeuvre[20] = {101, 102, 103, 104, 105, 106, 107, 108, 109, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 100};
-unsigned char *timer_high_pointer = &trail_timer_high[19];
-unsigned char *timer_low_pointer = &trail_timer_low[19];
-unsigned char *manoeuvre_pointer = &trail_manoeuvre[19];
-unsigned char manoeuvre_count = 0;
+
+
+unsigned char trail_timer_high[20] = {5, 10, 5, 10, 5, 10, 5, 10, 5, 10, 5, 10, 5, 10, 5, 10, 5, 10, 5, 10};
+unsigned char trail_timer_low[20] = {100, 200, 100, 200, 100, 200, 100, 200, 100, 200, 100, 200, 100, 200, 100, 200, 100, 200, 100, 200};
+unsigned char trail_manoeuvre[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+
+
+
+
+
+
+
+unsigned char *timer_high_pointer = &trail_timer_high[20];
+unsigned char *timer_low_pointer = &trail_timer_low[20];
+unsigned char *manoeuvre_pointer = &trail_manoeuvre[20];
+unsigned char manoeuvre_count = 20;
 
 void Timer0_init(void);
-void writeTrail(void);
+void writeTrail(unsigned char *man);
 void readTrail(unsigned char *tH, unsigned char *tL, unsigned char *man);
+void returnToSender(DC_motor *mL, DC_motor *mR);
 void __attribute__((picinterrupt(("")))) ISR();
 # 22 "main.c" 2
 
@@ -24300,8 +24311,6 @@ void main(void) {
     _delay((unsigned long)((1000)*(64000000/4000.0)));
 
     unsigned int PWMcycle = 99;
-    initDCmotorsPWM(PWMcycle);
-
     struct DC_motor motorL, motorR;
 
     motorL.power = 0;
@@ -24318,6 +24327,7 @@ void main(void) {
     motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
     motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
 
+    initDCmotorsPWM(PWMcycle);
     buggy_lights_init();
     color_click_init();
     initUSART4();
@@ -24330,25 +24340,18 @@ void main(void) {
 
         ANSELFbits.ANSELF2 = 0;
         ANSELFbits.ANSELF3 = 0;
-# 71 "main.c"
-    unsigned char timerH = 0;
-    unsigned char timerL = 0;
-    unsigned char mann = 0;
+# 70 "main.c"
+    returnToSender(&motorL, &motorR);
 
     while (1) {
 
 
         if (!PORTFbits.RF2) {
-
-            readTrail(&timerH, &timerL, &mann);
             LATDbits.LATD7 = !LATDbits.LATD7;
         }
 
 
 
-        sendIntSerial4(timerH);
-        sendIntSerial4(timerL);
-        sendIntSerial4(mann);
         _delay((unsigned long)((500)*(64000000/4000.0)));
     }
 }

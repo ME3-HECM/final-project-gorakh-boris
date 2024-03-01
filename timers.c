@@ -1,6 +1,8 @@
 #include <xc.h>
 #include "timers.h"
+#include "dc_motor.h"
 #include "manoeuvres.h"
+#include "serial.h"
 
 /************************************
  * Function to set up timer 0
@@ -27,10 +29,10 @@ void Timer0_init(void)
     INTCONbits.GIE = 1;     //sets global interrupt
 }
 
-void writeTrail(void) {
+void writeTrail(unsigned char *man) {
     *timer_high_pointer = TMR0H;    
     *timer_low_pointer = TMR0L;    
-    *manoeuvre_pointer = manoeuvre_count;
+    *manoeuvre_pointer = *man;
     
     timer_high_pointer ++;
     timer_low_pointer ++;
@@ -40,13 +42,30 @@ void writeTrail(void) {
 }
 
 void readTrail(unsigned char *tH, unsigned char *tL, unsigned char *man) {
+    timer_high_pointer --;
+    timer_low_pointer --;
+    manoeuvre_pointer --;
+    
     *tH = *timer_high_pointer;
     *tL = *timer_low_pointer;
     *man = *manoeuvre_pointer;
     
-    timer_high_pointer --;
-    timer_low_pointer --;
-    manoeuvre_pointer --;
+    manoeuvre_count --;
+}
+
+void returnToSender(DC_motor *mL, DC_motor *mR) {
+    while (manoeuvre_count != 0) {
+        unsigned char timerH = 0;
+        unsigned char timerL = 0;
+        unsigned char mann = 0;
+        readTrail(&timerH, &timerL, &mann);
+        sendIntSerial4(timerH);
+        sendIntSerial4(timerL);
+        sendIntSerial4(mann);
+        fullSpeedAhead(mL, mR);
+        stop(mL, mR);
+    }
+    LATHbits.LATH3 = !LATHbits.LATH3;       //toggle LED for debugging
 }
 
 void __interrupt() ISR()
