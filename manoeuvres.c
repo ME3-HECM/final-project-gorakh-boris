@@ -109,3 +109,33 @@ void cardWhite(DC_motor *mL, DC_motor *mR)                                  //fi
     UTurn(mL, mR);
     headbuttReverse(mL, mR);
 }
+
+void pickCard(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key)
+{
+    switch (key) {
+        case 1:         //red
+            cardRed(mL, mR, backtrack);
+            break;
+        case 2:         //green
+            cardGreen(mL, mR, backtrack);
+            break;
+        case 3:         //blue
+            cardBlue(mL, mR, backtrack);
+            break;
+        case 4:         //yellow
+            cardYellow(mL, mR, backtrack);
+            break;
+        case 5:         //pink
+            cardPink(mL, mR, backtrack);
+            break;
+        case 6:         //orange
+            cardOrange(mL, mR, backtrack);
+            break;
+        case 7:         //cyan
+            cardCyan(mL, mR, backtrack);
+            break;
+        case 8:         //white
+            cardWhite(mL, mR);
+            break;
+    }
+}

@@ -57,10 +57,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12319
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 12319: extern volatile ANSELFbits_t ANSELFbits __attribute__((address(0xEB4)));
 [v _ANSELFbits `VS567 ~T0 @X0 0 e@3764 ]
-"38 ./timers.h
-[; ;./timers.h: 38: void returnToSender(DC_motor *mL, DC_motor *mR);
-[v _returnToSender `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"30262 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
+"30262
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 30262:     struct {
 [s S1412 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1412 . RF0 RF1 RF2 RF3 RF4 RF5 RF6 RF7 ]
@@ -2169,9 +2166,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 "11 ./timers.h
-[; ;./timers.h: 11: unsigned char backtrack = 1;
-[v _backtrack `uc ~T0 @X0 1 e ]
-[i _backtrack
+[; ;./timers.h: 11: unsigned char returning = 1;
+[v _returning `uc ~T0 @X0 1 e ]
+[i _returning
 -> -> 1 `i `uc
 ]
 "12
@@ -2235,30 +2232,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 "22
-[; ;./timers.h: 22: unsigned char trail_manoeuvre[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+[; ;./timers.h: 22: unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 8};
 [v _trail_manoeuvre `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_manoeuvre
 :U ..
--> -> 1 `i `uc
--> -> 2 `i `uc
--> -> 3 `i `uc
--> -> 4 `i `uc
--> -> 5 `i `uc
--> -> 6 `i `uc
--> -> 7 `i `uc
--> -> 8 `i `uc
--> -> 9 `i `uc
 -> -> 0 `i `uc
--> -> 1 `i `uc
--> -> 2 `i `uc
--> -> 3 `i `uc
--> -> 4 `i `uc
--> -> 5 `i `uc
--> -> 6 `i `uc
--> -> 7 `i `uc
--> -> 8 `i `uc
--> -> 9 `i `uc
 -> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 2 `i `uc
+-> -> 1 `i `uc
+-> -> 8 `i `uc
 ..
 ]
 "30
@@ -2280,10 +2277,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 &U *U + &U _trail_manoeuvre * -> -> -> 20 `i `ui `ux -> -> # *U &U _trail_manoeuvre `ui `ux
 ]
 "33
-[; ;./timers.h: 33: unsigned char manoeuvre_count = 20;
+[; ;./timers.h: 33: unsigned char manoeuvre_count = 3;
 [v _manoeuvre_count `uc ~T0 @X0 1 e ]
 [i _manoeuvre_count
--> -> 20 `i `uc
+-> -> 3 `i `uc
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "26 main.c
@@ -2366,34 +2363,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 "58
 [; ;main.c: 58:         ANSELFbits.ANSELF3 = 0;
 [e = . . _ANSELFbits 0 3 -> -> 0 `i `uc ]
-"70
-[; ;main.c: 70:     returnToSender(&motorL, &motorR);
-[e ( _returnToSender (2 , &U _motorL &U _motorR ]
-"72
-[; ;main.c: 72:     while (1) {
+"73
+[; ;main.c: 73:     while (1) {
 [e :U 2019 ]
 {
-"75
-[; ;main.c: 75:         if (!PORTFbits.RF2) {
+"76
+[; ;main.c: 76:         if (!PORTFbits.RF2) {
 [e $ ! ! != -> . . _PORTFbits 0 2 `i -> 0 `i 2021  ]
 {
-"76
-[; ;main.c: 76:             LATDbits.LATD7 = !LATDbits.LATD7;
-[e = . . _LATDbits 0 7 -> -> ! != -> . . _LATDbits 0 7 `i -> 0 `i `i `uc ]
 "77
-[; ;main.c: 77:         }
+[; ;main.c: 77:             LATDbits.LATD7 = !LATDbits.LATD7;
+[e = . . _LATDbits 0 7 -> -> ! != -> . . _LATDbits 0 7 `i -> 0 `i `i `uc ]
+"78
+[; ;main.c: 78:         }
 }
 [e :U 2021 ]
-"81
-[; ;main.c: 81:         _delay((unsigned long)((500)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "82
-[; ;main.c: 82:     }
+[; ;main.c: 82:         _delay((unsigned long)((100)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"83
+[; ;main.c: 83:     }
 }
 [e :U 2018 ]
 [e $U 2019  ]
 [e :U 2020 ]
-"83
-[; ;main.c: 83: }
+"84
+[; ;main.c: 84: }
 [e :UE 2017 ]
 }

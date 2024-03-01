@@ -2495,3 +2495,114 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;manoeuvres.c: 111: }
 [e :UE 2051 ]
 }
+"113
+[; ;manoeuvres.c: 113: void pickCard(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key)
+[v _pickCard `(v ~T0 @X0 1 ef4`*S2015`*S2015`uc`uc ]
+"114
+[; ;manoeuvres.c: 114: {
+{
+[e :U _pickCard ]
+"113
+[; ;manoeuvres.c: 113: void pickCard(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key)
+[v _mL `*S2015 ~T0 @X0 1 r1 ]
+[v _mR `*S2015 ~T0 @X0 1 r2 ]
+[v _backtrack `uc ~T0 @X0 1 r3 ]
+[v _key `uc ~T0 @X0 1 r4 ]
+"114
+[; ;manoeuvres.c: 114: {
+[f ]
+"115
+[; ;manoeuvres.c: 115:     switch (key) {
+[e $U 2054  ]
+{
+"116
+[; ;manoeuvres.c: 116:         case 1:
+[e :U 2055 ]
+"117
+[; ;manoeuvres.c: 117:             cardRed(mL, mR, backtrack);
+[e ( _cardRed (3 , , _mL _mR _backtrack ]
+"118
+[; ;manoeuvres.c: 118:             break;
+[e $U 2053  ]
+"119
+[; ;manoeuvres.c: 119:         case 2:
+[e :U 2056 ]
+"120
+[; ;manoeuvres.c: 120:             cardGreen(mL, mR, backtrack);
+[e ( _cardGreen (3 , , _mL _mR _backtrack ]
+"121
+[; ;manoeuvres.c: 121:             break;
+[e $U 2053  ]
+"122
+[; ;manoeuvres.c: 122:         case 3:
+[e :U 2057 ]
+"123
+[; ;manoeuvres.c: 123:             cardBlue(mL, mR, backtrack);
+[e ( _cardBlue (3 , , _mL _mR _backtrack ]
+"124
+[; ;manoeuvres.c: 124:             break;
+[e $U 2053  ]
+"125
+[; ;manoeuvres.c: 125:         case 4:
+[e :U 2058 ]
+"126
+[; ;manoeuvres.c: 126:             cardYellow(mL, mR, backtrack);
+[e ( _cardYellow (3 , , _mL _mR _backtrack ]
+"127
+[; ;manoeuvres.c: 127:             break;
+[e $U 2053  ]
+"128
+[; ;manoeuvres.c: 128:         case 5:
+[e :U 2059 ]
+"129
+[; ;manoeuvres.c: 129:             cardPink(mL, mR, backtrack);
+[e ( _cardPink (3 , , _mL _mR _backtrack ]
+"130
+[; ;manoeuvres.c: 130:             break;
+[e $U 2053  ]
+"131
+[; ;manoeuvres.c: 131:         case 6:
+[e :U 2060 ]
+"132
+[; ;manoeuvres.c: 132:             cardOrange(mL, mR, backtrack);
+[e ( _cardOrange (3 , , _mL _mR _backtrack ]
+"133
+[; ;manoeuvres.c: 133:             break;
+[e $U 2053  ]
+"134
+[; ;manoeuvres.c: 134:         case 7:
+[e :U 2061 ]
+"135
+[; ;manoeuvres.c: 135:             cardCyan(mL, mR, backtrack);
+[e ( _cardCyan (3 , , _mL _mR _backtrack ]
+"136
+[; ;manoeuvres.c: 136:             break;
+[e $U 2053  ]
+"137
+[; ;manoeuvres.c: 137:         case 8:
+[e :U 2062 ]
+"138
+[; ;manoeuvres.c: 138:             cardWhite(mL, mR);
+[e ( _cardWhite (2 , _mL _mR ]
+"139
+[; ;manoeuvres.c: 139:             break;
+[e $U 2053  ]
+"140
+[; ;manoeuvres.c: 140:     }
+}
+[e $U 2053  ]
+[e :U 2054 ]
+[e [\ -> _key `i , $ -> 1 `i 2055
+ , $ -> 2 `i 2056
+ , $ -> 3 `i 2057
+ , $ -> 4 `i 2058
+ , $ -> 5 `i 2059
+ , $ -> 6 `i 2060
+ , $ -> 7 `i 2061
+ , $ -> 8 `i 2062
+ 2053 ]
+[e :U 2053 ]
+"141
+[; ;manoeuvres.c: 141: }
+[e :UE 2052 ]
+}

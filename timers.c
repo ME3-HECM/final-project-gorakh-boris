@@ -59,14 +59,14 @@ void returnToSender(DC_motor *mL, DC_motor *mR) {
         //sendIntSerial4(timerH);
         //sendIntSerial4(timerL);
         //sendIntSerial4(mann);
+        if (mann != 8) {            //ignore white card instruction
+            pickCard(mL, mR, returning, mann);
+        }
         TMR0H = 0b11111111 - timerH;
         TMR0L = 0b11111111 - timerL;
         fullSpeedAhead(mL, mR);
         while (!returnFlag);
         stop(mL, mR);
-        
-        //SOME CODE TO EXECUTE MANOEUVRE
-        
         returnFlag = 0;
     }
     LATHbits.LATH3 = !LATHbits.LATH3;       //toggle LED for debugging
@@ -76,7 +76,7 @@ void __interrupt() ISR()
 {    
     // timer interrupt
     if (PIR0bits.TMR0IF) {
-        if (backtrack) {            //is backtracking
+        if (returning) {            //is backtracking
             //some code on performing the next manoeuvre when backtracking
             //the timer will be used to time the straight distances travelled when backtracking
             returnFlag = 1;

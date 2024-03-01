@@ -58,6 +58,7 @@ void main(void) {
         ANSELFbits.ANSELF3 = 0;
     
     //fullSpeedAhead(&motorL, &motorR);
+    
     //cardRed(&motorL, &motorR, backtrack);
     //cardGreen(&motorL, &motorR, backtrack);
     //cardBlue(&motorL, &motorR, backtrack);
@@ -67,7 +68,7 @@ void main(void) {
     //cardCyan(&motorL, &motorR, backtrack);
     //cardWhite(&motorL, &motorR);
     
-    returnToSender(&motorL, &motorR);
+    //returnToSender(&motorL, &motorR);
     
     while (1) {
         //sendIntSerial4((int)TMR0L);
@@ -78,6 +79,6 @@ void main(void) {
         //sendArrayCharSerial4(trail_timer_high);
         //sendArrayCharSerial4(trail_timer_low);
         //sendArrayCharSerial4(trail_manoeuvre);
-        __delay_ms(500);
+        __delay_ms(100);
     }
 }

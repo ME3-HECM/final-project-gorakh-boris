@@ -24174,6 +24174,9 @@ void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void cardWhite(DC_motor *mL, DC_motor *mR);
+
+
+void pickCard(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
 # 19 "main.c" 2
 
 # 1 "./color.h" 1
@@ -24303,7 +24306,7 @@ void sendTxBuf(void);
 
 # 1 "./timers.h" 1
 # 11 "./timers.h"
-unsigned char backtrack = 1;
+unsigned char returning = 1;
 unsigned char returnFlag = 0;
 
 
@@ -24314,7 +24317,7 @@ unsigned char returnFlag = 0;
 
 unsigned char trail_timer_high[20] = {3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6};
 unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-unsigned char trail_manoeuvre[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 8};
 
 
 
@@ -24325,7 +24328,7 @@ unsigned char trail_manoeuvre[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5
 unsigned char *timer_high_pointer = &trail_timer_high[20];
 unsigned char *timer_low_pointer = &trail_timer_low[20];
 unsigned char *manoeuvre_pointer = &trail_manoeuvre[20];
-unsigned char manoeuvre_count = 20;
+unsigned char manoeuvre_count = 3;
 
 void Timer0_init(void);
 void writeTrail(unsigned char *man);
@@ -24370,9 +24373,7 @@ void main(void) {
 
         ANSELFbits.ANSELF2 = 0;
         ANSELFbits.ANSELF3 = 0;
-# 70 "main.c"
-    returnToSender(&motorL, &motorR);
-
+# 73 "main.c"
     while (1) {
 
 
@@ -24382,6 +24383,6 @@ void main(void) {
 
 
 
-        _delay((unsigned long)((500)*(64000000/4000.0)));
+        _delay((unsigned long)((100)*(64000000/4000.0)));
     }
 }
