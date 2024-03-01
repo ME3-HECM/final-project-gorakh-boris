@@ -24102,17 +24102,18 @@ unsigned char backtrack = 0;
 
 
 
-unsigned char trail_timer_high[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-unsigned char *timer_high_pointer = &trail_timer_high[0];
-unsigned char *timer_low_pointer = &trail_timer_low[0];
-unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
+
+unsigned char trail_timer_high[20] = {101, 102, 103, 104, 105, 106, 107, 108, 109, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 100};
+unsigned char trail_timer_low[20] = {101, 102, 103, 104, 105, 106, 107, 108, 109, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 100};
+unsigned char trail_manoeuvre[20] = {101, 102, 103, 104, 105, 106, 107, 108, 109, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 100};
+unsigned char *timer_high_pointer = &trail_timer_high[19];
+unsigned char *timer_low_pointer = &trail_timer_low[19];
+unsigned char *manoeuvre_pointer = &trail_manoeuvre[19];
 unsigned char manoeuvre_count = 0;
 
 void Timer0_init(void);
 void writeTrail(void);
-void readTrail(void);
+void readTrail(unsigned char *tH, unsigned char *tL, unsigned char *man);
 void __attribute__((picinterrupt(("")))) ISR();
 # 2 "timers.c" 2
 
@@ -24219,7 +24220,10 @@ void writeTrail(void) {
     manoeuvre_count ++;
 }
 
-void readTrail(void) {
+void readTrail(unsigned char *tH, unsigned char *tL, unsigned char *man) {
+    *tH = *timer_high_pointer;
+    *tL = *timer_low_pointer;
+    *man = *manoeuvre_pointer;
 
     timer_high_pointer --;
     timer_low_pointer --;

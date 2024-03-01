@@ -39,7 +39,10 @@ void writeTrail(void) {
     manoeuvre_count ++;
 }
 
-void readTrail(void) {
+void readTrail(unsigned char *tH, unsigned char *tL, unsigned char *man) {
+    *tH = *timer_high_pointer;
+    *tL = *timer_low_pointer;
+    *man = *manoeuvre_pointer;
     
     timer_high_pointer --;
     timer_low_pointer --;

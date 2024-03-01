@@ -68,16 +68,24 @@ void main(void) {
     //cardCyan(&motorL, &motorR, backtrack);
     //cardWhite(&motorL, &motorR);
     
+    unsigned char timerH = 0;
+    unsigned char timerL = 0;
+    unsigned char mann = 0;
+        
     while (1) {
         //sendIntSerial4((int)TMR0L);
         //sendIntSerial4((int)TMR0H);
         if (!PORTFbits.RF2) {  //on button press
-            writeTrail();
+            //writeTrail();
+            readTrail(&timerH, &timerL, &mann);
             LATDbits.LATD7 = !LATDbits.LATD7;
         }
-        sendArrayCharSerial4(trail_timer_high);
-        sendArrayCharSerial4(trail_timer_low);
-        sendArrayCharSerial4(trail_manoeuvre);
+        //sendArrayCharSerial4(trail_timer_high);
+        //sendArrayCharSerial4(trail_timer_low);
+        //sendArrayCharSerial4(trail_manoeuvre);
+        sendIntSerial4(timerH);
+        sendIntSerial4(timerL);
+        sendIntSerial4(mann);
         __delay_ms(500);
     }
 }
