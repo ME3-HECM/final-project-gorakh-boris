@@ -69,13 +69,14 @@ void main(void) {
     //cardWhite(&motorL, &motorR);
     
     while (1) {
-        sendIntSerial4((int)TMR0L);
-        sendIntSerial4((int)TMR0H);
+        //sendIntSerial4((int)TMR0L);
+        //sendIntSerial4((int)TMR0H);
         if (!PORTFbits.RF2) {  //on button press
-            *manoeuvre_pointer = 0;
-            manoeuvre_pointer ++;
+            writeTrail();
             LATDbits.LATD7 = !LATDbits.LATD7;
         }
+        sendArrayCharSerial4(trail_timer_high);
+        sendArrayCharSerial4(trail_timer_low);
         sendArrayCharSerial4(trail_manoeuvre);
         __delay_ms(500);
     }

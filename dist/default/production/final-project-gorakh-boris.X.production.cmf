@@ -11,52 +11,50 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
+$C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
 idloc IDLOC 5 200000 200000 10 1 1
 init CODE 0 20 20 4 1 2
 reset_vec CODE 0 0 0 4 1 2
 config CONFIG 4 300000 300000 C 1 1
 $dist/default/production\final-project-gorakh-boris.X.production.o
-cinit CODE 0 13C4 13C4 84 1 2
+cinit CODE 0 1432 1432 6E 1 2
 idloc IDLOC 5 200000 200000 10 1 1
-text0 CODE 0 1000 1000 106 1 2
-text1 CODE 0 172E 172E 22 1 2
-text2 CODE 0 1448 1448 76 1 2
-text3 CODE 0 15C4 15C4 4C 1 2
-text4 CODE 0 1520 1520 56 1 2
+text0 CODE 0 1000 1000 FE 1 2
+text1 CODE 0 15EE 15EE 34 1 2
+text2 CODE 0 13BC 13BC 76 1 2
+text3 CODE 0 15A2 15A2 4C 1 2
+text4 CODE 0 1502 1502 52 1 2
 text5 CODE 0 E0A E0A 1F6 1 2
-text6 CODE 0 11CA 11CA BA 1 2
-text7 CODE 0 17DC 17DC 2 1 2
-text8 CODE 0 164C 164C 34 1 2
-text9 CODE 0 1284 1284 B0 1 2
-text10 CODE 0 1106 1106 C4 1 2
-text11 CODE 0 14BE 14BE 62 1 2
-text12 CODE 0 178E 178E 18 1 2
-text13 CODE 0 1770 1770 1E 1 2
-text14 CODE 0 1334 1334 90 1 2
-text15 CODE 0 1680 1680 34 1 2
-text16 CODE 0 1750 1750 20 1 2
-text17 CODE 0 17BA 17BA C 1 2
-text18 CODE 0 17C6 17C6 A 1 2
-text19 CODE 0 17D0 17D0 A 1 2
-text20 CODE 0 16DE 16DE 28 1 2
-text21 CODE 0 16B4 16B4 2A 1 2
-text22 CODE 0 1576 1576 4E 1 2
-text23 CODE 0 1706 1706 28 1 2
-idataCOMRAM CODE 0 17DA 17DA 2 1 1
-cstackCOMRAM COMRAM 1 1 1 56 1 1
+text6 CODE 0 11C2 11C2 BA 1 2
+text7 CODE 0 1792 1792 2 1 2
+text8 CODE 0 1622 1622 34 1 2
+text9 CODE 0 127C 127C B0 1 2
+text10 CODE 0 10FE 10FE C4 1 2
+text11 CODE 0 14A0 14A0 62 1 2
+text12 CODE 0 1742 1742 18 1 2
+text13 CODE 0 1724 1724 1E 1 2
+text14 CODE 0 132C 132C 90 1 2
+text15 CODE 0 1656 1656 34 1 2
+text16 CODE 0 1704 1704 20 1 2
+text17 CODE 0 1768 1768 C 1 2
+text18 CODE 0 177E 177E A 1 2
+text19 CODE 0 1788 1788 A 1 2
+text20 CODE 0 16B4 16B4 28 1 2
+text21 CODE 0 168A 168A 2A 1 2
+text22 CODE 0 1554 1554 4E 1 2
+text23 CODE 0 16DC 16DC 28 1 2
+idataCOMRAM CODE 0 175A 175A E 1 1
+cstackCOMRAM COMRAM 1 1 1 46 1 1
 cstackBANK1 BANK1 1 100 100 A4 1 1
 temp COMRAM 1 5E 5E 1 1 1
-bssBANK0 BANK0 1 9C 9C 3B 1 1
+bssBANK0 BANK0 1 60 60 74 1 1
 bssBANK1 BANK1 1 1A4 1A4 3C 1 1
 intcode CODE 0 8 8 18 1 2
 smallconst SMALLCONST 0 E00 E00 A 1 2
-idataBANK0 CODE 0 1610 1610 3C 1 1
-idataBANK1 CODE 0 17A6 17A6 14 1 1
-dataBANK0 BANK0 1 60 60 3C 1 1
-dataBANK1 BANK1 1 1E0 1E0 14 1 1
-dataCOMRAM COMRAM 1 5C 5C 2 1 1
-bssCOMRAM COMRAM 1 57 57 5 1 1
+idataBANK0 CODE 0 1774 1774 A 1 1
+dataBANK0 BANK0 1 D4 D4 A 1 1
+dataCOMRAM COMRAM 1 47 47 E 1 1
+bssCOMRAM COMRAM 1 55 55 9 1 1
 config CONFIG 4 300000 300000 C 1 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -64,11 +62,11 @@ config CONFIG 4 300000 300000 C 1 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM D7-FF 1
-RAM 1F4-DE9 1
+RAM DE-FF 1
+RAM 1E0-DE9 1
 SFR DEF-FFF 1
-BANK0 D7-FF 1
-BANK1 1F4-1FF 1
+BANK0 DE-FF 1
+BANK1 1E0-1FF 1
 BANK2 200-2FF 1
 BANK3 300-3FF 1
 BANK4 400-4FF 1
@@ -79,22 +77,22 @@ BANK8 800-8FF 1
 BANK9 900-9FF 1
 CONST 4-7 1
 CONST 24-DFF 1
-CONST 17DE-1FFFF 1
-SMALLCONST 17DE-1FFFF 1
+CONST 1794-1FFFF 1
+SMALLCONST 1794-1FFFF 1
 CODE 4-7 1
 CODE 24-DFF 1
-CODE 17DE-1FFFF 1
+CODE 1794-1FFFF 1
 BANK10 A00-AFF 1
 BANK11 B00-BFF 1
 BANK12 C00-CFF 1
 BANK13 D00-DE9 1
 BIGRAM 5F-5F 1
-BIGRAM D7-FF 1
-BIGRAM 1F4-DE9 1
+BIGRAM DE-FF 1
+BIGRAM 1E0-DE9 1
 BIGSFR DEF-FFF 1
 COMRAM 5F-5F 1
 EEDATA 310000-3103FF 1
-MEDIUMCONST 17DE-FFFF 1
+MEDIUMCONST 1794-FFFF 1
 MEDIUMCONST 10E00-1FFFF 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -110,224 +108,224 @@ MEDIUMCONST 10E00-1FFFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\final-project-gorakh-boris.X.production.o
-8 intcode CODE >16566:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-8 intcode CODE >29:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
-A intcode CODE >32:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
-1A intcode CODE >38:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
-1A intcode CODE >40:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
-1C intcode CODE >42:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
-1706 text23 CODE >7:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
-1706 text23 CODE >9:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
-170E text23 CODE >10:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
-1710 text23 CODE >11:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
-1712 text23 CODE >13:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
-171A text23 CODE >20:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
-171E text23 CODE >21:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
-1722 text23 CODE >23:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
-1724 text23 CODE >24:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
-1728 text23 CODE >25:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
-172A text23 CODE >26:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
-172C text23 CODE >27:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
-1576 text22 CODE >4:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-1576 text22 CODE >8:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-1578 text22 CODE >9:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-157A text22 CODE >10:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-157C text22 CODE >11:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-157E text22 CODE >12:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-1580 text22 CODE >14:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-1582 text22 CODE >15:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-1584 text22 CODE >16:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-1586 text22 CODE >17:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-1588 text22 CODE >18:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-158A text22 CODE >22:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-158C text22 CODE >23:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-158E text22 CODE >25:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-1590 text22 CODE >26:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-1592 text22 CODE >31:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-1594 text22 CODE >32:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-1596 text22 CODE >33:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-1598 text22 CODE >35:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-159A text22 CODE >36:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-159C text22 CODE >37:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-159E text22 CODE >41:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-15A0 text22 CODE >42:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-15A2 text22 CODE >43:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-15A4 text22 CODE >45:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-15A6 text22 CODE >46:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-15A8 text22 CODE >47:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-15AA text22 CODE >51:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-15AC text22 CODE >52:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-15AE text22 CODE >53:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-15B0 text22 CODE >55:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-15B2 text22 CODE >56:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-15B4 text22 CODE >57:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-15B6 text22 CODE >61:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-15B8 text22 CODE >62:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-15BA text22 CODE >63:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-15BC text22 CODE >65:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-15BE text22 CODE >66:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-15C0 text22 CODE >67:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-15C2 text22 CODE >68:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
-16B4 text21 CODE >4:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-16B4 text21 CODE >7:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-16BE text21 CODE >8:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-16C0 text21 CODE >9:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-16C4 text21 CODE >12:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-16C6 text21 CODE >13:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-16C8 text21 CODE >14:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-16CA text21 CODE >15:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-16CC text21 CODE >16:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-16D0 text21 CODE >17:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-16D4 text21 CODE >18:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-16D8 text21 CODE >19:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-16DC text21 CODE >20:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-16DE text20 CODE >22:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-16DE text20 CODE >24:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-1704 text20 CODE >25:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-17D0 text19 CODE >27:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-17D0 text19 CODE >29:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-17D4 text19 CODE >30:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-17D8 text19 CODE >31:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-17C6 text18 CODE >39:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-17C6 text18 CODE >41:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-17CA text18 CODE >42:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-17CE text18 CODE >43:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-17BA text17 CODE >45:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-17BC text17 CODE >47:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-17C0 text17 CODE >48:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-17C4 text17 CODE >49:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
-1750 text16 CODE >21:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
-1752 text16 CODE >22:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
-1756 text16 CODE >23:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
-175C text16 CODE >24:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
-1764 text16 CODE >25:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
-176A text16 CODE >26:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
-176E text16 CODE >27:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
-1680 text15 CODE >5:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
-1680 text15 CODE >8:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
-1684 text15 CODE >11:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
-168E text15 CODE >12:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
-169E text15 CODE >15:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
-16A8 text15 CODE >18:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
-16B2 text15 CODE >19:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
-1334 text14 CODE >5:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-1334 text14 CODE >7:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-1336 text14 CODE >8:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-1338 text14 CODE >9:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-133A text14 CODE >10:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-133C text14 CODE >12:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-133E text14 CODE >13:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-1340 text14 CODE >14:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-1342 text14 CODE >15:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-1344 text14 CODE >18:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-134A text14 CODE >19:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-134E text14 CODE >20:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-1352 text14 CODE >21:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-1356 text14 CODE >24:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-135E text14 CODE >25:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-1362 text14 CODE >26:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-136A text14 CODE >30:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-136E text14 CODE >31:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-1370 text14 CODE >35:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-1374 text14 CODE >36:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-1378 text14 CODE >37:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-137E text14 CODE >38:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-1382 text14 CODE >41:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-1386 text14 CODE >42:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-138A text14 CODE >43:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-138E text14 CODE >44:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-1392 text14 CODE >47:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-1394 text14 CODE >48:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-139C text14 CODE >49:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-139E text14 CODE >51:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-13A0 text14 CODE >52:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-13A8 text14 CODE >53:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-13AA text14 CODE >55:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-13AC text14 CODE >56:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-13B4 text14 CODE >57:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-13B6 text14 CODE >59:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-13B8 text14 CODE >60:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-13C0 text14 CODE >61:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-13C2 text14 CODE >62:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
-1770 text13 CODE >5:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-1770 text13 CODE >9:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-1776 text13 CODE >10:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-177A text13 CODE >12:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-177C text13 CODE >13:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-177E text13 CODE >14:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-1782 text13 CODE >15:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-1786 text13 CODE >17:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-1788 text13 CODE >18:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-178A text13 CODE >19:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-178C text13 CODE >20:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-178E text12 CODE >29:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-1790 text12 CODE >30:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-17A0 text12 CODE >31:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-17A4 text12 CODE >32:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-14BE text11 CODE >35:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-14BE text11 CODE >37:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-14C2 text11 CODE >38:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-14EC text11 CODE >37:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-151E text11 CODE >40:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-1106 text10 CODE >7:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-1106 text10 CODE >13:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-110A text10 CODE >14:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-1118 text10 CODE >15:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-1120 text10 CODE >16:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-1124 text10 CODE >18:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-1132 text10 CODE >19:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-113A text10 CODE >20:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-113E text10 CODE >22:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-1146 text10 CODE >23:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-1158 text10 CODE >24:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-115C text10 CODE >25:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-1160 text10 CODE >26:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-1166 text10 CODE >27:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-1168 text10 CODE >25:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-1176 text10 CODE >30:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-117C text10 CODE >31:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-1192 text10 CODE >32:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-119A text10 CODE >33:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-119C text10 CODE >35:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-11A2 text10 CODE >36:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-11A8 text10 CODE >38:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-11B8 text10 CODE >39:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-11C0 text10 CODE >40:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-11C8 text10 CODE >41:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-1284 text9 CODE >7:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
-1284 text9 CODE >12:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
-1288 text9 CODE >13:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
-1296 text9 CODE >14:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
-129E text9 CODE >15:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
-12A2 text9 CODE >17:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
-12B0 text9 CODE >18:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
-12B8 text9 CODE >19:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
-12CA text9 CODE >20:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
-12CE text9 CODE >21:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
-12D2 text9 CODE >22:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
-12D8 text9 CODE >23:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
-12DA text9 CODE >21:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
-12E8 text9 CODE >26:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
-12FE text9 CODE >27:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
-1306 text9 CODE >28:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
-130C text9 CODE >29:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
-1312 text9 CODE >31:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
-1322 text9 CODE >32:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
-132A text9 CODE >33:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
-1332 text9 CODE >34:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
-164C text8 CODE >1:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\abs.c
-164C text8 CODE >3:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\abs.c
-167E text8 CODE >4:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\abs.c
-17DC text7 CODE >7:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\putch.c
-17DC text7 CODE >9:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\putch.c
-11CA text6 CODE >8:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputc.c
-11CA text6 CODE >12:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputc.c
-11EA text6 CODE >13:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputc.c
-11F0 text6 CODE >14:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputc.c
-11F4 text6 CODE >15:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputc.c
-1242 text6 CODE >18:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputc.c
-1272 text6 CODE >20:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputc.c
-1282 text6 CODE >24:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputc.c
+8 intcode CODE >16472:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+8 intcode CODE >49:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+A intcode CODE >52:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+1A intcode CODE >58:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+1A intcode CODE >60:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+1C intcode CODE >62:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+16DC text23 CODE >8:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+16DC text23 CODE >10:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+16E4 text23 CODE >11:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+16E6 text23 CODE >12:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+16E8 text23 CODE >14:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+16F0 text23 CODE >21:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+16F4 text23 CODE >22:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+16F8 text23 CODE >24:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+16FA text23 CODE >25:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+16FE text23 CODE >26:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+1700 text23 CODE >27:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+1702 text23 CODE >28:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+1554 text22 CODE >4:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+1554 text22 CODE >8:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+1556 text22 CODE >9:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+1558 text22 CODE >10:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+155A text22 CODE >11:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+155C text22 CODE >12:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+155E text22 CODE >14:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+1560 text22 CODE >15:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+1562 text22 CODE >16:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+1564 text22 CODE >17:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+1566 text22 CODE >18:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+1568 text22 CODE >22:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+156A text22 CODE >23:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+156C text22 CODE >25:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+156E text22 CODE >26:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+1570 text22 CODE >31:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+1572 text22 CODE >32:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+1574 text22 CODE >33:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+1576 text22 CODE >35:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+1578 text22 CODE >36:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+157A text22 CODE >37:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+157C text22 CODE >41:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+157E text22 CODE >42:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+1580 text22 CODE >43:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+1582 text22 CODE >45:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+1584 text22 CODE >46:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+1586 text22 CODE >47:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+1588 text22 CODE >51:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+158A text22 CODE >52:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+158C text22 CODE >53:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+158E text22 CODE >55:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+1590 text22 CODE >56:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+1592 text22 CODE >57:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+1594 text22 CODE >61:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+1596 text22 CODE >62:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+1598 text22 CODE >63:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+159A text22 CODE >65:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+159C text22 CODE >66:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+159E text22 CODE >67:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+15A0 text22 CODE >68:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+168A text21 CODE >4:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+168A text21 CODE >7:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+1694 text21 CODE >8:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+1696 text21 CODE >9:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+169A text21 CODE >12:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+169C text21 CODE >13:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+169E text21 CODE >14:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+16A0 text21 CODE >15:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+16A2 text21 CODE >16:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+16A6 text21 CODE >17:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+16AA text21 CODE >18:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+16AE text21 CODE >19:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+16B2 text21 CODE >20:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+16B4 text20 CODE >22:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+16B4 text20 CODE >24:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+16DA text20 CODE >25:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+1788 text19 CODE >27:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+1788 text19 CODE >29:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+178C text19 CODE >30:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+1790 text19 CODE >31:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+177E text18 CODE >39:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+177E text18 CODE >41:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+1782 text18 CODE >42:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+1786 text18 CODE >43:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+1768 text17 CODE >45:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+176A text17 CODE >47:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+176E text17 CODE >48:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+1772 text17 CODE >49:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
+1704 text16 CODE >21:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
+1706 text16 CODE >22:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
+170A text16 CODE >23:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
+1710 text16 CODE >24:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
+1718 text16 CODE >25:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
+171E text16 CODE >26:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
+1722 text16 CODE >27:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
+1656 text15 CODE >5:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
+1656 text15 CODE >8:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
+165A text15 CODE >11:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
+1664 text15 CODE >12:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
+1674 text15 CODE >15:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
+167E text15 CODE >18:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
+1688 text15 CODE >19:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
+132C text14 CODE >5:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+132C text14 CODE >7:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+132E text14 CODE >8:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+1330 text14 CODE >9:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+1332 text14 CODE >10:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+1334 text14 CODE >12:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+1336 text14 CODE >13:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+1338 text14 CODE >14:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+133A text14 CODE >15:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+133C text14 CODE >18:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+1342 text14 CODE >19:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+1346 text14 CODE >20:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+134A text14 CODE >21:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+134E text14 CODE >24:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+1356 text14 CODE >25:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+135A text14 CODE >26:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+1362 text14 CODE >30:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+1366 text14 CODE >31:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+1368 text14 CODE >35:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+136C text14 CODE >36:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+1370 text14 CODE >37:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+1376 text14 CODE >38:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+137A text14 CODE >41:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+137E text14 CODE >42:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+1382 text14 CODE >43:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+1386 text14 CODE >44:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+138A text14 CODE >47:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+138C text14 CODE >48:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+1394 text14 CODE >49:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+1396 text14 CODE >51:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+1398 text14 CODE >52:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+13A0 text14 CODE >53:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+13A2 text14 CODE >55:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+13A4 text14 CODE >56:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+13AC text14 CODE >57:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+13AE text14 CODE >59:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+13B0 text14 CODE >60:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+13B8 text14 CODE >61:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+13BA text14 CODE >62:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+1724 text13 CODE >5:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+1724 text13 CODE >9:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+172A text13 CODE >10:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+172E text13 CODE >12:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+1730 text13 CODE >13:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+1732 text13 CODE >14:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+1736 text13 CODE >15:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+173A text13 CODE >17:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+173C text13 CODE >18:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+173E text13 CODE >19:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+1740 text13 CODE >20:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+1742 text12 CODE >29:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+1744 text12 CODE >30:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+1754 text12 CODE >31:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+1758 text12 CODE >32:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+14A0 text11 CODE >35:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+14A0 text11 CODE >37:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+14A4 text11 CODE >38:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+14CE text11 CODE >37:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+1500 text11 CODE >40:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+10FE text10 CODE >7:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+10FE text10 CODE >13:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+1102 text10 CODE >14:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+1110 text10 CODE >15:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+1118 text10 CODE >16:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+111C text10 CODE >18:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+112A text10 CODE >19:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+1132 text10 CODE >20:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+1136 text10 CODE >22:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+113E text10 CODE >23:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+1150 text10 CODE >24:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+1154 text10 CODE >25:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+1158 text10 CODE >26:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+115E text10 CODE >27:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+1160 text10 CODE >25:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+116E text10 CODE >30:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+1174 text10 CODE >31:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+118A text10 CODE >32:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+1192 text10 CODE >33:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+1194 text10 CODE >35:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+119A text10 CODE >36:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+11A0 text10 CODE >38:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+11B0 text10 CODE >39:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+11B8 text10 CODE >40:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+11C0 text10 CODE >41:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
+127C text9 CODE >7:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
+127C text9 CODE >12:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
+1280 text9 CODE >13:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
+128E text9 CODE >14:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
+1296 text9 CODE >15:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
+129A text9 CODE >17:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
+12A8 text9 CODE >18:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
+12B0 text9 CODE >19:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
+12C2 text9 CODE >20:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
+12C6 text9 CODE >21:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
+12CA text9 CODE >22:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
+12D0 text9 CODE >23:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
+12D2 text9 CODE >21:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
+12E0 text9 CODE >26:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
+12F6 text9 CODE >27:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
+12FE text9 CODE >28:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
+1304 text9 CODE >29:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
+130A text9 CODE >31:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
+131A text9 CODE >32:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
+1322 text9 CODE >33:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
+132A text9 CODE >34:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
+1622 text8 CODE >1:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\abs.c
+1622 text8 CODE >3:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\abs.c
+1654 text8 CODE >4:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\abs.c
+1792 text7 CODE >7:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\putch.c
+1792 text7 CODE >9:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\putch.c
+11C2 text6 CODE >8:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputc.c
+11C2 text6 CODE >12:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputc.c
+11E2 text6 CODE >13:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputc.c
+11E8 text6 CODE >14:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputc.c
+11EC text6 CODE >15:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputc.c
+123A text6 CODE >18:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputc.c
+126A text6 CODE >20:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputc.c
+127A text6 CODE >24:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputc.c
 E0A text5 CODE >1177:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
 E0A text5 CODE >1191:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
 E12 text5 CODE >1201:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
@@ -356,35 +354,40 @@ FCC text5 CODE >1811:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common
 FEE text5 CODE >1812:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
 FF6 text5 CODE >1813:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
 FFE text5 CODE >1814:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
-1520 text4 CODE >1817:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
-1520 text4 CODE >1822:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
-1524 text4 CODE >1824:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
-152E text4 CODE >1826:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
-1532 text4 CODE >1828:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
-154C text4 CODE >1826:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
-156C text4 CODE >1833:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
-1574 text4 CODE >1840:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
-15C4 text3 CODE >9:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
-15C4 text3 CODE >15:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
-15C8 text3 CODE >16:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
-15D0 text3 CODE >17:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
-15D8 text3 CODE >18:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
-15E0 text3 CODE >19:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
-15F8 text3 CODE >20:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
-1606 text3 CODE >22:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
-160E text3 CODE >23:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
-1448 text2 CODE >50:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-1448 text2 CODE >51:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-144E text2 CODE >54:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-1456 text2 CODE >55:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-1486 text2 CODE >56:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-14A0 text2 CODE >57:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-14AC text2 CODE >58:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-14BC text2 CODE >59:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-172E text1 CODE >43:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-172E text1 CODE >45:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-1744 text1 CODE >46:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-174E text1 CODE >47:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+1502 text4 CODE >1817:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
+1502 text4 CODE >1822:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
+1506 text4 CODE >1824:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
+150E text4 CODE >1826:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
+1512 text4 CODE >1828:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
+152A text4 CODE >1826:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
+154A text4 CODE >1833:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
+1552 text4 CODE >1840:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
+15A2 text3 CODE >9:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
+15A2 text3 CODE >15:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
+15A6 text3 CODE >16:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
+15AE text3 CODE >17:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
+15B6 text3 CODE >18:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
+15BE text3 CODE >19:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
+15D6 text3 CODE >20:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
+15E4 text3 CODE >22:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
+15EC text3 CODE >23:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
+13BC text2 CODE >50:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+13BC text2 CODE >51:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+13C2 text2 CODE >54:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+13CA text2 CODE >55:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+13FA text2 CODE >56:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+1414 text2 CODE >57:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+1420 text2 CODE >58:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+1430 text2 CODE >59:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
+15EE text1 CODE >30:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+15EE text1 CODE >31:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+15FA text1 CODE >32:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+1606 text1 CODE >33:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+1612 text1 CODE >35:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+1616 text1 CODE >36:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+161A text1 CODE >37:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+161E text1 CODE >39:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+1620 text1 CODE >40:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
 1000 text0 CODE >26:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
 1000 text0 CODE >27:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
 1018 text0 CODE >29:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
@@ -409,77 +412,67 @@ FFE text5 CODE >1814:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common
 107E text0 CODE >56:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
 1080 text0 CODE >58:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
 1084 text0 CODE >59:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
-1086 text0 CODE >72:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
-1090 text0 CODE >73:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
-109A text0 CODE >74:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
-10A8 text0 CODE >75:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
-10B2 text0 CODE >76:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
-10B8 text0 CODE >77:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
-10DA text0 CODE >79:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
-10E6 text0 CODE >80:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
-13C4 cinit CODE >12300:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13C4 cinit CODE >12302:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13C4 cinit CODE >12305:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13C4 cinit CODE >12462:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13C6 cinit CODE >12463:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13C8 cinit CODE >12464:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13CA cinit CODE >12465:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13CC cinit CODE >12466:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13CE cinit CODE >12467:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13D0 cinit CODE >12468:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13D4 cinit CODE >12469:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13D8 cinit CODE >12470:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13D8 cinit CODE >12471:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13DA cinit CODE >12472:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13DE cinit CODE >12473:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13E0 cinit CODE >12474:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13E2 cinit CODE >12475:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13E4 cinit CODE >12479:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13E6 cinit CODE >12480:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13E8 cinit CODE >12481:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13EA cinit CODE >12482:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13EC cinit CODE >12483:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13EE cinit CODE >12484:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13F0 cinit CODE >12485:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13F4 cinit CODE >12486:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13F8 cinit CODE >12487:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13F8 cinit CODE >12488:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13FA cinit CODE >12489:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-13FE cinit CODE >12490:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-1400 cinit CODE >12491:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-1402 cinit CODE >12492:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-1404 cinit CODE >12496:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-1406 cinit CODE >12497:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-1408 cinit CODE >12498:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-140A cinit CODE >12499:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-140C cinit CODE >12500:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-140E cinit CODE >12501:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-1410 cinit CODE >12502:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-1412 cinit CODE >12503:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-1416 cinit CODE >12504:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-1418 cinit CODE >12505:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-141C cinit CODE >12509:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-1420 cinit CODE >12510:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-1422 cinit CODE >12511:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-1422 cinit CODE >12512:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-1424 cinit CODE >12513:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-1426 cinit CODE >12514:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-1428 cinit CODE >12517:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-142C cinit CODE >12518:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-142E cinit CODE >12519:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-142E cinit CODE >12520:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-1430 cinit CODE >12521:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-1432 cinit CODE >12522:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-1434 cinit CODE >12525:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-1436 cinit CODE >12526:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-1438 cinit CODE >12527:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-143A cinit CODE >12528:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-143C cinit CODE >12529:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-143E cinit CODE >12535:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-143E cinit CODE >12537:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-1440 cinit CODE >12538:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-1442 cinit CODE >12539:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
-1444 cinit CODE >12540:C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_1.s
+1086 text0 CODE >74:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
+1094 text0 CODE >75:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
+1098 text0 CODE >76:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
+10BA text0 CODE >78:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
+10C6 text0 CODE >79:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
+10D2 text0 CODE >80:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
+10DE text0 CODE >81:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
+1432 cinit CODE >12229:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1432 cinit CODE >12231:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1432 cinit CODE >12234:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1432 cinit CODE >12381:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1434 cinit CODE >12382:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1436 cinit CODE >12383:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1438 cinit CODE >12384:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+143A cinit CODE >12385:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+143C cinit CODE >12386:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+143E cinit CODE >12387:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1442 cinit CODE >12388:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1446 cinit CODE >12389:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1446 cinit CODE >12390:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1448 cinit CODE >12391:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+144C cinit CODE >12392:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+144E cinit CODE >12393:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1450 cinit CODE >12394:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1452 cinit CODE >12398:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1454 cinit CODE >12399:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1456 cinit CODE >12400:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1458 cinit CODE >12401:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+145A cinit CODE >12402:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+145C cinit CODE >12403:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+145E cinit CODE >12404:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1462 cinit CODE >12405:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1466 cinit CODE >12406:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1466 cinit CODE >12407:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1468 cinit CODE >12408:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+146C cinit CODE >12409:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+146E cinit CODE >12410:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1470 cinit CODE >12411:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1472 cinit CODE >12415:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1476 cinit CODE >12416:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1478 cinit CODE >12417:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1478 cinit CODE >12418:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+147A cinit CODE >12419:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+147C cinit CODE >12420:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+147E cinit CODE >12423:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1482 cinit CODE >12424:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1484 cinit CODE >12425:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1484 cinit CODE >12426:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1486 cinit CODE >12427:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1488 cinit CODE >12428:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+148A cinit CODE >12431:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+148E cinit CODE >12432:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1490 cinit CODE >12433:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1490 cinit CODE >12434:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1492 cinit CODE >12435:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1494 cinit CODE >12436:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1496 cinit CODE >12442:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1496 cinit CODE >12444:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+1498 cinit CODE >12445:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+149A cinit CODE >12446:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
+149C cinit CODE >12447:C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_1.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -494,39 +487,37 @@ FFE text5 CODE >1814:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common
 %SYMTAB
 ___awdiv@counter 5 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __LdataBANK0 0 0 ABS 0 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
-__LdataBANK1 0 0 ABS 0 dataBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\final-project-gorakh-boris.X.production.o
-__Hspace_0 17DE 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-__Hspace_1 1F4 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
+__Hspace_0 1794 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
+__Hspace_1 1E0 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __Hspace_2 0 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __Hspace_4 60000C 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 color_writetoaddr@address 4 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __HidataBANK0 0 0 ABS 0 idataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
-__HidataBANK1 0 0 ABS 0 idataBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
-_sendCharSerial4 178E 0 CODE 0 text12 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_writeTrail 1622 0 CODE 0 text1 dist/default/production\final-project-gorakh-boris.X.production.o
+_sendCharSerial4 1742 0 CODE 0 text12 dist/default/production\final-project-gorakh-boris.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\final-project-gorakh-boris.X.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
-_manoeuvre_pointer 60 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
+_manoeuvre_pointer 47 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\final-project-gorakh-boris.X.production.o
 __L__absolute__ 0 0 ABS 0 __absolute__ dist/default/production\final-project-gorakh-boris.X.production.o
 ?_abs 7 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 ?_vfprintf 18 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Lsmallconst E00 0 SMALLCONST 0 smallconst dist/default/production\final-project-gorakh-boris.X.production.o
 _T2PR FBC 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
+___sp 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
 _dbuf 9C 0 BANK0 1 bssBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
 _main 1000 0 CODE 0 text0 dist/default/production\final-project-gorakh-boris.X.production.o
-_nout D0 0 BANK0 1 bssBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
-_prec D4 0 BANK0 1 bssBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
+_nout 55 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+_prec D2 0 BANK0 1 bssBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
 abs@a 7 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 btemp 5E 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
-___stack_hi 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
-___stack_lo 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
-start 20 0 CODE 0 init C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
+___stack_hi 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
+___stack_lo 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
+start 20 0 CODE 0 init C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-_RxBufReadCnt 5A 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+_RxBufReadCnt 5C 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __LidataBANK0 0 0 ABS 0 idataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
-__LidataBANK1 0 0 ABS 0 idataBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
 __Hpowerup 20 0 CODE 0 powerup dist/default/production\final-project-gorakh-boris.X.production.o
 __end_of_vfpfcnvrt 1000 0 CODE 0 text5 dist/default/production\final-project-gorakh-boris.X.production.o
 ___awmod@sign 6 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
@@ -534,11 +525,11 @@ ttemp5 5F 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.p
 ttemp6 62 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
 ttemp7 66 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-__accesstop 60 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
-intlevel0 0 0 CODE 0 text C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
-intlevel1 0 0 CODE 0 text C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
-intlevel2 0 0 CODE 0 text C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
-intlevel3 0 0 CODE 0 text C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
+__accesstop 60 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
+intlevel0 0 0 CODE 0 text C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
+intlevel1 0 0 CODE 0 text C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
+intlevel2 0 0 CODE 0 text C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
+intlevel3 0 0 CODE 0 text C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\final-project-gorakh-boris.X.production.o
 wtemp8 5F 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
@@ -546,12 +537,13 @@ __Hifardata 0 0 CODE 0 ifardata dist/default/production\final-project-gorakh-bor
 ___awdiv@sign 6 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\final-project-gorakh-boris.X.production.o
 _vfpfcnvrt E0A 0 CODE 0 text5 dist/default/production\final-project-gorakh-boris.X.production.o
-__pidataCOMRAM 17DA 0 CODE 0 idataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-_squareDelay 62 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
+__pidataCOMRAM 175A 0 CODE 0 idataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+_squareDelay D4 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
 ___awdiv@dividend 1 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
-_turnLeft135Delay 6A 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
+_manoeuvre_count 58 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
+_turnLeft135Delay DC 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 _CCPR1H FAA 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _CCPR2H FA6 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
@@ -559,23 +551,23 @@ _CCPR3H F25 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.produ
 _CCPR4H F21 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 color_writetoaddr@value 3 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\final-project-gorakh-boris.X.production.o
-_TxBufWriteCnt 59 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-_headbuttDelay 64 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
+_TxBufWriteCnt 5B 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+_headbuttDelay D6 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\final-project-gorakh-boris.X.production.o
-_timer_low_pointer 70 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
+_timer_low_pointer 49 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\final-project-gorakh-boris.X.production.o
 __Hintcodelo 20 0 CODE 0 intcodelo dist/default/production\final-project-gorakh-boris.X.production.o
 ___awdiv@divisor 3 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of___awdiv 11CA 0 CODE 0 text10 dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of___awmod 1334 0 CODE 0 text9 dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_buggy_lights_init 15C4 0 CODE 0 text22 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of___awdiv 11C2 0 CODE 0 text10 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of___awmod 132C 0 CODE 0 text9 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_buggy_lights_init 15A2 0 CODE 0 text22 dist/default/production\final-project-gorakh-boris.X.production.o
 __LidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Lintcodelo 20 0 CODE 0 intcodelo dist/default/production\final-project-gorakh-boris.X.production.o
 _SSP2CON1bits ED9 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-start_initialization 13C4 0 CODE 0 cinit dist/default/production\final-project-gorakh-boris.X.production.o
+start_initialization 1432 0 CODE 0 cinit dist/default/production\final-project-gorakh-boris.X.production.o
 _SSP2CON2bits EDA 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\final-project-gorakh-boris.X.production.o
-_timer_high_pointer 71 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
+_timer_high_pointer 4B 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 _TRISAbits F81 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _TRISCbits F83 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _TRISDbits F84 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
@@ -594,15 +586,15 @@ _RE4PPS E76 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.produ
 _RG6PPS E88 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _RX4PPS E15 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __pcstackBANK1 100 0 BANK1 1 cstackBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_I2C_2_Master_Start 17DA 0 CODE 0 text19 dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_I2C_2_Master_Write 17C6 0 CODE 0 text17 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_I2C_2_Master_Start 1792 0 CODE 0 text19 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_I2C_2_Master_Write 1774 0 CODE 0 text17 dist/default/production\final-project-gorakh-boris.X.production.o
 _TX4REG EE4 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-_turn180Delay 66 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_sendArrayCharSerial4 14BE 0 CODE 0 text2 dist/default/production\final-project-gorakh-boris.X.production.o
+_turn180Delay D8 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_sendArrayCharSerial4 1432 0 CODE 0 text2 dist/default/production\final-project-gorakh-boris.X.production.o
 I2C_2_Master_Write@data_byte 2 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-isa$xinst 0 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
+isa$xinst 0 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
 fputc@fp 3 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-_topGearRight 73 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
+_topGearRight 52 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 vfpfcnvrt@done F 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Hbank0 0 0 ABS 0 bank0 dist/default/production\final-project-gorakh-boris.X.production.o
 __Hbank1 0 0 ABS 0 bank1 dist/default/production\final-project-gorakh-boris.X.production.o
@@ -636,16 +628,13 @@ __Hbank10 0 0 ABS 0 bank10 dist/default/production\final-project-gorakh-boris.X.
 __Hbank11 0 0 ABS 0 bank11 dist/default/production\final-project-gorakh-boris.X.production.o
 __Hbank12 0 0 ABS 0 bank12 dist/default/production\final-project-gorakh-boris.X.production.o
 __Hbank13 0 0 ABS 0 bank13 dist/default/production\final-project-gorakh-boris.X.production.o
-_sendIntSerial4 172E 0 CODE 0 text1 dist/default/production\final-project-gorakh-boris.X.production.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\final-project-gorakh-boris.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\final-project-gorakh-boris.X.production.o
 __Hbigsfr 0 0 ABS 0 bigsfr dist/default/production\final-project-gorakh-boris.X.production.o
-__smallconst E00 0 SMALLCONST 0 smallconst C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
-__end_of_sprintf 1610 0 CODE 0 text3 dist/default/production\final-project-gorakh-boris.X.production.o
+__smallconst E00 0 SMALLCONST 0 smallconst C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
+__end_of_sprintf 15EE 0 CODE 0 text3 dist/default/production\final-project-gorakh-boris.X.production.o
 __Hcomram 0 0 ABS 0 comram dist/default/production\final-project-gorakh-boris.X.production.o
 __Hconfig 30000C 0 CONFIG 4 config dist/default/production\final-project-gorakh-boris.X.production.o
-sendIntSerial4@integer 30 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-sendIntSerial4@string 32 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 _T2HLTbits FBE 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __Lbank0 0 0 ABS 0 bank0 dist/default/production\final-project-gorakh-boris.X.production.o
 __Lbank1 0 0 ABS 0 bank1 dist/default/production\final-project-gorakh-boris.X.production.o
@@ -675,15 +664,15 @@ __Ltext6 0 0 ABS 0 text6 dist/default/production\final-project-gorakh-boris.X.pr
 __Ltext7 0 0 ABS 0 text7 dist/default/production\final-project-gorakh-boris.X.production.o
 __Ltext8 0 0 ABS 0 text8 dist/default/production\final-project-gorakh-boris.X.production.o
 __Ltext9 0 0 ABS 0 text9 dist/default/production\final-project-gorakh-boris.X.production.o
-_I2C_2_Master_Start 17D0 0 CODE 0 text19 dist/default/production\final-project-gorakh-boris.X.production.o
+_I2C_2_Master_Start 1788 0 CODE 0 text19 dist/default/production\final-project-gorakh-boris.X.production.o
 initDCmotorsPWM@PWMperiod 1 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-_I2C_2_Master_Write 17BA 0 CODE 0 text17 dist/default/production\final-project-gorakh-boris.X.production.o
+_I2C_2_Master_Write 1768 0 CODE 0 text17 dist/default/production\final-project-gorakh-boris.X.production.o
 __Hfarbss 0 0 FARRAM 0 farbss dist/default/production\final-project-gorakh-boris.X.production.o
-_buggy_lights_init 1576 0 CODE 0 text22 dist/default/production\final-project-gorakh-boris.X.production.o
+_buggy_lights_init 1554 0 CODE 0 text22 dist/default/production\final-project-gorakh-boris.X.production.o
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\final-project-gorakh-boris.X.production.o
 _PORTFbits F8E 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _INTCONbits FF2 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-_topGearLeft 5C 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+_topGearLeft 53 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Habs1 0 0 ABS 0 abs1 dist/default/production\final-project-gorakh-boris.X.production.o
 __Hdata 0 0 ABS 0 data dist/default/production\final-project-gorakh-boris.X.production.o
 __Hheap 0 0 HEAP 7 heap dist/default/production\final-project-gorakh-boris.X.production.o
@@ -702,19 +691,19 @@ __Ltemp 5E 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.
 __Ltext 0 0 ABS 0 text dist/default/production\final-project-gorakh-boris.X.production.o
 _SSP2CON2 EDA 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _SSP2STAT ED8 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-_TxBufReadCnt 58 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+_TxBufReadCnt 5A 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __LcstackBANK1 0 0 ABS 0 cstackBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
 int$flags 5E 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-_Timer0_init 1706 0 CODE 0 text23 dist/default/production\final-project-gorakh-boris.X.production.o
+_Timer0_init 16DC 0 CODE 0 text23 dist/default/production\final-project-gorakh-boris.X.production.o
 __Hintret 0 0 ABS 0 intret dist/default/production\final-project-gorakh-boris.X.production.o
 __Hirdata 0 0 CODE 0 irdata dist/default/production\final-project-gorakh-boris.X.production.o
 _ISR 8 0 CODE 0 intcode dist/default/production\final-project-gorakh-boris.X.production.o
-__S0 17DE 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-__S1 1F4 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
+__S0 1794 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
+__S1 1E0 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __S4 0 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __S5 0 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-_abs 164C 0 CODE 0 text8 dist/default/production\final-project-gorakh-boris.X.production.o
+_abs 1622 0 CODE 0 text8 dist/default/production\final-project-gorakh-boris.X.production.o
 _TX4STAbits EE8 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _BAUD4CONbits EE9 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __HidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
@@ -722,16 +711,14 @@ __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\final-project-gorakh-bor
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\final-project-gorakh-boris.X.production.o
 sprintf@fmt 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 sprintf@ret 21 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_sendIntSerial4 1750 0 CODE 0 text1 dist/default/production\final-project-gorakh-boris.X.production.o
 __end_of_ISR 20 0 CODE 0 intcode dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_abs 1680 0 CODE 0 text8 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_abs 1656 0 CODE 0 text8 dist/default/production\final-project-gorakh-boris.X.production.o
 __Lintentry 0 0 ABS 0 intentry dist/default/production\final-project-gorakh-boris.X.production.o
-_color_click_init 1680 0 CODE 0 text15 dist/default/production\final-project-gorakh-boris.X.production.o
+_color_click_init 1656 0 CODE 0 text15 dist/default/production\final-project-gorakh-boris.X.production.o
 __Hramtop E00 0 RAM 0 ramtop dist/default/production\final-project-gorakh-boris.X.production.o
 __Hrparam 0 0 COMRAM 1 rparam dist/default/production\final-project-gorakh-boris.X.production.o
 _CCPTMRS0bits FAD 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-__pdataBANK0 60 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
-__pdataBANK1 1E0 0 BANK1 1 dataBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
+__pdataBANK0 D4 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
 __activetblptr 3 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __Hstruct 0 0 COMRAM 1 struct dist/default/production\final-project-gorakh-boris.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
@@ -750,31 +737,31 @@ __Htext20 0 0 ABS 0 text20 dist/default/production\final-project-gorakh-boris.X.
 __Htext21 0 0 ABS 0 text21 dist/default/production\final-project-gorakh-boris.X.production.o
 __Htext22 0 0 ABS 0 text22 dist/default/production\final-project-gorakh-boris.X.production.o
 __Htext23 0 0 ABS 0 text23 dist/default/production\final-project-gorakh-boris.X.production.o
-_turnRight90Delay 6C 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
+_turnRight90Delay 4D 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 vfpfcnvrt@cnt 10 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 vfpfcnvrt@fmt C 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 ___awmod@counter 5 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 _PIE0bits E29 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-_backtrack 57 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+_backtrack 59 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 _PIE4bits E2D 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_sendStringSerial4 1520 0 CODE 0 text11 dist/default/production\final-project-gorakh-boris.X.production.o
-_RxBufWriteCnt 5B 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext10 1106 0 CODE 0 text10 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext11 14BE 0 CODE 0 text11 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext12 178E 0 CODE 0 text12 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext13 1770 0 CODE 0 text13 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext14 1334 0 CODE 0 text14 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext15 1680 0 CODE 0 text15 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext16 1750 0 CODE 0 text16 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext17 17BA 0 CODE 0 text17 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext18 17C6 0 CODE 0 text18 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext19 17D0 0 CODE 0 text19 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext20 16DE 0 CODE 0 text20 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext21 16B4 0 CODE 0 text21 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext22 1576 0 CODE 0 text22 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext23 1706 0 CODE 0 text23 dist/default/production\final-project-gorakh-boris.X.production.o
-___awdiv 1106 0 CODE 0 text10 dist/default/production\final-project-gorakh-boris.X.production.o
-___awmod 1284 0 CODE 0 text9 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_sendStringSerial4 1502 0 CODE 0 text11 dist/default/production\final-project-gorakh-boris.X.production.o
+_RxBufWriteCnt 5D 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext10 10FE 0 CODE 0 text10 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext11 14A0 0 CODE 0 text11 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext12 1742 0 CODE 0 text12 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext13 1724 0 CODE 0 text13 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext14 132C 0 CODE 0 text14 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext15 1656 0 CODE 0 text15 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext16 1704 0 CODE 0 text16 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext17 1768 0 CODE 0 text17 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext18 177E 0 CODE 0 text18 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext19 1788 0 CODE 0 text19 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext20 16B4 0 CODE 0 text20 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext21 168A 0 CODE 0 text21 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext22 1554 0 CODE 0 text22 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext23 16DC 0 CODE 0 text23 dist/default/production\final-project-gorakh-boris.X.production.o
+___awdiv 10FE 0 CODE 0 text10 dist/default/production\final-project-gorakh-boris.X.production.o
+___awmod 127C 0 CODE 0 text9 dist/default/production\final-project-gorakh-boris.X.production.o
 __Lbank10 0 0 ABS 0 bank10 dist/default/production\final-project-gorakh-boris.X.production.o
 __Lbank11 0 0 ABS 0 bank11 dist/default/production\final-project-gorakh-boris.X.production.o
 __Lbank12 0 0 ABS 0 bank12 dist/default/production\final-project-gorakh-boris.X.production.o
@@ -791,37 +778,37 @@ _LATEbits F7D 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.pro
 _LATFbits F7E 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _LATGbits F7F 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _LATHbits F80 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_I2C_2_Master_Idle 1706 0 CODE 0 text20 dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_I2C_2_Master_Init 16DE 0 CODE 0 text21 dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_I2C_2_Master_Stop 17D0 0 CODE 0 text18 dist/default/production\final-project-gorakh-boris.X.production.o
-_turnRight135Delay 68 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_I2C_2_Master_Idle 16DC 0 CODE 0 text20 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_I2C_2_Master_Init 16B4 0 CODE 0 text21 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_I2C_2_Master_Stop 1788 0 CODE 0 text18 dist/default/production\final-project-gorakh-boris.X.production.o
+_turnRight135Delay DA 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\final-project-gorakh-boris.X.production.o
-___inthi_stack_hi 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
-___inthi_stack_lo 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
+___inthi_stack_hi 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
+___inthi_stack_lo 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\final-project-gorakh-boris.X.production.o
-isa$std 1 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
+isa$std 1 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
 _EUSART4RXbuf BC 0 BANK0 1 bssBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
-_EUSART4TXbuf 1A4 0 BANK1 1 bssBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
-stackhi 0 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
-stacklo 0 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
+_EUSART4TXbuf 60 0 BANK0 1 bssBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
+stackhi 0 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
+stacklo 0 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production\final-project-gorakh-boris.X.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\final-project-gorakh-boris.X.production.o
 __Lirdata 0 0 CODE 0 irdata dist/default/production\final-project-gorakh-boris.X.production.o
-_initUSART4 1770 0 CODE 0 text13 dist/default/production\final-project-gorakh-boris.X.production.o
+_initUSART4 1724 0 CODE 0 text13 dist/default/production\final-project-gorakh-boris.X.production.o
 ?_vfpfcnvrt B 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Lspace_0 0 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __Lspace_1 0 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __Lspace_2 0 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __Lspace_4 0 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 sendArrayCharSerial4@arr 30 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-__pbssCOMRAM 57 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+__pbssCOMRAM 55 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __HcstackBANK1 0 0 ABS 0 cstackBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
 _PIR0bits E33 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _PIR4bits E37 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 vfpfcnvrt@convarg 13 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-end_of_initialization 143E 0 CODE 0 cinit dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_color_click_init 16B4 0 CODE 0 text15 dist/default/production\final-project-gorakh-boris.X.production.o
+end_of_initialization 1496 0 CODE 0 cinit dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_color_click_init 168A 0 CODE 0 text15 dist/default/production\final-project-gorakh-boris.X.production.o
 _T2CLKCONbits FBF 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\final-project-gorakh-boris.X.production.o
 __Hintentry 0 0 ABS 0 intentry dist/default/production\final-project-gorakh-boris.X.production.o
@@ -836,27 +823,27 @@ __HbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\final-project-gorakh-bori
 __HbssBANK1 0 0 ABS 0 bssBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
 sendStringSerial4@string 2 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 ___awmod@dividend 1 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_initDCmotorsPWM 13C4 0 CODE 0 text14 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_initDCmotorsPWM 13BC 0 CODE 0 text14 dist/default/production\final-project-gorakh-boris.X.production.o
 __Lramtop E00 0 RAM 0 ramtop dist/default/production\final-project-gorakh-boris.X.production.o
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production\final-project-gorakh-boris.X.production.o
-__pcinit 13C4 0 CODE 0 cinit dist/default/production\final-project-gorakh-boris.X.production.o
+__pcinit 1432 0 CODE 0 cinit dist/default/production\final-project-gorakh-boris.X.production.o
 vfpfcnvrt@ap D 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 vfpfcnvrt@cp 12 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 vfpfcnvrt@fp B 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __ptext0 1000 0 CODE 0 text0 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext1 172E 0 CODE 0 text1 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext2 1448 0 CODE 0 text2 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext3 15C4 0 CODE 0 text3 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext4 1520 0 CODE 0 text4 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext1 15EE 0 CODE 0 text1 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext2 13BC 0 CODE 0 text2 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext3 15A2 0 CODE 0 text3 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext4 1502 0 CODE 0 text4 dist/default/production\final-project-gorakh-boris.X.production.o
 __ptext5 E0A 0 CODE 0 text5 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext6 11CA 0 CODE 0 text6 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext7 17DC 0 CODE 0 text7 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext8 164C 0 CODE 0 text8 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext9 1284 0 CODE 0 text9 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext6 11C2 0 CODE 0 text6 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext7 1792 0 CODE 0 text7 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext8 1622 0 CODE 0 text8 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext9 127C 0 CODE 0 text9 dist/default/production\final-project-gorakh-boris.X.production.o
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\final-project-gorakh-boris.X.production.o
 vfprintf@ap 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 vfprintf@fp 18 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-_turningGear 72 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
+_turningGear 51 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 sendCharSerial4@charToSend 1 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 vfprintf@cfmt 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Ltext10 0 0 ABS 0 text10 dist/default/production\final-project-gorakh-boris.X.production.o
@@ -873,45 +860,45 @@ __Ltext20 0 0 ABS 0 text20 dist/default/production\final-project-gorakh-boris.X.
 __Ltext21 0 0 ABS 0 text21 dist/default/production\final-project-gorakh-boris.X.production.o
 __Ltext22 0 0 ABS 0 text22 dist/default/production\final-project-gorakh-boris.X.production.o
 __Ltext23 0 0 ABS 0 text23 dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_color_writetoaddr 1770 0 CODE 0 text16 dist/default/production\final-project-gorakh-boris.X.production.o
-__ramtop E00 0 RAM 0 ramtop C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
-_sprintf 15C4 0 CODE 0 text3 dist/default/production\final-project-gorakh-boris.X.production.o
-_trail_manoeuvre 1E0 0 BANK1 1 dataBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
-_sendStringSerial4 14BE 0 CODE 0 text11 dist/default/production\final-project-gorakh-boris.X.production.o
-_vfprintf 1520 0 CODE 0 text4 dist/default/production\final-project-gorakh-boris.X.production.o
-main@motorL 45 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-main@motorR 4E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_color_writetoaddr 1724 0 CODE 0 text16 dist/default/production\final-project-gorakh-boris.X.production.o
+__ramtop E00 0 RAM 0 ramtop C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
+_sprintf 15A2 0 CODE 0 text3 dist/default/production\final-project-gorakh-boris.X.production.o
+_trail_manoeuvre 1A4 0 BANK1 1 bssBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
+_sendStringSerial4 14A0 0 CODE 0 text11 dist/default/production\final-project-gorakh-boris.X.production.o
+_vfprintf 1502 0 CODE 0 text4 dist/default/production\final-project-gorakh-boris.X.production.o
+main@motorL 35 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+main@motorR 3E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Lpowerup 20 0 CODE 0 powerup dist/default/production\final-project-gorakh-boris.X.production.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\final-project-gorakh-boris.X.production.o
 sprintf@ap 23 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __H__absolute__ 0 0 ABS 0 __absolute__ dist/default/production\final-project-gorakh-boris.X.production.o
-_sendArrayCharSerial4 1448 0 CODE 0 text2 dist/default/production\final-project-gorakh-boris.X.production.o
+_sendArrayCharSerial4 13BC 0 CODE 0 text2 dist/default/production\final-project-gorakh-boris.X.production.o
 __psmallconst E00 0 SMALLCONST 0 smallconst dist/default/production\final-project-gorakh-boris.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_vfprintf 1576 0 CODE 0 text4 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_vfprintf 1554 0 CODE 0 text4 dist/default/production\final-project-gorakh-boris.X.production.o
 _CCP3CONbits F26 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-___heap_hi 0 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
-___heap_lo 0 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
-_I2C_2_Master_Idle 16DE 0 CODE 0 text20 dist/default/production\final-project-gorakh-boris.X.production.o
-_I2C_2_Master_Init 16B4 0 CODE 0 text21 dist/default/production\final-project-gorakh-boris.X.production.o
-_I2C_2_Master_Stop 17C6 0 CODE 0 text18 dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_initUSART4 178E 0 CODE 0 text13 dist/default/production\final-project-gorakh-boris.X.production.o
+___heap_hi 0 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
+___heap_lo 0 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
+_I2C_2_Master_Idle 16B4 0 CODE 0 text20 dist/default/production\final-project-gorakh-boris.X.production.o
+_I2C_2_Master_Init 168A 0 CODE 0 text21 dist/default/production\final-project-gorakh-boris.X.production.o
+_I2C_2_Master_Stop 177E 0 CODE 0 text18 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_initUSART4 1742 0 CODE 0 text13 dist/default/production\final-project-gorakh-boris.X.production.o
 ___param_bank 0 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-___intlo_stack_hi 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
-___intlo_stack_lo 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsqo.\driver_tmp_14.o
+___intlo_stack_hi 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
+___intlo_stack_lo 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAs25k.\driver_tmp_14.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of__initialization 143E 0 CODE 0 cinit dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of__initialization 1496 0 CODE 0 cinit dist/default/production\final-project-gorakh-boris.X.production.o
 ___awmod@divisor 3 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production\final-project-gorakh-boris.X.production.o
-__pidataBANK0 1610 0 CODE 0 idataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
-__pidataBANK1 17A6 0 CODE 0 idataBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
+__pidataBANK0 1774 0 CODE 0 idataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
 _SP4BRGH EE6 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _SP4BRGL EE5 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_Timer0_init 172E 0 CODE 0 text23 dist/default/production\final-project-gorakh-boris.X.production.o
-_initDCmotorsPWM 1334 0 CODE 0 text14 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_Timer0_init 1704 0 CODE 0 text23 dist/default/production\final-project-gorakh-boris.X.production.o
+_initDCmotorsPWM 132C 0 CODE 0 text14 dist/default/production\final-project-gorakh-boris.X.production.o
 __pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 sendArrayCharSerial4@tempStr 100 0 BANK1 1 cstackBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
+_writeTrail 15EE 0 CODE 0 text1 dist/default/production\final-project-gorakh-boris.X.production.o
 _T0CON0bits FD5 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _T0CON1bits FD6 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _SSP2ADD ED6 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
@@ -919,16 +906,16 @@ _SSP2BUF ED5 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.prod
 vfpfcnvrt@c 17 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 sprintf@f 24 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 sprintf@s 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_main 1106 0 CODE 0 text0 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_main 10FE 0 CODE 0 text0 dist/default/production\final-project-gorakh-boris.X.production.o
 _CCP2CONbits FA7 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_sendCharSerial4 17A6 0 CODE 0 text12 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_sendCharSerial4 175A 0 CODE 0 text12 dist/default/production\final-project-gorakh-boris.X.production.o
 __pintcode 8 0 CODE 0 intcode dist/default/production\final-project-gorakh-boris.X.production.o
-_rampDelay 5D 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_fputc 1284 0 CODE 0 text6 dist/default/production\final-project-gorakh-boris.X.production.o
+_rampDelay 54 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_fputc 127C 0 CODE 0 text6 dist/default/production\final-project-gorakh-boris.X.production.o
 ?_sprintf 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 _TMR0H FD4 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _TMR0L FD3 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_putch 17DE 0 CODE 0 text7 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_putch 1794 0 CODE 0 text7 dist/default/production\final-project-gorakh-boris.X.production.o
 _RC4STAbits EE7 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __HRAM 0 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __Hbss 0 0 RAM 1 bss dist/default/production\final-project-gorakh-boris.X.production.o
@@ -938,29 +925,28 @@ __LRAM 1 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.producti
 __Lbss 0 0 RAM 1 bss dist/default/production\final-project-gorakh-boris.X.production.o
 __Lram 0 0 ABS 0 ram dist/default/production\final-project-gorakh-boris.X.production.o
 __Lsfr 0 0 ABS 0 sfr dist/default/production\final-project-gorakh-boris.X.production.o
-_flags D6 0 BANK0 1 bssBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
-_fputc 11CA 0 CODE 0 text6 dist/default/production\final-project-gorakh-boris.X.production.o
-_putch 17DC 0 CODE 0 text7 dist/default/production\final-project-gorakh-boris.X.production.o
-_width D2 0 BANK0 1 bssBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
+_flags 57 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+_fputc 11C2 0 CODE 0 text6 dist/default/production\final-project-gorakh-boris.X.production.o
+_putch 1792 0 CODE 0 text7 dist/default/production\final-project-gorakh-boris.X.production.o
+_width D0 0 BANK0 1 bssBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
 __HdataBANK0 0 0 ABS 0 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
-__HdataBANK1 0 0 ABS 0 dataBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
-__initialization 13C4 0 CODE 0 cinit dist/default/production\final-project-gorakh-boris.X.production.o
+__initialization 1432 0 CODE 0 cinit dist/default/production\final-project-gorakh-boris.X.production.o
 sendArrayCharSerial4@index 1A1 0 BANK1 1 cstackBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
-__pbssBANK0 9C 0 BANK0 1 bssBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
+__pbssBANK0 60 0 BANK0 1 bssBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
 __pbssBANK1 1A4 0 BANK1 1 bssBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
-__pdataCOMRAM 5C 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+__pdataCOMRAM 47 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 _T2CONbits FBD 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-_turnLeft90Delay 6E 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
-_trail_timer_low 74 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
+_turnLeft90Delay 4F 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+_trail_timer_low 1B8 0 BANK1 1 bssBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production\final-project-gorakh-boris.X.production.o
-_color_writetoaddr 1750 0 CODE 0 text16 dist/default/production\final-project-gorakh-boris.X.production.o
+_color_writetoaddr 1704 0 CODE 0 text16 dist/default/production\final-project-gorakh-boris.X.production.o
 __Hsmallconst E0A 0 SMALLCONST 0 smallconst dist/default/production\final-project-gorakh-boris.X.production.o
 __Lifardata 0 0 CODE 0 ifardata dist/default/production\final-project-gorakh-boris.X.production.o
 _SSP2CLKPPS E1C 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _CCP1CONbits FAB 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _ANSELDbits EA7 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _ANSELFbits EB4 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-_trail_timer_high 88 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
+_trail_timer_high 1CC 0 BANK1 1 bssBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\final-project-gorakh-boris.X.production.o
 _SSP2DATPPS E1D 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 sendArrayCharSerial4@i 1A2 0 BANK1 1 cstackBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
@@ -989,13 +975,13 @@ __Hintcode 20 0 CODE 0 intcode dist/default/production\final-project-gorakh-bori
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text5 0 E0A E0A 9D4 1
+text5 0 E0A E0A 98A 1
 cstackCOMRAM 1 1 1 5E 1
-cstackBANK1 1 100 100 F4 1
+cstackBANK1 1 100 100 E0 1
 reset_vec 0 0 0 4 1
+bssBANK0 1 60 60 7E 1
 intcode 0 8 8 1C 1
 smallconst 0 E00 E00 A 1
-dataBANK0 1 60 60 77 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

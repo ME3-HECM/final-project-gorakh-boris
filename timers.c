@@ -27,6 +27,25 @@ void Timer0_init(void)
     INTCONbits.GIE = 1;     //sets global interrupt
 }
 
+void writeTrail(void) {
+    *timer_high_pointer = TMR0H;    
+    *timer_low_pointer = TMR0L;    
+    *manoeuvre_pointer = manoeuvre_count;
+    
+    timer_high_pointer ++;
+    timer_low_pointer ++;
+    manoeuvre_pointer ++;
+    
+    manoeuvre_count ++;
+}
+
+void readTrail(void) {
+    
+    timer_high_pointer --;
+    timer_low_pointer --;
+    manoeuvre_pointer --;
+}
+
 void __interrupt() ISR()
 {    
     // timer interrupt

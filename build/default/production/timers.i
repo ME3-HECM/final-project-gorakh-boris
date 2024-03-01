@@ -24099,16 +24099,87 @@ unsigned char __t3rd16on(void);
 
 
 unsigned char backtrack = 0;
-unsigned char trail_timer_high[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
-unsigned char trail_timer_low[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
-unsigned char trail_manoeuvre[20] = {101, 102, 103, 104, 105, 106, 107, 108, 109, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 100};
+
+
+
+unsigned char trail_timer_high[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 unsigned char *timer_high_pointer = &trail_timer_high[0];
 unsigned char *timer_low_pointer = &trail_timer_low[0];
 unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
+unsigned char manoeuvre_count = 0;
 
 void Timer0_init(void);
+void writeTrail(void);
+void readTrail(void);
 void __attribute__((picinterrupt(("")))) ISR();
 # 2 "timers.c" 2
+
+# 1 "./manoeuvres.h" 1
+# 11 "./manoeuvres.h"
+# 1 "./dc_motor.h" 1
+
+
+
+
+
+
+
+typedef struct DC_motor {
+    char power;
+    char direction;
+    char brakemode;
+    unsigned int PWMperiod;
+    unsigned char *posDutyHighByte;
+    unsigned char *negDutyHighByte;
+} DC_motor;
+
+unsigned char rampDelay = 8;
+
+unsigned char topGearLeft = 20;
+unsigned char topGearRight = 20;
+
+unsigned char turningGear = 42;
+
+unsigned int turnLeft90Delay = 175;
+unsigned int turnRight90Delay = 175;
+unsigned int turnLeft135Delay = 300;
+unsigned int turnRight135Delay = 300;
+unsigned int turn180Delay = 510;
+
+unsigned int headbuttDelay = 70;
+unsigned int squareDelay = 300;
+
+
+void initDCmotorsPWM(unsigned int PWMperiod);
+void setMotorPWM(DC_motor *m);
+
+void stop(DC_motor *mL, DC_motor *mR);
+void turnLeft(DC_motor *mL, DC_motor *mR);
+void turnRight(DC_motor *mL, DC_motor *mR);
+void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
+void fullSpeedReverse(DC_motor *mL, DC_motor *mR);
+
+void turnLeft90(DC_motor *mL, DC_motor *mR);
+void turnRight90(DC_motor *mL, DC_motor *mR);
+void turnLeft135(DC_motor *mL, DC_motor *mR);
+void turnRight135(DC_motor *mL, DC_motor *mR);
+void UTurn(DC_motor *mL, DC_motor *mR);
+void headbuttReverse(DC_motor *mL, DC_motor *mR);
+void squareReverse(DC_motor *mL, DC_motor *mR);
+# 11 "./manoeuvres.h" 2
+
+
+void cardRed(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void cardGreen(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void cardBlue(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void cardYellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void cardWhite(DC_motor *mL, DC_motor *mR);
+# 3 "timers.c" 2
 
 
 
@@ -24134,6 +24205,25 @@ void Timer0_init(void)
     PIE0bits.TMR0IE = 1;
     INTCONbits.PEIE = 1;
     INTCONbits.GIE = 1;
+}
+
+void writeTrail(void) {
+    *timer_high_pointer = TMR0H;
+    *timer_low_pointer = TMR0L;
+    *manoeuvre_pointer = manoeuvre_count;
+
+    timer_high_pointer ++;
+    timer_low_pointer ++;
+    manoeuvre_pointer ++;
+
+    manoeuvre_count ++;
+}
+
+void readTrail(void) {
+
+    timer_high_pointer --;
+    timer_low_pointer --;
+    manoeuvre_pointer --;
 }
 
 void __attribute__((picinterrupt(("")))) ISR()

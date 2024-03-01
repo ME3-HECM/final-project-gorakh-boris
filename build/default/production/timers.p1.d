@@ -1,3 +1,5 @@
 build/default/production/timers.p1:  \
 timers.c  \
-timers.h 
+timers.h  \
+manoeuvres.h  \
+dc_motor.h 
