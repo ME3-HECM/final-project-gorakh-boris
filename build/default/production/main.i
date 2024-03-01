@@ -24326,7 +24326,12 @@ void main(void) {
 
 
 
+        if (!PORTFbits.RF2) {
+            *manoeuvre_pointer = 0;
+            manoeuvre_pointer ++;
+            LATDbits.LATD7 = !LATDbits.LATD7;
+        }
         sendArraySerial4(trail_manoeuvre);
-        _delay((unsigned long)((1000)*(64000000/4000.0)));
+        _delay((unsigned long)((500)*(64000000/4000.0)));
     }
 }

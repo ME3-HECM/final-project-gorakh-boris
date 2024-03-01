@@ -72,7 +72,12 @@ void main(void) {
         //sendIntSerial4((int)TMR0L);
         //sendIntSerial4((int)TMR0H);
         //sendIntSerial4(sizeof(trail_manoeuvre));
+        if (!PORTFbits.RF2) {  //on button press
+            *manoeuvre_pointer = 0;
+            manoeuvre_pointer ++;
+            LATDbits.LATD7 = !LATDbits.LATD7;
+        }
         sendArraySerial4(trail_manoeuvre);
-        __delay_ms(1000);
+        __delay_ms(500);
     }
 }
