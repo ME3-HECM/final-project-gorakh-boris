@@ -24099,10 +24099,12 @@ unsigned char __t3rd16on(void);
 
 
 unsigned char backtrack = 0;
-unsigned char trail_timer_high[20];
-unsigned char trail_timer_low[20];
+unsigned char trail_timer_high[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+unsigned char trail_timer_low[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
 unsigned char trail_manoeuvre[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
-unsigned char *manoeuvre_pointer = &trail_manoeuvre;
+unsigned char *timer_high_pointer = &trail_timer_high[0];
+unsigned char *timer_low_pointer = &trail_timer_low[0];
+unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
 
 void Timer0_init(void);
 void __attribute__((picinterrupt(("")))) ISR();
@@ -24144,7 +24146,7 @@ void __attribute__((picinterrupt(("")))) ISR()
         } else {
 
         }
-        LATHbits.LATH3 = !LATHbits.LATH3;
+
         PIR0bits.TMR0IF = 0;
     }
 }

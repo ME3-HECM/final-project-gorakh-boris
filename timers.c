@@ -36,7 +36,7 @@ void __interrupt() ISR()
         } else {                    //is not backtracking
             //trigger a lost function
         }
-        LATHbits.LATH3 = !LATHbits.LATH3;       //toggle LED for debugging
+        //LATHbits.LATH3 = !LATHbits.LATH3;       //toggle LED for debugging
         PIR0bits.TMR0IF = 0;        //reset timer interrupt flag
     }
 }

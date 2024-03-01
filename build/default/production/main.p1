@@ -32,8 +32,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "23 ./serial.h
 [; ;./serial.h: 23: void initUSART4(void);
 [v _initUSART4 `(v ~T0 @X0 0 ef ]
-"14 ./timers.h
-[; ;./timers.h: 14: void Timer0_init(void);
+"16 ./timers.h
+[; ;./timers.h: 16: void Timer0_init(void);
 [v _Timer0_init `(v ~T0 @X0 0 ef ]
 "29622 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29622:     struct {
@@ -2079,16 +2079,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 8 `i `uc
 ]
 "19
-[; ;./dc_motor.h: 19: unsigned char topGearLeft = 30;
+[; ;./dc_motor.h: 19: unsigned char topGearLeft = 20;
 [v _topGearLeft `uc ~T0 @X0 1 e ]
 [i _topGearLeft
--> -> 30 `i `uc
+-> -> 20 `i `uc
 ]
 "20
-[; ;./dc_motor.h: 20: unsigned char topGearRight = 32;
+[; ;./dc_motor.h: 20: unsigned char topGearRight = 20;
 [v _topGearRight `uc ~T0 @X0 1 e ]
 [i _topGearRight
--> -> 32 `i `uc
+-> -> 20 `i `uc
 ]
 "22
 [; ;./dc_motor.h: 22: unsigned char turningGear = 42;
@@ -2175,11 +2175,59 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 "9
-[; ;./timers.h: 9: unsigned char trail_timer_high[20];
+[; ;./timers.h: 9: unsigned char trail_timer_high[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
 [v _trail_timer_high `uc ~T0 @X0 -> 20 `i e ]
+[i _trail_timer_high
+:U ..
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+-> -> 3 `i `uc
+-> -> 4 `i `uc
+-> -> 5 `i `uc
+-> -> 6 `i `uc
+-> -> 7 `i `uc
+-> -> 8 `i `uc
+-> -> 9 `i `uc
+-> -> 0 `i `uc
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+-> -> 3 `i `uc
+-> -> 4 `i `uc
+-> -> 5 `i `uc
+-> -> 6 `i `uc
+-> -> 7 `i `uc
+-> -> 8 `i `uc
+-> -> 9 `i `uc
+-> -> 0 `i `uc
+..
+]
 "10
-[; ;./timers.h: 10: unsigned char trail_timer_low[20];
+[; ;./timers.h: 10: unsigned char trail_timer_low[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
 [v _trail_timer_low `uc ~T0 @X0 -> 20 `i e ]
+[i _trail_timer_low
+:U ..
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+-> -> 3 `i `uc
+-> -> 4 `i `uc
+-> -> 5 `i `uc
+-> -> 6 `i `uc
+-> -> 7 `i `uc
+-> -> 8 `i `uc
+-> -> 9 `i `uc
+-> -> 0 `i `uc
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+-> -> 3 `i `uc
+-> -> 4 `i `uc
+-> -> 5 `i `uc
+-> -> 6 `i `uc
+-> -> 7 `i `uc
+-> -> 8 `i `uc
+-> -> 9 `i `uc
+-> -> 0 `i `uc
+..
+]
 "11
 [; ;./timers.h: 11: unsigned char trail_manoeuvre[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
 [v _trail_manoeuvre `uc ~T0 @X0 -> 20 `i e ]
@@ -2208,10 +2256,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 "12
-[; ;./timers.h: 12: unsigned char *manoeuvre_pointer = &trail_manoeuvre;
+[; ;./timers.h: 12: unsigned char *timer_high_pointer = &trail_timer_high[0];
+[v _timer_high_pointer `*uc ~T0 @X0 1 e ]
+[i _timer_high_pointer
+&U *U + &U _trail_timer_high * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_timer_high `ui `ux
+]
+"13
+[; ;./timers.h: 13: unsigned char *timer_low_pointer = &trail_timer_low[0];
+[v _timer_low_pointer `*uc ~T0 @X0 1 e ]
+[i _timer_low_pointer
+&U *U + &U _trail_timer_low * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_timer_low `ui `ux
+]
+"14
+[; ;./timers.h: 14: unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
 [v _manoeuvre_pointer `*uc ~T0 @X0 1 e ]
 [i _manoeuvre_pointer
--> &U _trail_manoeuvre `*uc
+&U *U + &U _trail_manoeuvre * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_manoeuvre `ui `ux
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "26 main.c

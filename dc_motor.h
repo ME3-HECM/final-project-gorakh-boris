@@ -16,8 +16,8 @@ typedef struct DC_motor { //definition of DC_motor structure
 
 unsigned char rampDelay = 8;       //delay in ms
 
-unsigned char topGearLeft = 30;         //speed from 0 to 100
-unsigned char topGearRight = 32;        //speed from 0 to 100
+unsigned char topGearLeft = 20;         //speed from 0 to 100
+unsigned char topGearRight = 20;        //speed from 0 to 100
 
 unsigned char turningGear = 42;     //speed from 0 to 100
 

@@ -2005,16 +2005,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 8 `i `uc
 ]
 "19
-[; ;./dc_motor.h: 19: unsigned char topGearLeft = 30;
+[; ;./dc_motor.h: 19: unsigned char topGearLeft = 20;
 [v _topGearLeft `uc ~T0 @X0 1 e ]
 [i _topGearLeft
--> -> 30 `i `uc
+-> -> 20 `i `uc
 ]
 "20
-[; ;./dc_motor.h: 20: unsigned char topGearRight = 32;
+[; ;./dc_motor.h: 20: unsigned char topGearRight = 20;
 [v _topGearRight `uc ~T0 @X0 1 e ]
 [i _topGearRight
--> -> 32 `i `uc
+-> -> 20 `i `uc
 ]
 "22
 [; ;./dc_motor.h: 22: unsigned char turningGear = 42;

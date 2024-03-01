@@ -24111,8 +24111,8 @@ typedef struct DC_motor {
 
 unsigned char rampDelay = 8;
 
-unsigned char topGearLeft = 30;
-unsigned char topGearRight = 32;
+unsigned char topGearLeft = 20;
+unsigned char topGearRight = 20;
 
 unsigned char turningGear = 42;
 
