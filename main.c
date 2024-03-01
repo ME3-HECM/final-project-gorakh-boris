@@ -71,7 +71,6 @@ void main(void) {
     while (1) {
         //sendIntSerial4((int)TMR0L);
         //sendIntSerial4((int)TMR0H);
-        //lights_flashing();
         //sendIntSerial4(sizeof(trail_manoeuvre));
         sendArraySerial4(trail_manoeuvre);
         __delay_ms(1000);

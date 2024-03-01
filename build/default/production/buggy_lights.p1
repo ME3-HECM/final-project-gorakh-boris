@@ -197,10 +197,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28620
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28620: extern volatile LATEbits_t LATEbits __attribute__((address(0xF7D)));
 [v _LATEbits `VS1351 ~T0 @X0 0 e@3965 ]
-[v F205 `(v ~T0 @X0 1 tf1`ul ]
-"20 C:\Program Files\Microchip\xc8\v2.45\pic\include\builtins.h
-[v __delay `JF205 ~T0 @X0 0 e ]
-[p i __delay ]
 "54 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2199,20 +2195,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;buggy_lights.c: 12:     TRISHbits.TRISH0 = 0;
 [e = . . _TRISHbits 0 0 -> -> 0 `i `uc ]
 "14
-[; ;buggy_lights.c: 14:     LATDbits.LATD4 = 0;
-[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 14:     LATDbits.LATD4 = 1;
+[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
 "15
-[; ;buggy_lights.c: 15:     LATHbits.LATH1 = 0;
-[e = . . _LATHbits 0 1 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 15:     LATHbits.LATH1 = 1;
+[e = . . _LATHbits 0 1 -> -> 1 `i `uc ]
 "16
-[; ;buggy_lights.c: 16:     LATDbits.LATD3 = 0;
-[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 16:     LATDbits.LATD3 = 1;
+[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
 "17
-[; ;buggy_lights.c: 17:     LATFbits.LATF0 = 0;
-[e = . . _LATFbits 0 0 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 17:     LATFbits.LATF0 = 1;
+[e = . . _LATFbits 0 0 -> -> 1 `i `uc ]
 "18
-[; ;buggy_lights.c: 18:     LATHbits.LATH0 = 0;
-[e = . . _LATHbits 0 0 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 18:     LATHbits.LATH0 = 1;
+[e = . . _LATHbits 0 0 -> -> 1 `i `uc ]
 "22
 [; ;buggy_lights.c: 22:     TRISDbits.TRISD7 = 0;
 [e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
@@ -2235,14 +2231,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;buggy_lights.c: 34:         TRISDbits.TRISD0 = 0;
 [e = . . _TRISDbits 0 0 -> -> 0 `i `uc ]
 "36
-[; ;buggy_lights.c: 36:         LATAbits.LATA0 = 0;
-[e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 36:         LATAbits.LATA0 = 1;
+[e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
 "37
-[; ;buggy_lights.c: 37:         LATCbits.LATC2 = 0;
-[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 37:         LATCbits.LATC2 = 1;
+[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
 "38
-[; ;buggy_lights.c: 38:         LATDbits.LATD0 = 0;
-[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 38:         LATDbits.LATD0 = 1;
+[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
 "42
 [; ;buggy_lights.c: 42:         TRISAbits.TRISA1 = 0;
 [e = . . _TRISAbits 0 1 -> -> 0 `i `uc ]
@@ -2253,14 +2249,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;buggy_lights.c: 44:         TRISHbits.TRISH2 = 0;
 [e = . . _TRISHbits 0 2 -> -> 0 `i `uc ]
 "46
-[; ;buggy_lights.c: 46:         LATAbits.LATA1 = 0;
-[e = . . _LATAbits 0 1 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 46:         LATAbits.LATA1 = 1;
+[e = . . _LATAbits 0 1 -> -> 1 `i `uc ]
 "47
-[; ;buggy_lights.c: 47:         LATCbits.LATC6 = 0;
-[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 47:         LATCbits.LATC6 = 1;
+[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
 "48
-[; ;buggy_lights.c: 48:         LATHbits.LATH2 = 0;
-[e = . . _LATHbits 0 2 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 48:         LATHbits.LATH2 = 1;
+[e = . . _LATHbits 0 2 -> -> 1 `i `uc ]
 "52
 [; ;buggy_lights.c: 52:         TRISGbits.TRISG1 = 0;
 [e = . . _TRISGbits 0 1 -> -> 0 `i `uc ]
@@ -2271,14 +2267,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;buggy_lights.c: 54:         TRISFbits.TRISF7 = 0;
 [e = . . _TRISFbits 0 7 -> -> 0 `i `uc ]
 "56
-[; ;buggy_lights.c: 56:         LATGbits.LATG1 = 0;
-[e = . . _LATGbits 0 1 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 56:         LATGbits.LATG1 = 1;
+[e = . . _LATGbits 0 1 -> -> 1 `i `uc ]
 "57
-[; ;buggy_lights.c: 57:         LATAbits.LATA4 = 0;
-[e = . . _LATAbits 0 4 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 57:         LATAbits.LATA4 = 1;
+[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
 "58
-[; ;buggy_lights.c: 58:         LATFbits.LATF7 = 0;
-[e = . . _LATFbits 0 7 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 58:         LATFbits.LATF7 = 1;
+[e = . . _LATFbits 0 7 -> -> 1 `i `uc ]
 "62
 [; ;buggy_lights.c: 62:         TRISGbits.TRISG0 = 0;
 [e = . . _TRISGbits 0 0 -> -> 0 `i `uc ]
@@ -2289,14 +2285,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;buggy_lights.c: 64:         TRISAbits.TRISA3 = 0;
 [e = . . _TRISAbits 0 3 -> -> 0 `i `uc ]
 "66
-[; ;buggy_lights.c: 66:         LATGbits.LATG0 = 0;
-[e = . . _LATGbits 0 0 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 66:         LATGbits.LATG0 = 1;
+[e = . . _LATGbits 0 0 -> -> 1 `i `uc ]
 "67
-[; ;buggy_lights.c: 67:         LATEbits.LATE7 = 0;
-[e = . . _LATEbits 0 7 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 67:         LATEbits.LATE7 = 1;
+[e = . . _LATEbits 0 7 -> -> 1 `i `uc ]
 "68
-[; ;buggy_lights.c: 68:         LATAbits.LATA3 = 0;
-[e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
+[; ;buggy_lights.c: 68:         LATAbits.LATA3 = 1;
+[e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
 "69
 [; ;buggy_lights.c: 69: }
 [e :UE 2015 ]
@@ -2316,15 +2312,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;buggy_lights.c: 74:     LATDbits.LATD3 = !LATDbits.LATD3;
 [e = . . _LATDbits 0 3 -> -> ! != -> . . _LATDbits 0 3 `i -> 0 `i `i `uc ]
 "75
-[; ;buggy_lights.c: 75:     _delay((unsigned long)((500)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"76
-[; ;buggy_lights.c: 76:     LATFbits.LATF0 = !LATFbits.LATF0;
+[; ;buggy_lights.c: 75:     LATFbits.LATF0 = !LATFbits.LATF0;
 [e = . . _LATFbits 0 0 -> -> ! != -> . . _LATFbits 0 0 `i -> 0 `i `i `uc ]
-"77
-[; ;buggy_lights.c: 77:     LATHbits.LATH0 = !LATHbits.LATH0;
+"76
+[; ;buggy_lights.c: 76:     LATHbits.LATH0 = !LATHbits.LATH0;
 [e = . . _LATHbits 0 0 -> -> ! != -> . . _LATHbits 0 0 `i -> 0 `i `i `uc ]
-"78
-[; ;buggy_lights.c: 78: }
+"77
+[; ;buggy_lights.c: 77: }
 [e :UE 2016 ]
 }

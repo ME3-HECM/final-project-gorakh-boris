@@ -2268,19 +2268,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 71:     while (1) {
 [e :U 2019 ]
 {
-"76
-[; ;main.c: 76:         sendArraySerial4(trail_manoeuvre);
+"75
+[; ;main.c: 75:         sendArraySerial4(trail_manoeuvre);
 [e ( _sendArraySerial4 (1 &U _trail_manoeuvre ]
-"77
-[; ;main.c: 77:         _delay((unsigned long)((1000)*(64000000/4000.0)));
+"76
+[; ;main.c: 76:         _delay((unsigned long)((1000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"78
-[; ;main.c: 78:     }
+"77
+[; ;main.c: 77:     }
 }
 [e :U 2018 ]
 [e $U 2019  ]
 [e :U 2020 ]
-"79
-[; ;main.c: 79: }
+"78
+[; ;main.c: 78: }
 [e :UE 2017 ]
 }

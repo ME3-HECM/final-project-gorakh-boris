@@ -24326,7 +24326,6 @@ void main(void) {
 
 
 
-
         sendArraySerial4(trail_manoeuvre);
         _delay((unsigned long)((1000)*(64000000/4000.0)));
     }

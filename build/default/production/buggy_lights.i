@@ -24107,11 +24107,11 @@ void buggy_lights_init(void)
     TRISFbits.TRISF0 = 0;
     TRISHbits.TRISH0 = 0;
 
-    LATDbits.LATD4 = 0;
-    LATHbits.LATH1 = 0;
-    LATDbits.LATD3 = 0;
-    LATFbits.LATF0 = 0;
-    LATHbits.LATH0 = 0;
+    LATDbits.LATD4 = 1;
+    LATHbits.LATH1 = 1;
+    LATDbits.LATD3 = 1;
+    LATFbits.LATF0 = 1;
+    LATHbits.LATH0 = 1;
 
 
 
@@ -24129,9 +24129,9 @@ void buggy_lights_init(void)
         TRISCbits.TRISC2 = 0;
         TRISDbits.TRISD0 = 0;
 
-        LATAbits.LATA0 = 0;
-        LATCbits.LATC2 = 0;
-        LATDbits.LATD0 = 0;
+        LATAbits.LATA0 = 1;
+        LATCbits.LATC2 = 1;
+        LATDbits.LATD0 = 1;
 
 
 
@@ -24139,9 +24139,9 @@ void buggy_lights_init(void)
         TRISCbits.TRISC6 = 0;
         TRISHbits.TRISH2 = 0;
 
-        LATAbits.LATA1 = 0;
-        LATCbits.LATC6 = 0;
-        LATHbits.LATH2 = 0;
+        LATAbits.LATA1 = 1;
+        LATCbits.LATC6 = 1;
+        LATHbits.LATH2 = 1;
 
 
 
@@ -24149,9 +24149,9 @@ void buggy_lights_init(void)
         TRISAbits.TRISA4 = 0;
         TRISFbits.TRISF7 = 0;
 
-        LATGbits.LATG1 = 0;
-        LATAbits.LATA4 = 0;
-        LATFbits.LATF7 = 0;
+        LATGbits.LATG1 = 1;
+        LATAbits.LATA4 = 1;
+        LATFbits.LATF7 = 1;
 
 
 
@@ -24159,16 +24159,15 @@ void buggy_lights_init(void)
         TRISEbits.TRISE7 = 0;
         TRISAbits.TRISA3 = 0;
 
-        LATGbits.LATG0 = 0;
-        LATEbits.LATE7 = 0;
-        LATAbits.LATA3 = 0;
+        LATGbits.LATG0 = 1;
+        LATEbits.LATE7 = 1;
+        LATAbits.LATA3 = 1;
 }
 
 void lights_flashing(void)
 {
     LATDbits.LATD4 = !LATDbits.LATD4;
     LATDbits.LATD3 = !LATDbits.LATD3;
-    _delay((unsigned long)((500)*(64000000/4000.0)));
     LATFbits.LATF0 = !LATFbits.LATF0;
     LATHbits.LATH0 = !LATHbits.LATH0;
 }
