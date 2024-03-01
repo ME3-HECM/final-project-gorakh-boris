@@ -2121,30 +2121,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 "11
-[; ;./timers.h: 11: unsigned char trail_manoeuvre[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+[; ;./timers.h: 11: unsigned char trail_manoeuvre[20] = {101, 102, 103, 104, 105, 106, 107, 108, 109, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 100};
 [v _trail_manoeuvre `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_manoeuvre
 :U ..
--> -> 1 `i `uc
--> -> 2 `i `uc
--> -> 3 `i `uc
--> -> 4 `i `uc
--> -> 5 `i `uc
--> -> 6 `i `uc
--> -> 7 `i `uc
--> -> 8 `i `uc
--> -> 9 `i `uc
--> -> 0 `i `uc
--> -> 1 `i `uc
--> -> 2 `i `uc
--> -> 3 `i `uc
--> -> 4 `i `uc
--> -> 5 `i `uc
--> -> 6 `i `uc
--> -> 7 `i `uc
--> -> 8 `i `uc
--> -> 9 `i `uc
--> -> 0 `i `uc
+-> -> 101 `i `uc
+-> -> 102 `i `uc
+-> -> 103 `i `uc
+-> -> 104 `i `uc
+-> -> 105 `i `uc
+-> -> 106 `i `uc
+-> -> 107 `i `uc
+-> -> 108 `i `uc
+-> -> 109 `i `uc
+-> -> 100 `i `uc
+-> -> 101 `i `uc
+-> -> 102 `i `uc
+-> -> 103 `i `uc
+-> -> 104 `i `uc
+-> -> 105 `i `uc
+-> -> 106 `i `uc
+-> -> 107 `i `uc
+-> -> 108 `i `uc
+-> -> 109 `i `uc
+-> -> 100 `i `uc
 ..
 ]
 "12

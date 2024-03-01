@@ -24259,7 +24259,7 @@ char getCharSerial4(void);
 void sendCharSerial4(char charToSend);
 void sendStringSerial4(char *string);
 void sendIntSerial4(int integer);
-void sendArraySerial4(unsigned char *arr);
+void sendArrayCharSerial4(unsigned char *arr);
 
 
 char getCharFromRxBuf(void);
@@ -24319,11 +24319,10 @@ void sendIntSerial4(int integer) {
 }
 
 
-void sendArraySerial4(unsigned char *arr) {
+void sendArrayCharSerial4(unsigned char *arr) {
     unsigned char index = 0;
 
-
-    char tempStr[20 + 1];
+    char tempStr[20 * 8 + 1];
     for (unsigned int i = 0; i < 20; i++) {
         index += sprintf(&tempStr[index], "%d", arr[i]);
     }

@@ -51,12 +51,12 @@ void main(void) {
     Timer0_init();
     
     //initialise the two push buttons on clicker board
-    //set up TRIS registers (1 for input)
-    TRISFbits.TRISF2 = 1;
-    TRISFbits.TRISF3 = 1;
-    //set up pin analogue/digital inputs (0 for digital)
-    ANSELFbits.ANSELF2 = 0;
-    ANSELFbits.ANSELF3 = 0;
+        //set up TRIS registers (1 for input)
+        TRISFbits.TRISF2 = 1;
+        TRISFbits.TRISF3 = 1;
+        //set up pin analogue/digital inputs (0 for digital)
+        ANSELFbits.ANSELF2 = 0;
+        ANSELFbits.ANSELF3 = 0;
     
     //fullSpeedAhead(&motorL, &motorR);
     //cardRed(&motorL, &motorR, backtrack);
@@ -69,15 +69,14 @@ void main(void) {
     //cardWhite(&motorL, &motorR);
     
     while (1) {
-        //sendIntSerial4((int)TMR0L);
-        //sendIntSerial4((int)TMR0H);
-        //sendIntSerial4(sizeof(trail_manoeuvre));
+        sendIntSerial4((int)TMR0L);
+        sendIntSerial4((int)TMR0H);
         if (!PORTFbits.RF2) {  //on button press
             *manoeuvre_pointer = 0;
             manoeuvre_pointer ++;
             LATDbits.LATD7 = !LATDbits.LATD7;
         }
-        sendArraySerial4(trail_manoeuvre);
+        sendArrayCharSerial4(trail_manoeuvre);
         __delay_ms(500);
     }
 }

@@ -24251,7 +24251,7 @@ char getCharSerial4(void);
 void sendCharSerial4(char charToSend);
 void sendStringSerial4(char *string);
 void sendIntSerial4(int integer);
-void sendArraySerial4(unsigned char *arr);
+void sendArrayCharSerial4(unsigned char *arr);
 
 
 char getCharFromRxBuf(void);
@@ -24277,7 +24277,7 @@ void sendTxBuf(void);
 unsigned char backtrack = 0;
 unsigned char trail_timer_high[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
 unsigned char trail_timer_low[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
-unsigned char trail_manoeuvre[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+unsigned char trail_manoeuvre[20] = {101, 102, 103, 104, 105, 106, 107, 108, 109, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 100};
 unsigned char *timer_high_pointer = &trail_timer_high[0];
 unsigned char *timer_low_pointer = &trail_timer_low[0];
 unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
@@ -24318,22 +24318,21 @@ void main(void) {
 
 
 
-    TRISFbits.TRISF2 = 1;
-    TRISFbits.TRISF3 = 1;
+        TRISFbits.TRISF2 = 1;
+        TRISFbits.TRISF3 = 1;
 
-    ANSELFbits.ANSELF2 = 0;
-    ANSELFbits.ANSELF3 = 0;
+        ANSELFbits.ANSELF2 = 0;
+        ANSELFbits.ANSELF3 = 0;
 # 71 "main.c"
     while (1) {
-
-
-
+        sendIntSerial4((int)TMR0L);
+        sendIntSerial4((int)TMR0H);
         if (!PORTFbits.RF2) {
             *manoeuvre_pointer = 0;
             manoeuvre_pointer ++;
             LATDbits.LATD7 = !LATDbits.LATD7;
         }
-        sendArraySerial4(trail_manoeuvre);
+        sendArrayCharSerial4(trail_manoeuvre);
         _delay((unsigned long)((500)*(64000000/4000.0)));
     }
 }

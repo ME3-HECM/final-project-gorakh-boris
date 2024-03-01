@@ -47,11 +47,10 @@ void sendIntSerial4(int integer) {
 }
 
 //function to send an array of unsigned characters over the serial interface
-void sendArraySerial4(unsigned char *arr) {
+void sendArrayCharSerial4(unsigned char *arr) {
     unsigned char index = 0;
-    //20 is the length of the input array, I don't know how to get this from arr itself
-    //something sizeof but idk
-    char tempStr[20 + 1];
+    //20 is the length of the input array
+    char tempStr[20 * 8 + 1];
     for (unsigned int i = 0; i < 20; i++) {     //Referenced from https://stackoverflow.com/questions/30234363/how-can-i-convert-an-int-array-into-a-string-array
         index += sprintf(&tempStr[index], "%d", arr[i]);
     }
