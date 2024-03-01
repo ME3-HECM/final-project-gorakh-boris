@@ -1,8 +1,5 @@
 #include <xc.h>
 #include "timers.h"
-#include "dc_motor.h"
-#include "manoeuvres.h"
-#include "serial.h"
 
 /************************************
  * Function to set up timer 0
@@ -59,11 +56,18 @@ void returnToSender(DC_motor *mL, DC_motor *mR) {
         unsigned char timerL = 0;
         unsigned char mann = 0;
         readTrail(&timerH, &timerL, &mann);
-        sendIntSerial4(timerH);
-        sendIntSerial4(timerL);
-        sendIntSerial4(mann);
+        //sendIntSerial4(timerH);
+        //sendIntSerial4(timerL);
+        //sendIntSerial4(mann);
+        TMR0H = 0b11111111 - timerH;
+        TMR0L = 0b11111111 - timerL;
         fullSpeedAhead(mL, mR);
+        while (!returnFlag);
         stop(mL, mR);
+        
+        //SOME CODE TO EXECUTE MANOEUVRE
+        
+        returnFlag = 0;
     }
     LATHbits.LATH3 = !LATHbits.LATH3;       //toggle LED for debugging
 }
@@ -75,6 +79,7 @@ void __interrupt() ISR()
         if (backtrack) {            //is backtracking
             //some code on performing the next manoeuvre when backtracking
             //the timer will be used to time the straight distances travelled when backtracking
+            returnFlag = 1;
         } else {                    //is not backtracking
             //trigger a lost function
         }

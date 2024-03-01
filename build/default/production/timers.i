@@ -24147,39 +24147,6 @@ void headbuttReverse(DC_motor *mL, DC_motor *mR);
 void squareReverse(DC_motor *mL, DC_motor *mR);
 # 5 "./timers.h" 2
 
-
-
-
-unsigned char backtrack = 0;
-
-
-
-
-
-
-unsigned char trail_timer_high[20] = {5, 10, 5, 10, 5, 10, 5, 10, 5, 10, 5, 10, 5, 10, 5, 10, 5, 10, 5, 10};
-unsigned char trail_timer_low[20] = {100, 200, 100, 200, 100, 200, 100, 200, 100, 200, 100, 200, 100, 200, 100, 200, 100, 200, 100, 200};
-unsigned char trail_manoeuvre[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
-
-
-
-
-
-
-
-unsigned char *timer_high_pointer = &trail_timer_high[20];
-unsigned char *timer_low_pointer = &trail_timer_low[20];
-unsigned char *manoeuvre_pointer = &trail_manoeuvre[20];
-unsigned char manoeuvre_count = 20;
-
-void Timer0_init(void);
-void writeTrail(unsigned char *man);
-void readTrail(unsigned char *tH, unsigned char *tL, unsigned char *man);
-void returnToSender(DC_motor *mL, DC_motor *mR);
-void __attribute__((picinterrupt(("")))) ISR();
-# 2 "timers.c" 2
-
-
 # 1 "./manoeuvres.h" 1
 # 13 "./manoeuvres.h"
 void cardRed(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
@@ -24190,7 +24157,7 @@ void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void cardWhite(DC_motor *mL, DC_motor *mR);
-# 4 "timers.c" 2
+# 6 "./timers.h" 2
 
 # 1 "./serial.h" 1
 # 13 "./serial.h"
@@ -24222,7 +24189,41 @@ void putCharToTxBuf(char byte);
 char isDataInTxBuf (void);
 void TxBufferedString(char *string);
 void sendTxBuf(void);
-# 5 "timers.c" 2
+# 7 "./timers.h" 2
+
+
+
+
+unsigned char backtrack = 1;
+unsigned char returnFlag = 0;
+
+
+
+
+
+
+
+unsigned char trail_timer_high[20] = {3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6};
+unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+unsigned char trail_manoeuvre[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+
+
+
+
+
+
+
+unsigned char *timer_high_pointer = &trail_timer_high[20];
+unsigned char *timer_low_pointer = &trail_timer_low[20];
+unsigned char *manoeuvre_pointer = &trail_manoeuvre[20];
+unsigned char manoeuvre_count = 20;
+
+void Timer0_init(void);
+void writeTrail(unsigned char *man);
+void readTrail(unsigned char *tH, unsigned char *tL, unsigned char *man);
+void returnToSender(DC_motor *mL, DC_motor *mR);
+void __attribute__((picinterrupt(("")))) ISR();
+# 2 "timers.c" 2
 
 
 
@@ -24280,11 +24281,18 @@ void returnToSender(DC_motor *mL, DC_motor *mR) {
         unsigned char timerL = 0;
         unsigned char mann = 0;
         readTrail(&timerH, &timerL, &mann);
-        sendIntSerial4(timerH);
-        sendIntSerial4(timerL);
-        sendIntSerial4(mann);
+
+
+
+        TMR0H = 0b11111111 - timerH;
+        TMR0L = 0b11111111 - timerL;
         fullSpeedAhead(mL, mR);
+        while (!returnFlag);
         stop(mL, mR);
+
+
+
+        returnFlag = 0;
     }
     LATHbits.LATH3 = !LATHbits.LATH3;
 }
@@ -24296,6 +24304,7 @@ void __attribute__((picinterrupt(("")))) ISR()
         if (backtrack) {
 
 
+            returnFlag = 1;
         } else {
 
         }

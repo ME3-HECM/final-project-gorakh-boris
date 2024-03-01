@@ -26,14 +26,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "15 ./buggy_lights.h
 [; ;./buggy_lights.h: 15: void buggy_lights_init(void);
 [v _buggy_lights_init `(v ~T0 @X0 0 ef ]
-"18 ./color.h
-[; ;./color.h: 18: void color_click_init(void);
+"19 ./color.h
+[; ;./color.h: 19: void color_click_init(void);
 [v _color_click_init `(v ~T0 @X0 0 ef ]
 "23 ./serial.h
 [; ;./serial.h: 23: void initUSART4(void);
 [v _initUSART4 `(v ~T0 @X0 0 ef ]
-"31 ./timers.h
-[; ;./timers.h: 31: void Timer0_init(void);
+"35 ./timers.h
+[; ;./timers.h: 35: void Timer0_init(void);
 [v _Timer0_init `(v ~T0 @X0 0 ef ]
 "29622 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29622:     struct {
@@ -57,8 +57,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12319
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 12319: extern volatile ANSELFbits_t ANSELFbits __attribute__((address(0xEB4)));
 [v _ANSELFbits `VS567 ~T0 @X0 0 e@3764 ]
-"34 ./timers.h
-[; ;./timers.h: 34: void returnToSender(DC_motor *mL, DC_motor *mR);
+"38 ./timers.h
+[; ;./timers.h: 38: void returnToSender(DC_motor *mL, DC_motor *mR);
 [v _returnToSender `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "30262 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 30262:     struct {
@@ -2168,68 +2168,74 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _TxBufReadCnt
 -> -> 0 `i `uc
 ]
-"9 ./timers.h
-[; ;./timers.h: 9: unsigned char backtrack = 0;
+"11 ./timers.h
+[; ;./timers.h: 11: unsigned char backtrack = 1;
 [v _backtrack `uc ~T0 @X0 1 e ]
 [i _backtrack
+-> -> 1 `i `uc
+]
+"12
+[; ;./timers.h: 12: unsigned char returnFlag = 0;
+[v _returnFlag `uc ~T0 @X0 1 e ]
+[i _returnFlag
 -> -> 0 `i `uc
 ]
-"16
-[; ;./timers.h: 16: unsigned char trail_timer_high[20] = {5, 10, 5, 10, 5, 10, 5, 10, 5, 10, 5, 10, 5, 10, 5, 10, 5, 10, 5, 10};
+"20
+[; ;./timers.h: 20: unsigned char trail_timer_high[20] = {3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6};
 [v _trail_timer_high `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_timer_high
 :U ..
--> -> 5 `i `uc
--> -> 10 `i `uc
--> -> 5 `i `uc
--> -> 10 `i `uc
--> -> 5 `i `uc
--> -> 10 `i `uc
--> -> 5 `i `uc
--> -> 10 `i `uc
--> -> 5 `i `uc
--> -> 10 `i `uc
--> -> 5 `i `uc
--> -> 10 `i `uc
--> -> 5 `i `uc
--> -> 10 `i `uc
--> -> 5 `i `uc
--> -> 10 `i `uc
--> -> 5 `i `uc
--> -> 10 `i `uc
--> -> 5 `i `uc
--> -> 10 `i `uc
+-> -> 3 `i `uc
+-> -> 6 `i `uc
+-> -> 3 `i `uc
+-> -> 6 `i `uc
+-> -> 3 `i `uc
+-> -> 6 `i `uc
+-> -> 3 `i `uc
+-> -> 6 `i `uc
+-> -> 3 `i `uc
+-> -> 6 `i `uc
+-> -> 3 `i `uc
+-> -> 6 `i `uc
+-> -> 3 `i `uc
+-> -> 6 `i `uc
+-> -> 3 `i `uc
+-> -> 6 `i `uc
+-> -> 3 `i `uc
+-> -> 6 `i `uc
+-> -> 3 `i `uc
+-> -> 6 `i `uc
 ..
 ]
-"17
-[; ;./timers.h: 17: unsigned char trail_timer_low[20] = {100, 200, 100, 200, 100, 200, 100, 200, 100, 200, 100, 200, 100, 200, 100, 200, 100, 200, 100, 200};
+"21
+[; ;./timers.h: 21: unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 [v _trail_timer_low `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_timer_low
 :U ..
--> -> 100 `i `uc
--> -> 200 `i `uc
--> -> 100 `i `uc
--> -> 200 `i `uc
--> -> 100 `i `uc
--> -> 200 `i `uc
--> -> 100 `i `uc
--> -> 200 `i `uc
--> -> 100 `i `uc
--> -> 200 `i `uc
--> -> 100 `i `uc
--> -> 200 `i `uc
--> -> 100 `i `uc
--> -> 200 `i `uc
--> -> 100 `i `uc
--> -> 200 `i `uc
--> -> 100 `i `uc
--> -> 200 `i `uc
--> -> 100 `i `uc
--> -> 200 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
 ..
 ]
-"18
-[; ;./timers.h: 18: unsigned char trail_manoeuvre[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+"22
+[; ;./timers.h: 22: unsigned char trail_manoeuvre[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
 [v _trail_manoeuvre `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_manoeuvre
 :U ..
@@ -2255,26 +2261,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"26
-[; ;./timers.h: 26: unsigned char *timer_high_pointer = &trail_timer_high[20];
+"30
+[; ;./timers.h: 30: unsigned char *timer_high_pointer = &trail_timer_high[20];
 [v _timer_high_pointer `*uc ~T0 @X0 1 e ]
 [i _timer_high_pointer
 &U *U + &U _trail_timer_high * -> -> -> 20 `i `ui `ux -> -> # *U &U _trail_timer_high `ui `ux
 ]
-"27
-[; ;./timers.h: 27: unsigned char *timer_low_pointer = &trail_timer_low[20];
+"31
+[; ;./timers.h: 31: unsigned char *timer_low_pointer = &trail_timer_low[20];
 [v _timer_low_pointer `*uc ~T0 @X0 1 e ]
 [i _timer_low_pointer
 &U *U + &U _trail_timer_low * -> -> -> 20 `i `ui `ux -> -> # *U &U _trail_timer_low `ui `ux
 ]
-"28
-[; ;./timers.h: 28: unsigned char *manoeuvre_pointer = &trail_manoeuvre[20];
+"32
+[; ;./timers.h: 32: unsigned char *manoeuvre_pointer = &trail_manoeuvre[20];
 [v _manoeuvre_pointer `*uc ~T0 @X0 1 e ]
 [i _manoeuvre_pointer
 &U *U + &U _trail_manoeuvre * -> -> -> 20 `i `ui `ux -> -> # *U &U _trail_manoeuvre `ui `ux
 ]
-"29
-[; ;./timers.h: 29: unsigned char manoeuvre_count = 20;
+"33
+[; ;./timers.h: 33: unsigned char manoeuvre_count = 20;
 [v _manoeuvre_count `uc ~T0 @X0 1 e ]
 [i _manoeuvre_count
 -> -> 20 `i `uc

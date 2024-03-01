@@ -1,6 +1,5 @@
 #include <xc.h>
 #include "color.h"
-#include "i2c.h"
 
 void color_click_init(void)
 {   
