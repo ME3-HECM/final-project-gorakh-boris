@@ -57,7 +57,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12319
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 12319: extern volatile ANSELFbits_t ANSELFbits __attribute__((address(0xEB4)));
 [v _ANSELFbits `VS567 ~T0 @X0 0 e@3764 ]
-"30262
+"32 ./color.h
+[; ;./color.h: 32: unsigned int color_read_Red(void);
+[v _color_read_Red `(ui ~T0 @X0 0 ef ]
+"30262 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 30262:     struct {
 [s S1412 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1412 . RF0 RF1 RF2 RF3 RF4 RF5 RF6 RF7 ]
@@ -2367,27 +2370,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 73:     while (1) {
 [e :U 2019 ]
 {
-"76
-[; ;main.c: 76:         if (!PORTFbits.RF2) {
+"74
+[; ;main.c: 74:         unsigned int idk = 0;
+[v _idk `ui ~T0 @X0 1 a ]
+[e = _idk -> -> 0 `i `ui ]
+"75
+[; ;main.c: 75:         idk = color_read_Red();
+[e = _idk ( _color_read_Red ..  ]
+"78
+[; ;main.c: 78:         if (!PORTFbits.RF2) {
 [e $ ! ! != -> . . _PORTFbits 0 2 `i -> 0 `i 2021  ]
 {
-"77
-[; ;main.c: 77:             LATDbits.LATD7 = !LATDbits.LATD7;
+"79
+[; ;main.c: 79:             LATDbits.LATD7 = !LATDbits.LATD7;
 [e = . . _LATDbits 0 7 -> -> ! != -> . . _LATDbits 0 7 `i -> 0 `i `i `uc ]
-"78
-[; ;main.c: 78:         }
+"80
+[; ;main.c: 80:         }
 }
 [e :U 2021 ]
-"82
-[; ;main.c: 82:         _delay((unsigned long)((100)*(64000000/4000.0)));
+"84
+[; ;main.c: 84:         _delay((unsigned long)((100)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"83
-[; ;main.c: 83:     }
+"85
+[; ;main.c: 85:     }
 }
 [e :U 2018 ]
 [e $U 2019  ]
 [e :U 2020 ]
-"84
-[; ;main.c: 84: }
+"86
+[; ;main.c: 86: }
 [e :UE 2017 ]
 }

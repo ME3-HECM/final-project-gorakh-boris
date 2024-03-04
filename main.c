@@ -71,6 +71,8 @@ void main(void) {
     //returnToSender(&motorL, &motorR);
     
     while (1) {
+        unsigned int idk = 0;
+        idk = color_read_Red();
         //sendIntSerial4((int)TMR0L);
         //sendIntSerial4((int)TMR0H);
         if (!PORTFbits.RF2) {  //on button press

@@ -24375,6 +24375,8 @@ void main(void) {
         ANSELFbits.ANSELF3 = 0;
 # 73 "main.c"
     while (1) {
+        unsigned int idk = 0;
+        idk = color_read_Red();
 
 
         if (!PORTFbits.RF2) {
