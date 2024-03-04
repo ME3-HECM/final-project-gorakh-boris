@@ -26,13 +26,60 @@ void Timer0_init(void)
     INTCONbits.GIE = 1;     //sets global interrupt
 }
 
+void writeTrail(unsigned char *man) {
+    *timer_high_pointer = TMR0H;    
+    *timer_low_pointer = TMR0L;    
+    *manoeuvre_pointer = *man;
+    
+    timer_high_pointer ++;
+    timer_low_pointer ++;
+    manoeuvre_pointer ++;
+    
+    manoeuvre_count ++;
+}
+
+void readTrail(unsigned char *tH, unsigned char *tL, unsigned char *man) {
+    timer_high_pointer --;
+    timer_low_pointer --;
+    manoeuvre_pointer --;
+    
+    *tH = *timer_high_pointer;
+    *tL = *timer_low_pointer;
+    *man = *manoeuvre_pointer;
+    
+    manoeuvre_count --;
+}
+
+void returnToSender(DC_motor *mL, DC_motor *mR) {
+    while (manoeuvre_count != 0) {
+        unsigned char timerH = 0;
+        unsigned char timerL = 0;
+        unsigned char mann = 0;
+        readTrail(&timerH, &timerL, &mann);
+        //sendIntSerial4(timerH);
+        //sendIntSerial4(timerL);
+        //sendIntSerial4(mann);
+        if (mann != 8) {            //ignore white card instruction
+            pickCard(mL, mR, returning, mann);
+        }
+        TMR0H = 0b11111111 - timerH;
+        TMR0L = 0b11111111 - timerL;
+        fullSpeedAhead(mL, mR);
+        while (!returnFlag);
+        stop(mL, mR);
+        returnFlag = 0;
+    }
+    LATHbits.LATH3 = !LATHbits.LATH3;       //toggle LED for debugging
+}
+
 void __interrupt() ISR()
 {    
     // timer interrupt
     if (PIR0bits.TMR0IF) {
-        if (backtrack) {            //is backtracking
+        if (returning) {            //is backtracking
             //some code on performing the next manoeuvre when backtracking
             //the timer will be used to time the straight distances travelled when backtracking
+            returnFlag = 1;
         } else {                    //is not backtracking
             //trigger a lost function
         }

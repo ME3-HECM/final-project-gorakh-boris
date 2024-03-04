@@ -24153,6 +24153,9 @@ void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void cardWhite(DC_motor *mL, DC_motor *mR);
+
+
+void pickCard(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
 # 2 "manoeuvres.c" 2
 
 
@@ -24263,4 +24266,34 @@ void cardWhite(DC_motor *mL, DC_motor *mR)
     headbuttReverse(mL, mR);
     UTurn(mL, mR);
     headbuttReverse(mL, mR);
+}
+
+void pickCard(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key)
+{
+    switch (key) {
+        case 1:
+            cardRed(mL, mR, backtrack);
+            break;
+        case 2:
+            cardGreen(mL, mR, backtrack);
+            break;
+        case 3:
+            cardBlue(mL, mR, backtrack);
+            break;
+        case 4:
+            cardYellow(mL, mR, backtrack);
+            break;
+        case 5:
+            cardPink(mL, mR, backtrack);
+            break;
+        case 6:
+            cardOrange(mL, mR, backtrack);
+            break;
+        case 7:
+            cardCyan(mL, mR, backtrack);
+            break;
+        case 8:
+            cardWhite(mL, mR);
+            break;
+    }
 }

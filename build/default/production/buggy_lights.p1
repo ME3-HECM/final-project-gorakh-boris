@@ -2180,144 +2180,144 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _buggy_lights_init ]
 [f ]
 "8
-[; ;buggy_lights.c: 8:     TRISDbits.TRISD4 = 0;
+[; ;buggy_lights.c: 8:         TRISDbits.TRISD4 = 0;
 [e = . . _TRISDbits 0 4 -> -> 0 `i `uc ]
 "9
-[; ;buggy_lights.c: 9:     TRISHbits.TRISH1 = 0;
+[; ;buggy_lights.c: 9:         TRISHbits.TRISH1 = 0;
 [e = . . _TRISHbits 0 1 -> -> 0 `i `uc ]
 "10
-[; ;buggy_lights.c: 10:     TRISDbits.TRISD3 = 0;
+[; ;buggy_lights.c: 10:         TRISDbits.TRISD3 = 0;
 [e = . . _TRISDbits 0 3 -> -> 0 `i `uc ]
 "11
-[; ;buggy_lights.c: 11:     TRISFbits.TRISF0 = 0;
+[; ;buggy_lights.c: 11:         TRISFbits.TRISF0 = 0;
 [e = . . _TRISFbits 0 0 -> -> 0 `i `uc ]
 "12
-[; ;buggy_lights.c: 12:     TRISHbits.TRISH0 = 0;
+[; ;buggy_lights.c: 12:         TRISHbits.TRISH0 = 0;
 [e = . . _TRISHbits 0 0 -> -> 0 `i `uc ]
 "14
-[; ;buggy_lights.c: 14:     LATDbits.LATD4 = 1;
+[; ;buggy_lights.c: 14:         LATDbits.LATD4 = 1;
 [e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
 "15
-[; ;buggy_lights.c: 15:     LATHbits.LATH1 = 1;
+[; ;buggy_lights.c: 15:         LATHbits.LATH1 = 1;
 [e = . . _LATHbits 0 1 -> -> 1 `i `uc ]
 "16
-[; ;buggy_lights.c: 16:     LATDbits.LATD3 = 1;
+[; ;buggy_lights.c: 16:         LATDbits.LATD3 = 1;
 [e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
 "17
-[; ;buggy_lights.c: 17:     LATFbits.LATF0 = 1;
+[; ;buggy_lights.c: 17:         LATFbits.LATF0 = 1;
 [e = . . _LATFbits 0 0 -> -> 1 `i `uc ]
 "18
-[; ;buggy_lights.c: 18:     LATHbits.LATH0 = 1;
+[; ;buggy_lights.c: 18:         LATHbits.LATH0 = 1;
 [e = . . _LATHbits 0 0 -> -> 1 `i `uc ]
 "22
-[; ;buggy_lights.c: 22:     TRISDbits.TRISD7 = 0;
+[; ;buggy_lights.c: 22:         TRISDbits.TRISD7 = 0;
 [e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
 "23
-[; ;buggy_lights.c: 23:     TRISHbits.TRISH3 = 0;
+[; ;buggy_lights.c: 23:         TRISHbits.TRISH3 = 0;
 [e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
 "25
-[; ;buggy_lights.c: 25:     LATDbits.LATD7 = 1;
+[; ;buggy_lights.c: 25:         LATDbits.LATD7 = 1;
 [e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
 "26
-[; ;buggy_lights.c: 26:     LATHbits.LATH3 = 1;
+[; ;buggy_lights.c: 26:         LATHbits.LATH3 = 1;
 [e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
-"32
-[; ;buggy_lights.c: 32:         TRISAbits.TRISA0 = 0;
+"31
+[; ;buggy_lights.c: 31:         TRISAbits.TRISA0 = 0;
 [e = . . _TRISAbits 0 0 -> -> 0 `i `uc ]
-"33
-[; ;buggy_lights.c: 33:         TRISCbits.TRISC2 = 0;
+"32
+[; ;buggy_lights.c: 32:         TRISCbits.TRISC2 = 0;
 [e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
-"34
-[; ;buggy_lights.c: 34:         TRISDbits.TRISD0 = 0;
+"33
+[; ;buggy_lights.c: 33:         TRISDbits.TRISD0 = 0;
 [e = . . _TRISDbits 0 0 -> -> 0 `i `uc ]
-"36
-[; ;buggy_lights.c: 36:         LATAbits.LATA0 = 1;
+"35
+[; ;buggy_lights.c: 35:         LATAbits.LATA0 = 1;
 [e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
-"37
-[; ;buggy_lights.c: 37:         LATCbits.LATC2 = 1;
+"36
+[; ;buggy_lights.c: 36:         LATCbits.LATC2 = 1;
 [e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
-"38
-[; ;buggy_lights.c: 38:         LATDbits.LATD0 = 1;
+"37
+[; ;buggy_lights.c: 37:         LATDbits.LATD0 = 1;
 [e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
-"42
-[; ;buggy_lights.c: 42:         TRISAbits.TRISA1 = 0;
+"41
+[; ;buggy_lights.c: 41:         TRISAbits.TRISA1 = 0;
 [e = . . _TRISAbits 0 1 -> -> 0 `i `uc ]
-"43
-[; ;buggy_lights.c: 43:         TRISCbits.TRISC6 = 0;
+"42
+[; ;buggy_lights.c: 42:         TRISCbits.TRISC6 = 0;
 [e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
-"44
-[; ;buggy_lights.c: 44:         TRISHbits.TRISH2 = 0;
+"43
+[; ;buggy_lights.c: 43:         TRISHbits.TRISH2 = 0;
 [e = . . _TRISHbits 0 2 -> -> 0 `i `uc ]
-"46
-[; ;buggy_lights.c: 46:         LATAbits.LATA1 = 1;
+"45
+[; ;buggy_lights.c: 45:         LATAbits.LATA1 = 1;
 [e = . . _LATAbits 0 1 -> -> 1 `i `uc ]
-"47
-[; ;buggy_lights.c: 47:         LATCbits.LATC6 = 1;
+"46
+[; ;buggy_lights.c: 46:         LATCbits.LATC6 = 1;
 [e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
-"48
-[; ;buggy_lights.c: 48:         LATHbits.LATH2 = 1;
+"47
+[; ;buggy_lights.c: 47:         LATHbits.LATH2 = 1;
 [e = . . _LATHbits 0 2 -> -> 1 `i `uc ]
-"52
-[; ;buggy_lights.c: 52:         TRISGbits.TRISG1 = 0;
+"51
+[; ;buggy_lights.c: 51:         TRISGbits.TRISG1 = 0;
 [e = . . _TRISGbits 0 1 -> -> 0 `i `uc ]
-"53
-[; ;buggy_lights.c: 53:         TRISAbits.TRISA4 = 0;
+"52
+[; ;buggy_lights.c: 52:         TRISAbits.TRISA4 = 0;
 [e = . . _TRISAbits 0 4 -> -> 0 `i `uc ]
-"54
-[; ;buggy_lights.c: 54:         TRISFbits.TRISF7 = 0;
+"53
+[; ;buggy_lights.c: 53:         TRISFbits.TRISF7 = 0;
 [e = . . _TRISFbits 0 7 -> -> 0 `i `uc ]
-"56
-[; ;buggy_lights.c: 56:         LATGbits.LATG1 = 1;
+"55
+[; ;buggy_lights.c: 55:         LATGbits.LATG1 = 1;
 [e = . . _LATGbits 0 1 -> -> 1 `i `uc ]
-"57
-[; ;buggy_lights.c: 57:         LATAbits.LATA4 = 1;
+"56
+[; ;buggy_lights.c: 56:         LATAbits.LATA4 = 1;
 [e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
-"58
-[; ;buggy_lights.c: 58:         LATFbits.LATF7 = 1;
+"57
+[; ;buggy_lights.c: 57:         LATFbits.LATF7 = 1;
 [e = . . _LATFbits 0 7 -> -> 1 `i `uc ]
-"62
-[; ;buggy_lights.c: 62:         TRISGbits.TRISG0 = 0;
+"61
+[; ;buggy_lights.c: 61:         TRISGbits.TRISG0 = 0;
 [e = . . _TRISGbits 0 0 -> -> 0 `i `uc ]
-"63
-[; ;buggy_lights.c: 63:         TRISEbits.TRISE7 = 0;
+"62
+[; ;buggy_lights.c: 62:         TRISEbits.TRISE7 = 0;
 [e = . . _TRISEbits 0 7 -> -> 0 `i `uc ]
-"64
-[; ;buggy_lights.c: 64:         TRISAbits.TRISA3 = 0;
+"63
+[; ;buggy_lights.c: 63:         TRISAbits.TRISA3 = 0;
 [e = . . _TRISAbits 0 3 -> -> 0 `i `uc ]
-"66
-[; ;buggy_lights.c: 66:         LATGbits.LATG0 = 1;
+"65
+[; ;buggy_lights.c: 65:         LATGbits.LATG0 = 1;
 [e = . . _LATGbits 0 0 -> -> 1 `i `uc ]
-"67
-[; ;buggy_lights.c: 67:         LATEbits.LATE7 = 1;
+"66
+[; ;buggy_lights.c: 66:         LATEbits.LATE7 = 1;
 [e = . . _LATEbits 0 7 -> -> 1 `i `uc ]
-"68
-[; ;buggy_lights.c: 68:         LATAbits.LATA3 = 1;
+"67
+[; ;buggy_lights.c: 67:         LATAbits.LATA3 = 1;
 [e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
-"69
-[; ;buggy_lights.c: 69: }
+"68
+[; ;buggy_lights.c: 68: }
 [e :UE 2015 ]
 }
-"71
-[; ;buggy_lights.c: 71: void lights_flashing(void)
+"70
+[; ;buggy_lights.c: 70: void lights_flashing(void)
 [v _lights_flashing `(v ~T0 @X0 1 ef ]
-"72
-[; ;buggy_lights.c: 72: {
+"71
+[; ;buggy_lights.c: 71: {
 {
 [e :U _lights_flashing ]
 [f ]
-"73
-[; ;buggy_lights.c: 73:     LATDbits.LATD4 = !LATDbits.LATD4;
+"72
+[; ;buggy_lights.c: 72:     LATDbits.LATD4 = !LATDbits.LATD4;
 [e = . . _LATDbits 0 4 -> -> ! != -> . . _LATDbits 0 4 `i -> 0 `i `i `uc ]
-"74
-[; ;buggy_lights.c: 74:     LATDbits.LATD3 = !LATDbits.LATD3;
+"73
+[; ;buggy_lights.c: 73:     LATDbits.LATD3 = !LATDbits.LATD3;
 [e = . . _LATDbits 0 3 -> -> ! != -> . . _LATDbits 0 3 `i -> 0 `i `i `uc ]
-"75
-[; ;buggy_lights.c: 75:     LATFbits.LATF0 = !LATFbits.LATF0;
+"74
+[; ;buggy_lights.c: 74:     LATFbits.LATF0 = !LATFbits.LATF0;
 [e = . . _LATFbits 0 0 -> -> ! != -> . . _LATFbits 0 0 `i -> 0 `i `i `uc ]
-"76
-[; ;buggy_lights.c: 76:     LATHbits.LATH0 = !LATHbits.LATH0;
+"75
+[; ;buggy_lights.c: 75:     LATHbits.LATH0 = !LATHbits.LATH0;
 [e = . . _LATHbits 0 0 -> -> ! != -> . . _LATHbits 0 0 `i -> 0 `i `i `uc ]
-"77
-[; ;buggy_lights.c: 77: }
+"76
+[; ;buggy_lights.c: 76: }
 [e :UE 2016 ]
 }

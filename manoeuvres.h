@@ -17,6 +17,9 @@ void cardYellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack);       //re
 void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);         //reverse 1 square and turn left 90
 void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);       //turn right 135
 void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);         //turn left 135
-void cardWhite(DC_motor *mL, DC_motor *mR);        //finish and return home
+void cardWhite(DC_motor *mL, DC_motor *mR);         //finish and return home
+                                                    //buggy does U turn
+                                                    //travels in forward direction when backtracking
+void pickCard(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
 
 #endif

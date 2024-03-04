@@ -1,7 +1,7 @@
 #include <xc.h>
 #include "manoeuvres.h"
 
-void cardRed(DC_motor *mL, DC_motor *mR, unsigned char backtrack)          //turn right 90
+void cardRed(DC_motor *mL, DC_motor *mR, unsigned char backtrack)           //turn right 90
 {
     switch (backtrack) {
         case 0:             //forward operation
@@ -15,7 +15,7 @@ void cardRed(DC_motor *mL, DC_motor *mR, unsigned char backtrack)          //tur
     }
 }
 
-void cardGreen(DC_motor *mL, DC_motor *mR, unsigned char backtrack)        //turn left 90
+void cardGreen(DC_motor *mL, DC_motor *mR, unsigned char backtrack)         //turn left 90
 {
     switch (backtrack) {
         case 0:             //forward operation
@@ -29,7 +29,7 @@ void cardGreen(DC_motor *mL, DC_motor *mR, unsigned char backtrack)        //tur
     }
 }
 
-void cardBlue(DC_motor *mL, DC_motor *mR, unsigned char backtrack)         //turn 180
+void cardBlue(DC_motor *mL, DC_motor *mR, unsigned char backtrack)          //turn 180
 {
     switch (backtrack) {
         case 0:             //forward operation
@@ -43,7 +43,7 @@ void cardBlue(DC_motor *mL, DC_motor *mR, unsigned char backtrack)         //tur
     }
 }
 
-void cardYellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack)       //reverse 1 square and turn right 90
+void cardYellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack)        //reverse 1 square and turn right 90
 {
     switch (backtrack) {
         case 0:             //forward operation
@@ -59,7 +59,7 @@ void cardYellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack)       //rev
     }
 }
 
-void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack)         //reverse 1 square and turn left 90
+void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack)          //reverse 1 square and turn left 90
 {
     switch (backtrack) {
         case 0:             //forward operation
@@ -75,7 +75,7 @@ void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack)         //rev
     }
 }
 
-void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack)       //turn right 135
+void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack)        //turn right 135
 {
     switch (backtrack) {
         case 0:             //forward operation
@@ -89,7 +89,7 @@ void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack)       //tur
     }
 }
 
-void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack)         //turn left 135
+void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack)          //turn left 135
 {
     switch (backtrack) {
         case 0:             //forward operation
@@ -103,9 +103,39 @@ void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack)         //tur
     }
 }
 
-void cardWhite(DC_motor *mL, DC_motor *mR)        //finish and return home
+void cardWhite(DC_motor *mL, DC_motor *mR)                                  //finish and return home
 {
     headbuttReverse(mL, mR);
     UTurn(mL, mR);
     headbuttReverse(mL, mR);
+}
+
+void pickCard(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key)
+{
+    switch (key) {
+        case 1:         //red
+            cardRed(mL, mR, backtrack);
+            break;
+        case 2:         //green
+            cardGreen(mL, mR, backtrack);
+            break;
+        case 3:         //blue
+            cardBlue(mL, mR, backtrack);
+            break;
+        case 4:         //yellow
+            cardYellow(mL, mR, backtrack);
+            break;
+        case 5:         //pink
+            cardPink(mL, mR, backtrack);
+            break;
+        case 6:         //orange
+            cardOrange(mL, mR, backtrack);
+            break;
+        case 7:         //cyan
+            cardCyan(mL, mR, backtrack);
+            break;
+        case 8:         //white
+            cardWhite(mL, mR);
+            break;
+    }
 }

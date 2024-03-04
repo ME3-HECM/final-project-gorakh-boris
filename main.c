@@ -26,9 +26,7 @@
 void main(void) {
     __delay_ms(1000);    //initial delay
     
-    unsigned int PWMcycle = 99;
-    initDCmotorsPWM(PWMcycle);
-    
+    unsigned int PWMcycle = 99;    
     struct DC_motor motorL, motorR;
     
     motorL.power = 0;
@@ -45,20 +43,22 @@ void main(void) {
     motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
     motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
     
+    initDCmotorsPWM(PWMcycle);
     buggy_lights_init();
     color_click_init();
     initUSART4();
     Timer0_init();
     
     //initialise the two push buttons on clicker board
-    //set up TRIS registers (1 for input)
-    TRISFbits.TRISF2 = 1;
-    TRISFbits.TRISF3 = 1;
-    //set up pin analogue/digital inputs (0 for digital)
-    ANSELFbits.ANSELF2 = 0;
-    ANSELFbits.ANSELF3 = 0;
+        //set up TRIS registers (1 for input)
+        TRISFbits.TRISF2 = 1;
+        TRISFbits.TRISF3 = 1;
+        //set up pin analogue/digital inputs (0 for digital)
+        ANSELFbits.ANSELF2 = 0;
+        ANSELFbits.ANSELF3 = 0;
     
     //fullSpeedAhead(&motorL, &motorR);
+    
     //cardRed(&motorL, &motorR, backtrack);
     //cardGreen(&motorL, &motorR, backtrack);
     //cardBlue(&motorL, &motorR, backtrack);
@@ -68,16 +68,19 @@ void main(void) {
     //cardCyan(&motorL, &motorR, backtrack);
     //cardWhite(&motorL, &motorR);
     
+    //returnToSender(&motorL, &motorR);
+    
     while (1) {
+        unsigned int idk = 0;
+        idk = color_read_Red();
         //sendIntSerial4((int)TMR0L);
         //sendIntSerial4((int)TMR0H);
-        //sendIntSerial4(sizeof(trail_manoeuvre));
         if (!PORTFbits.RF2) {  //on button press
-            *manoeuvre_pointer = 0;
-            manoeuvre_pointer ++;
             LATDbits.LATD7 = !LATDbits.LATD7;
         }
-        sendArraySerial4(trail_manoeuvre);
-        __delay_ms(500);
+        //sendArrayCharSerial4(trail_timer_high);
+        //sendArrayCharSerial4(trail_timer_low);
+        //sendArrayCharSerial4(trail_manoeuvre);
+        __delay_ms(100);
     }
 }

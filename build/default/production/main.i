@@ -24174,12 +24174,50 @@ void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void cardWhite(DC_motor *mL, DC_motor *mR);
+
+
+void pickCard(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
 # 19 "main.c" 2
 
 # 1 "./color.h" 1
 
 
 
+
+# 1 "./i2c.h" 1
+# 13 "./i2c.h"
+void I2C_2_Master_Init(void);
+
+
+
+
+void I2C_2_Master_Idle(void);
+
+
+
+
+void I2C_2_Master_Start(void);
+
+
+
+
+void I2C_2_Master_RepStart(void);
+
+
+
+
+void I2C_2_Master_Stop(void);
+
+
+
+
+void I2C_2_Master_Write(unsigned char data_byte);
+
+
+
+
+unsigned char I2C_2_Master_Read(unsigned char ack);
+# 5 "./color.h" 2
 
 
 
@@ -24251,7 +24289,7 @@ char getCharSerial4(void);
 void sendCharSerial4(char charToSend);
 void sendStringSerial4(char *string);
 void sendIntSerial4(int integer);
-void sendArraySerial4(unsigned char *arr);
+void sendArrayCharSerial4(unsigned char *arr);
 
 
 char getCharFromRxBuf(void);
@@ -24267,6 +24305,9 @@ void sendTxBuf(void);
 # 21 "main.c" 2
 
 # 1 "./timers.h" 1
+# 11 "./timers.h"
+unsigned char returning = 1;
+unsigned char returnFlag = 0;
 
 
 
@@ -24274,15 +24315,25 @@ void sendTxBuf(void);
 
 
 
-unsigned char backtrack = 0;
-unsigned char trail_timer_high[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
-unsigned char trail_timer_low[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
-unsigned char trail_manoeuvre[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
-unsigned char *timer_high_pointer = &trail_timer_high[0];
-unsigned char *timer_low_pointer = &trail_timer_low[0];
-unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
+unsigned char trail_timer_high[20] = {3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6};
+unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 8};
+
+
+
+
+
+
+
+unsigned char *timer_high_pointer = &trail_timer_high[20];
+unsigned char *timer_low_pointer = &trail_timer_low[20];
+unsigned char *manoeuvre_pointer = &trail_manoeuvre[20];
+unsigned char manoeuvre_count = 3;
 
 void Timer0_init(void);
+void writeTrail(unsigned char *man);
+void readTrail(unsigned char *tH, unsigned char *tL, unsigned char *man);
+void returnToSender(DC_motor *mL, DC_motor *mR);
 void __attribute__((picinterrupt(("")))) ISR();
 # 22 "main.c" 2
 
@@ -24293,8 +24344,6 @@ void main(void) {
     _delay((unsigned long)((1000)*(64000000/4000.0)));
 
     unsigned int PWMcycle = 99;
-    initDCmotorsPWM(PWMcycle);
-
     struct DC_motor motorL, motorR;
 
     motorL.power = 0;
@@ -24311,6 +24360,7 @@ void main(void) {
     motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
     motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
 
+    initDCmotorsPWM(PWMcycle);
     buggy_lights_init();
     color_click_init();
     initUSART4();
@@ -24318,22 +24368,23 @@ void main(void) {
 
 
 
-    TRISFbits.TRISF2 = 1;
-    TRISFbits.TRISF3 = 1;
+        TRISFbits.TRISF2 = 1;
+        TRISFbits.TRISF3 = 1;
 
-    ANSELFbits.ANSELF2 = 0;
-    ANSELFbits.ANSELF3 = 0;
-# 71 "main.c"
+        ANSELFbits.ANSELF2 = 0;
+        ANSELFbits.ANSELF3 = 0;
+# 73 "main.c"
     while (1) {
-
+        unsigned int idk = 0;
+        idk = color_read_Red();
 
 
         if (!PORTFbits.RF2) {
-            *manoeuvre_pointer = 0;
-            manoeuvre_pointer ++;
             LATDbits.LATD7 = !LATDbits.LATD7;
         }
-        sendArraySerial4(trail_manoeuvre);
-        _delay((unsigned long)((500)*(64000000/4000.0)));
+
+
+
+        _delay((unsigned long)((100)*(64000000/4000.0)));
     }
 }

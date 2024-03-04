@@ -24101,26 +24101,25 @@ void buggy_lights_init(void)
 {
 
 
-    TRISDbits.TRISD4 = 0;
-    TRISHbits.TRISH1 = 0;
-    TRISDbits.TRISD3 = 0;
-    TRISFbits.TRISF0 = 0;
-    TRISHbits.TRISH0 = 0;
+        TRISDbits.TRISD4 = 0;
+        TRISHbits.TRISH1 = 0;
+        TRISDbits.TRISD3 = 0;
+        TRISFbits.TRISF0 = 0;
+        TRISHbits.TRISH0 = 0;
 
-    LATDbits.LATD4 = 1;
-    LATHbits.LATH1 = 1;
-    LATDbits.LATD3 = 1;
-    LATFbits.LATF0 = 1;
-    LATHbits.LATH0 = 1;
+        LATDbits.LATD4 = 1;
+        LATHbits.LATH1 = 1;
+        LATDbits.LATD3 = 1;
+        LATFbits.LATF0 = 1;
+        LATHbits.LATH0 = 1;
 
 
 
-    TRISDbits.TRISD7 = 0;
-    TRISHbits.TRISH3 = 0;
+        TRISDbits.TRISD7 = 0;
+        TRISHbits.TRISH3 = 0;
 
-    LATDbits.LATD7 = 1;
-    LATHbits.LATH3 = 1;
-
+        LATDbits.LATD7 = 1;
+        LATHbits.LATH3 = 1;
 
 
 

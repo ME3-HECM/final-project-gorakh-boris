@@ -25,7 +25,7 @@ char getCharSerial4(void);
 void sendCharSerial4(char charToSend);
 void sendStringSerial4(char *string);
 void sendIntSerial4(int integer);
-void sendArraySerial4(unsigned char *arr);
+void sendArrayCharSerial4(unsigned char *arr);
 
 // circular Rx buffer functions (Ex3+)
 char getCharFromRxBuf(void);
