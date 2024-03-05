@@ -1,29 +1,84 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"8 ./dc_motor.h
-[; ;./dc_motor.h: 8: typedef struct DC_motor {
-[s S2015 `uc 1 `uc 1 `uc 1 `ui 1 `*uc 1 `*uc 1 ]
-[n S2015 DC_motor power direction brakemode PWMperiod posDutyHighByte negDutyHighByte ]
-"48
-[; ;./dc_motor.h: 48: void headbuttReverse(DC_motor *mL, DC_motor *mR);
-[v _headbuttReverse `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"44
-[; ;./dc_motor.h: 44: void turnRight90(DC_motor *mL, DC_motor *mR);
-[v _turnRight90 `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"43
-[; ;./dc_motor.h: 43: void turnLeft90(DC_motor *mL, DC_motor *mR);
-[v _turnLeft90 `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"47
-[; ;./dc_motor.h: 47: void UTurn(DC_motor *mL, DC_motor *mR);
-[v _UTurn `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"49
-[; ;./dc_motor.h: 49: void squareReverse(DC_motor *mL, DC_motor *mR);
-[v _squareReverse `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"46
-[; ;./dc_motor.h: 46: void turnRight135(DC_motor *mL, DC_motor *mR);
-[v _turnRight135 `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"45
-[; ;./dc_motor.h: 45: void turnLeft135(DC_motor *mL, DC_motor *mR);
-[v _turnLeft135 `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"4810 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 4810:     struct {
+[s S274 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S274 . TX3IE RC3IE TX4IE RC4IE TX5IE RC5IE ]
+"4809
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 4809: typedef union {
+[u S273 `S274 1 ]
+[n S273 . . ]
+"4819
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 4819: extern volatile PIE4bits_t PIE4bits __attribute__((address(0xE2D)));
+[v _PIE4bits `VS273 ~T0 @X0 0 e@3629 ]
+"4548
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 4548:     struct {
+[s S262 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S262 . INT0IE INT1IE INT2IE INT3IE IOCIE TMR0IE ]
+"4547
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 4547: typedef union {
+[u S261 `S262 1 ]
+[n S261 . . ]
+"4557
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 4557: extern volatile PIE0bits_t PIE0bits __attribute__((address(0xE29)));
+[v _PIE0bits `VS261 ~T0 @X0 0 e@3625 ]
+"40155
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 40155:     struct {
+[s S1985 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1985 . INT0EDG INT1EDG INT2EDG INT3EDG . IPEN PEIE_GIEL GIE_GIEH ]
+"40165
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 40165:     struct {
+[s S1986 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1986 . . PEIE GIE ]
+"40170
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 40170:     struct {
+[s S1987 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1987 . . GIEL GIEH ]
+"40154
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 40154: typedef union {
+[u S1984 `S1985 1 `S1986 1 `S1987 1 ]
+[n S1984 . . . . ]
+"40176
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 40176: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
+[v _INTCONbits `VS1984 ~T0 @X0 0 e@4082 ]
+[t ~ __interrupt . k ]
+[t T3 __interrupt high_priority ]
+"5093
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 5093:     struct {
+[s S286 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S286 . INT0IF INT1IF INT2IF INT3IF IOCIF TMR0IF ]
+"5092
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 5092: typedef union {
+[u S285 `S286 1 ]
+[n S285 . . ]
+"5102
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 5102: extern volatile PIR0bits_t PIR0bits __attribute__((address(0xE33)));
+[v _PIR0bits `VS285 ~T0 @X0 0 e@3635 ]
+"5323
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 5323:     struct {
+[s S297 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S297 . TX3IF RC3IF TX4IF RC4IF TX5IF RC5IF ]
+"5322
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 5322: typedef union {
+[u S296 `S297 1 ]
+[n S296 . . ]
+"5332
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 5332: extern volatile PIR4bits_t PIR4bits __attribute__((address(0xE37)));
+[v _PIR4bits `VS296 ~T0 @X0 0 e@3639 ]
+"15724
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 15724: extern volatile unsigned char TX4REG __attribute__((address(0xEE4)));
+[v _TX4REG `Vuc ~T0 @X0 0 e@3812 ]
+"36 ./serial.h
+[; ;./serial.h: 36: char getCharFromTxBuf(void);
+[v _getCharFromTxBuf `(uc ~T0 @X0 0 ef ]
+"38
+[; ;./serial.h: 38: char isDataInTxBuf (void);
+[v _isDataInTxBuf `(uc ~T0 @X0 0 ef ]
+"32
+[; ;./serial.h: 32: void putCharToRxBuf(char byte);
+[v _putCharToRxBuf `(v ~T0 @X0 0 ef1`uc ]
+"15686 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 15686: extern volatile unsigned char RC4REG __attribute__((address(0xEE3)));
+[v _RC4REG `Vuc ~T0 @X0 0 e@3811 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -1998,500 +2053,228 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40592
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 40592: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"17 ./dc_motor.h
-[; ;./dc_motor.h: 17: unsigned char rampDelay = 8;
-[v _rampDelay `uc ~T0 @X0 1 e ]
-[i _rampDelay
--> -> 8 `i `uc
-]
-"19
-[; ;./dc_motor.h: 19: unsigned char topGearLeft = 20;
-[v _topGearLeft `uc ~T0 @X0 1 e ]
-[i _topGearLeft
--> -> 20 `i `uc
-]
-"20
-[; ;./dc_motor.h: 20: unsigned char topGearRight = 20;
-[v _topGearRight `uc ~T0 @X0 1 e ]
-[i _topGearRight
--> -> 20 `i `uc
-]
-"22
-[; ;./dc_motor.h: 22: unsigned char turningGear = 42;
-[v _turningGear `uc ~T0 @X0 1 e ]
-[i _turningGear
--> -> 42 `i `uc
-]
-"24
-[; ;./dc_motor.h: 24: unsigned int turnLeft90Delay = 175;
-[v _turnLeft90Delay `ui ~T0 @X0 1 e ]
-[i _turnLeft90Delay
--> -> 175 `i `ui
-]
-"25
-[; ;./dc_motor.h: 25: unsigned int turnRight90Delay = 175;
-[v _turnRight90Delay `ui ~T0 @X0 1 e ]
-[i _turnRight90Delay
--> -> 175 `i `ui
-]
-"26
-[; ;./dc_motor.h: 26: unsigned int turnLeft135Delay = 300;
-[v _turnLeft135Delay `ui ~T0 @X0 1 e ]
-[i _turnLeft135Delay
--> -> 300 `i `ui
-]
-"27
-[; ;./dc_motor.h: 27: unsigned int turnRight135Delay = 300;
-[v _turnRight135Delay `ui ~T0 @X0 1 e ]
-[i _turnRight135Delay
--> -> 300 `i `ui
-]
-"28
-[; ;./dc_motor.h: 28: unsigned int turn180Delay = 510;
-[v _turn180Delay `ui ~T0 @X0 1 e ]
-[i _turn180Delay
--> -> 510 `i `ui
-]
-"30
-[; ;./dc_motor.h: 30: unsigned int headbuttDelay = 70;
-[v _headbuttDelay `ui ~T0 @X0 1 e ]
-[i _headbuttDelay
--> -> 70 `i `ui
-]
-"31
-[; ;./dc_motor.h: 31: unsigned int squareDelay = 300;
-[v _squareDelay `ui ~T0 @X0 1 e ]
-[i _squareDelay
--> -> 300 `i `ui
-]
-"4 manoeuvres.c
-[; ;manoeuvres.c: 4: void cardRed(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _cardRed `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
-"5
-[; ;manoeuvres.c: 5: {
-{
-[e :U _cardRed ]
-"4
-[; ;manoeuvres.c: 4: void cardRed(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _mL `*S2015 ~T0 @X0 1 r1 ]
-[v _mR `*S2015 ~T0 @X0 1 r2 ]
-[v _backtrack `uc ~T0 @X0 1 r3 ]
-"5
-[; ;manoeuvres.c: 5: {
-[f ]
-"6
-[; ;manoeuvres.c: 6:     switch (backtrack) {
-[e $U 2018  ]
-{
-"7
-[; ;manoeuvres.c: 7:         case 0:
-[e :U 2019 ]
-"8
-[; ;manoeuvres.c: 8:             headbuttReverse(mL, mR);
-[e ( _headbuttReverse (2 , _mL _mR ]
-"9
-[; ;manoeuvres.c: 9:             turnRight90(mL, mR);
-[e ( _turnRight90 (2 , _mL _mR ]
-"10
-[; ;manoeuvres.c: 10:             break;
-[e $U 2017  ]
-"11
-[; ;manoeuvres.c: 11:         case 1:
-[e :U 2020 ]
-"12
-[; ;manoeuvres.c: 12:             turnLeft90(mL, mR);
-[e ( _turnLeft90 (2 , _mL _mR ]
-"13
-[; ;manoeuvres.c: 13:             headbuttReverse(mL, mR);
-[e ( _headbuttReverse (2 , _mL _mR ]
+"13 ./serial.h
+[; ;./serial.h: 13: volatile char EUSART4RXbuf[20];
+[v _EUSART4RXbuf `Vuc ~T0 @X0 -> 20 `i e ]
 "14
-[; ;manoeuvres.c: 14:             break;
-[e $U 2017  ]
+[; ;./serial.h: 14: volatile char RxBufWriteCnt=0;
+[v _RxBufWriteCnt `Vuc ~T0 @X0 1 e ]
+[i _RxBufWriteCnt
+-> -> 0 `i `uc
+]
 "15
-[; ;manoeuvres.c: 15:     }
-}
-[e $U 2017  ]
-[e :U 2018 ]
-[e [\ -> _backtrack `i , $ -> 0 `i 2019
- , $ -> 1 `i 2020
- 2017 ]
-[e :U 2017 ]
-"16
-[; ;manoeuvres.c: 16: }
-[e :UE 2016 ]
-}
+[; ;./serial.h: 15: volatile char RxBufReadCnt=0;
+[v _RxBufReadCnt `Vuc ~T0 @X0 1 e ]
+[i _RxBufReadCnt
+-> -> 0 `i `uc
+]
+"17
+[; ;./serial.h: 17: volatile char EUSART4TXbuf[60];
+[v _EUSART4TXbuf `Vuc ~T0 @X0 -> 60 `i e ]
 "18
-[; ;manoeuvres.c: 18: void cardGreen(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _cardGreen `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
+[; ;./serial.h: 18: volatile char TxBufWriteCnt=0;
+[v _TxBufWriteCnt `Vuc ~T0 @X0 1 e ]
+[i _TxBufWriteCnt
+-> -> 0 `i `uc
+]
 "19
-[; ;manoeuvres.c: 19: {
+[; ;./serial.h: 19: volatile char TxBufReadCnt=0;
+[v _TxBufReadCnt `Vuc ~T0 @X0 1 e ]
+[i _TxBufReadCnt
+-> -> 0 `i `uc
+]
+"8 ./timers.h
+[; ;./timers.h: 8: unsigned char backtrack = 0;
+[v _backtrack `uc ~T0 @X0 1 e ]
+[i _backtrack
+-> -> 0 `i `uc
+]
+"9
+[; ;./timers.h: 9: unsigned char trail_timer_high[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+[v _trail_timer_high `uc ~T0 @X0 -> 20 `i e ]
+[i _trail_timer_high
+:U ..
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+-> -> 3 `i `uc
+-> -> 4 `i `uc
+-> -> 5 `i `uc
+-> -> 6 `i `uc
+-> -> 7 `i `uc
+-> -> 8 `i `uc
+-> -> 9 `i `uc
+-> -> 0 `i `uc
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+-> -> 3 `i `uc
+-> -> 4 `i `uc
+-> -> 5 `i `uc
+-> -> 6 `i `uc
+-> -> 7 `i `uc
+-> -> 8 `i `uc
+-> -> 9 `i `uc
+-> -> 0 `i `uc
+..
+]
+"10
+[; ;./timers.h: 10: unsigned char trail_timer_low[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+[v _trail_timer_low `uc ~T0 @X0 -> 20 `i e ]
+[i _trail_timer_low
+:U ..
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+-> -> 3 `i `uc
+-> -> 4 `i `uc
+-> -> 5 `i `uc
+-> -> 6 `i `uc
+-> -> 7 `i `uc
+-> -> 8 `i `uc
+-> -> 9 `i `uc
+-> -> 0 `i `uc
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+-> -> 3 `i `uc
+-> -> 4 `i `uc
+-> -> 5 `i `uc
+-> -> 6 `i `uc
+-> -> 7 `i `uc
+-> -> 8 `i `uc
+-> -> 9 `i `uc
+-> -> 0 `i `uc
+..
+]
+"11
+[; ;./timers.h: 11: unsigned char trail_manoeuvre[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+[v _trail_manoeuvre `uc ~T0 @X0 -> 20 `i e ]
+[i _trail_manoeuvre
+:U ..
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+-> -> 3 `i `uc
+-> -> 4 `i `uc
+-> -> 5 `i `uc
+-> -> 6 `i `uc
+-> -> 7 `i `uc
+-> -> 8 `i `uc
+-> -> 9 `i `uc
+-> -> 0 `i `uc
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+-> -> 3 `i `uc
+-> -> 4 `i `uc
+-> -> 5 `i `uc
+-> -> 6 `i `uc
+-> -> 7 `i `uc
+-> -> 8 `i `uc
+-> -> 9 `i `uc
+-> -> 0 `i `uc
+..
+]
+"12
+[; ;./timers.h: 12: unsigned char *timer_high_pointer = &trail_timer_high[0];
+[v _timer_high_pointer `*uc ~T0 @X0 1 e ]
+[i _timer_high_pointer
+&U *U + &U _trail_timer_high * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_timer_high `ui `ux
+]
+"13
+[; ;./timers.h: 13: unsigned char *timer_low_pointer = &trail_timer_low[0];
+[v _timer_low_pointer `*uc ~T0 @X0 1 e ]
+[i _timer_low_pointer
+&U *U + &U _trail_timer_low * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_timer_low `ui `ux
+]
+"14
+[; ;./timers.h: 14: unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
+[v _manoeuvre_pointer `*uc ~T0 @X0 1 e ]
+[i _manoeuvre_pointer
+&U *U + &U _trail_manoeuvre * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_manoeuvre `ui `ux
+]
+"6 interrupts.c
+[; ;interrupts.c: 6: void Interrupts_init(void)
+[v _Interrupts_init `(v ~T0 @X0 1 ef ]
+"7
+[; ;interrupts.c: 7: {
 {
-[e :U _cardGreen ]
-"18
-[; ;manoeuvres.c: 18: void cardGreen(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _mL `*S2015 ~T0 @X0 1 r1 ]
-[v _mR `*S2015 ~T0 @X0 1 r2 ]
-[v _backtrack `uc ~T0 @X0 1 r3 ]
-"19
-[; ;manoeuvres.c: 19: {
+[e :U _Interrupts_init ]
 [f ]
+"9
+[; ;interrupts.c: 9:     PIE4bits.RC4IE = 1;
+[e = . . _PIE4bits 0 3 -> -> 1 `i `uc ]
+"10
+[; ;interrupts.c: 10:     PIE4bits.TX4IE = 1;
+[e = . . _PIE4bits 0 2 -> -> 1 `i `uc ]
+"12
+[; ;interrupts.c: 12:     PIE0bits.TMR0IE = 1;
+[e = . . _PIE0bits 0 5 -> -> 1 `i `uc ]
+"13
+[; ;interrupts.c: 13:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 1 1 -> -> 1 `i `uc ]
+"14
+[; ;interrupts.c: 14:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 1 2 -> -> 1 `i `uc ]
+"15
+[; ;interrupts.c: 15: }
+[e :UE 2015 ]
+}
+[v $root$_HighISR `(v ~T0 @X0 0 e ]
+"19
+[; ;interrupts.c: 19: void __attribute__((picinterrupt(("high_priority")))) HighISR()
+[v _HighISR `(v ~T3 @X0 1 ef ]
 "20
-[; ;manoeuvres.c: 20:     switch (backtrack) {
-[e $U 2023  ]
+[; ;interrupts.c: 20: {
 {
-"21
-[; ;manoeuvres.c: 21:         case 0:
-[e :U 2024 ]
+[e :U _HighISR ]
+[f ]
 "22
-[; ;manoeuvres.c: 22:             headbuttReverse(mL, mR);
-[e ( _headbuttReverse (2 , _mL _mR ]
+[; ;interrupts.c: 22:     if (PIR0bits.TMR0IF) {
+[e $ ! != -> . . _PIR0bits 0 5 `i -> 0 `i 2017  ]
+{
 "23
-[; ;manoeuvres.c: 23:             turnLeft90(mL, mR);
-[e ( _turnLeft90 (2 , _mL _mR ]
-"24
-[; ;manoeuvres.c: 24:             break;
-[e $U 2022  ]
-"25
-[; ;manoeuvres.c: 25:         case 1:
-[e :U 2025 ]
+[; ;interrupts.c: 23:         if (backtrack) {
+[e $ ! != -> _backtrack `i -> 0 `i 2018  ]
+{
 "26
-[; ;manoeuvres.c: 26:             turnRight90(mL, mR);
-[e ( _turnRight90 (2 , _mL _mR ]
-"27
-[; ;manoeuvres.c: 27:             headbuttReverse(mL, mR);
-[e ( _headbuttReverse (2 , _mL _mR ]
+[; ;interrupts.c: 26:         } else {
+}
+[e $U 2019  ]
+[e :U 2018 ]
+{
 "28
-[; ;manoeuvres.c: 28:             break;
-[e $U 2022  ]
-"29
-[; ;manoeuvres.c: 29:     }
+[; ;interrupts.c: 28:         }
 }
-[e $U 2022  ]
-[e :U 2023 ]
-[e [\ -> _backtrack `i , $ -> 0 `i 2024
- , $ -> 1 `i 2025
- 2022 ]
-[e :U 2022 ]
+[e :U 2019 ]
 "30
-[; ;manoeuvres.c: 30: }
-[e :UE 2021 ]
+[; ;interrupts.c: 30:         PIR0bits.TMR0IF = 0;
+[e = . . _PIR0bits 0 5 -> -> 0 `i `uc ]
+"31
+[; ;interrupts.c: 31:     }
 }
-"32
-[; ;manoeuvres.c: 32: void cardBlue(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _cardBlue `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
-"33
-[; ;manoeuvres.c: 33: {
-{
-[e :U _cardBlue ]
-"32
-[; ;manoeuvres.c: 32: void cardBlue(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _mL `*S2015 ~T0 @X0 1 r1 ]
-[v _mR `*S2015 ~T0 @X0 1 r2 ]
-[v _backtrack `uc ~T0 @X0 1 r3 ]
-"33
-[; ;manoeuvres.c: 33: {
-[f ]
-"34
-[; ;manoeuvres.c: 34:     switch (backtrack) {
-[e $U 2028  ]
-{
+[e :U 2017 ]
 "35
-[; ;manoeuvres.c: 35:         case 0:
-[e :U 2029 ]
+[; ;interrupts.c: 35:     if (PIR4bits.TX4IF) {
+[e $ ! != -> . . _PIR4bits 0 2 `i -> 0 `i 2020  ]
+{
 "36
-[; ;manoeuvres.c: 36:             headbuttReverse(mL, mR);
-[e ( _headbuttReverse (2 , _mL _mR ]
+[; ;interrupts.c: 36:         TX4REG = getCharFromTxBuf();
+[e = _TX4REG -> ( _getCharFromTxBuf ..  `uc ]
 "37
-[; ;manoeuvres.c: 37:             UTurn(mL, mR);
-[e ( _UTurn (2 , _mL _mR ]
+[; ;interrupts.c: 37:         if (!isDataInTxBuf()) {PIE4bits.TX4IE = 0;}
+[e $ ! ! != -> ( _isDataInTxBuf ..  `i -> 0 `i 2021  ]
+{
+[e = . . _PIE4bits 0 2 -> -> 0 `i `uc ]
+}
+[e :U 2021 ]
 "38
-[; ;manoeuvres.c: 38:             break;
-[e $U 2027  ]
-"39
-[; ;manoeuvres.c: 39:         case 1:
-[e :U 2030 ]
+[; ;interrupts.c: 38:     }
+}
+[e :U 2020 ]
 "40
-[; ;manoeuvres.c: 40:             UTurn(mL, mR);
-[e ( _UTurn (2 , _mL _mR ]
+[; ;interrupts.c: 40:     if (PIR4bits.RC4IF) {putCharToRxBuf(RC4REG);}
+[e $ ! != -> . . _PIR4bits 0 3 `i -> 0 `i 2022  ]
+{
+[e ( _putCharToRxBuf (1 -> _RC4REG `uc ]
+}
+[e :U 2022 ]
 "41
-[; ;manoeuvres.c: 41:             headbuttReverse(mL, mR);
-[e ( _headbuttReverse (2 , _mL _mR ]
-"42
-[; ;manoeuvres.c: 42:             break;
-[e $U 2027  ]
-"43
-[; ;manoeuvres.c: 43:     }
-}
-[e $U 2027  ]
-[e :U 2028 ]
-[e [\ -> _backtrack `i , $ -> 0 `i 2029
- , $ -> 1 `i 2030
- 2027 ]
-[e :U 2027 ]
-"44
-[; ;manoeuvres.c: 44: }
-[e :UE 2026 ]
-}
-"46
-[; ;manoeuvres.c: 46: void cardYellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _cardYellow `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
-"47
-[; ;manoeuvres.c: 47: {
-{
-[e :U _cardYellow ]
-"46
-[; ;manoeuvres.c: 46: void cardYellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _mL `*S2015 ~T0 @X0 1 r1 ]
-[v _mR `*S2015 ~T0 @X0 1 r2 ]
-[v _backtrack `uc ~T0 @X0 1 r3 ]
-"47
-[; ;manoeuvres.c: 47: {
-[f ]
-"48
-[; ;manoeuvres.c: 48:     switch (backtrack) {
-[e $U 2033  ]
-{
-"49
-[; ;manoeuvres.c: 49:         case 0:
-[e :U 2034 ]
-"50
-[; ;manoeuvres.c: 50:             headbuttReverse(mL, mR);
-[e ( _headbuttReverse (2 , _mL _mR ]
-"51
-[; ;manoeuvres.c: 51:             squareReverse(mL, mR);
-[e ( _squareReverse (2 , _mL _mR ]
-"52
-[; ;manoeuvres.c: 52:             turnRight90(mL, mR);
-[e ( _turnRight90 (2 , _mL _mR ]
-"53
-[; ;manoeuvres.c: 53:             break;
-[e $U 2032  ]
-"54
-[; ;manoeuvres.c: 54:         case 1:
-[e :U 2035 ]
-"55
-[; ;manoeuvres.c: 55:             turnLeft90(mL, mR);
-[e ( _turnLeft90 (2 , _mL _mR ]
-"56
-[; ;manoeuvres.c: 56:             squareReverse(mL, mR);
-[e ( _squareReverse (2 , _mL _mR ]
-"57
-[; ;manoeuvres.c: 57:             headbuttReverse(mL, mR);
-[e ( _headbuttReverse (2 , _mL _mR ]
-"58
-[; ;manoeuvres.c: 58:             break;
-[e $U 2032  ]
-"59
-[; ;manoeuvres.c: 59:     }
-}
-[e $U 2032  ]
-[e :U 2033 ]
-[e [\ -> _backtrack `i , $ -> 0 `i 2034
- , $ -> 1 `i 2035
- 2032 ]
-[e :U 2032 ]
-"60
-[; ;manoeuvres.c: 60: }
-[e :UE 2031 ]
-}
-"62
-[; ;manoeuvres.c: 62: void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _cardPink `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
-"63
-[; ;manoeuvres.c: 63: {
-{
-[e :U _cardPink ]
-"62
-[; ;manoeuvres.c: 62: void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _mL `*S2015 ~T0 @X0 1 r1 ]
-[v _mR `*S2015 ~T0 @X0 1 r2 ]
-[v _backtrack `uc ~T0 @X0 1 r3 ]
-"63
-[; ;manoeuvres.c: 63: {
-[f ]
-"64
-[; ;manoeuvres.c: 64:     switch (backtrack) {
-[e $U 2038  ]
-{
-"65
-[; ;manoeuvres.c: 65:         case 0:
-[e :U 2039 ]
-"66
-[; ;manoeuvres.c: 66:             headbuttReverse(mL, mR);
-[e ( _headbuttReverse (2 , _mL _mR ]
-"67
-[; ;manoeuvres.c: 67:             squareReverse(mL, mR);
-[e ( _squareReverse (2 , _mL _mR ]
-"68
-[; ;manoeuvres.c: 68:             turnLeft90(mL, mR);
-[e ( _turnLeft90 (2 , _mL _mR ]
-"69
-[; ;manoeuvres.c: 69:             break;
-[e $U 2037  ]
-"70
-[; ;manoeuvres.c: 70:         case 1:
-[e :U 2040 ]
-"71
-[; ;manoeuvres.c: 71:             turnRight90(mL, mR);
-[e ( _turnRight90 (2 , _mL _mR ]
-"72
-[; ;manoeuvres.c: 72:             squareReverse(mL, mR);
-[e ( _squareReverse (2 , _mL _mR ]
-"73
-[; ;manoeuvres.c: 73:             headbuttReverse(mL, mR);
-[e ( _headbuttReverse (2 , _mL _mR ]
-"74
-[; ;manoeuvres.c: 74:             break;
-[e $U 2037  ]
-"75
-[; ;manoeuvres.c: 75:     }
-}
-[e $U 2037  ]
-[e :U 2038 ]
-[e [\ -> _backtrack `i , $ -> 0 `i 2039
- , $ -> 1 `i 2040
- 2037 ]
-[e :U 2037 ]
-"76
-[; ;manoeuvres.c: 76: }
-[e :UE 2036 ]
-}
-"78
-[; ;manoeuvres.c: 78: void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _cardOrange `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
-"79
-[; ;manoeuvres.c: 79: {
-{
-[e :U _cardOrange ]
-"78
-[; ;manoeuvres.c: 78: void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _mL `*S2015 ~T0 @X0 1 r1 ]
-[v _mR `*S2015 ~T0 @X0 1 r2 ]
-[v _backtrack `uc ~T0 @X0 1 r3 ]
-"79
-[; ;manoeuvres.c: 79: {
-[f ]
-"80
-[; ;manoeuvres.c: 80:     switch (backtrack) {
-[e $U 2043  ]
-{
-"81
-[; ;manoeuvres.c: 81:         case 0:
-[e :U 2044 ]
-"82
-[; ;manoeuvres.c: 82:             headbuttReverse(mL, mR);
-[e ( _headbuttReverse (2 , _mL _mR ]
-"83
-[; ;manoeuvres.c: 83:             turnRight135(mL, mR);
-[e ( _turnRight135 (2 , _mL _mR ]
-"84
-[; ;manoeuvres.c: 84:             break;
-[e $U 2042  ]
-"85
-[; ;manoeuvres.c: 85:         case 1:
-[e :U 2045 ]
-"86
-[; ;manoeuvres.c: 86:             turnLeft135(mL, mR);
-[e ( _turnLeft135 (2 , _mL _mR ]
-"87
-[; ;manoeuvres.c: 87:             headbuttReverse(mL, mR);
-[e ( _headbuttReverse (2 , _mL _mR ]
-"88
-[; ;manoeuvres.c: 88:             break;
-[e $U 2042  ]
-"89
-[; ;manoeuvres.c: 89:     }
-}
-[e $U 2042  ]
-[e :U 2043 ]
-[e [\ -> _backtrack `i , $ -> 0 `i 2044
- , $ -> 1 `i 2045
- 2042 ]
-[e :U 2042 ]
-"90
-[; ;manoeuvres.c: 90: }
-[e :UE 2041 ]
-}
-"92
-[; ;manoeuvres.c: 92: void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _cardCyan `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
-"93
-[; ;manoeuvres.c: 93: {
-{
-[e :U _cardCyan ]
-"92
-[; ;manoeuvres.c: 92: void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _mL `*S2015 ~T0 @X0 1 r1 ]
-[v _mR `*S2015 ~T0 @X0 1 r2 ]
-[v _backtrack `uc ~T0 @X0 1 r3 ]
-"93
-[; ;manoeuvres.c: 93: {
-[f ]
-"94
-[; ;manoeuvres.c: 94:     switch (backtrack) {
-[e $U 2048  ]
-{
-"95
-[; ;manoeuvres.c: 95:         case 0:
-[e :U 2049 ]
-"96
-[; ;manoeuvres.c: 96:             headbuttReverse(mL, mR);
-[e ( _headbuttReverse (2 , _mL _mR ]
-"97
-[; ;manoeuvres.c: 97:             turnLeft135(mL, mR);
-[e ( _turnLeft135 (2 , _mL _mR ]
-"98
-[; ;manoeuvres.c: 98:             break;
-[e $U 2047  ]
-"99
-[; ;manoeuvres.c: 99:         case 1:
-[e :U 2050 ]
-"100
-[; ;manoeuvres.c: 100:             turnRight135(mL, mR);
-[e ( _turnRight135 (2 , _mL _mR ]
-"101
-[; ;manoeuvres.c: 101:             headbuttReverse(mL, mR);
-[e ( _headbuttReverse (2 , _mL _mR ]
-"102
-[; ;manoeuvres.c: 102:             break;
-[e $U 2047  ]
-"103
-[; ;manoeuvres.c: 103:     }
-}
-[e $U 2047  ]
-[e :U 2048 ]
-[e [\ -> _backtrack `i , $ -> 0 `i 2049
- , $ -> 1 `i 2050
- 2047 ]
-[e :U 2047 ]
-"104
-[; ;manoeuvres.c: 104: }
-[e :UE 2046 ]
-}
-"106
-[; ;manoeuvres.c: 106: void cardWhite(DC_motor *mL, DC_motor *mR)
-[v _cardWhite `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
-"107
-[; ;manoeuvres.c: 107: {
-{
-[e :U _cardWhite ]
-"106
-[; ;manoeuvres.c: 106: void cardWhite(DC_motor *mL, DC_motor *mR)
-[v _mL `*S2015 ~T0 @X0 1 r1 ]
-[v _mR `*S2015 ~T0 @X0 1 r2 ]
-"107
-[; ;manoeuvres.c: 107: {
-[f ]
-"108
-[; ;manoeuvres.c: 108:     headbuttReverse(mL, mR);
-[e ( _headbuttReverse (2 , _mL _mR ]
-"109
-[; ;manoeuvres.c: 109:     UTurn(mL, mR);
-[e ( _UTurn (2 , _mL _mR ]
-"110
-[; ;manoeuvres.c: 110:     headbuttReverse(mL, mR);
-[e ( _headbuttReverse (2 , _mL _mR ]
-"111
-[; ;manoeuvres.c: 111: }
-[e :UE 2051 ]
+[; ;interrupts.c: 41: }
+[e :UE 2016 ]
 }

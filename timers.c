@@ -21,22 +21,6 @@ void Timer0_init(void)
     TMR0L = 0;                  //initial zero value
     
     T0CON0bits.T0EN=1;      //start the timer
-    PIE0bits.TMR0IE = 1;    //initialise timer 0 interrupt
-    INTCONbits.PEIE = 1;    //initialise peripheral interrupt
-    INTCONbits.GIE = 1;     //sets global interrupt
+   
 }
 
-void __interrupt() ISR()
-{    
-    // timer interrupt
-    if (PIR0bits.TMR0IF) {
-        if (backtrack) {            //is backtracking
-            //some code on performing the next manoeuvre when backtracking
-            //the timer will be used to time the straight distances travelled when backtracking
-        } else {                    //is not backtracking
-            //trigger a lost function
-        }
-        //LATHbits.LATH3 = !LATHbits.LATH3;       //toggle LED for debugging
-        PIR0bits.TMR0IF = 0;        //reset timer interrupt flag
-    }
-}

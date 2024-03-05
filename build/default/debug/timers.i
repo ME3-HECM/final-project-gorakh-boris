@@ -1,4 +1,4 @@
-# 1 "dc_motor.c"
+# 1 "timers.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "dc_motor.c" 2
+# 1 "timers.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24086,274 +24086,48 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 1 "dc_motor.c" 2
+# 1 "timers.c" 2
 
-# 1 "./dc_motor.h" 1
-
-
+# 1 "./timers.h" 1
 
 
 
 
 
-typedef struct DC_motor {
-    char power;
-    char direction;
-    char brakemode;
-    unsigned int PWMperiod;
-    unsigned char *posDutyHighByte;
-    unsigned char *negDutyHighByte;
-} DC_motor;
-
-unsigned char rampDelay = 8;
-
-unsigned char topGearLeft = 20;
-unsigned char topGearRight = 20;
-
-unsigned char turningGear = 42;
-
-unsigned int turnLeft90Delay = 175;
-unsigned int turnRight90Delay = 175;
-unsigned int turnLeft135Delay = 300;
-unsigned int turnRight135Delay = 300;
-unsigned int turn180Delay = 510;
-
-unsigned int headbuttDelay = 70;
-unsigned int squareDelay = 300;
 
 
-void initDCmotorsPWM(unsigned int PWMperiod);
-void setMotorPWM(DC_motor *m);
+unsigned char backtrack = 0;
+unsigned char trail_timer_high[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+unsigned char trail_timer_low[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+unsigned char trail_manoeuvre[20] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+unsigned char *timer_high_pointer = &trail_timer_high[0];
+unsigned char *timer_low_pointer = &trail_timer_low[0];
+unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
 
-void stop(DC_motor *mL, DC_motor *mR);
-void turnLeft(DC_motor *mL, DC_motor *mR);
-void turnRight(DC_motor *mL, DC_motor *mR);
-void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
-void fullSpeedReverse(DC_motor *mL, DC_motor *mR);
-
-void turnLeft90(DC_motor *mL, DC_motor *mR);
-void turnRight90(DC_motor *mL, DC_motor *mR);
-void turnLeft135(DC_motor *mL, DC_motor *mR);
-void turnRight135(DC_motor *mL, DC_motor *mR);
-void UTurn(DC_motor *mL, DC_motor *mR);
-void headbuttReverse(DC_motor *mL, DC_motor *mR);
-void squareReverse(DC_motor *mL, DC_motor *mR);
-# 2 "dc_motor.c" 2
+void Timer0_init(void);
+void __attribute__((picinterrupt(("")))) ISR();
+# 2 "timers.c" 2
 
 
 
-void initDCmotorsPWM(unsigned int PWMperiod){
-
-    TRISEbits.TRISE2 = 0;
-    TRISEbits.TRISE4 = 0;
-    TRISCbits.TRISC7 = 0;
-    TRISGbits.TRISG6 = 0;
-
-    LATEbits.LATE2 = 0;
-    LATEbits.LATE4 = 0;
-    LATCbits.LATC7 = 0;
-    LATGbits.LATG6 = 0;
 
 
-    RE2PPS=0x05;
-    RE4PPS=0x06;
-    RC7PPS=0x07;
-    RG6PPS=0x08;
-
-
-    T2CONbits.CKPS=0b100;
-    T2HLTbits.MODE=0b00000;
-    T2CLKCONbits.CS=0b0001;
-
-
-
-    T2PR=(unsigned char)PWMperiod;
-    T2CONbits.ON=1;
-
-
-
-    CCPR1H=0;
-    CCPR2H=0;
-    CCPR3H=0;
-    CCPR4H=0;
-
-
-    CCPTMRS0bits.C1TSEL=0;
-    CCPTMRS0bits.C2TSEL=0;
-    CCPTMRS0bits.C3TSEL=0;
-    CCPTMRS0bits.C4TSEL=0;
-
-
-    CCP1CONbits.FMT=1;
-    CCP1CONbits.CCP1MODE=0b1100;
-    CCP1CONbits.EN=1;
-
-    CCP2CONbits.FMT=1;
-    CCP2CONbits.CCP2MODE=0b1100;
-    CCP2CONbits.EN=1;
-
-    CCP3CONbits.FMT=1;
-    CCP3CONbits.CCP3MODE=0b1100;
-    CCP3CONbits.EN=1;
-
-    CCP4CONbits.FMT=1;
-    CCP4CONbits.CCP4MODE=0b1100;
-    CCP4CONbits.EN=1;
-}
-
-
-void setMotorPWM(DC_motor *m)
+void Timer0_init(void)
 {
-    unsigned char posDuty, negDuty;
+    T0CON1bits.T0CS=0b010;
+    T0CON1bits.T0ASYNC=1;
+    T0CON0bits.T016BIT=1;
 
-    if(m->brakemode) {
-        posDuty=(unsigned char)(m->PWMperiod - ((unsigned int)(m->power)*(m->PWMperiod))/100);
-        negDuty=(unsigned char)(m->PWMperiod);
-    }
-    else {
-        posDuty=0;
-  negDuty=(unsigned char)(((unsigned int)(m->power)*(m->PWMperiod))/100);
-    }
-
-    if (m->direction) {
-        *(m->posDutyHighByte)=posDuty;
-        *(m->negDutyHighByte)=negDuty;
-    } else {
-        *(m->posDutyHighByte)=negDuty;
-        *(m->negDutyHighByte)=posDuty;
-    }
-}
+    T0CON1bits.T0CKPS=0b1110;
 
 
-void stop(DC_motor *mL, DC_motor *mR)
-{
 
 
-    while ((mL->power>0) || (mR->power>0)){
-        if (mL->power>0) {mL->power--;}
-        if (mR->power>0) {mR->power--;}
-        setMotorPWM(mL);
-        setMotorPWM(mR);
-        _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
-    }
-}
 
 
-void turnLeft(DC_motor *mL, DC_motor *mR)
-{
-    unsigned char leftGear = turningGear;
-    unsigned char rightGear = turningGear;
-    (mL->direction) = 0;
-    (mR->direction) = 1;
-    while ((mL->power<leftGear) || (mR->power<rightGear)){
-        if (mL->power<leftGear) {mL->power++;}
-        if (mR->power<rightGear) {mR->power++;}
-        setMotorPWM(mL);
-        setMotorPWM(mR);
-        _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
-    }
-}
+    TMR0H = 0;
+    TMR0L = 0;
 
+    T0CON0bits.T0EN=1;
 
-void turnRight(DC_motor *mL, DC_motor *mR)
-{
-    unsigned char leftGear = turningGear;
-    unsigned char rightGear = turningGear;
-    (mL->direction) = 1;
-    (mR->direction) = 0;
-    while ((mL->power<leftGear) || (mR->power<rightGear)){
-        if (mL->power<leftGear) {mL->power++;}
-        if (mR->power<rightGear) {mR->power++;}
-        setMotorPWM(mL);
-        setMotorPWM(mR);
-        _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
-    }
-}
-
-
-void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
-{
-    unsigned char leftGear = topGearLeft;
-    unsigned char rightGear = topGearRight;
-    (mL -> direction) = 1;
-    (mR -> direction) = 1;
-    while ((mL->power<leftGear) || (mR->power<rightGear)){
-        if (mL->power<leftGear) {mL->power++;}
-        if (mR->power<rightGear) {mR->power++;}
-        setMotorPWM(mL);
-        setMotorPWM(mR);
-        _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
-    }
-}
-
-
-void fullSpeedReverse(DC_motor *mL, DC_motor *mR)
-{
-    unsigned char leftGear = topGearLeft;
-    unsigned char rightGear = topGearRight;
-    (mL -> direction) = 0;
-    (mR -> direction) = 0;
-    while ((mL->power<leftGear) || (mR->power<rightGear)){
-        if (mL->power<leftGear) {mL->power++;}
-        if (mR->power<rightGear) {mR->power++;}
-        setMotorPWM(mL);
-        setMotorPWM(mR);
-        _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
-    }
-}
-
-
-void turnLeft90(DC_motor *mL, DC_motor *mR)
-{
-    turnLeft(mL, mR);
-    _delay((unsigned long)((turnLeft90Delay)*(64000000/4000.0)));
-    stop(mL, mR);
-}
-
-
-void turnRight90(DC_motor *mL, DC_motor *mR)
-{
-    turnRight(mL, mR);
-    _delay((unsigned long)((turnRight90Delay)*(64000000/4000.0)));
-    stop(mL, mR);
-}
-
-
-void turnLeft135(DC_motor *mL, DC_motor *mR)
-{
-    turnLeft(mL, mR);
-    _delay((unsigned long)((turnLeft135Delay)*(64000000/4000.0)));
-    stop(mL, mR);
-}
-
-
-void turnRight135(DC_motor *mL, DC_motor *mR)
-{
-    turnRight(mL, mR);
-    _delay((unsigned long)((turnRight135Delay)*(64000000/4000.0)));
-    stop(mL, mR);
-}
-
-
-void UTurn(DC_motor *mL, DC_motor *mR)
-{
-    turnLeft(mL, mR);
-    _delay((unsigned long)((turn180Delay)*(64000000/4000.0)));
-    stop(mL, mR);
-}
-
-
-void headbuttReverse(DC_motor *mL, DC_motor *mR)
-{
-    fullSpeedReverse(mL, mR);
-    _delay((unsigned long)((headbuttDelay)*(64000000/4000.0)));
-    stop(mL, mR);
-}
-
-
-void squareReverse(DC_motor *mL, DC_motor *mR)
-{
-    fullSpeedReverse(mL, mR);
-    _delay((unsigned long)((squareDelay)*(64000000/4000.0)));
-    stop(mL, mR);
 }
