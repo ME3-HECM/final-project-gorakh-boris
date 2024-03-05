@@ -1,6 +1,6 @@
 
 Memory Summary:
-    Program space        used   AE5h (  2789) of 20000h bytes   (  2.1%)
+    Program space        used   ACDh (  2765) of 20000h bytes   (  2.1%)
     Data space           used   12Eh (   302) of   DEAh bytes   (  8.5%)
     Configuration bits   used     6h (     6) of     6h words   (100.0%)
     EEPROM space         used     0h (     0) of   400h bytes   (  0.0%)

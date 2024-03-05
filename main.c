@@ -24,7 +24,7 @@
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
 void main(void) {
-    __delay_ms(1000);    //initial delay
+    struct RGBC_val measured_colour;
     
     unsigned int PWMcycle = 99;    
     struct DC_motor motorL, motorR;
@@ -79,19 +79,28 @@ void main(void) {
     
     //returnToSender(&motorL, &motorR);
     
-    struct RGBC_val measured_colour;
+    while (PORTFbits.RF2);          //wait until RF2 is pressed
     
     while (1) {
         getRGBCval(&measured_colour);
         sendIntSerial4((int)measured_colour.C);
+        LATDbits.LATD7 = !LATDbits.LATD7;
+        __delay_ms(200);
+        
         //sendIntSerial4((int)TMR0L);
         //sendIntSerial4((int)TMR0H);
-        if (!PORTFbits.RF2) {  //on button press
-            LATDbits.LATD7 = !LATDbits.LATD7;
-        }
         //sendArrayCharSerial4(trail_timer_high);
         //sendArrayCharSerial4(trail_timer_low);
         //sendArrayCharSerial4(trail_manoeuvre);
-        __delay_ms(100);
+        
+        //toggle_brake_lights();
+        //__delay_ms(100);
+        //toggle_main_beam();
+        //__delay_ms(100);
+        //toggle_tricolour_LED();
+        //__delay_ms(100);
+        //toggle_left_indicators();
+        //toggle_right_indicators();
+        //__delay_ms(100);
     }
 }

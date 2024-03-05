@@ -24347,7 +24347,7 @@ void __attribute__((picinterrupt(("")))) ISR();
 
 
 void main(void) {
-    _delay((unsigned long)((1000)*(64000000/4000.0)));
+    struct RGBC_val measured_colour;
 
     unsigned int PWMcycle = 99;
     struct DC_motor motorL, motorR;
@@ -24388,19 +24388,13 @@ void main(void) {
         ANSELFbits.ANSELF2 = 0;
         ANSELFbits.ANSELF3 = 0;
 # 82 "main.c"
-    struct RGBC_val measured_colour;
+    while (PORTFbits.RF2);
 
     while (1) {
         getRGBCval(&measured_colour);
         sendIntSerial4((int)measured_colour.C);
-
-
-        if (!PORTFbits.RF2) {
-            LATDbits.LATD7 = !LATDbits.LATD7;
-        }
-
-
-
-        _delay((unsigned long)((100)*(64000000/4000.0)));
+        LATDbits.LATD7 = !LATDbits.LATD7;
+        _delay((unsigned long)((200)*(64000000/4000.0)));
+# 105 "main.c"
     }
 }

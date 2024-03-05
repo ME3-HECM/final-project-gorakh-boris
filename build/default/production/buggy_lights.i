@@ -24127,9 +24127,9 @@ void buggy_lights_init(void)
             TRISAbits.TRISA4 = 0;
             TRISFbits.TRISF7 = 0;
 
-            LATGbits.LATG1 = 1;
-            LATAbits.LATA4 = 1;
-            LATFbits.LATF7 = 1;
+            LATGbits.LATG1 = 0;
+            LATAbits.LATA4 = 0;
+            LATFbits.LATF7 = 0;
 
 
 
@@ -24137,33 +24137,45 @@ void buggy_lights_init(void)
             TRISEbits.TRISE7 = 0;
             TRISAbits.TRISA3 = 0;
 
-            LATGbits.LATG0 = 1;
-            LATEbits.LATE7 = 1;
-            LATAbits.LATA3 = 1;
-# 63 "buggy_lights.c"
+            LATGbits.LATG0 = 0;
+            LATEbits.LATE7 = 0;
+            LATAbits.LATA3 = 0;
+# 64 "buggy_lights.c"
 }
 
 void toggle_brake_lights(void)
 {
-
+    LATDbits.LATD4 = !LATDbits.LATD4;
 }
 
 void toggle_main_beam(void)
 {
-
+    LATDbits.LATD3 = !LATDbits.LATD3;
 }
 
 void toggle_left_indicators(void)
 {
-
+    LATFbits.LATF0 = !LATFbits.LATF0;
 }
 
 void toggle_right_indicators(void)
 {
-
+    LATHbits.LATH0 = !LATHbits.LATH0;
 }
 
 void toggle_tricolour_LED(void)
 {
 
+
+
+            LATGbits.LATG1 = !LATGbits.LATG1;
+            LATAbits.LATA4 = !LATAbits.LATA4;
+            LATFbits.LATF7 = !LATFbits.LATF7;
+
+
+
+            LATGbits.LATG0 = !LATGbits.LATG0;
+            LATEbits.LATE7 = !LATEbits.LATE7;
+            LATAbits.LATA3 = !LATAbits.LATA3;
+# 115 "buggy_lights.c"
 }

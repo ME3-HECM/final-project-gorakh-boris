@@ -1,9 +1,9 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-[v F205 `(v ~T0 @X0 1 tf1`ul ]
-"20 C:\Program Files\Microchip\xc8\v2.45\pic\include\builtins.h
-[v __delay `JF205 ~T0 @X0 0 e ]
-[p i __delay ]
+"10 ./color.h
+[; ;./color.h: 10: typedef struct RGBC_val {
+[s S2016 `ui 1 `ui 1 `ui 1 `ui 1 ]
+[n S2016 RGBC_val R G B C ]
 "8 ./dc_motor.h
 [; ;./dc_motor.h: 8: typedef struct DC_motor {
 [s S2015 `uc 1 `uc 1 `uc 1 `ui 1 `*uc 1 `*uc 1 ]
@@ -125,17 +125,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12319
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 12319: extern volatile ANSELFbits_t ANSELFbits __attribute__((address(0xEB4)));
 [v _ANSELFbits `VS567 ~T0 @X0 0 e@3764 ]
-"10 ./color.h
-[; ;./color.h: 10: typedef struct RGBC_val {
-[s S2016 `ui 1 `ui 1 `ui 1 `ui 1 ]
-[n S2016 RGBC_val R G B C ]
-"56
-[; ;./color.h: 56: void getRGBCval(struct RGBC_val *p);
-[v _getRGBCval `(v ~T0 @X0 0 ef1`*S2016 ]
-"27 ./serial.h
-[; ;./serial.h: 27: void sendIntSerial4(int integer);
-[v _sendIntSerial4 `(v ~T0 @X0 0 ef1`i ]
-"30262 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
+"30262
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 30262:     struct {
 [s S1412 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1412 . RF0 RF1 RF2 RF3 RF4 RF5 RF6 RF7 ]
@@ -150,6 +140,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "30278
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 30278: extern volatile PORTFbits_t PORTFbits __attribute__((address(0xF8E)));
 [v _PORTFbits `VS1411 ~T0 @X0 0 e@3982 ]
+"56 ./color.h
+[; ;./color.h: 56: void getRGBCval(struct RGBC_val *p);
+[v _getRGBCval `(v ~T0 @X0 0 ef1`*S2016 ]
+"27 ./serial.h
+[; ;./serial.h: 27: void sendIntSerial4(int integer);
+[v _sendIntSerial4 `(v ~T0 @X0 0 ef1`i ]
+[v F205 `(v ~T0 @X0 1 tf1`ul ]
+"20 C:\Program Files\Microchip\xc8\v2.45\pic\include\builtins.h
+[v __delay `JF205 ~T0 @X0 0 e ]
+[p i __delay ]
 "9 main.c
 [p x FEXTOSC  =  HS      ]
 "10
@@ -2353,8 +2353,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _main ]
 [f ]
 "27
-[; ;main.c: 27:     _delay((unsigned long)((1000)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;main.c: 27:     struct RGBC_val measured_colour;
+[v _measured_colour `S2016 ~T0 @X0 1 a ]
 "29
 [; ;main.c: 29:     unsigned int PWMcycle = 99;
 [v _PWMcycle `ui ~T0 @X0 1 a ]
@@ -2439,11 +2439,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 66:         ANSELFbits.ANSELF3 = 0;
 [e = . . _ANSELFbits 0 3 -> -> 0 `i `uc ]
 "82
-[; ;main.c: 82:     struct RGBC_val measured_colour;
-[v _measured_colour `S2016 ~T0 @X0 1 a ]
+[; ;main.c: 82:     while (PORTFbits.RF2);
+[e $U 2018  ]
+[e :U 2019 ]
+[e :U 2018 ]
+[e $ != -> . . _PORTFbits 0 2 `i -> 0 `i 2019  ]
+[e :U 2020 ]
 "84
 [; ;main.c: 84:     while (1) {
-[e :U 2019 ]
+[e :U 2022 ]
 {
 "85
 [; ;main.c: 85:         getRGBCval(&measured_colour);
@@ -2451,27 +2455,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "86
 [; ;main.c: 86:         sendIntSerial4((int)measured_colour.C);
 [e ( _sendIntSerial4 (1 -> . _measured_colour 3 `i ]
-"89
-[; ;main.c: 89:         if (!PORTFbits.RF2) {
-[e $ ! ! != -> . . _PORTFbits 0 2 `i -> 0 `i 2021  ]
-{
-"90
-[; ;main.c: 90:             LATDbits.LATD7 = !LATDbits.LATD7;
+"87
+[; ;main.c: 87:         LATDbits.LATD7 = !LATDbits.LATD7;
 [e = . . _LATDbits 0 7 -> -> ! != -> . . _LATDbits 0 7 `i -> 0 `i `i `uc ]
-"91
-[; ;main.c: 91:         }
+"88
+[; ;main.c: 88:         _delay((unsigned long)((200)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"105
+[; ;main.c: 105:     }
 }
 [e :U 2021 ]
-"95
-[; ;main.c: 95:         _delay((unsigned long)((100)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"96
-[; ;main.c: 96:     }
-}
-[e :U 2018 ]
-[e $U 2019  ]
-[e :U 2020 ]
-"97
-[; ;main.c: 97: }
+[e $U 2022  ]
+[e :U 2023 ]
+"106
+[; ;main.c: 106: }
 [e :UE 2017 ]
 }
