@@ -24284,6 +24284,12 @@ void Timer0_init(void);
 void __attribute__((picinterrupt(("")))) ISR();
 # 22 "main.c" 2
 
+# 1 "./interrupts.h" 1
+# 15 "./interrupts.h"
+void Interrupts_init(void);
+void __attribute__((picinterrupt(("high_priority")))) HighISR();
+# 23 "main.c" 2
+
 
 
 
@@ -24309,10 +24315,23 @@ void main(void) {
     motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
     motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
 
+
+
+    struct RGBC_val read_val;
+
+    read_val.R = 0;
+    read_val.B = 0;
+    read_val.G = 0;
+    read_val.C = 0;
+
+
+
     buggy_lights_init();
     color_click_init();
     initUSART4();
     Timer0_init();
+    Interrupts_init();
+
 
 
 
@@ -24321,7 +24340,10 @@ void main(void) {
 
     ANSELFbits.ANSELF2 = 0;
     ANSELFbits.ANSELF3 = 0;
-# 71 "main.c"
+# 86 "main.c"
+    char display[41];
+
+
     while (1) {
 
 
@@ -24331,7 +24353,12 @@ void main(void) {
             manoeuvre_pointer ++;
             LATDbits.LATD7 = !LATDbits.LATD7;
         }
-        sendArraySerial4(trail_manoeuvre);
+        getRGBCval(&read_val);
+        sprintf(display, "Red:%05d Green:%05d Blue:%05d Clear:%05d /r/n",read_val.R,read_val.G,read_val.B,read_val.C);
+        TxBufferedString(display);
+        sendTxBuf();
+
+
         _delay((unsigned long)((500)*(64000000/4000.0)));
     }
 }

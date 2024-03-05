@@ -20,6 +20,7 @@
 #include "color.h"
 #include "serial.h"
 #include "timers.h"
+#include "interrupts.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
@@ -45,10 +46,23 @@ void main(void) {
     motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
     motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
     
+
+    //CREATING A VARIABLE FOR THE STRUCTURE RGBC_VAL
+    struct RGBC_val read_val;
+    
+    read_val.R = 0;
+    read_val.B = 0;
+    read_val.G = 0;
+    read_val.C = 0;
+    
+    
+    //INITIALISATION
     buggy_lights_init();
     color_click_init();
     initUSART4();
     Timer0_init();
+    Interrupts_init();
+    
     
     //initialise the two push buttons on clicker board
     //set up TRIS registers (1 for input)
@@ -68,16 +82,25 @@ void main(void) {
     //cardCyan(&motorL, &motorR, backtrack);
     //cardWhite(&motorL, &motorR);
     
+    
+    char display[41];
+ 
+    
     while (1) {
         //sendIntSerial4((int)TMR0L);
-        //sendIntSerial4((int)TMR0H);
+        //sendI ntSerial4((int)TMR0H);
         //sendIntSerial4(sizeof(trail_manoeuvre));
         if (!PORTFbits.RF2) {  //on button press
             *manoeuvre_pointer = 0;
             manoeuvre_pointer ++;
             LATDbits.LATD7 = !LATDbits.LATD7;
         }
-        sendArraySerial4(trail_manoeuvre);
+        getRGBCval(&read_val);
+        sprintf(display, "Red:%05d Green:%05d Blue:%05d Clear:%05d /r/n",read_val.R,read_val.G,read_val.B,read_val.C);
+        TxBufferedString(display);
+        sendTxBuf();
+        
+        //sendArraySerial4(trail_manoeuvre);
         __delay_ms(500);
     }
 }

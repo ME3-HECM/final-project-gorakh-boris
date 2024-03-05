@@ -23,6 +23,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "20738
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 20738: extern volatile unsigned char CCPR4H __attribute__((address(0xF21)));
 [v _CCPR4H `Vuc ~T0 @X0 0 e@3873 ]
+"9 ./color.h
+[; ;./color.h: 9: typedef struct RGBC_val {
+[s S2016 `ui 1 `ui 1 `ui 1 `ui 1 ]
+[n S2016 RGBC_val R G B C ]
 "15 ./buggy_lights.h
 [; ;./buggy_lights.h: 15: void buggy_lights_init(void);
 [v _buggy_lights_init `(v ~T0 @X0 0 ef ]
@@ -35,6 +39,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16 ./timers.h
 [; ;./timers.h: 16: void Timer0_init(void);
 [v _Timer0_init `(v ~T0 @X0 0 ef ]
+"15 ./interrupts.h
+[; ;./interrupts.h: 15: void Interrupts_init(void);
+[v _Interrupts_init `(v ~T0 @X0 0 ef ]
 "29622 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29622:     struct {
 [s S1388 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -87,9 +94,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28508
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28508: extern volatile LATDbits_t LATDbits __attribute__((address(0xF7C)));
 [v _LATDbits `VS1348 ~T0 @X0 0 e@3964 ]
-"28 ./serial.h
-[; ;./serial.h: 28: void sendArraySerial4(unsigned char *arr);
-[v _sendArraySerial4 `(v ~T0 @X0 0 ef1`*uc ]
+"55 ./color.h
+[; ;./color.h: 55: void getRGBCval(struct RGBC_val *p);
+[v _getRGBCval `(v ~T0 @X0 0 ef1`*S2016 ]
+"99 main.c
+[; ;main.c: 99:         sprintf(display, "Red:%05d Green:%05d Blue:%05d Clear:%05d /r/n",read_val.R,read_val.G,read_val.B,read_val.C);
+[v _sprintf `(i ~T0 @X0 0 e? ]
+"39 ./serial.h
+[; ;./serial.h: 39: void TxBufferedString(char *string);
+[v _TxBufferedString `(v ~T0 @X0 0 ef1`*uc ]
+"40
+[; ;./serial.h: 40: void sendTxBuf(void);
+[v _sendTxBuf `(v ~T0 @X0 0 ef ]
 "9 main.c
 [p x FEXTOSC  =  HS      ]
 "10
@@ -2274,120 +2290,151 @@ Version 4.0 HI-TECH Software Intermediate Code
 &U *U + &U _trail_manoeuvre * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_manoeuvre `ui `ux
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"26 main.c
-[; ;main.c: 26: void main(void) {
+"27 main.c
+[; ;main.c: 27: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"27
-[; ;main.c: 27:     _delay((unsigned long)((1000)*(64000000/4000.0)));
+"28
+[; ;main.c: 28:     _delay((unsigned long)((1000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"29
-[; ;main.c: 29:     unsigned int PWMcycle = 99;
+"30
+[; ;main.c: 30:     unsigned int PWMcycle = 99;
 [v _PWMcycle `ui ~T0 @X0 1 a ]
 [e = _PWMcycle -> -> 99 `i `ui ]
-"30
-[; ;main.c: 30:     initDCmotorsPWM(PWMcycle);
+"31
+[; ;main.c: 31:     initDCmotorsPWM(PWMcycle);
 [e ( _initDCmotorsPWM (1 _PWMcycle ]
-"32
-[; ;main.c: 32:     struct DC_motor motorL, motorR;
+"33
+[; ;main.c: 33:     struct DC_motor motorL, motorR;
 [v _motorL `S2015 ~T0 @X0 1 a ]
 [v _motorR `S2015 ~T0 @X0 1 a ]
-"34
-[; ;main.c: 34:     motorL.power = 0;
-[e = . _motorL 0 -> -> 0 `i `uc ]
 "35
-[; ;main.c: 35:     motorL.direction = 1;
-[e = . _motorL 1 -> -> 1 `i `uc ]
+[; ;main.c: 35:     motorL.power = 0;
+[e = . _motorL 0 -> -> 0 `i `uc ]
 "36
-[; ;main.c: 36:     motorL.brakemode = 1;
-[e = . _motorL 2 -> -> 1 `i `uc ]
+[; ;main.c: 36:     motorL.direction = 1;
+[e = . _motorL 1 -> -> 1 `i `uc ]
 "37
-[; ;main.c: 37:     motorL.PWMperiod = PWMcycle;
-[e = . _motorL 3 _PWMcycle ]
+[; ;main.c: 37:     motorL.brakemode = 1;
+[e = . _motorL 2 -> -> 1 `i `uc ]
 "38
-[; ;main.c: 38:     motorL.posDutyHighByte = (unsigned char *)(&CCPR1H);
-[e = . _motorL 4 -> &U _CCPR1H `*uc ]
+[; ;main.c: 38:     motorL.PWMperiod = PWMcycle;
+[e = . _motorL 3 _PWMcycle ]
 "39
-[; ;main.c: 39:     motorL.negDutyHighByte = (unsigned char *)(&CCPR2H);
+[; ;main.c: 39:     motorL.posDutyHighByte = (unsigned char *)(&CCPR1H);
+[e = . _motorL 4 -> &U _CCPR1H `*uc ]
+"40
+[; ;main.c: 40:     motorL.negDutyHighByte = (unsigned char *)(&CCPR2H);
 [e = . _motorL 5 -> &U _CCPR2H `*uc ]
-"41
-[; ;main.c: 41:     motorR.power = 0;
-[e = . _motorR 0 -> -> 0 `i `uc ]
 "42
-[; ;main.c: 42:     motorR.direction = 1;
-[e = . _motorR 1 -> -> 1 `i `uc ]
+[; ;main.c: 42:     motorR.power = 0;
+[e = . _motorR 0 -> -> 0 `i `uc ]
 "43
-[; ;main.c: 43:     motorR.brakemode = 1;
-[e = . _motorR 2 -> -> 1 `i `uc ]
+[; ;main.c: 43:     motorR.direction = 1;
+[e = . _motorR 1 -> -> 1 `i `uc ]
 "44
-[; ;main.c: 44:     motorR.PWMperiod = PWMcycle;
-[e = . _motorR 3 _PWMcycle ]
+[; ;main.c: 44:     motorR.brakemode = 1;
+[e = . _motorR 2 -> -> 1 `i `uc ]
 "45
-[; ;main.c: 45:     motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
-[e = . _motorR 4 -> &U _CCPR3H `*uc ]
+[; ;main.c: 45:     motorR.PWMperiod = PWMcycle;
+[e = . _motorR 3 _PWMcycle ]
 "46
-[; ;main.c: 46:     motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
+[; ;main.c: 46:     motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
+[e = . _motorR 4 -> &U _CCPR3H `*uc ]
+"47
+[; ;main.c: 47:     motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
 [e = . _motorR 5 -> &U _CCPR4H `*uc ]
-"48
-[; ;main.c: 48:     buggy_lights_init();
-[e ( _buggy_lights_init ..  ]
-"49
-[; ;main.c: 49:     color_click_init();
-[e ( _color_click_init ..  ]
-"50
-[; ;main.c: 50:     initUSART4();
-[e ( _initUSART4 ..  ]
 "51
-[; ;main.c: 51:     Timer0_init();
-[e ( _Timer0_init ..  ]
+[; ;main.c: 51:     struct RGBC_val read_val;
+[v _read_val `S2016 ~T0 @X0 1 a ]
+"53
+[; ;main.c: 53:     read_val.R = 0;
+[e = . _read_val 0 -> -> 0 `i `ui ]
+"54
+[; ;main.c: 54:     read_val.B = 0;
+[e = . _read_val 2 -> -> 0 `i `ui ]
 "55
-[; ;main.c: 55:     TRISFbits.TRISF2 = 1;
-[e = . . _TRISFbits 0 2 -> -> 1 `i `uc ]
+[; ;main.c: 55:     read_val.G = 0;
+[e = . _read_val 1 -> -> 0 `i `ui ]
 "56
-[; ;main.c: 56:     TRISFbits.TRISF3 = 1;
+[; ;main.c: 56:     read_val.C = 0;
+[e = . _read_val 3 -> -> 0 `i `ui ]
+"60
+[; ;main.c: 60:     buggy_lights_init();
+[e ( _buggy_lights_init ..  ]
+"61
+[; ;main.c: 61:     color_click_init();
+[e ( _color_click_init ..  ]
+"62
+[; ;main.c: 62:     initUSART4();
+[e ( _initUSART4 ..  ]
+"63
+[; ;main.c: 63:     Timer0_init();
+[e ( _Timer0_init ..  ]
+"64
+[; ;main.c: 64:     Interrupts_init();
+[e ( _Interrupts_init ..  ]
+"69
+[; ;main.c: 69:     TRISFbits.TRISF2 = 1;
+[e = . . _TRISFbits 0 2 -> -> 1 `i `uc ]
+"70
+[; ;main.c: 70:     TRISFbits.TRISF3 = 1;
 [e = . . _TRISFbits 0 3 -> -> 1 `i `uc ]
-"58
-[; ;main.c: 58:     ANSELFbits.ANSELF2 = 0;
+"72
+[; ;main.c: 72:     ANSELFbits.ANSELF2 = 0;
 [e = . . _ANSELFbits 0 2 -> -> 0 `i `uc ]
-"59
-[; ;main.c: 59:     ANSELFbits.ANSELF3 = 0;
+"73
+[; ;main.c: 73:     ANSELFbits.ANSELF3 = 0;
 [e = . . _ANSELFbits 0 3 -> -> 0 `i `uc ]
-"71
-[; ;main.c: 71:     while (1) {
+"86
+[; ;main.c: 86:     char display[41];
+[v _display `uc ~T0 @X0 -> 41 `i a ]
+"89
+[; ;main.c: 89:     while (1) {
 [e :U 2019 ]
 {
-"75
-[; ;main.c: 75:         if (!PORTFbits.RF2) {
+"93
+[; ;main.c: 93:         if (!PORTFbits.RF2) {
 [e $ ! ! != -> . . _PORTFbits 0 2 `i -> 0 `i 2021  ]
 {
-"76
-[; ;main.c: 76:             *manoeuvre_pointer = 0;
+"94
+[; ;main.c: 94:             *manoeuvre_pointer = 0;
 [e = *U _manoeuvre_pointer -> -> 0 `i `uc ]
-"77
-[; ;main.c: 77:             manoeuvre_pointer ++;
+"95
+[; ;main.c: 95:             manoeuvre_pointer ++;
 [e ++ _manoeuvre_pointer * -> -> 1 `i `x -> -> # *U _manoeuvre_pointer `i `x ]
-"78
-[; ;main.c: 78:             LATDbits.LATD7 = !LATDbits.LATD7;
+"96
+[; ;main.c: 96:             LATDbits.LATD7 = !LATDbits.LATD7;
 [e = . . _LATDbits 0 7 -> -> ! != -> . . _LATDbits 0 7 `i -> 0 `i `i `uc ]
-"79
-[; ;main.c: 79:         }
+"97
+[; ;main.c: 97:         }
 }
 [e :U 2021 ]
-"80
-[; ;main.c: 80:         sendArraySerial4(trail_manoeuvre);
-[e ( _sendArraySerial4 (1 &U _trail_manoeuvre ]
-"81
-[; ;main.c: 81:         _delay((unsigned long)((500)*(64000000/4000.0)));
+"98
+[; ;main.c: 98:         getRGBCval(&read_val);
+[e ( _getRGBCval (1 &U _read_val ]
+"99
+[; ;main.c: 99:         sprintf(display, "Red:%05d Green:%05d Blue:%05d Clear:%05d /r/n",read_val.R,read_val.G,read_val.B,read_val.C);
+[e ( _sprintf , , , , , &U _display :s 1C . _read_val 0 . _read_val 1 . _read_val 2 . _read_val 3 ]
+"100
+[; ;main.c: 100:         TxBufferedString(display);
+[e ( _TxBufferedString (1 &U _display ]
+"101
+[; ;main.c: 101:         sendTxBuf();
+[e ( _sendTxBuf ..  ]
+"104
+[; ;main.c: 104:         _delay((unsigned long)((500)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"82
-[; ;main.c: 82:     }
+"105
+[; ;main.c: 105:     }
 }
 [e :U 2018 ]
 [e $U 2019  ]
 [e :U 2020 ]
-"83
-[; ;main.c: 83: }
+"106
+[; ;main.c: 106: }
 [e :UE 2017 ]
 }
+[a 1C 82 101 100 58 37 48 53 100 32 71 114 101 101 110 58 37 48 53 100 32 66 108 117 101 58 37 48 53 100 32 67 108 101 97 114 58 37 48 53 100 32 47 114 47 110 0 ]
