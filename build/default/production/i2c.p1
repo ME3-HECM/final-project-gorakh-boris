@@ -2125,129 +2125,129 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2017 ]
 [e $ || != & -> _SSP2STAT `i -> 4 `i -> 0 `i != & -> _SSP2CON2 `i -> 31 `i -> 0 `i 2018  ]
 [e :U 2019 ]
-"25
-[; ;i2c.c: 25: }
+"27
+[; ;i2c.c: 27: }
 [e :UE 2016 ]
 }
-"27
-[; ;i2c.c: 27: void I2C_2_Master_Start(void)
+"29
+[; ;i2c.c: 29: void I2C_2_Master_Start(void)
 [v _I2C_2_Master_Start `(v ~T0 @X0 1 ef ]
-"28
-[; ;i2c.c: 28: {
+"30
+[; ;i2c.c: 30: {
 {
 [e :U _I2C_2_Master_Start ]
 [f ]
-"29
-[; ;i2c.c: 29:   I2C_2_Master_Idle();
-[e ( _I2C_2_Master_Idle ..  ]
-"30
-[; ;i2c.c: 30:   SSP2CON2bits.SEN = 1;
-[e = . . _SSP2CON2bits 0 0 -> -> 1 `i `uc ]
 "31
-[; ;i2c.c: 31: }
+[; ;i2c.c: 31:   I2C_2_Master_Idle();
+[e ( _I2C_2_Master_Idle ..  ]
+"32
+[; ;i2c.c: 32:   SSP2CON2bits.SEN = 1;
+[e = . . _SSP2CON2bits 0 0 -> -> 1 `i `uc ]
+"33
+[; ;i2c.c: 33: }
 [e :UE 2020 ]
 }
-"33
-[; ;i2c.c: 33: void I2C_2_Master_RepStart(void)
+"35
+[; ;i2c.c: 35: void I2C_2_Master_RepStart(void)
 [v _I2C_2_Master_RepStart `(v ~T0 @X0 1 ef ]
-"34
-[; ;i2c.c: 34: {
+"36
+[; ;i2c.c: 36: {
 {
 [e :U _I2C_2_Master_RepStart ]
 [f ]
-"35
-[; ;i2c.c: 35:   I2C_2_Master_Idle();
-[e ( _I2C_2_Master_Idle ..  ]
-"36
-[; ;i2c.c: 36:   SSP2CON2bits.RSEN = 1;
-[e = . . _SSP2CON2bits 0 1 -> -> 1 `i `uc ]
 "37
-[; ;i2c.c: 37: }
+[; ;i2c.c: 37:   I2C_2_Master_Idle();
+[e ( _I2C_2_Master_Idle ..  ]
+"38
+[; ;i2c.c: 38:   SSP2CON2bits.RSEN = 1;
+[e = . . _SSP2CON2bits 0 1 -> -> 1 `i `uc ]
+"39
+[; ;i2c.c: 39: }
 [e :UE 2021 ]
 }
-"39
-[; ;i2c.c: 39: void I2C_2_Master_Stop()
+"41
+[; ;i2c.c: 41: void I2C_2_Master_Stop()
 [v _I2C_2_Master_Stop `(v ~T0 @X0 1 ef ]
-"40
-[; ;i2c.c: 40: {
+"42
+[; ;i2c.c: 42: {
 {
 [e :U _I2C_2_Master_Stop ]
 [f ]
-"41
-[; ;i2c.c: 41:   I2C_2_Master_Idle();
-[e ( _I2C_2_Master_Idle ..  ]
-"42
-[; ;i2c.c: 42:   SSP2CON2bits.PEN = 1;
-[e = . . _SSP2CON2bits 0 2 -> -> 1 `i `uc ]
 "43
-[; ;i2c.c: 43: }
+[; ;i2c.c: 43:   I2C_2_Master_Idle();
+[e ( _I2C_2_Master_Idle ..  ]
+"44
+[; ;i2c.c: 44:   SSP2CON2bits.PEN = 1;
+[e = . . _SSP2CON2bits 0 2 -> -> 1 `i `uc ]
+"45
+[; ;i2c.c: 45: }
 [e :UE 2022 ]
 }
-"45
-[; ;i2c.c: 45: void I2C_2_Master_Write(unsigned char data_byte)
+"47
+[; ;i2c.c: 47: void I2C_2_Master_Write(unsigned char data_byte)
 [v _I2C_2_Master_Write `(v ~T0 @X0 1 ef1`uc ]
-"46
-[; ;i2c.c: 46: {
+"48
+[; ;i2c.c: 48: {
 {
 [e :U _I2C_2_Master_Write ]
-"45
-[; ;i2c.c: 45: void I2C_2_Master_Write(unsigned char data_byte)
-[v _data_byte `uc ~T0 @X0 1 r1 ]
-"46
-[; ;i2c.c: 46: {
-[f ]
 "47
-[; ;i2c.c: 47:   I2C_2_Master_Idle();
-[e ( _I2C_2_Master_Idle ..  ]
+[; ;i2c.c: 47: void I2C_2_Master_Write(unsigned char data_byte)
+[v _data_byte `uc ~T0 @X0 1 r1 ]
 "48
-[; ;i2c.c: 48:   SSP2BUF = data_byte;
-[e = _SSP2BUF _data_byte ]
+[; ;i2c.c: 48: {
+[f ]
 "49
-[; ;i2c.c: 49: }
+[; ;i2c.c: 49:   I2C_2_Master_Idle();
+[e ( _I2C_2_Master_Idle ..  ]
+"50
+[; ;i2c.c: 50:   SSP2BUF = data_byte;
+[e = _SSP2BUF _data_byte ]
+"51
+[; ;i2c.c: 51: }
 [e :UE 2023 ]
 }
-"51
-[; ;i2c.c: 51: unsigned char I2C_2_Master_Read(unsigned char ack)
+"53
+[; ;i2c.c: 53: unsigned char I2C_2_Master_Read(unsigned char ack)
 [v _I2C_2_Master_Read `(uc ~T0 @X0 1 ef1`uc ]
-"52
-[; ;i2c.c: 52: {
+"54
+[; ;i2c.c: 54: {
 {
 [e :U _I2C_2_Master_Read ]
-"51
-[; ;i2c.c: 51: unsigned char I2C_2_Master_Read(unsigned char ack)
-[v _ack `uc ~T0 @X0 1 r1 ]
-"52
-[; ;i2c.c: 52: {
-[f ]
 "53
-[; ;i2c.c: 53:   unsigned char tmp;
-[v _tmp `uc ~T0 @X0 1 a ]
+[; ;i2c.c: 53: unsigned char I2C_2_Master_Read(unsigned char ack)
+[v _ack `uc ~T0 @X0 1 r1 ]
 "54
-[; ;i2c.c: 54:   I2C_2_Master_Idle();
-[e ( _I2C_2_Master_Idle ..  ]
+[; ;i2c.c: 54: {
+[f ]
 "55
-[; ;i2c.c: 55:   SSP2CON2bits.RCEN = 1;
-[e = . . _SSP2CON2bits 0 3 -> -> 1 `i `uc ]
+[; ;i2c.c: 55:   unsigned char tmp;
+[v _tmp `uc ~T0 @X0 1 a ]
 "56
 [; ;i2c.c: 56:   I2C_2_Master_Idle();
 [e ( _I2C_2_Master_Idle ..  ]
 "57
-[; ;i2c.c: 57:   tmp = SSP2BUF;
-[e = _tmp _SSP2BUF ]
+[; ;i2c.c: 57:   SSP2CON2bits.RCEN = 1;
+[e = . . _SSP2CON2bits 0 3 -> -> 1 `i `uc ]
 "58
 [; ;i2c.c: 58:   I2C_2_Master_Idle();
 [e ( _I2C_2_Master_Idle ..  ]
 "59
-[; ;i2c.c: 59:   SSP2CON2bits.ACKDT = !ack;
-[e = . . _SSP2CON2bits 0 5 -> -> ! != -> _ack `i -> 0 `i `i `uc ]
+[; ;i2c.c: 59:   tmp = SSP2BUF;
+[e = _tmp _SSP2BUF ]
 "60
-[; ;i2c.c: 60:   SSP2CON2bits.ACKEN = 1;
-[e = . . _SSP2CON2bits 0 4 -> -> 1 `i `uc ]
+[; ;i2c.c: 60:   I2C_2_Master_Idle();
+[e ( _I2C_2_Master_Idle ..  ]
 "61
-[; ;i2c.c: 61:   return tmp;
+[; ;i2c.c: 61:   SSP2CON2bits.ACKDT = !ack;
+[e = . . _SSP2CON2bits 0 5 -> -> ! != -> _ack `i -> 0 `i `i `uc ]
+"62
+[; ;i2c.c: 62:   SSP2CON2bits.ACKEN = 1;
+[e = . . _SSP2CON2bits 0 4 -> -> 1 `i `uc ]
+"63
+[; ;i2c.c: 63:   return tmp;
 [e ) _tmp ]
 [e $UE 2024  ]
-"62
-[; ;i2c.c: 62: }
+"64
+[; ;i2c.c: 64: }
 [e :UE 2024 ]
 }

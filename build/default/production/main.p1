@@ -60,6 +60,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "32 ./color.h
 [; ;./color.h: 32: unsigned int color_read_Red(void);
 [v _color_read_Red `(ui ~T0 @X0 0 ef ]
+"27 ./serial.h
+[; ;./serial.h: 27: void sendIntSerial4(int integer);
+[v _sendIntSerial4 `(v ~T0 @X0 0 ef1`i ]
 "30262 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 30262:     struct {
 [s S1412 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -2366,38 +2369,41 @@ Version 4.0 HI-TECH Software Intermediate Code
 "58
 [; ;main.c: 58:         ANSELFbits.ANSELF3 = 0;
 [e = . . _ANSELFbits 0 3 -> -> 0 `i `uc ]
-"73
-[; ;main.c: 73:     while (1) {
-[e :U 2019 ]
-{
-"74
-[; ;main.c: 74:         unsigned int idk = 0;
+"72
+[; ;main.c: 72:     unsigned int idk = 0;
 [v _idk `ui ~T0 @X0 1 a ]
 [e = _idk -> -> 0 `i `ui ]
+"74
+[; ;main.c: 74:     while (1) {
+[e :U 2019 ]
+{
 "75
 [; ;main.c: 75:         idk = color_read_Red();
 [e = _idk ( _color_read_Red ..  ]
-"78
-[; ;main.c: 78:         if (!PORTFbits.RF2) {
+"76
+[; ;main.c: 76:         sendIntSerial4((int)idk);
+[e ( _sendIntSerial4 (1 -> _idk `i ]
+"79
+[; ;main.c: 79:         if (!PORTFbits.RF2) {
 [e $ ! ! != -> . . _PORTFbits 0 2 `i -> 0 `i 2021  ]
 {
-"79
-[; ;main.c: 79:             LATDbits.LATD7 = !LATDbits.LATD7;
-[e = . . _LATDbits 0 7 -> -> ! != -> . . _LATDbits 0 7 `i -> 0 `i `i `uc ]
 "80
-[; ;main.c: 80:         }
+[; ;main.c: 80:             LATDbits.LATD7 = !LATDbits.LATD7;
+[e = . . _LATDbits 0 7 -> -> ! != -> . . _LATDbits 0 7 `i -> 0 `i `i `uc ]
+"81
+[; ;main.c: 81:         }
 }
 [e :U 2021 ]
-"84
-[; ;main.c: 84:         _delay((unsigned long)((100)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "85
-[; ;main.c: 85:     }
+[; ;main.c: 85:         _delay((unsigned long)((100)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"86
+[; ;main.c: 86:     }
 }
 [e :U 2018 ]
 [e $U 2019  ]
 [e :U 2020 ]
-"86
-[; ;main.c: 86: }
+"87
+[; ;main.c: 87: }
 [e :UE 2017 ]
 }

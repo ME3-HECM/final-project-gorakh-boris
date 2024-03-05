@@ -24373,10 +24373,12 @@ void main(void) {
 
         ANSELFbits.ANSELF2 = 0;
         ANSELFbits.ANSELF3 = 0;
-# 73 "main.c"
+# 72 "main.c"
+    unsigned int idk = 0;
+
     while (1) {
-        unsigned int idk = 0;
         idk = color_read_Red();
+        sendIntSerial4((int)idk);
 
 
         if (!PORTFbits.RF2) {

@@ -69,10 +69,11 @@ void main(void) {
     //cardWhite(&motorL, &motorR);
     
     //returnToSender(&motorL, &motorR);
+    unsigned int idk = 0;
     
     while (1) {
-        unsigned int idk = 0;
         idk = color_read_Red();
+        sendIntSerial4((int)idk);
         //sendIntSerial4((int)TMR0L);
         //sendIntSerial4((int)TMR0H);
         if (!PORTFbits.RF2) {  //on button press
