@@ -52,7 +52,7 @@ void sendArrayCharSerial4(unsigned char *arr) {
     //20 is the length of the input array
     char tempStr[20 * 8 + 1];
     for (unsigned int i = 0; i < 20; i++) {     //Referenced from https://stackoverflow.com/questions/30234363/how-can-i-convert-an-int-array-into-a-string-array
-        index += sprintf(&tempStr[index], "%d", arr[i]);
+        index += sprintf(&tempStr[index], "%d ", arr[i]);
     }
     sendStringSerial4(tempStr);
     sendStringSerial4(" \r");

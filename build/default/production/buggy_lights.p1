@@ -93,58 +93,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28732
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28732: extern volatile LATFbits_t LATFbits __attribute__((address(0xF7E)));
 [v _LATFbits `VS1354 ~T0 @X0 0 e@3966 ]
-"29017
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29017:     struct {
-[s S1368 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1368 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
-"29016
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29016: typedef union {
-[u S1367 `S1368 1 ]
-[n S1367 . . ]
-"29028
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29028: extern volatile TRISAbits_t TRISAbits __attribute__((address(0xF81)));
-[v _TRISAbits `VS1367 ~T0 @X0 0 e@3969 ]
-"29261
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29261:     struct {
-[s S1376 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1376 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"29260
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29260: typedef union {
-[u S1375 `S1376 1 ]
-[n S1375 . . ]
-"29272
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29272: extern volatile TRISCbits_t TRISCbits __attribute__((address(0xF83)));
-[v _TRISCbits `VS1375 ~T0 @X0 0 e@3971 ]
-"28151
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28151:     struct {
-[s S1340 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1340 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
-"28161
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28161:     struct {
-[s S1341 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1341 . LA0 LA1 LA2 LA3 LA4 LA5 LA6 LA7 ]
-"28150
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28150: typedef union {
-[u S1339 `S1340 1 `S1341 1 ]
-[n S1339 . . . ]
-"28172
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28172: extern volatile LATAbits_t LATAbits __attribute__((address(0xF79)));
-[v _LATAbits `VS1339 ~T0 @X0 0 e@3961 ]
-"28375
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28375:     struct {
-[s S1346 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1346 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
-"28385
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28385:     struct {
-[s S1347 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1347 . LC0 LC1 LC2 LC3 LC4 LC5 LC6 LC7 ]
-"28374
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28374: typedef union {
-[u S1345 `S1346 1 `S1347 1 ]
-[n S1345 . . . ]
-"28396
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28396: extern volatile LATCbits_t LATCbits __attribute__((address(0xF7B)));
-[v _LATCbits `VS1345 ~T0 @X0 0 e@3963 ]
 "29684
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29684:     struct {
 [s S1390 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -156,6 +104,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29695
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29695: extern volatile TRISGbits_t TRISGbits __attribute__((address(0xF87)));
 [v _TRISGbits `VS1389 ~T0 @X0 0 e@3975 ]
+"29017
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29017:     struct {
+[s S1368 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1368 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
+"29016
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29016: typedef union {
+[u S1367 `S1368 1 ]
+[n S1367 . . ]
+"29028
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29028: extern volatile TRISAbits_t TRISAbits __attribute__((address(0xF81)));
+[v _TRISAbits `VS1367 ~T0 @X0 0 e@3969 ]
 "28823
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28823:     struct {
 [s S1358 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -171,6 +130,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28841
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28841: extern volatile LATGbits_t LATGbits __attribute__((address(0xF7F)));
 [v _LATGbits `VS1357 ~T0 @X0 0 e@3967 ]
+"28151
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28151:     struct {
+[s S1340 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1340 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
+"28161
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28161:     struct {
+[s S1341 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1341 . LA0 LA1 LA2 LA3 LA4 LA5 LA6 LA7 ]
+"28150
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28150: typedef union {
+[u S1339 `S1340 1 `S1341 1 ]
+[n S1339 . . . ]
+"28172
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28172: extern volatile LATAbits_t LATAbits __attribute__((address(0xF79)));
+[v _LATAbits `VS1339 ~T0 @X0 0 e@3961 ]
 "29505
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29505:     struct {
 [s S1384 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -2195,129 +2169,117 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;buggy_lights.c: 12:         TRISHbits.TRISH0 = 0;
 [e = . . _TRISHbits 0 0 -> -> 0 `i `uc ]
 "14
-[; ;buggy_lights.c: 14:         LATDbits.LATD4 = 1;
-[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
+[; ;buggy_lights.c: 14:         LATDbits.LATD4 = 0;
+[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
 "15
-[; ;buggy_lights.c: 15:         LATHbits.LATH1 = 1;
-[e = . . _LATHbits 0 1 -> -> 1 `i `uc ]
+[; ;buggy_lights.c: 15:         LATHbits.LATH1 = 0;
+[e = . . _LATHbits 0 1 -> -> 0 `i `uc ]
 "16
-[; ;buggy_lights.c: 16:         LATDbits.LATD3 = 1;
-[e = . . _LATDbits 0 3 -> -> 1 `i `uc ]
+[; ;buggy_lights.c: 16:         LATDbits.LATD3 = 0;
+[e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
 "17
-[; ;buggy_lights.c: 17:         LATFbits.LATF0 = 1;
-[e = . . _LATFbits 0 0 -> -> 1 `i `uc ]
+[; ;buggy_lights.c: 17:         LATFbits.LATF0 = 0;
+[e = . . _LATFbits 0 0 -> -> 0 `i `uc ]
 "18
-[; ;buggy_lights.c: 18:         LATHbits.LATH0 = 1;
-[e = . . _LATHbits 0 0 -> -> 1 `i `uc ]
-"22
-[; ;buggy_lights.c: 22:         TRISDbits.TRISD7 = 0;
-[e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
-"23
-[; ;buggy_lights.c: 23:         TRISHbits.TRISH3 = 0;
-[e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
-"25
-[; ;buggy_lights.c: 25:         LATDbits.LATD7 = 1;
-[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
-"26
-[; ;buggy_lights.c: 26:         LATHbits.LATH3 = 1;
-[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
-"31
-[; ;buggy_lights.c: 31:         TRISAbits.TRISA0 = 0;
-[e = . . _TRISAbits 0 0 -> -> 0 `i `uc ]
-"32
-[; ;buggy_lights.c: 32:         TRISCbits.TRISC2 = 0;
-[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
-"33
-[; ;buggy_lights.c: 33:         TRISDbits.TRISD0 = 0;
-[e = . . _TRISDbits 0 0 -> -> 0 `i `uc ]
-"35
-[; ;buggy_lights.c: 35:         LATAbits.LATA0 = 1;
-[e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
-"36
-[; ;buggy_lights.c: 36:         LATCbits.LATC2 = 1;
-[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
-"37
-[; ;buggy_lights.c: 37:         LATDbits.LATD0 = 1;
-[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
-"41
-[; ;buggy_lights.c: 41:         TRISAbits.TRISA1 = 0;
-[e = . . _TRISAbits 0 1 -> -> 0 `i `uc ]
-"42
-[; ;buggy_lights.c: 42:         TRISCbits.TRISC6 = 0;
-[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
-"43
-[; ;buggy_lights.c: 43:         TRISHbits.TRISH2 = 0;
-[e = . . _TRISHbits 0 2 -> -> 0 `i `uc ]
-"45
-[; ;buggy_lights.c: 45:         LATAbits.LATA1 = 1;
-[e = . . _LATAbits 0 1 -> -> 1 `i `uc ]
-"46
-[; ;buggy_lights.c: 46:         LATCbits.LATC6 = 1;
-[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
-"47
-[; ;buggy_lights.c: 47:         LATHbits.LATH2 = 1;
-[e = . . _LATHbits 0 2 -> -> 1 `i `uc ]
-"51
-[; ;buggy_lights.c: 51:         TRISGbits.TRISG1 = 0;
+[; ;buggy_lights.c: 18:         LATHbits.LATH0 = 0;
+[e = . . _LATHbits 0 0 -> -> 0 `i `uc ]
+"24
+[; ;buggy_lights.c: 24:             TRISGbits.TRISG1 = 0;
 [e = . . _TRISGbits 0 1 -> -> 0 `i `uc ]
-"52
-[; ;buggy_lights.c: 52:         TRISAbits.TRISA4 = 0;
+"25
+[; ;buggy_lights.c: 25:             TRISAbits.TRISA4 = 0;
 [e = . . _TRISAbits 0 4 -> -> 0 `i `uc ]
-"53
-[; ;buggy_lights.c: 53:         TRISFbits.TRISF7 = 0;
+"26
+[; ;buggy_lights.c: 26:             TRISFbits.TRISF7 = 0;
 [e = . . _TRISFbits 0 7 -> -> 0 `i `uc ]
-"55
-[; ;buggy_lights.c: 55:         LATGbits.LATG1 = 1;
+"28
+[; ;buggy_lights.c: 28:             LATGbits.LATG1 = 1;
 [e = . . _LATGbits 0 1 -> -> 1 `i `uc ]
-"56
-[; ;buggy_lights.c: 56:         LATAbits.LATA4 = 1;
+"29
+[; ;buggy_lights.c: 29:             LATAbits.LATA4 = 1;
 [e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
-"57
-[; ;buggy_lights.c: 57:         LATFbits.LATF7 = 1;
+"30
+[; ;buggy_lights.c: 30:             LATFbits.LATF7 = 1;
 [e = . . _LATFbits 0 7 -> -> 1 `i `uc ]
-"61
-[; ;buggy_lights.c: 61:         TRISGbits.TRISG0 = 0;
+"34
+[; ;buggy_lights.c: 34:             TRISGbits.TRISG0 = 0;
 [e = . . _TRISGbits 0 0 -> -> 0 `i `uc ]
-"62
-[; ;buggy_lights.c: 62:         TRISEbits.TRISE7 = 0;
+"35
+[; ;buggy_lights.c: 35:             TRISEbits.TRISE7 = 0;
 [e = . . _TRISEbits 0 7 -> -> 0 `i `uc ]
-"63
-[; ;buggy_lights.c: 63:         TRISAbits.TRISA3 = 0;
+"36
+[; ;buggy_lights.c: 36:             TRISAbits.TRISA3 = 0;
 [e = . . _TRISAbits 0 3 -> -> 0 `i `uc ]
-"65
-[; ;buggy_lights.c: 65:         LATGbits.LATG0 = 1;
+"38
+[; ;buggy_lights.c: 38:             LATGbits.LATG0 = 1;
 [e = . . _LATGbits 0 0 -> -> 1 `i `uc ]
-"66
-[; ;buggy_lights.c: 66:         LATEbits.LATE7 = 1;
+"39
+[; ;buggy_lights.c: 39:             LATEbits.LATE7 = 1;
 [e = . . _LATEbits 0 7 -> -> 1 `i `uc ]
-"67
-[; ;buggy_lights.c: 67:         LATAbits.LATA3 = 1;
+"40
+[; ;buggy_lights.c: 40:             LATAbits.LATA3 = 1;
 [e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
-"68
-[; ;buggy_lights.c: 68: }
+"63
+[; ;buggy_lights.c: 63: }
 [e :UE 2015 ]
 }
+"65
+[; ;buggy_lights.c: 65: void toggle_brake_lights(void)
+[v _toggle_brake_lights `(v ~T0 @X0 1 ef ]
+"66
+[; ;buggy_lights.c: 66: {
+{
+[e :U _toggle_brake_lights ]
+[f ]
+"68
+[; ;buggy_lights.c: 68: }
+[e :UE 2016 ]
+}
 "70
-[; ;buggy_lights.c: 70: void lights_flashing(void)
-[v _lights_flashing `(v ~T0 @X0 1 ef ]
+[; ;buggy_lights.c: 70: void toggle_main_beam(void)
+[v _toggle_main_beam `(v ~T0 @X0 1 ef ]
 "71
 [; ;buggy_lights.c: 71: {
 {
-[e :U _lights_flashing ]
+[e :U _toggle_main_beam ]
 [f ]
-"72
-[; ;buggy_lights.c: 72:     LATDbits.LATD4 = !LATDbits.LATD4;
-[e = . . _LATDbits 0 4 -> -> ! != -> . . _LATDbits 0 4 `i -> 0 `i `i `uc ]
 "73
-[; ;buggy_lights.c: 73:     LATDbits.LATD3 = !LATDbits.LATD3;
-[e = . . _LATDbits 0 3 -> -> ! != -> . . _LATDbits 0 3 `i -> 0 `i `i `uc ]
-"74
-[; ;buggy_lights.c: 74:     LATFbits.LATF0 = !LATFbits.LATF0;
-[e = . . _LATFbits 0 0 -> -> ! != -> . . _LATFbits 0 0 `i -> 0 `i `i `uc ]
+[; ;buggy_lights.c: 73: }
+[e :UE 2017 ]
+}
 "75
-[; ;buggy_lights.c: 75:     LATHbits.LATH0 = !LATHbits.LATH0;
-[e = . . _LATHbits 0 0 -> -> ! != -> . . _LATHbits 0 0 `i -> 0 `i `i `uc ]
+[; ;buggy_lights.c: 75: void toggle_left_indicators(void)
+[v _toggle_left_indicators `(v ~T0 @X0 1 ef ]
 "76
-[; ;buggy_lights.c: 76: }
-[e :UE 2016 ]
+[; ;buggy_lights.c: 76: {
+{
+[e :U _toggle_left_indicators ]
+[f ]
+"78
+[; ;buggy_lights.c: 78: }
+[e :UE 2018 ]
+}
+"80
+[; ;buggy_lights.c: 80: void toggle_right_indicators(void)
+[v _toggle_right_indicators `(v ~T0 @X0 1 ef ]
+"81
+[; ;buggy_lights.c: 81: {
+{
+[e :U _toggle_right_indicators ]
+[f ]
+"83
+[; ;buggy_lights.c: 83: }
+[e :UE 2019 ]
+}
+"85
+[; ;buggy_lights.c: 85: void toggle_tricolour_LED(void)
+[v _toggle_tricolour_LED `(v ~T0 @X0 1 ef ]
+"86
+[; ;buggy_lights.c: 86: {
+{
+[e :U _toggle_tricolour_LED ]
+[f ]
+"88
+[; ;buggy_lights.c: 88: }
+[e :UE 2020 ]
 }

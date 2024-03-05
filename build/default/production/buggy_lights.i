@@ -24093,7 +24093,13 @@ unsigned char __t3rd16on(void);
 # 1 "./buggy_lights.h" 1
 # 15 "./buggy_lights.h"
 void buggy_lights_init(void);
-void lights_flashing(void);
+
+void toggle_brake_lights(void);
+void toggle_main_beam(void);
+void toggle_left_indicators(void);
+void toggle_right_indicators(void);
+
+void toggle_tricolour_LED(void);
 # 2 "buggy_lights.c" 2
 
 
@@ -24107,66 +24113,57 @@ void buggy_lights_init(void)
         TRISFbits.TRISF0 = 0;
         TRISHbits.TRISH0 = 0;
 
-        LATDbits.LATD4 = 1;
-        LATHbits.LATH1 = 1;
-        LATDbits.LATD3 = 1;
-        LATFbits.LATF0 = 1;
-        LATHbits.LATH0 = 1;
-
-
-
-        TRISDbits.TRISD7 = 0;
-        TRISHbits.TRISH3 = 0;
-
-        LATDbits.LATD7 = 1;
-        LATHbits.LATH3 = 1;
+        LATDbits.LATD4 = 0;
+        LATHbits.LATH1 = 0;
+        LATDbits.LATD3 = 0;
+        LATFbits.LATF0 = 0;
+        LATHbits.LATH0 = 0;
 
 
 
 
-        TRISAbits.TRISA0 = 0;
-        TRISCbits.TRISC2 = 0;
-        TRISDbits.TRISD0 = 0;
 
-        LATAbits.LATA0 = 1;
-        LATCbits.LATC2 = 1;
-        LATDbits.LATD0 = 1;
+            TRISGbits.TRISG1 = 0;
+            TRISAbits.TRISA4 = 0;
+            TRISFbits.TRISF7 = 0;
 
-
-
-        TRISAbits.TRISA1 = 0;
-        TRISCbits.TRISC6 = 0;
-        TRISHbits.TRISH2 = 0;
-
-        LATAbits.LATA1 = 1;
-        LATCbits.LATC6 = 1;
-        LATHbits.LATH2 = 1;
+            LATGbits.LATG1 = 1;
+            LATAbits.LATA4 = 1;
+            LATFbits.LATF7 = 1;
 
 
 
-        TRISGbits.TRISG1 = 0;
-        TRISAbits.TRISA4 = 0;
-        TRISFbits.TRISF7 = 0;
+            TRISGbits.TRISG0 = 0;
+            TRISEbits.TRISE7 = 0;
+            TRISAbits.TRISA3 = 0;
 
-        LATGbits.LATG1 = 1;
-        LATAbits.LATA4 = 1;
-        LATFbits.LATF7 = 1;
-
-
-
-        TRISGbits.TRISG0 = 0;
-        TRISEbits.TRISE7 = 0;
-        TRISAbits.TRISA3 = 0;
-
-        LATGbits.LATG0 = 1;
-        LATEbits.LATE7 = 1;
-        LATAbits.LATA3 = 1;
+            LATGbits.LATG0 = 1;
+            LATEbits.LATE7 = 1;
+            LATAbits.LATA3 = 1;
+# 63 "buggy_lights.c"
 }
 
-void lights_flashing(void)
+void toggle_brake_lights(void)
 {
-    LATDbits.LATD4 = !LATDbits.LATD4;
-    LATDbits.LATD3 = !LATDbits.LATD3;
-    LATFbits.LATF0 = !LATFbits.LATF0;
-    LATHbits.LATH0 = !LATHbits.LATH0;
+
+}
+
+void toggle_main_beam(void)
+{
+
+}
+
+void toggle_left_indicators(void)
+{
+
+}
+
+void toggle_right_indicators(void)
+{
+
+}
+
+void toggle_tricolour_LED(void)
+{
+
 }

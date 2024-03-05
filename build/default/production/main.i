@@ -24161,7 +24161,13 @@ void squareReverse(DC_motor *mL, DC_motor *mR);
 # 1 "./buggy_lights.h" 1
 # 15 "./buggy_lights.h"
 void buggy_lights_init(void);
-void lights_flashing(void);
+
+void toggle_brake_lights(void);
+void toggle_main_beam(void);
+void toggle_left_indicators(void);
+void toggle_right_indicators(void);
+
+void toggle_tricolour_LED(void);
 # 18 "main.c" 2
 
 # 1 "./manoeuvres.h" 1
@@ -24368,12 +24374,20 @@ void main(void) {
 
 
 
+        TRISDbits.TRISD7 = 0;
+        TRISHbits.TRISH3 = 0;
+
+        LATDbits.LATD7 = 1;
+        LATHbits.LATH3 = 1;
+
+
+
         TRISFbits.TRISF2 = 1;
         TRISFbits.TRISF3 = 1;
 
         ANSELFbits.ANSELF2 = 0;
         ANSELFbits.ANSELF3 = 0;
-# 74 "main.c"
+# 82 "main.c"
     struct RGBC_val measured_colour;
 
     while (1) {

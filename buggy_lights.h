@@ -13,6 +13,12 @@
 #define _XTAL_FREQ 64000000
 
 void buggy_lights_init(void);
-void lights_flashing(void);
+
+void toggle_brake_lights(void);
+void toggle_main_beam(void);
+void toggle_left_indicators(void);
+void toggle_right_indicators(void);
+
+void toggle_tricolour_LED(void);
 
 #endif

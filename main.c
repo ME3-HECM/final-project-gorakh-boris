@@ -49,6 +49,14 @@ void main(void) {
     initUSART4();
     Timer0_init();
     
+    //initialise the two LEDs on the clicker board
+        //set up TRIS registers (0 for output)
+        TRISDbits.TRISD7 = 0;
+        TRISHbits.TRISH3 = 0;
+        //set up initial LAT values
+        LATDbits.LATD7 = 1;
+        LATHbits.LATH3 = 1;
+    
     //initialise the two push buttons on clicker board
         //set up TRIS registers (1 for input)
         TRISFbits.TRISF2 = 1;
