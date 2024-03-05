@@ -98,7 +98,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./color.h: 55: void getRGBCval(struct RGBC_val *p);
 [v _getRGBCval `(v ~T0 @X0 0 ef1`*S2016 ]
 "99 main.c
-[; ;main.c: 99:         sprintf(display, "Red:%05d Green:%05d Blue:%05d Clear:%05d /r/n",read_val.R,read_val.G,read_val.B,read_val.C);
+[; ;main.c: 99:         sprintf(display, "%d %d %d %d \r",read_val.R,read_val.G,read_val.B,read_val.C);
 [v _sprintf `(i ~T0 @X0 0 e? ]
 "39 ./serial.h
 [; ;./serial.h: 39: void TxBufferedString(char *string);
@@ -2416,7 +2416,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 98:         getRGBCval(&read_val);
 [e ( _getRGBCval (1 &U _read_val ]
 "99
-[; ;main.c: 99:         sprintf(display, "Red:%05d Green:%05d Blue:%05d Clear:%05d /r/n",read_val.R,read_val.G,read_val.B,read_val.C);
+[; ;main.c: 99:         sprintf(display, "%d %d %d %d \r",read_val.R,read_val.G,read_val.B,read_val.C);
 [e ( _sprintf , , , , , &U _display :s 1C . _read_val 0 . _read_val 1 . _read_val 2 . _read_val 3 ]
 "100
 [; ;main.c: 100:         TxBufferedString(display);
@@ -2437,4 +2437,4 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 106: }
 [e :UE 2017 ]
 }
-[a 1C 82 101 100 58 37 48 53 100 32 71 114 101 101 110 58 37 48 53 100 32 66 108 117 101 58 37 48 53 100 32 67 108 101 97 114 58 37 48 53 100 32 47 114 47 110 0 ]
+[a 1C 37 100 32 37 100 32 37 100 32 37 100 32 13 0 ]

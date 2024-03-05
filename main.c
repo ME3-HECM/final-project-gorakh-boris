@@ -96,7 +96,7 @@ void main(void) {
             LATDbits.LATD7 = !LATDbits.LATD7;
         }
         getRGBCval(&read_val);
-        sprintf(display, "Red:%05d Green:%05d Blue:%05d Clear:%05d /r/n",read_val.R,read_val.G,read_val.B,read_val.C);
+        sprintf(display, "%d %d %d %d \r",read_val.R,read_val.G,read_val.B,read_val.C);
         TxBufferedString(display);
         sendTxBuf();
         
