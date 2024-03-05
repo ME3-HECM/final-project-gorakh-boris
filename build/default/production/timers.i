@@ -24197,7 +24197,7 @@ void sendTxBuf(void);
 
 
 
-unsigned char returning = 1;
+unsigned char returning = 0;
 unsigned char returnFlag = 0;
 
 
@@ -24208,7 +24208,7 @@ unsigned char returnFlag = 0;
 
 unsigned char trail_timer_high[20] = {3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6};
 unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 8};
+unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 
 
@@ -24216,10 +24216,10 @@ unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 
 
-unsigned char *timer_high_pointer = &trail_timer_high[20];
-unsigned char *timer_low_pointer = &trail_timer_low[20];
-unsigned char *manoeuvre_pointer = &trail_manoeuvre[20];
-unsigned char manoeuvre_count = 3;
+unsigned char *timer_high_pointer = &trail_timer_high[0];
+unsigned char *timer_low_pointer = &trail_timer_low[0];
+unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
+unsigned char manoeuvre_count = 0;
 
 void Timer0_init(void);
 void writeTrail(unsigned char *man);

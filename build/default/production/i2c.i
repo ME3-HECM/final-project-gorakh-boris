@@ -24147,8 +24147,6 @@ void I2C_2_Master_Init(void)
 void I2C_2_Master_Idle(void)
 {
   while ((SSP2STAT & 0x04) || (SSP2CON2 & 0x1F));
-
-
 }
 
 void I2C_2_Master_Start(void)

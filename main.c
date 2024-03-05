@@ -58,22 +58,24 @@ void main(void) {
         ANSELFbits.ANSELF3 = 0;
     
     //fullSpeedAhead(&motorL, &motorR);
+    //stop(&motorL, &motorR);
     
-    //cardRed(&motorL, &motorR, backtrack);
-    //cardGreen(&motorL, &motorR, backtrack);
-    //cardBlue(&motorL, &motorR, backtrack);
-    //cardYellow(&motorL, &motorR, backtrack);
-    //cardPink(&motorL, &motorR, backtrack);
-    //cardOrange(&motorL, &motorR, backtrack);
-    //cardCyan(&motorL, &motorR, backtrack);
+    //cardRed(&motorL, &motorR, returning);
+    //cardGreen(&motorL, &motorR, returning);
+    //cardBlue(&motorL, &motorR, returning);
+    //cardYellow(&motorL, &motorR, returning);
+    //cardPink(&motorL, &motorR, returning);
+    //cardOrange(&motorL, &motorR, returning);
+    //cardCyan(&motorL, &motorR, returning);
     //cardWhite(&motorL, &motorR);
     
     //returnToSender(&motorL, &motorR);
-    unsigned int idk = 0;
+    
+    struct RGBC_val measured_colour;
     
     while (1) {
-        idk = color_read_Red();
-        sendIntSerial4((int)idk);
+        getRGBCval(&measured_colour);
+        sendIntSerial4((int)measured_colour.C);
         //sendIntSerial4((int)TMR0L);
         //sendIntSerial4((int)TMR0H);
         if (!PORTFbits.RF2) {  //on button press

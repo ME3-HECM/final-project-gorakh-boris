@@ -22,8 +22,6 @@ void I2C_2_Master_Init(void)
 void I2C_2_Master_Idle(void)
 {
   while ((SSP2STAT & 0x04) || (SSP2CON2 & 0x1F)); // wait until bus is idle
-  //while (SSP2STAT & 0x04);            //THIS ONE PASSES BUT DOES NOT READ ANYTHING USEFUL
-  //while (SSP2CON2 & 0x1F);              //THIS ONE IS STUCK WAITING FOREVER
 }
 
 void I2C_2_Master_Start(void)
