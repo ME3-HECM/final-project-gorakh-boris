@@ -24149,17 +24149,17 @@ void squareReverse(DC_motor *mL, DC_motor *mR);
 
 # 1 "./manoeuvres.h" 1
 # 13 "./manoeuvres.h"
-void cardRed(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardGreen(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardBlue(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardYellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardWhite(DC_motor *mL, DC_motor *mR);
+void card_red(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_green(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_blue(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_yellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_pink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_orange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_cyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_white(DC_motor *mL, DC_motor *mR);
 
 
-void pickCard(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
+void pick_card(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
 # 6 "./timers.h" 2
 
 # 1 "./serial.h" 1
@@ -24198,7 +24198,7 @@ void sendTxBuf(void);
 
 
 unsigned char returning = 0;
-unsigned char returnFlag = 0;
+unsigned char return_flag = 0;
 
 
 
@@ -24222,9 +24222,10 @@ unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
 unsigned char manoeuvre_count = 0;
 
 void Timer0_init(void);
-void writeTrail(unsigned char *man);
-void readTrail(unsigned char *tH, unsigned char *tL, unsigned char *man);
-void returnToSender(DC_motor *mL, DC_motor *mR);
+void reset_timer(void);
+void write_trail(unsigned char *man);
+void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man);
+void return_to_sender(DC_motor *mL, DC_motor *mR);
 void __attribute__((picinterrupt(("")))) ISR();
 # 2 "timers.c" 2
 
@@ -24243,18 +24244,25 @@ void Timer0_init(void)
 
 
 
-
-
-    TMR0H = 0;
-    TMR0L = 0;
-
+    reset_timer();
     T0CON0bits.T0EN=1;
+
     PIE0bits.TMR0IE = 1;
     INTCONbits.PEIE = 1;
     INTCONbits.GIE = 1;
 }
 
-void writeTrail(unsigned char *man) {
+void reset_timer(void)
+{
+
+
+
+    TMR0H = 0;
+    TMR0L = 0;
+}
+
+void write_trail(unsigned char *man)
+{
     *timer_high_pointer = TMR0H;
     *timer_low_pointer = TMR0L;
     *manoeuvre_pointer = *man;
@@ -24266,7 +24274,8 @@ void writeTrail(unsigned char *man) {
     manoeuvre_count ++;
 }
 
-void readTrail(unsigned char *tH, unsigned char *tL, unsigned char *man) {
+void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man)
+{
     timer_high_pointer --;
     timer_low_pointer --;
     manoeuvre_pointer --;
@@ -24278,24 +24287,25 @@ void readTrail(unsigned char *tH, unsigned char *tL, unsigned char *man) {
     manoeuvre_count --;
 }
 
-void returnToSender(DC_motor *mL, DC_motor *mR) {
+void return_to_sender(DC_motor *mL, DC_motor *mR)
+{
     while (manoeuvre_count != 0) {
         unsigned char timerH = 0;
         unsigned char timerL = 0;
         unsigned char mann = 0;
-        readTrail(&timerH, &timerL, &mann);
+        read_trail(&timerH, &timerL, &mann);
 
 
 
         if (mann != 8) {
-            pickCard(mL, mR, returning, mann);
+            pick_card(mL, mR, returning, mann);
         }
         TMR0H = 0b11111111 - timerH;
         TMR0L = 0b11111111 - timerL;
         fullSpeedAhead(mL, mR);
-        while (!returnFlag);
+        while (!return_flag);
         stop(mL, mR);
-        returnFlag = 0;
+        return_flag = 0;
     }
     LATHbits.LATH3 = !LATHbits.LATH3;
 }
@@ -24307,7 +24317,7 @@ void __attribute__((picinterrupt(("")))) ISR()
         if (returning) {
 
 
-            returnFlag = 1;
+            return_flag = 1;
         } else {
 
         }

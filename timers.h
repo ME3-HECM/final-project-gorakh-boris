@@ -9,7 +9,7 @@
 #define _XTAL_FREQ 64000000
 
 unsigned char returning = 0;
-unsigned char returnFlag = 0;
+unsigned char return_flag = 0;
 //example arrays for testing
     //{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     //{1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
@@ -33,9 +33,10 @@ unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];             //set to 0 o
 unsigned char manoeuvre_count = 0;                              //can be set from 0 to 20 for different conditions
 
 void Timer0_init(void);
-void writeTrail(unsigned char *man);
-void readTrail(unsigned char *tH, unsigned char *tL, unsigned char *man);
-void returnToSender(DC_motor *mL, DC_motor *mR);
+void reset_timer(void);
+void write_trail(unsigned char *man);
+void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man);
+void return_to_sender(DC_motor *mL, DC_motor *mR);
 void __interrupt() ISR();
 
 #endif

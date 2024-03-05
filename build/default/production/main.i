@@ -24172,17 +24172,17 @@ void toggle_tricolour_LED(void);
 
 # 1 "./manoeuvres.h" 1
 # 13 "./manoeuvres.h"
-void cardRed(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardGreen(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardBlue(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardYellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardWhite(DC_motor *mL, DC_motor *mR);
+void card_red(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_green(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_blue(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_yellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_pink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_orange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_cyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_white(DC_motor *mL, DC_motor *mR);
 
 
-void pickCard(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
+void pick_card(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
 # 19 "main.c" 2
 
 # 1 "./color.h" 1
@@ -24313,7 +24313,7 @@ void sendTxBuf(void);
 # 1 "./timers.h" 1
 # 11 "./timers.h"
 unsigned char returning = 0;
-unsigned char returnFlag = 0;
+unsigned char return_flag = 0;
 
 
 
@@ -24337,9 +24337,10 @@ unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
 unsigned char manoeuvre_count = 0;
 
 void Timer0_init(void);
-void writeTrail(unsigned char *man);
-void readTrail(unsigned char *tH, unsigned char *tL, unsigned char *man);
-void returnToSender(DC_motor *mL, DC_motor *mR);
+void reset_timer(void);
+void write_trail(unsigned char *man);
+void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man);
+void return_to_sender(DC_motor *mL, DC_motor *mR);
 void __attribute__((picinterrupt(("")))) ISR();
 # 22 "main.c" 2
 
@@ -24387,9 +24388,7 @@ void main(void) {
 
         ANSELFbits.ANSELF2 = 0;
         ANSELFbits.ANSELF3 = 0;
-# 82 "main.c"
-    while (PORTFbits.RF2);
-
+# 84 "main.c"
     while (1) {
         getRGBCval(&measured_colour);
         sendIntSerial4((int)measured_colour.C);

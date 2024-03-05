@@ -68,18 +68,18 @@ void main(void) {
     //fullSpeedAhead(&motorL, &motorR);
     //stop(&motorL, &motorR);
     
-    //cardRed(&motorL, &motorR, returning);
-    //cardGreen(&motorL, &motorR, returning);
-    //cardBlue(&motorL, &motorR, returning);
-    //cardYellow(&motorL, &motorR, returning);
-    //cardPink(&motorL, &motorR, returning);
-    //cardOrange(&motorL, &motorR, returning);
-    //cardCyan(&motorL, &motorR, returning);
-    //cardWhite(&motorL, &motorR);
+    //card_red(&motorL, &motorR, returning);
+    //card_green(&motorL, &motorR, returning);
+    //card_blue(&motorL, &motorR, returning);
+    //card_yellow(&motorL, &motorR, returning);
+    //card_pink(&motorL, &motorR, returning);
+    //card_orange(&motorL, &motorR, returning);
+    //card_cyan(&motorL, &motorR, returning);
+    //card_white(&motorL, &motorR);
     
-    //returnToSender(&motorL, &motorR);
+    //return_to_sender(&motorL, &motorR);
     
-    while (PORTFbits.RF2);          //wait until RF2 is pressed
+    //while (PORTFbits.RF2);          //wait until RF2 is pressed
     
     while (1) {
         getRGBCval(&measured_colour);

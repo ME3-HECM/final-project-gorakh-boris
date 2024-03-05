@@ -14,19 +14,26 @@ void Timer0_init(void)
                                 //1.024 millisecond timer increment period
                                 //976.5625 increments per second
                                 //67.108864 seconds before overflow
-    //REMEMBER TIMER READ AND WRITE ORDER
-    //Read TMR0L first before TMR0H
-    //Write TMR0H first before TMR0L
-    TMR0H = 0;                  //initial zero value
-    TMR0L = 0;                  //initial zero value
     
+    reset_timer();
     T0CON0bits.T0EN=1;      //start the timer
+    
     PIE0bits.TMR0IE = 1;    //initialise timer 0 interrupt
     INTCONbits.PEIE = 1;    //initialise peripheral interrupt
     INTCONbits.GIE = 1;     //sets global interrupt
 }
 
-void writeTrail(unsigned char *man) {
+void reset_timer(void)
+{
+    //REMEMBER TIMER READ AND WRITE ORDER
+    //Read TMR0L first before TMR0H
+    //Write TMR0H first before TMR0L
+    TMR0H = 0;                  //initial zero value
+    TMR0L = 0;                  //initial zero value
+}
+
+void write_trail(unsigned char *man)
+{
     *timer_high_pointer = TMR0H;    
     *timer_low_pointer = TMR0L;    
     *manoeuvre_pointer = *man;
@@ -38,7 +45,8 @@ void writeTrail(unsigned char *man) {
     manoeuvre_count ++;
 }
 
-void readTrail(unsigned char *tH, unsigned char *tL, unsigned char *man) {
+void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man)
+{
     timer_high_pointer --;
     timer_low_pointer --;
     manoeuvre_pointer --;
@@ -50,24 +58,25 @@ void readTrail(unsigned char *tH, unsigned char *tL, unsigned char *man) {
     manoeuvre_count --;
 }
 
-void returnToSender(DC_motor *mL, DC_motor *mR) {
+void return_to_sender(DC_motor *mL, DC_motor *mR)
+{
     while (manoeuvre_count != 0) {
         unsigned char timerH = 0;
         unsigned char timerL = 0;
         unsigned char mann = 0;
-        readTrail(&timerH, &timerL, &mann);
+        read_trail(&timerH, &timerL, &mann);
         //sendIntSerial4(timerH);
         //sendIntSerial4(timerL);
         //sendIntSerial4(mann);
         if (mann != 8) {            //ignore white card instruction
-            pickCard(mL, mR, returning, mann);
+            pick_card(mL, mR, returning, mann);
         }
         TMR0H = 0b11111111 - timerH;
         TMR0L = 0b11111111 - timerL;
         fullSpeedAhead(mL, mR);
-        while (!returnFlag);
+        while (!return_flag);
         stop(mL, mR);
-        returnFlag = 0;
+        return_flag = 0;
     }
     LATHbits.LATH3 = !LATHbits.LATH3;       //toggle LED for debugging
 }
@@ -79,7 +88,7 @@ void __interrupt() ISR()
         if (returning) {            //is backtracking
             //some code on performing the next manoeuvre when backtracking
             //the timer will be used to time the straight distances travelled when backtracking
-            returnFlag = 1;
+            return_flag = 1;
         } else {                    //is not backtracking
             //trigger a lost function
         }

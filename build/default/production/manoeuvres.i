@@ -24145,21 +24145,21 @@ void squareReverse(DC_motor *mL, DC_motor *mR);
 # 11 "./manoeuvres.h" 2
 
 
-void cardRed(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardGreen(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardBlue(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardYellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardWhite(DC_motor *mL, DC_motor *mR);
+void card_red(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_green(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_blue(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_yellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_pink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_orange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_cyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_white(DC_motor *mL, DC_motor *mR);
 
 
-void pickCard(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
+void pick_card(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
 # 2 "manoeuvres.c" 2
 
 
-void cardRed(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+void card_red(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 {
     switch (backtrack) {
         case 0:
@@ -24173,7 +24173,7 @@ void cardRed(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
     }
 }
 
-void cardGreen(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+void card_green(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 {
     switch (backtrack) {
         case 0:
@@ -24187,7 +24187,7 @@ void cardGreen(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
     }
 }
 
-void cardBlue(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+void card_blue(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 {
     switch (backtrack) {
         case 0:
@@ -24201,7 +24201,7 @@ void cardBlue(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
     }
 }
 
-void cardYellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+void card_yellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 {
     switch (backtrack) {
         case 0:
@@ -24217,7 +24217,7 @@ void cardYellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
     }
 }
 
-void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+void card_pink(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 {
     switch (backtrack) {
         case 0:
@@ -24233,7 +24233,7 @@ void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
     }
 }
 
-void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+void card_orange(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 {
     switch (backtrack) {
         case 0:
@@ -24247,7 +24247,7 @@ void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
     }
 }
 
-void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+void card_cyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 {
     switch (backtrack) {
         case 0:
@@ -24261,39 +24261,39 @@ void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
     }
 }
 
-void cardWhite(DC_motor *mL, DC_motor *mR)
+void card_white(DC_motor *mL, DC_motor *mR)
 {
     headbuttReverse(mL, mR);
     UTurn(mL, mR);
     headbuttReverse(mL, mR);
 }
 
-void pickCard(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key)
+void pick_card(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key)
 {
     switch (key) {
         case 1:
-            cardRed(mL, mR, backtrack);
+            card_red(mL, mR, backtrack);
             break;
         case 2:
-            cardGreen(mL, mR, backtrack);
+            card_green(mL, mR, backtrack);
             break;
         case 3:
-            cardBlue(mL, mR, backtrack);
+            card_blue(mL, mR, backtrack);
             break;
         case 4:
-            cardYellow(mL, mR, backtrack);
+            card_yellow(mL, mR, backtrack);
             break;
         case 5:
-            cardPink(mL, mR, backtrack);
+            card_pink(mL, mR, backtrack);
             break;
         case 6:
-            cardOrange(mL, mR, backtrack);
+            card_orange(mL, mR, backtrack);
             break;
         case 7:
-            cardCyan(mL, mR, backtrack);
+            card_cyan(mL, mR, backtrack);
             break;
         case 8:
-            cardWhite(mL, mR);
+            card_white(mL, mR);
             break;
     }
 }
