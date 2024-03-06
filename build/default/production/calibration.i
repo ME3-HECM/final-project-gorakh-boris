@@ -24256,6 +24256,8 @@ unsigned int color_read_Clear(void);
 
 
 void getRGBCval(struct RGBC_val *p);
+
+void wait_for_wall(struct RGBC_val *p);
 # 5 "./serial.h" 2
 # 14 "./serial.h"
 volatile char EUSART4RXbuf[20];
@@ -24300,7 +24302,7 @@ unsigned char return_flag = 0;
 
 
 
-unsigned char trail_timer_high[20] = {3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6};
+unsigned char trail_timer_high[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
@@ -24319,8 +24321,8 @@ void Timer0_init(void);
 void read_timer(unsigned char *tH, unsigned char *tL);
 void write_timer(unsigned char tH, unsigned char tL);
 void reset_timer(void);
-void write_trail(unsigned char *man);
 void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man);
+void write_trail(unsigned char tH, unsigned char tL, unsigned char man);
 void return_to_sender(DC_motor *mL, DC_motor *mR);
 void __attribute__((picinterrupt(("")))) ISR();
 # 14 "./calibration.h" 2

@@ -24259,6 +24259,8 @@ unsigned int color_read_Clear(void);
 
 
 void getRGBCval(struct RGBC_val *p);
+
+void wait_for_wall(struct RGBC_val *p);
 # 5 "./serial.h" 2
 # 14 "./serial.h"
 volatile char EUSART4RXbuf[20];
@@ -24304,7 +24306,7 @@ unsigned char return_flag = 0;
 
 
 
-unsigned char trail_timer_high[20] = {3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6};
+unsigned char trail_timer_high[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
@@ -24323,8 +24325,8 @@ void Timer0_init(void);
 void read_timer(unsigned char *tH, unsigned char *tL);
 void write_timer(unsigned char tH, unsigned char tL);
 void reset_timer(void);
-void write_trail(unsigned char *man);
 void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man);
+void write_trail(unsigned char tH, unsigned char tL, unsigned char man);
 void return_to_sender(DC_motor *mL, DC_motor *mR);
 void __attribute__((picinterrupt(("")))) ISR();
 # 2 "timers.c" 2
@@ -24375,19 +24377,6 @@ void reset_timer(void)
     write_timer(0, 0);
 }
 
-void write_trail(unsigned char *man)
-{
-    *timer_high_pointer = TMR0H;
-    *timer_low_pointer = TMR0L;
-    *manoeuvre_pointer = *man;
-
-    timer_high_pointer ++;
-    timer_low_pointer ++;
-    manoeuvre_pointer ++;
-
-    manoeuvre_count ++;
-}
-
 void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man)
 {
     timer_high_pointer --;
@@ -24399,6 +24388,19 @@ void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man)
     *man = *manoeuvre_pointer;
 
     manoeuvre_count --;
+}
+
+void write_trail(unsigned char tH, unsigned char tL, unsigned char man)
+{
+    *timer_high_pointer = tH;
+    *timer_low_pointer = tL;
+    *manoeuvre_pointer = man;
+
+    timer_high_pointer ++;
+    timer_low_pointer ++;
+    manoeuvre_pointer ++;
+
+    manoeuvre_count ++;
 }
 
 void return_to_sender(DC_motor *mL, DC_motor *mR)

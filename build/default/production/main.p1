@@ -125,6 +125,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12319
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 12319: extern volatile ANSELFbits_t ANSELFbits __attribute__((address(0xEB4)));
 [v _ANSELFbits `VS567 ~T0 @X0 0 e@3764 ]
+"37 ./timers.h
+[; ;./timers.h: 37: void reset_timer(void);
+[v _reset_timer `(v ~T0 @X0 0 ef ]
+"58 ./color.h
+[; ;./color.h: 58: void wait_for_wall(struct RGBC_val *p);
+[v _wait_for_wall `(v ~T0 @X0 0 ef1`*S2016 ]
+"35 ./timers.h
+[; ;./timers.h: 35: void read_timer(unsigned char *tH, unsigned char *tL);
+[v _read_timer `(v ~T0 @X0 0 ef2`*uc`*uc ]
+"39
+[; ;./timers.h: 39: void write_trail(unsigned char tH, unsigned char tL, unsigned char man);
+[v _write_trail `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"19 ./calibration.h
+[; ;./calibration.h: 19: void test_serial(void);
+[v _test_serial `(v ~T0 @X0 0 ef ]
 "56 ./color.h
 [; ;./color.h: 56: void getRGBCval(struct RGBC_val *p);
 [v _getRGBCval `(v ~T0 @X0 0 ef1`*S2016 ]
@@ -2226,30 +2241,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 "19
-[; ;./timers.h: 19: unsigned char trail_timer_high[20] = {3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6};
+[; ;./timers.h: 19: unsigned char trail_timer_high[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 [v _trail_timer_high `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_timer_high
 :U ..
--> -> 3 `i `uc
--> -> 6 `i `uc
--> -> 3 `i `uc
--> -> 6 `i `uc
--> -> 3 `i `uc
--> -> 6 `i `uc
--> -> 3 `i `uc
--> -> 6 `i `uc
--> -> 3 `i `uc
--> -> 6 `i `uc
--> -> 3 `i `uc
--> -> 6 `i `uc
--> -> 3 `i `uc
--> -> 6 `i `uc
--> -> 3 `i `uc
--> -> 6 `i `uc
--> -> 3 `i `uc
--> -> 6 `i `uc
--> -> 3 `i `uc
--> -> 6 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
 ..
 ]
 "20
@@ -2406,11 +2421,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 56:         TRISHbits.TRISH3 = 0;
 [e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
 "58
-[; ;main.c: 58:         LATDbits.LATD7 = 1;
-[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
+[; ;main.c: 58:         LATDbits.LATD7 = 0;
+[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
 "59
-[; ;main.c: 59:         LATHbits.LATH3 = 1;
-[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
+[; ;main.c: 59:         LATHbits.LATH3 = 0;
+[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
 "63
 [; ;main.c: 63:         TRISFbits.TRISF2 = 1;
 [e = . . _TRISFbits 0 2 -> -> 1 `i `uc ]
@@ -2424,25 +2439,52 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 67:         ANSELFbits.ANSELF3 = 0;
 [e = . . _ANSELFbits 0 3 -> -> 0 `i `uc ]
 "73
-[; ;main.c: 73:     while (1) {
+[; ;main.c: 73:     unsigned char timerH = 0;
+[v _timerH `uc ~T0 @X0 1 a ]
+[e = _timerH -> -> 0 `i `uc ]
+"74
+[; ;main.c: 74:     unsigned char timerL = 0;
+[v _timerL `uc ~T0 @X0 1 a ]
+[e = _timerL -> -> 0 `i `uc ]
+"75
+[; ;main.c: 75:     unsigned char mann = 0;
+[v _mann `uc ~T0 @X0 1 a ]
+[e = _mann -> -> 0 `i `uc ]
+"76
+[; ;main.c: 76:     reset_timer();
+[e ( _reset_timer ..  ]
+"78
+[; ;main.c: 78:     wait_for_wall(&measured_colour);
+[e ( _wait_for_wall (1 &U _measured_colour ]
+"79
+[; ;main.c: 79:     read_timer(&timerH, &timerL);
+[e ( _read_timer (2 , &U _timerH &U _timerL ]
+"84
+[; ;main.c: 84:     write_trail(timerH, timerL, mann);
+[e ( _write_trail (3 , , _timerH _timerL _mann ]
+"86
+[; ;main.c: 86:     while (1) {
 [e :U 2019 ]
 {
-"75
-[; ;main.c: 75:         getRGBCval(&measured_colour);
+"87
+[; ;main.c: 87:         test_serial();
+[e ( _test_serial ..  ]
+"88
+[; ;main.c: 88:         getRGBCval(&measured_colour);
 [e ( _getRGBCval (1 &U _measured_colour ]
-"76
-[; ;main.c: 76:         sendRGBCvalSerial4(&measured_colour);
+"89
+[; ;main.c: 89:         sendRGBCvalSerial4(&measured_colour);
 [e ( _sendRGBCvalSerial4 (1 &U _measured_colour ]
-"77
-[; ;main.c: 77:         _delay((unsigned long)((200)*(64000000/4000.0)));
+"90
+[; ;main.c: 90:         _delay((unsigned long)((200)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"78
-[; ;main.c: 78:     }
+"91
+[; ;main.c: 91:     }
 }
 [e :U 2018 ]
 [e $U 2019  ]
 [e :U 2020 ]
-"79
-[; ;main.c: 79: }
+"92
+[; ;main.c: 92: }
 [e :UE 2017 ]
 }

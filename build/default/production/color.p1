@@ -28,6 +28,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./color.h: 10: typedef struct RGBC_val {
 [s S2015 `ui 1 `ui 1 `ui 1 `ui 1 ]
 [n S2015 RGBC_val R G B C ]
+"28487 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28487:     struct {
+[s S1349 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1349 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
+"28497
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28497:     struct {
+[s S1350 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1350 . LD0 LD1 LD2 LD3 LD4 LD5 LD6 LD7 ]
+"28486
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28486: typedef union {
+[u S1348 `S1349 1 `S1350 1 ]
+[n S1348 . . . ]
+"28508
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28508: extern volatile LATDbits_t LATDbits __attribute__((address(0xF7C)));
+[v _LATDbits `VS1348 ~T0 @X0 0 e@3964 ]
 "54 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2256,4 +2271,44 @@ Version 4.0 HI-TECH Software Intermediate Code
 "91
 [; ;color.c: 91: }
 [e :UE 2022 ]
+}
+"93
+[; ;color.c: 93: void wait_for_wall(struct RGBC_val *p)
+[v _wait_for_wall `(v ~T0 @X0 1 ef1`*S2015 ]
+"94
+[; ;color.c: 94: {
+{
+[e :U _wait_for_wall ]
+"93
+[; ;color.c: 93: void wait_for_wall(struct RGBC_val *p)
+[v _p `*S2015 ~T0 @X0 1 r1 ]
+"94
+[; ;color.c: 94: {
+[f ]
+"95
+[; ;color.c: 95:     while (1) {
+[e :U 2025 ]
+{
+"96
+[; ;color.c: 96:         getRGBCval(p);
+[e ( _getRGBCval (1 _p ]
+"97
+[; ;color.c: 97:         if (p->C < 300) {break;}
+[e $ ! < . *U _p 3 -> -> 300 `i `ui 2027  ]
+{
+[e $U 2026  ]
+}
+[e :U 2027 ]
+"98
+[; ;color.c: 98:     }
+}
+[e :U 2024 ]
+[e $U 2025  ]
+[e :U 2026 ]
+"99
+[; ;color.c: 99:     LATDbits.LATD7 = !LATDbits.LATD7;
+[e = . . _LATDbits 0 7 -> -> ! != -> . . _LATDbits 0 7 `i -> 0 `i `i `uc ]
+"100
+[; ;color.c: 100: }
+[e :UE 2023 ]
 }

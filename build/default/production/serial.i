@@ -24340,6 +24340,8 @@ unsigned int color_read_Clear(void);
 
 
 void getRGBCval(struct RGBC_val *p);
+
+void wait_for_wall(struct RGBC_val *p);
 # 5 "./serial.h" 2
 # 14 "./serial.h"
 volatile char EUSART4RXbuf[20];

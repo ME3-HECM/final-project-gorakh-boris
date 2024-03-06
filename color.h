@@ -54,4 +54,6 @@ unsigned int color_read_Clear(void);
  *	Updates variables R, G, B, C with the values read 
  ***********************************************/
 void getRGBCval(struct RGBC_val *p);
+
+void wait_for_wall(struct RGBC_val *p);
 #endif

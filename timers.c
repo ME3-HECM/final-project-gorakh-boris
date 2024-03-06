@@ -46,19 +46,6 @@ void reset_timer(void)
     write_timer(0, 0);
 }
 
-void write_trail(unsigned char *man)
-{
-    *timer_high_pointer = TMR0H;    
-    *timer_low_pointer = TMR0L;    
-    *manoeuvre_pointer = *man;
-    
-    timer_high_pointer ++;
-    timer_low_pointer ++;
-    manoeuvre_pointer ++;
-    
-    manoeuvre_count ++;
-}
-
 void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man)
 {
     timer_high_pointer --;
@@ -70,6 +57,19 @@ void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man)
     *man = *manoeuvre_pointer;
     
     manoeuvre_count --;
+}
+
+void write_trail(unsigned char tH, unsigned char tL, unsigned char man)
+{
+    *timer_high_pointer = tH;    
+    *timer_low_pointer = tL;    
+    *manoeuvre_pointer = man;
+    
+    timer_high_pointer ++;
+    timer_low_pointer ++;
+    manoeuvre_pointer ++;
+    
+    manoeuvre_count ++;
 }
 
 void return_to_sender(DC_motor *mL, DC_motor *mR)

@@ -55,8 +55,8 @@ void main(void) {
         TRISDbits.TRISD7 = 0;
         TRISHbits.TRISH3 = 0;
         //set up initial LAT values
-        LATDbits.LATD7 = 1;
-        LATHbits.LATH3 = 1;
+        LATDbits.LATD7 = 0;
+        LATHbits.LATH3 = 0;
     
     //initialise the two push buttons on clicker board
         //set up TRIS registers (1 for input)
@@ -70,8 +70,21 @@ void main(void) {
     
     //while (PORTFbits.RF2);          //wait until RF2 is pressed
     
+    unsigned char timerH = 0;
+    unsigned char timerL = 0;
+    unsigned char mann = 0;
+    reset_timer();
+    //fullSpeedAhead(&motorL, &motorR);
+    wait_for_wall(&measured_colour);
+    read_timer(&timerH, &timerL);
+    //stop(&motorL, &motorR);
+    
+    //CODE TO READ COLOUR AND DETERMINE MANN
+    
+    write_trail(timerH, timerL, mann);
+    
     while (1) {
-        //test_serial();
+        test_serial();
         getRGBCval(&measured_colour);
         sendRGBCvalSerial4(&measured_colour);
         __delay_ms(200);

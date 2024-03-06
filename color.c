@@ -81,11 +81,20 @@ unsigned int color_read_Clear(void)
 	return tmp;
 }
 
-void getRGBCval(struct RGBC_val *p)// function getRGB_val updates variables in the structure RGBC 
+void getRGBCval(struct RGBC_val *p) //function getRGB_val updates variables in the structure RGBC 
 {
     p->R = color_read_Red();        //value of p = color_read_Red(), stored in RBGC_val variable R
     p->B = color_read_Blue();       //value of p = color_read_Blue(), stored in RBGC_val variable B
     p->G = color_read_Green();      //value of p = color_read_Green(), stored in RBGC_val variable G
     p->C = color_read_Clear();      //value of p = color_read_Clear(), stored in RBGC_val variable C
     
+}
+
+void wait_for_wall(struct RGBC_val *p)
+{
+    while (1) {
+        getRGBCval(p);
+        if (p->C < 300) {break;}
+    }
+    LATDbits.LATD7 = !LATDbits.LATD7;       //toggle LED for debugging
 }

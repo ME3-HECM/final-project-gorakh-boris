@@ -24181,6 +24181,8 @@ unsigned int color_read_Clear(void);
 
 
 void getRGBCval(struct RGBC_val *p);
+
+void wait_for_wall(struct RGBC_val *p);
 # 2 "color.c" 2
 
 
@@ -24271,4 +24273,13 @@ void getRGBCval(struct RGBC_val *p)
     p->G = color_read_Green();
     p->C = color_read_Clear();
 
+}
+
+void wait_for_wall(struct RGBC_val *p)
+{
+    while (1) {
+        getRGBCval(p);
+        if (p->C < 300) {break;}
+    }
+    LATDbits.LATD7 = !LATDbits.LATD7;
 }

@@ -24276,6 +24276,8 @@ unsigned int color_read_Clear(void);
 
 
 void getRGBCval(struct RGBC_val *p);
+
+void wait_for_wall(struct RGBC_val *p);
 # 20 "main.c" 2
 
 # 1 "./serial.h" 1
@@ -24322,7 +24324,7 @@ unsigned char return_flag = 0;
 
 
 
-unsigned char trail_timer_high[20] = {3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6};
+unsigned char trail_timer_high[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
@@ -24341,8 +24343,8 @@ void Timer0_init(void);
 void read_timer(unsigned char *tH, unsigned char *tL);
 void write_timer(unsigned char tH, unsigned char tL);
 void reset_timer(void);
-void write_trail(unsigned char *man);
 void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man);
+void write_trail(unsigned char tH, unsigned char tL, unsigned char man);
 void return_to_sender(DC_motor *mL, DC_motor *mR);
 void __attribute__((picinterrupt(("")))) ISR();
 # 22 "main.c" 2
@@ -24387,8 +24389,8 @@ void main(void) {
         TRISDbits.TRISD7 = 0;
         TRISHbits.TRISH3 = 0;
 
-        LATDbits.LATD7 = 1;
-        LATHbits.LATH3 = 1;
+        LATDbits.LATD7 = 0;
+        LATHbits.LATH3 = 0;
 
 
 
@@ -24402,8 +24404,21 @@ void main(void) {
 
 
 
-    while (1) {
+    unsigned char timerH = 0;
+    unsigned char timerL = 0;
+    unsigned char mann = 0;
+    reset_timer();
 
+    wait_for_wall(&measured_colour);
+    read_timer(&timerH, &timerL);
+
+
+
+
+    write_trail(timerH, timerL, mann);
+
+    while (1) {
+        test_serial();
         getRGBCval(&measured_colour);
         sendRGBCvalSerial4(&measured_colour);
         _delay((unsigned long)((200)*(64000000/4000.0)));
