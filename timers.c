@@ -72,6 +72,25 @@ void write_trail(unsigned char tH, unsigned char tL, unsigned char man)
     manoeuvre_count ++;
 }
 
+void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col)
+{
+    unsigned char timerH = 0;
+    unsigned char timerL = 0;
+    unsigned char mann = 0;
+    reset_timer();
+    //fullSpeedAhead(mL, mR);
+    wait_for_wall(col);
+    read_timer(&timerH, &timerL);
+    //stop(mL, mR);
+    /*
+    CODE TO READ COLOUR AND DETERMINE MANN
+    */
+    write_trail(timerH, timerL, mann);
+    sendArrayCharSerial4(trail_timer_high);
+    sendArrayCharSerial4(trail_timer_low);
+    sendArrayCharSerial4(trail_manoeuvre);
+}
+
 void return_to_sender(DC_motor *mL, DC_motor *mR)
 {
     while (manoeuvre_count != 0) {

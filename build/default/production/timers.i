@@ -24211,6 +24211,8 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 
 
 
+unsigned int wall_threshold = 300;
+
 
 typedef struct RGBC_val {
  unsigned int R;
@@ -24297,6 +24299,7 @@ void sendTxBuf(void);
 
 
 
+
 unsigned char returning = 0;
 unsigned char return_flag = 0;
 
@@ -24322,12 +24325,17 @@ unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
 unsigned char manoeuvre_count = 0;
 
 void Timer0_init(void);
+
 void read_timer(unsigned char *tH, unsigned char *tL);
 void write_timer(unsigned char tH, unsigned char tL);
 void reset_timer(void);
+
 void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man);
 void write_trail(unsigned char tH, unsigned char tL, unsigned char man);
+
+void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col);
 void return_to_sender(DC_motor *mL, DC_motor *mR);
+
 void __attribute__((picinterrupt(("")))) ISR();
 # 2 "timers.c" 2
 
@@ -24401,6 +24409,25 @@ void write_trail(unsigned char tH, unsigned char tL, unsigned char man)
     manoeuvre_pointer ++;
 
     manoeuvre_count ++;
+}
+
+void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col)
+{
+    unsigned char timerH = 0;
+    unsigned char timerL = 0;
+    unsigned char mann = 0;
+    reset_timer();
+
+    wait_for_wall(col);
+    read_timer(&timerH, &timerL);
+
+
+
+
+    write_trail(timerH, timerL, mann);
+    sendArrayCharSerial4(trail_timer_high);
+    sendArrayCharSerial4(trail_timer_low);
+    sendArrayCharSerial4(trail_manoeuvre);
 }
 
 void return_to_sender(DC_motor *mL, DC_motor *mR)

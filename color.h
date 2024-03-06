@@ -6,6 +6,8 @@
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
+unsigned int wall_threshold = 300;
+
 //definition of RGB structure
 typedef struct RGBC_val { 
 	unsigned int R;

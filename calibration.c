@@ -21,12 +21,3 @@ void test_manoeuvres(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
     pick_card(mL, mR, backtrack, 7);        //cyan
     pick_card(mL, mR, backtrack, 8);        //white
 }
-
-void test_serial(void)
-{
-    sendIntSerial4((int)TMR0L);
-    sendIntSerial4((int)TMR0H);
-    sendArrayCharSerial4(trail_timer_high);
-    sendArrayCharSerial4(trail_timer_low);
-    sendArrayCharSerial4(trail_manoeuvre);
-}

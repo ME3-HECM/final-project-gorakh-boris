@@ -24228,6 +24228,8 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 
 
 
+unsigned int wall_threshold = 300;
+
 
 typedef struct RGBC_val {
  unsigned int R;
@@ -24314,7 +24316,7 @@ void sendTxBuf(void);
 # 21 "main.c" 2
 
 # 1 "./timers.h" 1
-# 10 "./timers.h"
+# 11 "./timers.h"
 unsigned char returning = 0;
 unsigned char return_flag = 0;
 
@@ -24340,19 +24342,23 @@ unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
 unsigned char manoeuvre_count = 0;
 
 void Timer0_init(void);
+
 void read_timer(unsigned char *tH, unsigned char *tL);
 void write_timer(unsigned char tH, unsigned char tL);
 void reset_timer(void);
+
 void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man);
 void write_trail(unsigned char tH, unsigned char tL, unsigned char man);
+
+void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col);
 void return_to_sender(DC_motor *mL, DC_motor *mR);
+
 void __attribute__((picinterrupt(("")))) ISR();
 # 22 "main.c" 2
 
 # 1 "./calibration.h" 1
-# 18 "./calibration.h"
+# 16 "./calibration.h"
 void test_manoeuvres(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void test_serial(void);
 # 23 "main.c" 2
 
 
@@ -24403,24 +24409,13 @@ void main(void) {
 
 
 
+    LATHbits.LATH3 = !LATHbits.LATH3;
 
-    unsigned char timerH = 0;
-    unsigned char timerL = 0;
-    unsigned char mann = 0;
-    reset_timer();
-
-    wait_for_wall(&measured_colour);
-    read_timer(&timerH, &timerL);
-
-
-
-
-    write_trail(timerH, timerL, mann);
+    forward_navigation(&motorL, &motorR, &measured_colour);
 
     while (1) {
-        test_serial();
         getRGBCval(&measured_colour);
         sendRGBCvalSerial4(&measured_colour);
-        _delay((unsigned long)((200)*(64000000/4000.0)));
+        _delay((unsigned long)((250)*(64000000/4000.0)));
     }
 }

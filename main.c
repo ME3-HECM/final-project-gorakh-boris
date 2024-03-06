@@ -68,25 +68,14 @@ void main(void) {
     
     //test_manoeuvres(&motorL, &motorR, returning);
     
-    //while (PORTFbits.RF2);          //wait until RF2 is pressed
+    //while (PORTFbits.RF3);              //wait until RF3 is pressed
+    LATHbits.LATH3 = !LATHbits.LATH3;   //toggle RH3 LED for debugging
     
-    unsigned char timerH = 0;
-    unsigned char timerL = 0;
-    unsigned char mann = 0;
-    reset_timer();
-    //fullSpeedAhead(&motorL, &motorR);
-    wait_for_wall(&measured_colour);
-    read_timer(&timerH, &timerL);
-    //stop(&motorL, &motorR);
-    
-    //CODE TO READ COLOUR AND DETERMINE MANN
-    
-    write_trail(timerH, timerL, mann);
+    forward_navigation(&motorL, &motorR, &measured_colour);
     
     while (1) {
-        test_serial();
         getRGBCval(&measured_colour);
         sendRGBCvalSerial4(&measured_colour);
-        __delay_ms(200);
+        __delay_ms(250);
     }
 }

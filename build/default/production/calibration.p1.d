@@ -2,8 +2,4 @@ build/default/production/calibration.p1:  \
 calibration.c  \
 calibration.h  \
 manoeuvres.h  \
-dc_motor.h  \
-serial.h  \
-color.h  \
-i2c.h  \
-timers.h 
+dc_motor.h 

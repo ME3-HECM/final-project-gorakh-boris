@@ -94,7 +94,9 @@ void wait_for_wall(struct RGBC_val *p)
 {
     while (1) {
         getRGBCval(p);
-        if (p->C < 300) {break;}
+        if (p->C < wall_threshold) {
+            break;
+        }
     }
     LATDbits.LATD7 = !LATDbits.LATD7;       //toggle LED for debugging
 }

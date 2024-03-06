@@ -64,8 +64,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "121 C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\stdio.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\stdio.h: 121: int sprintf(char *restrict, const char *restrict, ...);
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"10 ./color.h
-[; ;./color.h: 10: typedef struct RGBC_val {
+"12 ./color.h
+[; ;./color.h: 12: typedef struct RGBC_val {
 [s S2017 `ui 1 `ui 1 `ui 1 `ui 1 ]
 [n S2017 RGBC_val R G B C ]
 "4810 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
@@ -2053,6 +2053,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40592
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 40592: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
+"9 ./color.h
+[; ;./color.h: 9: unsigned int wall_threshold = 300;
+[v _wall_threshold `ui ~T0 @X0 1 e ]
+[i _wall_threshold
+-> -> 300 `i `ui
+]
 "14 ./serial.h
 [; ;./serial.h: 14: volatile char EUSART4RXbuf[20];
 [v _EUSART4RXbuf `Vuc ~T0 @X0 -> 20 `i e ]

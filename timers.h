@@ -4,6 +4,7 @@
 #include <xc.h>
 #include "manoeuvres.h"
 #include "serial.h"
+#include "color.h"
 
 #define _XTAL_FREQ 64000000
 
@@ -32,12 +33,17 @@ unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];             //set to 0 o
 unsigned char manoeuvre_count = 0;                              //can be set from 0 to 20 for different conditions
 
 void Timer0_init(void);
+
 void read_timer(unsigned char *tH, unsigned char *tL);
 void write_timer(unsigned char tH, unsigned char tL);
 void reset_timer(void);
+
 void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man);
 void write_trail(unsigned char tH, unsigned char tL, unsigned char man);
+
+void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col);
 void return_to_sender(DC_motor *mL, DC_motor *mR);
+
 void __interrupt() ISR();
 
 #endif

@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"10 ./color.h
-[; ;./color.h: 10: typedef struct RGBC_val {
+"12 ./color.h
+[; ;./color.h: 12: typedef struct RGBC_val {
 [s S2016 `ui 1 `ui 1 `ui 1 `ui 1 ]
 [n S2016 RGBC_val R G B C ]
 "8 ./dc_motor.h
@@ -26,14 +26,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "15 ./buggy_lights.h
 [; ;./buggy_lights.h: 15: void buggy_lights_init(void);
 [v _buggy_lights_init `(v ~T0 @X0 0 ef ]
-"19 ./color.h
-[; ;./color.h: 19: void color_click_init(void);
+"21 ./color.h
+[; ;./color.h: 21: void color_click_init(void);
 [v _color_click_init `(v ~T0 @X0 0 ef ]
 "24 ./serial.h
 [; ;./serial.h: 24: void initUSART4(void);
 [v _initUSART4 `(v ~T0 @X0 0 ef ]
-"34 ./timers.h
-[; ;./timers.h: 34: void Timer0_init(void);
+"35 ./timers.h
+[; ;./timers.h: 35: void Timer0_init(void);
 [v _Timer0_init `(v ~T0 @X0 0 ef ]
 "29383 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29383:     struct {
@@ -125,23 +125,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12319
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 12319: extern volatile ANSELFbits_t ANSELFbits __attribute__((address(0xEB4)));
 [v _ANSELFbits `VS567 ~T0 @X0 0 e@3764 ]
-"37 ./timers.h
-[; ;./timers.h: 37: void reset_timer(void);
-[v _reset_timer `(v ~T0 @X0 0 ef ]
+"44 ./timers.h
+[; ;./timers.h: 44: void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col);
+[v _forward_navigation `(v ~T0 @X0 0 ef3`*S2015`*S2015`*S2016 ]
 "58 ./color.h
-[; ;./color.h: 58: void wait_for_wall(struct RGBC_val *p);
-[v _wait_for_wall `(v ~T0 @X0 0 ef1`*S2016 ]
-"35 ./timers.h
-[; ;./timers.h: 35: void read_timer(unsigned char *tH, unsigned char *tL);
-[v _read_timer `(v ~T0 @X0 0 ef2`*uc`*uc ]
-"39
-[; ;./timers.h: 39: void write_trail(unsigned char tH, unsigned char tL, unsigned char man);
-[v _write_trail `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"19 ./calibration.h
-[; ;./calibration.h: 19: void test_serial(void);
-[v _test_serial `(v ~T0 @X0 0 ef ]
-"56 ./color.h
-[; ;./color.h: 56: void getRGBCval(struct RGBC_val *p);
+[; ;./color.h: 58: void getRGBCval(struct RGBC_val *p);
 [v _getRGBCval `(v ~T0 @X0 0 ef1`*S2016 ]
 "30 ./serial.h
 [; ;./serial.h: 30: void sendRGBCvalSerial4(RGBC_val *col);
@@ -2198,6 +2186,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _squareDelay
 -> -> 300 `i `ui
 ]
+"9 ./color.h
+[; ;./color.h: 9: unsigned int wall_threshold = 300;
+[v _wall_threshold `ui ~T0 @X0 1 e ]
+[i _wall_threshold
+-> -> 300 `i `ui
+]
 "14 ./serial.h
 [; ;./serial.h: 14: volatile char EUSART4RXbuf[20];
 [v _EUSART4RXbuf `Vuc ~T0 @X0 -> 20 `i e ]
@@ -2228,20 +2222,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _TxBufReadCnt
 -> -> 0 `i `uc
 ]
-"10 ./timers.h
-[; ;./timers.h: 10: unsigned char returning = 0;
+"11 ./timers.h
+[; ;./timers.h: 11: unsigned char returning = 0;
 [v _returning `uc ~T0 @X0 1 e ]
 [i _returning
 -> -> 0 `i `uc
 ]
-"11
-[; ;./timers.h: 11: unsigned char return_flag = 0;
+"12
+[; ;./timers.h: 12: unsigned char return_flag = 0;
 [v _return_flag `uc ~T0 @X0 1 e ]
 [i _return_flag
 -> -> 0 `i `uc
 ]
-"19
-[; ;./timers.h: 19: unsigned char trail_timer_high[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+"20
+[; ;./timers.h: 20: unsigned char trail_timer_high[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 [v _trail_timer_high `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_timer_high
 :U ..
@@ -2267,8 +2261,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"20
-[; ;./timers.h: 20: unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+"21
+[; ;./timers.h: 21: unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 [v _trail_timer_low `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_timer_low
 :U ..
@@ -2294,8 +2288,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"21
-[; ;./timers.h: 21: unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+"22
+[; ;./timers.h: 22: unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 [v _trail_manoeuvre `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_manoeuvre
 :U ..
@@ -2321,26 +2315,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"29
-[; ;./timers.h: 29: unsigned char *timer_high_pointer = &trail_timer_high[0];
+"30
+[; ;./timers.h: 30: unsigned char *timer_high_pointer = &trail_timer_high[0];
 [v _timer_high_pointer `*uc ~T0 @X0 1 e ]
 [i _timer_high_pointer
 &U *U + &U _trail_timer_high * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_timer_high `ui `ux
 ]
-"30
-[; ;./timers.h: 30: unsigned char *timer_low_pointer = &trail_timer_low[0];
+"31
+[; ;./timers.h: 31: unsigned char *timer_low_pointer = &trail_timer_low[0];
 [v _timer_low_pointer `*uc ~T0 @X0 1 e ]
 [i _timer_low_pointer
 &U *U + &U _trail_timer_low * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_timer_low `ui `ux
 ]
-"31
-[; ;./timers.h: 31: unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
+"32
+[; ;./timers.h: 32: unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
 [v _manoeuvre_pointer `*uc ~T0 @X0 1 e ]
 [i _manoeuvre_pointer
 &U *U + &U _trail_manoeuvre * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_manoeuvre `ui `ux
 ]
-"32
-[; ;./timers.h: 32: unsigned char manoeuvre_count = 0;
+"33
+[; ;./timers.h: 33: unsigned char manoeuvre_count = 0;
 [v _manoeuvre_count `uc ~T0 @X0 1 e ]
 [i _manoeuvre_count
 -> -> 0 `i `uc
@@ -2438,53 +2432,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 "67
 [; ;main.c: 67:         ANSELFbits.ANSELF3 = 0;
 [e = . . _ANSELFbits 0 3 -> -> 0 `i `uc ]
-"73
-[; ;main.c: 73:     unsigned char timerH = 0;
-[v _timerH `uc ~T0 @X0 1 a ]
-[e = _timerH -> -> 0 `i `uc ]
+"72
+[; ;main.c: 72:     LATHbits.LATH3 = !LATHbits.LATH3;
+[e = . . _LATHbits 0 3 -> -> ! != -> . . _LATHbits 0 3 `i -> 0 `i `i `uc ]
 "74
-[; ;main.c: 74:     unsigned char timerL = 0;
-[v _timerL `uc ~T0 @X0 1 a ]
-[e = _timerL -> -> 0 `i `uc ]
-"75
-[; ;main.c: 75:     unsigned char mann = 0;
-[v _mann `uc ~T0 @X0 1 a ]
-[e = _mann -> -> 0 `i `uc ]
+[; ;main.c: 74:     forward_navigation(&motorL, &motorR, &measured_colour);
+[e ( _forward_navigation (3 , , &U _motorL &U _motorR &U _measured_colour ]
 "76
-[; ;main.c: 76:     reset_timer();
-[e ( _reset_timer ..  ]
-"78
-[; ;main.c: 78:     wait_for_wall(&measured_colour);
-[e ( _wait_for_wall (1 &U _measured_colour ]
-"79
-[; ;main.c: 79:     read_timer(&timerH, &timerL);
-[e ( _read_timer (2 , &U _timerH &U _timerL ]
-"84
-[; ;main.c: 84:     write_trail(timerH, timerL, mann);
-[e ( _write_trail (3 , , _timerH _timerL _mann ]
-"86
-[; ;main.c: 86:     while (1) {
+[; ;main.c: 76:     while (1) {
 [e :U 2019 ]
 {
-"87
-[; ;main.c: 87:         test_serial();
-[e ( _test_serial ..  ]
-"88
-[; ;main.c: 88:         getRGBCval(&measured_colour);
+"77
+[; ;main.c: 77:         getRGBCval(&measured_colour);
 [e ( _getRGBCval (1 &U _measured_colour ]
-"89
-[; ;main.c: 89:         sendRGBCvalSerial4(&measured_colour);
+"78
+[; ;main.c: 78:         sendRGBCvalSerial4(&measured_colour);
 [e ( _sendRGBCvalSerial4 (1 &U _measured_colour ]
-"90
-[; ;main.c: 90:         _delay((unsigned long)((200)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"91
-[; ;main.c: 91:     }
+"79
+[; ;main.c: 79:         _delay((unsigned long)((250)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"80
+[; ;main.c: 80:     }
 }
 [e :U 2018 ]
 [e $U 2019  ]
 [e :U 2020 ]
-"92
-[; ;main.c: 92: }
+"81
+[; ;main.c: 81: }
 [e :UE 2017 ]
 }

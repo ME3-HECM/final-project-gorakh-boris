@@ -24292,6 +24292,8 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 
 
 
+unsigned int wall_threshold = 300;
+
 
 typedef struct RGBC_val {
  unsigned int R;
