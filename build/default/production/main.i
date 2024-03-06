@@ -24347,6 +24347,12 @@ void return_to_sender(DC_motor *mL, DC_motor *mR);
 void __attribute__((picinterrupt(("")))) ISR();
 # 22 "main.c" 2
 
+# 1 "./calibration.h" 1
+# 18 "./calibration.h"
+void test_manoeuvres(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void test_serial(void);
+# 23 "main.c" 2
+
 
 
 
@@ -24391,16 +24397,15 @@ void main(void) {
 
         ANSELFbits.ANSELF2 = 0;
         ANSELFbits.ANSELF3 = 0;
-# 80 "main.c"
+
+
+
+
+
     while (1) {
+
         getRGBCval(&measured_colour);
         sendRGBCvalSerial4(&measured_colour);
         _delay((unsigned long)((200)*(64000000/4000.0)));
-
-
-
-
-
-
     }
 }

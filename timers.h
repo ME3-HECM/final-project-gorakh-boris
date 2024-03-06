@@ -23,8 +23,8 @@ unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 //when writing to array, pointer is moved AFTER writing
 //when reading from array, pointer is moved BEFORE reading
 //at beginning of program, the pointer is at 0
-//after writing the final element (19), the pointer is moved forward to 20
-//before reading the final element (19), the pointer is moved back to 19
+//AFTER writing the final element (19), the pointer is moved forward to 20
+//BEFORE reading the final element (19), the pointer is moved back to 19
 //at end of program, the pointer is at 0
 unsigned char *timer_high_pointer = &trail_timer_high[0];           //set to 0 or 20
 unsigned char *timer_low_pointer = &trail_timer_low[0];             //set to 0 or 20

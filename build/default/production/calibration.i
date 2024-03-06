@@ -24091,5 +24091,266 @@ unsigned char __t3rd16on(void);
 # 1 "calibration.c" 2
 
 # 1 "./calibration.h" 1
+# 12 "./calibration.h"
+# 1 "./manoeuvres.h" 1
+# 11 "./manoeuvres.h"
+# 1 "./dc_motor.h" 1
+
+
+
+
+
+
+
+typedef struct DC_motor {
+    char power;
+    char direction;
+    char brakemode;
+    unsigned int PWMperiod;
+    unsigned char *posDutyHighByte;
+    unsigned char *negDutyHighByte;
+} DC_motor;
+
+unsigned char rampDelay = 8;
+
+unsigned char topGearLeft = 20;
+unsigned char topGearRight = 20;
+
+unsigned char turningGear = 42;
+
+unsigned int turnLeft90Delay = 175;
+unsigned int turnRight90Delay = 175;
+unsigned int turnLeft135Delay = 300;
+unsigned int turnRight135Delay = 300;
+unsigned int turn180Delay = 510;
+
+unsigned int headbuttDelay = 70;
+unsigned int squareDelay = 300;
+
+
+void initDCmotorsPWM(unsigned int PWMperiod);
+void setMotorPWM(DC_motor *m);
+
+void stop(DC_motor *mL, DC_motor *mR);
+void turnLeft(DC_motor *mL, DC_motor *mR);
+void turnRight(DC_motor *mL, DC_motor *mR);
+void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
+void fullSpeedReverse(DC_motor *mL, DC_motor *mR);
+
+void turnLeft90(DC_motor *mL, DC_motor *mR);
+void turnRight90(DC_motor *mL, DC_motor *mR);
+void turnLeft135(DC_motor *mL, DC_motor *mR);
+void turnRight135(DC_motor *mL, DC_motor *mR);
+void UTurn(DC_motor *mL, DC_motor *mR);
+void headbuttReverse(DC_motor *mL, DC_motor *mR);
+void squareReverse(DC_motor *mL, DC_motor *mR);
+# 11 "./manoeuvres.h" 2
+
+
+void card_red(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_green(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_blue(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_yellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_pink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_orange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_cyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_white(DC_motor *mL, DC_motor *mR);
+
+
+void pick_card(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
+# 12 "./calibration.h" 2
+
+# 1 "./serial.h" 1
+
+
+
+
+# 1 "./color.h" 1
+
+
+
+
+# 1 "./i2c.h" 1
+# 13 "./i2c.h"
+void I2C_2_Master_Init(void);
+
+
+
+
+void I2C_2_Master_Idle(void);
+
+
+
+
+void I2C_2_Master_Start(void);
+
+
+
+
+void I2C_2_Master_RepStart(void);
+
+
+
+
+void I2C_2_Master_Stop(void);
+
+
+
+
+void I2C_2_Master_Write(unsigned char data_byte);
+
+
+
+
+unsigned char I2C_2_Master_Read(unsigned char ack);
+# 5 "./color.h" 2
+
+
+
+
+
+typedef struct RGBC_val {
+ unsigned int R;
+ unsigned int G;
+ unsigned int B;
+    unsigned int C;
+} RGBC_val;
+
+
+
+void color_click_init(void);
+
+
+
+
+
+
+void color_writetoaddr(char address, char value);
+
+
+
+
+
+unsigned int color_read_Red(void);
+
+
+
+
+
+unsigned int color_read_Blue(void);
+
+
+
+
+
+unsigned int color_read_Green(void);
+
+
+
+
+
+unsigned int color_read_Clear(void);
+
+
+
+
+
+void getRGBCval(struct RGBC_val *p);
+# 5 "./serial.h" 2
+# 14 "./serial.h"
+volatile char EUSART4RXbuf[20];
+volatile char RxBufWriteCnt=0;
+volatile char RxBufReadCnt=0;
+
+volatile char EUSART4TXbuf[60];
+volatile char TxBufWriteCnt=0;
+volatile char TxBufReadCnt=0;
+
+
+
+void initUSART4(void);
+char getCharSerial4(void);
+void sendCharSerial4(char charToSend);
+void sendStringSerial4(char *string);
+void sendIntSerial4(int integer);
+void sendArrayCharSerial4(unsigned char *arr);
+void sendRGBCvalSerial4(RGBC_val *col);
+
+
+char getCharFromRxBuf(void);
+void putCharToRxBuf(char byte);
+char isDataInRxBuf (void);
+
+
+char getCharFromTxBuf(void);
+void putCharToTxBuf(char byte);
+char isDataInTxBuf (void);
+void TxBufferedString(char *string);
+void sendTxBuf(void);
+# 13 "./calibration.h" 2
+
+# 1 "./timers.h" 1
+# 10 "./timers.h"
+unsigned char returning = 0;
+unsigned char return_flag = 0;
+
+
+
+
+
+
+
+unsigned char trail_timer_high[20] = {3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6};
+unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+
+
+
+
+
+
+unsigned char *timer_high_pointer = &trail_timer_high[0];
+unsigned char *timer_low_pointer = &trail_timer_low[0];
+unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
+unsigned char manoeuvre_count = 0;
+
+void Timer0_init(void);
+void read_timer(unsigned char *tH, unsigned char *tL);
+void write_timer(unsigned char tH, unsigned char tL);
+void reset_timer(void);
+void write_trail(unsigned char *man);
+void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man);
+void return_to_sender(DC_motor *mL, DC_motor *mR);
+void __attribute__((picinterrupt(("")))) ISR();
+# 14 "./calibration.h" 2
+
+
+
+
+void test_manoeuvres(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void test_serial(void);
 # 2 "calibration.c" 2
 
+
+void test_manoeuvres(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+{
+# 15 "calibration.c"
+    pick_card(mL, mR, backtrack, 1);
+    pick_card(mL, mR, backtrack, 2);
+    pick_card(mL, mR, backtrack, 3);
+    pick_card(mL, mR, backtrack, 4);
+    pick_card(mL, mR, backtrack, 5);
+    pick_card(mL, mR, backtrack, 6);
+    pick_card(mL, mR, backtrack, 7);
+    pick_card(mL, mR, backtrack, 8);
+}
+
+void test_serial(void)
+{
+    sendIntSerial4((int)TMR0L);
+    sendIntSerial4((int)TMR0H);
+    sendArrayCharSerial4(trail_timer_high);
+    sendArrayCharSerial4(trail_timer_low);
+    sendArrayCharSerial4(trail_manoeuvre);
+}

@@ -20,6 +20,7 @@
 #include "color.h"
 #include "serial.h"
 #include "timers.h"
+#include "calibration.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
@@ -65,27 +66,14 @@ void main(void) {
         ANSELFbits.ANSELF2 = 0;
         ANSELFbits.ANSELF3 = 0;
     
-    //card_red(&motorL, &motorR, returning);
-    //card_green(&motorL, &motorR, returning);
-    //card_blue(&motorL, &motorR, returning);
-    //card_yellow(&motorL, &motorR, returning);
-    //card_pink(&motorL, &motorR, returning);
-    //card_orange(&motorL, &motorR, returning);
-    //card_cyan(&motorL, &motorR, returning);
-    //card_white(&motorL, &motorR);
-    //return_to_sender(&motorL, &motorR);
+    //test_manoeuvres(&motorL, &motorR, returning);
     
     //while (PORTFbits.RF2);          //wait until RF2 is pressed
     
     while (1) {
+        //test_serial();
         getRGBCval(&measured_colour);
         sendRGBCvalSerial4(&measured_colour);
         __delay_ms(200);
-        
-        //sendIntSerial4((int)TMR0L);
-        //sendIntSerial4((int)TMR0H);
-        //sendArrayCharSerial4(trail_timer_high);
-        //sendArrayCharSerial4(trail_timer_low);
-        //sendArrayCharSerial4(trail_manoeuvre);
     }
 }
