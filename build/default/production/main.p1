@@ -32,8 +32,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "24 ./serial.h
 [; ;./serial.h: 24: void initUSART4(void);
 [v _initUSART4 `(v ~T0 @X0 0 ef ]
-"35 ./timers.h
-[; ;./timers.h: 35: void Timer0_init(void);
+"34 ./timers.h
+[; ;./timers.h: 34: void Timer0_init(void);
 [v _Timer0_init `(v ~T0 @X0 0 ef ]
 "29383 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29383:     struct {
@@ -2213,20 +2213,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _TxBufReadCnt
 -> -> 0 `i `uc
 ]
-"11 ./timers.h
-[; ;./timers.h: 11: unsigned char returning = 0;
+"10 ./timers.h
+[; ;./timers.h: 10: unsigned char returning = 0;
 [v _returning `uc ~T0 @X0 1 e ]
 [i _returning
 -> -> 0 `i `uc
 ]
-"12
-[; ;./timers.h: 12: unsigned char return_flag = 0;
+"11
+[; ;./timers.h: 11: unsigned char return_flag = 0;
 [v _return_flag `uc ~T0 @X0 1 e ]
 [i _return_flag
 -> -> 0 `i `uc
 ]
-"20
-[; ;./timers.h: 20: unsigned char trail_timer_high[20] = {3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6};
+"19
+[; ;./timers.h: 19: unsigned char trail_timer_high[20] = {3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6};
 [v _trail_timer_high `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_timer_high
 :U ..
@@ -2252,8 +2252,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 6 `i `uc
 ..
 ]
-"21
-[; ;./timers.h: 21: unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+"20
+[; ;./timers.h: 20: unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 [v _trail_timer_low `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_timer_low
 :U ..
@@ -2279,8 +2279,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"22
-[; ;./timers.h: 22: unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+"21
+[; ;./timers.h: 21: unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 [v _trail_manoeuvre `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_manoeuvre
 :U ..
@@ -2306,26 +2306,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"30
-[; ;./timers.h: 30: unsigned char *timer_high_pointer = &trail_timer_high[0];
+"29
+[; ;./timers.h: 29: unsigned char *timer_high_pointer = &trail_timer_high[0];
 [v _timer_high_pointer `*uc ~T0 @X0 1 e ]
 [i _timer_high_pointer
 &U *U + &U _trail_timer_high * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_timer_high `ui `ux
 ]
-"31
-[; ;./timers.h: 31: unsigned char *timer_low_pointer = &trail_timer_low[0];
+"30
+[; ;./timers.h: 30: unsigned char *timer_low_pointer = &trail_timer_low[0];
 [v _timer_low_pointer `*uc ~T0 @X0 1 e ]
 [i _timer_low_pointer
 &U *U + &U _trail_timer_low * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_timer_low `ui `ux
 ]
-"32
-[; ;./timers.h: 32: unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
+"31
+[; ;./timers.h: 31: unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
 [v _manoeuvre_pointer `*uc ~T0 @X0 1 e ]
 [i _manoeuvre_pointer
 &U *U + &U _trail_manoeuvre * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_manoeuvre `ui `ux
 ]
-"33
-[; ;./timers.h: 33: unsigned char manoeuvre_count = 0;
+"32
+[; ;./timers.h: 32: unsigned char manoeuvre_count = 0;
 [v _manoeuvre_count `uc ~T0 @X0 1 e ]
 [i _manoeuvre_count
 -> -> 0 `i `uc
@@ -2434,18 +2434,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 82:         sendRGBCvalSerial4(&measured_colour);
 [e ( _sendRGBCvalSerial4 (1 &U _measured_colour ]
 "83
-[; ;main.c: 83:         LATDbits.LATD7 = !LATDbits.LATD7;
-[e = . . _LATDbits 0 7 -> -> ! != -> . . _LATDbits 0 7 `i -> 0 `i `i `uc ]
-"84
-[; ;main.c: 84:         _delay((unsigned long)((200)*(64000000/4000.0)));
+[; ;main.c: 83:         _delay((unsigned long)((200)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"91
-[; ;main.c: 91:     }
+"90
+[; ;main.c: 90:     }
 }
 [e :U 2018 ]
 [e $U 2019  ]
 [e :U 2020 ]
-"92
-[; ;main.c: 92: }
+"91
+[; ;main.c: 91: }
 [e :UE 2017 ]
 }

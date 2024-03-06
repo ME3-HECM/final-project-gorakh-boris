@@ -24095,6 +24095,8 @@ unsigned char __t3rd16on(void);
 
 
 
+# 1 "./manoeuvres.h" 1
+# 11 "./manoeuvres.h"
 # 1 "./dc_motor.h" 1
 
 
@@ -24145,10 +24147,9 @@ void turnRight135(DC_motor *mL, DC_motor *mR);
 void UTurn(DC_motor *mL, DC_motor *mR);
 void headbuttReverse(DC_motor *mL, DC_motor *mR);
 void squareReverse(DC_motor *mL, DC_motor *mR);
-# 5 "./timers.h" 2
+# 11 "./manoeuvres.h" 2
 
-# 1 "./manoeuvres.h" 1
-# 13 "./manoeuvres.h"
+
 void card_red(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void card_green(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void card_blue(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
@@ -24160,7 +24161,7 @@ void card_white(DC_motor *mL, DC_motor *mR);
 
 
 void pick_card(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
-# 6 "./timers.h" 2
+# 5 "./timers.h" 2
 
 # 1 "./serial.h" 1
 
@@ -24289,7 +24290,7 @@ void putCharToTxBuf(char byte);
 char isDataInTxBuf (void);
 void TxBufferedString(char *string);
 void sendTxBuf(void);
-# 7 "./timers.h" 2
+# 6 "./timers.h" 2
 
 
 
@@ -24319,6 +24320,8 @@ unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
 unsigned char manoeuvre_count = 0;
 
 void Timer0_init(void);
+void read_timer(unsigned char *tH, unsigned char *tL);
+void write_timer(unsigned char tH, unsigned char tL);
 void reset_timer(void);
 void write_trail(unsigned char *man);
 void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man);
@@ -24349,13 +24352,27 @@ void Timer0_init(void)
     INTCONbits.GIE = 1;
 }
 
-void reset_timer(void)
+void read_timer(unsigned char *tH, unsigned char *tL)
 {
 
 
 
-    TMR0H = 0;
-    TMR0L = 0;
+    *tL = TMR0L;
+    *tH = TMR0H;
+}
+
+void write_timer(unsigned char tH, unsigned char tL)
+{
+
+
+
+    TMR0H = tH;
+    TMR0L = tL;
+}
+
+void reset_timer(void)
+{
+    write_timer(0, 0);
 }
 
 void write_trail(unsigned char *man)
@@ -24397,14 +24414,13 @@ void return_to_sender(DC_motor *mL, DC_motor *mR)
         if (mann != 8) {
             pick_card(mL, mR, returning, mann);
         }
-        TMR0H = 0b11111111 - timerH;
-        TMR0L = 0b11111111 - timerL;
+        write_timer(0b11111111 - timerH, 0b11111111 - timerL);
         fullSpeedAhead(mL, mR);
         while (!return_flag);
         stop(mL, mR);
         return_flag = 0;
     }
-    LATHbits.LATH3 = !LATHbits.LATH3;
+
 }
 
 void __attribute__((picinterrupt(("")))) ISR()
@@ -24412,8 +24428,6 @@ void __attribute__((picinterrupt(("")))) ISR()
 
     if (PIR0bits.TMR0IF) {
         if (returning) {
-
-
             return_flag = 1;
         } else {
 

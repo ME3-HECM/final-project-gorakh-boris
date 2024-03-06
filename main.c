@@ -80,7 +80,6 @@ void main(void) {
     while (1) {
         getRGBCval(&measured_colour);
         sendRGBCvalSerial4(&measured_colour);
-        LATDbits.LATD7 = !LATDbits.LATD7;
         __delay_ms(200);
         
         //sendIntSerial4((int)TMR0L);

@@ -24312,7 +24312,7 @@ void sendTxBuf(void);
 # 21 "main.c" 2
 
 # 1 "./timers.h" 1
-# 11 "./timers.h"
+# 10 "./timers.h"
 unsigned char returning = 0;
 unsigned char return_flag = 0;
 
@@ -24338,6 +24338,8 @@ unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
 unsigned char manoeuvre_count = 0;
 
 void Timer0_init(void);
+void read_timer(unsigned char *tH, unsigned char *tL);
+void write_timer(unsigned char tH, unsigned char tL);
 void reset_timer(void);
 void write_trail(unsigned char *man);
 void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man);
@@ -24393,7 +24395,6 @@ void main(void) {
     while (1) {
         getRGBCval(&measured_colour);
         sendRGBCvalSerial4(&measured_colour);
-        LATDbits.LATD7 = !LATDbits.LATD7;
         _delay((unsigned long)((200)*(64000000/4000.0)));
 
 

@@ -37,8 +37,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "39277
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 39277: extern volatile T0CON0bits_t T0CON0bits __attribute__((address(0xFD5)));
 [v _T0CON0bits `VS1921 ~T0 @X0 0 e@4053 ]
-"36 ./timers.h
-[; ;./timers.h: 36: void reset_timer(void);
+"37 ./timers.h
+[; ;./timers.h: 37: void reset_timer(void);
 [v _reset_timer `(v ~T0 @X0 0 ef ]
 "4548 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 4548:     struct {
@@ -70,12 +70,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40176
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 40176: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
 [v _INTCONbits `VS1984 ~T0 @X0 0 e@4082 ]
-"39003
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 39003: extern volatile unsigned char TMR0H __attribute__((address(0xFD4)));
-[v _TMR0H `Vuc ~T0 @X0 0 e@4052 ]
 "38865
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 38865: extern volatile unsigned char TMR0L __attribute__((address(0xFD3)));
 [v _TMR0L `Vuc ~T0 @X0 0 e@4051 ]
+"39003
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 39003: extern volatile unsigned char TMR0H __attribute__((address(0xFD4)));
+[v _TMR0H `Vuc ~T0 @X0 0 e@4052 ]
 "8 ./dc_motor.h
 [; ;./dc_motor.h: 8: typedef struct DC_motor {
 [s S2015 `uc 1 `uc 1 `uc 1 `ui 1 `*uc 1 `*uc 1 ]
@@ -89,40 +89,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "37
 [; ;./dc_motor.h: 37: void stop(DC_motor *mL, DC_motor *mR);
 [v _stop `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"28912 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28912:     struct {
-[s S1361 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1361 . LATH0 LATH1 LATH2 LATH3 ]
-"28918
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28918:     struct {
-[s S1362 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1362 . LH0 LH1 LH2 LH3 ]
-"28924
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28924:     struct {
-[s S1363 :4 `uc 1 :1 `uc 1 ]
-[n S1363 . . LH4 ]
-"28928
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28928:     struct {
-[s S1364 :5 `uc 1 :1 `uc 1 ]
-[n S1364 . . LH5 ]
-"28932
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28932:     struct {
-[s S1365 :6 `uc 1 :1 `uc 1 ]
-[n S1365 . . LH6 ]
-"28936
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28936:     struct {
-[s S1366 :7 `uc 1 :1 `uc 1 ]
-[n S1366 . . LH7 ]
-"28911
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28911: typedef union {
-[u S1360 `S1361 1 `S1362 1 `S1363 1 `S1364 1 `S1365 1 `S1366 1 ]
-[n S1360 . . . . . . . ]
-"28941
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 28941: extern volatile LATHbits_t LATHbits __attribute__((address(0xF80)));
-[v _LATHbits `VS1360 ~T0 @X0 0 e@3968 ]
 [t ~ __interrupt . k ]
 [t T2 __interrupt ]
-"5093
+"5093 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 5093:     struct {
 [s S286 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S286 . INT0IF INT1IF INT2IF INT3IF IOCIF TMR0IF ]
@@ -2203,20 +2172,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _TxBufReadCnt
 -> -> 0 `i `uc
 ]
-"11 ./timers.h
-[; ;./timers.h: 11: unsigned char returning = 0;
+"10 ./timers.h
+[; ;./timers.h: 10: unsigned char returning = 0;
 [v _returning `uc ~T0 @X0 1 e ]
 [i _returning
 -> -> 0 `i `uc
 ]
-"12
-[; ;./timers.h: 12: unsigned char return_flag = 0;
+"11
+[; ;./timers.h: 11: unsigned char return_flag = 0;
 [v _return_flag `uc ~T0 @X0 1 e ]
 [i _return_flag
 -> -> 0 `i `uc
 ]
-"20
-[; ;./timers.h: 20: unsigned char trail_timer_high[20] = {3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6};
+"19
+[; ;./timers.h: 19: unsigned char trail_timer_high[20] = {3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6};
 [v _trail_timer_high `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_timer_high
 :U ..
@@ -2242,8 +2211,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 6 `i `uc
 ..
 ]
-"21
-[; ;./timers.h: 21: unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+"20
+[; ;./timers.h: 20: unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 [v _trail_timer_low `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_timer_low
 :U ..
@@ -2269,8 +2238,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"22
-[; ;./timers.h: 22: unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+"21
+[; ;./timers.h: 21: unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 [v _trail_manoeuvre `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_manoeuvre
 :U ..
@@ -2296,26 +2265,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"30
-[; ;./timers.h: 30: unsigned char *timer_high_pointer = &trail_timer_high[0];
+"29
+[; ;./timers.h: 29: unsigned char *timer_high_pointer = &trail_timer_high[0];
 [v _timer_high_pointer `*uc ~T0 @X0 1 e ]
 [i _timer_high_pointer
 &U *U + &U _trail_timer_high * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_timer_high `ui `ux
 ]
-"31
-[; ;./timers.h: 31: unsigned char *timer_low_pointer = &trail_timer_low[0];
+"30
+[; ;./timers.h: 30: unsigned char *timer_low_pointer = &trail_timer_low[0];
 [v _timer_low_pointer `*uc ~T0 @X0 1 e ]
 [i _timer_low_pointer
 &U *U + &U _trail_timer_low * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_timer_low `ui `ux
 ]
-"32
-[; ;./timers.h: 32: unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
+"31
+[; ;./timers.h: 31: unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
 [v _manoeuvre_pointer `*uc ~T0 @X0 1 e ]
 [i _manoeuvre_pointer
 &U *U + &U _trail_manoeuvre * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_manoeuvre `ui `ux
 ]
-"33
-[; ;./timers.h: 33: unsigned char manoeuvre_count = 0;
+"32
+[; ;./timers.h: 32: unsigned char manoeuvre_count = 0;
 [v _manoeuvre_count `uc ~T0 @X0 1 e ]
 [i _manoeuvre_count
 -> -> 0 `i `uc
@@ -2360,221 +2329,260 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2017 ]
 }
 "26
-[; ;timers.c: 26: void reset_timer(void)
-[v _reset_timer `(v ~T0 @X0 1 ef ]
+[; ;timers.c: 26: void read_timer(unsigned char *tH, unsigned char *tL)
+[v _read_timer `(v ~T0 @X0 1 ef2`*uc`*uc ]
 "27
 [; ;timers.c: 27: {
 {
-[e :U _reset_timer ]
+[e :U _read_timer ]
+"26
+[; ;timers.c: 26: void read_timer(unsigned char *tH, unsigned char *tL)
+[v _tH `*uc ~T0 @X0 1 r1 ]
+[v _tL `*uc ~T0 @X0 1 r2 ]
+"27
+[; ;timers.c: 27: {
 [f ]
 "31
-[; ;timers.c: 31:     TMR0H = 0;
-[e = _TMR0H -> -> 0 `i `uc ]
+[; ;timers.c: 31:     *tL = TMR0L;
+[e = *U _tL _TMR0L ]
 "32
-[; ;timers.c: 32:     TMR0L = 0;
-[e = _TMR0L -> -> 0 `i `uc ]
+[; ;timers.c: 32:     *tH = TMR0H;
+[e = *U _tH _TMR0H ]
 "33
 [; ;timers.c: 33: }
 [e :UE 2018 ]
 }
 "35
-[; ;timers.c: 35: void write_trail(unsigned char *man)
-[v _write_trail `(v ~T0 @X0 1 ef1`*uc ]
+[; ;timers.c: 35: void write_timer(unsigned char tH, unsigned char tL)
+[v _write_timer `(v ~T0 @X0 1 ef2`uc`uc ]
 "36
 [; ;timers.c: 36: {
 {
-[e :U _write_trail ]
+[e :U _write_timer ]
 "35
-[; ;timers.c: 35: void write_trail(unsigned char *man)
-[v _man `*uc ~T0 @X0 1 r1 ]
+[; ;timers.c: 35: void write_timer(unsigned char tH, unsigned char tL)
+[v _tH `uc ~T0 @X0 1 r1 ]
+[v _tL `uc ~T0 @X0 1 r2 ]
 "36
 [; ;timers.c: 36: {
 [f ]
-"37
-[; ;timers.c: 37:     *timer_high_pointer = TMR0H;
-[e = *U _timer_high_pointer _TMR0H ]
-"38
-[; ;timers.c: 38:     *timer_low_pointer = TMR0L;
-[e = *U _timer_low_pointer _TMR0L ]
-"39
-[; ;timers.c: 39:     *manoeuvre_pointer = *man;
-[e = *U _manoeuvre_pointer *U _man ]
+"40
+[; ;timers.c: 40:     TMR0H = tH;
+[e = _TMR0H _tH ]
 "41
-[; ;timers.c: 41:     timer_high_pointer ++;
-[e ++ _timer_high_pointer * -> -> 1 `i `x -> -> # *U _timer_high_pointer `i `x ]
+[; ;timers.c: 41:     TMR0L = tL;
+[e = _TMR0L _tL ]
 "42
-[; ;timers.c: 42:     timer_low_pointer ++;
-[e ++ _timer_low_pointer * -> -> 1 `i `x -> -> # *U _timer_low_pointer `i `x ]
-"43
-[; ;timers.c: 43:     manoeuvre_pointer ++;
-[e ++ _manoeuvre_pointer * -> -> 1 `i `x -> -> # *U _manoeuvre_pointer `i `x ]
-"45
-[; ;timers.c: 45:     manoeuvre_count ++;
-[e ++ _manoeuvre_count -> -> 1 `i `uc ]
-"46
-[; ;timers.c: 46: }
+[; ;timers.c: 42: }
 [e :UE 2019 ]
 }
-"48
-[; ;timers.c: 48: void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man)
-[v _read_trail `(v ~T0 @X0 1 ef3`*uc`*uc`*uc ]
+"44
+[; ;timers.c: 44: void reset_timer(void)
+[v _reset_timer `(v ~T0 @X0 1 ef ]
+"45
+[; ;timers.c: 45: {
+{
+[e :U _reset_timer ]
+[f ]
+"46
+[; ;timers.c: 46:     write_timer(0, 0);
+[e ( _write_timer (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"47
+[; ;timers.c: 47: }
+[e :UE 2020 ]
+}
 "49
-[; ;timers.c: 49: {
+[; ;timers.c: 49: void write_trail(unsigned char *man)
+[v _write_trail `(v ~T0 @X0 1 ef1`*uc ]
+"50
+[; ;timers.c: 50: {
+{
+[e :U _write_trail ]
+"49
+[; ;timers.c: 49: void write_trail(unsigned char *man)
+[v _man `*uc ~T0 @X0 1 r1 ]
+"50
+[; ;timers.c: 50: {
+[f ]
+"51
+[; ;timers.c: 51:     *timer_high_pointer = TMR0H;
+[e = *U _timer_high_pointer _TMR0H ]
+"52
+[; ;timers.c: 52:     *timer_low_pointer = TMR0L;
+[e = *U _timer_low_pointer _TMR0L ]
+"53
+[; ;timers.c: 53:     *manoeuvre_pointer = *man;
+[e = *U _manoeuvre_pointer *U _man ]
+"55
+[; ;timers.c: 55:     timer_high_pointer ++;
+[e ++ _timer_high_pointer * -> -> 1 `i `x -> -> # *U _timer_high_pointer `i `x ]
+"56
+[; ;timers.c: 56:     timer_low_pointer ++;
+[e ++ _timer_low_pointer * -> -> 1 `i `x -> -> # *U _timer_low_pointer `i `x ]
+"57
+[; ;timers.c: 57:     manoeuvre_pointer ++;
+[e ++ _manoeuvre_pointer * -> -> 1 `i `x -> -> # *U _manoeuvre_pointer `i `x ]
+"59
+[; ;timers.c: 59:     manoeuvre_count ++;
+[e ++ _manoeuvre_count -> -> 1 `i `uc ]
+"60
+[; ;timers.c: 60: }
+[e :UE 2021 ]
+}
+"62
+[; ;timers.c: 62: void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man)
+[v _read_trail `(v ~T0 @X0 1 ef3`*uc`*uc`*uc ]
+"63
+[; ;timers.c: 63: {
 {
 [e :U _read_trail ]
-"48
-[; ;timers.c: 48: void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man)
+"62
+[; ;timers.c: 62: void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man)
 [v _tH `*uc ~T0 @X0 1 r1 ]
 [v _tL `*uc ~T0 @X0 1 r2 ]
 [v _man `*uc ~T0 @X0 1 r3 ]
-"49
-[; ;timers.c: 49: {
+"63
+[; ;timers.c: 63: {
 [f ]
-"50
-[; ;timers.c: 50:     timer_high_pointer --;
+"64
+[; ;timers.c: 64:     timer_high_pointer --;
 [e -- _timer_high_pointer * -> -> 1 `i `x -> -> # *U _timer_high_pointer `i `x ]
-"51
-[; ;timers.c: 51:     timer_low_pointer --;
+"65
+[; ;timers.c: 65:     timer_low_pointer --;
 [e -- _timer_low_pointer * -> -> 1 `i `x -> -> # *U _timer_low_pointer `i `x ]
-"52
-[; ;timers.c: 52:     manoeuvre_pointer --;
+"66
+[; ;timers.c: 66:     manoeuvre_pointer --;
 [e -- _manoeuvre_pointer * -> -> 1 `i `x -> -> # *U _manoeuvre_pointer `i `x ]
-"54
-[; ;timers.c: 54:     *tH = *timer_high_pointer;
+"68
+[; ;timers.c: 68:     *tH = *timer_high_pointer;
 [e = *U _tH *U _timer_high_pointer ]
-"55
-[; ;timers.c: 55:     *tL = *timer_low_pointer;
+"69
+[; ;timers.c: 69:     *tL = *timer_low_pointer;
 [e = *U _tL *U _timer_low_pointer ]
-"56
-[; ;timers.c: 56:     *man = *manoeuvre_pointer;
+"70
+[; ;timers.c: 70:     *man = *manoeuvre_pointer;
 [e = *U _man *U _manoeuvre_pointer ]
-"58
-[; ;timers.c: 58:     manoeuvre_count --;
+"72
+[; ;timers.c: 72:     manoeuvre_count --;
 [e -- _manoeuvre_count -> -> 1 `i `uc ]
-"59
-[; ;timers.c: 59: }
-[e :UE 2020 ]
+"73
+[; ;timers.c: 73: }
+[e :UE 2022 ]
 }
-"61
-[; ;timers.c: 61: void return_to_sender(DC_motor *mL, DC_motor *mR)
+"75
+[; ;timers.c: 75: void return_to_sender(DC_motor *mL, DC_motor *mR)
 [v _return_to_sender `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
-"62
-[; ;timers.c: 62: {
+"76
+[; ;timers.c: 76: {
 {
 [e :U _return_to_sender ]
-"61
-[; ;timers.c: 61: void return_to_sender(DC_motor *mL, DC_motor *mR)
+"75
+[; ;timers.c: 75: void return_to_sender(DC_motor *mL, DC_motor *mR)
 [v _mL `*S2015 ~T0 @X0 1 r1 ]
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
-"62
-[; ;timers.c: 62: {
+"76
+[; ;timers.c: 76: {
 [f ]
-"63
-[; ;timers.c: 63:     while (manoeuvre_count != 0) {
-[e $U 2022  ]
-[e :U 2023 ]
+"77
+[; ;timers.c: 77:     while (manoeuvre_count != 0) {
+[e $U 2024  ]
+[e :U 2025 ]
 {
-"64
-[; ;timers.c: 64:         unsigned char timerH = 0;
+"78
+[; ;timers.c: 78:         unsigned char timerH = 0;
 [v _timerH `uc ~T0 @X0 1 a ]
 [e = _timerH -> -> 0 `i `uc ]
-"65
-[; ;timers.c: 65:         unsigned char timerL = 0;
+"79
+[; ;timers.c: 79:         unsigned char timerL = 0;
 [v _timerL `uc ~T0 @X0 1 a ]
 [e = _timerL -> -> 0 `i `uc ]
-"66
-[; ;timers.c: 66:         unsigned char mann = 0;
+"80
+[; ;timers.c: 80:         unsigned char mann = 0;
 [v _mann `uc ~T0 @X0 1 a ]
 [e = _mann -> -> 0 `i `uc ]
-"67
-[; ;timers.c: 67:         read_trail(&timerH, &timerL, &mann);
-[e ( _read_trail (3 , , &U _timerH &U _timerL &U _mann ]
-"71
-[; ;timers.c: 71:         if (mann != 8) {
-[e $ ! != -> _mann `i -> 8 `i 2025  ]
-{
-"72
-[; ;timers.c: 72:             pick_card(mL, mR, returning, mann);
-[e ( _pick_card (4 , , , _mL _mR _returning _mann ]
-"73
-[; ;timers.c: 73:         }
-}
-[e :U 2025 ]
-"74
-[; ;timers.c: 74:         TMR0H = 0b11111111 - timerH;
-[e = _TMR0H -> - -> 255 `i -> _timerH `i `uc ]
-"75
-[; ;timers.c: 75:         TMR0L = 0b11111111 - timerL;
-[e = _TMR0L -> - -> 255 `i -> _timerL `i `uc ]
-"76
-[; ;timers.c: 76:         fullSpeedAhead(mL, mR);
-[e ( _fullSpeedAhead (2 , _mL _mR ]
-"77
-[; ;timers.c: 77:         while (!return_flag);
-[e $U 2026  ]
-[e :U 2027 ]
-[e :U 2026 ]
-[e $ ! != -> _return_flag `i -> 0 `i 2027  ]
-[e :U 2028 ]
-"78
-[; ;timers.c: 78:         stop(mL, mR);
-[e ( _stop (2 , _mL _mR ]
-"79
-[; ;timers.c: 79:         return_flag = 0;
-[e = _return_flag -> -> 0 `i `uc ]
-"80
-[; ;timers.c: 80:     }
-}
-[e :U 2022 ]
-"63
-[; ;timers.c: 63:     while (manoeuvre_count != 0) {
-[e $ != -> _manoeuvre_count `i -> 0 `i 2023  ]
-[e :U 2024 ]
 "81
-[; ;timers.c: 81:     LATHbits.LATH3 = !LATHbits.LATH3;
-[e = . . _LATHbits 0 3 -> -> ! != -> . . _LATHbits 0 3 `i -> 0 `i `i `uc ]
-"82
-[; ;timers.c: 82: }
-[e :UE 2021 ]
+[; ;timers.c: 81:         read_trail(&timerH, &timerL, &mann);
+[e ( _read_trail (3 , , &U _timerH &U _timerL &U _mann ]
+"85
+[; ;timers.c: 85:         if (mann != 8) {
+[e $ ! != -> _mann `i -> 8 `i 2027  ]
+{
+"86
+[; ;timers.c: 86:             pick_card(mL, mR, returning, mann);
+[e ( _pick_card (4 , , , _mL _mR _returning _mann ]
+"87
+[; ;timers.c: 87:         }
+}
+[e :U 2027 ]
+"88
+[; ;timers.c: 88:         write_timer(0b11111111 - timerH, 0b11111111 - timerL);
+[e ( _write_timer (2 , -> - -> 255 `i -> _timerH `i `uc -> - -> 255 `i -> _timerL `i `uc ]
+"89
+[; ;timers.c: 89:         fullSpeedAhead(mL, mR);
+[e ( _fullSpeedAhead (2 , _mL _mR ]
+"90
+[; ;timers.c: 90:         while (!return_flag);
+[e $U 2028  ]
+[e :U 2029 ]
+[e :U 2028 ]
+[e $ ! != -> _return_flag `i -> 0 `i 2029  ]
+[e :U 2030 ]
+"91
+[; ;timers.c: 91:         stop(mL, mR);
+[e ( _stop (2 , _mL _mR ]
+"92
+[; ;timers.c: 92:         return_flag = 0;
+[e = _return_flag -> -> 0 `i `uc ]
+"93
+[; ;timers.c: 93:     }
+}
+[e :U 2024 ]
+"77
+[; ;timers.c: 77:     while (manoeuvre_count != 0) {
+[e $ != -> _manoeuvre_count `i -> 0 `i 2025  ]
+[e :U 2026 ]
+"95
+[; ;timers.c: 95: }
+[e :UE 2023 ]
 }
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"84
-[; ;timers.c: 84: void __attribute__((picinterrupt(("")))) ISR()
+"97
+[; ;timers.c: 97: void __attribute__((picinterrupt(("")))) ISR()
 [v _ISR `(v ~T2 @X0 1 ef ]
-"85
-[; ;timers.c: 85: {
+"98
+[; ;timers.c: 98: {
 {
 [e :U _ISR ]
 [f ]
-"87
-[; ;timers.c: 87:     if (PIR0bits.TMR0IF) {
-[e $ ! != -> . . _PIR0bits 0 5 `i -> 0 `i 2030  ]
+"100
+[; ;timers.c: 100:     if (PIR0bits.TMR0IF) {
+[e $ ! != -> . . _PIR0bits 0 5 `i -> 0 `i 2032  ]
 {
-"88
-[; ;timers.c: 88:         if (returning) {
-[e $ ! != -> _returning `i -> 0 `i 2031  ]
+"101
+[; ;timers.c: 101:         if (returning) {
+[e $ ! != -> _returning `i -> 0 `i 2033  ]
 {
-"91
-[; ;timers.c: 91:             return_flag = 1;
+"102
+[; ;timers.c: 102:             return_flag = 1;
 [e = _return_flag -> -> 1 `i `uc ]
-"92
-[; ;timers.c: 92:         } else {
+"103
+[; ;timers.c: 103:         } else {
 }
-[e $U 2032  ]
-[e :U 2031 ]
+[e $U 2034  ]
+[e :U 2033 ]
 {
-"94
-[; ;timers.c: 94:         }
+"105
+[; ;timers.c: 105:         }
+}
+[e :U 2034 ]
+"107
+[; ;timers.c: 107:         PIR0bits.TMR0IF = 0;
+[e = . . _PIR0bits 0 5 -> -> 0 `i `uc ]
+"108
+[; ;timers.c: 108:     }
 }
 [e :U 2032 ]
-"96
-[; ;timers.c: 96:         PIR0bits.TMR0IF = 0;
-[e = . . _PIR0bits 0 5 -> -> 0 `i `uc ]
-"97
-[; ;timers.c: 97:     }
-}
-[e :U 2030 ]
-"98
-[; ;timers.c: 98: }
-[e :UE 2029 ]
+"109
+[; ;timers.c: 109: }
+[e :UE 2031 ]
 }

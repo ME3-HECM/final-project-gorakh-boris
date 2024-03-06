@@ -147,11 +147,13 @@
 [v _isDataInTxBuf isDataInTxBuf `(uc  1 e 1 0 ]
 "7 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
 [v _Timer0_init Timer0_init `(v  1 e 1 0 ]
-"26
+"35
+[v _write_timer write_timer `(v  1 e 1 0 ]
+"44
 [v _reset_timer reset_timer `(v  1 e 1 0 ]
-"48
+"62
 [v _read_trail read_trail `(v  1 e 1 0 ]
-"84
+"97
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 "14 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X/serial.h
 [v _EUSART4RXbuf EUSART4RXbuf `VE[20]uc  1 e 20 0 ]
@@ -165,23 +167,23 @@
 [v _TxBufWriteCnt TxBufWriteCnt `VEuc  1 e 1 0 ]
 "20
 [v _TxBufReadCnt TxBufReadCnt `VEuc  1 e 1 0 ]
-"11 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X/timers.h
+"10 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X/timers.h
 [v _returning returning `uc  1 e 1 0 ]
-"12
+"11
 [v _return_flag return_flag `uc  1 e 1 0 ]
-"20
+"19
 [v _trail_timer_high trail_timer_high `[20]uc  1 e 20 0 ]
-"21
+"20
 [v _trail_timer_low trail_timer_low `[20]uc  1 e 20 0 ]
-"22
+"21
 [v _trail_manoeuvre trail_manoeuvre `[20]uc  1 e 20 0 ]
-"30
+"29
 [v _timer_high_pointer timer_high_pointer `*.30uc  1 e 1 0 ]
-"31
+"30
 [v _timer_low_pointer timer_low_pointer `*.30uc  1 e 1 0 ]
-"32
+"31
 [v _manoeuvre_pointer manoeuvre_pointer `*.30uc  1 e 1 0 ]
-"33
+"32
 [v _manoeuvre_count manoeuvre_count `uc  1 e 1 0 ]
 "3182 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
 [v _RX4PPS RX4PPS `VEuc  1 e 1 @3605 ]
@@ -209,7 +211,7 @@
 "4819
 [u S1772 . 1 `S1765 1 . 1 0 ]
 [v _PIE4bits PIE4bits `VES1772  1 e 1 @3629 ]
-[s S2115 . 1 `uc 1 INT0IF 1 0 :1:0 
+[s S2085 . 1 `uc 1 INT0IF 1 0 :1:0 
 `uc 1 INT1IF 1 0 :1:1 
 `uc 1 INT2IF 1 0 :1:2 
 `uc 1 INT3IF 1 0 :1:3 
@@ -217,8 +219,8 @@
 `uc 1 TMR0IF 1 0 :1:5 
 ]
 "5102
-[u S2122 . 1 `S2115 1 . 1 0 ]
-[v _PIR0bits PIR0bits `VES2122  1 e 1 @3635 ]
+[u S2092 . 1 `S2085 1 . 1 0 ]
+[v _PIR0bits PIR0bits `VES2092  1 e 1 @3635 ]
 [s S1735 . 1 `uc 1 TX3IF 1 0 :1:0 
 `uc 1 RC3IF 1 0 :1:1 
 `uc 1 TX4IF 1 0 :1:2 
@@ -902,7 +904,7 @@
 [s S520 RGBC_val 8 `ui 1 R 2 0 `ui 1 G 2 2 `ui 1 B 2 4 `ui 1 C 2 6 ]
 "27
 [v main@measured_colour measured_colour `S520  1 a 8 56 ]
-"92
+"91
 } 0
 "62 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
 [v _sendRGBCvalSerial4 sendRGBCvalSerial4 `(v  1 e 1 0 ]
@@ -917,10 +919,10 @@
 "9 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[u S2640 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[u S2617 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
 "13
-[s S2643 _IO_FILE 12 `S2640 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v sprintf@f f `S2643  1 a 12 41 ]
+[s S2620 _IO_FILE 12 `S2617 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v sprintf@f f `S2620  1 a 12 41 ]
 "11
 [v sprintf@ret ret `i  1 a 2 38 ]
 "12
@@ -935,9 +937,9 @@
 {
 "1820
 [v vfprintf@cfmt cfmt `*.31uc  1 a 1 26 ]
-[s S2675 _IO_FILE 0 ]
+[s S2652 _IO_FILE 0 ]
 "1817
-[v vfprintf@fp fp `*.30S2675  1 p 1 23 ]
+[v vfprintf@fp fp `*.30S2652  1 p 1 23 ]
 [v vfprintf@fmt fmt `*.31Cuc  1 p 1 24 ]
 [v vfprintf@ap ap `*.30*.30v  1 p 1 25 ]
 "1840
@@ -945,9 +947,9 @@
 "1177
 [v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
 {
-[u S2693 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
+[u S2670 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
 "1188
-[v vfpfcnvrt@convarg convarg `S2693  1 a 4 18 ]
+[v vfpfcnvrt@convarg convarg `S2670  1 a 4 18 ]
 "1191
 [v vfpfcnvrt@cnt cnt `i  1 a 2 15 ]
 "1179
@@ -955,9 +957,9 @@
 [v vfpfcnvrt@cp cp `*.31uc  1 a 1 17 ]
 "1180
 [v vfpfcnvrt@done done `a  1 a 1 14 ]
-[s S2675 _IO_FILE 0 ]
+[s S2652 _IO_FILE 0 ]
 "1177
-[v vfpfcnvrt@fp fp `*.30S2675  1 p 1 10 ]
+[v vfpfcnvrt@fp fp `*.30S2652  1 p 1 10 ]
 [v vfpfcnvrt@fmt fmt `*.30*.31uc  1 p 1 11 ]
 [v vfpfcnvrt@ap ap `*.30*.30v  1 p 1 12 ]
 "1814
@@ -966,9 +968,9 @@
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 0 ]
-[u S2640 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S2643 _IO_FILE 12 `S2640 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v fputc@fp fp `*.30S2643  1 p 1 2 ]
+[u S2617 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S2620 _IO_FILE 12 `S2617 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v fputc@fp fp `*.30S2620  1 p 1 2 ]
 "24
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\putch.c
@@ -1136,13 +1138,23 @@
 {
 "24
 } 0
-"26
+"44
 [v _reset_timer reset_timer `(v  1 e 1 0 ]
 {
-"33
+"47
 } 0
-"84
+"35
+[v _write_timer write_timer `(v  1 e 1 0 ]
+{
+[v write_timer@tH tH `uc  1 a 1 wreg ]
+[v write_timer@tH tH `uc  1 a 1 wreg ]
+[v write_timer@tL tL `uc  1 p 1 0 ]
+"40
+[v write_timer@tH tH `uc  1 a 1 1 ]
+"42
+} 0
+"97
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 {
-"98
+"109
 } 0

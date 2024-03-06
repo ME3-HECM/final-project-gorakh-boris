@@ -23,13 +23,27 @@ void Timer0_init(void)
     INTCONbits.GIE = 1;     //sets global interrupt
 }
 
+void read_timer(unsigned char *tH, unsigned char *tL)
+{
+    //remember timer read and write order
+    //read TMR0L first before TMR0H
+    //write TMR0H first before TMR0L
+    *tL = TMR0L;
+    *tH = TMR0H;
+}
+
+void write_timer(unsigned char tH, unsigned char tL)
+{
+    //remember timer read and write order
+    //read TMR0L first before TMR0H
+    //write TMR0H first before TMR0L
+    TMR0H = tH;
+    TMR0L = tL;
+}
+
 void reset_timer(void)
 {
-    //REMEMBER TIMER READ AND WRITE ORDER
-    //Read TMR0L first before TMR0H
-    //Write TMR0H first before TMR0L
-    TMR0H = 0;                  //initial zero value
-    TMR0L = 0;                  //initial zero value
+    write_timer(0, 0);
 }
 
 void write_trail(unsigned char *man)
@@ -71,14 +85,13 @@ void return_to_sender(DC_motor *mL, DC_motor *mR)
         if (mann != 8) {            //ignore white card instruction
             pick_card(mL, mR, returning, mann);
         }
-        TMR0H = 0b11111111 - timerH;
-        TMR0L = 0b11111111 - timerL;
+        write_timer(0b11111111 - timerH, 0b11111111 - timerL);
         fullSpeedAhead(mL, mR);
         while (!return_flag);
         stop(mL, mR);
         return_flag = 0;
     }
-    LATHbits.LATH3 = !LATHbits.LATH3;       //toggle LED for debugging
+    //LATHbits.LATH3 = !LATHbits.LATH3;       //toggle LED for debugging
 }
 
 void __interrupt() ISR()
@@ -86,8 +99,6 @@ void __interrupt() ISR()
     // timer interrupt
     if (PIR0bits.TMR0IF) {
         if (returning) {            //is backtracking
-            //some code on performing the next manoeuvre when backtracking
-            //the timer will be used to time the straight distances travelled when backtracking
             return_flag = 1;
         } else {                    //is not backtracking
             //trigger a lost function

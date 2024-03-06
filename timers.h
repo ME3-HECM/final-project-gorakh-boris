@@ -2,7 +2,6 @@
 #define _timers_H
 
 #include <xc.h>
-#include "dc_motor.h"
 #include "manoeuvres.h"
 #include "serial.h"
 
@@ -33,6 +32,8 @@ unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];             //set to 0 o
 unsigned char manoeuvre_count = 0;                              //can be set from 0 to 20 for different conditions
 
 void Timer0_init(void);
+void read_timer(unsigned char *tH, unsigned char *tL);
+void write_timer(unsigned char tH, unsigned char tL);
 void reset_timer(void);
 void write_trail(unsigned char *man);
 void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man);
