@@ -3,4 +3,6 @@ timers.c  \
 timers.h  \
 dc_motor.h  \
 manoeuvres.h  \
-serial.h 
+serial.h  \
+color.h  \
+i2c.h 

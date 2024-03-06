@@ -65,9 +65,6 @@ void main(void) {
         ANSELFbits.ANSELF2 = 0;
         ANSELFbits.ANSELF3 = 0;
     
-    //fullSpeedAhead(&motorL, &motorR);
-    //stop(&motorL, &motorR);
-    
     //card_red(&motorL, &motorR, returning);
     //card_green(&motorL, &motorR, returning);
     //card_blue(&motorL, &motorR, returning);
@@ -76,14 +73,13 @@ void main(void) {
     //card_orange(&motorL, &motorR, returning);
     //card_cyan(&motorL, &motorR, returning);
     //card_white(&motorL, &motorR);
-    
     //return_to_sender(&motorL, &motorR);
     
     //while (PORTFbits.RF2);          //wait until RF2 is pressed
     
     while (1) {
         getRGBCval(&measured_colour);
-        sendIntSerial4((int)measured_colour.C);
+        sendRGBCvalSerial4(&measured_colour);
         LATDbits.LATD7 = !LATDbits.LATD7;
         __delay_ms(200);
         
@@ -92,15 +88,5 @@ void main(void) {
         //sendArrayCharSerial4(trail_timer_high);
         //sendArrayCharSerial4(trail_timer_low);
         //sendArrayCharSerial4(trail_manoeuvre);
-        
-        //toggle_brake_lights();
-        //__delay_ms(100);
-        //toggle_main_beam();
-        //__delay_ms(100);
-        //toggle_tricolour_LED();
-        //__delay_ms(100);
-        //toggle_left_indicators();
-        //toggle_right_indicators();
-        //__delay_ms(100);
     }
 }

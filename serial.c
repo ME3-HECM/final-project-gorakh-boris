@@ -58,6 +58,13 @@ void sendArrayCharSerial4(unsigned char *arr) {
     sendStringSerial4(" \r");
 }
 
+//function to send a RGBC_val structure over the serial interface
+void sendRGBCvalSerial4(RGBC_val *col_val) {
+    char tempStr[41];
+    sprintf(tempStr, "%d %d %d %d \r", col_val->R, col_val->G, col_val->B, col_val->C);
+    sendStringSerial4(tempStr);
+}
+
 //functions below are for Ex3 and 4 (optional)
 
 // circular buffer functions for RX

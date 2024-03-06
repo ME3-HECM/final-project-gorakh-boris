@@ -24245,7 +24245,103 @@ char *tempnam(const char *, const char *);
 # 2 "serial.c" 2
 
 # 1 "./serial.h" 1
-# 13 "./serial.h"
+
+
+
+
+# 1 "./color.h" 1
+
+
+
+
+# 1 "./i2c.h" 1
+# 13 "./i2c.h"
+void I2C_2_Master_Init(void);
+
+
+
+
+void I2C_2_Master_Idle(void);
+
+
+
+
+void I2C_2_Master_Start(void);
+
+
+
+
+void I2C_2_Master_RepStart(void);
+
+
+
+
+void I2C_2_Master_Stop(void);
+
+
+
+
+void I2C_2_Master_Write(unsigned char data_byte);
+
+
+
+
+unsigned char I2C_2_Master_Read(unsigned char ack);
+# 5 "./color.h" 2
+
+
+
+
+
+typedef struct RGBC_val {
+ unsigned int R;
+ unsigned int G;
+ unsigned int B;
+    unsigned int C;
+} RGBC_val;
+
+
+
+void color_click_init(void);
+
+
+
+
+
+
+void color_writetoaddr(char address, char value);
+
+
+
+
+
+unsigned int color_read_Red(void);
+
+
+
+
+
+unsigned int color_read_Blue(void);
+
+
+
+
+
+unsigned int color_read_Green(void);
+
+
+
+
+
+unsigned int color_read_Clear(void);
+
+
+
+
+
+void getRGBCval(struct RGBC_val *p);
+# 5 "./serial.h" 2
+# 14 "./serial.h"
 volatile char EUSART4RXbuf[20];
 volatile char RxBufWriteCnt=0;
 volatile char RxBufReadCnt=0;
@@ -24262,6 +24358,7 @@ void sendCharSerial4(char charToSend);
 void sendStringSerial4(char *string);
 void sendIntSerial4(int integer);
 void sendArrayCharSerial4(unsigned char *arr);
+void sendRGBCvalSerial4(RGBC_val *col);
 
 
 char getCharFromRxBuf(void);
@@ -24331,6 +24428,13 @@ void sendArrayCharSerial4(unsigned char *arr) {
     }
     sendStringSerial4(tempStr);
     sendStringSerial4(" \r");
+}
+
+
+void sendRGBCvalSerial4(RGBC_val *col_val) {
+    char tempStr[41];
+    sprintf(tempStr, "%d %d %d %d \r", col_val->R, col_val->G, col_val->B, col_val->C);
+    sendStringSerial4(tempStr);
 }
 
 

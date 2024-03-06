@@ -24279,7 +24279,7 @@ void getRGBCval(struct RGBC_val *p);
 # 20 "main.c" 2
 
 # 1 "./serial.h" 1
-# 13 "./serial.h"
+# 14 "./serial.h"
 volatile char EUSART4RXbuf[20];
 volatile char RxBufWriteCnt=0;
 volatile char RxBufReadCnt=0;
@@ -24296,6 +24296,7 @@ void sendCharSerial4(char charToSend);
 void sendStringSerial4(char *string);
 void sendIntSerial4(int integer);
 void sendArrayCharSerial4(unsigned char *arr);
+void sendRGBCvalSerial4(RGBC_val *col);
 
 
 char getCharFromRxBuf(void);
@@ -24388,12 +24389,17 @@ void main(void) {
 
         ANSELFbits.ANSELF2 = 0;
         ANSELFbits.ANSELF3 = 0;
-# 84 "main.c"
+# 80 "main.c"
     while (1) {
         getRGBCval(&measured_colour);
-        sendIntSerial4((int)measured_colour.C);
+        sendRGBCvalSerial4(&measured_colour);
         LATDbits.LATD7 = !LATDbits.LATD7;
         _delay((unsigned long)((200)*(64000000/4000.0)));
-# 105 "main.c"
+
+
+
+
+
+
     }
 }

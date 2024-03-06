@@ -1,7 +1,7 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\boris\AppData\Local\Temp\xcAsiso.\driver_tmp_3.o
+ C:\Users\boris\AppData\Local\Temp\xcDsd30.3\driver_tmp_3.o
  -Odist/default/production\final-project-gorakh-boris.X.production.hex
  -logfile=dist/default/production\final-project-gorakh-boris.X.production.hxl
  -addressing=1
@@ -9,34 +9,32 @@
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(C:\Users\boris\AppData\Local\Temp\xcAsiso.\driver_tmp_3.o)
-  8h - 3Bh		(C:\Users\boris\AppData\Local\Temp\xcAsiso.\driver_tmp_3.o)
-  E00h - E0Ah		(C:\Users\boris\AppData\Local\Temp\xcAsiso.\driver_tmp_3.o)
-  E0Ch - 1792h		(C:\Users\boris\AppData\Local\Temp\xcAsiso.\driver_tmp_3.o)
-  1794h - 188Dh		(C:\Users\boris\AppData\Local\Temp\xcAsiso.\driver_tmp_3.o)
-  200000h - 20000Fh		(C:\Users\boris\AppData\Local\Temp\xcAsiso.\driver_tmp_3.o)
-  300000h - 30000Bh		(C:\Users\boris\AppData\Local\Temp\xcAsiso.\driver_tmp_3.o)
+  0h - 3h		(C:\Users\boris\AppData\Local\Temp\xcDsd30.3\driver_tmp_3.o)
+  8h - 37h		(C:\Users\boris\AppData\Local\Temp\xcDsd30.3\driver_tmp_3.o)
+  E00h - 1902h		(C:\Users\boris\AppData\Local\Temp\xcDsd30.3\driver_tmp_3.o)
+  1904h - 1905h		(C:\Users\boris\AppData\Local\Temp\xcDsd30.3\driver_tmp_3.o)
+  200000h - 20000Fh		(C:\Users\boris\AppData\Local\Temp\xcDsd30.3\driver_tmp_3.o)
+  300000h - 30000Bh		(C:\Users\boris\AppData\Local\Temp\xcDsd30.3\driver_tmp_3.o)
  Unused ranges:
   4h - 7h
-  3Ch - DFFh
-  E0Bh - E0Bh
-  1793h - 1793h
-  188Eh - 1FFFFFh
+  38h - DFFh
+  1903h - 1903h
+  1906h - 1FFFFFh
   200010h - 2FFFFFh
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\boris\AppData\Local\Temp\xcAsiso.\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\boris\AppData\Local\Temp\xcDsd30.3\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
 00000000 | H1 H1 H1 H1 -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1
 00000010 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000020 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00000030 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- --
+00000030 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
 ----------------------------------------------------------
-00000E00 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- H1 H1 H1 H1
+00000E00 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000E10 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000E20 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000E30 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
@@ -189,7 +187,7 @@
 00001760 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001770 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001780 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00001790 | H1 H1 H1 -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001790 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000017A0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000017B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000017C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
@@ -204,7 +202,15 @@
 00001850 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001860 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001870 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00001880 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- --
+00001880 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001890 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000018A0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000018B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000018C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000018D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000018E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000018F0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001900 | H1 H1 H1 -- H1 H1 -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 ----------------------------------------------------------
