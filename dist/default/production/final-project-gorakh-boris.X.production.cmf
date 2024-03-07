@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
+$C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
 idloc IDLOC 5 200000 200000 10 1 1
 init CODE 0 74 74 4 1 2
 reset_vec CODE 0 0 0 4 1 2
@@ -123,7 +123,7 @@ MEDIUMCONST 10E00-1FFFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\final-project-gorakh-boris.X.production.o
-8 intcode CODE >18766:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
+8 intcode CODE >18766:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
 8 intcode CODE >19:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\interrupts.c
 12 intcode CODE >22:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\interrupts.c
 22 intcode CODE >28:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\interrupts.c
@@ -515,60 +515,60 @@ FE0 text3 CODE >1811:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common
 1130 text0 CODE >100:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
 1138 text0 CODE >101:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
 113C text0 CODE >104:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-140A cinit CODE >13647:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-140A cinit CODE >13649:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-140A cinit CODE >13652:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-140A cinit CODE >13807:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-140C cinit CODE >13808:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-140E cinit CODE >13809:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1410 cinit CODE >13810:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1412 cinit CODE >13811:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1414 cinit CODE >13812:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1416 cinit CODE >13813:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-141A cinit CODE >13814:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-141E cinit CODE >13815:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-141E cinit CODE >13816:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1420 cinit CODE >13817:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1424 cinit CODE >13818:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1426 cinit CODE >13819:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1428 cinit CODE >13820:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-142A cinit CODE >13824:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-142C cinit CODE >13825:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-142E cinit CODE >13826:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1430 cinit CODE >13827:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1432 cinit CODE >13828:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1434 cinit CODE >13829:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1436 cinit CODE >13830:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-143A cinit CODE >13831:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-143E cinit CODE >13832:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-143E cinit CODE >13833:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1440 cinit CODE >13834:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1444 cinit CODE >13835:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1446 cinit CODE >13836:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1448 cinit CODE >13837:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-144A cinit CODE >13841:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-144E cinit CODE >13842:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1450 cinit CODE >13843:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1450 cinit CODE >13844:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1452 cinit CODE >13845:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1454 cinit CODE >13846:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1456 cinit CODE >13849:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-145A cinit CODE >13850:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-145C cinit CODE >13851:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-145C cinit CODE >13852:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-145E cinit CODE >13853:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1460 cinit CODE >13854:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1462 cinit CODE >13857:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1466 cinit CODE >13858:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1468 cinit CODE >13859:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1468 cinit CODE >13860:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-146A cinit CODE >13861:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-146C cinit CODE >13862:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-146E cinit CODE >13868:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-146E cinit CODE >13870:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1470 cinit CODE >13871:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1472 cinit CODE >13872:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
-1474 cinit CODE >13873:C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_1.s
+140A cinit CODE >13647:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+140A cinit CODE >13649:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+140A cinit CODE >13652:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+140A cinit CODE >13807:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+140C cinit CODE >13808:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+140E cinit CODE >13809:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1410 cinit CODE >13810:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1412 cinit CODE >13811:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1414 cinit CODE >13812:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1416 cinit CODE >13813:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+141A cinit CODE >13814:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+141E cinit CODE >13815:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+141E cinit CODE >13816:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1420 cinit CODE >13817:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1424 cinit CODE >13818:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1426 cinit CODE >13819:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1428 cinit CODE >13820:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+142A cinit CODE >13824:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+142C cinit CODE >13825:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+142E cinit CODE >13826:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1430 cinit CODE >13827:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1432 cinit CODE >13828:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1434 cinit CODE >13829:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1436 cinit CODE >13830:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+143A cinit CODE >13831:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+143E cinit CODE >13832:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+143E cinit CODE >13833:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1440 cinit CODE >13834:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1444 cinit CODE >13835:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1446 cinit CODE >13836:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1448 cinit CODE >13837:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+144A cinit CODE >13841:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+144E cinit CODE >13842:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1450 cinit CODE >13843:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1450 cinit CODE >13844:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1452 cinit CODE >13845:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1454 cinit CODE >13846:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1456 cinit CODE >13849:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+145A cinit CODE >13850:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+145C cinit CODE >13851:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+145C cinit CODE >13852:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+145E cinit CODE >13853:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1460 cinit CODE >13854:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1462 cinit CODE >13857:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1466 cinit CODE >13858:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1468 cinit CODE >13859:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1468 cinit CODE >13860:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+146A cinit CODE >13861:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+146C cinit CODE >13862:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+146E cinit CODE >13868:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+146E cinit CODE >13870:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1470 cinit CODE >13871:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1472 cinit CODE >13872:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
+1474 cinit CODE >13873:C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_1.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -591,7 +591,7 @@ __Hspace_4 60000C 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X
 color_writetoaddr@address 8 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __HidataBANK0 0 0 ABS 0 idataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\final-project-gorakh-boris.X.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
 _manoeuvre_pointer A3 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\final-project-gorakh-boris.X.production.o
 __L__absolute__ 0 0 ABS 0 __absolute__ dist/default/production\final-project-gorakh-boris.X.production.o
@@ -599,16 +599,16 @@ __L__absolute__ 0 0 ABS 0 __absolute__ dist/default/production\final-project-gor
 ?_vfprintf 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Lsmallconst E00 0 SMALLCONST 0 smallconst dist/default/production\final-project-gorakh-boris.X.production.o
 _T2PR FBC 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
+___sp 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
 _dbuf 13C 0 BANK1 1 bssBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
 _main 1014 0 CODE 0 text0 dist/default/production\final-project-gorakh-boris.X.production.o
 _nout 4F 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 _prec 53 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 abs@a B 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 btemp 5B 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
-___stack_hi 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
-___stack_lo 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
-start 74 0 CODE 0 init C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
+___stack_hi 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
+___stack_lo 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
+start 74 0 CODE 0 init C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 putCharToRxBuf@byte 1 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 _RxBufReadCnt 59 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
@@ -623,11 +623,11 @@ ttemp5 5C 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.p
 ttemp6 5F 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
 ttemp7 63 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-__accesstop 60 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
-intlevel0 0 0 CODE 0 text C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
-intlevel1 0 0 CODE 0 text C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
-intlevel2 0 0 CODE 0 text C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
-intlevel3 0 0 CODE 0 text C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
+__accesstop 60 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
+intlevel0 0 0 CODE 0 text C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
+intlevel1 0 0 CODE 0 text C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
+intlevel2 0 0 CODE 0 text C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
+intlevel3 0 0 CODE 0 text C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\final-project-gorakh-boris.X.production.o
 wtemp8 5C 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
@@ -639,8 +639,8 @@ __pidataCOMRAM 197A 0 CODE 0 idataCOMRAM dist/default/production\final-project-g
 _squareDelay 3B 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __end_of_Interrupts_init 199C 0 CODE 0 text31 dist/default/production\final-project-gorakh-boris.X.production.o
 ___awdiv@dividend 5 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
 __end_of_sendTxBuf 194A 0 CODE 0 text9 dist/default/production\final-project-gorakh-boris.X.production.o
 _turnLeft135Delay 43 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 I2C_2_Master_Read@ack 7 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
@@ -698,7 +698,7 @@ _getRGBCval 1478 0 CODE 0 text13 dist/default/production\final-project-gorakh-bo
 _TX4REG EE4 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _turn180Delay 3F 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 I2C_2_Master_Write@data_byte 6 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-isa$xinst 0 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
+isa$xinst 0 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
 fputc@fp 7 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 _topGearRight 4C 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 i2_isDataInTxBuf 1962 0 CODE 0 text33 dist/default/production\final-project-gorakh-boris.X.production.o
@@ -741,7 +741,7 @@ __Hbank13 0 0 ABS 0 bank13 dist/default/production\final-project-gorakh-boris.X.
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\final-project-gorakh-boris.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\final-project-gorakh-boris.X.production.o
 __Hbigsfr 0 0 ABS 0 bigsfr dist/default/production\final-project-gorakh-boris.X.production.o
-__smallconst E00 0 SMALLCONST 0 smallconst C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
+__smallconst E00 0 SMALLCONST 0 smallconst C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
 __end_of_sprintf 16F2 0 CODE 0 text1 dist/default/production\final-project-gorakh-boris.X.production.o
 __end_of_HighISR 74 0 CODE 0 intcode dist/default/production\final-project-gorakh-boris.X.production.o
 __Hcomram 0 0 ABS 0 comram dist/default/production\final-project-gorakh-boris.X.production.o
@@ -923,15 +923,15 @@ __end_of_I2C_2_Master_Read 1734 0 CODE 0 text19 dist/default/production\final-pr
 __end_of_I2C_2_Master_Stop 19BC 0 CODE 0 text23 dist/default/production\final-project-gorakh-boris.X.production.o
 _turnRight135Delay 41 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\final-project-gorakh-boris.X.production.o
-___inthi_stack_hi 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
-___inthi_stack_lo 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
+___inthi_stack_hi 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
+___inthi_stack_lo 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
 ?_color_read_Red 9 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\final-project-gorakh-boris.X.production.o
-isa$std 1 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
+isa$std 1 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
 _EUSART4RXbuf E0 0 BANK0 1 bssBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
 _EUSART4TXbuf 100 0 BANK1 1 bssBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
-stackhi 0 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
-stacklo 0 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
+stackhi 0 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
+stacklo 0 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production\final-project-gorakh-boris.X.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\final-project-gorakh-boris.X.production.o
 __Lirdata 0 0 CODE 0 irdata dist/default/production\final-project-gorakh-boris.X.production.o
@@ -1017,7 +1017,7 @@ __Ltext33 0 0 ABS 0 text33 dist/default/production\final-project-gorakh-boris.X.
 __Ltext34 0 0 ABS 0 text34 dist/default/production\final-project-gorakh-boris.X.production.o
 __Ltext35 0 0 ABS 0 text35 dist/default/production\final-project-gorakh-boris.X.production.o
 __end_of_color_writetoaddr 18F2 0 CODE 0 text21 dist/default/production\final-project-gorakh-boris.X.production.o
-__ramtop E00 0 RAM 0 ramtop C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
+__ramtop E00 0 RAM 0 ramtop C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
 _sprintf 16AE 0 CODE 0 text1 dist/default/production\final-project-gorakh-boris.X.production.o
 _trail_manoeuvre A4 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
 _HighISR 8 0 CODE 0 intcode dist/default/production\final-project-gorakh-boris.X.production.o
@@ -1036,16 +1036,16 @@ __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\final-project-gorakh-b
 __end_of_vfprintf 1520 0 CODE 0 text2 dist/default/production\final-project-gorakh-boris.X.production.o
 _I2C_2_Master_RepStart 19A8 0 CODE 0 text18 dist/default/production\final-project-gorakh-boris.X.production.o
 _CCP3CONbits F26 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-___heap_hi 0 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
-___heap_lo 0 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
+___heap_hi 0 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
+___heap_lo 0 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
 _I2C_2_Master_Idle 1884 0 CODE 0 text25 dist/default/production\final-project-gorakh-boris.X.production.o
 _I2C_2_Master_Init 1806 0 CODE 0 text26 dist/default/production\final-project-gorakh-boris.X.production.o
 _I2C_2_Master_Read 16F2 0 CODE 0 text19 dist/default/production\final-project-gorakh-boris.X.production.o
 _I2C_2_Master_Stop 19B2 0 CODE 0 text23 dist/default/production\final-project-gorakh-boris.X.production.o
 __end_of_initUSART4 1930 0 CODE 0 text11 dist/default/production\final-project-gorakh-boris.X.production.o
 ___param_bank 0 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-___intlo_stack_hi 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
-___intlo_stack_lo 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_14.o
+___intlo_stack_hi 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
+___intlo_stack_lo 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_14.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\final-project-gorakh-boris.X.production.o
 __end_of__initialization 146E 0 CODE 0 cinit dist/default/production\final-project-gorakh-boris.X.production.o
 ___awmod@divisor 7 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o

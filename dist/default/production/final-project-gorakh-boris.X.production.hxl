@@ -1,7 +1,7 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_3.o
+ C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_3.o
  -Odist/default/production\final-project-gorakh-boris.X.production.hex
  -logfile=dist/default/production\final-project-gorakh-boris.X.production.hxl
  -addressing=1
@@ -9,13 +9,13 @@
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_3.o)
-  8h - 77h		(C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_3.o)
-  E00h - E12h		(C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_3.o)
-  E14h - 1770h		(C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_3.o)
-  1772h - 19C7h		(C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_3.o)
-  200000h - 20000Fh		(C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_3.o)
-  300000h - 30000Bh		(C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_3.o)
+  0h - 3h		(C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_3.o)
+  8h - 77h		(C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_3.o)
+  E00h - E12h		(C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_3.o)
+  E14h - 1770h		(C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_3.o)
+  1772h - 19C7h		(C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_3.o)
+  200000h - 20000Fh		(C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_3.o)
+  300000h - 30000Bh		(C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_3.o)
  Unused ranges:
   4h - 7h
   78h - DFFh
@@ -27,7 +27,7 @@
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\Gorak\AppData\Local\Temp\xcAsr2o.\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\Gorak\AppData\Local\Temp\xcBs4gs.1\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
