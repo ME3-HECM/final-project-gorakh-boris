@@ -24377,11 +24377,11 @@ void main(void) {
         }
         getRGBCval(&readRGBC);
         getHSVval(&readHSV,&readRGBC);
-        sprintf(display, "%d %d %d %d %d %d %d \r",readRGBC.R,readRGBC.G,readRGBC.B,readRGBC.C,readHSV.H,readHSV.S,readHSV.V);
+        sprintf(display, "%d %d %d %d  \r",readRGBC.R,readRGBC.G,readRGBC.B,readRGBC.C);
         TxBufferedString(display);
         sendTxBuf();
 
 
-        _delay((unsigned long)((500)*(64000000/4000.0)));
+        _delay((unsigned long)((1000)*(64000000/4000.0)));
     }
 }

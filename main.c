@@ -90,7 +90,7 @@ void main(void) {
     //cardWhite(&motorL, &motorR);
     
     
-    char display[50];
+    char display[25];
 
  
     
@@ -105,11 +105,11 @@ void main(void) {
         }
         getRGBCval(&readRGBC);
         getHSVval(&readHSV,&readRGBC);
-        sprintf(display, "%d %d %d %d %d %d %d \r",readRGBC.R,readRGBC.G,readRGBC.B,readRGBC.C,readHSV.H,readHSV.S,readHSV.V);
+        sprintf(display, "%d %d %d %d  \r",readRGBC.R,readRGBC.G,readRGBC.B,readRGBC.C);
         TxBufferedString(display);
         sendTxBuf();
         
         //sendArraySerial4(trail_manoeuvre);
-        __delay_ms(500);
+        __delay_ms(1000);
     }
 }

@@ -166,7 +166,7 @@ void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
         hue = 60*(((((p2->B)-(p2->R))*10)/range)+200);
     }
     
-    if (maxRGB == (p2->G)){
+    if (maxRGB == (p2->B)){
         hue = 60*(((((p2->R)-(p2->G))*10)/range)+400);
     }
     

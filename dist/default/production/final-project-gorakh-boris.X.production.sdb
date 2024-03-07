@@ -893,17 +893,17 @@
 [v _main main `(v  1 e 1 0 ]
 {
 "93
-[v main@display display `[50]uc  1 a 50 0 ]
+[v main@display display `[50]uc  1 a 50 15 ]
 [s S1136 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 "33
-[v main@motorR motorR `S1136  1 a 9 59 ]
-[v main@motorL motorL `S1136  1 a 9 50 ]
+[v main@motorR motorR `S1136  1 a 9 80 ]
+[v main@motorL motorL `S1136  1 a 9 71 ]
 [s S593 RGBC_val 8 `ui 1 R 2 0 `ui 1 G 2 2 `ui 1 B 2 4 `ui 1 C 2 6 ]
 "51
-[v main@readRGBC readRGBC `S593  1 a 8 74 ]
+[v main@readRGBC readRGBC `S593  1 a 8 89 ]
 [s S598 HSV_val 6 `i 1 H 2 0 `i 1 S 2 2 `i 1 V 2 4 ]
 "59
-[v main@readHSV readHSV `S598  1 a 6 68 ]
+[v main@readHSV readHSV `S598  1 a 6 65 ]
 "115
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
@@ -918,8 +918,8 @@
 "12
 [v sprintf@ap ap `[1]*.30v  1 a 1 2 ]
 "9
-[v sprintf@s s `*.39uc  1 p 2 35 ]
-[v sprintf@fmt fmt `*.31Cuc  1 p 1 37 ]
+[v sprintf@s s `*.30uc  1 p 1 35 ]
+[v sprintf@fmt fmt `*.31Cuc  1 p 1 36 ]
 "23
 } 0
 "1817 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
@@ -1010,7 +1010,7 @@
 [v _getRGBCval getRGBCval `(v  1 e 1 0 ]
 {
 [s S593 RGBC_val 8 `ui 1 R 2 0 `ui 1 G 2 2 `ui 1 B 2 4 `ui 1 C 2 6 ]
-[v getRGBCval@p p `*.39S593  1 p 2 15 ]
+[v getRGBCval@p p `*.30S593  1 p 1 15 ]
 "91
 } 0
 "29
@@ -1062,20 +1062,20 @@
 [v _getHSVval getHSVval `(v  1 e 1 0 ]
 {
 "145
-[v getHSVval@maxRGB maxRGB `i  1 a 2 44 ]
+[v getHSVval@maxRGB maxRGB `i  1 a 2 42 ]
 "147
-[v getHSVval@range range `i  1 a 2 42 ]
+[v getHSVval@range range `i  1 a 2 40 ]
 "148
-[v getHSVval@hue hue `i  1 a 2 38 ]
+[v getHSVval@hue hue `i  1 a 2 36 ]
 "149
-[v getHSVval@saturation saturation `i  1 a 2 36 ]
+[v getHSVval@saturation saturation `i  1 a 2 34 ]
 "146
-[v getHSVval@minRGB minRGB `i  1 a 2 30 ]
+[v getHSVval@minRGB minRGB `i  1 a 2 28 ]
 [s S598 HSV_val 6 `i 1 H 2 0 `i 1 S 2 2 `i 1 V 2 4 ]
 "143
-[v getHSVval@p1 p1 `*.39S598  1 p 2 22 ]
+[v getHSVval@p1 p1 `*.30S598  1 p 1 22 ]
 [s S593 RGBC_val 8 `ui 1 R 2 0 `ui 1 G 2 2 `ui 1 B 2 4 `ui 1 C 2 6 ]
-[v getHSVval@p2 p2 `*.39S593  1 p 2 24 ]
+[v getHSVval@p2 p2 `*.30S593  1 p 1 23 ]
 "181
 } 0
 "116
@@ -1122,9 +1122,9 @@
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 {
 "10
-[v ___lwdiv@quotient quotient `ui  1 a 2 15 ]
+[v ___lwdiv@quotient quotient `ui  1 a 2 14 ]
 "11
-[v ___lwdiv@counter counter `uc  1 a 1 14 ]
+[v ___lwdiv@counter counter `uc  1 a 1 16 ]
 "7
 [v ___lwdiv@dividend dividend `ui  1 p 2 10 ]
 [v ___lwdiv@divisor divisor `ui  1 p 2 12 ]
@@ -1194,7 +1194,7 @@
 "105 C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\serial.c
 [v _TxBufferedString TxBufferedString `(v  1 e 1 0 ]
 {
-[v TxBufferedString@string string `*.39uc  1 p 2 5 ]
+[v TxBufferedString@string string `*.30uc  1 p 1 5 ]
 "110
 } 0
 "92

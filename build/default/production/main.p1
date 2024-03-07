@@ -105,7 +105,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./color.h: 69: void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
 [v _getHSVval `(v ~T0 @X0 0 ef2`*S2017`*S2016 ]
 "108 main.c
-[; ;main.c: 108:         sprintf(display, "%d %d %d %d %d %d %d \r",readRGBC.R,readRGBC.G,readRGBC.B,readRGBC.C,readHSV.H,readHSV.S,readHSV.V);
+[; ;main.c: 108:         sprintf(display, "%d %d %d %d  \r",readRGBC.R,readRGBC.G,readRGBC.B,readRGBC.C);
 [v _sprintf `(i ~T0 @X0 0 e? ]
 "39 ./serial.h
 [; ;./serial.h: 39: void TxBufferedString(char *string);
@@ -2438,8 +2438,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 107:         getHSVval(&readHSV,&readRGBC);
 [e ( _getHSVval (2 , &U _readHSV &U _readRGBC ]
 "108
-[; ;main.c: 108:         sprintf(display, "%d %d %d %d %d %d %d \r",readRGBC.R,readRGBC.G,readRGBC.B,readRGBC.C,readHSV.H,readHSV.S,readHSV.V);
-[e ( _sprintf , , , , , , , , &U _display :s 1C . _readRGBC 0 . _readRGBC 1 . _readRGBC 2 . _readRGBC 3 . _readHSV 0 . _readHSV 1 . _readHSV 2 ]
+[; ;main.c: 108:         sprintf(display, "%d %d %d %d  \r",readRGBC.R,readRGBC.G,readRGBC.B,readRGBC.C);
+[e ( _sprintf , , , , , &U _display :s 1C . _readRGBC 0 . _readRGBC 1 . _readRGBC 2 . _readRGBC 3 ]
 "109
 [; ;main.c: 109:         TxBufferedString(display);
 [e ( _TxBufferedString (1 &U _display ]
@@ -2447,8 +2447,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 110:         sendTxBuf();
 [e ( _sendTxBuf ..  ]
 "113
-[; ;main.c: 113:         _delay((unsigned long)((500)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;main.c: 113:         _delay((unsigned long)((1000)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "114
 [; ;main.c: 114:     }
 }
@@ -2459,4 +2459,4 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 115: }
 [e :UE 2018 ]
 }
-[a 1C 37 100 32 37 100 32 37 100 32 37 100 32 37 100 32 37 100 32 37 100 32 13 0 ]
+[a 1C 37 100 32 37 100 32 37 100 32 37 100 32 32 13 0 ]

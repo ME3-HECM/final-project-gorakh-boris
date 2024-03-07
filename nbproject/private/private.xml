@@ -3,17 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Gorak/OneDrive/Documents/Emedded%20C/final-project-gorakh-boris.X/timers.h</file>
-            <file>file:/C:/Users/Gorak/OneDrive/Documents/Emedded%20C/final-project-gorakh-boris.X/dc_motor.h</file>
+            <file>file:/C:/Users/Gorak/OneDrive/Documents/Emedded%20C/final-project-gorakh-boris.X/color.h</file>
             <file>file:/C:/Users/Gorak/OneDrive/Documents/Emedded%20C/final-project-gorakh-boris.X/i2c.c</file>
-            <file>file:/C:/Users/Gorak/OneDrive/Documents/Emedded%20C/final-project-gorakh-boris.X/dc_motor.c</file>
+            <file>file:/C:/Users/Gorak/OneDrive/Documents/Emedded%20C/final-project-gorakh-boris.X/color.c</file>
             <file>file:/C:/Users/Gorak/OneDrive/Documents/Emedded%20C/final-project-gorakh-boris.X/interrupts.h</file>
             <file>file:/C:/Users/Gorak/OneDrive/Documents/Emedded%20C/final-project-gorakh-boris.X/interrupts.c</file>
-            <file>file:/C:/Users/Gorak/OneDrive/Documents/Emedded%20C/final-project-gorakh-boris.X/serial.h</file>
-            <file>file:/C:/Users/Gorak/OneDrive/Documents/Emedded%20C/final-project-gorakh-boris.X/timers.c</file>
             <file>file:/C:/Users/Gorak/OneDrive/Documents/Emedded%20C/final-project-gorakh-boris.X/main.c</file>
-            <file>file:/C:/Users/Gorak/OneDrive/Documents/Emedded%20C/final-project-gorakh-boris.X/manoeuvres.c</file>
-            <file>file:/C:/Users/Gorak/OneDrive/Documents/Emedded%20C/final-project-gorakh-boris.X/serial.c</file>
+            <file>file:/C:/Users/Gorak/OneDrive/Documents/Emedded%20C/final-project-gorakh-boris.X/buggy_lights.c</file>
+            <file>file:/C:/Users/Gorak/OneDrive/Documents/Emedded%20C/final-project-gorakh-boris.X/i2c.h</file>
         </group>
     </open-files>
 </project-private>
