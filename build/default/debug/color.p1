@@ -2,8 +2,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13 ./i2c.h
 [; ;./i2c.h: 13: void I2C_2_Master_Init(void);
 [v _I2C_2_Master_Init `(v ~T0 @X0 0 ef ]
-"25 ./color.h
-[; ;./color.h: 25: void color_writetoaddr(char address, char value);
+"32 ./color.h
+[; ;./color.h: 32: void color_writetoaddr(char address, char value);
 [v _color_writetoaddr `(v ~T0 @X0 0 ef2`uc`uc ]
 [v F205 `(v ~T0 @X0 1 tf1`ul ]
 "20 C:\Program Files\Microchip\xc8\v2.45\pic\include\builtins.h
@@ -28,6 +28,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./color.h: 9: typedef struct RGBC_val {
 [s S2015 `ui 1 `ui 1 `ui 1 `ui 1 ]
 [n S2015 RGBC_val R G B C ]
+"17
+[; ;./color.h: 17: typedef struct HSV_val {
+[s S2016 `i 1 `i 1 `i 1 ]
+[n S2016 HSV_val H S V ]
 "54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2027,7 +2031,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _color_writetoaddr (2 , -> -> 1 `i `uc -> -> 213 `i `uc ]
 "19
 [; ;color.c: 19: }
-[e :UE 2016 ]
+[e :UE 2017 ]
 }
 "21
 [; ;color.c: 21: void color_writetoaddr(char address, char value){
@@ -2054,7 +2058,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _I2C_2_Master_Stop ..  ]
 "27
 [; ;color.c: 27: }
-[e :UE 2017 ]
+[e :UE 2018 ]
 }
 "29
 [; ;color.c: 29: unsigned int color_read_Red(void)
@@ -2094,10 +2098,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40
 [; ;color.c: 40:  return tmp;
 [e ) _tmp ]
-[e $UE 2018  ]
+[e $UE 2019  ]
 "41
 [; ;color.c: 41: }
-[e :UE 2018 ]
+[e :UE 2019 ]
 }
 "43
 [; ;color.c: 43: unsigned int color_read_Blue(void)
@@ -2137,10 +2141,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "54
 [; ;color.c: 54:  return tmp;
 [e ) _tmp ]
-[e $UE 2019  ]
+[e $UE 2020  ]
 "55
 [; ;color.c: 55: }
-[e :UE 2019 ]
+[e :UE 2020 ]
 }
 "57
 [; ;color.c: 57: unsigned int color_read_Green(void)
@@ -2180,10 +2184,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "68
 [; ;color.c: 68:  return tmp;
 [e ) _tmp ]
-[e $UE 2020  ]
+[e $UE 2021  ]
 "69
 [; ;color.c: 69: }
-[e :UE 2020 ]
+[e :UE 2021 ]
 }
 "71
 [; ;color.c: 71: unsigned int color_read_Clear(void)
@@ -2223,10 +2227,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "82
 [; ;color.c: 82:  return tmp;
 [e ) _tmp ]
-[e $UE 2021  ]
+[e $UE 2022  ]
 "83
 [; ;color.c: 83: }
-[e :UE 2021 ]
+[e :UE 2022 ]
 }
 "85
 [; ;color.c: 85: void getRGBCval(struct RGBC_val *p)
@@ -2253,7 +2257,199 @@ Version 4.0 HI-TECH Software Intermediate Code
 "90
 [; ;color.c: 90:     p->C = color_read_Clear();
 [e = . *U _p 3 ( _color_read_Clear ..  ]
-"92
-[; ;color.c: 92: }
-[e :UE 2022 ]
+"91
+[; ;color.c: 91: }
+[e :UE 2023 ]
+}
+"99
+[; ;color.c: 99: int max(int a, int b)
+[v _max `(i ~T0 @X0 1 ef2`i`i ]
+"100
+[; ;color.c: 100: {
+{
+[e :U _max ]
+"99
+[; ;color.c: 99: int max(int a, int b)
+[v _a `i ~T0 @X0 1 r1 ]
+[v _b `i ~T0 @X0 1 r2 ]
+"100
+[; ;color.c: 100: {
+[f ]
+"101
+[; ;color.c: 101:     int max_val;
+[v _max_val `i ~T0 @X0 1 a ]
+"103
+[; ;color.c: 103:     if (a > b) {max_val = a;}
+[e $ ! > _a _b 2025  ]
+{
+[e = _max_val _a ]
+}
+[e $U 2026  ]
+"105
+[; ;color.c: 105:     else {max_val = b;}
+[e :U 2025 ]
+{
+[e = _max_val _b ]
+}
+[e :U 2026 ]
+"107
+[; ;color.c: 107:     return max_val;
+[e ) _max_val ]
+[e $UE 2024  ]
+"108
+[; ;color.c: 108: }
+[e :UE 2024 ]
+}
+"116
+[; ;color.c: 116: int min(int a, int b)
+[v _min `(i ~T0 @X0 1 ef2`i`i ]
+"117
+[; ;color.c: 117: {
+{
+[e :U _min ]
+"116
+[; ;color.c: 116: int min(int a, int b)
+[v _a `i ~T0 @X0 1 r1 ]
+[v _b `i ~T0 @X0 1 r2 ]
+"117
+[; ;color.c: 117: {
+[f ]
+"118
+[; ;color.c: 118:     int min_val;
+[v _min_val `i ~T0 @X0 1 a ]
+"120
+[; ;color.c: 120:     if (a < b) {min_val = a;}
+[e $ ! < _a _b 2028  ]
+{
+[e = _min_val _a ]
+}
+[e $U 2029  ]
+"122
+[; ;color.c: 122:     else {min_val = b;}
+[e :U 2028 ]
+{
+[e = _min_val _b ]
+}
+[e :U 2029 ]
+"124
+[; ;color.c: 124:     return min_val;
+[e ) _min_val ]
+[e $UE 2027  ]
+"125
+[; ;color.c: 125: }
+[e :UE 2027 ]
+}
+"143
+[; ;color.c: 143: void getHSVval(struct HSV_val *p)
+[v _getHSVval `(v ~T0 @X0 1 ef1`*S2016 ]
+"144
+[; ;color.c: 144: {
+{
+[e :U _getHSVval ]
+"143
+[; ;color.c: 143: void getHSVval(struct HSV_val *p)
+[v _p `*S2016 ~T0 @X0 1 r1 ]
+"144
+[; ;color.c: 144: {
+[f ]
+"145
+[; ;color.c: 145:     int maxRGB;
+[v _maxRGB `i ~T0 @X0 1 a ]
+"146
+[; ;color.c: 146:     int minRGB;
+[v _minRGB `i ~T0 @X0 1 a ]
+"147
+[; ;color.c: 147:     int range;
+[v _range `i ~T0 @X0 1 a ]
+"148
+[; ;color.c: 148:     int hue;
+[v _hue `i ~T0 @X0 1 a ]
+"149
+[; ;color.c: 149:     int saturation;
+[v _saturation `i ~T0 @X0 1 a ]
+"151
+[; ;color.c: 151:     struct RGBC_val *tempRGBC;
+[v _tempRGBC `*S2015 ~T0 @X0 1 a ]
+"152
+[; ;color.c: 152:     getRGBCval(&tempRGBC);
+[e ( _getRGBCval (1 -> &U _tempRGBC `*S2015 ]
+"154
+[; ;color.c: 154:     maxRGB = max(max(tempRGBC->R,tempRGBC->G),tempRGBC->B);
+[e = _maxRGB ( _max (2 , ( _max (2 , -> . *U _tempRGBC 0 `i -> . *U _tempRGBC 1 `i -> . *U _tempRGBC 2 `i ]
+"155
+[; ;color.c: 155:     minRGB = min(min(tempRGBC->R,tempRGBC->G),tempRGBC->B);
+[e = _minRGB ( _min (2 , ( _min (2 , -> . *U _tempRGBC 0 `i -> . *U _tempRGBC 1 `i -> . *U _tempRGBC 2 `i ]
+"156
+[; ;color.c: 156:     range = maxRGB - minRGB;
+[e = _range - _maxRGB _minRGB ]
+"158
+[; ;color.c: 158:     if (range == 0) {
+[e $ ! == _range -> 0 `i 2031  ]
+{
+"159
+[; ;color.c: 159:         hue = 0;
+[e = _hue -> 0 `i ]
+"160
+[; ;color.c: 160:     }
+}
+[e :U 2031 ]
+"162
+[; ;color.c: 162:     if (maxRGB == tempRGBC->R) {
+[e $ ! == -> _maxRGB `ui . *U _tempRGBC 0 2032  ]
+{
+"163
+[; ;color.c: 163:         hue = 60*((((tempRGBC->G-tempRGBC->B)*100)/range)%600);
+[e = _hue -> * -> -> 60 `i `ui % / * - . *U _tempRGBC 1 . *U _tempRGBC 2 -> -> 100 `i `ui -> _range `ui -> -> 600 `i `ui `i ]
+"164
+[; ;color.c: 164:     }
+}
+[e :U 2032 ]
+"166
+[; ;color.c: 166:     if (maxRGB == tempRGBC->G){
+[e $ ! == -> _maxRGB `ui . *U _tempRGBC 1 2033  ]
+{
+"167
+[; ;color.c: 167:         hue = 60*((((tempRGBC->B-tempRGBC->R)*100)/range)+200);
+[e = _hue -> * -> -> 60 `i `ui + / * - . *U _tempRGBC 2 . *U _tempRGBC 0 -> -> 100 `i `ui -> _range `ui -> -> 200 `i `ui `i ]
+"168
+[; ;color.c: 168:     }
+}
+[e :U 2033 ]
+"170
+[; ;color.c: 170:     if (maxRGB == tempRGBC->G){
+[e $ ! == -> _maxRGB `ui . *U _tempRGBC 1 2034  ]
+{
+"171
+[; ;color.c: 171:         hue = 60*((((tempRGBC->R-tempRGBC->G)*100)/range)+400);
+[e = _hue -> * -> -> 60 `i `ui + / * - . *U _tempRGBC 0 . *U _tempRGBC 1 -> -> 100 `i `ui -> _range `ui -> -> 400 `i `ui `i ]
+"172
+[; ;color.c: 172:     }
+}
+[e :U 2034 ]
+"174
+[; ;color.c: 174:     if (maxRGB == 0) {saturation = 0;}
+[e $ ! == _maxRGB -> 0 `i 2035  ]
+{
+[e = _saturation -> 0 `i ]
+}
+[e $U 2036  ]
+"176
+[; ;color.c: 176:     else {saturation = range/maxRGB;}
+[e :U 2035 ]
+{
+[e = _saturation / _range _maxRGB ]
+}
+[e :U 2036 ]
+"178
+[; ;color.c: 178:     p->H = hue;
+[e = . *U _p 0 _hue ]
+"179
+[; ;color.c: 179:     p->S = saturation;
+[e = . *U _p 1 _saturation ]
+"180
+[; ;color.c: 180:     p->V = maxRGB;
+[e = . *U _p 2 _maxRGB ]
+"182
+[; ;color.c: 182: }
+[e :UE 2030 ]
 }

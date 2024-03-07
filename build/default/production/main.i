@@ -24191,6 +24191,13 @@ typedef struct RGBC_val {
 } RGBC_val;
 
 
+typedef struct HSV_val {
+    int H;
+    int S;
+    int V;
+};
+
+
 
 void color_click_init(void);
 
@@ -24230,6 +24237,13 @@ unsigned int color_read_Clear(void);
 
 
 void getRGBCval(struct RGBC_val *p);
+
+
+
+
+
+
+void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
 # 20 "main.c" 2
 
 # 1 "./serial.h" 1
@@ -24317,12 +24331,19 @@ void main(void) {
 
 
 
-    struct RGBC_val read_val;
+    struct RGBC_val readRGBC;
 
-    read_val.R = 0;
-    read_val.B = 0;
-    read_val.G = 0;
-    read_val.C = 0;
+    readRGBC.R = 0;
+    readRGBC.B = 0;
+    readRGBC.G = 0;
+    readRGBC.C = 0;
+
+
+    struct HSV_val readHSV;
+
+    readHSV.H = 0;
+    readHSV.S = 0;
+    readHSV.V = 0;
 
 
 
@@ -24340,8 +24361,9 @@ void main(void) {
 
     ANSELFbits.ANSELF2 = 0;
     ANSELFbits.ANSELF3 = 0;
-# 86 "main.c"
-    char display[41];
+# 93 "main.c"
+    char display[50];
+
 
 
     while (1) {
@@ -24353,8 +24375,9 @@ void main(void) {
             manoeuvre_pointer ++;
             LATDbits.LATD7 = !LATDbits.LATD7;
         }
-        getRGBCval(&read_val);
-        sprintf(display, "%d %d %d %d \r",read_val.R,read_val.G,read_val.B,read_val.C);
+        getRGBCval(&readRGBC);
+        getHSVval(&readHSV,&readRGBC);
+        sprintf(display, "%d %d %d %d %d %d %d \r",readRGBC.R,readRGBC.G,readRGBC.B,readRGBC.C,readHSV.H,readHSV.S,readHSV.V);
         TxBufferedString(display);
         sendTxBuf();
 

@@ -48,12 +48,19 @@ void main(void) {
     
 
     //CREATING A VARIABLE FOR THE STRUCTURE RGBC_VAL
-    struct RGBC_val read_val;
+    struct RGBC_val readRGBC;
     
-    read_val.R = 0;
-    read_val.B = 0;
-    read_val.G = 0;
-    read_val.C = 0;
+    readRGBC.R = 0;
+    readRGBC.B = 0;
+    readRGBC.G = 0;
+    readRGBC.C = 0;
+    
+    
+    struct HSV_val readHSV;
+    
+    readHSV.H = 0;
+    readHSV.S = 0;
+    readHSV.V = 0;
     
     
     //INITIALISATION
@@ -83,7 +90,8 @@ void main(void) {
     //cardWhite(&motorL, &motorR);
     
     
-    char display[41];
+    char display[50];
+
  
     
     while (1) {
@@ -95,8 +103,9 @@ void main(void) {
             manoeuvre_pointer ++;
             LATDbits.LATD7 = !LATDbits.LATD7;
         }
-        getRGBCval(&read_val);
-        sprintf(display, "%d %d %d %d \r",read_val.R,read_val.G,read_val.B,read_val.C);
+        getRGBCval(&readRGBC);
+        getHSVval(&readHSV,&readRGBC);
+        sprintf(display, "%d %d %d %d %d %d %d \r",readRGBC.R,readRGBC.G,readRGBC.B,readRGBC.C,readHSV.H,readHSV.S,readHSV.V);
         TxBufferedString(display);
         sendTxBuf();
         

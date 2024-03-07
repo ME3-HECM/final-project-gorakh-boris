@@ -27,11 +27,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./color.h: 9: typedef struct RGBC_val {
 [s S2016 `ui 1 `ui 1 `ui 1 `ui 1 ]
 [n S2016 RGBC_val R G B C ]
+"17
+[; ;./color.h: 17: typedef struct HSV_val {
+[s S2017 `i 1 `i 1 `i 1 ]
+[n S2017 HSV_val H S V ]
 "15 ./buggy_lights.h
 [; ;./buggy_lights.h: 15: void buggy_lights_init(void);
 [v _buggy_lights_init `(v ~T0 @X0 0 ef ]
-"18 ./color.h
-[; ;./color.h: 18: void color_click_init(void);
+"25 ./color.h
+[; ;./color.h: 25: void color_click_init(void);
 [v _color_click_init `(v ~T0 @X0 0 ef ]
 "23 ./serial.h
 [; ;./serial.h: 23: void initUSART4(void);
@@ -94,11 +98,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28508
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28508: extern volatile LATDbits_t LATDbits __attribute__((address(0xF7C)));
 [v _LATDbits `VS1348 ~T0 @X0 0 e@3964 ]
-"55 ./color.h
-[; ;./color.h: 55: void getRGBCval(struct RGBC_val *p);
+"62 ./color.h
+[; ;./color.h: 62: void getRGBCval(struct RGBC_val *p);
 [v _getRGBCval `(v ~T0 @X0 0 ef1`*S2016 ]
-"99 main.c
-[; ;main.c: 99:         sprintf(display, "Red:%05d Green:%05d Blue:%05d Clear:%05d /r/n",read_val.R,read_val.G,read_val.B,read_val.C);
+"69
+[; ;./color.h: 69: void getHSVval(struct HSV_val *p);
+[v _getHSVval `(v ~T0 @X0 0 ef1`*S2017 ]
+"107 main.c
+[; ;main.c: 107:         sprintf(display, "%d %d %d %d %d %d %d \r",readRGBC.R,readRGBC.G,readRGBC.B,readRGBC.C,readHSV.H,readHSV.S,readHSV.V);
 [v _sprintf `(i ~T0 @X0 0 e? ]
 "39 ./serial.h
 [; ;./serial.h: 39: void TxBufferedString(char *string);
@@ -2347,94 +2354,109 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 47:     motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
 [e = . _motorR 5 -> &U _CCPR4H `*uc ]
 "51
-[; ;main.c: 51:     struct RGBC_val read_val;
-[v _read_val `S2016 ~T0 @X0 1 a ]
+[; ;main.c: 51:     struct RGBC_val readRGBC;
+[v _readRGBC `S2016 ~T0 @X0 1 a ]
 "53
-[; ;main.c: 53:     read_val.R = 0;
-[e = . _read_val 0 -> -> 0 `i `ui ]
+[; ;main.c: 53:     readRGBC.R = 0;
+[e = . _readRGBC 0 -> -> 0 `i `ui ]
 "54
-[; ;main.c: 54:     read_val.B = 0;
-[e = . _read_val 2 -> -> 0 `i `ui ]
+[; ;main.c: 54:     readRGBC.B = 0;
+[e = . _readRGBC 2 -> -> 0 `i `ui ]
 "55
-[; ;main.c: 55:     read_val.G = 0;
-[e = . _read_val 1 -> -> 0 `i `ui ]
+[; ;main.c: 55:     readRGBC.G = 0;
+[e = . _readRGBC 1 -> -> 0 `i `ui ]
 "56
-[; ;main.c: 56:     read_val.C = 0;
-[e = . _read_val 3 -> -> 0 `i `ui ]
-"60
-[; ;main.c: 60:     buggy_lights_init();
-[e ( _buggy_lights_init ..  ]
+[; ;main.c: 56:     readRGBC.C = 0;
+[e = . _readRGBC 3 -> -> 0 `i `ui ]
+"59
+[; ;main.c: 59:     struct HSV_val readHSV;
+[v _readHSV `S2017 ~T0 @X0 1 a ]
 "61
-[; ;main.c: 61:     color_click_init();
-[e ( _color_click_init ..  ]
+[; ;main.c: 61:     readHSV.H = 0;
+[e = . _readHSV 0 -> 0 `i ]
 "62
-[; ;main.c: 62:     initUSART4();
-[e ( _initUSART4 ..  ]
+[; ;main.c: 62:     readHSV.S = 0;
+[e = . _readHSV 1 -> 0 `i ]
 "63
-[; ;main.c: 63:     Timer0_init();
-[e ( _Timer0_init ..  ]
-"64
-[; ;main.c: 64:     Interrupts_init();
-[e ( _Interrupts_init ..  ]
+[; ;main.c: 63:     readHSV.V = 0;
+[e = . _readHSV 2 -> 0 `i ]
+"67
+[; ;main.c: 67:     buggy_lights_init();
+[e ( _buggy_lights_init ..  ]
+"68
+[; ;main.c: 68:     color_click_init();
+[e ( _color_click_init ..  ]
 "69
-[; ;main.c: 69:     TRISFbits.TRISF2 = 1;
-[e = . . _TRISFbits 0 2 -> -> 1 `i `uc ]
+[; ;main.c: 69:     initUSART4();
+[e ( _initUSART4 ..  ]
 "70
-[; ;main.c: 70:     TRISFbits.TRISF3 = 1;
+[; ;main.c: 70:     Timer0_init();
+[e ( _Timer0_init ..  ]
+"71
+[; ;main.c: 71:     Interrupts_init();
+[e ( _Interrupts_init ..  ]
+"76
+[; ;main.c: 76:     TRISFbits.TRISF2 = 1;
+[e = . . _TRISFbits 0 2 -> -> 1 `i `uc ]
+"77
+[; ;main.c: 77:     TRISFbits.TRISF3 = 1;
 [e = . . _TRISFbits 0 3 -> -> 1 `i `uc ]
-"72
-[; ;main.c: 72:     ANSELFbits.ANSELF2 = 0;
+"79
+[; ;main.c: 79:     ANSELFbits.ANSELF2 = 0;
 [e = . . _ANSELFbits 0 2 -> -> 0 `i `uc ]
-"73
-[; ;main.c: 73:     ANSELFbits.ANSELF3 = 0;
+"80
+[; ;main.c: 80:     ANSELFbits.ANSELF3 = 0;
 [e = . . _ANSELFbits 0 3 -> -> 0 `i `uc ]
-"86
-[; ;main.c: 86:     char display[41];
-[v _display `uc ~T0 @X0 -> 41 `i a ]
-"89
-[; ;main.c: 89:     while (1) {
-[e :U 2019 ]
-{
 "93
-[; ;main.c: 93:         if (!PORTFbits.RF2) {
-[e $ ! ! != -> . . _PORTFbits 0 2 `i -> 0 `i 2021  ]
-{
-"94
-[; ;main.c: 94:             *manoeuvre_pointer = 0;
-[e = *U _manoeuvre_pointer -> -> 0 `i `uc ]
-"95
-[; ;main.c: 95:             manoeuvre_pointer ++;
-[e ++ _manoeuvre_pointer * -> -> 1 `i `x -> -> # *U _manoeuvre_pointer `i `x ]
+[; ;main.c: 93:     char display[50];
+[v _display `uc ~T0 @X0 -> 50 `i a ]
 "96
-[; ;main.c: 96:             LATDbits.LATD7 = !LATDbits.LATD7;
-[e = . . _LATDbits 0 7 -> -> ! != -> . . _LATDbits 0 7 `i -> 0 `i `i `uc ]
-"97
-[; ;main.c: 97:         }
-}
-[e :U 2021 ]
-"98
-[; ;main.c: 98:         getRGBCval(&read_val);
-[e ( _getRGBCval (1 &U _read_val ]
-"99
-[; ;main.c: 99:         sprintf(display, "Red:%05d Green:%05d Blue:%05d Clear:%05d /r/n",read_val.R,read_val.G,read_val.B,read_val.C);
-[e ( _sprintf , , , , , &U _display :s 1C . _read_val 0 . _read_val 1 . _read_val 2 . _read_val 3 ]
-"100
-[; ;main.c: 100:         TxBufferedString(display);
-[e ( _TxBufferedString (1 &U _display ]
-"101
-[; ;main.c: 101:         sendTxBuf();
-[e ( _sendTxBuf ..  ]
-"104
-[; ;main.c: 104:         _delay((unsigned long)((500)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"105
-[; ;main.c: 105:     }
-}
-[e :U 2018 ]
-[e $U 2019  ]
+[; ;main.c: 96:     while (1) {
 [e :U 2020 ]
-"106
-[; ;main.c: 106: }
-[e :UE 2017 ]
+{
+"100
+[; ;main.c: 100:         if (!PORTFbits.RF2) {
+[e $ ! ! != -> . . _PORTFbits 0 2 `i -> 0 `i 2022  ]
+{
+"101
+[; ;main.c: 101:             *manoeuvre_pointer = 0;
+[e = *U _manoeuvre_pointer -> -> 0 `i `uc ]
+"102
+[; ;main.c: 102:             manoeuvre_pointer ++;
+[e ++ _manoeuvre_pointer * -> -> 1 `i `x -> -> # *U _manoeuvre_pointer `i `x ]
+"103
+[; ;main.c: 103:             LATDbits.LATD7 = !LATDbits.LATD7;
+[e = . . _LATDbits 0 7 -> -> ! != -> . . _LATDbits 0 7 `i -> 0 `i `i `uc ]
+"104
+[; ;main.c: 104:         }
 }
-[a 1C 82 101 100 58 37 48 53 100 32 71 114 101 101 110 58 37 48 53 100 32 66 108 117 101 58 37 48 53 100 32 67 108 101 97 114 58 37 48 53 100 32 47 114 47 110 0 ]
+[e :U 2022 ]
+"105
+[; ;main.c: 105:         getRGBCval(&readRGBC);
+[e ( _getRGBCval (1 &U _readRGBC ]
+"106
+[; ;main.c: 106:         getHSVval(&readHSV);
+[e ( _getHSVval (1 &U _readHSV ]
+"107
+[; ;main.c: 107:         sprintf(display, "%d %d %d %d %d %d %d \r",readRGBC.R,readRGBC.G,readRGBC.B,readRGBC.C,readHSV.H,readHSV.S,readHSV.V);
+[e ( _sprintf , , , , , , , , &U _display :s 1C . _readRGBC 0 . _readRGBC 1 . _readRGBC 2 . _readRGBC 3 . _readHSV 0 . _readHSV 1 . _readHSV 2 ]
+"108
+[; ;main.c: 108:         TxBufferedString(display);
+[e ( _TxBufferedString (1 &U _display ]
+"109
+[; ;main.c: 109:         sendTxBuf();
+[e ( _sendTxBuf ..  ]
+"112
+[; ;main.c: 112:         _delay((unsigned long)((500)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"113
+[; ;main.c: 113:     }
+}
+[e :U 2019 ]
+[e $U 2020  ]
+[e :U 2021 ]
+"114
+[; ;main.c: 114: }
+[e :UE 2018 ]
+}
+[a 1C 37 100 32 37 100 32 37 100 32 37 100 32 37 100 32 37 100 32 37 100 32 13 0 ]

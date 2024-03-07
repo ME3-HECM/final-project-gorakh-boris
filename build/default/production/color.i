@@ -24105,6 +24105,13 @@ typedef struct RGBC_val {
 } RGBC_val;
 
 
+typedef struct HSV_val {
+    int H;
+    int S;
+    int V;
+};
+
+
 
 void color_click_init(void);
 
@@ -24144,6 +24151,13 @@ unsigned int color_read_Clear(void);
 
 
 void getRGBCval(struct RGBC_val *p);
+
+
+
+
+
+
+void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
 # 2 "color.c" 2
 
 # 1 "./i2c.h" 1
@@ -24268,5 +24282,78 @@ void getRGBCval(struct RGBC_val *p)
     p->B = color_read_Blue();
     p->G = color_read_Green();
     p->C = color_read_Clear();
+}
+
+
+
+
+
+
+
+int max(int a, int b)
+{
+    int max_val;
+
+    if (a > b) {max_val = a;}
+
+    else {max_val = b;}
+
+    return max_val;
+}
+
+
+
+
+
+
+
+int min(int a, int b)
+{
+    int min_val;
+
+    if (a < b) {min_val = a;}
+
+    else {min_val = b;}
+
+    return min_val;
+}
+# 143 "color.c"
+void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
+{
+    int maxRGB;
+    int minRGB;
+    int range;
+    int hue;
+    int saturation;
+
+
+
+    maxRGB = max(max(p2->R,p2->G),p2->B);
+    minRGB = min(min(p2->R,p2->G),p2->B);
+    range = maxRGB - minRGB;
+
+    if (range == 0) {
+        hue = 0;
+    }
+
+    if (maxRGB == (p2->R)) {
+        hue = 60*(((((p2->G)-(p2->B))*10)/range)%600);
+    }
+
+    if (maxRGB == (p2->G)){
+        hue = 60*(((((p2->B)-(p2->R))*10)/range)+200);
+    }
+
+    if (maxRGB == (p2->G)){
+        hue = 60*(((((p2->R)-(p2->G))*10)/range)+400);
+    }
+
+    if (maxRGB == 0) {saturation = 0;}
+
+    if (maxRGB != 0) {saturation = (range*10)/maxRGB;}
+
+    p1->H = hue;
+    p1->S = saturation;
+    p1->V = maxRGB;
 
 }

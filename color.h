@@ -12,6 +12,13 @@ typedef struct RGBC_val {
 	unsigned int B;
     unsigned int C;
 } RGBC_val;
+
+
+typedef struct HSV_val {
+    int H;
+    int S;
+    int V;
+};
 /********************************************//**
  *  Function to initialise the colour click module using I2C
  ***********************************************/
@@ -53,4 +60,11 @@ unsigned int color_read_Clear(void);
  *	Updates variables R, G, B, C with the values read 
  ***********************************************/
 void getRGBCval(struct RGBC_val *p);
+
+
+/*!
+ * Function that updates HSV_val structure
+ * Full definition in color.c
+ */
+void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
 #endif
