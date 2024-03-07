@@ -2434,190 +2434,235 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;color.c: 126: }
 [e :UE 2034 ]
 }
-"133
-[; ;color.c: 133: void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
+"129
+[; ;color.c: 129: void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
 [v _getHSVval `(v ~T0 @X0 1 ef2`*S2016`*S2015 ]
-"134
-[; ;color.c: 134: {
+"130
+[; ;color.c: 130: {
 {
 [e :U _getHSVval ]
-"133
-[; ;color.c: 133: void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
+"129
+[; ;color.c: 129: void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
 [v _p1 `*S2016 ~T0 @X0 1 r1 ]
 [v _p2 `*S2015 ~T0 @X0 1 r2 ]
-"134
-[; ;color.c: 134: {
+"130
+[; ;color.c: 130: {
 [f ]
-"135
-[; ;color.c: 135:     unsigned int z = 60;
+"131
+[; ;color.c: 131:     unsigned int z = 60;
 [v _z `ui ~T0 @X0 1 a ]
 [e = _z -> -> 60 `i `ui ]
-"136
-[; ;color.c: 136:     unsigned int H = 0;
+"132
+[; ;color.c: 132:     unsigned int H = 0;
 [v _H `ui ~T0 @X0 1 a ]
 [e = _H -> -> 0 `i `ui ]
-"137
-[; ;color.c: 137:     unsigned int S = 0;
+"133
+[; ;color.c: 133:     unsigned int S = 0;
 [v _S `ui ~T0 @X0 1 a ]
 [e = _S -> -> 0 `i `ui ]
-"139
-[; ;color.c: 139:     unsigned int RR = (p2->R);
+"135
+[; ;color.c: 135:     unsigned int RR = (p2->R);
 [v _RR `ui ~T0 @X0 1 a ]
 [e = _RR . *U _p2 0 ]
-"140
-[; ;color.c: 140:     unsigned int GG = (p2->G);
+"136
+[; ;color.c: 136:     unsigned int GG = (p2->G);
 [v _GG `ui ~T0 @X0 1 a ]
 [e = _GG . *U _p2 1 ]
-"141
-[; ;color.c: 141:     unsigned int BB = (p2->B);
+"137
+[; ;color.c: 137:     unsigned int BB = (p2->B);
 [v _BB `ui ~T0 @X0 1 a ]
 [e = _BB . *U _p2 2 ]
-"143
-[; ;color.c: 143:     unsigned int M = maxRGB(p2);
+"139
+[; ;color.c: 139:     unsigned int M = maxRGB(p2);
 [v _M `ui ~T0 @X0 1 a ]
 [e = _M ( _maxRGB (1 _p2 ]
-"144
-[; ;color.c: 144:     unsigned int m = minRGB(p2);
+"140
+[; ;color.c: 140:     unsigned int m = minRGB(p2);
 [v _m `ui ~T0 @X0 1 a ]
 [e = _m ( _minRGB (1 _p2 ]
-"145
-[; ;color.c: 145:     unsigned int C = M - m;
+"141
+[; ;color.c: 141:     unsigned int C = M - m;
 [v _C `ui ~T0 @X0 1 a ]
 [e = _C - _M _m ]
-"147
-[; ;color.c: 147:     if (C == 0) {
+"143
+[; ;color.c: 143:     if (C == 0) {
 [e $ ! == _C -> -> 0 `i `ui 2036  ]
 {
-"148
-[; ;color.c: 148:         H = 0;
+"144
+[; ;color.c: 144:         H = 0;
 [e = _H -> -> 0 `i `ui ]
-"149
-[; ;color.c: 149:     } else {
+"145
+[; ;color.c: 145:     } else {
 }
 [e $U 2037  ]
 [e :U 2036 ]
 {
-"150
-[; ;color.c: 150:         if (M == RR) {
+"146
+[; ;color.c: 146:         if (M == RR) {
 [e $ ! == _M _RR 2038  ]
 {
-"151
-[; ;color.c: 151:             if (GG >= BB) {
+"147
+[; ;color.c: 147:             if (GG >= BB) {
 [e $ ! >= _GG _BB 2039  ]
 {
+"149
+[; ;color.c: 149:                 unsigned long temp;
+[v _temp `ul ~T0 @X0 1 a ]
+"150
+[; ;color.c: 150:                 temp = (unsigned long)C;
+[e = _temp -> _C `ul ]
+"151
+[; ;color.c: 151:                 temp *= 0;
+[e =* _temp -> -> -> 0 `i `l `ul ]
 "152
-[; ;color.c: 152:                 H = ((GG - BB)) / C;
-[e = _H / - _GG _BB _C ]
+[; ;color.c: 152:                 temp = (unsigned long)(GG - BB);
+[e = _temp -> - _GG _BB `ul ]
 "153
-[; ;color.c: 153:             } else {
+[; ;color.c: 153:                 temp *= (unsigned long)z;
+[e =* _temp -> _z `ul ]
+"154
+[; ;color.c: 154:                 temp /= (unsigned long)C;
+[e =/ _temp -> _C `ul ]
+"155
+[; ;color.c: 155:                 H = (unsigned int)temp;
+[e = _H -> _temp `ui ]
+"156
+[; ;color.c: 156:             } else {
 }
 [e $U 2040  ]
 [e :U 2039 ]
 {
-"154
-[; ;color.c: 154:                 H = ((6 * C - (BB - GG))) / C;
-[e = _H / - * -> -> 6 `i `ui _C - _BB _GG _C ]
-"155
-[; ;color.c: 155:                 H *= z;
-[e =* _H _z ]
-"156
-[; ;color.c: 156:             }
+"158
+[; ;color.c: 158:                 unsigned long temp;
+[v _temp `ul ~T0 @X0 1 a ]
+"159
+[; ;color.c: 159:                 temp = (unsigned long)C;
+[e = _temp -> _C `ul ]
+"160
+[; ;color.c: 160:                 temp *= 6;
+[e =* _temp -> -> -> 6 `i `l `ul ]
+"161
+[; ;color.c: 161:                 temp -= (unsigned long)(BB - GG);
+[e =- _temp -> - _BB _GG `ul ]
+"162
+[; ;color.c: 162:                 temp *= (unsigned long)z;
+[e =* _temp -> _z `ul ]
+"163
+[; ;color.c: 163:                 temp /= (unsigned long)C;
+[e =/ _temp -> _C `ul ]
+"164
+[; ;color.c: 164:                 H = (unsigned int)temp;
+[e = _H -> _temp `ui ]
+"165
+[; ;color.c: 165:             }
 }
 [e :U 2040 ]
-"157
-[; ;color.c: 157:         }
+"166
+[; ;color.c: 166:         }
 }
 [e :U 2038 ]
-"158
-[; ;color.c: 158:         if (M == p2->G) {
+"167
+[; ;color.c: 167:         if (M == p2->G) {
 [e $ ! == _M . *U _p2 1 2041  ]
 {
-"159
-[; ;color.c: 159:             if (p2->B >= p2->R) {
+"168
+[; ;color.c: 168:             if (p2->B >= p2->R) {
 [e $ ! >= . *U _p2 2 . *U _p2 0 2042  ]
 {
-"160
-[; ;color.c: 160:                 H = (z * (2 * C + (p2->B - p2->R))) / C;
+"169
+[; ;color.c: 169:                 H = (z * (2 * C + (p2->B - p2->R))) / C;
 [e = _H / * _z + * -> -> 2 `i `ui _C - . *U _p2 2 . *U _p2 0 _C ]
-"161
-[; ;color.c: 161:             } else {
+"170
+[; ;color.c: 170:             } else {
 }
 [e $U 2043  ]
 [e :U 2042 ]
 {
-"162
-[; ;color.c: 162:                 H = (z * (2 * C - (p2->R - p2->B))) / C;
+"171
+[; ;color.c: 171:                 H = (z * (2 * C - (p2->R - p2->B))) / C;
 [e = _H / * _z - * -> -> 2 `i `ui _C - . *U _p2 0 . *U _p2 2 _C ]
-"163
-[; ;color.c: 163:             }
+"172
+[; ;color.c: 172:             }
 }
 [e :U 2043 ]
-"164
-[; ;color.c: 164:         }
+"173
+[; ;color.c: 173:         }
 }
 [e :U 2041 ]
-"165
-[; ;color.c: 165:         if (M == p2->B) {
+"174
+[; ;color.c: 174:         if (M == p2->B) {
 [e $ ! == _M . *U _p2 2 2044  ]
 {
-"166
-[; ;color.c: 166:             if (p2->R >= p2->G) {
+"175
+[; ;color.c: 175:             if (p2->R >= p2->G) {
 [e $ ! >= . *U _p2 0 . *U _p2 1 2045  ]
 {
-"167
-[; ;color.c: 167:                 H = (z * (4 * C + (p2->R - p2->G))) / C;
+"176
+[; ;color.c: 176:                 H = (z * (4 * C + (p2->R - p2->G))) / C;
 [e = _H / * _z + * -> -> 4 `i `ui _C - . *U _p2 0 . *U _p2 1 _C ]
-"168
-[; ;color.c: 168:             } else {
+"177
+[; ;color.c: 177:             } else {
 }
 [e $U 2046  ]
 [e :U 2045 ]
 {
-"169
-[; ;color.c: 169:                 H = (z * (4 * C - (p2->G - p2->R))) / C;
+"178
+[; ;color.c: 178:                 H = (z * (4 * C - (p2->G - p2->R))) / C;
 [e = _H / * _z - * -> -> 4 `i `ui _C - . *U _p2 1 . *U _p2 0 _C ]
-"170
-[; ;color.c: 170:             }
+"179
+[; ;color.c: 179:             }
 }
 [e :U 2046 ]
-"171
-[; ;color.c: 171:         }
+"180
+[; ;color.c: 180:         }
 }
 [e :U 2044 ]
-"172
-[; ;color.c: 172:     }
+"181
+[; ;color.c: 181:     }
 }
 [e :U 2037 ]
-"174
-[; ;color.c: 174:     if (M == 0) {
+"183
+[; ;color.c: 183:     if (M == 0) {
 [e $ ! == _M -> -> 0 `i `ui 2047  ]
 {
-"175
-[; ;color.c: 175:         S = 0;
+"184
+[; ;color.c: 184:         S = 0;
 [e = _S -> -> 0 `i `ui ]
-"176
-[; ;color.c: 176:     } else {
+"185
+[; ;color.c: 185:     } else {
 }
 [e $U 2048  ]
 [e :U 2047 ]
 {
-"177
-[; ;color.c: 177:         S = z * C / M;
-[e = _S / * _z _C _M ]
-"178
-[; ;color.c: 178:     }
+"187
+[; ;color.c: 187:         unsigned long temp;
+[v _temp `ul ~T0 @X0 1 a ]
+"188
+[; ;color.c: 188:         temp = (unsigned long)C;
+[e = _temp -> _C `ul ]
+"189
+[; ;color.c: 189:         temp *= (unsigned long)z;
+[e =* _temp -> _z `ul ]
+"190
+[; ;color.c: 190:         temp /= (unsigned long)M;
+[e =/ _temp -> _M `ul ]
+"191
+[; ;color.c: 191:         S = (unsigned int)temp;
+[e = _S -> _temp `ui ]
+"192
+[; ;color.c: 192:     }
 }
 [e :U 2048 ]
-"180
-[; ;color.c: 180:     p1->H = H;
+"194
+[; ;color.c: 194:     p1->H = H;
 [e = . *U _p1 0 _H ]
-"181
-[; ;color.c: 181:     p1->S = S;
+"195
+[; ;color.c: 195:     p1->S = S;
 [e = . *U _p1 1 _S ]
-"182
-[; ;color.c: 182:     p1->V = M;
+"196
+[; ;color.c: 196:     p1->V = M;
 [e = . *U _p1 2 _M ]
-"184
-[; ;color.c: 184: }
+"198
+[; ;color.c: 198: }
 [e :UE 2035 ]
 }

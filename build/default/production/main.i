@@ -24416,11 +24416,11 @@ void main(void) {
 
     while (1) {
         getRGBCval(&measured_colour);
-        measured_colour.R = 10000;
-        measured_colour.G = 2000;
-        measured_colour.B = 9000;
+        measured_colour.R = 40000;
+        measured_colour.G = 19400;
+        measured_colour.B = 3000;
         getHSVval(&HSV_colour, &measured_colour);
-        sendRGBCvalSerial4(&measured_colour);
+
         sendHSVvalSerial4(&HSV_colour);
         _delay((unsigned long)((1000)*(64000000/4000.0)));
     }

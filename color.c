@@ -125,14 +125,10 @@ unsigned int minRGB(struct RGBC_val *p)
     return(min(min(p->R,p->G),p->B));
 }
 
-/*!
- * The function updates the HSV_val structure updating the numbers for Hue, Saturation, Value 
- * The parameter HSV_val *p is a pointer that points to the Hue, Saturation, Value variables in the structure HSV_val
- * Notes: the equation was obtained from https://en.wikipedia.org/wiki/HSL_and_HSV
- */
+//https://en.wikipedia.org/wiki/HSL_and_HSV
 void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
 {
-    unsigned int z = 60;
+    unsigned int z = 60;        //scaling factor for hue and saturation
     unsigned int H = 0;
     unsigned int S = 0;
     
@@ -149,10 +145,23 @@ void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
     } else {
         if (M == RR) {
             if (GG >= BB) {
-                H = ((GG - BB)) / C;
+                //H = (z * (0 * C + (p2->G - p2->B))) / C;
+                unsigned long temp;
+                temp = (unsigned long)C;
+                temp *= 0;
+                temp = (unsigned long)(GG - BB);
+                temp *= (unsigned long)z;
+                temp /= (unsigned long)C;
+                H = (unsigned int)temp;
             } else {
-                H = ((6 * C - (BB - GG))) / C;
-                H *= z;
+                //H = (z * (6 * C - (BB - GG))) / C;
+                unsigned long temp;
+                temp = (unsigned long)C;
+                temp *= 6;
+                temp -= (unsigned long)(BB - GG);
+                temp *= (unsigned long)z;
+                temp /= (unsigned long)C;
+                H = (unsigned int)temp;
             }
         }
         if (M == p2->G) {
@@ -174,7 +183,12 @@ void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
     if (M == 0) {
         S = 0;
     } else {
-        S = z * C / M;
+        //S = z * C / M;
+        unsigned long temp;
+        temp = (unsigned long)C;
+        temp *= (unsigned long)z;
+        temp /= (unsigned long)M;
+        S = (unsigned int)temp;
     }
     
     p1->H = H;
