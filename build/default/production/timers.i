@@ -24276,14 +24276,8 @@ unsigned int max(unsigned int a, unsigned int b);
 unsigned int min(unsigned int a, unsigned int b);
 void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
 # 5 "./serial.h" 2
-# 14 "./serial.h"
-volatile char EUSART4RXbuf[20];
-volatile char RxBufWriteCnt=0;
-volatile char RxBufReadCnt=0;
 
-volatile char EUSART4TXbuf[60];
-volatile char TxBufWriteCnt=0;
-volatile char TxBufReadCnt=0;
+
 
 
 
@@ -24295,18 +24289,6 @@ void sendIntSerial4(int integer);
 void sendArrayCharSerial4(unsigned char *arr);
 void sendRGBCvalSerial4(RGBC_val *col_val);
 void sendHSVvalSerial4(HSV_val *col_val);
-
-
-char getCharFromRxBuf(void);
-void putCharToRxBuf(char byte);
-char isDataInRxBuf (void);
-
-
-char getCharFromTxBuf(void);
-void putCharToTxBuf(char byte);
-char isDataInTxBuf (void);
-void TxBufferedString(char *string);
-void sendTxBuf(void);
 # 6 "./timers.h" 2
 
 

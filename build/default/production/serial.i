@@ -24357,14 +24357,8 @@ unsigned int max(unsigned int a, unsigned int b);
 unsigned int min(unsigned int a, unsigned int b);
 void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
 # 5 "./serial.h" 2
-# 14 "./serial.h"
-volatile char EUSART4RXbuf[20];
-volatile char RxBufWriteCnt=0;
-volatile char RxBufReadCnt=0;
 
-volatile char EUSART4TXbuf[60];
-volatile char TxBufWriteCnt=0;
-volatile char TxBufReadCnt=0;
+
 
 
 
@@ -24376,18 +24370,6 @@ void sendIntSerial4(int integer);
 void sendArrayCharSerial4(unsigned char *arr);
 void sendRGBCvalSerial4(RGBC_val *col_val);
 void sendHSVvalSerial4(HSV_val *col_val);
-
-
-char getCharFromRxBuf(void);
-void putCharToRxBuf(char byte);
-char isDataInRxBuf (void);
-
-
-char getCharFromTxBuf(void);
-void putCharToTxBuf(char byte);
-char isDataInTxBuf (void);
-void TxBufferedString(char *string);
-void sendTxBuf(void);
 # 3 "serial.c" 2
 
 
@@ -24461,60 +24443,4 @@ void sendHSVvalSerial4(HSV_val *col_val) {
 
     sprintf(tempStr, "%u %u %u \r", col_val->H, col_val->S, col_val->V);
     sendStringSerial4(tempStr);
-}
-
-
-
-
-
-char getCharFromRxBuf(void){
-    if (RxBufReadCnt>=20) {RxBufReadCnt=0;}
-    return EUSART4RXbuf[RxBufReadCnt++];
-}
-
-
-void putCharToRxBuf(char byte){
-    if (RxBufWriteCnt>=20) {RxBufWriteCnt=0;}
-    EUSART4RXbuf[RxBufWriteCnt++]=byte;
-}
-
-
-
-
-char isDataInRxBuf (void){
-    return (RxBufWriteCnt!=RxBufReadCnt);
-}
-
-
-
-char getCharFromTxBuf(void){
-    if (TxBufReadCnt>=60) {TxBufReadCnt=0;}
-    return EUSART4TXbuf[TxBufReadCnt++];
-}
-
-
-void putCharToTxBuf(char byte){
-    if (TxBufWriteCnt>=60) {TxBufWriteCnt=0;}
-    EUSART4TXbuf[TxBufWriteCnt++]=byte;
-}
-
-
-
-
-char isDataInTxBuf (void){
-    return (TxBufWriteCnt!=TxBufReadCnt);
-}
-
-
-void TxBufferedString(char *string){
-
-    while(*string != 0) {
-        putCharToTxBuf(*string++);
-    }
-}
-
-
-
-void sendTxBuf(void){
-    if (isDataInTxBuf()) {PIE4bits.TX4IE=1;}
 }

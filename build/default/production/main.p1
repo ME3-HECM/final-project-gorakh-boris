@@ -33,8 +33,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29 ./color.h
 [; ;./color.h: 29: void color_click_init(void);
 [v _color_click_init `(v ~T0 @X0 0 ef ]
-"24 ./serial.h
-[; ;./serial.h: 24: void initUSART4(void);
+"10 ./serial.h
+[; ;./serial.h: 10: void initUSART4(void);
 [v _initUSART4 `(v ~T0 @X0 0 ef ]
 "35 ./timers.h
 [; ;./timers.h: 35: void Timer0_init(void);
@@ -138,11 +138,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "72
 [; ;./color.h: 72: void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
 [v _getHSVval `(v ~T0 @X0 0 ef2`*S2017`*S2016 ]
-"30 ./serial.h
-[; ;./serial.h: 30: void sendRGBCvalSerial4(RGBC_val *col_val);
+"16 ./serial.h
+[; ;./serial.h: 16: void sendRGBCvalSerial4(RGBC_val *col_val);
 [v _sendRGBCvalSerial4 `(v ~T0 @X0 0 ef1`*S2016 ]
-"31
-[; ;./serial.h: 31: void sendHSVvalSerial4(HSV_val *col_val);
+"17
+[; ;./serial.h: 17: void sendHSVvalSerial4(HSV_val *col_val);
 [v _sendHSVvalSerial4 `(v ~T0 @X0 0 ef1`*S2017 ]
 [v F205 `(v ~T0 @X0 1 tf1`ul ]
 "20 C:\Program Files\Microchip\xc8\v2.45\pic\include\builtins.h
@@ -2201,36 +2201,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _wall_threshold `ui ~T0 @X0 1 e ]
 [i _wall_threshold
 -> -> 300 `i `ui
-]
-"14 ./serial.h
-[; ;./serial.h: 14: volatile char EUSART4RXbuf[20];
-[v _EUSART4RXbuf `Vuc ~T0 @X0 -> 20 `i e ]
-"15
-[; ;./serial.h: 15: volatile char RxBufWriteCnt=0;
-[v _RxBufWriteCnt `Vuc ~T0 @X0 1 e ]
-[i _RxBufWriteCnt
--> -> 0 `i `uc
-]
-"16
-[; ;./serial.h: 16: volatile char RxBufReadCnt=0;
-[v _RxBufReadCnt `Vuc ~T0 @X0 1 e ]
-[i _RxBufReadCnt
--> -> 0 `i `uc
-]
-"18
-[; ;./serial.h: 18: volatile char EUSART4TXbuf[60];
-[v _EUSART4TXbuf `Vuc ~T0 @X0 -> 60 `i e ]
-"19
-[; ;./serial.h: 19: volatile char TxBufWriteCnt=0;
-[v _TxBufWriteCnt `Vuc ~T0 @X0 1 e ]
-[i _TxBufWriteCnt
--> -> 0 `i `uc
-]
-"20
-[; ;./serial.h: 20: volatile char TxBufReadCnt=0;
-[v _TxBufReadCnt `Vuc ~T0 @X0 1 e ]
-[i _TxBufReadCnt
--> -> 0 `i `uc
 ]
 "11 ./timers.h
 [; ;./timers.h: 11: unsigned char returning = 0;

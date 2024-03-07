@@ -87,8 +87,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "68
 [; ;./color.h: 68: void wait_for_wall(struct RGBC_val *p);
 [v _wait_for_wall `(v ~T0 @X0 0 ef1`*S2016 ]
-"29 ./serial.h
-[; ;./serial.h: 29: void sendArrayCharSerial4(unsigned char *arr);
+"15 ./serial.h
+[; ;./serial.h: 15: void sendArrayCharSerial4(unsigned char *arr);
 [v _sendArrayCharSerial4 `(v ~T0 @X0 0 ef1`*uc ]
 "23 ./manoeuvres.h
 [; ;./manoeuvres.h: 23: void pick_card(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
@@ -2157,36 +2157,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _wall_threshold `ui ~T0 @X0 1 e ]
 [i _wall_threshold
 -> -> 300 `i `ui
-]
-"14 ./serial.h
-[; ;./serial.h: 14: volatile char EUSART4RXbuf[20];
-[v _EUSART4RXbuf `Vuc ~T0 @X0 -> 20 `i e ]
-"15
-[; ;./serial.h: 15: volatile char RxBufWriteCnt=0;
-[v _RxBufWriteCnt `Vuc ~T0 @X0 1 e ]
-[i _RxBufWriteCnt
--> -> 0 `i `uc
-]
-"16
-[; ;./serial.h: 16: volatile char RxBufReadCnt=0;
-[v _RxBufReadCnt `Vuc ~T0 @X0 1 e ]
-[i _RxBufReadCnt
--> -> 0 `i `uc
-]
-"18
-[; ;./serial.h: 18: volatile char EUSART4TXbuf[60];
-[v _EUSART4TXbuf `Vuc ~T0 @X0 -> 60 `i e ]
-"19
-[; ;./serial.h: 19: volatile char TxBufWriteCnt=0;
-[v _TxBufWriteCnt `Vuc ~T0 @X0 1 e ]
-[i _TxBufWriteCnt
--> -> 0 `i `uc
-]
-"20
-[; ;./serial.h: 20: volatile char TxBufReadCnt=0;
-[v _TxBufReadCnt `Vuc ~T0 @X0 1 e ]
-[i _TxBufReadCnt
--> -> 0 `i `uc
 ]
 "11 ./timers.h
 [; ;./timers.h: 11: unsigned char returning = 0;

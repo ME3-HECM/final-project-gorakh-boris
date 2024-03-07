@@ -24295,17 +24295,7 @@ void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
 # 20 "main.c" 2
 
 # 1 "./serial.h" 1
-# 14 "./serial.h"
-volatile char EUSART4RXbuf[20];
-volatile char RxBufWriteCnt=0;
-volatile char RxBufReadCnt=0;
-
-volatile char EUSART4TXbuf[60];
-volatile char TxBufWriteCnt=0;
-volatile char TxBufReadCnt=0;
-
-
-
+# 10 "./serial.h"
 void initUSART4(void);
 char getCharSerial4(void);
 void sendCharSerial4(char charToSend);
@@ -24314,18 +24304,6 @@ void sendIntSerial4(int integer);
 void sendArrayCharSerial4(unsigned char *arr);
 void sendRGBCvalSerial4(RGBC_val *col_val);
 void sendHSVvalSerial4(HSV_val *col_val);
-
-
-char getCharFromRxBuf(void);
-void putCharToRxBuf(char byte);
-char isDataInRxBuf (void);
-
-
-char getCharFromTxBuf(void);
-void putCharToTxBuf(char byte);
-char isDataInTxBuf (void);
-void TxBufferedString(char *string);
-void sendTxBuf(void);
 # 21 "main.c" 2
 
 # 1 "./timers.h" 1
