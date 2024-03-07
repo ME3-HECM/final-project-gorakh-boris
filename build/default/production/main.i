@@ -24288,9 +24288,10 @@ unsigned int color_read_Clear(void);
 void getRGBCval(struct RGBC_val *p);
 
 void wait_for_wall(struct RGBC_val *p);
-
 unsigned int max(unsigned int a, unsigned int b);
 unsigned int min(unsigned int a, unsigned int b);
+unsigned int maxRGB(struct RGBC_val *p);
+unsigned int minRGB(struct RGBC_val *p);
 void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
 # 20 "main.c" 2
 
@@ -24415,6 +24416,9 @@ void main(void) {
 
     while (1) {
         getRGBCval(&measured_colour);
+        measured_colour.R = 10000;
+        measured_colour.G = 2000;
+        measured_colour.B = 9000;
         getHSVval(&HSV_colour, &measured_colour);
         sendRGBCvalSerial4(&measured_colour);
         sendHSVvalSerial4(&HSV_colour);

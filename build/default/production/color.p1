@@ -2326,198 +2326,298 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;color.c: 102: }
 [e :UE 2024 ]
 }
-"110
-[; ;color.c: 110: unsigned int max(unsigned int a, unsigned int b)
+"104
+[; ;color.c: 104: unsigned int max(unsigned int a, unsigned int b)
 [v _max `(ui ~T0 @X0 1 ef2`ui`ui ]
-"111
-[; ;color.c: 111: {
+"105
+[; ;color.c: 105: {
 {
 [e :U _max ]
-"110
-[; ;color.c: 110: unsigned int max(unsigned int a, unsigned int b)
+"104
+[; ;color.c: 104: unsigned int max(unsigned int a, unsigned int b)
 [v _a `ui ~T0 @X0 1 r1 ]
 [v _b `ui ~T0 @X0 1 r2 ]
-"111
-[; ;color.c: 111: {
+"105
+[; ;color.c: 105: {
 [f ]
-"112
-[; ;color.c: 112:     unsigned int max_val;
+"106
+[; ;color.c: 106:     unsigned int max_val = b;
 [v _max_val `ui ~T0 @X0 1 a ]
-"114
-[; ;color.c: 114:     if (a > b) {max_val = a;}
+[e = _max_val _b ]
+"107
+[; ;color.c: 107:     if (a > b) {max_val = a;}
 [e $ ! > _a _b 2030  ]
 {
 [e = _max_val _a ]
 }
-[e $U 2031  ]
-"116
-[; ;color.c: 116:     else {max_val = b;}
 [e :U 2030 ]
-{
-[e = _max_val _b ]
-}
-[e :U 2031 ]
-"118
-[; ;color.c: 118:     return max_val;
+"108
+[; ;color.c: 108:     return max_val;
 [e ) _max_val ]
 [e $UE 2029  ]
-"119
-[; ;color.c: 119: }
+"109
+[; ;color.c: 109: }
 [e :UE 2029 ]
 }
-"127
-[; ;color.c: 127: unsigned int min(unsigned int a, unsigned int b)
+"111
+[; ;color.c: 111: unsigned int min(unsigned int a, unsigned int b)
 [v _min `(ui ~T0 @X0 1 ef2`ui`ui ]
-"128
-[; ;color.c: 128: {
+"112
+[; ;color.c: 112: {
 {
 [e :U _min ]
-"127
-[; ;color.c: 127: unsigned int min(unsigned int a, unsigned int b)
+"111
+[; ;color.c: 111: unsigned int min(unsigned int a, unsigned int b)
 [v _a `ui ~T0 @X0 1 r1 ]
 [v _b `ui ~T0 @X0 1 r2 ]
-"128
-[; ;color.c: 128: {
+"112
+[; ;color.c: 112: {
 [f ]
-"129
-[; ;color.c: 129:     unsigned int min_val;
+"113
+[; ;color.c: 113:     unsigned int min_val = b;
 [v _min_val `ui ~T0 @X0 1 a ]
-"131
-[; ;color.c: 131:     if (a < b) {min_val = a;}
-[e $ ! < _a _b 2033  ]
+[e = _min_val _b ]
+"114
+[; ;color.c: 114:     if (a < b) {min_val = a;}
+[e $ ! < _a _b 2032  ]
 {
 [e = _min_val _a ]
 }
-[e $U 2034  ]
-"133
-[; ;color.c: 133:     else {min_val = b;}
-[e :U 2033 ]
-{
-[e = _min_val _b ]
-}
-[e :U 2034 ]
-"135
-[; ;color.c: 135:     return min_val;
+[e :U 2032 ]
+"115
+[; ;color.c: 115:     return min_val;
 [e ) _min_val ]
-[e $UE 2032  ]
-"136
-[; ;color.c: 136: }
-[e :UE 2032 ]
+[e $UE 2031  ]
+"116
+[; ;color.c: 116: }
+[e :UE 2031 ]
 }
-"154
-[; ;color.c: 154: void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
+"118
+[; ;color.c: 118: unsigned int maxRGB(struct RGBC_val *p)
+[v _maxRGB `(ui ~T0 @X0 1 ef1`*S2015 ]
+"119
+[; ;color.c: 119: {
+{
+[e :U _maxRGB ]
+"118
+[; ;color.c: 118: unsigned int maxRGB(struct RGBC_val *p)
+[v _p `*S2015 ~T0 @X0 1 r1 ]
+"119
+[; ;color.c: 119: {
+[f ]
+"120
+[; ;color.c: 120:     return(max(max(p->R,p->G),p->B));
+[e ) ( _max (2 , ( _max (2 , . *U _p 0 . *U _p 1 . *U _p 2 ]
+[e $UE 2033  ]
+"121
+[; ;color.c: 121: }
+[e :UE 2033 ]
+}
+"123
+[; ;color.c: 123: unsigned int minRGB(struct RGBC_val *p)
+[v _minRGB `(ui ~T0 @X0 1 ef1`*S2015 ]
+"124
+[; ;color.c: 124: {
+{
+[e :U _minRGB ]
+"123
+[; ;color.c: 123: unsigned int minRGB(struct RGBC_val *p)
+[v _p `*S2015 ~T0 @X0 1 r1 ]
+"124
+[; ;color.c: 124: {
+[f ]
+"125
+[; ;color.c: 125:     return(min(min(p->R,p->G),p->B));
+[e ) ( _min (2 , ( _min (2 , . *U _p 0 . *U _p 1 . *U _p 2 ]
+[e $UE 2034  ]
+"126
+[; ;color.c: 126: }
+[e :UE 2034 ]
+}
+"133
+[; ;color.c: 133: void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
 [v _getHSVval `(v ~T0 @X0 1 ef2`*S2016`*S2015 ]
-"155
-[; ;color.c: 155: {
+"134
+[; ;color.c: 134: {
 {
 [e :U _getHSVval ]
-"154
-[; ;color.c: 154: void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
+"133
+[; ;color.c: 133: void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
 [v _p1 `*S2016 ~T0 @X0 1 r1 ]
 [v _p2 `*S2015 ~T0 @X0 1 r2 ]
-"155
-[; ;color.c: 155: {
+"134
+[; ;color.c: 134: {
 [f ]
-"156
-[; ;color.c: 156:     unsigned int maxRGB;
-[v _maxRGB `ui ~T0 @X0 1 a ]
-"157
-[; ;color.c: 157:     unsigned int minRGB;
-[v _minRGB `ui ~T0 @X0 1 a ]
-"158
-[; ;color.c: 158:     unsigned int range;
-[v _range `ui ~T0 @X0 1 a ]
-"159
-[; ;color.c: 159:     unsigned int hue;
-[v _hue `ui ~T0 @X0 1 a ]
-"160
-[; ;color.c: 160:     unsigned int saturation;
-[v _saturation `ui ~T0 @X0 1 a ]
-"164
-[; ;color.c: 164:     maxRGB = max(max(p2->R,p2->G),p2->B);
-[e = _maxRGB ( _max (2 , ( _max (2 , . *U _p2 0 . *U _p2 1 . *U _p2 2 ]
-"165
-[; ;color.c: 165:     minRGB = min(min(p2->R,p2->G),p2->B);
-[e = _minRGB ( _min (2 , ( _min (2 , . *U _p2 0 . *U _p2 1 . *U _p2 2 ]
-"166
-[; ;color.c: 166:     range = maxRGB - minRGB;
-[e = _range - _maxRGB _minRGB ]
-"168
-[; ;color.c: 168:     if (range == 0) {
-[e $ ! == _range -> -> 0 `i `ui 2036  ]
+"135
+[; ;color.c: 135:     unsigned int z = 60;
+[v _z `ui ~T0 @X0 1 a ]
+[e = _z -> -> 60 `i `ui ]
+"136
+[; ;color.c: 136:     unsigned int H = 0;
+[v _H `ui ~T0 @X0 1 a ]
+[e = _H -> -> 0 `i `ui ]
+"137
+[; ;color.c: 137:     unsigned int S = 0;
+[v _S `ui ~T0 @X0 1 a ]
+[e = _S -> -> 0 `i `ui ]
+"139
+[; ;color.c: 139:     unsigned int RR = (p2->R);
+[v _RR `ui ~T0 @X0 1 a ]
+[e = _RR . *U _p2 0 ]
+"140
+[; ;color.c: 140:     unsigned int GG = (p2->G);
+[v _GG `ui ~T0 @X0 1 a ]
+[e = _GG . *U _p2 1 ]
+"141
+[; ;color.c: 141:     unsigned int BB = (p2->B);
+[v _BB `ui ~T0 @X0 1 a ]
+[e = _BB . *U _p2 2 ]
+"143
+[; ;color.c: 143:     unsigned int M = maxRGB(p2);
+[v _M `ui ~T0 @X0 1 a ]
+[e = _M ( _maxRGB (1 _p2 ]
+"144
+[; ;color.c: 144:     unsigned int m = minRGB(p2);
+[v _m `ui ~T0 @X0 1 a ]
+[e = _m ( _minRGB (1 _p2 ]
+"145
+[; ;color.c: 145:     unsigned int C = M - m;
+[v _C `ui ~T0 @X0 1 a ]
+[e = _C - _M _m ]
+"147
+[; ;color.c: 147:     if (C == 0) {
+[e $ ! == _C -> -> 0 `i `ui 2036  ]
 {
-"169
-[; ;color.c: 169:         hue = 0;
-[e = _hue -> -> 0 `i `ui ]
-"170
-[; ;color.c: 170:     }
+"148
+[; ;color.c: 148:         H = 0;
+[e = _H -> -> 0 `i `ui ]
+"149
+[; ;color.c: 149:     } else {
 }
 [e $U 2037  ]
-"171
-[; ;color.c: 171:     else {
 [e :U 2036 ]
 {
-"172
-[; ;color.c: 172:         if (maxRGB == (p2->R)) {
-[e $ ! == _maxRGB . *U _p2 0 2038  ]
+"150
+[; ;color.c: 150:         if (M == RR) {
+[e $ ! == _M _RR 2038  ]
 {
-"173
-[; ;color.c: 173:             hue = 60*(((((p2->G)-(p2->B))*10)/range)%60);
-[e = _hue * -> -> 60 `i `ui % / * - . *U _p2 1 . *U _p2 2 -> -> 10 `i `ui _range -> -> 60 `i `ui ]
-"174
-[; ;color.c: 174:         }
-}
-[e :U 2038 ]
-"176
-[; ;color.c: 176:         if (maxRGB == (p2->G)){
-[e $ ! == _maxRGB . *U _p2 1 2039  ]
+"151
+[; ;color.c: 151:             if (GG >= BB) {
+[e $ ! >= _GG _BB 2039  ]
 {
-"177
-[; ;color.c: 177:             hue = 60*(((((p2->B)-(p2->R))*10)/range)+20);
-[e = _hue * -> -> 60 `i `ui + / * - . *U _p2 2 . *U _p2 0 -> -> 10 `i `ui _range -> -> 20 `i `ui ]
-"178
-[; ;color.c: 178:         }
+"152
+[; ;color.c: 152:                 H = ((GG - BB)) / C;
+[e = _H / - _GG _BB _C ]
+"153
+[; ;color.c: 153:             } else {
 }
+[e $U 2040  ]
 [e :U 2039 ]
-"180
-[; ;color.c: 180:         if (maxRGB == (p2->G)){
-[e $ ! == _maxRGB . *U _p2 1 2040  ]
 {
-"181
-[; ;color.c: 181:             hue = 60*(((((p2->R)-(p2->G))*10)/range)+40);
-[e = _hue * -> -> 60 `i `ui + / * - . *U _p2 0 . *U _p2 1 -> -> 10 `i `ui _range -> -> 40 `i `ui ]
-"182
-[; ;color.c: 182:         }
+"154
+[; ;color.c: 154:                 H = ((6 * C - (BB - GG))) / C;
+[e = _H / - * -> -> 6 `i `ui _C - _BB _GG _C ]
+"155
+[; ;color.c: 155:                 H *= z;
+[e =* _H _z ]
+"156
+[; ;color.c: 156:             }
 }
 [e :U 2040 ]
-"183
-[; ;color.c: 183:     }
+"157
+[; ;color.c: 157:         }
 }
-[e :U 2037 ]
-"184
-[; ;color.c: 184:     if (maxRGB == 0) {saturation = 0;}
-[e $ ! == _maxRGB -> -> 0 `i `ui 2041  ]
+[e :U 2038 ]
+"158
+[; ;color.c: 158:         if (M == p2->G) {
+[e $ ! == _M . *U _p2 1 2041  ]
 {
-[e = _saturation -> -> 0 `i `ui ]
+"159
+[; ;color.c: 159:             if (p2->B >= p2->R) {
+[e $ ! >= . *U _p2 2 . *U _p2 0 2042  ]
+{
+"160
+[; ;color.c: 160:                 H = (z * (2 * C + (p2->B - p2->R))) / C;
+[e = _H / * _z + * -> -> 2 `i `ui _C - . *U _p2 2 . *U _p2 0 _C ]
+"161
+[; ;color.c: 161:             } else {
+}
+[e $U 2043  ]
+[e :U 2042 ]
+{
+"162
+[; ;color.c: 162:                 H = (z * (2 * C - (p2->R - p2->B))) / C;
+[e = _H / * _z - * -> -> 2 `i `ui _C - . *U _p2 0 . *U _p2 2 _C ]
+"163
+[; ;color.c: 163:             }
+}
+[e :U 2043 ]
+"164
+[; ;color.c: 164:         }
 }
 [e :U 2041 ]
-"186
-[; ;color.c: 186:     if (maxRGB != 0) {saturation = (range*10)/maxRGB;}
-[e $ ! != _maxRGB -> -> 0 `i `ui 2042  ]
+"165
+[; ;color.c: 165:         if (M == p2->B) {
+[e $ ! == _M . *U _p2 2 2044  ]
 {
-[e = _saturation / * _range -> -> 10 `i `ui _maxRGB ]
+"166
+[; ;color.c: 166:             if (p2->R >= p2->G) {
+[e $ ! >= . *U _p2 0 . *U _p2 1 2045  ]
+{
+"167
+[; ;color.c: 167:                 H = (z * (4 * C + (p2->R - p2->G))) / C;
+[e = _H / * _z + * -> -> 4 `i `ui _C - . *U _p2 0 . *U _p2 1 _C ]
+"168
+[; ;color.c: 168:             } else {
 }
-[e :U 2042 ]
-"188
-[; ;color.c: 188:     p1->H = hue;
-[e = . *U _p1 0 _hue ]
-"189
-[; ;color.c: 189:     p1->S = saturation;
-[e = . *U _p1 1 _saturation ]
-"190
-[; ;color.c: 190:     p1->V = maxRGB;
-[e = . *U _p1 2 _maxRGB ]
-"192
-[; ;color.c: 192: }
+[e $U 2046  ]
+[e :U 2045 ]
+{
+"169
+[; ;color.c: 169:                 H = (z * (4 * C - (p2->G - p2->R))) / C;
+[e = _H / * _z - * -> -> 4 `i `ui _C - . *U _p2 1 . *U _p2 0 _C ]
+"170
+[; ;color.c: 170:             }
+}
+[e :U 2046 ]
+"171
+[; ;color.c: 171:         }
+}
+[e :U 2044 ]
+"172
+[; ;color.c: 172:     }
+}
+[e :U 2037 ]
+"174
+[; ;color.c: 174:     if (M == 0) {
+[e $ ! == _M -> -> 0 `i `ui 2047  ]
+{
+"175
+[; ;color.c: 175:         S = 0;
+[e = _S -> -> 0 `i `ui ]
+"176
+[; ;color.c: 176:     } else {
+}
+[e $U 2048  ]
+[e :U 2047 ]
+{
+"177
+[; ;color.c: 177:         S = z * C / M;
+[e = _S / * _z _C _M ]
+"178
+[; ;color.c: 178:     }
+}
+[e :U 2048 ]
+"180
+[; ;color.c: 180:     p1->H = H;
+[e = . *U _p1 0 _H ]
+"181
+[; ;color.c: 181:     p1->S = S;
+[e = . *U _p1 1 _S ]
+"182
+[; ;color.c: 182:     p1->V = M;
+[e = . *U _p1 2 _M ]
+"184
+[; ;color.c: 184: }
 [e :UE 2035 ]
 }

@@ -84,6 +84,9 @@ void main(void) {
     
     while (1) {
         getRGBCval(&measured_colour);
+        measured_colour.R = 10000;
+        measured_colour.G = 2000;
+        measured_colour.B = 9000;
         getHSVval(&HSV_colour, &measured_colour);
         sendRGBCvalSerial4(&measured_colour);
         sendHSVvalSerial4(&HSV_colour);

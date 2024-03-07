@@ -1,7 +1,7 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\boris\AppData\Local\Temp\xcAs90g.\driver_tmp_3.o
+ C:\Users\boris\AppData\Local\Temp\xcAsbj4.\driver_tmp_3.o
  -Odist/default/production\final-project-gorakh-boris.X.production.hex
  -logfile=dist/default/production\final-project-gorakh-boris.X.production.hxl
  -addressing=1
@@ -9,30 +9,30 @@
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(C:\Users\boris\AppData\Local\Temp\xcAs90g.\driver_tmp_3.o)
-  8h - 3Bh		(C:\Users\boris\AppData\Local\Temp\xcAs90g.\driver_tmp_3.o)
-  E00h - E18h		(C:\Users\boris\AppData\Local\Temp\xcAs90g.\driver_tmp_3.o)
-  E1Ah - 1FFFh		(C:\Users\boris\AppData\Local\Temp\xcAs90g.\driver_tmp_3.o)
-  200000h - 20000Fh		(C:\Users\boris\AppData\Local\Temp\xcAs90g.\driver_tmp_3.o)
-  300000h - 30000Bh		(C:\Users\boris\AppData\Local\Temp\xcAs90g.\driver_tmp_3.o)
+  0h - 3h		(C:\Users\boris\AppData\Local\Temp\xcAsbj4.\driver_tmp_3.o)
+  8h - 37h		(C:\Users\boris\AppData\Local\Temp\xcAsbj4.\driver_tmp_3.o)
+  E00h - E18h		(C:\Users\boris\AppData\Local\Temp\xcAsbj4.\driver_tmp_3.o)
+  E1Ah - 21A9h		(C:\Users\boris\AppData\Local\Temp\xcAsbj4.\driver_tmp_3.o)
+  200000h - 20000Fh		(C:\Users\boris\AppData\Local\Temp\xcAsbj4.\driver_tmp_3.o)
+  300000h - 30000Bh		(C:\Users\boris\AppData\Local\Temp\xcAsbj4.\driver_tmp_3.o)
  Unused ranges:
   4h - 7h
-  3Ch - DFFh
+  38h - DFFh
   E19h - E19h
-  2000h - 1FFFFFh
+  21AAh - 1FFFFFh
   200010h - 2FFFFFh
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\boris\AppData\Local\Temp\xcAs90g.\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\boris\AppData\Local\Temp\xcAsbj4.\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
 00000000 | H1 H1 H1 H1 -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1
 00000010 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000020 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00000030 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- --
+00000030 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 00000E00 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000E10 | H1 H1 H1 H1 H1 H1 H1 H1 H1 -- H1 H1 H1 H1 H1 H1
@@ -322,6 +322,33 @@
 00001FD0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001FE0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001FF0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002010 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002020 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002030 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002040 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002050 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002060 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002070 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002080 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002090 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000020A0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000020B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000020C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000020D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000020E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000020F0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002100 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002110 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002120 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002130 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002140 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002150 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002160 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002170 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002180 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002190 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000021A0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- --
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 ----------------------------------------------------------

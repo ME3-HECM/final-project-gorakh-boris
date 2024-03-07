@@ -24193,9 +24193,10 @@ unsigned int color_read_Clear(void);
 void getRGBCval(struct RGBC_val *p);
 
 void wait_for_wall(struct RGBC_val *p);
-
 unsigned int max(unsigned int a, unsigned int b);
 unsigned int min(unsigned int a, unsigned int b);
+unsigned int maxRGB(struct RGBC_val *p);
+unsigned int minRGB(struct RGBC_val *p);
 void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
 # 2 "color.c" 2
 
@@ -24300,76 +24301,84 @@ void wait_for_wall(struct RGBC_val *p)
     LATDbits.LATD7 = !LATDbits.LATD7;
 }
 
-
-
-
-
-
-
 unsigned int max(unsigned int a, unsigned int b)
 {
-    unsigned int max_val;
-
+    unsigned int max_val = b;
     if (a > b) {max_val = a;}
-
-    else {max_val = b;}
-
     return max_val;
 }
 
-
-
-
-
-
-
 unsigned int min(unsigned int a, unsigned int b)
 {
-    unsigned int min_val;
-
+    unsigned int min_val = b;
     if (a < b) {min_val = a;}
-
-    else {min_val = b;}
-
     return min_val;
 }
-# 154 "color.c"
+
+unsigned int maxRGB(struct RGBC_val *p)
+{
+    return(max(max(p->R,p->G),p->B));
+}
+
+unsigned int minRGB(struct RGBC_val *p)
+{
+    return(min(min(p->R,p->G),p->B));
+}
+
+
+
+
+
+
 void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
 {
-    unsigned int maxRGB;
-    unsigned int minRGB;
-    unsigned int range;
-    unsigned int hue;
-    unsigned int saturation;
+    unsigned int z = 60;
+    unsigned int H = 0;
+    unsigned int S = 0;
 
+    unsigned int RR = (p2->R);
+    unsigned int GG = (p2->G);
+    unsigned int BB = (p2->B);
 
+    unsigned int M = maxRGB(p2);
+    unsigned int m = minRGB(p2);
+    unsigned int C = M - m;
 
-    maxRGB = max(max(p2->R,p2->G),p2->B);
-    minRGB = min(min(p2->R,p2->G),p2->B);
-    range = maxRGB - minRGB;
-
-    if (range == 0) {
-        hue = 0;
+    if (C == 0) {
+        H = 0;
+    } else {
+        if (M == RR) {
+            if (GG >= BB) {
+                H = ((GG - BB)) / C;
+            } else {
+                H = ((6 * C - (BB - GG))) / C;
+                H *= z;
+            }
+        }
+        if (M == p2->G) {
+            if (p2->B >= p2->R) {
+                H = (z * (2 * C + (p2->B - p2->R))) / C;
+            } else {
+                H = (z * (2 * C - (p2->R - p2->B))) / C;
+            }
+        }
+        if (M == p2->B) {
+            if (p2->R >= p2->G) {
+                H = (z * (4 * C + (p2->R - p2->G))) / C;
+            } else {
+                H = (z * (4 * C - (p2->G - p2->R))) / C;
+            }
+        }
     }
-    else {
-        if (maxRGB == (p2->R)) {
-            hue = 60*(((((p2->G)-(p2->B))*10)/range)%60);
-        }
 
-        if (maxRGB == (p2->G)){
-            hue = 60*(((((p2->B)-(p2->R))*10)/range)+20);
-        }
-
-        if (maxRGB == (p2->G)){
-            hue = 60*(((((p2->R)-(p2->G))*10)/range)+40);
-        }
+    if (M == 0) {
+        S = 0;
+    } else {
+        S = z * C / M;
     }
-    if (maxRGB == 0) {saturation = 0;}
 
-    if (maxRGB != 0) {saturation = (range*10)/maxRGB;}
-
-    p1->H = hue;
-    p1->S = saturation;
-    p1->V = maxRGB;
+    p1->H = H;
+    p1->S = S;
+    p1->V = M;
 
 }
