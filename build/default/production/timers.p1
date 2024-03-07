@@ -84,8 +84,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./color.h: 12: typedef struct RGBC_val {
 [s S2016 `ui 1 `ui 1 `ui 1 `ui 1 ]
 [n S2016 RGBC_val R G B C ]
-"60
-[; ;./color.h: 60: void wait_for_wall(struct RGBC_val *p);
+"68
+[; ;./color.h: 68: void wait_for_wall(struct RGBC_val *p);
 [v _wait_for_wall `(v ~T0 @X0 0 ef1`*S2016 ]
 "29 ./serial.h
 [; ;./serial.h: 29: void sendArrayCharSerial4(unsigned char *arr);
@@ -2342,7 +2342,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _INTCONbits 1 2 -> -> 1 `i `uc ]
 "24
 [; ;timers.c: 24: }
-[e :UE 2017 ]
+[e :UE 2018 ]
 }
 "26
 [; ;timers.c: 26: void read_timer(unsigned char *tH, unsigned char *tL)
@@ -2366,7 +2366,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U _tH _TMR0H ]
 "33
 [; ;timers.c: 33: }
-[e :UE 2018 ]
+[e :UE 2019 ]
 }
 "35
 [; ;timers.c: 35: void write_timer(unsigned char tH, unsigned char tL)
@@ -2390,7 +2390,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _TMR0L _tL ]
 "42
 [; ;timers.c: 42: }
-[e :UE 2019 ]
+[e :UE 2020 ]
 }
 "44
 [; ;timers.c: 44: void reset_timer(void)
@@ -2405,7 +2405,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _write_timer (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
 "47
 [; ;timers.c: 47: }
-[e :UE 2020 ]
+[e :UE 2021 ]
 }
 "49
 [; ;timers.c: 49: void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man)
@@ -2445,7 +2445,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e -- _manoeuvre_count -> -> 1 `i `uc ]
 "60
 [; ;timers.c: 60: }
-[e :UE 2021 ]
+[e :UE 2022 ]
 }
 "62
 [; ;timers.c: 62: void write_trail(unsigned char tH, unsigned char tL, unsigned char man)
@@ -2485,7 +2485,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ _manoeuvre_count -> -> 1 `i `uc ]
 "73
 [; ;timers.c: 73: }
-[e :UE 2022 ]
+[e :UE 2023 ]
 }
 "75
 [; ;timers.c: 75: void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col)
@@ -2537,7 +2537,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _sendArrayCharSerial4 (1 &U _trail_manoeuvre ]
 "92
 [; ;timers.c: 92: }
-[e :UE 2023 ]
+[e :UE 2024 ]
 }
 "94
 [; ;timers.c: 94: void return_to_sender(DC_motor *mL, DC_motor *mR)
@@ -2555,8 +2555,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "96
 [; ;timers.c: 96:     while (manoeuvre_count != 0) {
-[e $U 2025  ]
-[e :U 2026 ]
+[e $U 2026  ]
+[e :U 2027 ]
 {
 "97
 [; ;timers.c: 97:         unsigned char timerH = 0;
@@ -2575,7 +2575,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _read_trail (3 , , &U _timerH &U _timerL &U _mann ]
 "104
 [; ;timers.c: 104:         if (mann != 8) {
-[e $ ! != -> _mann `i -> 8 `i 2028  ]
+[e $ ! != -> _mann `i -> 8 `i 2029  ]
 {
 "105
 [; ;timers.c: 105:             pick_card(mL, mR, returning, mann);
@@ -2583,7 +2583,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "106
 [; ;timers.c: 106:         }
 }
-[e :U 2028 ]
+[e :U 2029 ]
 "107
 [; ;timers.c: 107:         write_timer(0b11111111 - timerH, 0b11111111 - timerL);
 [e ( _write_timer (2 , -> - -> 255 `i -> _timerH `i `uc -> - -> 255 `i -> _timerL `i `uc ]
@@ -2592,11 +2592,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _fullSpeedAhead (2 , _mL _mR ]
 "109
 [; ;timers.c: 109:         while (!return_flag);
-[e $U 2029  ]
-[e :U 2030 ]
-[e :U 2029 ]
-[e $ ! != -> _return_flag `i -> 0 `i 2030  ]
+[e $U 2030  ]
 [e :U 2031 ]
+[e :U 2030 ]
+[e $ ! != -> _return_flag `i -> 0 `i 2031  ]
+[e :U 2032 ]
 "110
 [; ;timers.c: 110:         stop(mL, mR);
 [e ( _stop (2 , _mL _mR ]
@@ -2606,14 +2606,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "112
 [; ;timers.c: 112:     }
 }
-[e :U 2025 ]
+[e :U 2026 ]
 "96
 [; ;timers.c: 96:     while (manoeuvre_count != 0) {
-[e $ != -> _manoeuvre_count `i -> 0 `i 2026  ]
-[e :U 2027 ]
+[e $ != -> _manoeuvre_count `i -> 0 `i 2027  ]
+[e :U 2028 ]
 "114
 [; ;timers.c: 114: }
-[e :UE 2024 ]
+[e :UE 2025 ]
 }
 [v $root$_ISR `(v ~T0 @X0 0 e ]
 "116
@@ -2626,11 +2626,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "119
 [; ;timers.c: 119:     if (PIR0bits.TMR0IF) {
-[e $ ! != -> . . _PIR0bits 0 5 `i -> 0 `i 2033  ]
+[e $ ! != -> . . _PIR0bits 0 5 `i -> 0 `i 2034  ]
 {
 "120
 [; ;timers.c: 120:         if (returning) {
-[e $ ! != -> _returning `i -> 0 `i 2034  ]
+[e $ ! != -> _returning `i -> 0 `i 2035  ]
 {
 "121
 [; ;timers.c: 121:             return_flag = 1;
@@ -2638,21 +2638,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "122
 [; ;timers.c: 122:         } else {
 }
-[e $U 2035  ]
-[e :U 2034 ]
+[e $U 2036  ]
+[e :U 2035 ]
 {
 "124
 [; ;timers.c: 124:         }
 }
-[e :U 2035 ]
+[e :U 2036 ]
 "126
 [; ;timers.c: 126:         PIR0bits.TMR0IF = 0;
 [e = . . _PIR0bits 0 5 -> -> 0 `i `uc ]
 "127
 [; ;timers.c: 127:     }
 }
-[e :U 2033 ]
+[e :U 2034 ]
 "128
 [; ;timers.c: 128: }
-[e :UE 2032 ]
+[e :UE 2033 ]
 }

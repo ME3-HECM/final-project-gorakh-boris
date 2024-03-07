@@ -24303,6 +24303,14 @@ typedef struct RGBC_val {
 } RGBC_val;
 
 
+typedef struct HSV_val {
+    unsigned int H;
+    unsigned int S;
+    unsigned int V;
+} HSV_val;
+
+
+
 
 void color_click_init(void);
 
@@ -24344,6 +24352,10 @@ unsigned int color_read_Clear(void);
 void getRGBCval(struct RGBC_val *p);
 
 void wait_for_wall(struct RGBC_val *p);
+
+unsigned int max(unsigned int a, unsigned int b);
+unsigned int min(unsigned int a, unsigned int b);
+void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
 # 5 "./serial.h" 2
 # 14 "./serial.h"
 volatile char EUSART4RXbuf[20];
@@ -24362,7 +24374,8 @@ void sendCharSerial4(char charToSend);
 void sendStringSerial4(char *string);
 void sendIntSerial4(int integer);
 void sendArrayCharSerial4(unsigned char *arr);
-void sendRGBCvalSerial4(RGBC_val *col);
+void sendRGBCvalSerial4(RGBC_val *col_val);
+void sendHSVvalSerial4(HSV_val *col_val);
 
 
 char getCharFromRxBuf(void);
@@ -24436,8 +24449,17 @@ void sendArrayCharSerial4(unsigned char *arr) {
 
 
 void sendRGBCvalSerial4(RGBC_val *col_val) {
-    char tempStr[41];
-    sprintf(tempStr, "%d %d %d %d \r", col_val->R, col_val->G, col_val->B, col_val->C);
+    char tempStr[26];
+
+    sprintf(tempStr, "%u %u %u %u \r", col_val->R, col_val->G, col_val->B, col_val->C);
+    sendStringSerial4(tempStr);
+}
+
+
+void sendHSVvalSerial4(HSV_val *col_val) {
+    char tempStr[21];
+
+    sprintf(tempStr, "%u %u %u \r", col_val->H, col_val->S, col_val->V);
     sendStringSerial4(tempStr);
 }
 

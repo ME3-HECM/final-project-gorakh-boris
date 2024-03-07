@@ -100,3 +100,93 @@ void wait_for_wall(struct RGBC_val *p)
     }
     LATDbits.LATD7 = !LATDbits.LATD7;       //toggle LED for debugging
 }
+
+/*!
+ * This is a function returns the maximum value from two inputs
+ * The parameter a is a  signed integer number to be compared
+ * The parameter b is a signed integer number to be compared
+ * The function returns the integer that is bigger 
+ */
+unsigned int max(unsigned int a, unsigned int b) 
+{
+    unsigned int max_val;                //max_val is created to hold the value of the larger integer
+                                //this is to ensure the function has only one return
+    if (a > b) {max_val = a;}
+    
+    else {max_val = b;}
+    
+    return max_val;
+}
+
+/*!
+ * Function returns the minimum value from two inputs
+ * The parameter a is a  signed integer number to be compared
+ * The parameter b is a signed integer number to be compared
+ * The function returns the integer that is smaller 
+ */
+unsigned int min(unsigned int a, unsigned int b)
+{
+    unsigned int min_val;                //min_val is created to hold the value of the smaller integer
+                                //this is to ensure the function has only one return
+    if (a < b) {min_val = a;}
+    
+    else {min_val = b;}
+    
+    return min_val;
+}
+
+/*!
+ * Function returns the Hue value from the RGB value
+ * The function returns an integer that corresponds to the hue
+ * 
+
+ */
+
+
+/*!
+ * The function updates the HSV_val structure updating the numbers for Hue, Saturation, Value 
+ * The parameter HSV_val *p is a pointer that points to the Hue, Saturation, Value variables in the structure HSV_val
+ * Notes: the equation was obtained from https://en.wikipedia.org/wiki/HSL_and_HSV
+ * However, the equation for Hue has been modified so that we do not use floats
+ * The numerator has been multiplied by 100 
+ * so the hue values will range from 0-36000 instead of 0-360
+ */
+void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
+{
+    unsigned int maxRGB;
+    unsigned int minRGB;
+    unsigned int range;
+    unsigned int hue;
+    unsigned int saturation;
+    
+ 
+    
+    maxRGB = max(max(p2->R,p2->G),p2->B);
+    minRGB = min(min(p2->R,p2->G),p2->B);
+    range = maxRGB - minRGB;
+    
+    if (range == 0) {
+        hue = 0;
+    }
+    else {
+        if (maxRGB == (p2->R)) {
+            hue = 60*(((((p2->G)-(p2->B))*10)/range)%60);
+        }
+
+        if (maxRGB == (p2->G)){
+            hue = 60*(((((p2->B)-(p2->R))*10)/range)+20);
+        }
+
+        if (maxRGB == (p2->G)){
+            hue = 60*(((((p2->R)-(p2->G))*10)/range)+40);
+        }
+    }
+    if (maxRGB == 0) {saturation = 0;}
+    
+    if (maxRGB != 0) {saturation = (range*10)/maxRGB;}
+    
+    p1->H = hue;
+    p1->S = saturation;
+    p1->V = maxRGB;
+    
+}

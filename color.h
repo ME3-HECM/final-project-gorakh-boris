@@ -15,6 +15,14 @@ typedef struct RGBC_val {
 	unsigned int B;
     unsigned int C;
 } RGBC_val;
+
+//definition of HSV structure
+typedef struct HSV_val {
+    unsigned int H;
+    unsigned int S;
+    unsigned int V;
+} HSV_val;
+
 /********************************************//**
  *  Function to initialise the colour click module using I2C
  ***********************************************/
@@ -58,4 +66,8 @@ unsigned int color_read_Clear(void);
 void getRGBCval(struct RGBC_val *p);
 
 void wait_for_wall(struct RGBC_val *p);
+
+unsigned int max(unsigned int a, unsigned int b);
+unsigned int min(unsigned int a, unsigned int b);
+void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
 #endif

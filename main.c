@@ -26,23 +26,31 @@
 
 void main(void) {
     struct RGBC_val measured_colour;
+        measured_colour.R = 0;
+        measured_colour.G = 0;
+        measured_colour.B = 0;
+        measured_colour.C = 0;
+    
+    struct HSV_val HSV_colour;
+        HSV_colour.H = 0;
+        HSV_colour.S = 0;
+        HSV_colour.V = 0;
     
     unsigned int PWMcycle = 99;    
+    
     struct DC_motor motorL, motorR;
-    
-    motorL.power = 0;
-    motorL.direction = 1;
-    motorL.brakemode = 1;
-    motorL.PWMperiod = PWMcycle;
-    motorL.posDutyHighByte = (unsigned char *)(&CCPR1H);
-    motorL.negDutyHighByte = (unsigned char *)(&CCPR2H);
-    
-    motorR.power = 0;
-    motorR.direction = 1;
-    motorR.brakemode = 1;
-    motorR.PWMperiod = PWMcycle;
-    motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
-    motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
+        motorL.power = 0;
+        motorL.direction = 1;
+        motorL.brakemode = 1;
+        motorL.PWMperiod = PWMcycle;
+        motorL.posDutyHighByte = (unsigned char *)(&CCPR1H);
+        motorL.negDutyHighByte = (unsigned char *)(&CCPR2H);
+        motorR.power = 0;
+        motorR.direction = 1;
+        motorR.brakemode = 1;
+        motorR.PWMperiod = PWMcycle;
+        motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
+        motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
     
     initDCmotorsPWM(PWMcycle);
     buggy_lights_init();
@@ -70,12 +78,15 @@ void main(void) {
     
     //while (PORTFbits.RF3);              //wait until RF3 is pressed
     LATHbits.LATH3 = !LATHbits.LATH3;   //toggle RH3 LED for debugging
+    toggle_tricolour_LED();
     
-    forward_navigation(&motorL, &motorR, &measured_colour);
+    //forward_navigation(&motorL, &motorR, &measured_colour);
     
     while (1) {
         getRGBCval(&measured_colour);
+        getHSVval(&HSV_colour, &measured_colour);
         sendRGBCvalSerial4(&measured_colour);
-        __delay_ms(250);
+        sendHSVvalSerial4(&HSV_colour);
+        __delay_ms(1000);
     }
 }

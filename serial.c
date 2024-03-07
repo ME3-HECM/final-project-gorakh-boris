@@ -60,8 +60,17 @@ void sendArrayCharSerial4(unsigned char *arr) {
 
 //function to send a RGBC_val structure over the serial interface
 void sendRGBCvalSerial4(RGBC_val *col_val) {
-    char tempStr[41];
-    sprintf(tempStr, "%d %d %d %d \r", col_val->R, col_val->G, col_val->B, col_val->C);
+    char tempStr[26];
+    //use %u for unsigned integer https://w3resource.com/c-programming/stdio/c_library_method_sprintf.php
+    sprintf(tempStr, "%u %u %u %u \r", col_val->R, col_val->G, col_val->B, col_val->C);
+    sendStringSerial4(tempStr);
+}
+
+//function to send a HSV_val structure over the serial interface
+void sendHSVvalSerial4(HSV_val *col_val) {
+    char tempStr[21];
+    //use %u for unsigned integer https://w3resource.com/c-programming/stdio/c_library_method_sprintf.php
+    sprintf(tempStr, "%u %u %u \r", col_val->H, col_val->S, col_val->V);
     sendStringSerial4(tempStr);
 }
 

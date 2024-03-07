@@ -24144,6 +24144,14 @@ typedef struct RGBC_val {
 } RGBC_val;
 
 
+typedef struct HSV_val {
+    unsigned int H;
+    unsigned int S;
+    unsigned int V;
+} HSV_val;
+
+
+
 
 void color_click_init(void);
 
@@ -24185,6 +24193,10 @@ unsigned int color_read_Clear(void);
 void getRGBCval(struct RGBC_val *p);
 
 void wait_for_wall(struct RGBC_val *p);
+
+unsigned int max(unsigned int a, unsigned int b);
+unsigned int min(unsigned int a, unsigned int b);
+void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
 # 2 "color.c" 2
 
 
@@ -24286,4 +24298,78 @@ void wait_for_wall(struct RGBC_val *p)
         }
     }
     LATDbits.LATD7 = !LATDbits.LATD7;
+}
+
+
+
+
+
+
+
+unsigned int max(unsigned int a, unsigned int b)
+{
+    unsigned int max_val;
+
+    if (a > b) {max_val = a;}
+
+    else {max_val = b;}
+
+    return max_val;
+}
+
+
+
+
+
+
+
+unsigned int min(unsigned int a, unsigned int b)
+{
+    unsigned int min_val;
+
+    if (a < b) {min_val = a;}
+
+    else {min_val = b;}
+
+    return min_val;
+}
+# 154 "color.c"
+void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
+{
+    unsigned int maxRGB;
+    unsigned int minRGB;
+    unsigned int range;
+    unsigned int hue;
+    unsigned int saturation;
+
+
+
+    maxRGB = max(max(p2->R,p2->G),p2->B);
+    minRGB = min(min(p2->R,p2->G),p2->B);
+    range = maxRGB - minRGB;
+
+    if (range == 0) {
+        hue = 0;
+    }
+    else {
+        if (maxRGB == (p2->R)) {
+            hue = 60*(((((p2->G)-(p2->B))*10)/range)%60);
+        }
+
+        if (maxRGB == (p2->G)){
+            hue = 60*(((((p2->B)-(p2->R))*10)/range)+20);
+        }
+
+        if (maxRGB == (p2->G)){
+            hue = 60*(((((p2->R)-(p2->G))*10)/range)+40);
+        }
+    }
+    if (maxRGB == 0) {saturation = 0;}
+
+    if (maxRGB != 0) {saturation = (range*10)/maxRGB;}
+
+    p1->H = hue;
+    p1->S = saturation;
+    p1->V = maxRGB;
+
 }
