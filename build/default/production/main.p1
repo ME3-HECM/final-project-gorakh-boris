@@ -138,7 +138,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "73
 [; ;./color.h: 73: void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
 [v _getHSVval `(v ~T0 @X0 0 ef2`*S2017`*S2016 ]
-"17 ./serial.h
+"16 ./serial.h
+[; ;./serial.h: 16: void sendRGBCvalSerial4(RGBC_val *col_val);
+[v _sendRGBCvalSerial4 `(v ~T0 @X0 0 ef1`*S2016 ]
+"17
 [; ;./serial.h: 17: void sendHSVvalSerial4(HSV_val *col_val);
 [v _sendHSVvalSerial4 `(v ~T0 @X0 0 ef1`*S2017 ]
 [v F205 `(v ~T0 @X0 1 tf1`ul ]
@@ -2446,31 +2449,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 "86
 [; ;main.c: 86:         getRGBCval(&measured_colour);
 [e ( _getRGBCval (1 &U _measured_colour ]
-"87
-[; ;main.c: 87:         measured_colour.R = 40000;
-[e = . _measured_colour 0 -> -> 40000 `l `ui ]
-"88
-[; ;main.c: 88:         measured_colour.G = 19400;
-[e = . _measured_colour 1 -> -> 19400 `i `ui ]
-"89
-[; ;main.c: 89:         measured_colour.B = 3000;
-[e = . _measured_colour 2 -> -> 3000 `i `ui ]
-"90
-[; ;main.c: 90:         getHSVval(&HSV_colour, &measured_colour);
+"91
+[; ;main.c: 91:         getHSVval(&HSV_colour, &measured_colour);
 [e ( _getHSVval (2 , &U _HSV_colour &U _measured_colour ]
 "92
-[; ;main.c: 92:         sendHSVvalSerial4(&HSV_colour);
-[e ( _sendHSVvalSerial4 (1 &U _HSV_colour ]
+[; ;main.c: 92:         sendRGBCvalSerial4(&measured_colour);
+[e ( _sendRGBCvalSerial4 (1 &U _measured_colour ]
 "93
-[; ;main.c: 93:         _delay((unsigned long)((1000)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;main.c: 93:         sendHSVvalSerial4(&HSV_colour);
+[e ( _sendHSVvalSerial4 (1 &U _HSV_colour ]
 "94
-[; ;main.c: 94:     }
+[; ;main.c: 94:         _delay((unsigned long)((1000)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"95
+[; ;main.c: 95:     }
 }
 [e :U 2019 ]
 [e $U 2020  ]
 [e :U 2021 ]
-"95
-[; ;main.c: 95: }
+"96
+[; ;main.c: 96: }
 [e :UE 2018 ]
 }

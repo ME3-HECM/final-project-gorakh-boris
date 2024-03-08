@@ -24328,13 +24328,10 @@ unsigned int minRGB(struct RGBC_val *p)
 
 void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
 {
-    unsigned int z = 60;
+    unsigned int Hz = 60;
+    unsigned int Sz = 100;
     unsigned int H = 0;
     unsigned int S = 0;
-
-    unsigned int RR = (p2->R);
-    unsigned int GG = (p2->G);
-    unsigned int BB = (p2->B);
 
     unsigned int M = maxRGB(p2);
     unsigned int m = minRGB(p2);
@@ -24343,14 +24340,14 @@ void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
     if (C == 0) {
         H = 0;
     } else {
-        if (M == RR) {
-            if (GG >= BB) {
+        if (M == p2->R) {
+            if (p2->G >= p2->B) {
 
                 unsigned long temp;
                 temp = (unsigned long)C;
                 temp *= 0;
-                temp = (unsigned long)(GG - BB);
-                temp *= (unsigned long)z;
+                temp += (unsigned long)(p2->G - p2->B);
+                temp *= (unsigned long)Hz;
                 temp /= (unsigned long)C;
                 H = (unsigned int)temp;
             } else {
@@ -24358,24 +24355,52 @@ void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
                 unsigned long temp;
                 temp = (unsigned long)C;
                 temp *= 6;
-                temp -= (unsigned long)(BB - GG);
-                temp *= (unsigned long)z;
+                temp -= (unsigned long)(p2->B - p2->G);
+                temp *= (unsigned long)Hz;
                 temp /= (unsigned long)C;
                 H = (unsigned int)temp;
             }
         }
         if (M == p2->G) {
             if (p2->B >= p2->R) {
-                H = (z * (2 * C + (p2->B - p2->R))) / C;
+
+                unsigned long temp;
+                temp = (unsigned long)C;
+                temp *= 2;
+                temp += (unsigned long)(p2->B - p2->R);
+                temp *= (unsigned long)Hz;
+                temp /= (unsigned long)C;
+                H = (unsigned int)temp;
             } else {
-                H = (z * (2 * C - (p2->R - p2->B))) / C;
+
+                unsigned long temp;
+                temp = (unsigned long)C;
+                temp *= 2;
+                temp -= (unsigned long)(p2->R - p2->B);
+                temp *= (unsigned long)Hz;
+                temp /= (unsigned long)C;
+                H = (unsigned int)temp;
             }
         }
         if (M == p2->B) {
             if (p2->R >= p2->G) {
-                H = (z * (4 * C + (p2->R - p2->G))) / C;
+
+                unsigned long temp;
+                temp = (unsigned long)C;
+                temp *= 4;
+                temp += (unsigned long)(p2->R - p2->G);
+                temp *= (unsigned long)Hz;
+                temp /= (unsigned long)C;
+                H = (unsigned int)temp;
             } else {
-                H = (z * (4 * C - (p2->G - p2->R))) / C;
+
+                unsigned long temp;
+                temp = (unsigned long)C;
+                temp *= 4;
+                temp -= (unsigned long)(p2->G - p2->R);
+                temp *= (unsigned long)Hz;
+                temp /= (unsigned long)C;
+                H = (unsigned int)temp;
             }
         }
     }
@@ -24386,7 +24411,7 @@ void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
 
         unsigned long temp;
         temp = (unsigned long)C;
-        temp *= (unsigned long)z;
+        temp *= (unsigned long)Sz;
         temp /= (unsigned long)M;
         S = (unsigned int)temp;
     }
@@ -24394,5 +24419,4 @@ void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
     p1->H = H;
     p1->S = S;
     p1->V = M;
-
 }
