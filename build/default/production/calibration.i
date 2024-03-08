@@ -24091,5 +24091,91 @@ unsigned char __t3rd16on(void);
 # 1 "calibration.c" 2
 
 # 1 "./calibration.h" 1
+# 12 "./calibration.h"
+# 1 "./manoeuvres.h" 1
+# 11 "./manoeuvres.h"
+# 1 "./dc_motor.h" 1
+
+
+
+
+
+
+
+typedef struct DC_motor {
+    char power;
+    char direction;
+    char brakemode;
+    unsigned int PWMperiod;
+    unsigned char *posDutyHighByte;
+    unsigned char *negDutyHighByte;
+} DC_motor;
+
+unsigned char rampDelay = 8;
+
+unsigned char topGearLeft = 20;
+unsigned char topGearRight = 20;
+
+unsigned char turningGear = 42;
+
+unsigned int turnLeft90Delay = 175;
+unsigned int turnRight90Delay = 175;
+unsigned int turnLeft135Delay = 300;
+unsigned int turnRight135Delay = 300;
+unsigned int turn180Delay = 510;
+
+unsigned int headbuttDelay = 70;
+unsigned int squareDelay = 300;
+
+
+void initDCmotorsPWM(unsigned int PWMperiod);
+void setMotorPWM(DC_motor *m);
+
+void stop(DC_motor *mL, DC_motor *mR);
+void turnLeft(DC_motor *mL, DC_motor *mR);
+void turnRight(DC_motor *mL, DC_motor *mR);
+void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
+void fullSpeedReverse(DC_motor *mL, DC_motor *mR);
+
+void turnLeft90(DC_motor *mL, DC_motor *mR);
+void turnRight90(DC_motor *mL, DC_motor *mR);
+void turnLeft135(DC_motor *mL, DC_motor *mR);
+void turnRight135(DC_motor *mL, DC_motor *mR);
+void UTurn(DC_motor *mL, DC_motor *mR);
+void headbuttReverse(DC_motor *mL, DC_motor *mR);
+void squareReverse(DC_motor *mL, DC_motor *mR);
+# 11 "./manoeuvres.h" 2
+
+
+void card_red(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_green(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_blue(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_yellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_pink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_orange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_cyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_white(DC_motor *mL, DC_motor *mR);
+
+
+void pick_card(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
+# 12 "./calibration.h" 2
+
+
+
+
+void test_manoeuvres(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 # 2 "calibration.c" 2
 
+
+void test_manoeuvres(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+{
+# 15 "calibration.c"
+    pick_card(mL, mR, backtrack, 1);
+    pick_card(mL, mR, backtrack, 2);
+    pick_card(mL, mR, backtrack, 3);
+    pick_card(mL, mR, backtrack, 4);
+    pick_card(mL, mR, backtrack, 5);
+    pick_card(mL, mR, backtrack, 6);
+    pick_card(mL, mR, backtrack, 7);
+    pick_card(mL, mR, backtrack, 8);
+}

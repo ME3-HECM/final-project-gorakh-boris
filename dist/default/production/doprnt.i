@@ -956,6 +956,39 @@ vfpfcnvrt(FILE *fp, char *fmt[], va_list ap)
 
 
   }
+
+
+
+
+  if (0
+# 1450 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\sources\\c99\\common\\doprnt.c"
+    || *cp == 'u'
+
+    ) {
+# 1495 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\sources\\c99\\common\\doprnt.c"
+   convarg.uint = (vfpf_uint_t)(unsigned int)(*(unsigned int *)__va_arg(*(unsigned int **)ap, (unsigned int)0));
+
+   *fmt = cp+1;
+   switch (*cp) {
+# 1523 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\sources\\c99\\common\\doprnt.c"
+    case 'u':
+
+     c = sizeof(dbuf);
+     do {
+      dbuf[--c] = (convarg.uint % 10) + '0';
+      convarg.uint /= 10;
+
+      cnt++;
+
+     } while (convarg.uint != 0 && c != 0);
+     while (c != sizeof(dbuf)) {
+      fputc(dbuf[c++], fp);
+     }
+
+     return cnt;
+# 1589 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\sources\\c99\\common\\doprnt.c"
+   }
+  }
 # 1806 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\sources\\c99\\common\\doprnt.c"
         ++*fmt;
         return (int) 0;

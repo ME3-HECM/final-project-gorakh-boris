@@ -24172,17 +24172,17 @@ void toggle_tricolour_LED(void);
 
 # 1 "./manoeuvres.h" 1
 # 13 "./manoeuvres.h"
-void cardRed(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardGreen(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardBlue(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardYellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void cardWhite(DC_motor *mL, DC_motor *mR);
+void card_red(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_green(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_blue(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_yellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_pink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_orange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_cyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_white(DC_motor *mL, DC_motor *mR);
 
 
-void pickCard(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
+void pick_card(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
 # 19 "main.c" 2
 
 # 1 "./color.h" 1
@@ -24228,6 +24228,8 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 
 
 
+unsigned int wall_threshold = 300;
+
 
 typedef struct RGBC_val {
  unsigned int R;
@@ -24235,6 +24237,14 @@ typedef struct RGBC_val {
  unsigned int B;
     unsigned int C;
 } RGBC_val;
+
+
+typedef struct HSV_val {
+    unsigned int H;
+    unsigned int S;
+    unsigned int V;
+} HSV_val;
+
 
 
 
@@ -24257,13 +24267,13 @@ unsigned int color_read_Red(void);
 
 
 
-unsigned int color_read_Blue(void);
-
-
-
-
-
 unsigned int color_read_Green(void);
+
+
+
+
+
+unsigned int color_read_Blue(void);
 
 
 
@@ -24276,44 +24286,32 @@ unsigned int color_read_Clear(void);
 
 
 void getRGBCval(struct RGBC_val *p);
+
+void wait_for_wall(struct RGBC_val *p);
+unsigned int max(unsigned int a, unsigned int b);
+unsigned int min(unsigned int a, unsigned int b);
+unsigned int maxRGB(struct RGBC_val *p);
+unsigned int minRGB(struct RGBC_val *p);
+void scaleRGB(struct RGBC_val *p);
+void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
 # 20 "main.c" 2
 
 # 1 "./serial.h" 1
-# 13 "./serial.h"
-volatile char EUSART4RXbuf[20];
-volatile char RxBufWriteCnt=0;
-volatile char RxBufReadCnt=0;
-
-volatile char EUSART4TXbuf[60];
-volatile char TxBufWriteCnt=0;
-volatile char TxBufReadCnt=0;
-
-
-
+# 10 "./serial.h"
 void initUSART4(void);
 char getCharSerial4(void);
 void sendCharSerial4(char charToSend);
 void sendStringSerial4(char *string);
 void sendIntSerial4(int integer);
 void sendArrayCharSerial4(unsigned char *arr);
-
-
-char getCharFromRxBuf(void);
-void putCharToRxBuf(char byte);
-char isDataInRxBuf (void);
-
-
-char getCharFromTxBuf(void);
-void putCharToTxBuf(char byte);
-char isDataInTxBuf (void);
-void TxBufferedString(char *string);
-void sendTxBuf(void);
+void sendRGBCvalSerial4(RGBC_val *col_val);
+void sendHSVvalSerial4(HSV_val *col_val);
 # 21 "main.c" 2
 
 # 1 "./timers.h" 1
 # 11 "./timers.h"
 unsigned char returning = 0;
-unsigned char returnFlag = 0;
+unsigned char return_flag = 0;
 
 
 
@@ -24321,7 +24319,7 @@ unsigned char returnFlag = 0;
 
 
 
-unsigned char trail_timer_high[20] = {3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6};
+unsigned char trail_timer_high[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
@@ -24337,34 +24335,55 @@ unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
 unsigned char manoeuvre_count = 0;
 
 void Timer0_init(void);
-void writeTrail(unsigned char *man);
-void readTrail(unsigned char *tH, unsigned char *tL, unsigned char *man);
-void returnToSender(DC_motor *mL, DC_motor *mR);
+
+void read_timer(unsigned char *tH, unsigned char *tL);
+void write_timer(unsigned char tH, unsigned char tL);
+void reset_timer(void);
+
+void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man);
+void write_trail(unsigned char tH, unsigned char tL, unsigned char man);
+
+void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col);
+void return_to_sender(DC_motor *mL, DC_motor *mR);
+
 void __attribute__((picinterrupt(("")))) ISR();
 # 22 "main.c" 2
+
+# 1 "./calibration.h" 1
+# 16 "./calibration.h"
+void test_manoeuvres(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+# 23 "main.c" 2
 
 
 
 
 void main(void) {
-    _delay((unsigned long)((1000)*(64000000/4000.0)));
+    struct RGBC_val measured_colour;
+        measured_colour.R = 0;
+        measured_colour.G = 0;
+        measured_colour.B = 0;
+        measured_colour.C = 0;
+
+    struct HSV_val HSV_colour;
+        HSV_colour.H = 0;
+        HSV_colour.S = 0;
+        HSV_colour.V = 0;
 
     unsigned int PWMcycle = 99;
+
     struct DC_motor motorL, motorR;
-
-    motorL.power = 0;
-    motorL.direction = 1;
-    motorL.brakemode = 1;
-    motorL.PWMperiod = PWMcycle;
-    motorL.posDutyHighByte = (unsigned char *)(&CCPR1H);
-    motorL.negDutyHighByte = (unsigned char *)(&CCPR2H);
-
-    motorR.power = 0;
-    motorR.direction = 1;
-    motorR.brakemode = 1;
-    motorR.PWMperiod = PWMcycle;
-    motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
-    motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
+        motorL.power = 0;
+        motorL.direction = 1;
+        motorL.brakemode = 1;
+        motorL.PWMperiod = PWMcycle;
+        motorL.posDutyHighByte = (unsigned char *)(&CCPR1H);
+        motorL.negDutyHighByte = (unsigned char *)(&CCPR2H);
+        motorR.power = 0;
+        motorR.direction = 1;
+        motorR.brakemode = 1;
+        motorR.PWMperiod = PWMcycle;
+        motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
+        motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
 
     initDCmotorsPWM(PWMcycle);
     buggy_lights_init();
@@ -24377,8 +24396,8 @@ void main(void) {
         TRISDbits.TRISD7 = 0;
         TRISHbits.TRISH3 = 0;
 
-        LATDbits.LATD7 = 1;
-        LATHbits.LATH3 = 1;
+        LATDbits.LATD7 = 0;
+        LATHbits.LATH3 = 0;
 
 
 
@@ -24387,20 +24406,24 @@ void main(void) {
 
         ANSELFbits.ANSELF2 = 0;
         ANSELFbits.ANSELF3 = 0;
-# 82 "main.c"
-    struct RGBC_val measured_colour;
+
+
+
+
+    LATHbits.LATH3 = !LATHbits.LATH3;
+    toggle_tricolour_LED();
+
+
 
     while (1) {
         getRGBCval(&measured_colour);
-        sendIntSerial4((int)measured_colour.C);
-
-
-        if (!PORTFbits.RF2) {
-            LATDbits.LATD7 = !LATDbits.LATD7;
-        }
+        scaleRGB(&measured_colour);
 
 
 
-        _delay((unsigned long)((100)*(64000000/4000.0)));
+        getHSVval(&HSV_colour, &measured_colour);
+        sendRGBCvalSerial4(&measured_colour);
+        sendHSVvalSerial4(&HSV_colour);
+        _delay((unsigned long)((1000)*(64000000/4000.0)));
     }
 }

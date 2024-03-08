@@ -2065,14 +2065,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 300 `i `ui
 ]
 "4 manoeuvres.c
-[; ;manoeuvres.c: 4: void cardRed(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _cardRed `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
+[; ;manoeuvres.c: 4: void card_red(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[v _card_red `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
 "5
 [; ;manoeuvres.c: 5: {
 {
-[e :U _cardRed ]
+[e :U _card_red ]
 "4
-[; ;manoeuvres.c: 4: void cardRed(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[; ;manoeuvres.c: 4: void card_red(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 [v _mL `*S2015 ~T0 @X0 1 r1 ]
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
 [v _backtrack `uc ~T0 @X0 1 r3 ]
@@ -2121,14 +2121,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2016 ]
 }
 "18
-[; ;manoeuvres.c: 18: void cardGreen(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _cardGreen `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
+[; ;manoeuvres.c: 18: void card_green(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[v _card_green `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
 "19
 [; ;manoeuvres.c: 19: {
 {
-[e :U _cardGreen ]
+[e :U _card_green ]
 "18
-[; ;manoeuvres.c: 18: void cardGreen(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[; ;manoeuvres.c: 18: void card_green(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 [v _mL `*S2015 ~T0 @X0 1 r1 ]
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
 [v _backtrack `uc ~T0 @X0 1 r3 ]
@@ -2177,14 +2177,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2021 ]
 }
 "32
-[; ;manoeuvres.c: 32: void cardBlue(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _cardBlue `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
+[; ;manoeuvres.c: 32: void card_blue(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[v _card_blue `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
 "33
 [; ;manoeuvres.c: 33: {
 {
-[e :U _cardBlue ]
+[e :U _card_blue ]
 "32
-[; ;manoeuvres.c: 32: void cardBlue(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[; ;manoeuvres.c: 32: void card_blue(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 [v _mL `*S2015 ~T0 @X0 1 r1 ]
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
 [v _backtrack `uc ~T0 @X0 1 r3 ]
@@ -2233,14 +2233,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2026 ]
 }
 "46
-[; ;manoeuvres.c: 46: void cardYellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _cardYellow `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
+[; ;manoeuvres.c: 46: void card_yellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[v _card_yellow `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
 "47
 [; ;manoeuvres.c: 47: {
 {
-[e :U _cardYellow ]
+[e :U _card_yellow ]
 "46
-[; ;manoeuvres.c: 46: void cardYellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[; ;manoeuvres.c: 46: void card_yellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 [v _mL `*S2015 ~T0 @X0 1 r1 ]
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
 [v _backtrack `uc ~T0 @X0 1 r3 ]
@@ -2295,14 +2295,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2031 ]
 }
 "62
-[; ;manoeuvres.c: 62: void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _cardPink `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
+[; ;manoeuvres.c: 62: void card_pink(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[v _card_pink `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
 "63
 [; ;manoeuvres.c: 63: {
 {
-[e :U _cardPink ]
+[e :U _card_pink ]
 "62
-[; ;manoeuvres.c: 62: void cardPink(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[; ;manoeuvres.c: 62: void card_pink(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 [v _mL `*S2015 ~T0 @X0 1 r1 ]
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
 [v _backtrack `uc ~T0 @X0 1 r3 ]
@@ -2357,14 +2357,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2036 ]
 }
 "78
-[; ;manoeuvres.c: 78: void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _cardOrange `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
+[; ;manoeuvres.c: 78: void card_orange(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[v _card_orange `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
 "79
 [; ;manoeuvres.c: 79: {
 {
-[e :U _cardOrange ]
+[e :U _card_orange ]
 "78
-[; ;manoeuvres.c: 78: void cardOrange(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[; ;manoeuvres.c: 78: void card_orange(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 [v _mL `*S2015 ~T0 @X0 1 r1 ]
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
 [v _backtrack `uc ~T0 @X0 1 r3 ]
@@ -2413,14 +2413,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2041 ]
 }
 "92
-[; ;manoeuvres.c: 92: void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
-[v _cardCyan `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
+[; ;manoeuvres.c: 92: void card_cyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[v _card_cyan `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
 "93
 [; ;manoeuvres.c: 93: {
 {
-[e :U _cardCyan ]
+[e :U _card_cyan ]
 "92
-[; ;manoeuvres.c: 92: void cardCyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[; ;manoeuvres.c: 92: void card_cyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 [v _mL `*S2015 ~T0 @X0 1 r1 ]
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
 [v _backtrack `uc ~T0 @X0 1 r3 ]
@@ -2469,14 +2469,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2046 ]
 }
 "106
-[; ;manoeuvres.c: 106: void cardWhite(DC_motor *mL, DC_motor *mR)
-[v _cardWhite `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
+[; ;manoeuvres.c: 106: void card_white(DC_motor *mL, DC_motor *mR)
+[v _card_white `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
 "107
 [; ;manoeuvres.c: 107: {
 {
-[e :U _cardWhite ]
+[e :U _card_white ]
 "106
-[; ;manoeuvres.c: 106: void cardWhite(DC_motor *mL, DC_motor *mR)
+[; ;manoeuvres.c: 106: void card_white(DC_motor *mL, DC_motor *mR)
 [v _mL `*S2015 ~T0 @X0 1 r1 ]
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
 "107
@@ -2496,14 +2496,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2051 ]
 }
 "113
-[; ;manoeuvres.c: 113: void pickCard(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key)
-[v _pickCard `(v ~T0 @X0 1 ef4`*S2015`*S2015`uc`uc ]
+[; ;manoeuvres.c: 113: void pick_card(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key)
+[v _pick_card `(v ~T0 @X0 1 ef4`*S2015`*S2015`uc`uc ]
 "114
 [; ;manoeuvres.c: 114: {
 {
-[e :U _pickCard ]
+[e :U _pick_card ]
 "113
-[; ;manoeuvres.c: 113: void pickCard(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key)
+[; ;manoeuvres.c: 113: void pick_card(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key)
 [v _mL `*S2015 ~T0 @X0 1 r1 ]
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
 [v _backtrack `uc ~T0 @X0 1 r3 ]
@@ -2519,8 +2519,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;manoeuvres.c: 116:         case 1:
 [e :U 2055 ]
 "117
-[; ;manoeuvres.c: 117:             cardRed(mL, mR, backtrack);
-[e ( _cardRed (3 , , _mL _mR _backtrack ]
+[; ;manoeuvres.c: 117:             card_red(mL, mR, backtrack);
+[e ( _card_red (3 , , _mL _mR _backtrack ]
 "118
 [; ;manoeuvres.c: 118:             break;
 [e $U 2053  ]
@@ -2528,8 +2528,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;manoeuvres.c: 119:         case 2:
 [e :U 2056 ]
 "120
-[; ;manoeuvres.c: 120:             cardGreen(mL, mR, backtrack);
-[e ( _cardGreen (3 , , _mL _mR _backtrack ]
+[; ;manoeuvres.c: 120:             card_green(mL, mR, backtrack);
+[e ( _card_green (3 , , _mL _mR _backtrack ]
 "121
 [; ;manoeuvres.c: 121:             break;
 [e $U 2053  ]
@@ -2537,8 +2537,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;manoeuvres.c: 122:         case 3:
 [e :U 2057 ]
 "123
-[; ;manoeuvres.c: 123:             cardBlue(mL, mR, backtrack);
-[e ( _cardBlue (3 , , _mL _mR _backtrack ]
+[; ;manoeuvres.c: 123:             card_blue(mL, mR, backtrack);
+[e ( _card_blue (3 , , _mL _mR _backtrack ]
 "124
 [; ;manoeuvres.c: 124:             break;
 [e $U 2053  ]
@@ -2546,8 +2546,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;manoeuvres.c: 125:         case 4:
 [e :U 2058 ]
 "126
-[; ;manoeuvres.c: 126:             cardYellow(mL, mR, backtrack);
-[e ( _cardYellow (3 , , _mL _mR _backtrack ]
+[; ;manoeuvres.c: 126:             card_yellow(mL, mR, backtrack);
+[e ( _card_yellow (3 , , _mL _mR _backtrack ]
 "127
 [; ;manoeuvres.c: 127:             break;
 [e $U 2053  ]
@@ -2555,8 +2555,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;manoeuvres.c: 128:         case 5:
 [e :U 2059 ]
 "129
-[; ;manoeuvres.c: 129:             cardPink(mL, mR, backtrack);
-[e ( _cardPink (3 , , _mL _mR _backtrack ]
+[; ;manoeuvres.c: 129:             card_pink(mL, mR, backtrack);
+[e ( _card_pink (3 , , _mL _mR _backtrack ]
 "130
 [; ;manoeuvres.c: 130:             break;
 [e $U 2053  ]
@@ -2564,8 +2564,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;manoeuvres.c: 131:         case 6:
 [e :U 2060 ]
 "132
-[; ;manoeuvres.c: 132:             cardOrange(mL, mR, backtrack);
-[e ( _cardOrange (3 , , _mL _mR _backtrack ]
+[; ;manoeuvres.c: 132:             card_orange(mL, mR, backtrack);
+[e ( _card_orange (3 , , _mL _mR _backtrack ]
 "133
 [; ;manoeuvres.c: 133:             break;
 [e $U 2053  ]
@@ -2573,8 +2573,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;manoeuvres.c: 134:         case 7:
 [e :U 2061 ]
 "135
-[; ;manoeuvres.c: 135:             cardCyan(mL, mR, backtrack);
-[e ( _cardCyan (3 , , _mL _mR _backtrack ]
+[; ;manoeuvres.c: 135:             card_cyan(mL, mR, backtrack);
+[e ( _card_cyan (3 , , _mL _mR _backtrack ]
 "136
 [; ;manoeuvres.c: 136:             break;
 [e $U 2053  ]
@@ -2582,8 +2582,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;manoeuvres.c: 137:         case 8:
 [e :U 2062 ]
 "138
-[; ;manoeuvres.c: 138:             cardWhite(mL, mR);
-[e ( _cardWhite (2 , _mL _mR ]
+[; ;manoeuvres.c: 138:             card_white(mL, mR);
+[e ( _card_white (2 , _mL _mR ]
 "139
 [; ;manoeuvres.c: 139:             break;
 [e $U 2053  ]

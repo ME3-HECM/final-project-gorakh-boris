@@ -58,58 +58,18 @@ void sendArrayCharSerial4(unsigned char *arr) {
     sendStringSerial4(" \r");
 }
 
-//functions below are for Ex3 and 4 (optional)
-
-// circular buffer functions for RX
-// retrieve a byte from the buffer
-char getCharFromRxBuf(void){
-    if (RxBufReadCnt>=RX_BUF_SIZE) {RxBufReadCnt=0;} 
-    return EUSART4RXbuf[RxBufReadCnt++];
+//function to send a RGBC_val structure over the serial interface
+void sendRGBCvalSerial4(RGBC_val *col_val) {
+    char tempStr[26];
+    //use %u for unsigned integer https://w3resource.com/c-programming/stdio/c_library_method_sprintf.php
+    sprintf(tempStr, "%u %u %u %u \r", col_val->R, col_val->G, col_val->B, col_val->C);
+    sendStringSerial4(tempStr);
 }
 
-// add a byte to the buffer
-void putCharToRxBuf(char byte){
-    if (RxBufWriteCnt>=RX_BUF_SIZE) {RxBufWriteCnt=0;}
-    EUSART4RXbuf[RxBufWriteCnt++]=byte;
-}
-
-// function to check if there is data in the RX buffer
-// 1: there is data in the buffer
-// 0: nothing in the buffer
-char isDataInRxBuf (void){
-    return (RxBufWriteCnt!=RxBufReadCnt);
-}
-
-// circular buffer functions for TX
-// retrieve a byte from the buffer
-char getCharFromTxBuf(void){
-    if (TxBufReadCnt>=TX_BUF_SIZE) {TxBufReadCnt=0;} 
-    return EUSART4TXbuf[TxBufReadCnt++];
-}
-
-// add a byte to the buffer
-void putCharToTxBuf(char byte){
-    if (TxBufWriteCnt>=TX_BUF_SIZE) {TxBufWriteCnt=0;}
-    EUSART4TXbuf[TxBufWriteCnt++]=byte;
-}
-
-// function to check if there is data in the TX buffer
-// 1: there is data in the buffer
-// 0: nothing in the buffer
-char isDataInTxBuf (void){
-    return (TxBufWriteCnt!=TxBufReadCnt);
-}
-
-//add a string to the buffer
-void TxBufferedString(char *string){
-	//Hint: look at how you did this for the LCD lab 
-    while(*string != 0) {
-        putCharToTxBuf(*string++);
-    }
-}
-
-//initialise interrupt driven transmission of the Tx buf
-//your ISR needs to be setup to turn this interrupt off once the buffer is empty
-void sendTxBuf(void){
-    if (isDataInTxBuf()) {PIE4bits.TX4IE=1;} //enable the TX interrupt to send data
+//function to send a HSV_val structure over the serial interface
+void sendHSVvalSerial4(HSV_val *col_val) {
+    char tempStr[21];
+    //use %u for unsigned integer https://w3resource.com/c-programming/stdio/c_library_method_sprintf.php
+    sprintf(tempStr, "%u %u %u \r", col_val->H, col_val->S, col_val->V);
+    sendStringSerial4(tempStr);
 }

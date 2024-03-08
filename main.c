@@ -20,28 +20,37 @@
 #include "color.h"
 #include "serial.h"
 #include "timers.h"
+#include "calibration.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
 void main(void) {
-    __delay_ms(1000);    //initial delay
+    struct RGBC_val measured_colour;
+        measured_colour.R = 0;
+        measured_colour.G = 0;
+        measured_colour.B = 0;
+        measured_colour.C = 0;
+    
+    struct HSV_val HSV_colour;
+        HSV_colour.H = 0;
+        HSV_colour.S = 0;
+        HSV_colour.V = 0;
     
     unsigned int PWMcycle = 99;    
+    
     struct DC_motor motorL, motorR;
-    
-    motorL.power = 0;
-    motorL.direction = 1;
-    motorL.brakemode = 1;
-    motorL.PWMperiod = PWMcycle;
-    motorL.posDutyHighByte = (unsigned char *)(&CCPR1H);
-    motorL.negDutyHighByte = (unsigned char *)(&CCPR2H);
-    
-    motorR.power = 0;
-    motorR.direction = 1;
-    motorR.brakemode = 1;
-    motorR.PWMperiod = PWMcycle;
-    motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
-    motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
+        motorL.power = 0;
+        motorL.direction = 1;
+        motorL.brakemode = 1;
+        motorL.PWMperiod = PWMcycle;
+        motorL.posDutyHighByte = (unsigned char *)(&CCPR1H);
+        motorL.negDutyHighByte = (unsigned char *)(&CCPR2H);
+        motorR.power = 0;
+        motorR.direction = 1;
+        motorR.brakemode = 1;
+        motorR.PWMperiod = PWMcycle;
+        motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
+        motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
     
     initDCmotorsPWM(PWMcycle);
     buggy_lights_init();
@@ -54,8 +63,8 @@ void main(void) {
         TRISDbits.TRISD7 = 0;
         TRISHbits.TRISH3 = 0;
         //set up initial LAT values
-        LATDbits.LATD7 = 1;
-        LATHbits.LATH3 = 1;
+        LATDbits.LATD7 = 0;
+        LATHbits.LATH3 = 0;
     
     //initialise the two push buttons on clicker board
         //set up TRIS registers (1 for input)
@@ -65,33 +74,23 @@ void main(void) {
         ANSELFbits.ANSELF2 = 0;
         ANSELFbits.ANSELF3 = 0;
     
-    //fullSpeedAhead(&motorL, &motorR);
-    //stop(&motorL, &motorR);
+    //test_manoeuvres(&motorL, &motorR, returning);
     
-    //cardRed(&motorL, &motorR, returning);
-    //cardGreen(&motorL, &motorR, returning);
-    //cardBlue(&motorL, &motorR, returning);
-    //cardYellow(&motorL, &motorR, returning);
-    //cardPink(&motorL, &motorR, returning);
-    //cardOrange(&motorL, &motorR, returning);
-    //cardCyan(&motorL, &motorR, returning);
-    //cardWhite(&motorL, &motorR);
+    //while (PORTFbits.RF3);              //wait until RF3 is pressed
+    LATHbits.LATH3 = !LATHbits.LATH3;   //toggle RH3 LED for debugging
+    toggle_tricolour_LED();
     
-    //returnToSender(&motorL, &motorR);
-    
-    struct RGBC_val measured_colour;
+    //forward_navigation(&motorL, &motorR, &measured_colour);
     
     while (1) {
         getRGBCval(&measured_colour);
-        sendIntSerial4((int)measured_colour.C);
-        //sendIntSerial4((int)TMR0L);
-        //sendIntSerial4((int)TMR0H);
-        if (!PORTFbits.RF2) {  //on button press
-            LATDbits.LATD7 = !LATDbits.LATD7;
-        }
-        //sendArrayCharSerial4(trail_timer_high);
-        //sendArrayCharSerial4(trail_timer_low);
-        //sendArrayCharSerial4(trail_manoeuvre);
-        __delay_ms(100);
+        scaleRGB(&measured_colour);
+        //measured_colour.R = xxxxx;
+        //measured_colour.G = xxxxx;
+        //measured_colour.B = xxxxx;
+        getHSVval(&HSV_colour, &measured_colour);
+        sendRGBCvalSerial4(&measured_colour);
+        sendHSVvalSerial4(&HSV_colour);
+        __delay_ms(1000);
     }
 }

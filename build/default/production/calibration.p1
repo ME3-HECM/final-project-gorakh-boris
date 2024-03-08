@@ -1,4 +1,11 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"8 ./dc_motor.h
+[; ;./dc_motor.h: 8: typedef struct DC_motor {
+[s S2015 `uc 1 `uc 1 `uc 1 `ui 1 `*uc 1 `*uc 1 ]
+[n S2015 DC_motor power direction brakemode PWMperiod posDutyHighByte negDutyHighByte ]
+"23 ./manoeuvres.h
+[; ;./manoeuvres.h: 23: void pick_card(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
+[v _pick_card `(v ~T0 @X0 0 ef4`*S2015`*S2015`uc`uc ]
 "54 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -1973,3 +1980,112 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40592
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 40592: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
+"17 ./dc_motor.h
+[; ;./dc_motor.h: 17: unsigned char rampDelay = 8;
+[v _rampDelay `uc ~T0 @X0 1 e ]
+[i _rampDelay
+-> -> 8 `i `uc
+]
+"19
+[; ;./dc_motor.h: 19: unsigned char topGearLeft = 20;
+[v _topGearLeft `uc ~T0 @X0 1 e ]
+[i _topGearLeft
+-> -> 20 `i `uc
+]
+"20
+[; ;./dc_motor.h: 20: unsigned char topGearRight = 20;
+[v _topGearRight `uc ~T0 @X0 1 e ]
+[i _topGearRight
+-> -> 20 `i `uc
+]
+"22
+[; ;./dc_motor.h: 22: unsigned char turningGear = 42;
+[v _turningGear `uc ~T0 @X0 1 e ]
+[i _turningGear
+-> -> 42 `i `uc
+]
+"24
+[; ;./dc_motor.h: 24: unsigned int turnLeft90Delay = 175;
+[v _turnLeft90Delay `ui ~T0 @X0 1 e ]
+[i _turnLeft90Delay
+-> -> 175 `i `ui
+]
+"25
+[; ;./dc_motor.h: 25: unsigned int turnRight90Delay = 175;
+[v _turnRight90Delay `ui ~T0 @X0 1 e ]
+[i _turnRight90Delay
+-> -> 175 `i `ui
+]
+"26
+[; ;./dc_motor.h: 26: unsigned int turnLeft135Delay = 300;
+[v _turnLeft135Delay `ui ~T0 @X0 1 e ]
+[i _turnLeft135Delay
+-> -> 300 `i `ui
+]
+"27
+[; ;./dc_motor.h: 27: unsigned int turnRight135Delay = 300;
+[v _turnRight135Delay `ui ~T0 @X0 1 e ]
+[i _turnRight135Delay
+-> -> 300 `i `ui
+]
+"28
+[; ;./dc_motor.h: 28: unsigned int turn180Delay = 510;
+[v _turn180Delay `ui ~T0 @X0 1 e ]
+[i _turn180Delay
+-> -> 510 `i `ui
+]
+"30
+[; ;./dc_motor.h: 30: unsigned int headbuttDelay = 70;
+[v _headbuttDelay `ui ~T0 @X0 1 e ]
+[i _headbuttDelay
+-> -> 70 `i `ui
+]
+"31
+[; ;./dc_motor.h: 31: unsigned int squareDelay = 300;
+[v _squareDelay `ui ~T0 @X0 1 e ]
+[i _squareDelay
+-> -> 300 `i `ui
+]
+"4 calibration.c
+[; ;calibration.c: 4: void test_manoeuvres(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[v _test_manoeuvres `(v ~T0 @X0 1 ef3`*S2015`*S2015`uc ]
+"5
+[; ;calibration.c: 5: {
+{
+[e :U _test_manoeuvres ]
+"4
+[; ;calibration.c: 4: void test_manoeuvres(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+[v _mL `*S2015 ~T0 @X0 1 r1 ]
+[v _mR `*S2015 ~T0 @X0 1 r2 ]
+[v _backtrack `uc ~T0 @X0 1 r3 ]
+"5
+[; ;calibration.c: 5: {
+[f ]
+"15
+[; ;calibration.c: 15:     pick_card(mL, mR, backtrack, 1);
+[e ( _pick_card (4 , , , _mL _mR _backtrack -> -> 1 `i `uc ]
+"16
+[; ;calibration.c: 16:     pick_card(mL, mR, backtrack, 2);
+[e ( _pick_card (4 , , , _mL _mR _backtrack -> -> 2 `i `uc ]
+"17
+[; ;calibration.c: 17:     pick_card(mL, mR, backtrack, 3);
+[e ( _pick_card (4 , , , _mL _mR _backtrack -> -> 3 `i `uc ]
+"18
+[; ;calibration.c: 18:     pick_card(mL, mR, backtrack, 4);
+[e ( _pick_card (4 , , , _mL _mR _backtrack -> -> 4 `i `uc ]
+"19
+[; ;calibration.c: 19:     pick_card(mL, mR, backtrack, 5);
+[e ( _pick_card (4 , , , _mL _mR _backtrack -> -> 5 `i `uc ]
+"20
+[; ;calibration.c: 20:     pick_card(mL, mR, backtrack, 6);
+[e ( _pick_card (4 , , , _mL _mR _backtrack -> -> 6 `i `uc ]
+"21
+[; ;calibration.c: 21:     pick_card(mL, mR, backtrack, 7);
+[e ( _pick_card (4 , , , _mL _mR _backtrack -> -> 7 `i `uc ]
+"22
+[; ;calibration.c: 22:     pick_card(mL, mR, backtrack, 8);
+[e ( _pick_card (4 , , , _mL _mR _backtrack -> -> 8 `i `uc ]
+"23
+[; ;calibration.c: 23: }
+[e :UE 2016 ]
+}

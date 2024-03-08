@@ -24133,6 +24133,8 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 
 
 
+unsigned int wall_threshold = 300;
+
 
 typedef struct RGBC_val {
  unsigned int R;
@@ -24140,6 +24142,14 @@ typedef struct RGBC_val {
  unsigned int B;
     unsigned int C;
 } RGBC_val;
+
+
+typedef struct HSV_val {
+    unsigned int H;
+    unsigned int S;
+    unsigned int V;
+} HSV_val;
+
 
 
 
@@ -24162,13 +24172,13 @@ unsigned int color_read_Red(void);
 
 
 
-unsigned int color_read_Blue(void);
-
-
-
-
-
 unsigned int color_read_Green(void);
+
+
+
+
+
+unsigned int color_read_Blue(void);
 
 
 
@@ -24181,6 +24191,14 @@ unsigned int color_read_Clear(void);
 
 
 void getRGBCval(struct RGBC_val *p);
+
+void wait_for_wall(struct RGBC_val *p);
+unsigned int max(unsigned int a, unsigned int b);
+unsigned int min(unsigned int a, unsigned int b);
+unsigned int maxRGB(struct RGBC_val *p);
+unsigned int minRGB(struct RGBC_val *p);
+void scaleRGB(struct RGBC_val *p);
+void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
 # 2 "color.c" 2
 
 
@@ -24222,12 +24240,12 @@ unsigned int color_read_Red(void)
  return tmp;
 }
 
-unsigned int color_read_Blue(void)
+unsigned int color_read_Green(void)
 {
     unsigned int tmp;
  I2C_2_Master_Start();
  I2C_2_Master_Write(0x52 | 0x00);
- I2C_2_Master_Write(0xA0 | 0x1A);
+ I2C_2_Master_Write(0xA0 | 0x18);
  I2C_2_Master_RepStart();
  I2C_2_Master_Write(0x52 | 0x01);
  tmp=I2C_2_Master_Read(1);
@@ -24236,12 +24254,12 @@ unsigned int color_read_Blue(void)
  return tmp;
 }
 
-unsigned int color_read_Green(void)
+unsigned int color_read_Blue(void)
 {
     unsigned int tmp;
  I2C_2_Master_Start();
  I2C_2_Master_Write(0x52 | 0x00);
- I2C_2_Master_Write(0xA0 | 0x18);
+ I2C_2_Master_Write(0xA0 | 0x1A);
  I2C_2_Master_RepStart();
  I2C_2_Master_Write(0x52 | 0x01);
  tmp=I2C_2_Master_Read(1);
@@ -24267,8 +24285,146 @@ unsigned int color_read_Clear(void)
 void getRGBCval(struct RGBC_val *p)
 {
     p->R = color_read_Red();
-    p->B = color_read_Blue();
     p->G = color_read_Green();
+    p->B = color_read_Blue();
     p->C = color_read_Clear();
 
+}
+
+void wait_for_wall(struct RGBC_val *p)
+{
+    while (1) {
+        getRGBCval(p);
+        if (p->C < wall_threshold) {
+            break;
+        }
+    }
+    LATDbits.LATD7 = !LATDbits.LATD7;
+}
+
+unsigned int max(unsigned int a, unsigned int b)
+{
+    unsigned int max_val = b;
+    if (a > b) {max_val = a;}
+    return max_val;
+}
+
+unsigned int min(unsigned int a, unsigned int b)
+{
+    unsigned int min_val = b;
+    if (a < b) {min_val = a;}
+    return min_val;
+}
+
+unsigned int maxRGB(struct RGBC_val *p)
+{
+    return(max(max(p->R,p->G),p->B));
+}
+
+unsigned int minRGB(struct RGBC_val *p)
+{
+    return(min(min(p->R,p->G),p->B));
+}
+
+void scaleRGB(struct RGBC_val *p)
+{
+    p->R *= 0.5;
+    p->G *= 0.7;
+    p->B *= 1;
+}
+
+
+void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
+{
+    unsigned int Hz = 60;
+    unsigned int Sz = 100;
+    unsigned int H = 0;
+    unsigned int S = 0;
+
+    unsigned int M = maxRGB(p2);
+    unsigned int m = minRGB(p2);
+    unsigned int C = M - m;
+
+    if (C == 0) {
+        H = 0;
+    } else {
+        if (M == p2->R) {
+            if (p2->G >= p2->B) {
+
+                unsigned long temp;
+                temp = (unsigned long)C;
+                temp *= 0;
+                temp += (unsigned long)(p2->G - p2->B);
+                temp *= (unsigned long)Hz;
+                temp /= (unsigned long)C;
+                H = (unsigned int)temp;
+            } else {
+
+                unsigned long temp;
+                temp = (unsigned long)C;
+                temp *= 6;
+                temp -= (unsigned long)(p2->B - p2->G);
+                temp *= (unsigned long)Hz;
+                temp /= (unsigned long)C;
+                H = (unsigned int)temp;
+            }
+        }
+        if (M == p2->G) {
+            if (p2->B >= p2->R) {
+
+                unsigned long temp;
+                temp = (unsigned long)C;
+                temp *= 2;
+                temp += (unsigned long)(p2->B - p2->R);
+                temp *= (unsigned long)Hz;
+                temp /= (unsigned long)C;
+                H = (unsigned int)temp;
+            } else {
+
+                unsigned long temp;
+                temp = (unsigned long)C;
+                temp *= 2;
+                temp -= (unsigned long)(p2->R - p2->B);
+                temp *= (unsigned long)Hz;
+                temp /= (unsigned long)C;
+                H = (unsigned int)temp;
+            }
+        }
+        if (M == p2->B) {
+            if (p2->R >= p2->G) {
+
+                unsigned long temp;
+                temp = (unsigned long)C;
+                temp *= 4;
+                temp += (unsigned long)(p2->R - p2->G);
+                temp *= (unsigned long)Hz;
+                temp /= (unsigned long)C;
+                H = (unsigned int)temp;
+            } else {
+
+                unsigned long temp;
+                temp = (unsigned long)C;
+                temp *= 4;
+                temp -= (unsigned long)(p2->G - p2->R);
+                temp *= (unsigned long)Hz;
+                temp /= (unsigned long)C;
+                H = (unsigned int)temp;
+            }
+        }
+    }
+
+    if (M == 0) {
+        S = 0;
+    } else {
+
+        unsigned long temp;
+        temp = (unsigned long)C;
+        temp *= (unsigned long)Sz;
+        temp /= (unsigned long)M;
+        S = (unsigned int)temp;
+    }
+
+    p1->H = H;
+    p1->S = S;
+    p1->V = M;
 }

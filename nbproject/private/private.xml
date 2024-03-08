@@ -4,12 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/boris/Desktop/University/Year%203/ECM/final-project-gorakh-boris.X/timers.c</file>
+            <file>file:/C:/Users/boris/Desktop/University/Year%203/ECM/final-project-gorakh-boris.X/manoeuvres.h</file>
             <file>file:/C:/Users/boris/Desktop/University/Year%203/ECM/final-project-gorakh-boris.X/main.c</file>
-            <file>file:/C:/Users/boris/Desktop/University/Year%203/ECM/final-project-gorakh-boris.X/i2c.h</file>
+            <file>file:/C:/Users/boris/Desktop/University/Year%203/ECM/final-project-gorakh-boris.X/serial.h</file>
             <file>file:/C:/Users/boris/Desktop/University/Year%203/ECM/final-project-gorakh-boris.X/color.c</file>
-            <file>file:/C:/Users/boris/Desktop/University/Year%203/ECM/final-project-gorakh-boris.X/i2c.c</file>
             <file>file:/C:/Users/boris/Desktop/University/Year%203/ECM/final-project-gorakh-boris.X/color.h</file>
             <file>file:/C:/Users/boris/Desktop/University/Year%203/ECM/final-project-gorakh-boris.X/timers.h</file>
+            <file>file:/C:/Users/boris/Desktop/University/Year%203/ECM/final-project-gorakh-boris.X/manoeuvres.c</file>
+            <file>file:/C:/Users/boris/Desktop/University/Year%203/ECM/final-project-gorakh-boris.X/serial.c</file>
         </group>
     </open-files>
 </project-private>
