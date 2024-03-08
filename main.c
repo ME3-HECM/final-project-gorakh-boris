@@ -84,7 +84,7 @@ void main(void) {
     
     while (1) {
         getRGBCval(&measured_colour);
-        
+        scaleRGB(&measured_colour);
         //measured_colour.R = xxxxx;
         //measured_colour.G = xxxxx;
         //measured_colour.B = xxxxx;

@@ -24267,13 +24267,13 @@ unsigned int color_read_Red(void);
 
 
 
-unsigned int color_read_Blue(void);
-
-
-
-
-
 unsigned int color_read_Green(void);
+
+
+
+
+
+unsigned int color_read_Blue(void);
 
 
 
@@ -24292,6 +24292,7 @@ unsigned int max(unsigned int a, unsigned int b);
 unsigned int min(unsigned int a, unsigned int b);
 unsigned int maxRGB(struct RGBC_val *p);
 unsigned int minRGB(struct RGBC_val *p);
+void scaleRGB(struct RGBC_val *p);
 void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
 # 20 "main.c" 2
 
@@ -24416,7 +24417,7 @@ void main(void) {
 
     while (1) {
         getRGBCval(&measured_colour);
-
+        scaleRGB(&measured_colour);
 
 
 

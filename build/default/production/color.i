@@ -24172,13 +24172,13 @@ unsigned int color_read_Red(void);
 
 
 
-unsigned int color_read_Blue(void);
-
-
-
-
-
 unsigned int color_read_Green(void);
+
+
+
+
+
+unsigned int color_read_Blue(void);
 
 
 
@@ -24197,6 +24197,7 @@ unsigned int max(unsigned int a, unsigned int b);
 unsigned int min(unsigned int a, unsigned int b);
 unsigned int maxRGB(struct RGBC_val *p);
 unsigned int minRGB(struct RGBC_val *p);
+void scaleRGB(struct RGBC_val *p);
 void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
 # 2 "color.c" 2
 
@@ -24239,12 +24240,12 @@ unsigned int color_read_Red(void)
  return tmp;
 }
 
-unsigned int color_read_Blue(void)
+unsigned int color_read_Green(void)
 {
     unsigned int tmp;
  I2C_2_Master_Start();
  I2C_2_Master_Write(0x52 | 0x00);
- I2C_2_Master_Write(0xA0 | 0x1A);
+ I2C_2_Master_Write(0xA0 | 0x18);
  I2C_2_Master_RepStart();
  I2C_2_Master_Write(0x52 | 0x01);
  tmp=I2C_2_Master_Read(1);
@@ -24253,12 +24254,12 @@ unsigned int color_read_Blue(void)
  return tmp;
 }
 
-unsigned int color_read_Green(void)
+unsigned int color_read_Blue(void)
 {
     unsigned int tmp;
  I2C_2_Master_Start();
  I2C_2_Master_Write(0x52 | 0x00);
- I2C_2_Master_Write(0xA0 | 0x18);
+ I2C_2_Master_Write(0xA0 | 0x1A);
  I2C_2_Master_RepStart();
  I2C_2_Master_Write(0x52 | 0x01);
  tmp=I2C_2_Master_Read(1);
@@ -24284,8 +24285,8 @@ unsigned int color_read_Clear(void)
 void getRGBCval(struct RGBC_val *p)
 {
     p->R = color_read_Red();
-    p->B = color_read_Blue();
     p->G = color_read_Green();
+    p->B = color_read_Blue();
     p->C = color_read_Clear();
 
 }
@@ -24323,6 +24324,13 @@ unsigned int maxRGB(struct RGBC_val *p)
 unsigned int minRGB(struct RGBC_val *p)
 {
     return(min(min(p->R,p->G),p->B));
+}
+
+void scaleRGB(struct RGBC_val *p)
+{
+    p->R *= 0.5;
+    p->G *= 0.7;
+    p->B *= 1;
 }
 
 

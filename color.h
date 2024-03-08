@@ -42,16 +42,16 @@ void color_writetoaddr(char address, char value);
 unsigned int color_read_Red(void);
 
 /********************************************//**
- *  Function to read the blue channel
- *	Returns a 16 bit ADC value representing colour intensity
- ***********************************************/
-unsigned int color_read_Blue(void);
-
-/********************************************//**
  *  Function to read the green channel
  *	Returns a 16 bit ADC value representing colour intensity
  ***********************************************/
 unsigned int color_read_Green(void);
+
+/********************************************//**
+ *  Function to read the blue channel
+ *	Returns a 16 bit ADC value representing colour intensity
+ ***********************************************/
+unsigned int color_read_Blue(void);
 
 /********************************************//**
  *  Function to read the clear channel
@@ -70,5 +70,6 @@ unsigned int max(unsigned int a, unsigned int b);
 unsigned int min(unsigned int a, unsigned int b);
 unsigned int maxRGB(struct RGBC_val *p);
 unsigned int minRGB(struct RGBC_val *p);
+void scaleRGB(struct RGBC_val *p);
 void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
 #endif
