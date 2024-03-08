@@ -62,7 +62,7 @@ void sendArrayCharSerial4(unsigned char *arr) {
 void sendRGBCvalSerial4(RGBC_val *col_val) {
     char tempStr[26];
     //use %u for unsigned integer https://w3resource.com/c-programming/stdio/c_library_method_sprintf.php
-    sprintf(tempStr, "%u %u %u %u \r", col_val->R, col_val->G, col_val->B, col_val->C);
+    sprintf(tempStr, "%u %u %u %u ", col_val->R, col_val->G, col_val->B, col_val->C);
     sendStringSerial4(tempStr);
 }
 

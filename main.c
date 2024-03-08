@@ -23,6 +23,8 @@
 #include "calibration.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
+#define SERIALLOG 1
+#define MOVETEST 0
 
 void main(void) {
     struct RGBC_val measured_colour;
@@ -73,8 +75,9 @@ void main(void) {
         //set up pin analogue/digital inputs (0 for digital)
         ANSELFbits.ANSELF2 = 0;
         ANSELFbits.ANSELF3 = 0;
-    
-    //test_manoeuvres(&motorL, &motorR, returning);
+#if MOVETEST
+    test_manoeuvres(&motorL, &motorR, returning);
+#endif
     
     //while (PORTFbits.RF3);              //wait until RF3 is pressed
     LATHbits.LATH3 = !LATHbits.LATH3;   //toggle RH3 LED for debugging
@@ -82,7 +85,9 @@ void main(void) {
     
     //forward_navigation(&motorL, &motorR, &measured_colour);
     
-    while (1) {
+    while (1) 
+    {
+#if SERIALLOG 
         getRGBCval(&measured_colour);
         scaleRGB(&measured_colour);
         //measured_colour.R = xxxxx;
@@ -91,6 +96,7 @@ void main(void) {
         getHSVval(&HSV_colour, &measured_colour);
         sendRGBCvalSerial4(&measured_colour);
         sendHSVvalSerial4(&HSV_colour);
+#endif
         __delay_ms(1000);
     }
 }
