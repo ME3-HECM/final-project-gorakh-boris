@@ -24209,6 +24209,7 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 
 
 
+
 unsigned int wall_threshold = 300;
 
 
@@ -24269,12 +24270,20 @@ unsigned int color_read_Clear(void);
 void getRGBCval(struct RGBC_val *p);
 
 void wait_for_wall(struct RGBC_val *p);
+
 unsigned int max(unsigned int a, unsigned int b);
+
 unsigned int min(unsigned int a, unsigned int b);
+
 unsigned int maxRGB(struct RGBC_val *p);
+
 unsigned int minRGB(struct RGBC_val *p);
+
 void scaleRGB(struct RGBC_val *p);
+
 void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
+
+void RGBC2colourcard(struct RGBC_val *p);
 # 5 "./serial.h" 2
 
 

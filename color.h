@@ -3,6 +3,7 @@
 
 #include <xc.h>
 #include "i2c.h"
+#include "manoeuvres.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
@@ -66,10 +67,19 @@ unsigned int color_read_Clear(void);
 void getRGBCval(struct RGBC_val *p);
 
 void wait_for_wall(struct RGBC_val *p);
+
 unsigned int max(unsigned int a, unsigned int b);
+
 unsigned int min(unsigned int a, unsigned int b);
+
 unsigned int maxRGB(struct RGBC_val *p);
+
 unsigned int minRGB(struct RGBC_val *p);
+
 void scaleRGB(struct RGBC_val *p);
+
 void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
+
+void RGBC2colourcard(struct RGBC_val *p);
+
 #endif

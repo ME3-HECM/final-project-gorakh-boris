@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\final-project-gorakh-boris.X.production.hex">
+  <executable name="dist/default/debug\final-project-gorakh-boris.X.debug.hex">
     <memory name="program">
       <units>bytes</units>
       <length>131072</length>
-      <used>8718</used>
-      <free>122354</free>
+      <used>6196</used>
+      <free>124876</free>
     </memory>
     <memory name="data">
       <units>bytes</units>

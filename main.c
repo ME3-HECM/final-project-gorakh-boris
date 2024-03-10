@@ -23,7 +23,7 @@
 #include "calibration.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
-#define SERIALLOG 1
+#define SERIALLOG 0
 #define MOVETEST 0
 
 void main(void) {
@@ -87,16 +87,18 @@ void main(void) {
     
     while (1) 
     {
-#if SERIALLOG 
+
         getRGBCval(&measured_colour);
         scaleRGB(&measured_colour);
         //measured_colour.R = xxxxx;
         //measured_colour.G = xxxxx;
         //measured_colour.B = xxxxx;
         getHSVval(&HSV_colour, &measured_colour);
+#if SERIALLOG 
         sendRGBCvalSerial4(&measured_colour);
         sendHSVvalSerial4(&HSV_colour);
 #endif
-        __delay_ms(1000);
+        RGBC2colourcard(&measured_colour);
+        //__delay_ms(1000);
     }
 }

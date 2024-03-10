@@ -1,7 +1,7 @@
 #include <xc.h>
 #include "manoeuvres.h"
 
-void card_red(DC_motor *mL, DC_motor *mR, unsigned char backtrack)           //turn right 90
+void card_red(DC_motor *mL, DC_motor *mR, unsigned char backtrack)              //turn right 90
 {
     switch (backtrack) {
         case 0:             //forward operation
@@ -139,3 +139,4 @@ void pick_card(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned cha
             break;
     }
 }
+

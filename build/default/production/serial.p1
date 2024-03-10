@@ -64,14 +64,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "121 C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\stdio.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\stdio.h: 121: int sprintf(char *restrict, const char *restrict, ...);
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"12 ./color.h
-[; ;./color.h: 12: typedef struct RGBC_val {
-[s S2017 `ui 1 `ui 1 `ui 1 `ui 1 ]
-[n S2017 RGBC_val R G B C ]
-"20
-[; ;./color.h: 20: typedef struct HSV_val {
-[s S2018 `ui 1 `ui 1 `ui 1 ]
-[n S2018 HSV_val H S V ]
+"13 ./color.h
+[; ;./color.h: 13: typedef struct RGBC_val {
+[s S2018 `ui 1 `ui 1 `ui 1 `ui 1 ]
+[n S2018 RGBC_val R G B C ]
+"21
+[; ;./color.h: 21: typedef struct HSV_val {
+[s S2019 `ui 1 `ui 1 `ui 1 ]
+[n S2019 HSV_val H S V ]
 "54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2046,8 +2046,74 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40592
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 40592: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"9 ./color.h
-[; ;./color.h: 9: unsigned int wall_threshold = 300;
+"17 ./dc_motor.h
+[; ;./dc_motor.h: 17: unsigned char rampDelay = 8;
+[v _rampDelay `uc ~T0 @X0 1 e ]
+[i _rampDelay
+-> -> 8 `i `uc
+]
+"19
+[; ;./dc_motor.h: 19: unsigned char topGearLeft = 20;
+[v _topGearLeft `uc ~T0 @X0 1 e ]
+[i _topGearLeft
+-> -> 20 `i `uc
+]
+"20
+[; ;./dc_motor.h: 20: unsigned char topGearRight = 20;
+[v _topGearRight `uc ~T0 @X0 1 e ]
+[i _topGearRight
+-> -> 20 `i `uc
+]
+"22
+[; ;./dc_motor.h: 22: unsigned char turningGear = 42;
+[v _turningGear `uc ~T0 @X0 1 e ]
+[i _turningGear
+-> -> 42 `i `uc
+]
+"24
+[; ;./dc_motor.h: 24: unsigned int turnLeft90Delay = 175;
+[v _turnLeft90Delay `ui ~T0 @X0 1 e ]
+[i _turnLeft90Delay
+-> -> 175 `i `ui
+]
+"25
+[; ;./dc_motor.h: 25: unsigned int turnRight90Delay = 175;
+[v _turnRight90Delay `ui ~T0 @X0 1 e ]
+[i _turnRight90Delay
+-> -> 175 `i `ui
+]
+"26
+[; ;./dc_motor.h: 26: unsigned int turnLeft135Delay = 300;
+[v _turnLeft135Delay `ui ~T0 @X0 1 e ]
+[i _turnLeft135Delay
+-> -> 300 `i `ui
+]
+"27
+[; ;./dc_motor.h: 27: unsigned int turnRight135Delay = 300;
+[v _turnRight135Delay `ui ~T0 @X0 1 e ]
+[i _turnRight135Delay
+-> -> 300 `i `ui
+]
+"28
+[; ;./dc_motor.h: 28: unsigned int turn180Delay = 510;
+[v _turn180Delay `ui ~T0 @X0 1 e ]
+[i _turn180Delay
+-> -> 510 `i `ui
+]
+"30
+[; ;./dc_motor.h: 30: unsigned int headbuttDelay = 70;
+[v _headbuttDelay `ui ~T0 @X0 1 e ]
+[i _headbuttDelay
+-> -> 70 `i `ui
+]
+"31
+[; ;./dc_motor.h: 31: unsigned int squareDelay = 300;
+[v _squareDelay `ui ~T0 @X0 1 e ]
+[i _squareDelay
+-> -> 300 `i `ui
+]
+"10 ./color.h
+[; ;./color.h: 10: unsigned int wall_threshold = 300;
 [v _wall_threshold `ui ~T0 @X0 1 e ]
 [i _wall_threshold
 -> -> 300 `i `ui
@@ -2087,7 +2153,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _RC4STAbits 0 7 -> -> 1 `i `uc ]
 "20
 [; ;serial.c: 20: }
-[e :UE 2019 ]
+[e :UE 2020 ]
 }
 "23
 [; ;serial.c: 23: char getCharSerial4(void) {
@@ -2097,18 +2163,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "24
 [; ;serial.c: 24:     while (!PIR4bits.RC4IF);
-[e $U 2021  ]
-[e :U 2022 ]
-[e :U 2021 ]
-[e $ ! != -> . . _PIR4bits 0 3 `i -> 0 `i 2022  ]
+[e $U 2022  ]
 [e :U 2023 ]
+[e :U 2022 ]
+[e $ ! != -> . . _PIR4bits 0 3 `i -> 0 `i 2023  ]
+[e :U 2024 ]
 "25
 [; ;serial.c: 25:     return RC4REG;
 [e ) -> _RC4REG `uc ]
-[e $UE 2020  ]
+[e $UE 2021  ]
 "26
 [; ;serial.c: 26: }
-[e :UE 2020 ]
+[e :UE 2021 ]
 }
 "29
 [; ;serial.c: 29: void sendCharSerial4(char charToSend) {
@@ -2119,17 +2185,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "30
 [; ;serial.c: 30:     while (!PIR4bits.TX4IF);
-[e $U 2025  ]
-[e :U 2026 ]
-[e :U 2025 ]
-[e $ ! != -> . . _PIR4bits 0 2 `i -> 0 `i 2026  ]
+[e $U 2026  ]
 [e :U 2027 ]
+[e :U 2026 ]
+[e $ ! != -> . . _PIR4bits 0 2 `i -> 0 `i 2027  ]
+[e :U 2028 ]
 "31
 [; ;serial.c: 31:     TX4REG = charToSend;
 [e = _TX4REG -> _charToSend `uc ]
 "32
 [; ;serial.c: 32: }
-[e :UE 2024 ]
+[e :UE 2025 ]
 }
 "35
 [; ;serial.c: 35: void sendStringSerial4(char *string) {
@@ -2140,8 +2206,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "37
 [; ;serial.c: 37:     while(*string != 0){
-[e $U 2029  ]
-[e :U 2030 ]
+[e $U 2030  ]
+[e :U 2031 ]
 {
 "38
 [; ;serial.c: 38:   sendCharSerial4(*string++);
@@ -2149,14 +2215,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "39
 [; ;serial.c: 39:  }
 }
-[e :U 2029 ]
+[e :U 2030 ]
 "37
 [; ;serial.c: 37:     while(*string != 0){
-[e $ != -> *U _string `i -> 0 `i 2030  ]
-[e :U 2031 ]
+[e $ != -> *U _string `i -> 0 `i 2031  ]
+[e :U 2032 ]
 "40
 [; ;serial.c: 40: }
-[e :UE 2028 ]
+[e :UE 2029 ]
 }
 "43
 [; ;serial.c: 43: void sendIntSerial4(int integer) {
@@ -2176,7 +2242,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _sendStringSerial4 (1 &U _string ]
 "47
 [; ;serial.c: 47: }
-[e :UE 2032 ]
+[e :UE 2033 ]
 }
 "50
 [; ;serial.c: 50: void sendArrayCharSerial4(unsigned char *arr) {
@@ -2197,9 +2263,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _i `ui ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `ui ]
-[e $ < _i -> -> 20 `i `ui 2034  ]
-[e $U 2035  ]
-[e :U 2034 ]
+[e $ < _i -> -> 20 `i `ui 2035  ]
+[e $U 2036  ]
+[e :U 2035 ]
 {
 "55
 [; ;serial.c: 55:         index += sprintf(&tempStr[index], "%d ", arr[i]);
@@ -2208,8 +2274,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;serial.c: 56:     }
 }
 [e ++ _i -> -> 1 `i `ui ]
-[e $ < _i -> -> 20 `i `ui 2034  ]
-[e :U 2035 ]
+[e $ < _i -> -> 20 `i `ui 2035  ]
+[e :U 2036 ]
 }
 "57
 [; ;serial.c: 57:     sendStringSerial4(tempStr);
@@ -2219,14 +2285,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _sendStringSerial4 (1 :s 4C ]
 "59
 [; ;serial.c: 59: }
-[e :UE 2033 ]
+[e :UE 2034 ]
 }
 "62
 [; ;serial.c: 62: void sendRGBCvalSerial4(RGBC_val *col_val) {
-[v _sendRGBCvalSerial4 `(v ~T0 @X0 1 ef1`*S2017 ]
+[v _sendRGBCvalSerial4 `(v ~T0 @X0 1 ef1`*S2018 ]
 {
 [e :U _sendRGBCvalSerial4 ]
-[v _col_val `*S2017 ~T0 @X0 1 r1 ]
+[v _col_val `*S2018 ~T0 @X0 1 r1 ]
 [f ]
 "63
 [; ;serial.c: 63:     char tempStr[26];
@@ -2239,14 +2305,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _sendStringSerial4 (1 &U _tempStr ]
 "67
 [; ;serial.c: 67: }
-[e :UE 2037 ]
+[e :UE 2038 ]
 }
 "70
 [; ;serial.c: 70: void sendHSVvalSerial4(HSV_val *col_val) {
-[v _sendHSVvalSerial4 `(v ~T0 @X0 1 ef1`*S2018 ]
+[v _sendHSVvalSerial4 `(v ~T0 @X0 1 ef1`*S2019 ]
 {
 [e :U _sendHSVvalSerial4 ]
-[v _col_val `*S2018 ~T0 @X0 1 r1 ]
+[v _col_val `*S2019 ~T0 @X0 1 r1 ]
 [f ]
 "71
 [; ;serial.c: 71:     char tempStr[21];
@@ -2259,7 +2325,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _sendStringSerial4 (1 &U _tempStr ]
 "75
 [; ;serial.c: 75: }
-[e :UE 2038 ]
+[e :UE 2039 ]
 }
 [p f _sprintf 8389760 ]
 [a 5C 37 117 32 37 117 32 37 117 32 37 117 32 0 ]

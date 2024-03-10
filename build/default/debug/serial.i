@@ -24287,6 +24287,74 @@ void I2C_2_Master_Write(unsigned char data_byte);
 unsigned char I2C_2_Master_Read(unsigned char ack);
 # 5 "./color.h" 2
 
+# 1 "./manoeuvres.h" 1
+# 11 "./manoeuvres.h"
+# 1 "./dc_motor.h" 1
+
+
+
+
+
+
+
+typedef struct DC_motor {
+    char power;
+    char direction;
+    char brakemode;
+    unsigned int PWMperiod;
+    unsigned char *posDutyHighByte;
+    unsigned char *negDutyHighByte;
+} DC_motor;
+
+unsigned char rampDelay = 8;
+
+unsigned char topGearLeft = 20;
+unsigned char topGearRight = 20;
+
+unsigned char turningGear = 42;
+
+unsigned int turnLeft90Delay = 175;
+unsigned int turnRight90Delay = 175;
+unsigned int turnLeft135Delay = 300;
+unsigned int turnRight135Delay = 300;
+unsigned int turn180Delay = 510;
+
+unsigned int headbuttDelay = 70;
+unsigned int squareDelay = 300;
+
+
+void initDCmotorsPWM(unsigned int PWMperiod);
+void setMotorPWM(DC_motor *m);
+
+void stop(DC_motor *mL, DC_motor *mR);
+void turnLeft(DC_motor *mL, DC_motor *mR);
+void turnRight(DC_motor *mL, DC_motor *mR);
+void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
+void fullSpeedReverse(DC_motor *mL, DC_motor *mR);
+
+void turnLeft90(DC_motor *mL, DC_motor *mR);
+void turnRight90(DC_motor *mL, DC_motor *mR);
+void turnLeft135(DC_motor *mL, DC_motor *mR);
+void turnRight135(DC_motor *mL, DC_motor *mR);
+void UTurn(DC_motor *mL, DC_motor *mR);
+void headbuttReverse(DC_motor *mL, DC_motor *mR);
+void squareReverse(DC_motor *mL, DC_motor *mR);
+# 11 "./manoeuvres.h" 2
+
+
+void card_red(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_green(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_blue(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_yellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_pink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_orange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_cyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
+void card_white(DC_motor *mL, DC_motor *mR);
+
+
+void pick_card(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
+# 6 "./color.h" 2
+
 
 
 
@@ -24350,12 +24418,20 @@ unsigned int color_read_Clear(void);
 void getRGBCval(struct RGBC_val *p);
 
 void wait_for_wall(struct RGBC_val *p);
+
 unsigned int max(unsigned int a, unsigned int b);
+
 unsigned int min(unsigned int a, unsigned int b);
+
 unsigned int maxRGB(struct RGBC_val *p);
+
 unsigned int minRGB(struct RGBC_val *p);
+
 void scaleRGB(struct RGBC_val *p);
+
 void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
+
+void RGBC2colourcard(struct RGBC_val *p);
 # 5 "./serial.h" 2
 
 
@@ -24433,7 +24509,7 @@ void sendArrayCharSerial4(unsigned char *arr) {
 void sendRGBCvalSerial4(RGBC_val *col_val) {
     char tempStr[26];
 
-    sprintf(tempStr, "%u %u %u %u \r", col_val->R, col_val->G, col_val->B, col_val->C);
+    sprintf(tempStr, "%u %u %u %u ", col_val->R, col_val->G, col_val->B, col_val->C);
     sendStringSerial4(tempStr);
 }
 
