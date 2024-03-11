@@ -24297,6 +24297,7 @@ void average_RGBC(struct RGBC_val *p)
     unsigned long temp_B = 0;
     unsigned long temp_C = 0;
 
+
     for (unsigned char i; i < sample_count; i++) {
         getRGBCval(p);
 
@@ -24330,7 +24331,6 @@ void wait_for_wall(struct RGBC_val *p, unsigned char loss)
             break;
         }
     }
-    LATDbits.LATD7 = !LATDbits.LATD7;
 }
 
 
@@ -24469,48 +24469,48 @@ void convert_HSV(struct HSV_val *p1,struct RGBC_val *p2)
 unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2)
 {
     unsigned char key = 0;
-    if ( ((p1->H >= 293) && (p1->H <= 360)) &&
-         ((p1->S >= 46) && (p1->S <= 90))) {
+    if ( ((293 <= p1->H) && (p1->H <= 360)) &&
+         ((46 <= p1->S) && (p1->S <= 90))) {
         key = 1;
     }
 
-    if ( ((p1->H >= 113) && (p1->H <= 153)) &&
-         ((p1->S >= 31) && (p1->S <= 43))) {
+    if ( ((113 <= p1->H) && (p1->H <= 153)) &&
+         ((31 <= p1->S) && (p1->S <= 43))) {
         key = 2;
     }
 
-    if ( ((p1->H >= 180) && (p1->H <= 244)) &&
-         ((p1->S >= 42) && (p1->S <= 56))) {
+    if ( ((180 <= p1->H) && (p1->H <= 244)) &&
+         ((42 <= p1->S) && (p1->S <= 56))) {
         key = 3;
     }
 
-    if ( ((p1->H >= 10) && (p1->H <= 31)) &&
-         ((p1->S >= 17) && (p1->S <= 32))) {
+    if ( ((10 <= p1->H) && (p1->H <= 31)) &&
+         ((17 <= p1->S) && (p1->S <= 32))) {
         key = 4;
     }
 
-    if ( ((p1->H >= 279) && (p1->H <= 377)) &&
-         ((p1->S >= 11) && (p1->S <= 15))) {
+    if ( ((279 <= p1->H) && (p1->H <= 377)) &&
+         ((11 <= p1->S) && (p1->S <= 15))) {
         key = 5;
     }
 
-    if ( ((p1->H >= 298) && (p1->H <= 360)) &&
-         ((p1->S >= 20) && (p1->S <= 45))) {
+    if ( ((298 <= p1->H) && (p1->H <= 360)) &&
+         ((20 <= p1->S) && (p1->S <= 45))) {
         key = 6;
     }
 
-    if ( ((p1->H >= 153) && (p1->H <= 207)) &&
-         ((p1->S >= 33) && (p1->S <= 45))) {
+    if ( ((153 <= p1->H) && (p1->H <= 207)) &&
+         ((33 <= p1->S) && (p1->S <= 45))) {
         key = 7;
     }
 
-    if ( ((p2->C >= 3000) && (p2->C <= 40000)) &&
-         (p1->S <= 10)) {
+    if ( ((3000 <= p2->C) && (p2->C <= 40000)) &&
+         ((p1->S <= 10))) {
         key = 8;
     }
 
-    if ( ((p2->C >= 1000) && (p2->C <= 2600)) &&
-         (p1->S <= 12)) {
+    if ( ((1000 <= p2->C) && (p2->C <= 2600)) &&
+         ((p1->S <= 12))) {
         key = 9;
     }
 

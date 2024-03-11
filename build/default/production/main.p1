@@ -2452,40 +2452,43 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 75:         ANSELFbits.ANSELF3 = 0;
 [e = . . _ANSELFbits 0 3 -> -> 0 `i `uc ]
 "80
-[; ;main.c: 80:     LATHbits.LATH3 = !LATHbits.LATH3;
-[e = . . _LATHbits 0 3 -> -> ! != -> . . _LATHbits 0 3 `i -> 0 `i `i `uc ]
+[; ;main.c: 80:     LATDbits.LATD7 = !LATDbits.LATD7;
+[e = . . _LATDbits 0 7 -> -> ! != -> . . _LATDbits 0 7 `i -> 0 `i `i `uc ]
 "81
-[; ;main.c: 81:     toggle_tricolour_LED();
+[; ;main.c: 81:     LATHbits.LATH3 = !LATHbits.LATH3;
+[e = . . _LATHbits 0 3 -> -> ! != -> . . _LATHbits 0 3 `i -> 0 `i `i `uc ]
+"82
+[; ;main.c: 82:     toggle_tricolour_LED();
 [e ( _toggle_tricolour_LED ..  ]
-"85
-[; ;main.c: 85:     while (1) {
+"86
+[; ;main.c: 86:     while (1) {
 [e :U 2020 ]
 {
-"86
-[; ;main.c: 86:         average_RGBC(&RGBC_colour);
-[e ( _average_RGBC (1 &U _RGBC_colour ]
 "87
-[; ;main.c: 87:         scale_RGB(&RGBC_colour);
-[e ( _scale_RGB (1 &U _RGBC_colour ]
+[; ;main.c: 87:         average_RGBC(&RGBC_colour);
+[e ( _average_RGBC (1 &U _RGBC_colour ]
 "88
-[; ;main.c: 88:         convert_HSV(&HSV_colour, &RGBC_colour);
-[e ( _convert_HSV (2 , &U _HSV_colour &U _RGBC_colour ]
+[; ;main.c: 88:         scale_RGB(&RGBC_colour);
+[e ( _scale_RGB (1 &U _RGBC_colour ]
 "89
-[; ;main.c: 89:         sendRGBCvalSerial4(&RGBC_colour);
-[e ( _sendRGBCvalSerial4 (1 &U _RGBC_colour ]
+[; ;main.c: 89:         convert_HSV(&HSV_colour, &RGBC_colour);
+[e ( _convert_HSV (2 , &U _HSV_colour &U _RGBC_colour ]
 "90
-[; ;main.c: 90:         sendHSVvalSerial4(&HSV_colour);
-[e ( _sendHSVvalSerial4 (1 &U _HSV_colour ]
+[; ;main.c: 90:         sendRGBCvalSerial4(&RGBC_colour);
+[e ( _sendRGBCvalSerial4 (1 &U _RGBC_colour ]
 "91
-[; ;main.c: 91:         _delay((unsigned long)((500)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;main.c: 91:         sendHSVvalSerial4(&HSV_colour);
+[e ( _sendHSVvalSerial4 (1 &U _HSV_colour ]
 "92
-[; ;main.c: 92:     }
+[; ;main.c: 92:         _delay((unsigned long)((500)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"93
+[; ;main.c: 93:     }
 }
 [e :U 2019 ]
 [e $U 2020  ]
 [e :U 2021 ]
-"93
-[; ;main.c: 93: }
+"94
+[; ;main.c: 94: }
 [e :UE 2018 ]
 }

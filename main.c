@@ -76,14 +76,15 @@ void main(void) {
     
     //test_manoeuvres(&motorL, &motorR, returning);
     
-    //while (PORTFbits.RF3);              //wait until RF3 is pressed
-    LATHbits.LATH3 = !LATHbits.LATH3;   //toggle RH3 LED for debugging
+    //while (PORTFbits.RF3);
+    LATDbits.LATD7 = !LATDbits.LATD7;
+    LATHbits.LATH3 = !LATHbits.LATH3;
     toggle_tricolour_LED();
     
     //forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
     
     while (1) {
-        average_RGBC(&RGBC_colour);
+        average_RGBC(&RGBC_colour); //a bit buggy, check github commit comments
         scale_RGB(&RGBC_colour);
         convert_HSV(&HSV_colour, &RGBC_colour);
         sendRGBCvalSerial4(&RGBC_colour);

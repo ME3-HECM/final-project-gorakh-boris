@@ -24388,6 +24388,7 @@ void main(void) {
 
 
 
+    LATDbits.LATD7 = !LATDbits.LATD7;
     LATHbits.LATH3 = !LATHbits.LATH3;
     toggle_tricolour_LED();
 
