@@ -281,51 +281,59 @@ void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
  * Then if it matches any of th upperbound and lowerbound readings then it outputs a colour that the reading corresponds to
  * NOTE: the colour is outputted as a number from 1 - 8 as shown in the pick-card function above 
 *******************************************************************************/
-unsigned char RGBC2key(struct RGBC_val *p)
+unsigned char RGBC2key(struct HSV_val *p1, struct RGBC_val *p2)
 {
     unsigned char key = 0;
-    if (((p->R >= 2850)&&(p->R <= 3855)) && ((p->G >= 602)&&(p->G <= 814)) && ((p->B >= 1144)&&(p->B <= 1548))) { //red
-        key = 1;
+    if ( ((p1->H >= 293) && (p1->H <= 360)) && 
+         ((p1->S >= 46) && (p1->S <= 90))) { 
+        key = 1; //red 
     }
-    /*
-    if (((p->R >= 1630)&&(p->R <= 2205))&&((p->G >= 2604)&&(p->G <= 3523))&&((p->B >= 1851)&&(p->B <= 2505))) {
-        2
-    }
-
-
-    if (((p->R >= 537)&&(p->R <= 727))&&((p->G >= 781)&&(p->G <= 1057))&&((p->B >= 1071)&&(p->B <= 1449))) {
-        3
+    
+    if ( ((p1->H >= 113) && (p1->H <= 153)) && 
+         ((p1->S >= 31) && (p1->S <= 43))) {
+        key = 2; //green
     }
 
 
-    if ((()&&())&&(()&&())&&(()&&())) {
-
+    if ( ((p1->H >= 180) && (p1->H <= 244)) && 
+         ((p1->S >= 42) && (p1->S <= 56))) {
+        key = 3; //blue
     }
 
 
-    if ((()&&())&&(()&&())&&(()&&())) {
-
+    if ( ((p1->H >= 10) && (p1->H <= 31)) && 
+         ((p1->S >= 17) && (p1->S <= 32))) {
+        key = 4; //yellow
     }
 
 
-    if ((()&&())&&(()&&())&&(()&&())) {
-
+    if ( ((p1->H >= 279) && (p1->H <= 377)) && 
+         ((p1->S >= 11) && (p1->S <= 15))) {
+        key = 5; //pink
     }
 
 
-    if ((()&&())&&(()&&())&&(()&&())) {
-
+    if ( ((p1->H >= 298) && (p1->H <= 360)) && 
+         ((p1->S >= 20) && (p1->S <= 45))) {
+        key = 6; //orange
     }
 
 
-    if ((()&&())&&(()&&())&&(()&&())) {
-
+    if ( ((p1->H >= 153) && (p1->H <= 207)) && 
+         ((p1->S >= 33) && (p1->S <= 45))) {
+        key = 7; //cyan
     }
 
 
-    if ((()&&())&&(()&&())&&(()&&())) {
-
+    if ( ((p2->C >= 3000) && (p2->C <= 40000)) && 
+         (p1->S <= 10)) {
+        key = 8; //white
     }
-     */
+
+
+    if ( ((p2->C >= 1000) && (p2->C <= 2600)) && 
+         (p1->S <= 12)) {
+        key = 9; //black
+    }
     return key;
 }

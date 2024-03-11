@@ -24322,7 +24322,7 @@ unsigned int maxRGB(struct RGBC_val *p);
 unsigned int minRGB(struct RGBC_val *p);
 void scaleRGB(struct RGBC_val *p);
 void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
-unsigned char RGBC2key(struct RGBC_val *p);
+unsigned char RGBC2key(struct HSV_val *p1, struct RGBC_val *p2);
 # 5 "./serial.h" 2
 
 

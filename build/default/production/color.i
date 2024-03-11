@@ -24163,7 +24163,7 @@ unsigned int maxRGB(struct RGBC_val *p);
 unsigned int minRGB(struct RGBC_val *p);
 void scaleRGB(struct RGBC_val *p);
 void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
-unsigned char RGBC2key(struct RGBC_val *p);
+unsigned char RGBC2key(struct HSV_val *p1, struct RGBC_val *p2);
 # 2 "color.c" 2
 
 
@@ -24431,12 +24431,59 @@ void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
     p1->V = M;
 }
 # 284 "color.c"
-unsigned char RGBC2key(struct RGBC_val *p)
+unsigned char RGBC2key(struct HSV_val *p1, struct RGBC_val *p2)
 {
     unsigned char key = 0;
-    if (((p->R >= 2850)&&(p->R <= 3855)) && ((p->G >= 602)&&(p->G <= 814)) && ((p->B >= 1144)&&(p->B <= 1548))) {
+    if ( ((p1->H >= 293) && (p1->H <= 360)) &&
+         ((p1->S >= 46) && (p1->S <= 90))) {
         key = 1;
     }
-# 330 "color.c"
+
+    if ( ((p1->H >= 113) && (p1->H <= 153)) &&
+         ((p1->S >= 31) && (p1->S <= 43))) {
+        key = 2;
+    }
+
+
+    if ( ((p1->H >= 180) && (p1->H <= 244)) &&
+         ((p1->S >= 42) && (p1->S <= 56))) {
+        key = 3;
+    }
+
+
+    if ( ((p1->H >= 10) && (p1->H <= 31)) &&
+         ((p1->S >= 17) && (p1->S <= 32))) {
+        key = 4;
+    }
+
+
+    if ( ((p1->H >= 279) && (p1->H <= 377)) &&
+         ((p1->S >= 11) && (p1->S <= 15))) {
+        key = 5;
+    }
+
+
+    if ( ((p1->H >= 298) && (p1->H <= 360)) &&
+         ((p1->S >= 20) && (p1->S <= 45))) {
+        key = 6;
+    }
+
+
+    if ( ((p1->H >= 153) && (p1->H <= 207)) &&
+         ((p1->S >= 33) && (p1->S <= 45))) {
+        key = 7;
+    }
+
+
+    if ( ((p2->C >= 3000) && (p2->C <= 40000)) &&
+         (p1->S <= 10)) {
+        key = 8;
+    }
+
+
+    if ( ((p2->C >= 1000) && (p2->C <= 2600)) &&
+         (p1->S <= 12)) {
+        key = 9;
+    }
     return key;
 }
