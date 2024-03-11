@@ -80,28 +80,50 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./dc_motor.h: 8: typedef struct DC_motor {
 [s S2015 `uc 1 `uc 1 `uc 1 `ui 1 `*uc 1 `*uc 1 ]
 [n S2015 DC_motor power direction brakemode PWMperiod posDutyHighByte negDutyHighByte ]
-"12 ./color.h
-[; ;./color.h: 12: typedef struct RGBC_val {
+"21 ./color.h
+[; ;./color.h: 21: typedef struct HSV_val {
+[s S2017 `ui 1 `ui 1 `ui 1 ]
+[n S2017 HSV_val H S V ]
+"13
+[; ;./color.h: 13: typedef struct RGBC_val {
 [s S2016 `ui 1 `ui 1 `ui 1 `ui 1 ]
 [n S2016 RGBC_val R G B C ]
 "39 ./dc_motor.h
 [; ;./dc_motor.h: 39: void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
 [v _fullSpeedAhead `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"34 ./color.h
-[; ;./color.h: 34: void wait_for_wall(struct RGBC_val *p);
-[v _wait_for_wall `(v ~T0 @X0 0 ef1`*S2016 ]
+"36 ./color.h
+[; ;./color.h: 36: void wait_for_wall(struct RGBC_val *p, unsigned char loss);
+[v _wait_for_wall `(v ~T0 @X0 0 ef2`*S2016`uc ]
 "36 ./dc_motor.h
 [; ;./dc_motor.h: 36: void stop(DC_motor *mL, DC_motor *mR);
 [v _stop `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"14 ./serial.h
+"35 ./color.h
+[; ;./color.h: 35: void average_RGBC(struct RGBC_val *p);
+[v _average_RGBC `(v ~T0 @X0 0 ef1`*S2016 ]
+"39
+[; ;./color.h: 39: void scale_RGB(struct RGBC_val *p);
+[v _scale_RGB `(v ~T0 @X0 0 ef1`*S2016 ]
+"40
+[; ;./color.h: 40: void convert_HSV(struct HSV_val *p1, struct RGBC_val *p2);
+[v _convert_HSV `(v ~T0 @X0 0 ef2`*S2017`*S2016 ]
+"41
+[; ;./color.h: 41: unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2);
+[v _colour_to_key `(uc ~T0 @X0 0 ef2`*S2017`*S2016 ]
+"17 ./manoeuvres.h
+[; ;./manoeuvres.h: 17: void pick_card(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
+[v _pick_card `(v ~T0 @X0 0 ef4`*S2015`*S2015`uc`uc ]
+"15 ./serial.h
+[; ;./serial.h: 15: void sendRGBCvalSerial4(RGBC_val *col_val);
+[v _sendRGBCvalSerial4 `(v ~T0 @X0 0 ef1`*S2016 ]
+"16
+[; ;./serial.h: 16: void sendHSVvalSerial4(HSV_val *col_val);
+[v _sendHSVvalSerial4 `(v ~T0 @X0 0 ef1`*S2017 ]
+"14
 [; ;./serial.h: 14: void sendArrayCharSerial4(unsigned char *arr);
 [v _sendArrayCharSerial4 `(v ~T0 @X0 0 ef1`*uc ]
 "13
 [; ;./serial.h: 13: void sendIntSerial4(int integer);
 [v _sendIntSerial4 `(v ~T0 @X0 0 ef1`i ]
-"17 ./manoeuvres.h
-[; ;./manoeuvres.h: 17: void pick_card(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
-[v _pick_card `(v ~T0 @X0 0 ef4`*S2015`*S2015`uc`uc ]
 [t ~ __interrupt . k ]
 [t T2 __interrupt ]
 "5093 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
@@ -2156,7 +2178,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 300 `i `ui
 ]
 "9 ./color.h
-[; ;./color.h: 9: unsigned int wall_threshold = 300;
+[; ;./color.h: 9: unsigned char sample_count = 20;
+[v _sample_count `uc ~T0 @X0 1 e ]
+[i _sample_count
+-> -> 20 `i `uc
+]
+"10
+[; ;./color.h: 10: unsigned int wall_threshold = 300;
 [v _wall_threshold `ui ~T0 @X0 1 e ]
 [i _wall_threshold
 -> -> 300 `i `ui
@@ -2467,189 +2495,270 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2023 ]
 }
 "99
-[; ;timers.c: 99: void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col)
-[v _forward_navigation `(v ~T0 @X0 1 ef3`*S2015`*S2015`*S2016 ]
+[; ;timers.c: 99: void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
+[v _forward_navigation `(v ~T0 @X0 1 ef4`*S2015`*S2015`*S2017`*S2016 ]
 "100
 [; ;timers.c: 100: {
 {
 [e :U _forward_navigation ]
 "99
-[; ;timers.c: 99: void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col)
+[; ;timers.c: 99: void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
 [v _mL `*S2015 ~T0 @X0 1 r1 ]
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
-[v _col `*S2016 ~T0 @X0 1 r3 ]
+[v _p1 `*S2017 ~T0 @X0 1 r3 ]
+[v _p2 `*S2016 ~T0 @X0 1 r4 ]
 "100
 [; ;timers.c: 100: {
 [f ]
 "101
-[; ;timers.c: 101:     unsigned char timerH = 0;
-[v _timerH `uc ~T0 @X0 1 a ]
-[e = _timerH -> -> 0 `i `uc ]
+[; ;timers.c: 101:     while (!returning) {
+[e $U 2025  ]
+[e :U 2026 ]
+{
 "102
-[; ;timers.c: 102:     unsigned char timerL = 0;
-[v _timerL `uc ~T0 @X0 1 a ]
-[e = _timerL -> -> 0 `i `uc ]
-"103
-[; ;timers.c: 103:     unsigned char mann = 0;
-[v _mann `uc ~T0 @X0 1 a ]
-[e = _mann -> -> 0 `i `uc ]
-"104
-[; ;timers.c: 104:     reset_timer();
-[e ( _reset_timer ..  ]
-"105
-[; ;timers.c: 105:     fullSpeedAhead(mL, mR);
-[e ( _fullSpeedAhead (2 , _mL _mR ]
-"106
-[; ;timers.c: 106:     wait_for_wall(col);
-[e ( _wait_for_wall (1 _col ]
-"107
-[; ;timers.c: 107:     read_timer(&timerH, &timerL);
-[e ( _read_timer (2 , &U _timerH &U _timerL ]
-"108
-[; ;timers.c: 108:     stop(mL, mR);
-[e ( _stop (2 , _mL _mR ]
-"112
-[; ;timers.c: 112:     write_trail(timerH, timerL, mann);
-[e ( _write_trail (3 , , _timerH _timerL _mann ]
-"113
-[; ;timers.c: 113:     sendArrayCharSerial4(trail_timer_high);
-[e ( _sendArrayCharSerial4 (1 &U _trail_timer_high ]
-"114
-[; ;timers.c: 114:     sendArrayCharSerial4(trail_timer_low);
-[e ( _sendArrayCharSerial4 (1 &U _trail_timer_low ]
-"115
-[; ;timers.c: 115:     sendArrayCharSerial4(trail_manoeuvre);
-[e ( _sendArrayCharSerial4 (1 &U _trail_manoeuvre ]
-"116
-[; ;timers.c: 116: }
-[e :UE 2024 ]
-}
-"121
-[; ;timers.c: 121: void return_to_sender(DC_motor *mL, DC_motor *mR)
-[v _return_to_sender `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
-"122
-[; ;timers.c: 122: {
-{
-[e :U _return_to_sender ]
-"121
-[; ;timers.c: 121: void return_to_sender(DC_motor *mL, DC_motor *mR)
-[v _mL `*S2015 ~T0 @X0 1 r1 ]
-[v _mR `*S2015 ~T0 @X0 1 r2 ]
-"122
-[; ;timers.c: 122: {
-[f ]
-"123
-[; ;timers.c: 123:     while (manoeuvre_count != 0) {
-[e $U 2026  ]
-[e :U 2027 ]
-{
-"124
-[; ;timers.c: 124:         unsigned char timerH = 0;
+[; ;timers.c: 102:         unsigned char timerH = 0;
 [v _timerH `uc ~T0 @X0 1 a ]
 [e = _timerH -> -> 0 `i `uc ]
-"125
-[; ;timers.c: 125:         unsigned char timerL = 0;
+"103
+[; ;timers.c: 103:         unsigned char timerL = 0;
 [v _timerL `uc ~T0 @X0 1 a ]
 [e = _timerL -> -> 0 `i `uc ]
-"126
-[; ;timers.c: 126:         unsigned char mann = 0;
+"104
+[; ;timers.c: 104:         unsigned char mann = 0;
 [v _mann `uc ~T0 @X0 1 a ]
 [e = _mann -> -> 0 `i `uc ]
-"127
-[; ;timers.c: 127:         read_trail(&timerH, &timerL, &mann);
-[e ( _read_trail (3 , , &U _timerH &U _timerL &U _mann ]
-"128
-[; ;timers.c: 128:         sendIntSerial4(timerH);
-[e ( _sendIntSerial4 (1 -> _timerH `i ]
-"129
-[; ;timers.c: 129:         sendIntSerial4(timerL);
-[e ( _sendIntSerial4 (1 -> _timerL `i ]
-"130
-[; ;timers.c: 130:         sendIntSerial4(mann);
-[e ( _sendIntSerial4 (1 -> _mann `i ]
-"131
-[; ;timers.c: 131:         if (mann != 8) {
-[e $ ! != -> _mann `i -> 8 `i 2029  ]
+"106
+[; ;timers.c: 106:         reset_timer();
+[e ( _reset_timer ..  ]
+"107
+[; ;timers.c: 107:         fullSpeedAhead(mL, mR);
+[e ( _fullSpeedAhead (2 , _mL _mR ]
+"109
+[; ;timers.c: 109:         wait_for_wall(p2, lost_flag);
+[e ( _wait_for_wall (2 , _p2 _lost_flag ]
+"111
+[; ;timers.c: 111:         read_timer(&timerH, &timerL);
+[e ( _read_timer (2 , &U _timerH &U _timerL ]
+"112
+[; ;timers.c: 112:         stop(mL, mR);
+[e ( _stop (2 , _mL _mR ]
+"121
+[; ;timers.c: 121:         if (lost_flag) {
+[e $ ! != -> _lost_flag `i -> 0 `i 2028  ]
 {
+"122
+[; ;timers.c: 122:             timerH = 0b11111111;
+[e = _timerH -> -> 255 `i `uc ]
+"123
+[; ;timers.c: 123:             timerL = 0b11111111;
+[e = _timerL -> -> 255 `i `uc ]
+"124
+[; ;timers.c: 124:             mann = 8;
+[e = _mann -> -> 8 `i `uc ]
+"125
+[; ;timers.c: 125:         } else if (manoeuvre_count == 19) {
+}
+[e $U 2029  ]
+[e :U 2028 ]
+[e $ ! == -> _manoeuvre_count `i -> 19 `i 2030  ]
+{
+"126
+[; ;timers.c: 126:             mann = 8;
+[e = _mann -> -> 8 `i `uc ]
+"127
+[; ;timers.c: 127:         } else {
+}
+[e $U 2031  ]
+[e :U 2030 ]
+{
+"128
+[; ;timers.c: 128:             average_RGBC(p2);
+[e ( _average_RGBC (1 _p2 ]
+"129
+[; ;timers.c: 129:             scale_RGB(p2);
+[e ( _scale_RGB (1 _p2 ]
+"131
+[; ;timers.c: 131:             convert_HSV(p1, p2);
+[e ( _convert_HSV (2 , _p1 _p2 ]
 "132
-[; ;timers.c: 132:             pick_card(mL, mR, returning, mann);
-[e ( _pick_card (4 , , , _mL _mR _returning _mann ]
+[; ;timers.c: 132:             mann = colour_to_key(p1, p2);
+[e = _mann ( _colour_to_key (2 , _p1 _p2 ]
 "133
 [; ;timers.c: 133:         }
 }
-[e :U 2029 ]
-"134
-[; ;timers.c: 134:         write_timer(0b11111111 - timerH, 0b11111111 - timerL);
-[e ( _write_timer (2 , -> - -> 255 `i -> _timerH `i `uc -> - -> 255 `i -> _timerL `i `uc ]
-"135
-[; ;timers.c: 135:         fullSpeedAhead(mL, mR);
-[e ( _fullSpeedAhead (2 , _mL _mR ]
-"136
-[; ;timers.c: 136:         while (!return_flag);
-[e $U 2030  ]
 [e :U 2031 ]
-[e :U 2030 ]
-[e $ ! != -> _return_flag `i -> 0 `i 2031  ]
-[e :U 2032 ]
-"137
-[; ;timers.c: 137:         stop(mL, mR);
-[e ( _stop (2 , _mL _mR ]
+[e :U 2029 ]
+"135
+[; ;timers.c: 135:         write_trail(timerH, timerL, mann);
+[e ( _write_trail (3 , , _timerH _timerL _mann ]
+"136
+[; ;timers.c: 136:         pick_card(mL, mR, returning, mann);
+[e ( _pick_card (4 , , , _mL _mR _returning _mann ]
 "138
-[; ;timers.c: 138:         return_flag = 0;
-[e = _return_flag -> -> 0 `i `uc ]
+[; ;timers.c: 138:         if (mann == 8) {
+[e $ ! == -> _mann `i -> 8 `i 2032  ]
+{
 "139
-[; ;timers.c: 139:     }
-}
-[e :U 2026 ]
-"123
-[; ;timers.c: 123:     while (manoeuvre_count != 0) {
-[e $ != -> _manoeuvre_count `i -> 0 `i 2027  ]
-[e :U 2028 ]
+[; ;timers.c: 139:             returning = 1;
+[e = _returning -> -> 1 `i `uc ]
 "140
-[; ;timers.c: 140: }
-[e :UE 2025 ]
+[; ;timers.c: 140:         }
 }
-[v $root$_ISR `(v ~T0 @X0 0 e ]
+[e :U 2032 ]
+"142
+[; ;timers.c: 142:         sendRGBCvalSerial4(p2);
+[e ( _sendRGBCvalSerial4 (1 _p2 ]
+"143
+[; ;timers.c: 143:         sendHSVvalSerial4(p1);
+[e ( _sendHSVvalSerial4 (1 _p1 ]
+"144
+[; ;timers.c: 144:         sendArrayCharSerial4(trail_timer_high);
+[e ( _sendArrayCharSerial4 (1 &U _trail_timer_high ]
 "145
-[; ;timers.c: 145: void __attribute__((picinterrupt(("")))) ISR()
-[v _ISR `(v ~T2 @X0 1 ef ]
+[; ;timers.c: 145:         sendArrayCharSerial4(trail_timer_low);
+[e ( _sendArrayCharSerial4 (1 &U _trail_timer_low ]
 "146
-[; ;timers.c: 146: {
-{
-[e :U _ISR ]
-[f ]
+[; ;timers.c: 146:         sendArrayCharSerial4(trail_manoeuvre); break;
+[e ( _sendArrayCharSerial4 (1 &U _trail_manoeuvre ]
+[e $U 2027  ]
 "147
-[; ;timers.c: 147:     if (PIR0bits.TMR0IF) {
-[e $ ! != -> . . _PIR0bits 0 5 `i -> 0 `i 2034  ]
-{
-"148
-[; ;timers.c: 148:         if (returning) {
-[e $ ! != -> _returning `i -> 0 `i 2035  ]
-{
-"149
-[; ;timers.c: 149:             return_flag = 1;
-[e = _return_flag -> -> 1 `i `uc ]
-"150
-[; ;timers.c: 150:         } else {
+[; ;timers.c: 147:     }
 }
-[e $U 2036  ]
+[e :U 2025 ]
+"101
+[; ;timers.c: 101:     while (!returning) {
+[e $ ! != -> _returning `i -> 0 `i 2026  ]
+[e :U 2027 ]
+"148
+[; ;timers.c: 148: }
+[e :UE 2024 ]
+}
+"153
+[; ;timers.c: 153: void return_to_sender(DC_motor *mL, DC_motor *mR)
+[v _return_to_sender `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
+"154
+[; ;timers.c: 154: {
+{
+[e :U _return_to_sender ]
+"153
+[; ;timers.c: 153: void return_to_sender(DC_motor *mL, DC_motor *mR)
+[v _mL `*S2015 ~T0 @X0 1 r1 ]
+[v _mR `*S2015 ~T0 @X0 1 r2 ]
+"154
+[; ;timers.c: 154: {
+[f ]
+"155
+[; ;timers.c: 155:     while (manoeuvre_count != 0) {
+[e $U 2034  ]
 [e :U 2035 ]
 {
-"151
-[; ;timers.c: 151:             lost_flag = 1;
-[e = _lost_flag -> -> 1 `i `uc ]
-"152
-[; ;timers.c: 152:         }
+"156
+[; ;timers.c: 156:         unsigned char timerH = 0;
+[v _timerH `uc ~T0 @X0 1 a ]
+[e = _timerH -> -> 0 `i `uc ]
+"157
+[; ;timers.c: 157:         unsigned char timerL = 0;
+[v _timerL `uc ~T0 @X0 1 a ]
+[e = _timerL -> -> 0 `i `uc ]
+"158
+[; ;timers.c: 158:         unsigned char mann = 0;
+[v _mann `uc ~T0 @X0 1 a ]
+[e = _mann -> -> 0 `i `uc ]
+"160
+[; ;timers.c: 160:         read_trail(&timerH, &timerL, &mann);
+[e ( _read_trail (3 , , &U _timerH &U _timerL &U _mann ]
+"161
+[; ;timers.c: 161:         sendIntSerial4(timerH);
+[e ( _sendIntSerial4 (1 -> _timerH `i ]
+"162
+[; ;timers.c: 162:         sendIntSerial4(timerL);
+[e ( _sendIntSerial4 (1 -> _timerL `i ]
+"163
+[; ;timers.c: 163:         sendIntSerial4(mann);
+[e ( _sendIntSerial4 (1 -> _mann `i ]
+"164
+[; ;timers.c: 164:         if (mann != 8) {
+[e $ ! != -> _mann `i -> 8 `i 2037  ]
+{
+"165
+[; ;timers.c: 165:             pick_card(mL, mR, returning, mann);
+[e ( _pick_card (4 , , , _mL _mR _returning _mann ]
+"166
+[; ;timers.c: 166:         }
 }
-[e :U 2036 ]
-"153
-[; ;timers.c: 153:         PIR0bits.TMR0IF = 0;
-[e = . . _PIR0bits 0 5 -> -> 0 `i `uc ]
-"154
-[; ;timers.c: 154:     }
+[e :U 2037 ]
+"168
+[; ;timers.c: 168:         write_timer(0b11111111 - timerH, 0b11111111 - timerL);
+[e ( _write_timer (2 , -> - -> 255 `i -> _timerH `i `uc -> - -> 255 `i -> _timerL `i `uc ]
+"169
+[; ;timers.c: 169:         fullSpeedAhead(mL, mR);
+[e ( _fullSpeedAhead (2 , _mL _mR ]
+"171
+[; ;timers.c: 171:         while (!return_flag);
+[e $U 2038  ]
+[e :U 2039 ]
+[e :U 2038 ]
+[e $ ! != -> _return_flag `i -> 0 `i 2039  ]
+[e :U 2040 ]
+"173
+[; ;timers.c: 173:         stop(mL, mR);
+[e ( _stop (2 , _mL _mR ]
+"174
+[; ;timers.c: 174:         return_flag = 0;
+[e = _return_flag -> -> 0 `i `uc ]
+"175
+[; ;timers.c: 175:     }
 }
 [e :U 2034 ]
 "155
-[; ;timers.c: 155: }
+[; ;timers.c: 155:     while (manoeuvre_count != 0) {
+[e $ != -> _manoeuvre_count `i -> 0 `i 2035  ]
+[e :U 2036 ]
+"176
+[; ;timers.c: 176: }
 [e :UE 2033 ]
+}
+[v $root$_ISR `(v ~T0 @X0 0 e ]
+"181
+[; ;timers.c: 181: void __attribute__((picinterrupt(("")))) ISR()
+[v _ISR `(v ~T2 @X0 1 ef ]
+"182
+[; ;timers.c: 182: {
+{
+[e :U _ISR ]
+[f ]
+"183
+[; ;timers.c: 183:     if (PIR0bits.TMR0IF) {
+[e $ ! != -> . . _PIR0bits 0 5 `i -> 0 `i 2042  ]
+{
+"184
+[; ;timers.c: 184:         if (returning) {
+[e $ ! != -> _returning `i -> 0 `i 2043  ]
+{
+"185
+[; ;timers.c: 185:             return_flag = 1;
+[e = _return_flag -> -> 1 `i `uc ]
+"186
+[; ;timers.c: 186:         } else {
+}
+[e $U 2044  ]
+[e :U 2043 ]
+{
+"187
+[; ;timers.c: 187:             lost_flag = 1;
+[e = _lost_flag -> -> 1 `i `uc ]
+"188
+[; ;timers.c: 188:         }
+}
+[e :U 2044 ]
+"189
+[; ;timers.c: 189:         PIR0bits.TMR0IF = 0;
+[e = . . _PIR0bits 0 5 -> -> 0 `i `uc ]
+"190
+[; ;timers.c: 190:     }
+}
+[e :U 2042 ]
+"191
+[; ;timers.c: 191: }
+[e :UE 2041 ]
 }

@@ -1,11 +1,11 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"12 ./color.h
-[; ;./color.h: 12: typedef struct RGBC_val {
+"13 ./color.h
+[; ;./color.h: 13: typedef struct RGBC_val {
 [s S2016 `ui 1 `ui 1 `ui 1 `ui 1 ]
 [n S2016 RGBC_val R G B C ]
-"20
-[; ;./color.h: 20: typedef struct HSV_val {
+"21
+[; ;./color.h: 21: typedef struct HSV_val {
 [s S2017 `ui 1 `ui 1 `ui 1 ]
 [n S2017 HSV_val H S V ]
 "8 ./dc_motor.h
@@ -30,8 +30,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8 ./buggy_lights.h
 [; ;./buggy_lights.h: 8: void buggy_lights_init(void);
 [v _buggy_lights_init `(v ~T0 @X0 0 ef ]
-"26 ./color.h
-[; ;./color.h: 26: void color_click_init(void);
+"27 ./color.h
+[; ;./color.h: 27: void color_click_init(void);
 [v _color_click_init `(v ~T0 @X0 0 ef ]
 "9 ./serial.h
 [; ;./serial.h: 9: void initUSART4(void);
@@ -132,15 +132,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13 ./buggy_lights.h
 [; ;./buggy_lights.h: 13: void toggle_tricolour_LED(void);
 [v _toggle_tricolour_LED `(v ~T0 @X0 0 ef ]
-"32 ./color.h
-[; ;./color.h: 32: void getRGBCval(struct RGBC_val *p);
-[v _getRGBCval `(v ~T0 @X0 0 ef1`*S2016 ]
-"37
-[; ;./color.h: 37: void scaleRGB(struct RGBC_val *p);
-[v _scaleRGB `(v ~T0 @X0 0 ef1`*S2016 ]
-"38
-[; ;./color.h: 38: void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
-[v _getHSVval `(v ~T0 @X0 0 ef2`*S2017`*S2016 ]
+"35 ./color.h
+[; ;./color.h: 35: void average_RGBC(struct RGBC_val *p);
+[v _average_RGBC `(v ~T0 @X0 0 ef1`*S2016 ]
+"39
+[; ;./color.h: 39: void scale_RGB(struct RGBC_val *p);
+[v _scale_RGB `(v ~T0 @X0 0 ef1`*S2016 ]
+"40
+[; ;./color.h: 40: void convert_HSV(struct HSV_val *p1, struct RGBC_val *p2);
+[v _convert_HSV `(v ~T0 @X0 0 ef2`*S2017`*S2016 ]
 "15 ./serial.h
 [; ;./serial.h: 15: void sendRGBCvalSerial4(RGBC_val *col_val);
 [v _sendRGBCvalSerial4 `(v ~T0 @X0 0 ef1`*S2016 ]
@@ -2200,7 +2200,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 300 `i `ui
 ]
 "9 ./color.h
-[; ;./color.h: 9: unsigned int wall_threshold = 300;
+[; ;./color.h: 9: unsigned char sample_count = 20;
+[v _sample_count `uc ~T0 @X0 1 e ]
+[i _sample_count
+-> -> 20 `i `uc
+]
+"10
+[; ;./color.h: 10: unsigned int wall_threshold = 300;
 [v _wall_threshold `ui ~T0 @X0 1 e ]
 [i _wall_threshold
 -> -> 300 `i `ui
@@ -2336,20 +2342,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _main ]
 [f ]
 "28
-[; ;main.c: 28:     struct RGBC_val measured_colour;
-[v _measured_colour `S2016 ~T0 @X0 1 a ]
+[; ;main.c: 28:     struct RGBC_val RGBC_colour;
+[v _RGBC_colour `S2016 ~T0 @X0 1 a ]
 "29
-[; ;main.c: 29:         measured_colour.R = 0;
-[e = . _measured_colour 0 -> -> 0 `i `ui ]
+[; ;main.c: 29:         RGBC_colour.R = 0;
+[e = . _RGBC_colour 0 -> -> 0 `i `ui ]
 "30
-[; ;main.c: 30:         measured_colour.G = 0;
-[e = . _measured_colour 1 -> -> 0 `i `ui ]
+[; ;main.c: 30:         RGBC_colour.G = 0;
+[e = . _RGBC_colour 1 -> -> 0 `i `ui ]
 "31
-[; ;main.c: 31:         measured_colour.B = 0;
-[e = . _measured_colour 2 -> -> 0 `i `ui ]
+[; ;main.c: 31:         RGBC_colour.B = 0;
+[e = . _RGBC_colour 2 -> -> 0 `i `ui ]
 "32
-[; ;main.c: 32:         measured_colour.C = 0;
-[e = . _measured_colour 3 -> -> 0 `i `ui ]
+[; ;main.c: 32:         RGBC_colour.C = 0;
+[e = . _RGBC_colour 3 -> -> 0 `i `ui ]
 "34
 [; ;main.c: 34:     struct HSV_val HSV_colour;
 [v _HSV_colour `S2017 ~T0 @X0 1 a ]
@@ -2446,40 +2452,43 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 75:         ANSELFbits.ANSELF3 = 0;
 [e = . . _ANSELFbits 0 3 -> -> 0 `i `uc ]
 "80
-[; ;main.c: 80:     LATHbits.LATH3 = !LATHbits.LATH3;
-[e = . . _LATHbits 0 3 -> -> ! != -> . . _LATHbits 0 3 `i -> 0 `i `i `uc ]
+[; ;main.c: 80:     LATDbits.LATD7 = !LATDbits.LATD7;
+[e = . . _LATDbits 0 7 -> -> ! != -> . . _LATDbits 0 7 `i -> 0 `i `i `uc ]
 "81
-[; ;main.c: 81:     toggle_tricolour_LED();
+[; ;main.c: 81:     LATHbits.LATH3 = !LATHbits.LATH3;
+[e = . . _LATHbits 0 3 -> -> ! != -> . . _LATHbits 0 3 `i -> 0 `i `i `uc ]
+"82
+[; ;main.c: 82:     toggle_tricolour_LED();
 [e ( _toggle_tricolour_LED ..  ]
-"85
-[; ;main.c: 85:     while (1) {
+"86
+[; ;main.c: 86:     while (1) {
 [e :U 2020 ]
 {
-"86
-[; ;main.c: 86:         getRGBCval(&measured_colour);
-[e ( _getRGBCval (1 &U _measured_colour ]
 "87
-[; ;main.c: 87:         scaleRGB(&measured_colour);
-[e ( _scaleRGB (1 &U _measured_colour ]
+[; ;main.c: 87:         average_RGBC(&RGBC_colour);
+[e ( _average_RGBC (1 &U _RGBC_colour ]
+"88
+[; ;main.c: 88:         scale_RGB(&RGBC_colour);
+[e ( _scale_RGB (1 &U _RGBC_colour ]
+"89
+[; ;main.c: 89:         convert_HSV(&HSV_colour, &RGBC_colour);
+[e ( _convert_HSV (2 , &U _HSV_colour &U _RGBC_colour ]
+"90
+[; ;main.c: 90:         sendRGBCvalSerial4(&RGBC_colour);
+[e ( _sendRGBCvalSerial4 (1 &U _RGBC_colour ]
 "91
-[; ;main.c: 91:         getHSVval(&HSV_colour, &measured_colour);
-[e ( _getHSVval (2 , &U _HSV_colour &U _measured_colour ]
-"92
-[; ;main.c: 92:         sendRGBCvalSerial4(&measured_colour);
-[e ( _sendRGBCvalSerial4 (1 &U _measured_colour ]
-"93
-[; ;main.c: 93:         sendHSVvalSerial4(&HSV_colour);
+[; ;main.c: 91:         sendHSVvalSerial4(&HSV_colour);
 [e ( _sendHSVvalSerial4 (1 &U _HSV_colour ]
-"94
-[; ;main.c: 94:         _delay((unsigned long)((1000)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"95
-[; ;main.c: 95:     }
+"92
+[; ;main.c: 92:         _delay((unsigned long)((500)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"93
+[; ;main.c: 93:     }
 }
 [e :U 2019 ]
 [e $U 2020  ]
 [e :U 2021 ]
-"96
-[; ;main.c: 96: }
+"94
+[; ;main.c: 94: }
 [e :UE 2018 ]
 }

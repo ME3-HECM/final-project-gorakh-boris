@@ -96,23 +96,55 @@ void write_trail(unsigned char tH, unsigned char tL, unsigned char man)
 /*******************************************************************************
  * Integrated function for forward navigation in maze
 *******************************************************************************/
-void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col)
+void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
 {
-    unsigned char timerH = 0;
-    unsigned char timerL = 0;
-    unsigned char mann = 0;
-    reset_timer();
-    fullSpeedAhead(mL, mR);
-    wait_for_wall(col);
-    read_timer(&timerH, &timerL);
-    stop(mL, mR);
-    /*
-    CODE TO READ COLOUR AND DETERMINE MANN
-    */
-    write_trail(timerH, timerL, mann);
-    sendArrayCharSerial4(trail_timer_high);
-    sendArrayCharSerial4(trail_timer_low);
-    sendArrayCharSerial4(trail_manoeuvre);
+    while (!returning) {                //loop while not returning to start
+        unsigned char timerH = 0;       //temporary timer high variable
+        unsigned char timerL = 0;       //temporary timer low variable
+        unsigned char mann = 0;         //temporary manoeuvre variable
+        
+        reset_timer();
+        fullSpeedAhead(mL, mR);         //go forward continuously
+        
+        wait_for_wall(p2, lost_flag);  //wait until wall detected or lost flag
+        
+        read_timer(&timerH, &timerL);
+        stop(mL, mR);                   //stop motors
+        
+        /***************************************************************
+         * By the time the read_timer above is performed, the timer
+         * registers will have already overflowed
+         * 
+         * The if-statement below writes the maximum 8-bit values to
+         * the temporary variables instead
+        ***************************************************************/
+        if (lost_flag) {
+            timerH = 0b11111111;
+            timerL = 0b11111111;
+            mann = 8;
+        } else if (manoeuvre_count == 19) { //when counter is at the last memory
+            mann = 8;
+        } else {
+            average_RGBC(p2);
+            scale_RGB(p2);
+
+            convert_HSV(p1, p2);
+            mann = colour_to_key(p1, p2);
+        }
+        
+        write_trail(timerH, timerL, mann);          //write variables to memory
+        pick_card(mL, mR, returning, mann);         //perform manoeuvre
+        
+        if (mann == 8) {                            
+            returning = 1;
+        }
+        
+        sendRGBCvalSerial4(p2);
+        sendHSVvalSerial4(p1);
+        sendArrayCharSerial4(trail_timer_high);
+        sendArrayCharSerial4(trail_timer_low);
+        sendArrayCharSerial4(trail_manoeuvre); break;
+    }
 }
 
 /*******************************************************************************
@@ -124,6 +156,7 @@ void return_to_sender(DC_motor *mL, DC_motor *mR)
         unsigned char timerH = 0;       //temporary timer high variable
         unsigned char timerL = 0;       //temporary timer low variable
         unsigned char mann = 0;         //temporary manoeuvre variable
+        
         read_trail(&timerH, &timerL, &mann);    //read variables from memory
         sendIntSerial4(timerH);                 //send to serial for debugging
         sendIntSerial4(timerL);                 //send to serial for debugging
@@ -131,9 +164,12 @@ void return_to_sender(DC_motor *mL, DC_motor *mR)
         if (mann != 8) {                        //ignore white card instruction
             pick_card(mL, mR, returning, mann); //perform manoeuvre
         }
+        
         write_timer(0b11111111 - timerH, 0b11111111 - timerL);
         fullSpeedAhead(mL, mR);         //go forward continuously
+        
         while (!return_flag);           //wait until timer overflows
+        
         stop(mL, mR);                   //stop motors
         return_flag = 0;                //reset return flag
     }

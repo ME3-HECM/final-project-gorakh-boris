@@ -119,23 +119,56 @@ void getRGBCval(struct RGBC_val *p)
 }
 
 /*******************************************************************************
+ * Function to sample RGBC values X number of times and take an average
+*******************************************************************************/
+void average_RGBC(struct RGBC_val *p)
+{
+    //temporary RGBC variables
+    unsigned long temp_R = 0;
+    unsigned long temp_G = 0;
+    unsigned long temp_B = 0;
+    unsigned long temp_C = 0;
+    
+    //for some reason this for loop doesn't happen when called in timer.c
+    for (unsigned char i; i < sample_count; i++) {  //repeat sample_count times
+        getRGBCval(p);                              //take colour measurement
+        //add colour measurement to temporary variables
+        temp_R += (unsigned long)p->R;
+        temp_G += (unsigned long)p->G;
+        temp_B += (unsigned long)p->B;
+        temp_C += (unsigned long)p->C;
+    }
+    
+    //divide temporary variables by sample_count
+    temp_R /= (unsigned long)sample_count;
+    temp_G /= (unsigned long)sample_count;
+    temp_B /= (unsigned long)sample_count;
+    temp_C /= (unsigned long)sample_count;
+    
+    //assign temporary variables to input RGBC_val structure
+    p->R = (unsigned int)temp_R;
+    p->G = (unsigned int)temp_G;
+    p->B = (unsigned int)temp_B;
+    p->C = (unsigned int)temp_C;
+}
+
+/*******************************************************************************
  * Function to wait until clear channel reaches threshold or lost flag appears
 *******************************************************************************/
-void wait_for_wall(struct RGBC_val *p)
+void wait_for_wall(struct RGBC_val *p, unsigned char loss)
 {
-    while (1) {
+    while (!loss) {                     //loop while lost flag isn't raised
         getRGBCval(p);                  //read RGBC values from colour click
         if (p->C < wall_threshold) {    //if clear channel drops below threshold
             break;                      //break loop and proceed
         }
     }
-    LATDbits.LATD7 = !LATDbits.LATD7;   //toggle LED for debugging
 }
 
 /*******************************************************************************
  * Function to return maximum value within RGB
 *******************************************************************************/
-unsigned int maxRGB(struct RGBC_val *p)
+unsigned int max_RGB(struct RGBC_val *p)
 {
     unsigned int max_val = p->R;            //set red as initial max value
     if (p->G > max_val) {max_val = p->G;}   //if green is larger, set new max
@@ -146,7 +179,7 @@ unsigned int maxRGB(struct RGBC_val *p)
 /*******************************************************************************
  * Function to return minimum value within RGB
 *******************************************************************************/
-unsigned int minRGB(struct RGBC_val *p)
+unsigned int min_RGB(struct RGBC_val *p)
 {
     unsigned int min_val = p->R;            //set red as initial min value
     if (p->G < min_val) {min_val = p->G;}   //if green is smaller, set new min
@@ -157,7 +190,7 @@ unsigned int minRGB(struct RGBC_val *p)
 /*******************************************************************************
  * Function to scale and adjust values within RGB
 *******************************************************************************/
-void scaleRGB(struct RGBC_val *p)
+void scale_RGB(struct RGBC_val *p)
 {
     p->R *= 0.5;                            //scale red value by chosen factor
     p->G *= 0.7;                            //scale green value by chosen factor
@@ -169,15 +202,15 @@ void scaleRGB(struct RGBC_val *p)
  * https://en.wikipedia.org/wiki/HSL_and_HSV
  * https://www.rapidtables.com/convert/color/rgb-to-hsv.html
 *******************************************************************************/
-void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
+void convert_HSV(struct HSV_val *p1,struct RGBC_val *p2)
 {
     unsigned int hue = 0;                   //hue value
     unsigned int sat = 0;                   //saturation value
     unsigned int hue_scale = 60;            //scaling factor for hue
     unsigned int sat_scale = 100;           //scaling factor for saturation
     
-    unsigned int M = maxRGB(p2);            //maximum value within RGB
-    unsigned int m = minRGB(p2);            //minimum value within RGB
+    unsigned int M = max_RGB(p2);            //maximum value within RGB
+    unsigned int m = min_RGB(p2);            //minimum value within RGB
     unsigned int C = M - m;                 //range of RGB (maximum - minimum)
     
     if (C == 0) {                   //C = 0 when grey scale
@@ -281,51 +314,53 @@ void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
  * Then if it matches any of th upperbound and lowerbound readings then it outputs a colour that the reading corresponds to
  * NOTE: the colour is outputted as a number from 1 - 8 as shown in the pick-card function above 
 *******************************************************************************/
-unsigned char RGBC2key(struct RGBC_val *p)
+unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2)
 {
     unsigned char key = 0;
-    if (((p->R >= 2850)&&(p->R <= 3855)) && ((p->G >= 602)&&(p->G <= 814)) && ((p->B >= 1144)&&(p->B <= 1548))) { //red
-        key = 1;
+    if ( ((293 <= p1->H) && (p1->H <= 360)) && 
+         ((46 <= p1->S) && (p1->S <= 90))) { 
+        key = 1; //red 
     }
-    /*
-    if (((p->R >= 1630)&&(p->R <= 2205))&&((p->G >= 2604)&&(p->G <= 3523))&&((p->B >= 1851)&&(p->B <= 2505))) {
-        2
-    }
-
-
-    if (((p->R >= 537)&&(p->R <= 727))&&((p->G >= 781)&&(p->G <= 1057))&&((p->B >= 1071)&&(p->B <= 1449))) {
-        3
+    
+    if ( ((113 <= p1->H) && (p1->H <= 153)) && 
+         ((31 <= p1->S) && (p1->S <= 43))) {
+        key = 2; //green
     }
 
-
-    if ((()&&())&&(()&&())&&(()&&())) {
-
+    if ( ((180 <= p1->H) && (p1->H <= 244)) && 
+         ((42 <= p1->S) && (p1->S <= 56))) {
+        key = 3; //blue
     }
 
-
-    if ((()&&())&&(()&&())&&(()&&())) {
-
+    if ( ((10 <= p1->H) && (p1->H <= 31)) && 
+         ((17 <= p1->S) && (p1->S <= 32))) {
+        key = 4; //yellow
     }
 
-
-    if ((()&&())&&(()&&())&&(()&&())) {
-
+    if ( ((279 <= p1->H) && (p1->H <= 377)) && 
+         ((11 <= p1->S) && (p1->S <= 15))) {
+        key = 5; //pink
     }
 
-
-    if ((()&&())&&(()&&())&&(()&&())) {
-
+    if ( ((298 <= p1->H) && (p1->H <= 360)) && 
+         ((20 <= p1->S) && (p1->S <= 45))) {
+        key = 6; //orange
     }
 
-
-    if ((()&&())&&(()&&())&&(()&&())) {
-
+    if ( ((153 <= p1->H) && (p1->H <= 207)) && 
+         ((33 <= p1->S) && (p1->S <= 45))) {
+        key = 7; //cyan
     }
 
-
-    if ((()&&())&&(()&&())&&(()&&())) {
-
+    if ( ((3000 <= p2->C) && (p2->C <= 40000)) && 
+         ((p1->S <= 10))) {
+        key = 8; //white
     }
-     */
+
+    if ( ((1000 <= p2->C) && (p2->C <= 2600)) && 
+         ((p1->S <= 12))) {
+        key = 9; //black
+    }
+    
     return key;
 }
