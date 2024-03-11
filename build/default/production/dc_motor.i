@@ -24123,7 +24123,6 @@ unsigned int turn180Delay = 510;
 unsigned int headbuttDelay = 70;
 unsigned int squareDelay = 300;
 
-
 void initDCmotorsPWM(unsigned int PWMperiod);
 void setMotorPWM(DC_motor *m);
 
@@ -24144,13 +24143,14 @@ void squareReverse(DC_motor *mL, DC_motor *mR);
 
 
 
+
+
 void initDCmotorsPWM(unsigned int PWMperiod){
 
     TRISEbits.TRISE2 = 0;
     TRISEbits.TRISE4 = 0;
     TRISCbits.TRISC7 = 0;
     TRISGbits.TRISG6 = 0;
-
     LATEbits.LATE2 = 0;
     LATEbits.LATE4 = 0;
     LATCbits.LATC7 = 0;
@@ -24174,34 +24174,36 @@ void initDCmotorsPWM(unsigned int PWMperiod){
 
 
 
-    CCPR1H=0;
-    CCPR2H=0;
-    CCPR3H=0;
-    CCPR4H=0;
+        CCPR1H=0;
+        CCPR2H=0;
+        CCPR3H=0;
+        CCPR4H=0;
 
 
-    CCPTMRS0bits.C1TSEL=0;
-    CCPTMRS0bits.C2TSEL=0;
-    CCPTMRS0bits.C3TSEL=0;
-    CCPTMRS0bits.C4TSEL=0;
+        CCPTMRS0bits.C1TSEL=0;
+        CCPTMRS0bits.C2TSEL=0;
+        CCPTMRS0bits.C3TSEL=0;
+        CCPTMRS0bits.C4TSEL=0;
 
 
-    CCP1CONbits.FMT=1;
-    CCP1CONbits.CCP1MODE=0b1100;
-    CCP1CONbits.EN=1;
+        CCP1CONbits.FMT=1;
+        CCP1CONbits.CCP1MODE=0b1100;
+        CCP1CONbits.EN=1;
 
-    CCP2CONbits.FMT=1;
-    CCP2CONbits.CCP2MODE=0b1100;
-    CCP2CONbits.EN=1;
+        CCP2CONbits.FMT=1;
+        CCP2CONbits.CCP2MODE=0b1100;
+        CCP2CONbits.EN=1;
 
-    CCP3CONbits.FMT=1;
-    CCP3CONbits.CCP3MODE=0b1100;
-    CCP3CONbits.EN=1;
+        CCP3CONbits.FMT=1;
+        CCP3CONbits.CCP3MODE=0b1100;
+        CCP3CONbits.EN=1;
 
-    CCP4CONbits.FMT=1;
-    CCP4CONbits.CCP4MODE=0b1100;
-    CCP4CONbits.EN=1;
+        CCP4CONbits.FMT=1;
+        CCP4CONbits.CCP4MODE=0b1100;
+        CCP4CONbits.EN=1;
 }
+
+
 
 
 void setMotorPWM(DC_motor *m)
@@ -24227,10 +24229,10 @@ void setMotorPWM(DC_motor *m)
 }
 
 
+
+
 void stop(DC_motor *mL, DC_motor *mR)
 {
-
-
     while ((mL->power>0) || (mR->power>0)){
         if (mL->power>0) {mL->power--;}
         if (mR->power>0) {mR->power--;}
@@ -24239,6 +24241,8 @@ void stop(DC_motor *mL, DC_motor *mR)
         _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
     }
 }
+
+
 
 
 void turnLeft(DC_motor *mL, DC_motor *mR)
@@ -24257,6 +24261,8 @@ void turnLeft(DC_motor *mL, DC_motor *mR)
 }
 
 
+
+
 void turnRight(DC_motor *mL, DC_motor *mR)
 {
     unsigned char leftGear = turningGear;
@@ -24273,12 +24279,14 @@ void turnRight(DC_motor *mL, DC_motor *mR)
 }
 
 
+
+
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
 {
     unsigned char leftGear = topGearLeft;
     unsigned char rightGear = topGearRight;
-    (mL -> direction) = 1;
-    (mR -> direction) = 1;
+    (mL->direction) = 1;
+    (mR->direction) = 1;
     while ((mL->power<leftGear) || (mR->power<rightGear)){
         if (mL->power<leftGear) {mL->power++;}
         if (mR->power<rightGear) {mR->power++;}
@@ -24287,14 +24295,16 @@ void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
         _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
     }
 }
+
+
 
 
 void fullSpeedReverse(DC_motor *mL, DC_motor *mR)
 {
     unsigned char leftGear = topGearLeft;
     unsigned char rightGear = topGearRight;
-    (mL -> direction) = 0;
-    (mR -> direction) = 0;
+    (mL->direction) = 0;
+    (mR->direction) = 0;
     while ((mL->power<leftGear) || (mR->power<rightGear)){
         if (mL->power<leftGear) {mL->power++;}
         if (mR->power<rightGear) {mR->power++;}
@@ -24303,6 +24313,8 @@ void fullSpeedReverse(DC_motor *mL, DC_motor *mR)
         _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
     }
 }
+
+
 
 
 void turnLeft90(DC_motor *mL, DC_motor *mR)
@@ -24313,12 +24325,16 @@ void turnLeft90(DC_motor *mL, DC_motor *mR)
 }
 
 
+
+
 void turnRight90(DC_motor *mL, DC_motor *mR)
 {
     turnRight(mL, mR);
     _delay((unsigned long)((turnRight90Delay)*(64000000/4000.0)));
     stop(mL, mR);
 }
+
+
 
 
 void turnLeft135(DC_motor *mL, DC_motor *mR)
@@ -24329,12 +24345,16 @@ void turnLeft135(DC_motor *mL, DC_motor *mR)
 }
 
 
+
+
 void turnRight135(DC_motor *mL, DC_motor *mR)
 {
     turnRight(mL, mR);
     _delay((unsigned long)((turnRight135Delay)*(64000000/4000.0)));
     stop(mL, mR);
 }
+
+
 
 
 void UTurn(DC_motor *mL, DC_motor *mR)
@@ -24345,12 +24365,16 @@ void UTurn(DC_motor *mL, DC_motor *mR)
 }
 
 
+
+
 void headbuttReverse(DC_motor *mL, DC_motor *mR)
 {
     fullSpeedReverse(mL, mR);
     _delay((unsigned long)((headbuttDelay)*(64000000/4000.0)));
     stop(mL, mR);
 }
+
+
 
 
 void squareReverse(DC_motor *mL, DC_motor *mR)

@@ -24091,9 +24091,15 @@ unsigned char __t3rd16on(void);
 # 1 "calibration.c" 2
 
 # 1 "./calibration.h" 1
-# 12 "./calibration.h"
+
+
+
+
 # 1 "./manoeuvres.h" 1
-# 11 "./manoeuvres.h"
+
+
+
+
 # 1 "./dc_motor.h" 1
 
 
@@ -24127,7 +24133,6 @@ unsigned int turn180Delay = 510;
 unsigned int headbuttDelay = 70;
 unsigned int squareDelay = 300;
 
-
 void initDCmotorsPWM(unsigned int PWMperiod);
 void setMotorPWM(DC_motor *m);
 
@@ -24144,7 +24149,9 @@ void turnRight135(DC_motor *mL, DC_motor *mR);
 void UTurn(DC_motor *mL, DC_motor *mR);
 void headbuttReverse(DC_motor *mL, DC_motor *mR);
 void squareReverse(DC_motor *mL, DC_motor *mR);
-# 11 "./manoeuvres.h" 2
+# 5 "./manoeuvres.h" 2
+
+
 
 
 void card_red(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
@@ -24155,10 +24162,8 @@ void card_pink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void card_orange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void card_cyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void card_white(DC_motor *mL, DC_motor *mR);
-
-
 void pick_card(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
-# 12 "./calibration.h" 2
+# 5 "./calibration.h" 2
 
 
 
@@ -24167,9 +24172,12 @@ void test_manoeuvres(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 # 2 "calibration.c" 2
 
 
+
+
+
 void test_manoeuvres(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 {
-# 15 "calibration.c"
+# 18 "calibration.c"
     pick_card(mL, mR, backtrack, 1);
     pick_card(mL, mR, backtrack, 2);
     pick_card(mL, mR, backtrack, 3);

@@ -1,28 +1,31 @@
 #include <xc.h>
 #include "timers.h"
 
-/************************************
+/*******************************************************************************
  * Function to set up timer 0
-************************************/
+*******************************************************************************/
 void Timer0_init(void)
 {
-    T0CON1bits.T0CS=0b010; // Fosc/4
-    T0CON1bits.T0ASYNC=1; // see datasheet errata - needed to ensure correct operation when Fosc/4 used as clock source
-    T0CON0bits.T016BIT=1;	// 16bit mode
+    T0CON1bits.T0CS=0b010;      //Fosc/4
+    T0CON1bits.T0ASYNC=1;       //see datasheet errata - needed to ensure correct operation when Fosc/4 used as clock source
+    T0CON0bits.T016BIT=1;       //16-bit mode
     
     T0CON1bits.T0CKPS=0b1110;   //prescaler 1:16384
                                 //1.024 millisecond timer increment period
                                 //976.5625 increments per second
                                 //67.108864 seconds before overflow
     
-    reset_timer();
-    T0CON0bits.T0EN=1;      //start the timer
+    reset_timer();              //set timer register to zero
+    T0CON0bits.T0EN=1;          //start the timer
     
-    PIE0bits.TMR0IE = 1;    //initialise timer 0 interrupt
-    INTCONbits.PEIE = 1;    //initialise peripheral interrupt
-    INTCONbits.GIE = 1;     //sets global interrupt
+    PIE0bits.TMR0IE = 1;        //initialise timer0 interrupt
+    INTCONbits.PEIE = 1;        //initialise peripheral interrupt
+    INTCONbits.GIE = 1;         //sets global interrupt
 }
 
+/*******************************************************************************
+ * Function to read timer register and store in timer high and low variables
+*******************************************************************************/
 void read_timer(unsigned char *tH, unsigned char *tL)
 {
     //remember timer read and write order
@@ -32,6 +35,9 @@ void read_timer(unsigned char *tH, unsigned char *tL)
     *tH = TMR0H;
 }
 
+/*******************************************************************************
+ * Function to write timer register from timer high and low variables
+*******************************************************************************/
 void write_timer(unsigned char tH, unsigned char tL)
 {
     //remember timer read and write order
@@ -41,47 +47,65 @@ void write_timer(unsigned char tH, unsigned char tL)
     TMR0L = tL;
 }
 
+/*******************************************************************************
+ * Function to reset the timer register to zero
+*******************************************************************************/
 void reset_timer(void)
 {
     write_timer(0, 0);
 }
 
+/*******************************************************************************
+ * Function to read from the stored trail memory
+ * A set of timer high and low values
+ * A manoeuvre key value
+ * Pointers and counters are decremented BEFORE reading memory
+*******************************************************************************/
 void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man)
 {
-    timer_high_pointer --;
-    timer_low_pointer --;
-    manoeuvre_pointer --;
+    timer_high_pointer --;              //decrement timer high memory pointer
+    timer_low_pointer --;               //decrement timer low memory pointer
+    manoeuvre_pointer --;               //decrement manoeuvre memory pointer
     
-    *tH = *timer_high_pointer;
-    *tL = *timer_low_pointer;
-    *man = *manoeuvre_pointer;
+    manoeuvre_count --;                 //decrement manoeuvre counter
     
-    manoeuvre_count --;
+    *tH = *timer_high_pointer;          //read from timer high memory
+    *tL = *timer_low_pointer;           //read from timer low memory
+    *man = *manoeuvre_pointer;          //read from manoeuvre memory
 }
 
+/*******************************************************************************
+ * Function to write to the stored trail memory
+ * A set of timer high and low values
+ * A manoeuvre key value
+ * Pointers and counters are incremented AFTER writing memory
+*******************************************************************************/
 void write_trail(unsigned char tH, unsigned char tL, unsigned char man)
 {
-    *timer_high_pointer = tH;    
-    *timer_low_pointer = tL;    
-    *manoeuvre_pointer = man;
+    *timer_high_pointer = tH;           //write to timer high memory
+    *timer_low_pointer = tL;            //write to timer low memory
+    *manoeuvre_pointer = man;           //write to manoeuvre memory
     
-    timer_high_pointer ++;
-    timer_low_pointer ++;
-    manoeuvre_pointer ++;
+    timer_high_pointer ++;              //increment timer high memory pointer
+    timer_low_pointer ++;               //increment timer low memory pointer
+    manoeuvre_pointer ++;               //increment manoeuvre memory pointer
     
-    manoeuvre_count ++;
+    manoeuvre_count ++;                 //increment manoeuvre counter
 }
 
+/*******************************************************************************
+ * Integrated function for forward navigation in maze
+*******************************************************************************/
 void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col)
 {
     unsigned char timerH = 0;
     unsigned char timerL = 0;
     unsigned char mann = 0;
     reset_timer();
-    //fullSpeedAhead(mL, mR);
+    fullSpeedAhead(mL, mR);
     wait_for_wall(col);
     read_timer(&timerH, &timerL);
-    //stop(mL, mR);
+    stop(mL, mR);
     /*
     CODE TO READ COLOUR AND DETERMINE MANN
     */
@@ -91,38 +115,41 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col)
     sendArrayCharSerial4(trail_manoeuvre);
 }
 
+/*******************************************************************************
+ * Integrated function to navigate back to the start of the maze
+*******************************************************************************/
 void return_to_sender(DC_motor *mL, DC_motor *mR)
 {
-    while (manoeuvre_count != 0) {
-        unsigned char timerH = 0;
-        unsigned char timerL = 0;
-        unsigned char mann = 0;
-        read_trail(&timerH, &timerL, &mann);
-        //sendIntSerial4(timerH);
-        //sendIntSerial4(timerL);
-        //sendIntSerial4(mann);
-        if (mann != 8) {            //ignore white card instruction
-            pick_card(mL, mR, returning, mann);
+    while (manoeuvre_count != 0) {      //loop until all manoeuvres performed
+        unsigned char timerH = 0;       //temporary timer high variable
+        unsigned char timerL = 0;       //temporary timer low variable
+        unsigned char mann = 0;         //temporary manoeuvre variable
+        read_trail(&timerH, &timerL, &mann);    //read variables from memory
+        sendIntSerial4(timerH);                 //send to serial for debugging
+        sendIntSerial4(timerL);                 //send to serial for debugging
+        sendIntSerial4(mann);                   //send to serial for debugging
+        if (mann != 8) {                        //ignore white card instruction
+            pick_card(mL, mR, returning, mann); //perform manoeuvre
         }
         write_timer(0b11111111 - timerH, 0b11111111 - timerL);
-        fullSpeedAhead(mL, mR);
-        while (!return_flag);
-        stop(mL, mR);
-        return_flag = 0;
+        fullSpeedAhead(mL, mR);         //go forward continuously
+        while (!return_flag);           //wait until timer overflows
+        stop(mL, mR);                   //stop motors
+        return_flag = 0;                //reset return flag
     }
-    //LATHbits.LATH3 = !LATHbits.LATH3;       //toggle LED for debugging
 }
 
+/*******************************************************************************
+ * Interrupt service routine for use with the timer overflow interrupt source
+*******************************************************************************/
 void __interrupt() ISR()
-{    
-    // timer interrupt
-    if (PIR0bits.TMR0IF) {
-        if (returning) {            //is backtracking
-            return_flag = 1;
-        } else {                    //is not backtracking
-            //trigger a lost function
+{
+    if (PIR0bits.TMR0IF) {              //when timer interrupt flag is raised
+        if (returning) {                //is backtracking
+            return_flag = 1;            //raise return flag
+        } else {                        //is not backtracking
+            lost_flag = 1;              //raise lost flag
         }
-        //LATHbits.LATH3 = !LATHbits.LATH3;       //toggle LED for debugging
-        PIR0bits.TMR0IF = 0;        //reset timer interrupt flag
+        PIR0bits.TMR0IF = 0;            //reset timer interrupt flag
     }
 }

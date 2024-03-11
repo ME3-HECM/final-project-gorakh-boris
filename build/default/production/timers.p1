@@ -37,8 +37,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "39277
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 39277: extern volatile T0CON0bits_t T0CON0bits __attribute__((address(0xFD5)));
 [v _T0CON0bits `VS1921 ~T0 @X0 0 e@4053 ]
-"39 ./timers.h
-[; ;./timers.h: 39: void reset_timer(void);
+"44 ./timers.h
+[; ;./timers.h: 44: void reset_timer(void);
 [v _reset_timer `(v ~T0 @X0 0 ef ]
 "4548 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 4548:     struct {
@@ -84,21 +84,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./color.h: 12: typedef struct RGBC_val {
 [s S2016 `ui 1 `ui 1 `ui 1 `ui 1 ]
 [n S2016 RGBC_val R G B C ]
-"68
-[; ;./color.h: 68: void wait_for_wall(struct RGBC_val *p);
-[v _wait_for_wall `(v ~T0 @X0 0 ef1`*S2016 ]
-"15 ./serial.h
-[; ;./serial.h: 15: void sendArrayCharSerial4(unsigned char *arr);
-[v _sendArrayCharSerial4 `(v ~T0 @X0 0 ef1`*uc ]
-"23 ./manoeuvres.h
-[; ;./manoeuvres.h: 23: void pick_card(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
-[v _pick_card `(v ~T0 @X0 0 ef4`*S2015`*S2015`uc`uc ]
-"40 ./dc_motor.h
-[; ;./dc_motor.h: 40: void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
+"39 ./dc_motor.h
+[; ;./dc_motor.h: 39: void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
 [v _fullSpeedAhead `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"37
-[; ;./dc_motor.h: 37: void stop(DC_motor *mL, DC_motor *mR);
+"34 ./color.h
+[; ;./color.h: 34: void wait_for_wall(struct RGBC_val *p);
+[v _wait_for_wall `(v ~T0 @X0 0 ef1`*S2016 ]
+"36 ./dc_motor.h
+[; ;./dc_motor.h: 36: void stop(DC_motor *mL, DC_motor *mR);
 [v _stop `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"14 ./serial.h
+[; ;./serial.h: 14: void sendArrayCharSerial4(unsigned char *arr);
+[v _sendArrayCharSerial4 `(v ~T0 @X0 0 ef1`*uc ]
+"13
+[; ;./serial.h: 13: void sendIntSerial4(int integer);
+[v _sendIntSerial4 `(v ~T0 @X0 0 ef1`i ]
+"17 ./manoeuvres.h
+[; ;./manoeuvres.h: 17: void pick_card(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
+[v _pick_card `(v ~T0 @X0 0 ef4`*S2015`*S2015`uc`uc ]
 [t ~ __interrupt . k ]
 [t T2 __interrupt ]
 "5093 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
@@ -2170,8 +2173,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _return_flag
 -> -> 0 `i `uc
 ]
-"20
-[; ;./timers.h: 20: unsigned char trail_timer_high[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+"13
+[; ;./timers.h: 13: unsigned char lost_flag = 0;
+[v _lost_flag `uc ~T0 @X0 1 e ]
+[i _lost_flag
+-> -> 0 `i `uc
+]
+"23
+[; ;./timers.h: 23: unsigned char trail_timer_high[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 [v _trail_timer_high `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_timer_high
 :U ..
@@ -2197,8 +2206,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"21
-[; ;./timers.h: 21: unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+"24
+[; ;./timers.h: 24: unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 [v _trail_timer_low `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_timer_low
 :U ..
@@ -2224,8 +2233,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"22
-[; ;./timers.h: 22: unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+"25
+[; ;./timers.h: 25: unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 [v _trail_manoeuvre `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_manoeuvre
 :U ..
@@ -2251,26 +2260,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"30
-[; ;./timers.h: 30: unsigned char *timer_high_pointer = &trail_timer_high[0];
+"35
+[; ;./timers.h: 35: unsigned char *timer_high_pointer = &trail_timer_high[0];
 [v _timer_high_pointer `*uc ~T0 @X0 1 e ]
 [i _timer_high_pointer
 &U *U + &U _trail_timer_high * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_timer_high `ui `ux
 ]
-"31
-[; ;./timers.h: 31: unsigned char *timer_low_pointer = &trail_timer_low[0];
+"36
+[; ;./timers.h: 36: unsigned char *timer_low_pointer = &trail_timer_low[0];
 [v _timer_low_pointer `*uc ~T0 @X0 1 e ]
 [i _timer_low_pointer
 &U *U + &U _trail_timer_low * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_timer_low `ui `ux
 ]
-"32
-[; ;./timers.h: 32: unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
+"37
+[; ;./timers.h: 37: unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
 [v _manoeuvre_pointer `*uc ~T0 @X0 1 e ]
 [i _manoeuvre_pointer
 &U *U + &U _trail_manoeuvre * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_manoeuvre `ui `ux
 ]
-"33
-[; ;./timers.h: 33: unsigned char manoeuvre_count = 0;
+"38
+[; ;./timers.h: 38: unsigned char manoeuvre_count = 0;
 [v _manoeuvre_count `uc ~T0 @X0 1 e ]
 [i _manoeuvre_count
 -> -> 0 `i `uc
@@ -2314,315 +2323,333 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;timers.c: 24: }
 [e :UE 2018 ]
 }
-"26
-[; ;timers.c: 26: void read_timer(unsigned char *tH, unsigned char *tL)
+"29
+[; ;timers.c: 29: void read_timer(unsigned char *tH, unsigned char *tL)
 [v _read_timer `(v ~T0 @X0 1 ef2`*uc`*uc ]
-"27
-[; ;timers.c: 27: {
+"30
+[; ;timers.c: 30: {
 {
 [e :U _read_timer ]
-"26
-[; ;timers.c: 26: void read_timer(unsigned char *tH, unsigned char *tL)
+"29
+[; ;timers.c: 29: void read_timer(unsigned char *tH, unsigned char *tL)
 [v _tH `*uc ~T0 @X0 1 r1 ]
 [v _tL `*uc ~T0 @X0 1 r2 ]
-"27
-[; ;timers.c: 27: {
+"30
+[; ;timers.c: 30: {
 [f ]
-"31
-[; ;timers.c: 31:     *tL = TMR0L;
+"34
+[; ;timers.c: 34:     *tL = TMR0L;
 [e = *U _tL _TMR0L ]
-"32
-[; ;timers.c: 32:     *tH = TMR0H;
+"35
+[; ;timers.c: 35:     *tH = TMR0H;
 [e = *U _tH _TMR0H ]
-"33
-[; ;timers.c: 33: }
+"36
+[; ;timers.c: 36: }
 [e :UE 2019 ]
 }
-"35
-[; ;timers.c: 35: void write_timer(unsigned char tH, unsigned char tL)
+"41
+[; ;timers.c: 41: void write_timer(unsigned char tH, unsigned char tL)
 [v _write_timer `(v ~T0 @X0 1 ef2`uc`uc ]
-"36
-[; ;timers.c: 36: {
+"42
+[; ;timers.c: 42: {
 {
 [e :U _write_timer ]
-"35
-[; ;timers.c: 35: void write_timer(unsigned char tH, unsigned char tL)
+"41
+[; ;timers.c: 41: void write_timer(unsigned char tH, unsigned char tL)
 [v _tH `uc ~T0 @X0 1 r1 ]
 [v _tL `uc ~T0 @X0 1 r2 ]
-"36
-[; ;timers.c: 36: {
-[f ]
-"40
-[; ;timers.c: 40:     TMR0H = tH;
-[e = _TMR0H _tH ]
-"41
-[; ;timers.c: 41:     TMR0L = tL;
-[e = _TMR0L _tL ]
 "42
-[; ;timers.c: 42: }
+[; ;timers.c: 42: {
+[f ]
+"46
+[; ;timers.c: 46:     TMR0H = tH;
+[e = _TMR0H _tH ]
+"47
+[; ;timers.c: 47:     TMR0L = tL;
+[e = _TMR0L _tL ]
+"48
+[; ;timers.c: 48: }
 [e :UE 2020 ]
 }
-"44
-[; ;timers.c: 44: void reset_timer(void)
+"53
+[; ;timers.c: 53: void reset_timer(void)
 [v _reset_timer `(v ~T0 @X0 1 ef ]
-"45
-[; ;timers.c: 45: {
+"54
+[; ;timers.c: 54: {
 {
 [e :U _reset_timer ]
 [f ]
-"46
-[; ;timers.c: 46:     write_timer(0, 0);
+"55
+[; ;timers.c: 55:     write_timer(0, 0);
 [e ( _write_timer (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"47
-[; ;timers.c: 47: }
+"56
+[; ;timers.c: 56: }
 [e :UE 2021 ]
 }
-"49
-[; ;timers.c: 49: void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man)
+"64
+[; ;timers.c: 64: void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man)
 [v _read_trail `(v ~T0 @X0 1 ef3`*uc`*uc`*uc ]
-"50
-[; ;timers.c: 50: {
+"65
+[; ;timers.c: 65: {
 {
 [e :U _read_trail ]
-"49
-[; ;timers.c: 49: void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man)
+"64
+[; ;timers.c: 64: void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man)
 [v _tH `*uc ~T0 @X0 1 r1 ]
 [v _tL `*uc ~T0 @X0 1 r2 ]
 [v _man `*uc ~T0 @X0 1 r3 ]
-"50
-[; ;timers.c: 50: {
+"65
+[; ;timers.c: 65: {
 [f ]
-"51
-[; ;timers.c: 51:     timer_high_pointer --;
+"66
+[; ;timers.c: 66:     timer_high_pointer --;
 [e -- _timer_high_pointer * -> -> 1 `i `x -> -> # *U _timer_high_pointer `i `x ]
-"52
-[; ;timers.c: 52:     timer_low_pointer --;
+"67
+[; ;timers.c: 67:     timer_low_pointer --;
 [e -- _timer_low_pointer * -> -> 1 `i `x -> -> # *U _timer_low_pointer `i `x ]
-"53
-[; ;timers.c: 53:     manoeuvre_pointer --;
+"68
+[; ;timers.c: 68:     manoeuvre_pointer --;
 [e -- _manoeuvre_pointer * -> -> 1 `i `x -> -> # *U _manoeuvre_pointer `i `x ]
-"55
-[; ;timers.c: 55:     *tH = *timer_high_pointer;
-[e = *U _tH *U _timer_high_pointer ]
-"56
-[; ;timers.c: 56:     *tL = *timer_low_pointer;
-[e = *U _tL *U _timer_low_pointer ]
-"57
-[; ;timers.c: 57:     *man = *manoeuvre_pointer;
-[e = *U _man *U _manoeuvre_pointer ]
-"59
-[; ;timers.c: 59:     manoeuvre_count --;
+"70
+[; ;timers.c: 70:     manoeuvre_count --;
 [e -- _manoeuvre_count -> -> 1 `i `uc ]
-"60
-[; ;timers.c: 60: }
+"72
+[; ;timers.c: 72:     *tH = *timer_high_pointer;
+[e = *U _tH *U _timer_high_pointer ]
+"73
+[; ;timers.c: 73:     *tL = *timer_low_pointer;
+[e = *U _tL *U _timer_low_pointer ]
+"74
+[; ;timers.c: 74:     *man = *manoeuvre_pointer;
+[e = *U _man *U _manoeuvre_pointer ]
+"75
+[; ;timers.c: 75: }
 [e :UE 2022 ]
 }
-"62
-[; ;timers.c: 62: void write_trail(unsigned char tH, unsigned char tL, unsigned char man)
+"83
+[; ;timers.c: 83: void write_trail(unsigned char tH, unsigned char tL, unsigned char man)
 [v _write_trail `(v ~T0 @X0 1 ef3`uc`uc`uc ]
-"63
-[; ;timers.c: 63: {
+"84
+[; ;timers.c: 84: {
 {
 [e :U _write_trail ]
-"62
-[; ;timers.c: 62: void write_trail(unsigned char tH, unsigned char tL, unsigned char man)
+"83
+[; ;timers.c: 83: void write_trail(unsigned char tH, unsigned char tL, unsigned char man)
 [v _tH `uc ~T0 @X0 1 r1 ]
 [v _tL `uc ~T0 @X0 1 r2 ]
 [v _man `uc ~T0 @X0 1 r3 ]
-"63
-[; ;timers.c: 63: {
+"84
+[; ;timers.c: 84: {
 [f ]
-"64
-[; ;timers.c: 64:     *timer_high_pointer = tH;
+"85
+[; ;timers.c: 85:     *timer_high_pointer = tH;
 [e = *U _timer_high_pointer _tH ]
-"65
-[; ;timers.c: 65:     *timer_low_pointer = tL;
+"86
+[; ;timers.c: 86:     *timer_low_pointer = tL;
 [e = *U _timer_low_pointer _tL ]
-"66
-[; ;timers.c: 66:     *manoeuvre_pointer = man;
+"87
+[; ;timers.c: 87:     *manoeuvre_pointer = man;
 [e = *U _manoeuvre_pointer _man ]
-"68
-[; ;timers.c: 68:     timer_high_pointer ++;
+"89
+[; ;timers.c: 89:     timer_high_pointer ++;
 [e ++ _timer_high_pointer * -> -> 1 `i `x -> -> # *U _timer_high_pointer `i `x ]
-"69
-[; ;timers.c: 69:     timer_low_pointer ++;
+"90
+[; ;timers.c: 90:     timer_low_pointer ++;
 [e ++ _timer_low_pointer * -> -> 1 `i `x -> -> # *U _timer_low_pointer `i `x ]
-"70
-[; ;timers.c: 70:     manoeuvre_pointer ++;
+"91
+[; ;timers.c: 91:     manoeuvre_pointer ++;
 [e ++ _manoeuvre_pointer * -> -> 1 `i `x -> -> # *U _manoeuvre_pointer `i `x ]
-"72
-[; ;timers.c: 72:     manoeuvre_count ++;
+"93
+[; ;timers.c: 93:     manoeuvre_count ++;
 [e ++ _manoeuvre_count -> -> 1 `i `uc ]
-"73
-[; ;timers.c: 73: }
+"94
+[; ;timers.c: 94: }
 [e :UE 2023 ]
 }
-"75
-[; ;timers.c: 75: void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col)
+"99
+[; ;timers.c: 99: void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col)
 [v _forward_navigation `(v ~T0 @X0 1 ef3`*S2015`*S2015`*S2016 ]
-"76
-[; ;timers.c: 76: {
+"100
+[; ;timers.c: 100: {
 {
 [e :U _forward_navigation ]
-"75
-[; ;timers.c: 75: void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col)
+"99
+[; ;timers.c: 99: void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col)
 [v _mL `*S2015 ~T0 @X0 1 r1 ]
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
 [v _col `*S2016 ~T0 @X0 1 r3 ]
-"76
-[; ;timers.c: 76: {
+"100
+[; ;timers.c: 100: {
 [f ]
-"77
-[; ;timers.c: 77:     unsigned char timerH = 0;
+"101
+[; ;timers.c: 101:     unsigned char timerH = 0;
 [v _timerH `uc ~T0 @X0 1 a ]
 [e = _timerH -> -> 0 `i `uc ]
-"78
-[; ;timers.c: 78:     unsigned char timerL = 0;
+"102
+[; ;timers.c: 102:     unsigned char timerL = 0;
 [v _timerL `uc ~T0 @X0 1 a ]
 [e = _timerL -> -> 0 `i `uc ]
-"79
-[; ;timers.c: 79:     unsigned char mann = 0;
+"103
+[; ;timers.c: 103:     unsigned char mann = 0;
 [v _mann `uc ~T0 @X0 1 a ]
 [e = _mann -> -> 0 `i `uc ]
-"80
-[; ;timers.c: 80:     reset_timer();
+"104
+[; ;timers.c: 104:     reset_timer();
 [e ( _reset_timer ..  ]
-"82
-[; ;timers.c: 82:     wait_for_wall(col);
+"105
+[; ;timers.c: 105:     fullSpeedAhead(mL, mR);
+[e ( _fullSpeedAhead (2 , _mL _mR ]
+"106
+[; ;timers.c: 106:     wait_for_wall(col);
 [e ( _wait_for_wall (1 _col ]
-"83
-[; ;timers.c: 83:     read_timer(&timerH, &timerL);
+"107
+[; ;timers.c: 107:     read_timer(&timerH, &timerL);
 [e ( _read_timer (2 , &U _timerH &U _timerL ]
-"88
-[; ;timers.c: 88:     write_trail(timerH, timerL, mann);
+"108
+[; ;timers.c: 108:     stop(mL, mR);
+[e ( _stop (2 , _mL _mR ]
+"112
+[; ;timers.c: 112:     write_trail(timerH, timerL, mann);
 [e ( _write_trail (3 , , _timerH _timerL _mann ]
-"89
-[; ;timers.c: 89:     sendArrayCharSerial4(trail_timer_high);
+"113
+[; ;timers.c: 113:     sendArrayCharSerial4(trail_timer_high);
 [e ( _sendArrayCharSerial4 (1 &U _trail_timer_high ]
-"90
-[; ;timers.c: 90:     sendArrayCharSerial4(trail_timer_low);
+"114
+[; ;timers.c: 114:     sendArrayCharSerial4(trail_timer_low);
 [e ( _sendArrayCharSerial4 (1 &U _trail_timer_low ]
-"91
-[; ;timers.c: 91:     sendArrayCharSerial4(trail_manoeuvre);
+"115
+[; ;timers.c: 115:     sendArrayCharSerial4(trail_manoeuvre);
 [e ( _sendArrayCharSerial4 (1 &U _trail_manoeuvre ]
-"92
-[; ;timers.c: 92: }
+"116
+[; ;timers.c: 116: }
 [e :UE 2024 ]
 }
-"94
-[; ;timers.c: 94: void return_to_sender(DC_motor *mL, DC_motor *mR)
+"121
+[; ;timers.c: 121: void return_to_sender(DC_motor *mL, DC_motor *mR)
 [v _return_to_sender `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
-"95
-[; ;timers.c: 95: {
+"122
+[; ;timers.c: 122: {
 {
 [e :U _return_to_sender ]
-"94
-[; ;timers.c: 94: void return_to_sender(DC_motor *mL, DC_motor *mR)
+"121
+[; ;timers.c: 121: void return_to_sender(DC_motor *mL, DC_motor *mR)
 [v _mL `*S2015 ~T0 @X0 1 r1 ]
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
-"95
-[; ;timers.c: 95: {
+"122
+[; ;timers.c: 122: {
 [f ]
-"96
-[; ;timers.c: 96:     while (manoeuvre_count != 0) {
+"123
+[; ;timers.c: 123:     while (manoeuvre_count != 0) {
 [e $U 2026  ]
 [e :U 2027 ]
 {
-"97
-[; ;timers.c: 97:         unsigned char timerH = 0;
+"124
+[; ;timers.c: 124:         unsigned char timerH = 0;
 [v _timerH `uc ~T0 @X0 1 a ]
 [e = _timerH -> -> 0 `i `uc ]
-"98
-[; ;timers.c: 98:         unsigned char timerL = 0;
+"125
+[; ;timers.c: 125:         unsigned char timerL = 0;
 [v _timerL `uc ~T0 @X0 1 a ]
 [e = _timerL -> -> 0 `i `uc ]
-"99
-[; ;timers.c: 99:         unsigned char mann = 0;
+"126
+[; ;timers.c: 126:         unsigned char mann = 0;
 [v _mann `uc ~T0 @X0 1 a ]
 [e = _mann -> -> 0 `i `uc ]
-"100
-[; ;timers.c: 100:         read_trail(&timerH, &timerL, &mann);
+"127
+[; ;timers.c: 127:         read_trail(&timerH, &timerL, &mann);
 [e ( _read_trail (3 , , &U _timerH &U _timerL &U _mann ]
-"104
-[; ;timers.c: 104:         if (mann != 8) {
+"128
+[; ;timers.c: 128:         sendIntSerial4(timerH);
+[e ( _sendIntSerial4 (1 -> _timerH `i ]
+"129
+[; ;timers.c: 129:         sendIntSerial4(timerL);
+[e ( _sendIntSerial4 (1 -> _timerL `i ]
+"130
+[; ;timers.c: 130:         sendIntSerial4(mann);
+[e ( _sendIntSerial4 (1 -> _mann `i ]
+"131
+[; ;timers.c: 131:         if (mann != 8) {
 [e $ ! != -> _mann `i -> 8 `i 2029  ]
 {
-"105
-[; ;timers.c: 105:             pick_card(mL, mR, returning, mann);
+"132
+[; ;timers.c: 132:             pick_card(mL, mR, returning, mann);
 [e ( _pick_card (4 , , , _mL _mR _returning _mann ]
-"106
-[; ;timers.c: 106:         }
+"133
+[; ;timers.c: 133:         }
 }
 [e :U 2029 ]
-"107
-[; ;timers.c: 107:         write_timer(0b11111111 - timerH, 0b11111111 - timerL);
+"134
+[; ;timers.c: 134:         write_timer(0b11111111 - timerH, 0b11111111 - timerL);
 [e ( _write_timer (2 , -> - -> 255 `i -> _timerH `i `uc -> - -> 255 `i -> _timerL `i `uc ]
-"108
-[; ;timers.c: 108:         fullSpeedAhead(mL, mR);
+"135
+[; ;timers.c: 135:         fullSpeedAhead(mL, mR);
 [e ( _fullSpeedAhead (2 , _mL _mR ]
-"109
-[; ;timers.c: 109:         while (!return_flag);
+"136
+[; ;timers.c: 136:         while (!return_flag);
 [e $U 2030  ]
 [e :U 2031 ]
 [e :U 2030 ]
 [e $ ! != -> _return_flag `i -> 0 `i 2031  ]
 [e :U 2032 ]
-"110
-[; ;timers.c: 110:         stop(mL, mR);
+"137
+[; ;timers.c: 137:         stop(mL, mR);
 [e ( _stop (2 , _mL _mR ]
-"111
-[; ;timers.c: 111:         return_flag = 0;
+"138
+[; ;timers.c: 138:         return_flag = 0;
 [e = _return_flag -> -> 0 `i `uc ]
-"112
-[; ;timers.c: 112:     }
+"139
+[; ;timers.c: 139:     }
 }
 [e :U 2026 ]
-"96
-[; ;timers.c: 96:     while (manoeuvre_count != 0) {
+"123
+[; ;timers.c: 123:     while (manoeuvre_count != 0) {
 [e $ != -> _manoeuvre_count `i -> 0 `i 2027  ]
 [e :U 2028 ]
-"114
-[; ;timers.c: 114: }
+"140
+[; ;timers.c: 140: }
 [e :UE 2025 ]
 }
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"116
-[; ;timers.c: 116: void __attribute__((picinterrupt(("")))) ISR()
+"145
+[; ;timers.c: 145: void __attribute__((picinterrupt(("")))) ISR()
 [v _ISR `(v ~T2 @X0 1 ef ]
-"117
-[; ;timers.c: 117: {
+"146
+[; ;timers.c: 146: {
 {
 [e :U _ISR ]
 [f ]
-"119
-[; ;timers.c: 119:     if (PIR0bits.TMR0IF) {
+"147
+[; ;timers.c: 147:     if (PIR0bits.TMR0IF) {
 [e $ ! != -> . . _PIR0bits 0 5 `i -> 0 `i 2034  ]
 {
-"120
-[; ;timers.c: 120:         if (returning) {
+"148
+[; ;timers.c: 148:         if (returning) {
 [e $ ! != -> _returning `i -> 0 `i 2035  ]
 {
-"121
-[; ;timers.c: 121:             return_flag = 1;
+"149
+[; ;timers.c: 149:             return_flag = 1;
 [e = _return_flag -> -> 1 `i `uc ]
-"122
-[; ;timers.c: 122:         } else {
+"150
+[; ;timers.c: 150:         } else {
 }
 [e $U 2036  ]
 [e :U 2035 ]
 {
-"124
-[; ;timers.c: 124:         }
+"151
+[; ;timers.c: 151:             lost_flag = 1;
+[e = _lost_flag -> -> 1 `i `uc ]
+"152
+[; ;timers.c: 152:         }
 }
 [e :U 2036 ]
-"126
-[; ;timers.c: 126:         PIR0bits.TMR0IF = 0;
+"153
+[; ;timers.c: 153:         PIR0bits.TMR0IF = 0;
 [e = . . _PIR0bits 0 5 -> -> 0 `i `uc ]
-"127
-[; ;timers.c: 127:     }
+"154
+[; ;timers.c: 154:     }
 }
 [e :U 2034 ]
-"128
-[; ;timers.c: 128: }
+"155
+[; ;timers.c: 155: }
 [e :UE 2033 ]
 }

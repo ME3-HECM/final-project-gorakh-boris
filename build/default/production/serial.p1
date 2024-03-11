@@ -2052,8 +2052,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _wall_threshold
 -> -> 300 `i `ui
 ]
-"5 serial.c
-[; ;serial.c: 5: void initUSART4(void) {
+"8 serial.c
+[; ;serial.c: 8: void initUSART4(void) {
 [v _initUSART4 `(v ~T0 @X0 1 ef ]
 {
 [e :U _initUSART4 ]
@@ -2089,111 +2089,111 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;serial.c: 20: }
 [e :UE 2019 ]
 }
-"23
-[; ;serial.c: 23: char getCharSerial4(void) {
+"25
+[; ;serial.c: 25: char getCharSerial4(void) {
 [v _getCharSerial4 `(uc ~T0 @X0 1 ef ]
 {
 [e :U _getCharSerial4 ]
 [f ]
-"24
-[; ;serial.c: 24:     while (!PIR4bits.RC4IF);
+"26
+[; ;serial.c: 26:     while (!PIR4bits.RC4IF);
 [e $U 2021  ]
 [e :U 2022 ]
 [e :U 2021 ]
 [e $ ! != -> . . _PIR4bits 0 3 `i -> 0 `i 2022  ]
 [e :U 2023 ]
-"25
-[; ;serial.c: 25:     return RC4REG;
+"27
+[; ;serial.c: 27:     return RC4REG;
 [e ) -> _RC4REG `uc ]
 [e $UE 2020  ]
-"26
-[; ;serial.c: 26: }
+"28
+[; ;serial.c: 28: }
 [e :UE 2020 ]
 }
-"29
-[; ;serial.c: 29: void sendCharSerial4(char charToSend) {
+"33
+[; ;serial.c: 33: void sendCharSerial4(char charToSend) {
 [v _sendCharSerial4 `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _sendCharSerial4 ]
 [v _charToSend `uc ~T0 @X0 1 r1 ]
 [f ]
-"30
-[; ;serial.c: 30:     while (!PIR4bits.TX4IF);
+"34
+[; ;serial.c: 34:     while (!PIR4bits.TX4IF);
 [e $U 2025  ]
 [e :U 2026 ]
 [e :U 2025 ]
 [e $ ! != -> . . _PIR4bits 0 2 `i -> 0 `i 2026  ]
 [e :U 2027 ]
-"31
-[; ;serial.c: 31:     TX4REG = charToSend;
+"35
+[; ;serial.c: 35:     TX4REG = charToSend;
 [e = _TX4REG -> _charToSend `uc ]
-"32
-[; ;serial.c: 32: }
+"36
+[; ;serial.c: 36: }
 [e :UE 2024 ]
 }
-"35
-[; ;serial.c: 35: void sendStringSerial4(char *string) {
+"41
+[; ;serial.c: 41: void sendStringSerial4(char *string) {
 [v _sendStringSerial4 `(v ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _sendStringSerial4 ]
 [v _string `*uc ~T0 @X0 1 r1 ]
 [f ]
-"37
-[; ;serial.c: 37:     while(*string != 0){
+"43
+[; ;serial.c: 43:     while(*string != 0){
 [e $U 2029  ]
 [e :U 2030 ]
 {
-"38
-[; ;serial.c: 38:   sendCharSerial4(*string++);
+"44
+[; ;serial.c: 44:   sendCharSerial4(*string++);
 [e ( _sendCharSerial4 (1 *U ++ _string * -> -> 1 `i `x -> -> # *U _string `i `x ]
-"39
-[; ;serial.c: 39:  }
+"45
+[; ;serial.c: 45:  }
 }
 [e :U 2029 ]
-"37
-[; ;serial.c: 37:     while(*string != 0){
+"43
+[; ;serial.c: 43:     while(*string != 0){
 [e $ != -> *U _string `i -> 0 `i 2030  ]
 [e :U 2031 ]
-"40
-[; ;serial.c: 40: }
+"46
+[; ;serial.c: 46: }
 [e :UE 2028 ]
 }
-"43
-[; ;serial.c: 43: void sendIntSerial4(int integer) {
+"51
+[; ;serial.c: 51: void sendIntSerial4(int integer) {
 [v _sendIntSerial4 `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _sendIntSerial4 ]
 [v _integer `i ~T0 @X0 1 r1 ]
 [f ]
-"44
-[; ;serial.c: 44:     char string[sizeof(int) * 8 + 1];
+"53
+[; ;serial.c: 53:     char string[sizeof(int) * 8 + 1];
 [v _string `uc ~T0 @X0 -> 17 `i a ]
-"45
-[; ;serial.c: 45:     sprintf(string, "%d \r", integer);
+"54
+[; ;serial.c: 54:     sprintf(string, "%d \r", integer);
 [e ( _sprintf (1 , (. , &U _string :s 1C _integer ]
-"46
-[; ;serial.c: 46:     sendStringSerial4(string);
+"55
+[; ;serial.c: 55:     sendStringSerial4(string);
 [e ( _sendStringSerial4 (1 &U _string ]
-"47
-[; ;serial.c: 47: }
+"56
+[; ;serial.c: 56: }
 [e :UE 2032 ]
 }
-"50
-[; ;serial.c: 50: void sendArrayCharSerial4(unsigned char *arr) {
+"61
+[; ;serial.c: 61: void sendArrayCharSerial4(unsigned char *arr) {
 [v _sendArrayCharSerial4 `(v ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _sendArrayCharSerial4 ]
 [v _arr `*uc ~T0 @X0 1 r1 ]
 [f ]
-"51
-[; ;serial.c: 51:     unsigned char index = 0;
+"63
+[; ;serial.c: 63:     unsigned char index = 0;
 [v _index `uc ~T0 @X0 1 a ]
 [e = _index -> -> 0 `i `uc ]
-"53
-[; ;serial.c: 53:     char tempStr[20 * 8 + 1];
+"64
+[; ;serial.c: 64:     char tempStr[20 * 8 + 1];
 [v _tempStr `uc ~T0 @X0 -> 161 `i a ]
-"54
-[; ;serial.c: 54:     for (unsigned int i = 0; i < 20; i++) {
+"65
+[; ;serial.c: 65:     for (unsigned int i = 0; i < 20; i++) {
 {
 [v _i `ui ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `ui ]
@@ -2201,64 +2201,64 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 2035  ]
 [e :U 2034 ]
 {
-"55
-[; ;serial.c: 55:         index += sprintf(&tempStr[index], "%d ", arr[i]);
+"66
+[; ;serial.c: 66:         index += sprintf(&tempStr[index], "%d ", arr[i]);
 [e =+ _index -> ( _sprintf (1 , (. , &U *U + &U _tempStr * -> _index `ux -> -> # *U &U _tempStr `ui `ux :s 3C -> *U + _arr * -> _i `ux -> -> # *U _arr `ui `ux `i `uc ]
-"56
-[; ;serial.c: 56:     }
+"67
+[; ;serial.c: 67:     }
 }
 [e ++ _i -> -> 1 `i `ui ]
 [e $ < _i -> -> 20 `i `ui 2034  ]
 [e :U 2035 ]
 }
-"57
-[; ;serial.c: 57:     sendStringSerial4(tempStr);
+"68
+[; ;serial.c: 68:     sendStringSerial4(tempStr);
 [e ( _sendStringSerial4 (1 &U _tempStr ]
-"58
-[; ;serial.c: 58:     sendStringSerial4(" \r");
+"69
+[; ;serial.c: 69:     sendStringSerial4(" \r");
 [e ( _sendStringSerial4 (1 :s 4C ]
-"59
-[; ;serial.c: 59: }
+"70
+[; ;serial.c: 70: }
 [e :UE 2033 ]
 }
-"62
-[; ;serial.c: 62: void sendRGBCvalSerial4(RGBC_val *col_val) {
+"75
+[; ;serial.c: 75: void sendRGBCvalSerial4(RGBC_val *col_val) {
 [v _sendRGBCvalSerial4 `(v ~T0 @X0 1 ef1`*S2017 ]
 {
 [e :U _sendRGBCvalSerial4 ]
 [v _col_val `*S2017 ~T0 @X0 1 r1 ]
 [f ]
-"63
-[; ;serial.c: 63:     char tempStr[26];
+"76
+[; ;serial.c: 76:     char tempStr[26];
 [v _tempStr `uc ~T0 @X0 -> 26 `i a ]
-"65
-[; ;serial.c: 65:     sprintf(tempStr, "%u %u %u %u \r", col_val->R, col_val->G, col_val->B, col_val->C);
+"78
+[; ;serial.c: 78:     sprintf(tempStr, "%u %u %u %u \r", col_val->R, col_val->G, col_val->B, col_val->C);
 [e ( _sprintf (1 , , , , (. , &U _tempStr :s 5C . *U _col_val 0 . *U _col_val 1 . *U _col_val 2 . *U _col_val 3 ]
-"66
-[; ;serial.c: 66:     sendStringSerial4(tempStr);
+"79
+[; ;serial.c: 79:     sendStringSerial4(tempStr);
 [e ( _sendStringSerial4 (1 &U _tempStr ]
-"67
-[; ;serial.c: 67: }
+"80
+[; ;serial.c: 80: }
 [e :UE 2037 ]
 }
-"70
-[; ;serial.c: 70: void sendHSVvalSerial4(HSV_val *col_val) {
+"85
+[; ;serial.c: 85: void sendHSVvalSerial4(HSV_val *col_val) {
 [v _sendHSVvalSerial4 `(v ~T0 @X0 1 ef1`*S2018 ]
 {
 [e :U _sendHSVvalSerial4 ]
 [v _col_val `*S2018 ~T0 @X0 1 r1 ]
 [f ]
-"71
-[; ;serial.c: 71:     char tempStr[21];
+"86
+[; ;serial.c: 86:     char tempStr[21];
 [v _tempStr `uc ~T0 @X0 -> 21 `i a ]
-"73
-[; ;serial.c: 73:     sprintf(tempStr, "%u %u %u \r", col_val->H, col_val->S, col_val->V);
+"88
+[; ;serial.c: 88:     sprintf(tempStr, "%u %u %u \r", col_val->H, col_val->S, col_val->V);
 [e ( _sprintf (1 , , , (. , &U _tempStr :s 6C . *U _col_val 0 . *U _col_val 1 . *U _col_val 2 ]
-"74
-[; ;serial.c: 74:     sendStringSerial4(tempStr);
+"89
+[; ;serial.c: 89:     sendStringSerial4(tempStr);
 [e ( _sendStringSerial4 (1 &U _tempStr ]
-"75
-[; ;serial.c: 75: }
+"90
+[; ;serial.c: 90: }
 [e :UE 2038 ]
 }
 [p f _sprintf 8389760 ]

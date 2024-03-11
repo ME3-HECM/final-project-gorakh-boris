@@ -6,12 +6,12 @@
  */
 
 // CONFIG1L
-#pragma config FEXTOSC = HS     // External Oscillator mode Selection bits (HS (crystal oscillator) above 8 MHz; PFM set to high power)
-#pragma config RSTOSC = EXTOSC_4PLL// Power-up default value for COSC bits (EXTOSC with 4x PLL, with EXTOSC operating per FEXTOSC bits)
+#pragma config FEXTOSC = HS         //External Oscillator mode Selection bits (HS (crystal oscillator) above 8 MHz; PFM set to high power)
+#pragma config RSTOSC = EXTOSC_4PLL //Power-up default value for COSC bits (EXTOSC with 4x PLL, with EXTOSC operating per FEXTOSC bits)
 
 // CONFIG3L
-#pragma config WDTCPS = WDTCPS_31// WDT Period Select bits (Divider ratio 1:65536; software control of WDTPS)
-#pragma config WDTE = OFF        // WDT operating mode (WDT enabled regardless of sleep)
+#pragma config WDTCPS = WDTCPS_31   //WDT Period Select bits (Divider ratio 1:65536; software control of WDTPS)
+#pragma config WDTE = OFF           //WDT operating mode (WDT enabled regardless of sleep)
 
 #include <xc.h>
 #include "dc_motor.h"
@@ -22,7 +22,7 @@
 #include "timers.h"
 #include "calibration.h"
 
-#define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
+#define _XTAL_FREQ 64000000         //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
 void main(void) {
     struct RGBC_val measured_colour;
@@ -37,7 +37,6 @@ void main(void) {
         HSV_colour.V = 0;
     
     unsigned int PWMcycle = 99;    
-    
     struct DC_motor motorL, motorR;
         motorL.power = 0;
         motorL.direction = 1;
@@ -52,6 +51,7 @@ void main(void) {
         motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
         motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
     
+    //initialise lots-a-functions
     initDCmotorsPWM(PWMcycle);
     buggy_lights_init();
     color_click_init();

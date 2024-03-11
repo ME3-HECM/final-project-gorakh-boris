@@ -1,14 +1,15 @@
 #include <xc.h>
 #include "dc_motor.h"
 
-// function initialise T2 and CCP for DC motor control
+/*******************************************************************************
+ * Function initialise T2 and CCP for DC motor control
+*******************************************************************************/
 void initDCmotorsPWM(unsigned int PWMperiod){
     //initialise your TRIS and LAT registers for PWM  
     TRISEbits.TRISE2 = 0;
     TRISEbits.TRISE4 = 0;
     TRISCbits.TRISC7 = 0;
     TRISGbits.TRISG6 = 0;
-    
     LATEbits.LATE2 = 0;
     LATEbits.LATE4 = 0;
     LATCbits.LATC7 = 0;
@@ -31,37 +32,39 @@ void initDCmotorsPWM(unsigned int PWMperiod){
     T2CONbits.ON=1;
     
     //setup CCP modules to output PMW signals
-    //initial duty cycles 
-    CCPR1H=0; 
-    CCPR2H=0; 
-    CCPR3H=0; 
-    CCPR4H=0; 
-    
-    //use tmr2 for all CCP modules used
-    CCPTMRS0bits.C1TSEL=0;
-    CCPTMRS0bits.C2TSEL=0;
-    CCPTMRS0bits.C3TSEL=0;
-    CCPTMRS0bits.C4TSEL=0;
-    
-    //configure each CCP
-    CCP1CONbits.FMT=1; // left aligned duty cycle (we can just use high byte)
-    CCP1CONbits.CCP1MODE=0b1100; //PWM mode  
-    CCP1CONbits.EN=1; //turn on
-    
-    CCP2CONbits.FMT=1; // left aligned
-    CCP2CONbits.CCP2MODE=0b1100; //PWM mode  
-    CCP2CONbits.EN=1; //turn on
-    
-    CCP3CONbits.FMT=1; // left aligned
-    CCP3CONbits.CCP3MODE=0b1100; //PWM mode  
-    CCP3CONbits.EN=1; //turn on
-    
-    CCP4CONbits.FMT=1; // left aligned
-    CCP4CONbits.CCP4MODE=0b1100; //PWM mode  
-    CCP4CONbits.EN=1; //turn on
+        //initial duty cycles 
+        CCPR1H=0; 
+        CCPR2H=0; 
+        CCPR3H=0; 
+        CCPR4H=0; 
+
+        //use tmr2 for all CCP modules used
+        CCPTMRS0bits.C1TSEL=0;
+        CCPTMRS0bits.C2TSEL=0;
+        CCPTMRS0bits.C3TSEL=0;
+        CCPTMRS0bits.C4TSEL=0;
+
+        //configure each CCP
+        CCP1CONbits.FMT=1; // left aligned duty cycle (we can just use high byte)
+        CCP1CONbits.CCP1MODE=0b1100; //PWM mode  
+        CCP1CONbits.EN=1; //turn on
+
+        CCP2CONbits.FMT=1; // left aligned
+        CCP2CONbits.CCP2MODE=0b1100; //PWM mode  
+        CCP2CONbits.EN=1; //turn on
+
+        CCP3CONbits.FMT=1; // left aligned
+        CCP3CONbits.CCP3MODE=0b1100; //PWM mode  
+        CCP3CONbits.EN=1; //turn on
+
+        CCP4CONbits.FMT=1; // left aligned
+        CCP4CONbits.CCP4MODE=0b1100; //PWM mode  
+        CCP4CONbits.EN=1; //turn on
 }
 
-// function to set CCP PWM output from the values in the motor structure
+/*******************************************************************************
+ * Function to set CCP PWM output from the values in the motor structure
+*******************************************************************************/
 void setMotorPWM(DC_motor *m)
 {
     unsigned char posDuty, negDuty; //duty cycle values for different sides of the motor
@@ -84,136 +87,158 @@ void setMotorPWM(DC_motor *m)
     }
 }
 
-//function to stop the robot gradually 
+/*******************************************************************************
+ * Function to stop the robot
+*******************************************************************************/
 void stop(DC_motor *mL, DC_motor *mR)
 {
-    //mL->brakemode = 1;                  //set brake mode, probably not needed but doesn't hurt (so far)
-    //mR->brakemode = 1;                  //set brake mode, probably not needed but doesn't hurt (so far)
-    while ((mL->power>0) || (mR->power>0)){
-        if (mL->power>0) {mL->power--;}
-        if (mR->power>0) {mR->power--;}
+    while ((mL->power>0) || (mR->power>0)){ //loop until both powers are 0
+        if (mL->power>0) {mL->power--;}     //only reduce left power if above 0
+        if (mR->power>0) {mR->power--;}     //only reduce right power if above 0
         setMotorPWM(mL);
         setMotorPWM(mR);
-        __delay_ms(rampDelay);
+        __delay_ms(rampDelay);          //delay allows for smooth deceleration
     }
 }
 
-//function to make the robot turn left 
+/*******************************************************************************
+ * Function to make the robot turn left continuously
+*******************************************************************************/
 void turnLeft(DC_motor *mL, DC_motor *mR)
 {
-    unsigned char leftGear = turningGear; 
-    unsigned char rightGear = turningGear; 
-    (mL->direction) = 0;                //set backward direction
-    (mR->direction) = 1;                //set forward direction
-    while ((mL->power<leftGear) || (mR->power<rightGear)){ //
+    unsigned char leftGear = turningGear;   //set target power of left motor
+    unsigned char rightGear = turningGear;  //set target power of right motor
+    (mL->direction) = 0;                //set backward direction of left motor
+    (mR->direction) = 1;                //set forward direction of right motor
+    while ((mL->power<leftGear) || (mR->power<rightGear)){
         if (mL->power<leftGear) {mL->power++;}
         if (mR->power<rightGear) {mR->power++;}
         setMotorPWM(mL);
         setMotorPWM(mR);
-        __delay_ms(rampDelay);
+        __delay_ms(rampDelay);          //delay allows for smooth deceleration
     }
 }
 
-//function to make the robot turn right 
+/*******************************************************************************
+ * Function to make the robot turn right continuously
+*******************************************************************************/
 void turnRight(DC_motor *mL, DC_motor *mR)
 {
-    unsigned char leftGear = turningGear; 
-    unsigned char rightGear = turningGear; 
-    (mL->direction) = 1;                //set forward direction
-    (mR->direction) = 0;                //set backward direction
-    while ((mL->power<leftGear) || (mR->power<rightGear)){ //
+    unsigned char leftGear = turningGear;   //set target power of left motor
+    unsigned char rightGear = turningGear;  //set target power of right motor
+    (mL->direction) = 1;                //set forward direction of left motor
+    (mR->direction) = 0;                //set backward direction of right motor
+    while ((mL->power<leftGear) || (mR->power<rightGear)){
         if (mL->power<leftGear) {mL->power++;}
         if (mR->power<rightGear) {mR->power++;}
         setMotorPWM(mL);
         setMotorPWM(mR);
-        __delay_ms(rampDelay);
+        __delay_ms(rampDelay);          //delay allows for smooth deceleration
     }
 }
 
-//function to make the robot go straight
+/*******************************************************************************
+ * Function to make the robot go straight continuously
+*******************************************************************************/
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
 {    
-    unsigned char leftGear = topGearLeft; 
-    unsigned char rightGear = topGearRight; 
-    (mL -> direction) = 1;              //set forward direction
-    (mR -> direction) = 1;              //set forward direction
-    while ((mL->power<leftGear) || (mR->power<rightGear)){ //
+    unsigned char leftGear = topGearLeft;   //set target power of left motor
+    unsigned char rightGear = topGearRight; //set target power of right motor
+    (mL->direction) = 1;                //set forward direction of left motor
+    (mR->direction) = 1;                //set forward direction of right motor
+    while ((mL->power<leftGear) || (mR->power<rightGear)){
         if (mL->power<leftGear) {mL->power++;}
         if (mR->power<rightGear) {mR->power++;}
         setMotorPWM(mL);
         setMotorPWM(mR);
-        __delay_ms(rampDelay);
+        __delay_ms(rampDelay);          //delay allows for smooth deceleration
     }
 }
 
-//function to make the robot go reverse
+/*******************************************************************************
+ * Function to make the robot go reverse continuously
+*******************************************************************************/
 void fullSpeedReverse(DC_motor *mL, DC_motor *mR)
 {
-    unsigned char leftGear = topGearLeft; 
-    unsigned char rightGear = topGearRight; 
-    (mL -> direction) = 0;              //set reverse direction
-    (mR -> direction) = 0;              //set reverse direction
-    while ((mL->power<leftGear) || (mR->power<rightGear)){ //
+    unsigned char leftGear = topGearLeft;   //set target power of left motor
+    unsigned char rightGear = topGearRight; //set target power of right motor
+    (mL->direction) = 0;                //set reverse direction of left motor
+    (mR->direction) = 0;                //set reverse direction of right motor
+    while ((mL->power<leftGear) || (mR->power<rightGear)){
         if (mL->power<leftGear) {mL->power++;}
         if (mR->power<rightGear) {mR->power++;}
         setMotorPWM(mL);
         setMotorPWM(mR);
-        __delay_ms(rampDelay);
+        __delay_ms(rampDelay);          //delay allows for smooth deceleration
     }
 }
 
-//function to make the robot turn left for 90 degrees
+/*******************************************************************************
+ * Function to make the robot turn left for 90 degrees
+*******************************************************************************/
 void turnLeft90(DC_motor *mL, DC_motor *mR)
 {
-    turnLeft(mL, mR);
-    __delay_ms(turnLeft90Delay);   //adjust until 90 degrees
-    stop(mL, mR);
+    turnLeft(mL, mR);                   //set motors to continuously turn left
+    __delay_ms(turnLeft90Delay);        //adjust delay until 90 degrees
+    stop(mL, mR);                       //stop motors
 }
 
-//function to make the robot turn right for 90 degrees
+/*******************************************************************************
+ * Function to make the robot turn right for 90 degrees
+*******************************************************************************/
 void turnRight90(DC_motor *mL, DC_motor *mR)
 {
-    turnRight(mL, mR);
-    __delay_ms(turnRight90Delay);   //adjust until 90 degrees
-    stop(mL, mR);
+    turnRight(mL, mR);                  //set motors to continuously turn right
+    __delay_ms(turnRight90Delay);       //adjust delay until 90 degrees
+    stop(mL, mR);                       //stop motors
 }
 
-//function to make the robot turn left for 135 degrees
+/*******************************************************************************
+ * Function to make the robot turn left for 135 degrees
+*******************************************************************************/
 void turnLeft135(DC_motor *mL, DC_motor *mR)
 {
-    turnLeft(mL, mR);
-    __delay_ms(turnLeft135Delay);   //adjust until 135 degrees
-    stop(mL, mR);
+    turnLeft(mL, mR);                   //set motors to continuously turn left
+    __delay_ms(turnLeft135Delay);       //adjust delay until 135 degrees
+    stop(mL, mR);                       //stop motors
 }
 
-//function to make the robot turn right for 135 degrees
+/*******************************************************************************
+ * Function to make the robot turn right for 135 degrees
+*******************************************************************************/
 void turnRight135(DC_motor *mL, DC_motor *mR)
 {
-    turnRight(mL, mR);
-    __delay_ms(turnRight135Delay);  //adjust until 135 degrees
-    stop(mL, mR);
+    turnRight(mL, mR);                  //set motors to continuously turn right
+    __delay_ms(turnRight135Delay);      //adjust delay until 135 degrees
+    stop(mL, mR);                       //stop motors
 }
 
-//function to make the robot turn 180
+/*******************************************************************************
+ * Function to make the robot turn 180 degrees
+*******************************************************************************/
 void UTurn(DC_motor *mL, DC_motor *mR)
 {
-    turnLeft(mL, mR);
-    __delay_ms(turn180Delay);   //adjust until 180 degrees
-    stop(mL, mR);
+    turnLeft(mL, mR);                   //set motors to continuously turn left
+    __delay_ms(turn180Delay);           //adjust delay until 180 degrees
+    stop(mL, mR);                       //stop motors
 }
 
-//function to make the robot reverse from the wall of a square to the centre of the square
+/*******************************************************************************
+ * Function to make the robot reverse from the wall of a square to the centre
+*******************************************************************************/
 void headbuttReverse(DC_motor *mL, DC_motor *mR)
 {
-    fullSpeedReverse(mL, mR);
-    __delay_ms(headbuttDelay);      //adjust until centre of square
-    stop(mL, mR);
+    fullSpeedReverse(mL, mR);           //set motors to continuously go reverse
+    __delay_ms(headbuttDelay);          //adjust delay until centre of square
+    stop(mL, mR);                       //stop motors
 }
 
-//function to make the robot reverse 1 square length
+/*******************************************************************************
+ * Function to make the robot reverse 1 square length
+*******************************************************************************/
 void squareReverse(DC_motor *mL, DC_motor *mR)
 {
-    fullSpeedReverse(mL, mR);
-    __delay_ms(squareDelay);        //adjust until 1 square length
-    stop(mL, mR);
+    fullSpeedReverse(mL, mR);           //set motors to continuously go reverse
+    __delay_ms(squareDelay);            //adjust delay until 1 square length
+    stop(mL, mR);                       //stop motors
 }

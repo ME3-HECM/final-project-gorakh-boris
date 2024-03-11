@@ -24,20 +24,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "20738
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 20738: extern volatile unsigned char CCPR4H __attribute__((address(0xF21)));
 [v _CCPR4H `Vuc ~T0 @X0 0 e@3873 ]
-"34 ./dc_motor.h
-[; ;./dc_motor.h: 34: void initDCmotorsPWM(unsigned int PWMperiod);
+"33 ./dc_motor.h
+[; ;./dc_motor.h: 33: void initDCmotorsPWM(unsigned int PWMperiod);
 [v _initDCmotorsPWM `(v ~T0 @X0 0 ef1`ui ]
-"15 ./buggy_lights.h
-[; ;./buggy_lights.h: 15: void buggy_lights_init(void);
+"8 ./buggy_lights.h
+[; ;./buggy_lights.h: 8: void buggy_lights_init(void);
 [v _buggy_lights_init `(v ~T0 @X0 0 ef ]
-"29 ./color.h
-[; ;./color.h: 29: void color_click_init(void);
+"26 ./color.h
+[; ;./color.h: 26: void color_click_init(void);
 [v _color_click_init `(v ~T0 @X0 0 ef ]
-"10 ./serial.h
-[; ;./serial.h: 10: void initUSART4(void);
+"9 ./serial.h
+[; ;./serial.h: 9: void initUSART4(void);
 [v _initUSART4 `(v ~T0 @X0 0 ef ]
-"35 ./timers.h
-[; ;./timers.h: 35: void Timer0_init(void);
+"40 ./timers.h
+[; ;./timers.h: 40: void Timer0_init(void);
 [v _Timer0_init `(v ~T0 @X0 0 ef ]
 "29383 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29383:     struct {
@@ -129,36 +129,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12319
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 12319: extern volatile ANSELFbits_t ANSELFbits __attribute__((address(0xEB4)));
 [v _ANSELFbits `VS567 ~T0 @X0 0 e@3764 ]
-"22 ./buggy_lights.h
-[; ;./buggy_lights.h: 22: void toggle_tricolour_LED(void);
+"13 ./buggy_lights.h
+[; ;./buggy_lights.h: 13: void toggle_tricolour_LED(void);
 [v _toggle_tricolour_LED `(v ~T0 @X0 0 ef ]
-"66 ./color.h
-[; ;./color.h: 66: void getRGBCval(struct RGBC_val *p);
+"32 ./color.h
+[; ;./color.h: 32: void getRGBCval(struct RGBC_val *p);
 [v _getRGBCval `(v ~T0 @X0 0 ef1`*S2016 ]
-"73
-[; ;./color.h: 73: void scaleRGB(struct RGBC_val *p);
+"37
+[; ;./color.h: 37: void scaleRGB(struct RGBC_val *p);
 [v _scaleRGB `(v ~T0 @X0 0 ef1`*S2016 ]
-"74
-[; ;./color.h: 74: void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
+"38
+[; ;./color.h: 38: void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
 [v _getHSVval `(v ~T0 @X0 0 ef2`*S2017`*S2016 ]
-"16 ./serial.h
-[; ;./serial.h: 16: void sendRGBCvalSerial4(RGBC_val *col_val);
+"15 ./serial.h
+[; ;./serial.h: 15: void sendRGBCvalSerial4(RGBC_val *col_val);
 [v _sendRGBCvalSerial4 `(v ~T0 @X0 0 ef1`*S2016 ]
-"17
-[; ;./serial.h: 17: void sendHSVvalSerial4(HSV_val *col_val);
+"16
+[; ;./serial.h: 16: void sendHSVvalSerial4(HSV_val *col_val);
 [v _sendHSVvalSerial4 `(v ~T0 @X0 0 ef1`*S2017 ]
 [v F205 `(v ~T0 @X0 1 tf1`ul ]
 "20 C:\Program Files\Microchip\xc8\v2.45\pic\include\builtins.h
 [v __delay `JF205 ~T0 @X0 0 e ]
 [p i __delay ]
 "9 main.c
-[p x FEXTOSC  =  HS      ]
+[p x FEXTOSC  =  HS          ]
 "10
-[p x RSTOSC  =  EXTOSC_4PLL ]
+[p x RSTOSC  =  EXTOSC_4PLL  ]
 "13
-[p x WDTCPS  =  WDTCPS_31 ]
+[p x WDTCPS  =  WDTCPS_31    ]
 "14
-[p x WDTE  =  OFF         ]
+[p x WDTE  =  OFF            ]
 "54 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2217,8 +2217,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _return_flag
 -> -> 0 `i `uc
 ]
-"20
-[; ;./timers.h: 20: unsigned char trail_timer_high[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+"13
+[; ;./timers.h: 13: unsigned char lost_flag = 0;
+[v _lost_flag `uc ~T0 @X0 1 e ]
+[i _lost_flag
+-> -> 0 `i `uc
+]
+"23
+[; ;./timers.h: 23: unsigned char trail_timer_high[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 [v _trail_timer_high `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_timer_high
 :U ..
@@ -2244,8 +2250,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"21
-[; ;./timers.h: 21: unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+"24
+[; ;./timers.h: 24: unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 [v _trail_timer_low `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_timer_low
 :U ..
@@ -2271,8 +2277,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"22
-[; ;./timers.h: 22: unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+"25
+[; ;./timers.h: 25: unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 [v _trail_manoeuvre `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_manoeuvre
 :U ..
@@ -2298,26 +2304,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"30
-[; ;./timers.h: 30: unsigned char *timer_high_pointer = &trail_timer_high[0];
+"35
+[; ;./timers.h: 35: unsigned char *timer_high_pointer = &trail_timer_high[0];
 [v _timer_high_pointer `*uc ~T0 @X0 1 e ]
 [i _timer_high_pointer
 &U *U + &U _trail_timer_high * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_timer_high `ui `ux
 ]
-"31
-[; ;./timers.h: 31: unsigned char *timer_low_pointer = &trail_timer_low[0];
+"36
+[; ;./timers.h: 36: unsigned char *timer_low_pointer = &trail_timer_low[0];
 [v _timer_low_pointer `*uc ~T0 @X0 1 e ]
 [i _timer_low_pointer
 &U *U + &U _trail_timer_low * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_timer_low `ui `ux
 ]
-"32
-[; ;./timers.h: 32: unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
+"37
+[; ;./timers.h: 37: unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
 [v _manoeuvre_pointer `*uc ~T0 @X0 1 e ]
 [i _manoeuvre_pointer
 &U *U + &U _trail_manoeuvre * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_manoeuvre `ui `ux
 ]
-"33
-[; ;./timers.h: 33: unsigned char manoeuvre_count = 0;
+"38
+[; ;./timers.h: 38: unsigned char manoeuvre_count = 0;
 [v _manoeuvre_count `uc ~T0 @X0 1 e ]
 [i _manoeuvre_count
 -> -> 0 `i `uc
@@ -2360,45 +2366,45 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 39:     unsigned int PWMcycle = 99;
 [v _PWMcycle `ui ~T0 @X0 1 a ]
 [e = _PWMcycle -> -> 99 `i `ui ]
-"41
-[; ;main.c: 41:     struct DC_motor motorL, motorR;
+"40
+[; ;main.c: 40:     struct DC_motor motorL, motorR;
 [v _motorL `S2015 ~T0 @X0 1 a ]
 [v _motorR `S2015 ~T0 @X0 1 a ]
-"42
-[; ;main.c: 42:         motorL.power = 0;
+"41
+[; ;main.c: 41:         motorL.power = 0;
 [e = . _motorL 0 -> -> 0 `i `uc ]
-"43
-[; ;main.c: 43:         motorL.direction = 1;
+"42
+[; ;main.c: 42:         motorL.direction = 1;
 [e = . _motorL 1 -> -> 1 `i `uc ]
-"44
-[; ;main.c: 44:         motorL.brakemode = 1;
+"43
+[; ;main.c: 43:         motorL.brakemode = 1;
 [e = . _motorL 2 -> -> 1 `i `uc ]
-"45
-[; ;main.c: 45:         motorL.PWMperiod = PWMcycle;
+"44
+[; ;main.c: 44:         motorL.PWMperiod = PWMcycle;
 [e = . _motorL 3 _PWMcycle ]
-"46
-[; ;main.c: 46:         motorL.posDutyHighByte = (unsigned char *)(&CCPR1H);
+"45
+[; ;main.c: 45:         motorL.posDutyHighByte = (unsigned char *)(&CCPR1H);
 [e = . _motorL 4 -> &U _CCPR1H `*uc ]
-"47
-[; ;main.c: 47:         motorL.negDutyHighByte = (unsigned char *)(&CCPR2H);
+"46
+[; ;main.c: 46:         motorL.negDutyHighByte = (unsigned char *)(&CCPR2H);
 [e = . _motorL 5 -> &U _CCPR2H `*uc ]
-"48
-[; ;main.c: 48:         motorR.power = 0;
+"47
+[; ;main.c: 47:         motorR.power = 0;
 [e = . _motorR 0 -> -> 0 `i `uc ]
-"49
-[; ;main.c: 49:         motorR.direction = 1;
+"48
+[; ;main.c: 48:         motorR.direction = 1;
 [e = . _motorR 1 -> -> 1 `i `uc ]
-"50
-[; ;main.c: 50:         motorR.brakemode = 1;
+"49
+[; ;main.c: 49:         motorR.brakemode = 1;
 [e = . _motorR 2 -> -> 1 `i `uc ]
-"51
-[; ;main.c: 51:         motorR.PWMperiod = PWMcycle;
+"50
+[; ;main.c: 50:         motorR.PWMperiod = PWMcycle;
 [e = . _motorR 3 _PWMcycle ]
-"52
-[; ;main.c: 52:         motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
+"51
+[; ;main.c: 51:         motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
 [e = . _motorR 4 -> &U _CCPR3H `*uc ]
-"53
-[; ;main.c: 53:         motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
+"52
+[; ;main.c: 52:         motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
 [e = . _motorR 5 -> &U _CCPR4H `*uc ]
 "55
 [; ;main.c: 55:     initDCmotorsPWM(PWMcycle);

@@ -24139,7 +24139,6 @@ unsigned int turn180Delay = 510;
 unsigned int headbuttDelay = 70;
 unsigned int squareDelay = 300;
 
-
 void initDCmotorsPWM(unsigned int PWMperiod);
 void setMotorPWM(DC_motor *m);
 
@@ -24159,19 +24158,30 @@ void squareReverse(DC_motor *mL, DC_motor *mR);
 # 17 "main.c" 2
 
 # 1 "./buggy_lights.h" 1
-# 15 "./buggy_lights.h"
-void buggy_lights_init(void);
 
+
+
+
+
+
+
+void buggy_lights_init(void);
 void toggle_brake_lights(void);
 void toggle_main_beam(void);
 void toggle_left_indicators(void);
 void toggle_right_indicators(void);
-
 void toggle_tricolour_LED(void);
 # 18 "main.c" 2
 
 # 1 "./manoeuvres.h" 1
-# 13 "./manoeuvres.h"
+
+
+
+
+
+
+
+
 void card_red(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void card_green(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void card_blue(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
@@ -24180,8 +24190,6 @@ void card_pink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void card_orange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void card_cyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void card_white(DC_motor *mL, DC_motor *mR);
-
-
 void pick_card(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
 # 19 "main.c" 2
 
@@ -24245,51 +24253,15 @@ typedef struct HSV_val {
     unsigned int V;
 } HSV_val;
 
-
-
-
 void color_click_init(void);
-
-
-
-
-
-
 void color_writetoaddr(char address, char value);
-
-
-
-
-
 unsigned int color_read_Red(void);
-
-
-
-
-
 unsigned int color_read_Green(void);
-
-
-
-
-
 unsigned int color_read_Blue(void);
-
-
-
-
-
 unsigned int color_read_Clear(void);
-
-
-
-
-
 void getRGBCval(struct RGBC_val *p);
 
 void wait_for_wall(struct RGBC_val *p);
-unsigned int max(unsigned int a, unsigned int b);
-unsigned int min(unsigned int a, unsigned int b);
 unsigned int maxRGB(struct RGBC_val *p);
 unsigned int minRGB(struct RGBC_val *p);
 void scaleRGB(struct RGBC_val *p);
@@ -24297,7 +24269,14 @@ void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
 # 20 "main.c" 2
 
 # 1 "./serial.h" 1
-# 10 "./serial.h"
+
+
+
+
+
+
+
+
 void initUSART4(void);
 char getCharSerial4(void);
 void sendCharSerial4(char charToSend);
@@ -24312,23 +24291,12 @@ void sendHSVvalSerial4(HSV_val *col_val);
 # 11 "./timers.h"
 unsigned char returning = 0;
 unsigned char return_flag = 0;
-
-
-
-
-
-
-
+unsigned char lost_flag = 0;
+# 23 "./timers.h"
 unsigned char trail_timer_high[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-
-
-
-
-
-
-
+# 35 "./timers.h"
 unsigned char *timer_high_pointer = &trail_timer_high[0];
 unsigned char *timer_low_pointer = &trail_timer_low[0];
 unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
@@ -24350,7 +24318,14 @@ void __attribute__((picinterrupt(("")))) ISR();
 # 22 "main.c" 2
 
 # 1 "./calibration.h" 1
-# 16 "./calibration.h"
+
+
+
+
+
+
+
+
 void test_manoeuvres(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 # 23 "main.c" 2
 
@@ -24370,7 +24345,6 @@ void main(void) {
         HSV_colour.V = 0;
 
     unsigned int PWMcycle = 99;
-
     struct DC_motor motorL, motorR;
         motorL.power = 0;
         motorL.direction = 1;
@@ -24384,6 +24358,7 @@ void main(void) {
         motorR.PWMperiod = PWMcycle;
         motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
         motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
+
 
     initDCmotorsPWM(PWMcycle);
     buggy_lights_init();
