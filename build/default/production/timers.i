@@ -24238,7 +24238,7 @@ unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
 void getRGBCval(struct RGBC_val *p);
 
-void wait_for_wall(struct RGBC_val *p);
+void wait_for_wall(struct RGBC_val *p, unsigned char loss);
 unsigned int maxRGB(struct RGBC_val *p);
 unsigned int minRGB(struct RGBC_val *p);
 void scaleRGB(struct RGBC_val *p);
@@ -24389,21 +24389,40 @@ void write_trail(unsigned char tH, unsigned char tL, unsigned char man)
 
 void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col)
 {
-    unsigned char timerH = 0;
-    unsigned char timerL = 0;
-    unsigned char mann = 0;
-    reset_timer();
-    fullSpeedAhead(mL, mR);
-    wait_for_wall(col);
-    read_timer(&timerH, &timerL);
-    stop(mL, mR);
+    while (!returning) {
+        unsigned char timerH = 0;
+        unsigned char timerL = 0;
+        unsigned char mann = 0;
+
+        reset_timer();
+        fullSpeedAhead(mL, mR);
+
+        wait_for_wall(col, lost_flag);
+
+        read_timer(&timerH, &timerL);
+        stop(mL, mR);
+# 121 "timers.c"
+        if (lost_flag) {
+            timerH = 0b11111111;
+            timerL = 0b11111111;
+            mann = 8;
+        } else {
 
 
 
-    write_trail(timerH, timerL, mann);
-    sendArrayCharSerial4(trail_timer_high);
-    sendArrayCharSerial4(trail_timer_low);
-    sendArrayCharSerial4(trail_manoeuvre);
+        }
+
+        write_trail(timerH, timerL, mann);
+        pick_card(mL, mR, returning, mann);
+
+        if (mann == 8) {
+            returning = 1;
+        }
+
+        sendArrayCharSerial4(trail_timer_high);
+        sendArrayCharSerial4(trail_timer_low);
+        sendArrayCharSerial4(trail_manoeuvre);
+    }
 }
 
 
@@ -24415,6 +24434,7 @@ void return_to_sender(DC_motor *mL, DC_motor *mR)
         unsigned char timerH = 0;
         unsigned char timerL = 0;
         unsigned char mann = 0;
+
         read_trail(&timerH, &timerL, &mann);
         sendIntSerial4(timerH);
         sendIntSerial4(timerL);
@@ -24422,9 +24442,12 @@ void return_to_sender(DC_motor *mL, DC_motor *mR)
         if (mann != 8) {
             pick_card(mL, mR, returning, mann);
         }
+
         write_timer(0b11111111 - timerH, 0b11111111 - timerL);
         fullSpeedAhead(mL, mR);
+
         while (!return_flag);
+
         stop(mL, mR);
         return_flag = 0;
     }

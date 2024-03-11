@@ -24158,7 +24158,7 @@ unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
 void getRGBCval(struct RGBC_val *p);
 
-void wait_for_wall(struct RGBC_val *p);
+void wait_for_wall(struct RGBC_val *p, unsigned char loss);
 unsigned int maxRGB(struct RGBC_val *p);
 unsigned int minRGB(struct RGBC_val *p);
 void scaleRGB(struct RGBC_val *p);
@@ -24287,9 +24287,9 @@ void getRGBCval(struct RGBC_val *p)
 
 
 
-void wait_for_wall(struct RGBC_val *p)
+void wait_for_wall(struct RGBC_val *p, unsigned char loss)
 {
-    while (1) {
+    while (!loss) {
         getRGBCval(p);
         if (p->C < wall_threshold) {
             break;
@@ -24437,6 +24437,6 @@ unsigned char RGBC2key(struct RGBC_val *p)
     if (((p->R >= 2850)&&(p->R <= 3855)) && ((p->G >= 602)&&(p->G <= 814)) && ((p->B >= 1144)&&(p->B <= 1548))) {
         key = 1;
     }
+# 330 "color.c"
     return key;
-# 332 "color.c"
 }

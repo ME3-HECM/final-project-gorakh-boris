@@ -121,9 +121,9 @@ void getRGBCval(struct RGBC_val *p)
 /*******************************************************************************
  * Function to wait until clear channel reaches threshold or lost flag appears
 *******************************************************************************/
-void wait_for_wall(struct RGBC_val *p)
+void wait_for_wall(struct RGBC_val *p, unsigned char loss)
 {
-    while (1) {
+    while (!loss) {                     //loop while lost flag isn't raised
         getRGBCval(p);                  //read RGBC values from colour click
         if (p->C < wall_threshold) {    //if clear channel drops below threshold
             break;                      //break loop and proceed

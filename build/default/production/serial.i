@@ -24317,7 +24317,7 @@ unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
 void getRGBCval(struct RGBC_val *p);
 
-void wait_for_wall(struct RGBC_val *p);
+void wait_for_wall(struct RGBC_val *p, unsigned char loss);
 unsigned int maxRGB(struct RGBC_val *p);
 unsigned int minRGB(struct RGBC_val *p);
 void scaleRGB(struct RGBC_val *p);

@@ -2283,20 +2283,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2023 ]
 }
 "124
-[; ;color.c: 124: void wait_for_wall(struct RGBC_val *p)
-[v _wait_for_wall `(v ~T0 @X0 1 ef1`*S2015 ]
+[; ;color.c: 124: void wait_for_wall(struct RGBC_val *p, unsigned char loss)
+[v _wait_for_wall `(v ~T0 @X0 1 ef2`*S2015`uc ]
 "125
 [; ;color.c: 125: {
 {
 [e :U _wait_for_wall ]
 "124
-[; ;color.c: 124: void wait_for_wall(struct RGBC_val *p)
+[; ;color.c: 124: void wait_for_wall(struct RGBC_val *p, unsigned char loss)
 [v _p `*S2015 ~T0 @X0 1 r1 ]
+[v _loss `uc ~T0 @X0 1 r2 ]
 "125
 [; ;color.c: 125: {
 [f ]
 "126
-[; ;color.c: 126:     while (1) {
+[; ;color.c: 126:     while (!loss) {
+[e $U 2025  ]
 [e :U 2026 ]
 {
 "127
@@ -2317,7 +2319,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;color.c: 131:     }
 }
 [e :U 2025 ]
-[e $U 2026  ]
+"126
+[; ;color.c: 126:     while (!loss) {
+[e $ ! != -> _loss `i -> 0 `i 2026  ]
 [e :U 2027 ]
 "132
 [; ;color.c: 132:     LATDbits.LATD7 = !LATDbits.LATD7;
@@ -2754,11 +2758,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;color.c: 289:     }
 }
 [e :U 2051 ]
-"290
-[; ;color.c: 290:     return key;
+"330
+[; ;color.c: 330:     return key;
 [e ) _key ]
 [e $UE 2050  ]
-"332
-[; ;color.c: 332: }
+"331
+[; ;color.c: 331: }
 [e :UE 2050 ]
 }
