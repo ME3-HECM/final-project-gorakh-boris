@@ -24213,6 +24213,7 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 
 
 
+unsigned char sample_count = 20;
 unsigned int wall_threshold = 300;
 
 
@@ -24238,12 +24239,13 @@ unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
 void getRGBCval(struct RGBC_val *p);
 
+void average_RGBC(struct RGBC_val *p);
 void wait_for_wall(struct RGBC_val *p, unsigned char loss);
-unsigned int maxRGB(struct RGBC_val *p);
-unsigned int minRGB(struct RGBC_val *p);
-void scaleRGB(struct RGBC_val *p);
-void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
-unsigned char RGBC2key(struct HSV_val *p1, struct RGBC_val *p2);
+unsigned int max_RGB(struct RGBC_val *p);
+unsigned int min_RGB(struct RGBC_val *p);
+void scale_RGB(struct RGBC_val *p);
+void convert_HSV(struct HSV_val *p1, struct RGBC_val *p2);
+unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2);
 # 5 "./serial.h" 2
 
 
@@ -24285,7 +24287,7 @@ void reset_timer(void);
 void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man);
 void write_trail(unsigned char tH, unsigned char tL, unsigned char man);
 
-void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col);
+void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2);
 void return_to_sender(DC_motor *mL, DC_motor *mR);
 
 void __attribute__((picinterrupt(("")))) ISR();
@@ -24387,7 +24389,7 @@ void write_trail(unsigned char tH, unsigned char tL, unsigned char man)
 
 
 
-void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col)
+void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
 {
     while (!returning) {
         unsigned char timerH = 0;
@@ -24397,7 +24399,7 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col)
         reset_timer();
         fullSpeedAhead(mL, mR);
 
-        wait_for_wall(col, lost_flag);
+        wait_for_wall(p2, lost_flag);
 
         read_timer(&timerH, &timerL);
         stop(mL, mR);
@@ -24410,6 +24412,12 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col)
 
 
 
+            average_RGBC(p2);
+            scale_RGB(p2);
+
+            convert_HSV(p1, p2);
+
+            mann = colour_to_key(p1, p2);
         }
 
         write_trail(timerH, timerL, mann);

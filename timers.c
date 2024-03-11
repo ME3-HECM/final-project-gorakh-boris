@@ -96,7 +96,7 @@ void write_trail(unsigned char tH, unsigned char tL, unsigned char man)
 /*******************************************************************************
  * Integrated function for forward navigation in maze
 *******************************************************************************/
-void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col)
+void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
 {
     while (!returning) {                //loop while not returning to start
         unsigned char timerH = 0;       //temporary timer high variable
@@ -106,7 +106,7 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col)
         reset_timer();
         fullSpeedAhead(mL, mR);         //go forward continuously
         
-        wait_for_wall(col, lost_flag);  //wait until wall detected or lost flag
+        wait_for_wall(p2, lost_flag);  //wait until wall detected or lost flag
         
         read_timer(&timerH, &timerL);
         stop(mL, mR);                   //stop motors
@@ -126,6 +126,12 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col)
             /*
             CODE TO READ COLOUR AND DETERMINE MANN
             */
+            average_RGBC(p2);
+            scale_RGB(p2);
+            
+            convert_HSV(p1, p2);
+            
+            mann = colour_to_key(p1, p2);
         }
         
         write_trail(timerH, timerL, mann);          //write variables to memory

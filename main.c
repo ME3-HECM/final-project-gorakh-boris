@@ -25,11 +25,11 @@
 #define _XTAL_FREQ 64000000         //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
 void main(void) {
-    struct RGBC_val measured_colour;
-        measured_colour.R = 0;
-        measured_colour.G = 0;
-        measured_colour.B = 0;
-        measured_colour.C = 0;
+    struct RGBC_val RGBC_colour;
+        RGBC_colour.R = 0;
+        RGBC_colour.G = 0;
+        RGBC_colour.B = 0;
+        RGBC_colour.C = 0;
     
     struct HSV_val HSV_colour;
         HSV_colour.H = 0;
@@ -80,17 +80,14 @@ void main(void) {
     LATHbits.LATH3 = !LATHbits.LATH3;   //toggle RH3 LED for debugging
     toggle_tricolour_LED();
     
-    //forward_navigation(&motorL, &motorR, &measured_colour);
+    //forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
     
     while (1) {
-        getRGBCval(&measured_colour);
-        scaleRGB(&measured_colour);
-        //measured_colour.R = xxxxx;
-        //measured_colour.G = xxxxx;
-        //measured_colour.B = xxxxx;
-        getHSVval(&HSV_colour, &measured_colour);
-        sendRGBCvalSerial4(&measured_colour);
+        average_RGBC(&RGBC_colour);
+        scale_RGB(&RGBC_colour);
+        convert_HSV(&HSV_colour, &RGBC_colour);
+        sendRGBCvalSerial4(&RGBC_colour);
         sendHSVvalSerial4(&HSV_colour);
-        __delay_ms(1000);
+        __delay_ms(500);
     }
 }

@@ -24133,6 +24133,7 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 
 
 
+unsigned char sample_count = 20;
 unsigned int wall_threshold = 300;
 
 
@@ -24158,12 +24159,13 @@ unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
 void getRGBCval(struct RGBC_val *p);
 
+void average_RGBC(struct RGBC_val *p);
 void wait_for_wall(struct RGBC_val *p, unsigned char loss);
-unsigned int maxRGB(struct RGBC_val *p);
-unsigned int minRGB(struct RGBC_val *p);
-void scaleRGB(struct RGBC_val *p);
-void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
-unsigned char RGBC2key(struct HSV_val *p1, struct RGBC_val *p2);
+unsigned int max_RGB(struct RGBC_val *p);
+unsigned int min_RGB(struct RGBC_val *p);
+void scale_RGB(struct RGBC_val *p);
+void convert_HSV(struct HSV_val *p1, struct RGBC_val *p2);
+unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2);
 # 2 "color.c" 2
 
 
@@ -24287,6 +24289,39 @@ void getRGBCval(struct RGBC_val *p)
 
 
 
+void average_RGBC(struct RGBC_val *p)
+{
+
+    unsigned long temp_R = 0;
+    unsigned long temp_G = 0;
+    unsigned long temp_B = 0;
+    unsigned long temp_C = 0;
+
+    for (unsigned char i; i < sample_count; i++) {
+        getRGBCval(p);
+
+        temp_R += (unsigned long)p->R;
+        temp_G += (unsigned long)p->G;
+        temp_B += (unsigned long)p->B;
+        temp_C += (unsigned long)p->C;
+    }
+
+
+    temp_R /= (unsigned long)sample_count;
+    temp_G /= (unsigned long)sample_count;
+    temp_B /= (unsigned long)sample_count;
+    temp_C /= (unsigned long)sample_count;
+
+
+    p->R = (unsigned int)temp_R;
+    p->G = (unsigned int)temp_G;
+    p->B = (unsigned int)temp_B;
+    p->C = (unsigned int)temp_C;
+}
+
+
+
+
 void wait_for_wall(struct RGBC_val *p, unsigned char loss)
 {
     while (!loss) {
@@ -24301,7 +24336,7 @@ void wait_for_wall(struct RGBC_val *p, unsigned char loss)
 
 
 
-unsigned int maxRGB(struct RGBC_val *p)
+unsigned int max_RGB(struct RGBC_val *p)
 {
     unsigned int max_val = p->R;
     if (p->G > max_val) {max_val = p->G;}
@@ -24312,7 +24347,7 @@ unsigned int maxRGB(struct RGBC_val *p)
 
 
 
-unsigned int minRGB(struct RGBC_val *p)
+unsigned int min_RGB(struct RGBC_val *p)
 {
     unsigned int min_val = p->R;
     if (p->G < min_val) {min_val = p->G;}
@@ -24323,7 +24358,7 @@ unsigned int minRGB(struct RGBC_val *p)
 
 
 
-void scaleRGB(struct RGBC_val *p)
+void scale_RGB(struct RGBC_val *p)
 {
     p->R *= 0.5;
     p->G *= 0.7;
@@ -24335,21 +24370,21 @@ void scaleRGB(struct RGBC_val *p)
 
 
 
-void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
+void convert_HSV(struct HSV_val *p1,struct RGBC_val *p2)
 {
     unsigned int hue = 0;
     unsigned int sat = 0;
     unsigned int hue_scale = 60;
     unsigned int sat_scale = 100;
 
-    unsigned int M = maxRGB(p2);
-    unsigned int m = minRGB(p2);
+    unsigned int M = max_RGB(p2);
+    unsigned int m = min_RGB(p2);
     unsigned int C = M - m;
 
     if (C == 0) {
         hue = 0;
     } else {
-# 195 "color.c"
+# 228 "color.c"
         if (M == p2->R) {
             if (p2->G >= p2->B) {
 
@@ -24430,8 +24465,8 @@ void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
     p1->S = sat;
     p1->V = M;
 }
-# 284 "color.c"
-unsigned char RGBC2key(struct HSV_val *p1, struct RGBC_val *p2)
+# 317 "color.c"
+unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2)
 {
     unsigned char key = 0;
     if ( ((p1->H >= 293) && (p1->H <= 360)) &&
@@ -24444,46 +24479,40 @@ unsigned char RGBC2key(struct HSV_val *p1, struct RGBC_val *p2)
         key = 2;
     }
 
-
     if ( ((p1->H >= 180) && (p1->H <= 244)) &&
          ((p1->S >= 42) && (p1->S <= 56))) {
         key = 3;
     }
-
 
     if ( ((p1->H >= 10) && (p1->H <= 31)) &&
          ((p1->S >= 17) && (p1->S <= 32))) {
         key = 4;
     }
 
-
     if ( ((p1->H >= 279) && (p1->H <= 377)) &&
          ((p1->S >= 11) && (p1->S <= 15))) {
         key = 5;
     }
-
 
     if ( ((p1->H >= 298) && (p1->H <= 360)) &&
          ((p1->S >= 20) && (p1->S <= 45))) {
         key = 6;
     }
 
-
     if ( ((p1->H >= 153) && (p1->H <= 207)) &&
          ((p1->S >= 33) && (p1->S <= 45))) {
         key = 7;
     }
-
 
     if ( ((p2->C >= 3000) && (p2->C <= 40000)) &&
          (p1->S <= 10)) {
         key = 8;
     }
 
-
     if ( ((p2->C >= 1000) && (p2->C <= 2600)) &&
          (p1->S <= 12)) {
         key = 9;
     }
+
     return key;
 }

@@ -6,6 +6,7 @@
 
 #define _XTAL_FREQ 64000000
 
+unsigned char sample_count = 20;
 unsigned int wall_threshold = 300;
 
 //define RGBC structure
@@ -31,10 +32,11 @@ unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
 void getRGBCval(struct RGBC_val *p);
 
+void average_RGBC(struct RGBC_val *p);
 void wait_for_wall(struct RGBC_val *p, unsigned char loss);
-unsigned int maxRGB(struct RGBC_val *p);
-unsigned int minRGB(struct RGBC_val *p);
-void scaleRGB(struct RGBC_val *p);
-void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
-unsigned char RGBC2key(struct HSV_val *p1, struct RGBC_val *p2);
+unsigned int max_RGB(struct RGBC_val *p);
+unsigned int min_RGB(struct RGBC_val *p);
+void scale_RGB(struct RGBC_val *p);
+void convert_HSV(struct HSV_val *p1, struct RGBC_val *p2);
+unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2);
 #endif

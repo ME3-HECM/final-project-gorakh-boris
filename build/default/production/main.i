@@ -24236,6 +24236,7 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 
 
 
+unsigned char sample_count = 20;
 unsigned int wall_threshold = 300;
 
 
@@ -24261,12 +24262,13 @@ unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
 void getRGBCval(struct RGBC_val *p);
 
+void average_RGBC(struct RGBC_val *p);
 void wait_for_wall(struct RGBC_val *p, unsigned char loss);
-unsigned int maxRGB(struct RGBC_val *p);
-unsigned int minRGB(struct RGBC_val *p);
-void scaleRGB(struct RGBC_val *p);
-void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
-unsigned char RGBC2key(struct HSV_val *p1, struct RGBC_val *p2);
+unsigned int max_RGB(struct RGBC_val *p);
+unsigned int min_RGB(struct RGBC_val *p);
+void scale_RGB(struct RGBC_val *p);
+void convert_HSV(struct HSV_val *p1, struct RGBC_val *p2);
+unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2);
 # 20 "main.c" 2
 
 # 1 "./serial.h" 1
@@ -24312,7 +24314,7 @@ void reset_timer(void);
 void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man);
 void write_trail(unsigned char tH, unsigned char tL, unsigned char man);
 
-void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col);
+void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2);
 void return_to_sender(DC_motor *mL, DC_motor *mR);
 
 void __attribute__((picinterrupt(("")))) ISR();
@@ -24334,11 +24336,11 @@ void test_manoeuvres(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 
 
 void main(void) {
-    struct RGBC_val measured_colour;
-        measured_colour.R = 0;
-        measured_colour.G = 0;
-        measured_colour.B = 0;
-        measured_colour.C = 0;
+    struct RGBC_val RGBC_colour;
+        RGBC_colour.R = 0;
+        RGBC_colour.G = 0;
+        RGBC_colour.B = 0;
+        RGBC_colour.C = 0;
 
     struct HSV_val HSV_colour;
         HSV_colour.H = 0;
@@ -24392,14 +24394,11 @@ void main(void) {
 
 
     while (1) {
-        getRGBCval(&measured_colour);
-        scaleRGB(&measured_colour);
-
-
-
-        getHSVval(&HSV_colour, &measured_colour);
-        sendRGBCvalSerial4(&measured_colour);
+        average_RGBC(&RGBC_colour);
+        scale_RGB(&RGBC_colour);
+        convert_HSV(&HSV_colour, &RGBC_colour);
+        sendRGBCvalSerial4(&RGBC_colour);
         sendHSVvalSerial4(&HSV_colour);
-        _delay((unsigned long)((1000)*(64000000/4000.0)));
+        _delay((unsigned long)((500)*(64000000/4000.0)));
     }
 }

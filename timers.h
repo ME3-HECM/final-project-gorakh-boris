@@ -46,7 +46,7 @@ void reset_timer(void);
 void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man);
 void write_trail(unsigned char tH, unsigned char tL, unsigned char man);
 
-void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col);
+void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2);
 void return_to_sender(DC_motor *mL, DC_motor *mR);
 
 void __interrupt() ISR();
