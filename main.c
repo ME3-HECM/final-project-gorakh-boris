@@ -6,12 +6,12 @@
  */
 
 // CONFIG1L
-#pragma config FEXTOSC = HS     // External Oscillator mode Selection bits (HS (crystal oscillator) above 8 MHz; PFM set to high power)
-#pragma config RSTOSC = EXTOSC_4PLL// Power-up default value for COSC bits (EXTOSC with 4x PLL, with EXTOSC operating per FEXTOSC bits)
+#pragma config FEXTOSC = HS         //External Oscillator mode Selection bits (HS (crystal oscillator) above 8 MHz; PFM set to high power)
+#pragma config RSTOSC = EXTOSC_4PLL //Power-up default value for COSC bits (EXTOSC with 4x PLL, with EXTOSC operating per FEXTOSC bits)
 
 // CONFIG3L
-#pragma config WDTCPS = WDTCPS_31// WDT Period Select bits (Divider ratio 1:65536; software control of WDTPS)
-#pragma config WDTE = OFF        // WDT operating mode (WDT enabled regardless of sleep)
+#pragma config WDTCPS = WDTCPS_31   //WDT Period Select bits (Divider ratio 1:65536; software control of WDTPS)
+#pragma config WDTE = OFF           //WDT operating mode (WDT enabled regardless of sleep)
 
 #include <xc.h>
 #include "dc_motor.h"
@@ -22,9 +22,7 @@
 #include "timers.h"
 #include "calibration.h"
 
-#define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
-#define SERIALLOG 0
-#define MOVETEST 0
+#define _XTAL_FREQ 64000000         //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
 void main(void) {
     struct RGBC_val measured_colour;
@@ -39,7 +37,6 @@ void main(void) {
         HSV_colour.V = 0;
     
     unsigned int PWMcycle = 99;    
-    
     struct DC_motor motorL, motorR;
         motorL.power = 0;
         motorL.direction = 1;
@@ -54,6 +51,7 @@ void main(void) {
         motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
         motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
     
+    //initialise lots-a-functions
     initDCmotorsPWM(PWMcycle);
     buggy_lights_init();
     color_click_init();
@@ -75,9 +73,8 @@ void main(void) {
         //set up pin analogue/digital inputs (0 for digital)
         ANSELFbits.ANSELF2 = 0;
         ANSELFbits.ANSELF3 = 0;
-#if MOVETEST
-    test_manoeuvres(&motorL, &motorR, returning);
-#endif
+    
+    //test_manoeuvres(&motorL, &motorR, returning);
     
     //while (PORTFbits.RF3);              //wait until RF3 is pressed
     LATHbits.LATH3 = !LATHbits.LATH3;   //toggle RH3 LED for debugging
@@ -85,20 +82,15 @@ void main(void) {
     
     //forward_navigation(&motorL, &motorR, &measured_colour);
     
-    while (1) 
-    {
-
+    while (1) {
         getRGBCval(&measured_colour);
         scaleRGB(&measured_colour);
         //measured_colour.R = xxxxx;
         //measured_colour.G = xxxxx;
         //measured_colour.B = xxxxx;
         getHSVval(&HSV_colour, &measured_colour);
-#if SERIALLOG 
         sendRGBCvalSerial4(&measured_colour);
         sendHSVvalSerial4(&HSV_colour);
-#endif
-        RGBC2colourcard(&measured_colour);
-        //__delay_ms(1000);
+        __delay_ms(1000);
     }
 }

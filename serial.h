@@ -4,9 +4,8 @@
 #include <xc.h>
 #include "color.h"
 
-#define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
+#define _XTAL_FREQ 64000000
 
-//basic EUSART functions
 void initUSART4(void);
 char getCharSerial4(void);
 void sendCharSerial4(char charToSend);

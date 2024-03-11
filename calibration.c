@@ -1,6 +1,9 @@
 #include <xc.h>
 #include "calibration.h"
 
+/*******************************************************************************
+ * Function to call manoeuvres.c functions for testing and debugging
+*******************************************************************************/
 void test_manoeuvres(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 {
     //card_red(mL, mR, backtrack);

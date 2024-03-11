@@ -1,9 +1,12 @@
 #include <xc.h>
 #include "buggy_lights.h"
 
+/*******************************************************************************
+ * Function to set up pin outs to lights on the buggy
+*******************************************************************************/
 void buggy_lights_init(void)
 {
-    //initialise car lights on the buggy
+    //initialise car lights
         //set up TRIS registers (0 for output)
         TRISDbits.TRISD4 = 0;               //BRAKE pin
         TRISHbits.TRISH1 = 0;               //HEADLAMPS pin
@@ -17,8 +20,7 @@ void buggy_lights_init(void)
         LATFbits.LATF0 = 0;                 //TURN L pin
         LATHbits.LATH0 = 0;                 //TURN R pin
     
-    //initialise the tricolour LED pins on the colour board
-    //colour click mounted on buggy
+    //initialise the tricolour LED on the colour click
         //colour click mounted on mikroBUS1 on buggy
             //set up TRIS registers (0 for output)
             TRISGbits.TRISG1 = 0;               //red LED pin
@@ -38,78 +40,57 @@ void buggy_lights_init(void)
             LATGbits.LATG0 = 0;                 //red LED pin
             LATEbits.LATE7 = 0;                 //green LED pin
             LATAbits.LATA3 = 0;                 //blue LED pin
-    
-    /*
-    //colour click mounted on clicker board
-        //colour click mounted on mikroBUS1 on clicker board
-            //set up TRIS registers (0 for output)
-            TRISAbits.TRISA0 = 0;               //red LED pin
-            TRISCbits.TRISC2 = 0;               //green LED pin
-            TRISDbits.TRISD0 = 0;               //blue LED pin
-            //set up initial LAT values
-            LATAbits.LATA0 = 0;                 //red LED pin
-            LATCbits.LATC2 = 0;                 //green LED pin
-            LATDbits.LATD0 = 0;                 //blue LED pin
-
-        //colour click mounted on mikroBUS2 on clicker board
-            //set up TRIS registers (0 for output)
-            TRISAbits.TRISA1 = 0;               //red LED pin
-            TRISCbits.TRISC6 = 0;               //green LED pin
-            TRISHbits.TRISH2 = 0;               //blue LED pin
-            //set up initial LAT values
-            LATAbits.LATA1 = 0;                 //red LED pin
-            LATCbits.LATC6 = 0;                 //green LED pin
-            LATHbits.LATH2 = 0;                 //blue LED pin
-    */
 }
 
+/*******************************************************************************
+ * Function to toggle the brake lights
+*******************************************************************************/
 void toggle_brake_lights(void)
 {
+    //toggle the LAT value
     LATDbits.LATD4 = !LATDbits.LATD4;
 }
 
+/*******************************************************************************
+ * Function to toggle the main beam
+*******************************************************************************/
 void toggle_main_beam(void)
 {
+    //toggle the LAT value
     LATDbits.LATD3 = !LATDbits.LATD3;
 }
 
+/*******************************************************************************
+ * Function to toggle the left indicators
+*******************************************************************************/
 void toggle_left_indicators(void)
 {
+    //toggle the LAT value
     LATFbits.LATF0 = !LATFbits.LATF0;
 }
 
+/*******************************************************************************
+ * Function to toggle the right indicators
+*******************************************************************************/
 void toggle_right_indicators(void)
 {
+    //toggle the LAT value
     LATHbits.LATH0 = !LATHbits.LATH0;
 }
 
+/*******************************************************************************
+ * Function to toggle the tricolour LED on the colour click
+*******************************************************************************/
 void toggle_tricolour_LED(void)
 {
-    //colour click mounted on buggy
+    //toggle the LAT values
         //colour click mounted on mikroBUS1 on buggy
-            //set up initial LAT values
-            LATGbits.LATG1 = !LATGbits.LATG1;                 //red LED pin
-            LATAbits.LATA4 = !LATAbits.LATA4;                 //green LED pin
-            LATFbits.LATF7 = !LATFbits.LATF7;                 //blue LED pin
+        LATGbits.LATG1 = !LATGbits.LATG1;                 //red LED pin
+        LATAbits.LATA4 = !LATAbits.LATA4;                 //green LED pin
+        LATFbits.LATF7 = !LATFbits.LATF7;                 //blue LED pin
 
         //colour click mounted on mikroBUS2 on buggy
-            //set up initial LAT values
-            LATGbits.LATG0 = !LATGbits.LATG0;                 //red LED pin
-            LATEbits.LATE7 = !LATEbits.LATE7;                 //green LED pin
-            LATAbits.LATA3 = !LATAbits.LATA3;                 //blue LED pin
-    
-    /*
-    //colour click mounted on clicker board
-        //colour click mounted on mikroBUS1 on clicker board
-            //set up initial LAT values
-            LATAbits.LATA0 = !LATAbits.LATA0;                 //red LED pin
-            LATCbits.LATC2 = !LATCbits.LATC2;                 //green LED pin
-            LATDbits.LATD0 = !LATDbits.LATD0;                 //blue LED pin
-
-        //colour click mounted on mikroBUS2 on clicker board
-            //set up initial LAT values
-            LATAbits.LATA1 = !LATAbits.LATA1;                 //red LED pin
-            LATCbits.LATC6 = !LATCbits.LATC6;                 //green LED pin
-            LATHbits.LATH2 = !LATHbits.LATH2;                 //blue LED pin
-    */
+        LATGbits.LATG0 = !LATGbits.LATG0;                 //red LED pin
+        LATEbits.LATE7 = !LATEbits.LATE7;                 //green LED pin
+        LATAbits.LATA3 = !LATAbits.LATA3;                 //blue LED pin
 }

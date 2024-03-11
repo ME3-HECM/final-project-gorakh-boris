@@ -5,21 +5,21 @@
 
 #define _XTAL_FREQ 64000000
 
-typedef struct DC_motor { //definition of DC_motor structure
-    char power;         //motor power, out of 100
-    char direction;     //motor direction, forward(1), reverse(0)
-    char brakemode;		// short or fast decay (brake or coast)
-    unsigned int PWMperiod; //base period of PWM cycle
-    unsigned char *posDutyHighByte; //PWM duty address for motor +ve side
-    unsigned char *negDutyHighByte; //PWM duty address for motor -ve side
+typedef struct DC_motor {               //definition of DC_motor structure
+    char power;                         //motor power: out of 100
+    char direction;                     //motor direction: forward(1), reverse(0)
+    char brakemode;                     //short or fast decay (brake or coast)
+    unsigned int PWMperiod;             //base period of PWM cycle
+    unsigned char *posDutyHighByte;     //PWM duty address for motor +ve side
+    unsigned char *negDutyHighByte;     //PWM duty address for motor -ve side
 } DC_motor;
 
-unsigned char rampDelay = 8;       //delay in ms
+unsigned char rampDelay = 8;                //delay in ms
 
-unsigned char topGearLeft = 20;         //speed from 0 to 100
-unsigned char topGearRight = 20;        //speed from 0 to 100
+unsigned char topGearLeft = 20;             //power from 0 to 100
+unsigned char topGearRight = 20;            //power from 0 to 100
 
-unsigned char turningGear = 42;     //speed from 0 to 100
+unsigned char turningGear = 42;             //power from 0 to 100
 
 unsigned int turnLeft90Delay = 175;         //delay in ms
 unsigned int turnRight90Delay = 175;        //delay in ms
@@ -27,11 +27,10 @@ unsigned int turnLeft135Delay = 300;        //delay in ms
 unsigned int turnRight135Delay = 300;       //delay in ms
 unsigned int turn180Delay = 510;            //delay in ms
 
-unsigned int headbuttDelay = 70;        //delay in ms, car moves from wall to centre of square
-unsigned int squareDelay = 300;         //delay in ms, car moves one square length
+unsigned int headbuttDelay = 70;            //delay in ms
+unsigned int squareDelay = 300;             //delay in ms
 
-//function prototypes
-void initDCmotorsPWM(unsigned int PWMperiod); // function to setup PWM
+void initDCmotorsPWM(unsigned int PWMperiod);
 void setMotorPWM(DC_motor *m);
 
 void stop(DC_motor *mL, DC_motor *mR);
