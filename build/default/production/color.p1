@@ -2726,3 +2726,39 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;color.c: 274: }
 [e :UE 2036 ]
 }
+"284
+[; ;color.c: 284: unsigned char RGBC2key(struct RGBC_val *p)
+[v _RGBC2key `(uc ~T0 @X0 1 ef1`*S2015 ]
+"285
+[; ;color.c: 285: {
+{
+[e :U _RGBC2key ]
+"284
+[; ;color.c: 284: unsigned char RGBC2key(struct RGBC_val *p)
+[v _p `*S2015 ~T0 @X0 1 r1 ]
+"285
+[; ;color.c: 285: {
+[f ]
+"286
+[; ;color.c: 286:     unsigned char key = 0;
+[v _key `uc ~T0 @X0 1 a ]
+[e = _key -> -> 0 `i `uc ]
+"287
+[; ;color.c: 287:     if (((p->R >= 2850)&&(p->R <= 3855)) && ((p->G >= 602)&&(p->G <= 814)) && ((p->B >= 1144)&&(p->B <= 1548))) {
+[e $ ! && && && >= . *U _p 0 -> -> 2850 `i `ui <= . *U _p 0 -> -> 3855 `i `ui && >= . *U _p 1 -> -> 602 `i `ui <= . *U _p 1 -> -> 814 `i `ui && >= . *U _p 2 -> -> 1144 `i `ui <= . *U _p 2 -> -> 1548 `i `ui 2051  ]
+{
+"288
+[; ;color.c: 288:         key = 1;
+[e = _key -> -> 1 `i `uc ]
+"289
+[; ;color.c: 289:     }
+}
+[e :U 2051 ]
+"290
+[; ;color.c: 290:     return key;
+[e ) _key ]
+[e $UE 2050  ]
+"332
+[; ;color.c: 332: }
+[e :UE 2050 ]
+}

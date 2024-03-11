@@ -24163,6 +24163,7 @@ unsigned int maxRGB(struct RGBC_val *p);
 unsigned int minRGB(struct RGBC_val *p);
 void scaleRGB(struct RGBC_val *p);
 void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
+unsigned char RGBC2key(struct RGBC_val *p);
 # 2 "color.c" 2
 
 
@@ -24428,4 +24429,14 @@ void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
     p1->H = hue;
     p1->S = sat;
     p1->V = M;
+}
+# 284 "color.c"
+unsigned char RGBC2key(struct RGBC_val *p)
+{
+    unsigned char key = 0;
+    if (((p->R >= 2850)&&(p->R <= 3855)) && ((p->G >= 602)&&(p->G <= 814)) && ((p->B >= 1144)&&(p->B <= 1548))) {
+        key = 1;
+    }
+    return key;
+# 332 "color.c"
 }

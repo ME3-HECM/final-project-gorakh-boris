@@ -272,3 +272,60 @@ void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
     p1->S = sat;                            //assign saturation
     p1->V = M;                              //assign value = maximum RGB value
 }
+
+/*******************************************************************************
+ * Function that matches RGB values to a colour
+ * It takes in a pointer that points to the RGBC_val 
+ * The function compares the reading to a set of upperbound and lowerbound readings in this function
+ * the upperbound and lowerbound readings are + or - 15% of the recorded reading from 1114-777.
+ * Then if it matches any of th upperbound and lowerbound readings then it outputs a colour that the reading corresponds to
+ * NOTE: the colour is outputted as a number from 1 - 8 as shown in the pick-card function above 
+*******************************************************************************/
+unsigned char RGBC2key(struct RGBC_val *p)
+{
+    unsigned char key = 0;
+    if (((p->R >= 2850)&&(p->R <= 3855)) && ((p->G >= 602)&&(p->G <= 814)) && ((p->B >= 1144)&&(p->B <= 1548))) { //red
+        key = 1;
+    }
+    /*
+    if (((p->R >= 1630)&&(p->R <= 2205))&&((p->G >= 2604)&&(p->G <= 3523))&&((p->B >= 1851)&&(p->B <= 2505))) {
+        2
+    }
+
+
+    if (((p->R >= 537)&&(p->R <= 727))&&((p->G >= 781)&&(p->G <= 1057))&&((p->B >= 1071)&&(p->B <= 1449))) {
+        3
+    }
+
+
+    if ((()&&())&&(()&&())&&(()&&())) {
+
+    }
+
+
+    if ((()&&())&&(()&&())&&(()&&())) {
+
+    }
+
+
+    if ((()&&())&&(()&&())&&(()&&())) {
+
+    }
+
+
+    if ((()&&())&&(()&&())&&(()&&())) {
+
+    }
+
+
+    if ((()&&())&&(()&&())&&(()&&())) {
+
+    }
+
+
+    if ((()&&())&&(()&&())&&(()&&())) {
+
+    }
+     */
+    return key;
+}
