@@ -24112,8 +24112,8 @@ unsigned char topGearRight = 20;
 
 unsigned char turningGear = 50;
 
-unsigned int turnLeft90Delay = 140;
-unsigned int turnRight90Delay = 175;
+unsigned int turnLeft90Delay = 142;
+unsigned int turnRight90Delay = 142;
 unsigned int turnLeft135Delay = 300;
 unsigned int turnRight135Delay = 300;
 unsigned int turn180Delay = 510;

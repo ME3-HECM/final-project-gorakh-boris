@@ -106,7 +106,7 @@ void main(void) {
 
     int i;
     
-    //turnRight90(&motorL, &motorR);
+    //turnLeft90(&motorL, &motorR);
     //turnLeft135(&motorL, &motorR);
     //turnRight135(&motorL, &motorR);
     //UTurn(&motorL, &motorR);
@@ -115,7 +115,12 @@ void main(void) {
     //fullSpeedAhead(&motorL, &motorR);
         
     for (i=0; i < 4; i++) {
-        turnLeft90(&motorL, &motorR);   
+        fullSpeedAhead(&motorL, &motorR);
+        __delay_ms(1000);
+                
+        //turnLeft90(&motorL, &motorR);
+        //turnRight135(&motorL, &motorR);
+        
     }
     stop(&motorL, &motorR);
         

@@ -24128,8 +24128,8 @@ unsigned char topGearRight = 20;
 
 unsigned char turningGear = 50;
 
-unsigned int turnLeft90Delay = 140;
-unsigned int turnRight90Delay = 175;
+unsigned int turnLeft90Delay = 142;
+unsigned int turnRight90Delay = 142;
 unsigned int turnLeft135Delay = 300;
 unsigned int turnRight135Delay = 300;
 unsigned int turn180Delay = 510;
@@ -24397,8 +24397,13 @@ void main(void) {
     int i;
 # 117 "main.c"
     for (i=0; i < 4; i++) {
-        turnLeft90(&motorL, &motorR);
+        fullSpeedAhead(&motorL, &motorR);
+        _delay((unsigned long)((1000)*(64000000/4000.0)));
+
+
+
+
     }
     stop(&motorL, &motorR);
-# 135 "main.c"
+# 140 "main.c"
 }

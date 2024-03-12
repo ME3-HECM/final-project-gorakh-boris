@@ -21,8 +21,8 @@ unsigned char topGearRight = 20;            //power from 0 to 100
 
 unsigned char turningGear = 50;             //power from 0 to 100
 
-unsigned int turnLeft90Delay = 140;         //delay in ms
-unsigned int turnRight90Delay = 175;        //delay in ms
+unsigned int turnLeft90Delay = 142;         //delay in ms
+unsigned int turnRight90Delay = 142;        //delay in ms
 unsigned int turnLeft135Delay = 300;        //delay in ms
 unsigned int turnRight135Delay = 300;       //delay in ms
 unsigned int turn180Delay = 510;            //delay in ms

@@ -144,10 +144,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "30278
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 30278: extern volatile PORTFbits_t PORTFbits __attribute__((address(0xF8E)));
 [v _PORTFbits `VS1411 ~T0 @X0 0 e@3982 ]
-"42 ./dc_motor.h
-[; ;./dc_motor.h: 42: void turnLeft90(DC_motor *mL, DC_motor *mR);
-[v _turnLeft90 `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"36
+"39 ./dc_motor.h
+[; ;./dc_motor.h: 39: void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
+[v _fullSpeedAhead `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+[v F205 `(v ~T0 @X0 1 tf1`ul ]
+"20 C:\Program Files\Microchip\xc8\v2.45\pic\include\builtins.h
+[v __delay `JF205 ~T0 @X0 0 e ]
+[p i __delay ]
+"36 ./dc_motor.h
 [; ;./dc_motor.h: 36: void stop(DC_motor *mL, DC_motor *mR);
 [v _stop `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "9 main.c
@@ -2157,16 +2161,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 50 `i `uc
 ]
 "24
-[; ;./dc_motor.h: 24: unsigned int turnLeft90Delay = 140;
+[; ;./dc_motor.h: 24: unsigned int turnLeft90Delay = 142;
 [v _turnLeft90Delay `ui ~T0 @X0 1 e ]
 [i _turnLeft90Delay
--> -> 140 `i `ui
+-> -> 142 `i `ui
 ]
 "25
-[; ;./dc_motor.h: 25: unsigned int turnRight90Delay = 175;
+[; ;./dc_motor.h: 25: unsigned int turnRight90Delay = 142;
 [v _turnRight90Delay `ui ~T0 @X0 1 e ]
 [i _turnRight90Delay
--> -> 175 `i `ui
+-> -> 142 `i `ui
 ]
 "26
 [; ;./dc_motor.h: 26: unsigned int turnLeft135Delay = 300;
@@ -2475,19 +2479,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2022 ]
 {
 "118
-[; ;main.c: 118:         turnLeft90(&motorL, &motorR);
-[e ( _turnLeft90 (2 , &U _motorL &U _motorR ]
+[; ;main.c: 118:         fullSpeedAhead(&motorL, &motorR);
+[e ( _fullSpeedAhead (2 , &U _motorL &U _motorR ]
 "119
-[; ;main.c: 119:     }
+[; ;main.c: 119:         _delay((unsigned long)((1000)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"124
+[; ;main.c: 124:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 4 `i 2022  ]
 [e :U 2023 ]
 }
-"120
-[; ;main.c: 120:     stop(&motorL, &motorR);
+"125
+[; ;main.c: 125:     stop(&motorL, &motorR);
 [e ( _stop (2 , &U _motorL &U _motorR ]
-"135
-[; ;main.c: 135: }
+"140
+[; ;main.c: 140: }
 [e :UE 2018 ]
 }

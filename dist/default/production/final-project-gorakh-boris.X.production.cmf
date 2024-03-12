@@ -11,43 +11,42 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
+$C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
 idloc IDLOC 5 200000 200000 10 1 1
 init CODE 0 3C 3C 4 1 2
 reset_vec CODE 0 0 0 4 1 2
 config CONFIG 4 300000 300000 C 1 1
 $dist/default/production\final-project-gorakh-boris.X.production.o
-cinit CODE 0 12FE 12FE 3E 1 2
+cinit CODE 0 1318 1318 3E 1 2
 idloc IDLOC 5 200000 200000 10 1 1
-text0 CODE 0 F6E F6E 146 1 2
-text1 CODE 0 1370 1370 32 1 2
-text2 CODE 0 10B4 10B4 B8 1 2
-text3 CODE 0 11FC 11FC 8E 1 2
-text4 CODE 0 E1A E1A 154 1 2
-text5 CODE 0 144A 144A 26 1 2
-text6 CODE 0 128A 128A 74 1 2
-text7 CODE 0 1490 1490 1E 1 2
-text8 CODE 0 116C 116C 90 1 2
-text9 CODE 0 133C 133C 34 1 2
-text10 CODE 0 1470 1470 20 1 2
-text11 CODE 0 14CA 14CA C 1 2
-text12 CODE 0 14EE 14EE A 1 2
-text13 CODE 0 14F8 14F8 A 1 2
-text14 CODE 0 13FA 13FA 28 1 2
-text15 CODE 0 13D0 13D0 2A 1 2
-text16 CODE 0 13A2 13A2 2E 1 2
-text17 CODE 0 1422 1422 28 1 2
-text18 CODE 0 1502 1502 4 1 2
-text19 CODE 0 14D6 14D6 C 1 2
-text20 CODE 0 14E2 14E2 C 1 2
-idataCOMRAM CODE 0 14AE 14AE 1B 1 1
-cstackCOMRAM COMRAM 1 1 1 3E 1 1
-temp COMRAM 1 5E 5E 1 1 1
+text0 CODE 0 E1A E1A 15E 1 2
+text1 CODE 0 1216 1216 8E 1 2
+text2 CODE 0 1478 1478 1E 1 2
+text3 CODE 0 1186 1186 90 1 2
+text4 CODE 0 10CC 10CC BA 1 2
+text5 CODE 0 F78 F78 154 1 2
+text6 CODE 0 1432 1432 26 1 2
+text7 CODE 0 12A4 12A4 74 1 2
+text8 CODE 0 1356 1356 34 1 2
+text9 CODE 0 1458 1458 20 1 2
+text10 CODE 0 14B2 14B2 C 1 2
+text11 CODE 0 14D6 14D6 A 1 2
+text12 CODE 0 14E0 14E0 A 1 2
+text13 CODE 0 13E2 13E2 28 1 2
+text14 CODE 0 13B8 13B8 2A 1 2
+text15 CODE 0 138A 138A 2E 1 2
+text16 CODE 0 140A 140A 28 1 2
+text17 CODE 0 14EA 14EA 4 1 2
+text18 CODE 0 14BE 14BE C 1 2
+text19 CODE 0 14CA 14CA C 1 2
+idataCOMRAM CODE 0 1496 1496 1B 1 1
+cstackCOMRAM COMRAM 1 1 1 3B 1 1
+temp COMRAM 1 5B 5B 1 1 1
 bssBANK1 BANK1 1 100 100 3C 1 1
 intcode CODE 0 8 8 34 1 2
 smallconst SMALLCONST 0 E00 E00 1A 1 2
-dataCOMRAM COMRAM 1 3F 3F 1B 1 1
-bssCOMRAM COMRAM 1 5A 5A 4 1 1
+dataCOMRAM COMRAM 1 3C 3C 1B 1 1
+bssCOMRAM COMRAM 1 57 57 4 1 1
 config CONFIG 4 300000 300000 C 1 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -70,25 +69,25 @@ BANK8 800-8FF 1
 BANK9 900-9FF 1
 CONST 4-7 1
 CONST 40-DFF 1
-CONST 14C9-14C9 1
-CONST 1506-1FFFF 1
-SMALLCONST 14C9-14C9 1
-SMALLCONST 1506-1FFFF 1
+CONST 14B1-14B1 1
+CONST 14EE-1FFFF 1
+SMALLCONST 14B1-14B1 1
+SMALLCONST 14EE-1FFFF 1
 CODE 4-7 1
 CODE 40-DFF 1
-CODE 14C9-14C9 1
-CODE 1506-1FFFF 1
+CODE 14B1-14B1 1
+CODE 14EE-1FFFF 1
 BANK10 A00-AFF 1
 BANK11 B00-BFF 1
 BANK12 C00-CFF 1
 BANK13 D00-DE9 1
-BIGRAM 5F-FF 1
+BIGRAM 5C-FF 1
 BIGRAM 13C-DE9 1
 BIGSFR DEF-FFF 1
-COMRAM 5F-5F 1
+COMRAM 5C-5F 1
 EEDATA 310000-3103FF 1
-MEDIUMCONST 14C9-14C9 1
-MEDIUMCONST 1506-FFFF 1
+MEDIUMCONST 14B1-14B1 1
+MEDIUMCONST 14EE-FFFF 1
 MEDIUMCONST 10E00-1FFFF 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -104,7 +103,7 @@ MEDIUMCONST 10E00-1FFFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\final-project-gorakh-boris.X.production.o
-8 intcode CODE >15691:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
+8 intcode CODE >15590:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
 8 intcode CODE >210:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
 A intcode CODE >212:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
 1A intcode CODE >213:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
@@ -113,281 +112,277 @@ A intcode CODE >212:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-go
 32 intcode CODE >216:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
 36 intcode CODE >218:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
 38 intcode CODE >220:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
-14E2 text20 CODE >58:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
-14E4 text20 CODE >63:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
-14E8 text20 CODE >64:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
-14EC text20 CODE >65:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
-14D6 text19 CODE >70:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
-14D6 text19 CODE >72:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
-14E0 text19 CODE >73:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
-1502 text18 CODE >30:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
-1502 text18 CODE >32:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
-1504 text18 CODE >33:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
-1422 text17 CODE >7:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
-1422 text17 CODE >9:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
-142A text17 CODE >10:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
-142C text17 CODE >11:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
-142E text17 CODE >13:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
-1436 text17 CODE >18:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
-143A text17 CODE >19:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
-143C text17 CODE >21:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
-1440 text17 CODE >22:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
-1444 text17 CODE >23:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
-1446 text17 CODE >24:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
-1448 text17 CODE >25:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
-13A2 text16 CODE >7:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
-13A2 text16 CODE >11:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
-13A4 text16 CODE >12:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
-13A6 text16 CODE >13:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
-13A8 text16 CODE >14:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
-13AA text16 CODE >15:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
-13AC text16 CODE >17:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
-13AE text16 CODE >18:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
-13B0 text16 CODE >19:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
-13B2 text16 CODE >20:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
-13B4 text16 CODE >21:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
-13B6 text16 CODE >26:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
-13B8 text16 CODE >27:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
-13BA text16 CODE >28:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
-13BC text16 CODE >30:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
-13BE text16 CODE >31:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
-13C0 text16 CODE >32:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
-13C2 text16 CODE >36:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
-13C4 text16 CODE >37:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
-13C6 text16 CODE >38:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
-13C8 text16 CODE >40:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
-13CA text16 CODE >41:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
-13CC text16 CODE >42:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
-13CE text16 CODE >43:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
-13D0 text15 CODE >4:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-13D0 text15 CODE >7:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-13DA text15 CODE >8:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-13DC text15 CODE >9:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-13E0 text15 CODE >12:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-13E2 text15 CODE >13:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-13E4 text15 CODE >14:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-13E6 text15 CODE >15:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-13E8 text15 CODE >16:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-13EC text15 CODE >17:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-13F0 text15 CODE >18:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-13F4 text15 CODE >19:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-13F8 text15 CODE >20:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-13FA text14 CODE >22:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-13FA text14 CODE >24:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-1420 text14 CODE >25:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-14F8 text13 CODE >27:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-14F8 text13 CODE >29:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-14FC text13 CODE >30:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-1500 text13 CODE >31:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-14EE text12 CODE >39:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-14EE text12 CODE >41:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-14F2 text12 CODE >42:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-14F6 text12 CODE >43:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-14CA text11 CODE >45:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-14CC text11 CODE >47:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-14D0 text11 CODE >48:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-14D4 text11 CODE >49:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
-1470 text10 CODE >28:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
-1472 text10 CODE >29:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
-1476 text10 CODE >30:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
-147C text10 CODE >31:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
-1484 text10 CODE >32:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
-148A text10 CODE >33:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
-148E text10 CODE >34:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
-133C text9 CODE >7:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
-133C text9 CODE >10:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
-1340 text9 CODE >13:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
-134A text9 CODE >14:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
-135A text9 CODE >17:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
-1364 text9 CODE >20:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
-136E text9 CODE >21:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
-116C text8 CODE >7:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-116C text8 CODE >9:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-116E text8 CODE >10:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-1170 text8 CODE >11:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-1172 text8 CODE >12:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-1174 text8 CODE >13:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-1176 text8 CODE >14:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-1178 text8 CODE >15:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-117A text8 CODE >16:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-117C text8 CODE >19:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-1182 text8 CODE >20:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-1186 text8 CODE >21:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-118A text8 CODE >22:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-118E text8 CODE >25:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-1196 text8 CODE >26:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-119A text8 CODE >27:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11A2 text8 CODE >31:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11A6 text8 CODE >32:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11A8 text8 CODE >36:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11AC text8 CODE >37:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11B0 text8 CODE >38:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11B6 text8 CODE >39:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11BA text8 CODE >42:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11BE text8 CODE >43:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11C2 text8 CODE >44:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11C6 text8 CODE >45:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11CA text8 CODE >48:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11CC text8 CODE >49:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11D4 text8 CODE >50:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11D6 text8 CODE >52:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11D8 text8 CODE >53:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11E0 text8 CODE >54:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11E2 text8 CODE >56:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11E4 text8 CODE >57:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11EC text8 CODE >58:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11EE text8 CODE >60:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11F0 text8 CODE >61:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11F8 text8 CODE >62:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11FA text8 CODE >63:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-1490 text7 CODE >8:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\serial.c
-1490 text7 CODE >9:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\serial.c
-1496 text7 CODE >10:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\serial.c
-149A text7 CODE >12:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\serial.c
-149C text7 CODE >13:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\serial.c
-149E text7 CODE >14:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\serial.c
-14A2 text7 CODE >15:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\serial.c
-14A6 text7 CODE >17:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\serial.c
-14A8 text7 CODE >18:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\serial.c
-14AA text7 CODE >19:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\serial.c
-14AC text7 CODE >20:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\serial.c
-128A text6 CODE >7:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
-128A text6 CODE >13:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
-1292 text6 CODE >14:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
-12A4 text6 CODE >15:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
-12A8 text6 CODE >16:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
-12AC text6 CODE >17:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
-12B2 text6 CODE >18:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
-12B4 text6 CODE >16:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
-12C2 text6 CODE >21:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
-12C8 text6 CODE >22:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
-12DE text6 CODE >23:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
-12E6 text6 CODE >24:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
-12E8 text6 CODE >26:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
-12EE text6 CODE >27:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
-12F4 text6 CODE >28:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
-12F4 text6 CODE >29:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
-12FC text6 CODE >30:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
-144A text5 CODE >15:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
-144A text5 CODE >37:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
-1456 text5 CODE >38:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
-145E text5 CODE >39:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
-1466 text5 CODE >52:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
-146E text5 CODE >53:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
-E1A text4 CODE >68:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-E1A text4 CODE >72:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-E34 text4 CODE >73:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-E82 text4 CODE >74:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-E90 text4 CODE >75:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-E94 text4 CODE >77:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-E98 text4 CODE >78:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-ED6 text4 CODE >81:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-EF0 text4 CODE >82:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-F0E text4 CODE >83:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-F2C text4 CODE >84:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-F30 text4 CODE >85:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-F4E text4 CODE >86:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-F6C text4 CODE >88:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11FC text3 CODE >93:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-11FC text3 CODE >95:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-1200 text3 CODE >96:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-121E text3 CODE >97:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-123C text3 CODE >98:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-1244 text3 CODE >99:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-124C text3 CODE >100:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-125C text3 CODE >95:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-1288 text3 CODE >102:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-10B4 text2 CODE >107:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-10B4 text2 CODE >109:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-10B8 text2 CODE >110:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-10BC text2 CODE >111:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-10C8 text2 CODE >112:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-10D6 text2 CODE >113:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-10DA text2 CODE >114:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-10FA text2 CODE >115:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-111A text2 CODE >116:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-1122 text2 CODE >117:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-112A text2 CODE >118:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-113A text2 CODE >113:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-116A text2 CODE >120:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-1370 text1 CODE >179:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-1370 text1 CODE >181:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-137C text1 CODE >182:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-1394 text1 CODE >183:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-13A0 text1 CODE >184:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
-F6E text0 CODE >29:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-F6E text0 CODE >31:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-F76 text0 CODE >32:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-F7E text0 CODE >33:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-F86 text0 CODE >34:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-F8E text0 CODE >37:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-F96 text0 CODE >38:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-F9E text0 CODE >39:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-FA6 text0 CODE >43:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-FAA text0 CODE >44:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-FAE text0 CODE >45:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-FB2 text0 CODE >46:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-FBA text0 CODE >47:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-FC2 text0 CODE >48:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-FCA text0 CODE >49:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-FCE text0 CODE >50:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-FD2 text0 CODE >51:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-FD6 text0 CODE >52:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-FDE text0 CODE >53:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-FE6 text0 CODE >54:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-FEE text0 CODE >57:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-FFA text0 CODE >58:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-FFE text0 CODE >59:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-1002 text0 CODE >60:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-1006 text0 CODE >61:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-100A text0 CODE >65:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-100C text0 CODE >66:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-100E text0 CODE >68:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-1010 text0 CODE >69:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-1012 text0 CODE >73:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-1014 text0 CODE >74:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-1016 text0 CODE >76:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-101A text0 CODE >77:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-101C text0 CODE >81:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-102A text0 CODE >82:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-104C text0 CODE >83:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-1070 text0 CODE >117:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-1078 text0 CODE >118:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-1084 text0 CODE >119:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-10A4 text0 CODE >120:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-10B0 text0 CODE >135:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
-12FE cinit CODE >12244:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-12FE cinit CODE >12246:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-12FE cinit CODE >12249:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-12FE cinit CODE >12381:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-1300 cinit CODE >12382:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-1302 cinit CODE >12383:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-1304 cinit CODE >12384:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-1306 cinit CODE >12385:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-1308 cinit CODE >12386:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-130A cinit CODE >12387:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-130E cinit CODE >12388:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-1312 cinit CODE >12389:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-1312 cinit CODE >12390:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-1314 cinit CODE >12391:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-1318 cinit CODE >12392:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-131A cinit CODE >12393:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-131C cinit CODE >12394:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-131E cinit CODE >12398:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-1322 cinit CODE >12399:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-1324 cinit CODE >12400:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-1324 cinit CODE >12401:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-1326 cinit CODE >12402:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-1328 cinit CODE >12403:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-132A cinit CODE >12406:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-132C cinit CODE >12407:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-132E cinit CODE >12408:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-1330 cinit CODE >12409:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-1332 cinit CODE >12415:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-1332 cinit CODE >12417:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-1334 cinit CODE >12418:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-1336 cinit CODE >12419:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
-1338 cinit CODE >12420:C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_1.s
+14CA text19 CODE >58:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
+14CC text19 CODE >63:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
+14D0 text19 CODE >64:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
+14D4 text19 CODE >65:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
+14BE text18 CODE >70:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
+14BE text18 CODE >72:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
+14C8 text18 CODE >73:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
+14EA text17 CODE >30:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
+14EA text17 CODE >32:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
+14EC text17 CODE >33:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
+140A text16 CODE >7:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
+140A text16 CODE >9:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
+1412 text16 CODE >10:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
+1414 text16 CODE >11:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
+1416 text16 CODE >13:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
+141E text16 CODE >18:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
+1422 text16 CODE >19:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
+1424 text16 CODE >21:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
+1428 text16 CODE >22:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
+142C text16 CODE >23:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
+142E text16 CODE >24:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
+1430 text16 CODE >25:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\timers.c
+138A text15 CODE >7:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
+138A text15 CODE >11:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
+138C text15 CODE >12:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
+138E text15 CODE >13:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
+1390 text15 CODE >14:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
+1392 text15 CODE >15:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
+1394 text15 CODE >17:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
+1396 text15 CODE >18:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
+1398 text15 CODE >19:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
+139A text15 CODE >20:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
+139C text15 CODE >21:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
+139E text15 CODE >26:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
+13A0 text15 CODE >27:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
+13A2 text15 CODE >28:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
+13A4 text15 CODE >30:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
+13A6 text15 CODE >31:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
+13A8 text15 CODE >32:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
+13AA text15 CODE >36:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
+13AC text15 CODE >37:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
+13AE text15 CODE >38:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
+13B0 text15 CODE >40:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
+13B2 text15 CODE >41:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
+13B4 text15 CODE >42:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
+13B6 text15 CODE >43:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\buggy_lights.c
+13B8 text14 CODE >4:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+13B8 text14 CODE >7:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+13C2 text14 CODE >8:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+13C4 text14 CODE >9:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+13C8 text14 CODE >12:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+13CA text14 CODE >13:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+13CC text14 CODE >14:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+13CE text14 CODE >15:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+13D0 text14 CODE >16:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+13D4 text14 CODE >17:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+13D8 text14 CODE >18:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+13DC text14 CODE >19:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+13E0 text14 CODE >20:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+13E2 text13 CODE >22:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+13E2 text13 CODE >24:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+1408 text13 CODE >25:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+14E0 text12 CODE >27:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+14E0 text12 CODE >29:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+14E4 text12 CODE >30:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+14E8 text12 CODE >31:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+14D6 text11 CODE >39:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+14D6 text11 CODE >41:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+14DA text11 CODE >42:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+14DE text11 CODE >43:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+14B2 text10 CODE >45:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+14B4 text10 CODE >47:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+14B8 text10 CODE >48:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+14BC text10 CODE >49:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\i2c.c
+1458 text9 CODE >28:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
+145A text9 CODE >29:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
+145E text9 CODE >30:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
+1464 text9 CODE >31:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
+146C text9 CODE >32:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
+1472 text9 CODE >33:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
+1476 text9 CODE >34:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
+1356 text8 CODE >7:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
+1356 text8 CODE >10:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
+135A text8 CODE >13:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
+1364 text8 CODE >14:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
+1374 text8 CODE >17:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
+137E text8 CODE >20:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
+1388 text8 CODE >21:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\color.c
+12A4 text7 CODE >7:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
+12A4 text7 CODE >13:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
+12AC text7 CODE >14:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
+12BE text7 CODE >15:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
+12C2 text7 CODE >16:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
+12C6 text7 CODE >17:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
+12CC text7 CODE >18:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
+12CE text7 CODE >16:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
+12DC text7 CODE >21:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
+12E2 text7 CODE >22:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
+12F8 text7 CODE >23:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
+1300 text7 CODE >24:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
+1302 text7 CODE >26:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
+1308 text7 CODE >27:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
+130E text7 CODE >28:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
+130E text7 CODE >29:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
+1316 text7 CODE >30:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
+1432 text6 CODE >15:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
+1432 text6 CODE >37:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
+143E text6 CODE >38:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
+1446 text6 CODE >39:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
+144E text6 CODE >52:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
+1456 text6 CODE >53:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
+F78 text5 CODE >68:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+F78 text5 CODE >72:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+F92 text5 CODE >73:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+FE0 text5 CODE >74:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+FEE text5 CODE >75:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+FF2 text5 CODE >77:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+FF6 text5 CODE >78:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+1034 text5 CODE >81:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+104E text5 CODE >82:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+106C text5 CODE >83:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+108A text5 CODE >84:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+108E text5 CODE >85:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+10AC text5 CODE >86:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+10CA text5 CODE >88:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+10CC text4 CODE >143:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+10CC text4 CODE >145:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+10D0 text4 CODE >146:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+10D4 text4 CODE >147:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+10E2 text4 CODE >148:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+10F0 text4 CODE >149:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+10F4 text4 CODE >150:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+1114 text4 CODE >151:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+1134 text4 CODE >152:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+113C text4 CODE >153:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+1144 text4 CODE >154:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+1154 text4 CODE >149:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+1184 text4 CODE >156:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+1186 text3 CODE >7:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+1186 text3 CODE >9:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+1188 text3 CODE >10:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+118A text3 CODE >11:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+118C text3 CODE >12:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+118E text3 CODE >13:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+1190 text3 CODE >14:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+1192 text3 CODE >15:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+1194 text3 CODE >16:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+1196 text3 CODE >19:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+119C text3 CODE >20:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+11A0 text3 CODE >21:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+11A4 text3 CODE >22:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+11A8 text3 CODE >25:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+11B0 text3 CODE >26:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+11B4 text3 CODE >27:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+11BC text3 CODE >31:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+11C0 text3 CODE >32:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+11C2 text3 CODE >36:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+11C6 text3 CODE >37:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+11CA text3 CODE >38:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+11D0 text3 CODE >39:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+11D4 text3 CODE >42:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+11D8 text3 CODE >43:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+11DC text3 CODE >44:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+11E0 text3 CODE >45:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+11E4 text3 CODE >48:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+11E6 text3 CODE >49:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+11EE text3 CODE >50:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+11F0 text3 CODE >52:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+11F2 text3 CODE >53:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+11FA text3 CODE >54:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+11FC text3 CODE >56:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+11FE text3 CODE >57:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+1206 text3 CODE >58:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+1208 text3 CODE >60:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+120A text3 CODE >61:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+1212 text3 CODE >62:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+1214 text3 CODE >63:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+1478 text2 CODE >8:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\serial.c
+1478 text2 CODE >9:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\serial.c
+147E text2 CODE >10:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\serial.c
+1482 text2 CODE >12:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\serial.c
+1484 text2 CODE >13:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\serial.c
+1486 text2 CODE >14:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\serial.c
+148A text2 CODE >15:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\serial.c
+148E text2 CODE >17:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\serial.c
+1490 text2 CODE >18:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\serial.c
+1492 text2 CODE >19:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\serial.c
+1494 text2 CODE >20:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\serial.c
+1216 text1 CODE >93:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+1216 text1 CODE >95:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+121A text1 CODE >96:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+1238 text1 CODE >97:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+1256 text1 CODE >98:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+125E text1 CODE >99:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+1266 text1 CODE >100:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+1276 text1 CODE >95:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+12A2 text1 CODE >102:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\dc_motor.c
+E1A text0 CODE >29:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+E1A text0 CODE >31:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+E22 text0 CODE >32:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+E2A text0 CODE >33:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+E32 text0 CODE >34:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+E3A text0 CODE >37:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+E42 text0 CODE >38:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+E4A text0 CODE >39:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+E52 text0 CODE >43:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+E56 text0 CODE >44:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+E5A text0 CODE >45:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+E5E text0 CODE >46:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+E66 text0 CODE >47:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+E6E text0 CODE >48:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+E76 text0 CODE >49:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+E7A text0 CODE >50:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+E7E text0 CODE >51:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+E82 text0 CODE >52:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+E8A text0 CODE >53:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+E92 text0 CODE >54:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+E9A text0 CODE >57:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+EA6 text0 CODE >58:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+EAA text0 CODE >59:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+EAE text0 CODE >60:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+EB2 text0 CODE >61:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+EB6 text0 CODE >65:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+EB8 text0 CODE >66:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+EBA text0 CODE >68:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+EBC text0 CODE >69:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+EBE text0 CODE >73:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+EC0 text0 CODE >74:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+EC2 text0 CODE >76:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+EC6 text0 CODE >77:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+EC8 text0 CODE >81:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+ED6 text0 CODE >82:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+EF8 text0 CODE >83:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+F1C text0 CODE >117:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+F24 text0 CODE >118:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+F30 text0 CODE >119:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+F48 text0 CODE >124:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+F68 text0 CODE >125:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+F74 text0 CODE >140:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gorakh-boris.X\main.c
+1318 cinit CODE >12242:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+1318 cinit CODE >12244:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+1318 cinit CODE >12247:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+1318 cinit CODE >12379:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+131A cinit CODE >12380:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+131C cinit CODE >12381:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+131E cinit CODE >12382:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+1320 cinit CODE >12383:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+1322 cinit CODE >12384:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+1324 cinit CODE >12385:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+1328 cinit CODE >12386:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+132C cinit CODE >12387:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+132C cinit CODE >12388:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+132E cinit CODE >12389:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+1332 cinit CODE >12390:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+1334 cinit CODE >12391:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+1336 cinit CODE >12392:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+1338 cinit CODE >12396:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+133C cinit CODE >12397:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+133E cinit CODE >12398:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+133E cinit CODE >12399:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+1340 cinit CODE >12400:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+1342 cinit CODE >12401:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+1344 cinit CODE >12404:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+1346 cinit CODE >12405:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+1348 cinit CODE >12406:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+134A cinit CODE >12407:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+134C cinit CODE >12413:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+134C cinit CODE >12415:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+134E cinit CODE >12416:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+1350 cinit CODE >12417:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
+1352 cinit CODE >12418:C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_1.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -401,79 +396,80 @@ FFE text0 CODE >59:C:\Users\Gorak\OneDrive\Documents\Emedded C\final-project-gor
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\final-project-gorakh-boris.X.production.o
-__Hspace_0 1506 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
+__Hspace_0 14EE 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __Hspace_1 13C 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __Hspace_2 0 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __Hspace_4 60000C 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 color_writetoaddr@address 4 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-_sample_count 59 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-_wall_threshold_blue 53 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+_sample_count 56 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+_wall_threshold_blue 50 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\final-project-gorakh-boris.X.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
-_manoeuvre_pointer 3F 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
+_manoeuvre_pointer 3C 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\final-project-gorakh-boris.X.production.o
 setMotorPWM@m E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __L__absolute__ 0 0 ABS 0 __absolute__ dist/default/production\final-project-gorakh-boris.X.production.o
-main@i 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+main@i 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Lsmallconst E00 0 SMALLCONST 0 smallconst dist/default/production\final-project-gorakh-boris.X.production.o
 _T2PR FBC 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
-_main F6E 0 CODE 0 text0 dist/default/production\final-project-gorakh-boris.X.production.o
-_stop 11FC 0 CODE 0 text3 dist/default/production\final-project-gorakh-boris.X.production.o
-btemp 5E 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
-___stack_hi 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
-___stack_lo 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
-start 3C 0 CODE 0 init C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
+___sp 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
+_main E1A 0 CODE 0 text0 dist/default/production\final-project-gorakh-boris.X.production.o
+_stop 1216 0 CODE 0 text1 dist/default/production\final-project-gorakh-boris.X.production.o
+btemp 5B 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
+___stack_hi 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
+___stack_lo 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
+start 3C 0 CODE 0 init C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 ?___wmul 1 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Hpowerup 3C 0 CODE 0 powerup dist/default/production\final-project-gorakh-boris.X.production.o
-ttemp5 5F 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
-ttemp6 62 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
-ttemp7 66 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
+ttemp5 5C 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
+ttemp6 5F 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
+ttemp7 63 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-__accesstop 60 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
-intlevel0 0 0 CODE 0 text C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
-intlevel1 0 0 CODE 0 text C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
-intlevel2 0 0 CODE 0 text C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
-intlevel3 0 0 CODE 0 text C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
+__accesstop 60 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
+intlevel0 0 0 CODE 0 text C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
+intlevel1 0 0 CODE 0 text C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
+intlevel2 0 0 CODE 0 text C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
+intlevel3 0 0 CODE 0 text C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\final-project-gorakh-boris.X.production.o
-wtemp8 5F 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
+wtemp8 5C 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\final-project-gorakh-boris.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\final-project-gorakh-boris.X.production.o
-__pidataCOMRAM 14AE 0 CODE 0 idataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-_squareDelay 45 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+__pidataCOMRAM 1496 0 CODE 0 idataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+_squareDelay 42 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 ___wmul@multiplicand 3 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-_manoeuvre_count 5A 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
-_turnLeft135Delay 4D 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+_manoeuvre_count 57 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
+_turnLeft135Delay 4A 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_reset_timer 14E2 0 CODE 0 text19 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_reset_timer 14CA 0 CODE 0 text18 dist/default/production\final-project-gorakh-boris.X.production.o
 _CCPR1H FAA 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _CCPR2H FA6 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _CCPR3H F25 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _CCPR4H F21 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 color_writetoaddr@value 3 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of___wmul 1470 0 CODE 0 text5 dist/default/production\final-project-gorakh-boris.X.production.o
-_headbuttDelay 47 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of___wmul 1458 0 CODE 0 text6 dist/default/production\final-project-gorakh-boris.X.production.o
+_headbuttDelay 44 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\final-project-gorakh-boris.X.production.o
-_timer_low_pointer 41 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+_timer_low_pointer 3E 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\final-project-gorakh-boris.X.production.o
 __Hintcodelo 3C 0 CODE 0 intcodelo dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of___lwdiv 12FE 0 CODE 0 text6 dist/default/production\final-project-gorakh-boris.X.production.o
-main@HSV_colour 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_buggy_lights_init 13D0 0 CODE 0 text16 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of___lwdiv 1318 0 CODE 0 text7 dist/default/production\final-project-gorakh-boris.X.production.o
+main@HSV_colour 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_buggy_lights_init 13B8 0 CODE 0 text15 dist/default/production\final-project-gorakh-boris.X.production.o
 ___lwdiv@quotient B 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __LidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+fullSpeedAhead@rightGear 17 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Lintcodelo 3C 0 CODE 0 intcodelo dist/default/production\final-project-gorakh-boris.X.production.o
 _SSP2CON1bits ED9 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-start_initialization 12FE 0 CODE 0 cinit dist/default/production\final-project-gorakh-boris.X.production.o
+start_initialization 1318 0 CODE 0 cinit dist/default/production\final-project-gorakh-boris.X.production.o
 _SSP2CON2bits EDA 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-_setMotorPWM E1A 0 CODE 0 text4 dist/default/production\final-project-gorakh-boris.X.production.o
+_setMotorPWM F78 0 CODE 0 text5 dist/default/production\final-project-gorakh-boris.X.production.o
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\final-project-gorakh-boris.X.production.o
-_timer_high_pointer 43 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+_timer_high_pointer 40 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 _TRISAbits F81 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _TRISCbits F83 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _TRISDbits F84 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
@@ -491,17 +487,15 @@ _RE2PPS E74 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.produ
 _RE4PPS E76 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _RG6PPS E88 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _RX4PPS E15 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_I2C_2_Master_Start 1502 0 CODE 0 text13 dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_I2C_2_Master_Write 14D6 0 CODE 0 text11 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_I2C_2_Master_Start 14EA 0 CODE 0 text12 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_I2C_2_Master_Write 14BE 0 CODE 0 text10 dist/default/production\final-project-gorakh-boris.X.production.o
 _TX4REG EE4 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-_start_timer 1502 0 CODE 0 text18 dist/default/production\final-project-gorakh-boris.X.production.o
-_turn180Delay 49 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+_start_timer 14EA 0 CODE 0 text17 dist/default/production\final-project-gorakh-boris.X.production.o
+_turn180Delay 46 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 I2C_2_Master_Write@data_byte 2 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-isa$xinst 0 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
-turnLeft@mL 13 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-turnLeft@mR 14 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-_topGearRight 56 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-_write_timer 14E2 0 CODE 0 text20 dist/default/production\final-project-gorakh-boris.X.production.o
+isa$xinst 0 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
+_topGearRight 53 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+_write_timer 14CA 0 CODE 0 text19 dist/default/production\final-project-gorakh-boris.X.production.o
 __Hbank0 0 0 ABS 0 bank0 dist/default/production\final-project-gorakh-boris.X.production.o
 __Hbank1 0 0 ABS 0 bank1 dist/default/production\final-project-gorakh-boris.X.production.o
 __Hbank2 0 0 ABS 0 bank2 dist/default/production\final-project-gorakh-boris.X.production.o
@@ -538,9 +532,7 @@ __Hbank13 0 0 ABS 0 bank13 dist/default/production\final-project-gorakh-boris.X.
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\final-project-gorakh-boris.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\final-project-gorakh-boris.X.production.o
 __Hbigsfr 0 0 ABS 0 bigsfr dist/default/production\final-project-gorakh-boris.X.production.o
-__smallconst E00 0 SMALLCONST 0 smallconst C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
-turnLeft90@mL 18 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-turnLeft90@mR 19 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+__smallconst E00 0 SMALLCONST 0 smallconst C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
 __Hcomram 0 0 ABS 0 comram dist/default/production\final-project-gorakh-boris.X.production.o
 __Hconfig 30000C 0 CONFIG 4 config dist/default/production\final-project-gorakh-boris.X.production.o
 _T2HLTbits FBE 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
@@ -572,22 +564,22 @@ __Ltext6 0 0 ABS 0 text6 dist/default/production\final-project-gorakh-boris.X.pr
 __Ltext7 0 0 ABS 0 text7 dist/default/production\final-project-gorakh-boris.X.production.o
 __Ltext8 0 0 ABS 0 text8 dist/default/production\final-project-gorakh-boris.X.production.o
 __Ltext9 0 0 ABS 0 text9 dist/default/production\final-project-gorakh-boris.X.production.o
-_I2C_2_Master_Start 14F8 0 CODE 0 text13 dist/default/production\final-project-gorakh-boris.X.production.o
+_I2C_2_Master_Start 14E0 0 CODE 0 text12 dist/default/production\final-project-gorakh-boris.X.production.o
 initDCmotorsPWM@PWMperiod 1 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-_I2C_2_Master_Write 14CA 0 CODE 0 text11 dist/default/production\final-project-gorakh-boris.X.production.o
+_I2C_2_Master_Write 14B2 0 CODE 0 text10 dist/default/production\final-project-gorakh-boris.X.production.o
 __Hfarbss 0 0 FARRAM 0 farbss dist/default/production\final-project-gorakh-boris.X.production.o
-_buggy_lights_init 13A2 0 CODE 0 text16 dist/default/production\final-project-gorakh-boris.X.production.o
+_buggy_lights_init 138A 0 CODE 0 text15 dist/default/production\final-project-gorakh-boris.X.production.o
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\final-project-gorakh-boris.X.production.o
 _PORTFbits F8E 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _INTCONbits FF2 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-_topGearLeft 57 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+_topGearLeft 54 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Habs1 0 0 ABS 0 abs1 dist/default/production\final-project-gorakh-boris.X.production.o
 __Hdata 0 0 ABS 0 data dist/default/production\final-project-gorakh-boris.X.production.o
 __Hheap 0 0 HEAP 7 heap dist/default/production\final-project-gorakh-boris.X.production.o
 __Hinit 40 0 CODE 0 init dist/default/production\final-project-gorakh-boris.X.production.o
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production\final-project-gorakh-boris.X.production.o
 __Hrbss 0 0 COMRAM 1 rbss dist/default/production\final-project-gorakh-boris.X.production.o
-__Htemp 5F 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
+__Htemp 5C 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
 __Htext 0 0 ABS 0 text dist/default/production\final-project-gorakh-boris.X.production.o
 __Labs1 0 0 ABS 0 abs1 dist/default/production\final-project-gorakh-boris.X.production.o
 __Ldata 0 0 ABS 0 data dist/default/production\final-project-gorakh-boris.X.production.o
@@ -595,36 +587,35 @@ __Lheap 0 0 HEAP 7 heap dist/default/production\final-project-gorakh-boris.X.pro
 __Linit 3C 0 CODE 0 init dist/default/production\final-project-gorakh-boris.X.production.o
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production\final-project-gorakh-boris.X.production.o
 __Lrbss 0 0 COMRAM 1 rbss dist/default/production\final-project-gorakh-boris.X.production.o
-__Ltemp 5E 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
+__Ltemp 5B 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
 __Ltext 0 0 ABS 0 text dist/default/production\final-project-gorakh-boris.X.production.o
 _SSP2CON2 EDA 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _SSP2STAT ED8 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-___wmul 144A 0 CODE 0 text5 dist/default/production\final-project-gorakh-boris.X.production.o
-int$flags 5E 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
-_turnLeft 10B4 0 CODE 0 text2 dist/default/production\final-project-gorakh-boris.X.production.o
+___wmul 1432 0 CODE 0 text6 dist/default/production\final-project-gorakh-boris.X.production.o
+int$flags 5B 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-_Timer0_init 1422 0 CODE 0 text17 dist/default/production\final-project-gorakh-boris.X.production.o
-_turnLeft90 1370 0 CODE 0 text1 dist/default/production\final-project-gorakh-boris.X.production.o
+_Timer0_init 140A 0 CODE 0 text16 dist/default/production\final-project-gorakh-boris.X.production.o
 __Hintret 0 0 ABS 0 intret dist/default/production\final-project-gorakh-boris.X.production.o
 __Hirdata 0 0 CODE 0 irdata dist/default/production\final-project-gorakh-boris.X.production.o
 _ISR 8 0 CODE 0 intcode dist/default/production\final-project-gorakh-boris.X.production.o
-__S0 1506 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
+__S0 14EE 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __S1 13C 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __S4 0 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __S5 0 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_turnLeft 116C 0 CODE 0 text2 dist/default/production\final-project-gorakh-boris.X.production.o
+fullSpeedAhead@mL 13 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+fullSpeedAhead@mR 14 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 _TX4STAbits EE8 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 setMotorPWM@posDuty 11 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 _BAUD4CONbits EE9 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __HidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\final-project-gorakh-boris.X.production.o
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\final-project-gorakh-boris.X.production.o
-turnLeft@rightGear 17 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __end_of_ISR 3C 0 CODE 0 intcode dist/default/production\final-project-gorakh-boris.X.production.o
 __Lintentry 0 0 ABS 0 intentry dist/default/production\final-project-gorakh-boris.X.production.o
-_color_click_init 133C 0 CODE 0 text9 dist/default/production\final-project-gorakh-boris.X.production.o
-_return_flag 5C 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+_color_click_init 1356 0 CODE 0 text8 dist/default/production\final-project-gorakh-boris.X.production.o
+_return_flag 59 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Hramtop E00 0 RAM 0 ramtop dist/default/production\final-project-gorakh-boris.X.production.o
+fullSpeedAhead@leftGear 16 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Hrparam 0 0 COMRAM 1 rparam dist/default/production\final-project-gorakh-boris.X.production.o
 _CCPTMRS0bits FAD 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __activetblptr 3 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
@@ -640,22 +631,19 @@ __Htext16 0 0 ABS 0 text16 dist/default/production\final-project-gorakh-boris.X.
 __Htext17 0 0 ABS 0 text17 dist/default/production\final-project-gorakh-boris.X.production.o
 __Htext18 0 0 ABS 0 text18 dist/default/production\final-project-gorakh-boris.X.production.o
 __Htext19 0 0 ABS 0 text19 dist/default/production\final-project-gorakh-boris.X.production.o
-__Htext20 0 0 ABS 0 text20 dist/default/production\final-project-gorakh-boris.X.production.o
-_turnRight90Delay 4F 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+_turnRight90Delay 4C 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 _PIE0bits E29 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext10 1470 0 CODE 0 text10 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext11 14CA 0 CODE 0 text11 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext12 14EE 0 CODE 0 text12 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext13 14F8 0 CODE 0 text13 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext14 13FA 0 CODE 0 text14 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext15 13D0 0 CODE 0 text15 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext16 13A2 0 CODE 0 text16 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext17 1422 0 CODE 0 text17 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext18 1502 0 CODE 0 text18 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext19 14D6 0 CODE 0 text19 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext20 14E2 0 CODE 0 text20 dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_turnLeft90 13A2 0 CODE 0 text1 dist/default/production\final-project-gorakh-boris.X.production.o
-___lwdiv 128A 0 CODE 0 text6 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext10 14B2 0 CODE 0 text10 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext11 14D6 0 CODE 0 text11 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext12 14E0 0 CODE 0 text12 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext13 13E2 0 CODE 0 text13 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext14 13B8 0 CODE 0 text14 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext15 138A 0 CODE 0 text15 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext16 140A 0 CODE 0 text16 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext17 14EA 0 CODE 0 text17 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext18 14BE 0 CODE 0 text18 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext19 14CA 0 CODE 0 text19 dist/default/production\final-project-gorakh-boris.X.production.o
+___lwdiv 12A4 0 CODE 0 text7 dist/default/production\final-project-gorakh-boris.X.production.o
 __Lbank10 0 0 ABS 0 bank10 dist/default/production\final-project-gorakh-boris.X.production.o
 __Lbank11 0 0 ABS 0 bank11 dist/default/production\final-project-gorakh-boris.X.production.o
 __Lbank12 0 0 ABS 0 bank12 dist/default/production\final-project-gorakh-boris.X.production.o
@@ -673,37 +661,36 @@ _LATEbits F7D 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.pro
 _LATFbits F7E 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _LATGbits F7F 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _LATHbits F80 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_I2C_2_Master_Idle 1422 0 CODE 0 text14 dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_I2C_2_Master_Init 13FA 0 CODE 0 text15 dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_I2C_2_Master_Stop 14F8 0 CODE 0 text12 dist/default/production\final-project-gorakh-boris.X.production.o
-main@RGBC_colour 25 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-_turnRight135Delay 4B 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_I2C_2_Master_Idle 140A 0 CODE 0 text13 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_I2C_2_Master_Init 13E2 0 CODE 0 text14 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_I2C_2_Master_Stop 14E0 0 CODE 0 text11 dist/default/production\final-project-gorakh-boris.X.production.o
+main@RGBC_colour 22 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+_turnRight135Delay 48 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\final-project-gorakh-boris.X.production.o
-___inthi_stack_hi 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
-___inthi_stack_lo 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
+___inthi_stack_hi 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
+___inthi_stack_lo 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
 ___lwdiv@divisor 9 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\final-project-gorakh-boris.X.production.o
-isa$std 1 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
-stackhi 0 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
-stacklo 0 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
+isa$std 1 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
+stackhi 0 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
+stacklo 0 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
 stop@mL 13 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 stop@mR 14 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production\final-project-gorakh-boris.X.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\final-project-gorakh-boris.X.production.o
 __Lirdata 0 0 CODE 0 irdata dist/default/production\final-project-gorakh-boris.X.production.o
-_initUSART4 1490 0 CODE 0 text7 dist/default/production\final-project-gorakh-boris.X.production.o
+_initUSART4 1478 0 CODE 0 text2 dist/default/production\final-project-gorakh-boris.X.production.o
 __Lspace_0 0 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __Lspace_1 0 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __Lspace_2 0 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __Lspace_4 0 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-__pbssCOMRAM 5A 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+__pbssCOMRAM 57 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 _PIR0bits E33 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _PIR4bits E37 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_setMotorPWM F6E 0 CODE 0 text4 dist/default/production\final-project-gorakh-boris.X.production.o
-turnLeft@leftGear 16 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-end_of_initialization 1332 0 CODE 0 cinit dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_color_click_init 1370 0 CODE 0 text9 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_setMotorPWM 10CC 0 CODE 0 text5 dist/default/production\final-project-gorakh-boris.X.production.o
+end_of_initialization 134C 0 CODE 0 cinit dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_color_click_init 138A 0 CODE 0 text8 dist/default/production\final-project-gorakh-boris.X.production.o
 _T2CLKCONbits FBF 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\final-project-gorakh-boris.X.production.o
 __Hintentry 0 0 ABS 0 intentry dist/default/production\final-project-gorakh-boris.X.production.o
@@ -712,24 +699,25 @@ ___lwdiv@dividend 7 0 COMRAM 1 cstackCOMRAM dist/default/production\final-projec
 _CCP4CONbits F22 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\final-project-gorakh-boris.X.production.o
 __HbssBANK1 0 0 ABS 0 bssBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_initDCmotorsPWM 11FC 0 CODE 0 text8 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_initDCmotorsPWM 1216 0 CODE 0 text3 dist/default/production\final-project-gorakh-boris.X.production.o
 __Lramtop E00 0 RAM 0 ramtop dist/default/production\final-project-gorakh-boris.X.production.o
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production\final-project-gorakh-boris.X.production.o
-__pcinit 12FE 0 CODE 0 cinit dist/default/production\final-project-gorakh-boris.X.production.o
-_returning 5D 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_start_timer 1506 0 CODE 0 text18 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext0 F6E 0 CODE 0 text0 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext1 1370 0 CODE 0 text1 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext2 10B4 0 CODE 0 text2 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext3 11FC 0 CODE 0 text3 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext4 E1A 0 CODE 0 text4 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext5 144A 0 CODE 0 text5 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext6 128A 0 CODE 0 text6 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext7 1490 0 CODE 0 text7 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext8 116C 0 CODE 0 text8 dist/default/production\final-project-gorakh-boris.X.production.o
-__ptext9 133C 0 CODE 0 text9 dist/default/production\final-project-gorakh-boris.X.production.o
+_fullSpeedAhead 10CC 0 CODE 0 text4 dist/default/production\final-project-gorakh-boris.X.production.o
+__pcinit 1318 0 CODE 0 cinit dist/default/production\final-project-gorakh-boris.X.production.o
+_returning 5A 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_start_timer 14EE 0 CODE 0 text17 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext0 E1A 0 CODE 0 text0 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext1 1216 0 CODE 0 text1 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext2 1478 0 CODE 0 text2 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext3 1186 0 CODE 0 text3 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext4 10CC 0 CODE 0 text4 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext5 F78 0 CODE 0 text5 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext6 1432 0 CODE 0 text6 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext7 12A4 0 CODE 0 text7 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext8 1356 0 CODE 0 text8 dist/default/production\final-project-gorakh-boris.X.production.o
+__ptext9 1458 0 CODE 0 text9 dist/default/production\final-project-gorakh-boris.X.production.o
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\final-project-gorakh-boris.X.production.o
-_turningGear 55 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+_turningGear 52 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Ltext10 0 0 ABS 0 text10 dist/default/production\final-project-gorakh-boris.X.production.o
 __Ltext11 0 0 ABS 0 text11 dist/default/production\final-project-gorakh-boris.X.production.o
 __Ltext12 0 0 ABS 0 text12 dist/default/production\final-project-gorakh-boris.X.production.o
@@ -740,50 +728,50 @@ __Ltext16 0 0 ABS 0 text16 dist/default/production\final-project-gorakh-boris.X.
 __Ltext17 0 0 ABS 0 text17 dist/default/production\final-project-gorakh-boris.X.production.o
 __Ltext18 0 0 ABS 0 text18 dist/default/production\final-project-gorakh-boris.X.production.o
 __Ltext19 0 0 ABS 0 text19 dist/default/production\final-project-gorakh-boris.X.production.o
-__Ltext20 0 0 ABS 0 text20 dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_color_writetoaddr 1490 0 CODE 0 text10 dist/default/production\final-project-gorakh-boris.X.production.o
-__ramtop E00 0 RAM 0 ramtop C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
+__end_of_color_writetoaddr 1478 0 CODE 0 text9 dist/default/production\final-project-gorakh-boris.X.production.o
+__ramtop E00 0 RAM 0 ramtop C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
 _trail_manoeuvre 100 0 BANK1 1 bssBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
-main@motorL 2D 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-main@motorR 36 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+main@motorL 2A 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+main@motorR 33 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Lpowerup 3C 0 CODE 0 powerup dist/default/production\final-project-gorakh-boris.X.production.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_write_timer 14EE 0 CODE 0 text20 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_write_timer 14D6 0 CODE 0 text19 dist/default/production\final-project-gorakh-boris.X.production.o
 __H__absolute__ 0 0 ABS 0 __absolute__ dist/default/production\final-project-gorakh-boris.X.production.o
 __psmallconst E00 0 SMALLCONST 0 smallconst dist/default/production\final-project-gorakh-boris.X.production.o
-_reset_timer 14D6 0 CODE 0 text19 dist/default/production\final-project-gorakh-boris.X.production.o
+_reset_timer 14BE 0 CODE 0 text18 dist/default/production\final-project-gorakh-boris.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\final-project-gorakh-boris.X.production.o
 setMotorPWM@negDuty 12 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 _CCP3CONbits F26 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-___heap_hi 0 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
-___heap_lo 0 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
-_I2C_2_Master_Idle 13FA 0 CODE 0 text14 dist/default/production\final-project-gorakh-boris.X.production.o
-_I2C_2_Master_Init 13D0 0 CODE 0 text15 dist/default/production\final-project-gorakh-boris.X.production.o
-_I2C_2_Master_Stop 14EE 0 CODE 0 text12 dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_initUSART4 14AE 0 CODE 0 text7 dist/default/production\final-project-gorakh-boris.X.production.o
+___heap_hi 0 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
+___heap_lo 0 0 ABS 0 - C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
+_I2C_2_Master_Idle 13E2 0 CODE 0 text13 dist/default/production\final-project-gorakh-boris.X.production.o
+_I2C_2_Master_Init 13B8 0 CODE 0 text14 dist/default/production\final-project-gorakh-boris.X.production.o
+_I2C_2_Master_Stop 14D6 0 CODE 0 text11 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_initUSART4 1496 0 CODE 0 text2 dist/default/production\final-project-gorakh-boris.X.production.o
 ___param_bank 0 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-___intlo_stack_hi 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
-___intlo_stack_lo 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAst8g.\driver_tmp_9.o
+___intlo_stack_hi 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
+___intlo_stack_lo 0 0 STACK 2 stack C:\Users\Gorak\AppData\Local\Temp\xcAsbso.\driver_tmp_9.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of__initialization 1332 0 CODE 0 cinit dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of__initialization 134C 0 CODE 0 cinit dist/default/production\final-project-gorakh-boris.X.production.o
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production\final-project-gorakh-boris.X.production.o
 _SP4BRGH EE6 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _SP4BRGL EE5 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_Timer0_init 144A 0 CODE 0 text17 dist/default/production\final-project-gorakh-boris.X.production.o
-_initDCmotorsPWM 116C 0 CODE 0 text8 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_Timer0_init 1432 0 CODE 0 text16 dist/default/production\final-project-gorakh-boris.X.production.o
+_initDCmotorsPWM 1186 0 CODE 0 text3 dist/default/production\final-project-gorakh-boris.X.production.o
 __pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_fullSpeedAhead 1186 0 CODE 0 text4 dist/default/production\final-project-gorakh-boris.X.production.o
 _T0CON0bits FD5 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _T0CON1bits FD6 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _SSP2ADD ED6 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _SSP2BUF ED5 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_main 10B4 0 CODE 0 text0 dist/default/production\final-project-gorakh-boris.X.production.o
-__end_of_stop 128A 0 CODE 0 text3 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_main F78 0 CODE 0 text0 dist/default/production\final-project-gorakh-boris.X.production.o
+__end_of_stop 12A4 0 CODE 0 text1 dist/default/production\final-project-gorakh-boris.X.production.o
 _CCP2CONbits FA7 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 __pintcode 8 0 CODE 0 intcode dist/default/production\final-project-gorakh-boris.X.production.o
 write_timer@tH 2 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 write_timer@tL 1 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-_rampDelay 58 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+_rampDelay 55 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 _TMR0H FD4 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _TMR0L FD3 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
 _RC4STAbits EE7 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
@@ -795,16 +783,16 @@ __LRAM 1 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.producti
 __Lbss 0 0 RAM 1 bss dist/default/production\final-project-gorakh-boris.X.production.o
 __Lram 0 0 ABS 0 ram dist/default/production\final-project-gorakh-boris.X.production.o
 __Lsfr 0 0 ABS 0 sfr dist/default/production\final-project-gorakh-boris.X.production.o
-_lost_flag 5B 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-__initialization 12FE 0 CODE 0 cinit dist/default/production\final-project-gorakh-boris.X.production.o
+_lost_flag 58 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+__initialization 1318 0 CODE 0 cinit dist/default/production\final-project-gorakh-boris.X.production.o
 __pbssBANK1 100 0 BANK1 1 bssBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
-__pdataCOMRAM 3F 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+__pdataCOMRAM 3C 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 _T2CONbits FBD 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-_turnLeft90Delay 51 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
+_turnLeft90Delay 4E 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 _trail_timer_low 114 0 BANK1 1 bssBANK1 dist/default/production\final-project-gorakh-boris.X.production.o
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production\final-project-gorakh-boris.X.production.o
 ___wmul@product 5 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-_color_writetoaddr 1470 0 CODE 0 text10 dist/default/production\final-project-gorakh-boris.X.production.o
+_color_writetoaddr 1458 0 CODE 0 text9 dist/default/production\final-project-gorakh-boris.X.production.o
 __Hsmallconst E1A 0 SMALLCONST 0 smallconst dist/default/production\final-project-gorakh-boris.X.production.o
 __Lifardata 0 0 CODE 0 ifardata dist/default/production\final-project-gorakh-boris.X.production.o
 _SSP2CLKPPS E1C 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
@@ -839,9 +827,9 @@ __Hintcode 3C 0 CODE 0 intcode dist/default/production\final-project-gorakh-bori
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text4 0 E1A E1A 6AF 1
-text11 0 14CA 14CA 3C 1
-cstackCOMRAM 1 1 1 5E 1
+text0 0 E1A E1A 697 1
+text10 0 14B2 14B2 3C 1
+cstackCOMRAM 1 1 1 5B 1
 reset_vec 0 0 0 4 1
 bssBANK1 1 100 100 3C 1
 intcode 0 8 8 38 1

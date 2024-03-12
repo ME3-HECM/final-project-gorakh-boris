@@ -2005,16 +2005,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 50 `i `uc
 ]
 "24
-[; ;./dc_motor.h: 24: unsigned int turnLeft90Delay = 140;
+[; ;./dc_motor.h: 24: unsigned int turnLeft90Delay = 142;
 [v _turnLeft90Delay `ui ~T0 @X0 1 e ]
 [i _turnLeft90Delay
--> -> 140 `i `ui
+-> -> 142 `i `ui
 ]
 "25
-[; ;./dc_motor.h: 25: unsigned int turnRight90Delay = 175;
+[; ;./dc_motor.h: 25: unsigned int turnRight90Delay = 142;
 [v _turnRight90Delay `ui ~T0 @X0 1 e ]
 [i _turnRight90Delay
--> -> 175 `i `ui
+-> -> 142 `i `ui
 ]
 "26
 [; ;./dc_motor.h: 26: unsigned int turnLeft135Delay = 300;
