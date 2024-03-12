@@ -19,7 +19,8 @@ unsigned char rampDelay = 8;                //delay in ms
 unsigned char topGearLeft = 20;             //power from 0 to 100
 unsigned char topGearRight = 20;            //power from 0 to 100
 
-unsigned char turningGear = 50;             //power from 0 to 100
+unsigned char turningLeftGear = 50;             //power from 0 to 100
+unsigned char turningRightGear = 50;
 
 unsigned int turnLeft90Delay = 142;         //delay in ms
 unsigned int turnRight90Delay = 142;        //delay in ms
