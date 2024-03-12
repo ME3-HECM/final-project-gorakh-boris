@@ -24126,13 +24126,14 @@ unsigned char rampDelay = 8;
 unsigned char topGearLeft = 20;
 unsigned char topGearRight = 20;
 
-unsigned char turningGear = 50;
+unsigned char turningLeftGear = 40;
+unsigned char turningRightGear = 40;
 
-unsigned int turnLeft90Delay = 142;
-unsigned int turnRight90Delay = 142;
-unsigned int turnLeft135Delay = 300;
-unsigned int turnRight135Delay = 300;
-unsigned int turn180Delay = 510;
+unsigned int turnLeft90Delay = 84;
+unsigned int turnRight90Delay = 108;
+unsigned int turnLeft135Delay = 250;
+unsigned int turnRight135Delay = 262;
+unsigned int turn180Delay = 400;
 
 unsigned int headbuttDelay = 70;
 unsigned int squareDelay = 300;
@@ -24395,15 +24396,13 @@ void main(void) {
     LATHbits.LATH3 = !LATHbits.LATH3;
 # 107 "main.c"
     int i;
-# 117 "main.c"
+# 116 "main.c"
+     _delay((unsigned long)((1000)*(64000000/4000.0)));
     for (i=0; i < 4; i++) {
-        fullSpeedAhead(&motorL, &motorR);
-        _delay((unsigned long)((1000)*(64000000/4000.0)));
-
-
-
+# 126 "main.c"
+        UTurn(&motorL, &motorR);
 
     }
     stop(&motorL, &motorR);
-# 140 "main.c"
+# 144 "main.c"
 }

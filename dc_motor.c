@@ -106,8 +106,8 @@ void stop(DC_motor *mL, DC_motor *mR)
 *******************************************************************************/
 void turnLeft(DC_motor *mL, DC_motor *mR)
 {
-    unsigned char leftGear = turningGear;   //set target power of left motor
-    unsigned char rightGear = turningGear;  //set target power of right motor
+    unsigned char leftGear = turningLeftGear;   //set target power of left motor
+    unsigned char rightGear = turningLeftGear;  //set target power of right motor
     (mL->direction) = 0;                //set backward direction of left motor
     (mR->direction) = 1;                //set forward direction of right motor
     while ((mL->power<leftGear) || (mR->power<rightGear)){
@@ -124,8 +124,8 @@ void turnLeft(DC_motor *mL, DC_motor *mR)
 *******************************************************************************/
 void turnRight(DC_motor *mL, DC_motor *mR)
 {
-    unsigned char leftGear = turningGear;   //set target power of left motor
-    unsigned char rightGear = turningGear;  //set target power of right motor
+    unsigned char leftGear = turningRightGear;   //set target power of left motor
+    unsigned char rightGear = turningRightGear;  //set target power of right motor
     (mL->direction) = 1;                //set forward direction of left motor
     (mR->direction) = 0;                //set backward direction of right motor
     while ((mL->power<leftGear) || (mR->power<rightGear)){

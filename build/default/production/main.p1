@@ -24,8 +24,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "20738
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 20738: extern volatile unsigned char CCPR4H __attribute__((address(0xF21)));
 [v _CCPR4H `Vuc ~T0 @X0 0 e@3873 ]
-"33 ./dc_motor.h
-[; ;./dc_motor.h: 33: void initDCmotorsPWM(unsigned int PWMperiod);
+"34 ./dc_motor.h
+[; ;./dc_motor.h: 34: void initDCmotorsPWM(unsigned int PWMperiod);
 [v _initDCmotorsPWM `(v ~T0 @X0 0 ef1`ui ]
 "8 ./buggy_lights.h
 [; ;./buggy_lights.h: 8: void buggy_lights_init(void);
@@ -144,15 +144,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "30278
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 30278: extern volatile PORTFbits_t PORTFbits __attribute__((address(0xF8E)));
 [v _PORTFbits `VS1411 ~T0 @X0 0 e@3982 ]
-"39 ./dc_motor.h
-[; ;./dc_motor.h: 39: void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
-[v _fullSpeedAhead `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 [v F205 `(v ~T0 @X0 1 tf1`ul ]
 "20 C:\Program Files\Microchip\xc8\v2.45\pic\include\builtins.h
 [v __delay `JF205 ~T0 @X0 0 e ]
 [p i __delay ]
-"36 ./dc_motor.h
-[; ;./dc_motor.h: 36: void stop(DC_motor *mL, DC_motor *mR);
+"47 ./dc_motor.h
+[; ;./dc_motor.h: 47: void UTurn(DC_motor *mL, DC_motor *mR);
+[v _UTurn `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"37
+[; ;./dc_motor.h: 37: void stop(DC_motor *mL, DC_motor *mR);
 [v _stop `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "9 main.c
 [p x FEXTOSC  =  HS          ]
@@ -2155,49 +2155,55 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 20 `i `uc
 ]
 "22
-[; ;./dc_motor.h: 22: unsigned char turningGear = 50;
-[v _turningGear `uc ~T0 @X0 1 e ]
-[i _turningGear
--> -> 50 `i `uc
+[; ;./dc_motor.h: 22: unsigned char turningLeftGear = 40;
+[v _turningLeftGear `uc ~T0 @X0 1 e ]
+[i _turningLeftGear
+-> -> 40 `i `uc
 ]
-"24
-[; ;./dc_motor.h: 24: unsigned int turnLeft90Delay = 142;
-[v _turnLeft90Delay `ui ~T0 @X0 1 e ]
-[i _turnLeft90Delay
--> -> 142 `i `ui
+"23
+[; ;./dc_motor.h: 23: unsigned char turningRightGear = 40;
+[v _turningRightGear `uc ~T0 @X0 1 e ]
+[i _turningRightGear
+-> -> 40 `i `uc
 ]
 "25
-[; ;./dc_motor.h: 25: unsigned int turnRight90Delay = 142;
-[v _turnRight90Delay `ui ~T0 @X0 1 e ]
-[i _turnRight90Delay
--> -> 142 `i `ui
+[; ;./dc_motor.h: 25: unsigned int turnLeft90Delay = 84;
+[v _turnLeft90Delay `ui ~T0 @X0 1 e ]
+[i _turnLeft90Delay
+-> -> 84 `i `ui
 ]
 "26
-[; ;./dc_motor.h: 26: unsigned int turnLeft135Delay = 300;
-[v _turnLeft135Delay `ui ~T0 @X0 1 e ]
-[i _turnLeft135Delay
--> -> 300 `i `ui
+[; ;./dc_motor.h: 26: unsigned int turnRight90Delay = 108;
+[v _turnRight90Delay `ui ~T0 @X0 1 e ]
+[i _turnRight90Delay
+-> -> 108 `i `ui
 ]
 "27
-[; ;./dc_motor.h: 27: unsigned int turnRight135Delay = 300;
-[v _turnRight135Delay `ui ~T0 @X0 1 e ]
-[i _turnRight135Delay
--> -> 300 `i `ui
+[; ;./dc_motor.h: 27: unsigned int turnLeft135Delay = 250;
+[v _turnLeft135Delay `ui ~T0 @X0 1 e ]
+[i _turnLeft135Delay
+-> -> 250 `i `ui
 ]
 "28
-[; ;./dc_motor.h: 28: unsigned int turn180Delay = 510;
+[; ;./dc_motor.h: 28: unsigned int turnRight135Delay = 262;
+[v _turnRight135Delay `ui ~T0 @X0 1 e ]
+[i _turnRight135Delay
+-> -> 262 `i `ui
+]
+"29
+[; ;./dc_motor.h: 29: unsigned int turn180Delay = 400;
 [v _turn180Delay `ui ~T0 @X0 1 e ]
 [i _turn180Delay
--> -> 510 `i `ui
+-> -> 400 `i `ui
 ]
-"30
-[; ;./dc_motor.h: 30: unsigned int headbuttDelay = 70;
+"31
+[; ;./dc_motor.h: 31: unsigned int headbuttDelay = 70;
 [v _headbuttDelay `ui ~T0 @X0 1 e ]
 [i _headbuttDelay
 -> -> 70 `i `ui
 ]
-"31
-[; ;./dc_motor.h: 31: unsigned int squareDelay = 300;
+"32
+[; ;./dc_motor.h: 32: unsigned int squareDelay = 300;
 [v _squareDelay `ui ~T0 @X0 1 e ]
 [i _squareDelay
 -> -> 300 `i `ui
@@ -2470,6 +2476,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "107
 [; ;main.c: 107:     int i;
 [v _i `i ~T0 @X0 1 a ]
+"116
+[; ;main.c: 116:      _delay((unsigned long)((1000)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "117
 [; ;main.c: 117:     for (i=0; i < 4; i++) {
 {
@@ -2478,23 +2487,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 2023  ]
 [e :U 2022 ]
 {
-"118
-[; ;main.c: 118:         fullSpeedAhead(&motorL, &motorR);
-[e ( _fullSpeedAhead (2 , &U _motorL &U _motorR ]
-"119
-[; ;main.c: 119:         _delay((unsigned long)((1000)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"124
-[; ;main.c: 124:     }
+"126
+[; ;main.c: 126:         UTurn(&motorL, &motorR);
+[e ( _UTurn (2 , &U _motorL &U _motorR ]
+"128
+[; ;main.c: 128:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 4 `i 2022  ]
 [e :U 2023 ]
 }
-"125
-[; ;main.c: 125:     stop(&motorL, &motorR);
+"129
+[; ;main.c: 129:     stop(&motorL, &motorR);
 [e ( _stop (2 , &U _motorL &U _motorR ]
-"140
-[; ;main.c: 140: }
+"144
+[; ;main.c: 144: }
 [e :UE 2018 ]
 }

@@ -24115,13 +24115,14 @@ unsigned char rampDelay = 8;
 unsigned char topGearLeft = 20;
 unsigned char topGearRight = 20;
 
-unsigned char turningGear = 50;
+unsigned char turningLeftGear = 40;
+unsigned char turningRightGear = 40;
 
-unsigned int turnLeft90Delay = 142;
-unsigned int turnRight90Delay = 142;
-unsigned int turnLeft135Delay = 300;
-unsigned int turnRight135Delay = 300;
-unsigned int turn180Delay = 510;
+unsigned int turnLeft90Delay = 84;
+unsigned int turnRight90Delay = 108;
+unsigned int turnLeft135Delay = 250;
+unsigned int turnRight135Delay = 262;
+unsigned int turn180Delay = 400;
 
 unsigned int headbuttDelay = 70;
 unsigned int squareDelay = 300;

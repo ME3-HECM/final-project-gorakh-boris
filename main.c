@@ -113,13 +113,17 @@ void main(void) {
     //headbuttReverse(&motorL, &motorR);
     //squareReverse(&motorL, &motorR);
     //fullSpeedAhead(&motorL, &motorR);
-        
+     __delay_ms(1000);   
     for (i=0; i < 4; i++) {
-        fullSpeedAhead(&motorL, &motorR);
-        __delay_ms(1000);
+        
+        //fullSpeedAhead(&motorL, &motorR);
+        //__delay_ms(1000);
                 
         //turnLeft90(&motorL, &motorR);
+        //turnRight90(&motorL, &motorR);
+        //turnLeft135(&motorL, &motorR);
         //turnRight135(&motorL, &motorR);
+        UTurn(&motorL, &motorR);
         
     }
     stop(&motorL, &motorR);
