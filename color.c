@@ -129,9 +129,13 @@ void average_RGBC(struct RGBC_val *p)
     unsigned long temp_B = 0;
     unsigned long temp_C = 0;
     
-    //for some reason this for loop doesn't happen when called in timer.c
-    for (unsigned char i; i < sample_count; i++) {  //repeat sample_count times
-        getRGBCval(p);                              //take colour measurement
+    /***********************************************************************
+     * for some reason this for loop doesn't happen all the time
+     * fixed by assigning zero to variable i
+    ***********************************************************************/
+    for (unsigned char i = 0; i < sample_count; i++) {
+        //take colour measurement
+        getRGBCval(p);
         //add colour measurement to temporary variables
         temp_R += (unsigned long)p->R;
         temp_G += (unsigned long)p->G;

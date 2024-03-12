@@ -132,6 +132,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13 ./buggy_lights.h
 [; ;./buggy_lights.h: 13: void toggle_tricolour_LED(void);
 [v _toggle_tricolour_LED `(v ~T0 @X0 0 ef ]
+"49 ./timers.h
+[; ;./timers.h: 49: void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2);
+[v _forward_navigation `(v ~T0 @X0 0 ef4`*S2015`*S2015`*S2017`*S2016 ]
 "35 ./color.h
 [; ;./color.h: 35: void average_RGBC(struct RGBC_val *p);
 [v _average_RGBC `(v ~T0 @X0 0 ef1`*S2016 ]
@@ -2460,6 +2463,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "82
 [; ;main.c: 82:     toggle_tricolour_LED();
 [e ( _toggle_tricolour_LED ..  ]
+"84
+[; ;main.c: 84:     forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
+[e ( _forward_navigation (4 , , , &U _motorL &U _motorR &U _HSV_colour &U _RGBC_colour ]
 "86
 [; ;main.c: 86:     while (1) {
 [e :U 2020 ]

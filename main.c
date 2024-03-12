@@ -81,10 +81,10 @@ void main(void) {
     LATHbits.LATH3 = !LATHbits.LATH3;
     toggle_tricolour_LED();
     
-    //forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
+    forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
     
     while (1) {
-        average_RGBC(&RGBC_colour); //a bit buggy, check github commit comments
+        average_RGBC(&RGBC_colour);
         scale_RGB(&RGBC_colour);
         convert_HSV(&HSV_colour, &RGBC_colour);
         sendRGBCvalSerial4(&RGBC_colour);

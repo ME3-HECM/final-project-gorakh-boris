@@ -2302,649 +2302,650 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;color.c: 130:     unsigned long temp_C = 0;
 [v _temp_C `ul ~T0 @X0 1 a ]
 [e = _temp_C -> -> -> 0 `i `l `ul ]
-"133
-[; ;color.c: 133:     for (unsigned char i; i < sample_count; i++) {
+"136
+[; ;color.c: 136:     for (unsigned char i = 0; i < sample_count; i++) {
 {
 [v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
 [e $U 2028  ]
 [e :U 2025 ]
 {
-"134
-[; ;color.c: 134:         getRGBCval(p);
-[e ( _getRGBCval (1 _p ]
-"136
-[; ;color.c: 136:         temp_R += (unsigned long)p->R;
-[e =+ _temp_R -> . *U _p 0 `ul ]
-"137
-[; ;color.c: 137:         temp_G += (unsigned long)p->G;
-[e =+ _temp_G -> . *U _p 1 `ul ]
 "138
-[; ;color.c: 138:         temp_B += (unsigned long)p->B;
-[e =+ _temp_B -> . *U _p 2 `ul ]
-"139
-[; ;color.c: 139:         temp_C += (unsigned long)p->C;
-[e =+ _temp_C -> . *U _p 3 `ul ]
+[; ;color.c: 138:         getRGBCval(p);
+[e ( _getRGBCval (1 _p ]
 "140
-[; ;color.c: 140:     }
+[; ;color.c: 140:         temp_R += (unsigned long)p->R;
+[e =+ _temp_R -> . *U _p 0 `ul ]
+"141
+[; ;color.c: 141:         temp_G += (unsigned long)p->G;
+[e =+ _temp_G -> . *U _p 1 `ul ]
+"142
+[; ;color.c: 142:         temp_B += (unsigned long)p->B;
+[e =+ _temp_B -> . *U _p 2 `ul ]
+"143
+[; ;color.c: 143:         temp_C += (unsigned long)p->C;
+[e =+ _temp_C -> . *U _p 3 `ul ]
+"144
+[; ;color.c: 144:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 2028 ]
 [e $ < -> _i `i -> _sample_count `i 2025  ]
 [e :U 2026 ]
 }
-"143
-[; ;color.c: 143:     temp_R /= (unsigned long)sample_count;
+"147
+[; ;color.c: 147:     temp_R /= (unsigned long)sample_count;
 [e =/ _temp_R -> _sample_count `ul ]
-"144
-[; ;color.c: 144:     temp_G /= (unsigned long)sample_count;
+"148
+[; ;color.c: 148:     temp_G /= (unsigned long)sample_count;
 [e =/ _temp_G -> _sample_count `ul ]
-"145
-[; ;color.c: 145:     temp_B /= (unsigned long)sample_count;
-[e =/ _temp_B -> _sample_count `ul ]
-"146
-[; ;color.c: 146:     temp_C /= (unsigned long)sample_count;
-[e =/ _temp_C -> _sample_count `ul ]
 "149
-[; ;color.c: 149:     p->R = (unsigned int)temp_R;
-[e = . *U _p 0 -> _temp_R `ui ]
+[; ;color.c: 149:     temp_B /= (unsigned long)sample_count;
+[e =/ _temp_B -> _sample_count `ul ]
 "150
-[; ;color.c: 150:     p->G = (unsigned int)temp_G;
-[e = . *U _p 1 -> _temp_G `ui ]
-"151
-[; ;color.c: 151:     p->B = (unsigned int)temp_B;
-[e = . *U _p 2 -> _temp_B `ui ]
-"152
-[; ;color.c: 152:     p->C = (unsigned int)temp_C;
-[e = . *U _p 3 -> _temp_C `ui ]
+[; ;color.c: 150:     temp_C /= (unsigned long)sample_count;
+[e =/ _temp_C -> _sample_count `ul ]
 "153
-[; ;color.c: 153: }
+[; ;color.c: 153:     p->R = (unsigned int)temp_R;
+[e = . *U _p 0 -> _temp_R `ui ]
+"154
+[; ;color.c: 154:     p->G = (unsigned int)temp_G;
+[e = . *U _p 1 -> _temp_G `ui ]
+"155
+[; ;color.c: 155:     p->B = (unsigned int)temp_B;
+[e = . *U _p 2 -> _temp_B `ui ]
+"156
+[; ;color.c: 156:     p->C = (unsigned int)temp_C;
+[e = . *U _p 3 -> _temp_C `ui ]
+"157
+[; ;color.c: 157: }
 [e :UE 2024 ]
 }
-"158
-[; ;color.c: 158: void wait_for_wall(struct RGBC_val *p, unsigned char loss)
+"162
+[; ;color.c: 162: void wait_for_wall(struct RGBC_val *p, unsigned char loss)
 [v _wait_for_wall `(v ~T0 @X0 1 ef2`*S2015`uc ]
-"159
-[; ;color.c: 159: {
+"163
+[; ;color.c: 163: {
 {
 [e :U _wait_for_wall ]
-"158
-[; ;color.c: 158: void wait_for_wall(struct RGBC_val *p, unsigned char loss)
+"162
+[; ;color.c: 162: void wait_for_wall(struct RGBC_val *p, unsigned char loss)
 [v _p `*S2015 ~T0 @X0 1 r1 ]
 [v _loss `uc ~T0 @X0 1 r2 ]
-"159
-[; ;color.c: 159: {
+"163
+[; ;color.c: 163: {
 [f ]
-"160
-[; ;color.c: 160:     while (!loss) {
+"164
+[; ;color.c: 164:     while (!loss) {
 [e $U 2030  ]
 [e :U 2031 ]
 {
-"161
-[; ;color.c: 161:         getRGBCval(p);
+"165
+[; ;color.c: 165:         getRGBCval(p);
 [e ( _getRGBCval (1 _p ]
-"162
-[; ;color.c: 162:         if (p->C < wall_threshold) {
+"166
+[; ;color.c: 166:         if (p->C < wall_threshold) {
 [e $ ! < . *U _p 3 _wall_threshold 2033  ]
 {
-"163
-[; ;color.c: 163:             break;
+"167
+[; ;color.c: 167:             break;
 [e $U 2032  ]
-"164
-[; ;color.c: 164:         }
+"168
+[; ;color.c: 168:         }
 }
 [e :U 2033 ]
-"165
-[; ;color.c: 165:     }
+"169
+[; ;color.c: 169:     }
 }
 [e :U 2030 ]
-"160
-[; ;color.c: 160:     while (!loss) {
+"164
+[; ;color.c: 164:     while (!loss) {
 [e $ ! != -> _loss `i -> 0 `i 2031  ]
 [e :U 2032 ]
-"166
-[; ;color.c: 166: }
+"170
+[; ;color.c: 170: }
 [e :UE 2029 ]
 }
-"171
-[; ;color.c: 171: unsigned int max_RGB(struct RGBC_val *p)
+"175
+[; ;color.c: 175: unsigned int max_RGB(struct RGBC_val *p)
 [v _max_RGB `(ui ~T0 @X0 1 ef1`*S2015 ]
-"172
-[; ;color.c: 172: {
+"176
+[; ;color.c: 176: {
 {
 [e :U _max_RGB ]
-"171
-[; ;color.c: 171: unsigned int max_RGB(struct RGBC_val *p)
+"175
+[; ;color.c: 175: unsigned int max_RGB(struct RGBC_val *p)
 [v _p `*S2015 ~T0 @X0 1 r1 ]
-"172
-[; ;color.c: 172: {
+"176
+[; ;color.c: 176: {
 [f ]
-"173
-[; ;color.c: 173:     unsigned int max_val = p->R;
+"177
+[; ;color.c: 177:     unsigned int max_val = p->R;
 [v _max_val `ui ~T0 @X0 1 a ]
 [e = _max_val . *U _p 0 ]
-"174
-[; ;color.c: 174:     if (p->G > max_val) {max_val = p->G;}
+"178
+[; ;color.c: 178:     if (p->G > max_val) {max_val = p->G;}
 [e $ ! > . *U _p 1 _max_val 2035  ]
 {
 [e = _max_val . *U _p 1 ]
 }
 [e :U 2035 ]
-"175
-[; ;color.c: 175:     if (p->B > max_val) {max_val = p->B;}
+"179
+[; ;color.c: 179:     if (p->B > max_val) {max_val = p->B;}
 [e $ ! > . *U _p 2 _max_val 2036  ]
 {
 [e = _max_val . *U _p 2 ]
 }
 [e :U 2036 ]
-"176
-[; ;color.c: 176:     return max_val;
+"180
+[; ;color.c: 180:     return max_val;
 [e ) _max_val ]
 [e $UE 2034  ]
-"177
-[; ;color.c: 177: }
+"181
+[; ;color.c: 181: }
 [e :UE 2034 ]
 }
-"182
-[; ;color.c: 182: unsigned int min_RGB(struct RGBC_val *p)
+"186
+[; ;color.c: 186: unsigned int min_RGB(struct RGBC_val *p)
 [v _min_RGB `(ui ~T0 @X0 1 ef1`*S2015 ]
-"183
-[; ;color.c: 183: {
+"187
+[; ;color.c: 187: {
 {
 [e :U _min_RGB ]
-"182
-[; ;color.c: 182: unsigned int min_RGB(struct RGBC_val *p)
+"186
+[; ;color.c: 186: unsigned int min_RGB(struct RGBC_val *p)
 [v _p `*S2015 ~T0 @X0 1 r1 ]
-"183
-[; ;color.c: 183: {
+"187
+[; ;color.c: 187: {
 [f ]
-"184
-[; ;color.c: 184:     unsigned int min_val = p->R;
+"188
+[; ;color.c: 188:     unsigned int min_val = p->R;
 [v _min_val `ui ~T0 @X0 1 a ]
 [e = _min_val . *U _p 0 ]
-"185
-[; ;color.c: 185:     if (p->G < min_val) {min_val = p->G;}
+"189
+[; ;color.c: 189:     if (p->G < min_val) {min_val = p->G;}
 [e $ ! < . *U _p 1 _min_val 2038  ]
 {
 [e = _min_val . *U _p 1 ]
 }
 [e :U 2038 ]
-"186
-[; ;color.c: 186:     if (p->B < min_val) {min_val = p->B;}
+"190
+[; ;color.c: 190:     if (p->B < min_val) {min_val = p->B;}
 [e $ ! < . *U _p 2 _min_val 2039  ]
 {
 [e = _min_val . *U _p 2 ]
 }
 [e :U 2039 ]
-"187
-[; ;color.c: 187:     return min_val;
+"191
+[; ;color.c: 191:     return min_val;
 [e ) _min_val ]
 [e $UE 2037  ]
-"188
-[; ;color.c: 188: }
+"192
+[; ;color.c: 192: }
 [e :UE 2037 ]
 }
-"193
-[; ;color.c: 193: void scale_RGB(struct RGBC_val *p)
+"197
+[; ;color.c: 197: void scale_RGB(struct RGBC_val *p)
 [v _scale_RGB `(v ~T0 @X0 1 ef1`*S2015 ]
-"194
-[; ;color.c: 194: {
+"198
+[; ;color.c: 198: {
 {
 [e :U _scale_RGB ]
-"193
-[; ;color.c: 193: void scale_RGB(struct RGBC_val *p)
-[v _p `*S2015 ~T0 @X0 1 r1 ]
-"194
-[; ;color.c: 194: {
-[f ]
-"195
-[; ;color.c: 195:     p->R *= 0.5;
-[e =* . *U _p 0 .0.5 ]
-"196
-[; ;color.c: 196:     p->G *= 0.7;
-[e =* . *U _p 1 .0.7 ]
 "197
-[; ;color.c: 197:     p->B *= 1;
-[e =* . *U _p 2 -> -> 1 `i `ui ]
+[; ;color.c: 197: void scale_RGB(struct RGBC_val *p)
+[v _p `*S2015 ~T0 @X0 1 r1 ]
 "198
-[; ;color.c: 198: }
+[; ;color.c: 198: {
+[f ]
+"199
+[; ;color.c: 199:     p->R *= 0.5;
+[e =* . *U _p 0 .0.5 ]
+"200
+[; ;color.c: 200:     p->G *= 0.7;
+[e =* . *U _p 1 .0.7 ]
+"201
+[; ;color.c: 201:     p->B *= 1;
+[e =* . *U _p 2 -> -> 1 `i `ui ]
+"202
+[; ;color.c: 202: }
 [e :UE 2040 ]
 }
-"205
-[; ;color.c: 205: void convert_HSV(struct HSV_val *p1,struct RGBC_val *p2)
+"209
+[; ;color.c: 209: void convert_HSV(struct HSV_val *p1,struct RGBC_val *p2)
 [v _convert_HSV `(v ~T0 @X0 1 ef2`*S2016`*S2015 ]
-"206
-[; ;color.c: 206: {
+"210
+[; ;color.c: 210: {
 {
 [e :U _convert_HSV ]
-"205
-[; ;color.c: 205: void convert_HSV(struct HSV_val *p1,struct RGBC_val *p2)
+"209
+[; ;color.c: 209: void convert_HSV(struct HSV_val *p1,struct RGBC_val *p2)
 [v _p1 `*S2016 ~T0 @X0 1 r1 ]
 [v _p2 `*S2015 ~T0 @X0 1 r2 ]
-"206
-[; ;color.c: 206: {
+"210
+[; ;color.c: 210: {
 [f ]
-"207
-[; ;color.c: 207:     unsigned int hue = 0;
+"211
+[; ;color.c: 211:     unsigned int hue = 0;
 [v _hue `ui ~T0 @X0 1 a ]
 [e = _hue -> -> 0 `i `ui ]
-"208
-[; ;color.c: 208:     unsigned int sat = 0;
+"212
+[; ;color.c: 212:     unsigned int sat = 0;
 [v _sat `ui ~T0 @X0 1 a ]
 [e = _sat -> -> 0 `i `ui ]
-"209
-[; ;color.c: 209:     unsigned int hue_scale = 60;
+"213
+[; ;color.c: 213:     unsigned int hue_scale = 60;
 [v _hue_scale `ui ~T0 @X0 1 a ]
 [e = _hue_scale -> -> 60 `i `ui ]
-"210
-[; ;color.c: 210:     unsigned int sat_scale = 100;
+"214
+[; ;color.c: 214:     unsigned int sat_scale = 100;
 [v _sat_scale `ui ~T0 @X0 1 a ]
 [e = _sat_scale -> -> 100 `i `ui ]
-"212
-[; ;color.c: 212:     unsigned int M = max_RGB(p2);
+"216
+[; ;color.c: 216:     unsigned int M = max_RGB(p2);
 [v _M `ui ~T0 @X0 1 a ]
 [e = _M ( _max_RGB (1 _p2 ]
-"213
-[; ;color.c: 213:     unsigned int m = min_RGB(p2);
+"217
+[; ;color.c: 217:     unsigned int m = min_RGB(p2);
 [v _m `ui ~T0 @X0 1 a ]
 [e = _m ( _min_RGB (1 _p2 ]
-"214
-[; ;color.c: 214:     unsigned int C = M - m;
+"218
+[; ;color.c: 218:     unsigned int C = M - m;
 [v _C `ui ~T0 @X0 1 a ]
 [e = _C - _M _m ]
-"216
-[; ;color.c: 216:     if (C == 0) {
+"220
+[; ;color.c: 220:     if (C == 0) {
 [e $ ! == _C -> -> 0 `i `ui 2042  ]
 {
-"217
-[; ;color.c: 217:         hue = 0;
+"221
+[; ;color.c: 221:         hue = 0;
 [e = _hue -> -> 0 `i `ui ]
-"218
-[; ;color.c: 218:     } else {
+"222
+[; ;color.c: 222:     } else {
 }
 [e $U 2043  ]
 [e :U 2042 ]
 {
-"228
-[; ;color.c: 228:         if (M == p2->R) {
+"232
+[; ;color.c: 232:         if (M == p2->R) {
 [e $ ! == _M . *U _p2 0 2044  ]
 {
-"229
-[; ;color.c: 229:             if (p2->G >= p2->B) {
+"233
+[; ;color.c: 233:             if (p2->G >= p2->B) {
 [e $ ! >= . *U _p2 1 . *U _p2 2 2045  ]
 {
-"231
-[; ;color.c: 231:                 unsigned long temp;
-[v _temp `ul ~T0 @X0 1 a ]
-"232
-[; ;color.c: 232:                 temp = (unsigned long)C;
-[e = _temp -> _C `ul ]
-"233
-[; ;color.c: 233:                 temp *= 0;
-[e =* _temp -> -> -> 0 `i `l `ul ]
-"234
-[; ;color.c: 234:                 temp += (unsigned long)(p2->G - p2->B);
-[e =+ _temp -> - . *U _p2 1 . *U _p2 2 `ul ]
 "235
-[; ;color.c: 235:                 temp *= (unsigned long)hue_scale;
-[e =* _temp -> _hue_scale `ul ]
+[; ;color.c: 235:                 unsigned long temp;
+[v _temp `ul ~T0 @X0 1 a ]
 "236
-[; ;color.c: 236:                 temp /= (unsigned long)C;
-[e =/ _temp -> _C `ul ]
+[; ;color.c: 236:                 temp = (unsigned long)C;
+[e = _temp -> _C `ul ]
 "237
-[; ;color.c: 237:                 hue = (unsigned int)temp;
-[e = _hue -> _temp `ui ]
+[; ;color.c: 237:                 temp *= 0;
+[e =* _temp -> -> -> 0 `i `l `ul ]
 "238
-[; ;color.c: 238:             } else {
+[; ;color.c: 238:                 temp += (unsigned long)(p2->G - p2->B);
+[e =+ _temp -> - . *U _p2 1 . *U _p2 2 `ul ]
+"239
+[; ;color.c: 239:                 temp *= (unsigned long)hue_scale;
+[e =* _temp -> _hue_scale `ul ]
+"240
+[; ;color.c: 240:                 temp /= (unsigned long)C;
+[e =/ _temp -> _C `ul ]
+"241
+[; ;color.c: 241:                 hue = (unsigned int)temp;
+[e = _hue -> _temp `ui ]
+"242
+[; ;color.c: 242:             } else {
 }
 [e $U 2046  ]
 [e :U 2045 ]
 {
-"240
-[; ;color.c: 240:                 unsigned long temp;
-[v _temp `ul ~T0 @X0 1 a ]
-"241
-[; ;color.c: 241:                 temp = (unsigned long)C;
-[e = _temp -> _C `ul ]
-"242
-[; ;color.c: 242:                 temp *= 6;
-[e =* _temp -> -> -> 6 `i `l `ul ]
-"243
-[; ;color.c: 243:                 temp -= (unsigned long)(p2->B - p2->G);
-[e =- _temp -> - . *U _p2 2 . *U _p2 1 `ul ]
 "244
-[; ;color.c: 244:                 temp *= (unsigned long)hue_scale;
-[e =* _temp -> _hue_scale `ul ]
+[; ;color.c: 244:                 unsigned long temp;
+[v _temp `ul ~T0 @X0 1 a ]
 "245
-[; ;color.c: 245:                 temp /= (unsigned long)C;
-[e =/ _temp -> _C `ul ]
+[; ;color.c: 245:                 temp = (unsigned long)C;
+[e = _temp -> _C `ul ]
 "246
-[; ;color.c: 246:                 hue = (unsigned int)temp;
-[e = _hue -> _temp `ui ]
+[; ;color.c: 246:                 temp *= 6;
+[e =* _temp -> -> -> 6 `i `l `ul ]
 "247
-[; ;color.c: 247:             }
+[; ;color.c: 247:                 temp -= (unsigned long)(p2->B - p2->G);
+[e =- _temp -> - . *U _p2 2 . *U _p2 1 `ul ]
+"248
+[; ;color.c: 248:                 temp *= (unsigned long)hue_scale;
+[e =* _temp -> _hue_scale `ul ]
+"249
+[; ;color.c: 249:                 temp /= (unsigned long)C;
+[e =/ _temp -> _C `ul ]
+"250
+[; ;color.c: 250:                 hue = (unsigned int)temp;
+[e = _hue -> _temp `ui ]
+"251
+[; ;color.c: 251:             }
 }
 [e :U 2046 ]
-"248
-[; ;color.c: 248:         }
+"252
+[; ;color.c: 252:         }
 }
 [e :U 2044 ]
-"249
-[; ;color.c: 249:         if (M == p2->G) {
+"253
+[; ;color.c: 253:         if (M == p2->G) {
 [e $ ! == _M . *U _p2 1 2047  ]
 {
-"250
-[; ;color.c: 250:             if (p2->B >= p2->R) {
+"254
+[; ;color.c: 254:             if (p2->B >= p2->R) {
 [e $ ! >= . *U _p2 2 . *U _p2 0 2048  ]
 {
-"252
-[; ;color.c: 252:                 unsigned long temp;
-[v _temp `ul ~T0 @X0 1 a ]
-"253
-[; ;color.c: 253:                 temp = (unsigned long)C;
-[e = _temp -> _C `ul ]
-"254
-[; ;color.c: 254:                 temp *= 2;
-[e =* _temp -> -> -> 2 `i `l `ul ]
-"255
-[; ;color.c: 255:                 temp += (unsigned long)(p2->B - p2->R);
-[e =+ _temp -> - . *U _p2 2 . *U _p2 0 `ul ]
 "256
-[; ;color.c: 256:                 temp *= (unsigned long)hue_scale;
-[e =* _temp -> _hue_scale `ul ]
+[; ;color.c: 256:                 unsigned long temp;
+[v _temp `ul ~T0 @X0 1 a ]
 "257
-[; ;color.c: 257:                 temp /= (unsigned long)C;
-[e =/ _temp -> _C `ul ]
+[; ;color.c: 257:                 temp = (unsigned long)C;
+[e = _temp -> _C `ul ]
 "258
-[; ;color.c: 258:                 hue = (unsigned int)temp;
-[e = _hue -> _temp `ui ]
+[; ;color.c: 258:                 temp *= 2;
+[e =* _temp -> -> -> 2 `i `l `ul ]
 "259
-[; ;color.c: 259:             } else {
+[; ;color.c: 259:                 temp += (unsigned long)(p2->B - p2->R);
+[e =+ _temp -> - . *U _p2 2 . *U _p2 0 `ul ]
+"260
+[; ;color.c: 260:                 temp *= (unsigned long)hue_scale;
+[e =* _temp -> _hue_scale `ul ]
+"261
+[; ;color.c: 261:                 temp /= (unsigned long)C;
+[e =/ _temp -> _C `ul ]
+"262
+[; ;color.c: 262:                 hue = (unsigned int)temp;
+[e = _hue -> _temp `ui ]
+"263
+[; ;color.c: 263:             } else {
 }
 [e $U 2049  ]
 [e :U 2048 ]
 {
-"261
-[; ;color.c: 261:                 unsigned long temp;
-[v _temp `ul ~T0 @X0 1 a ]
-"262
-[; ;color.c: 262:                 temp = (unsigned long)C;
-[e = _temp -> _C `ul ]
-"263
-[; ;color.c: 263:                 temp *= 2;
-[e =* _temp -> -> -> 2 `i `l `ul ]
-"264
-[; ;color.c: 264:                 temp -= (unsigned long)(p2->R - p2->B);
-[e =- _temp -> - . *U _p2 0 . *U _p2 2 `ul ]
 "265
-[; ;color.c: 265:                 temp *= (unsigned long)hue_scale;
-[e =* _temp -> _hue_scale `ul ]
+[; ;color.c: 265:                 unsigned long temp;
+[v _temp `ul ~T0 @X0 1 a ]
 "266
-[; ;color.c: 266:                 temp /= (unsigned long)C;
-[e =/ _temp -> _C `ul ]
+[; ;color.c: 266:                 temp = (unsigned long)C;
+[e = _temp -> _C `ul ]
 "267
-[; ;color.c: 267:                 hue = (unsigned int)temp;
-[e = _hue -> _temp `ui ]
+[; ;color.c: 267:                 temp *= 2;
+[e =* _temp -> -> -> 2 `i `l `ul ]
 "268
-[; ;color.c: 268:             }
+[; ;color.c: 268:                 temp -= (unsigned long)(p2->R - p2->B);
+[e =- _temp -> - . *U _p2 0 . *U _p2 2 `ul ]
+"269
+[; ;color.c: 269:                 temp *= (unsigned long)hue_scale;
+[e =* _temp -> _hue_scale `ul ]
+"270
+[; ;color.c: 270:                 temp /= (unsigned long)C;
+[e =/ _temp -> _C `ul ]
+"271
+[; ;color.c: 271:                 hue = (unsigned int)temp;
+[e = _hue -> _temp `ui ]
+"272
+[; ;color.c: 272:             }
 }
 [e :U 2049 ]
-"269
-[; ;color.c: 269:         }
+"273
+[; ;color.c: 273:         }
 }
 [e :U 2047 ]
-"270
-[; ;color.c: 270:         if (M == p2->B) {
+"274
+[; ;color.c: 274:         if (M == p2->B) {
 [e $ ! == _M . *U _p2 2 2050  ]
 {
-"271
-[; ;color.c: 271:             if (p2->R >= p2->G) {
+"275
+[; ;color.c: 275:             if (p2->R >= p2->G) {
 [e $ ! >= . *U _p2 0 . *U _p2 1 2051  ]
 {
-"273
-[; ;color.c: 273:                 unsigned long temp;
-[v _temp `ul ~T0 @X0 1 a ]
-"274
-[; ;color.c: 274:                 temp = (unsigned long)C;
-[e = _temp -> _C `ul ]
-"275
-[; ;color.c: 275:                 temp *= 4;
-[e =* _temp -> -> -> 4 `i `l `ul ]
-"276
-[; ;color.c: 276:                 temp += (unsigned long)(p2->R - p2->G);
-[e =+ _temp -> - . *U _p2 0 . *U _p2 1 `ul ]
 "277
-[; ;color.c: 277:                 temp *= (unsigned long)hue_scale;
-[e =* _temp -> _hue_scale `ul ]
+[; ;color.c: 277:                 unsigned long temp;
+[v _temp `ul ~T0 @X0 1 a ]
 "278
-[; ;color.c: 278:                 temp /= (unsigned long)C;
-[e =/ _temp -> _C `ul ]
+[; ;color.c: 278:                 temp = (unsigned long)C;
+[e = _temp -> _C `ul ]
 "279
-[; ;color.c: 279:                 hue = (unsigned int)temp;
-[e = _hue -> _temp `ui ]
+[; ;color.c: 279:                 temp *= 4;
+[e =* _temp -> -> -> 4 `i `l `ul ]
 "280
-[; ;color.c: 280:             } else {
+[; ;color.c: 280:                 temp += (unsigned long)(p2->R - p2->G);
+[e =+ _temp -> - . *U _p2 0 . *U _p2 1 `ul ]
+"281
+[; ;color.c: 281:                 temp *= (unsigned long)hue_scale;
+[e =* _temp -> _hue_scale `ul ]
+"282
+[; ;color.c: 282:                 temp /= (unsigned long)C;
+[e =/ _temp -> _C `ul ]
+"283
+[; ;color.c: 283:                 hue = (unsigned int)temp;
+[e = _hue -> _temp `ui ]
+"284
+[; ;color.c: 284:             } else {
 }
 [e $U 2052  ]
 [e :U 2051 ]
 {
-"282
-[; ;color.c: 282:                 unsigned long temp;
-[v _temp `ul ~T0 @X0 1 a ]
-"283
-[; ;color.c: 283:                 temp = (unsigned long)C;
-[e = _temp -> _C `ul ]
-"284
-[; ;color.c: 284:                 temp *= 4;
-[e =* _temp -> -> -> 4 `i `l `ul ]
-"285
-[; ;color.c: 285:                 temp -= (unsigned long)(p2->G - p2->R);
-[e =- _temp -> - . *U _p2 1 . *U _p2 0 `ul ]
 "286
-[; ;color.c: 286:                 temp *= (unsigned long)hue_scale;
-[e =* _temp -> _hue_scale `ul ]
+[; ;color.c: 286:                 unsigned long temp;
+[v _temp `ul ~T0 @X0 1 a ]
 "287
-[; ;color.c: 287:                 temp /= (unsigned long)C;
-[e =/ _temp -> _C `ul ]
+[; ;color.c: 287:                 temp = (unsigned long)C;
+[e = _temp -> _C `ul ]
 "288
-[; ;color.c: 288:                 hue = (unsigned int)temp;
-[e = _hue -> _temp `ui ]
+[; ;color.c: 288:                 temp *= 4;
+[e =* _temp -> -> -> 4 `i `l `ul ]
 "289
-[; ;color.c: 289:             }
+[; ;color.c: 289:                 temp -= (unsigned long)(p2->G - p2->R);
+[e =- _temp -> - . *U _p2 1 . *U _p2 0 `ul ]
+"290
+[; ;color.c: 290:                 temp *= (unsigned long)hue_scale;
+[e =* _temp -> _hue_scale `ul ]
+"291
+[; ;color.c: 291:                 temp /= (unsigned long)C;
+[e =/ _temp -> _C `ul ]
+"292
+[; ;color.c: 292:                 hue = (unsigned int)temp;
+[e = _hue -> _temp `ui ]
+"293
+[; ;color.c: 293:             }
 }
 [e :U 2052 ]
-"290
-[; ;color.c: 290:         }
+"294
+[; ;color.c: 294:         }
 }
 [e :U 2050 ]
-"291
-[; ;color.c: 291:     }
+"295
+[; ;color.c: 295:     }
 }
 [e :U 2043 ]
-"293
-[; ;color.c: 293:     if (M == 0) {
+"297
+[; ;color.c: 297:     if (M == 0) {
 [e $ ! == _M -> -> 0 `i `ui 2053  ]
 {
-"294
-[; ;color.c: 294:         sat = 0;
+"298
+[; ;color.c: 298:         sat = 0;
 [e = _sat -> -> 0 `i `ui ]
-"295
-[; ;color.c: 295:     } else {
+"299
+[; ;color.c: 299:     } else {
 }
 [e $U 2054  ]
 [e :U 2053 ]
 {
-"297
-[; ;color.c: 297:         unsigned long temp;
-[v _temp `ul ~T0 @X0 1 a ]
-"298
-[; ;color.c: 298:         temp = (unsigned long)C;
-[e = _temp -> _C `ul ]
-"299
-[; ;color.c: 299:         temp *= (unsigned long)sat_scale;
-[e =* _temp -> _sat_scale `ul ]
-"300
-[; ;color.c: 300:         temp /= (unsigned long)M;
-[e =/ _temp -> _M `ul ]
 "301
-[; ;color.c: 301:         sat = (unsigned int)temp;
-[e = _sat -> _temp `ui ]
+[; ;color.c: 301:         unsigned long temp;
+[v _temp `ul ~T0 @X0 1 a ]
 "302
-[; ;color.c: 302:     }
+[; ;color.c: 302:         temp = (unsigned long)C;
+[e = _temp -> _C `ul ]
+"303
+[; ;color.c: 303:         temp *= (unsigned long)sat_scale;
+[e =* _temp -> _sat_scale `ul ]
+"304
+[; ;color.c: 304:         temp /= (unsigned long)M;
+[e =/ _temp -> _M `ul ]
+"305
+[; ;color.c: 305:         sat = (unsigned int)temp;
+[e = _sat -> _temp `ui ]
+"306
+[; ;color.c: 306:     }
 }
 [e :U 2054 ]
-"304
-[; ;color.c: 304:     p1->H = hue;
+"308
+[; ;color.c: 308:     p1->H = hue;
 [e = . *U _p1 0 _hue ]
-"305
-[; ;color.c: 305:     p1->S = sat;
+"309
+[; ;color.c: 309:     p1->S = sat;
 [e = . *U _p1 1 _sat ]
-"306
-[; ;color.c: 306:     p1->V = M;
+"310
+[; ;color.c: 310:     p1->V = M;
 [e = . *U _p1 2 _M ]
-"307
-[; ;color.c: 307: }
+"311
+[; ;color.c: 311: }
 [e :UE 2041 ]
 }
-"317
-[; ;color.c: 317: unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2)
+"321
+[; ;color.c: 321: unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2)
 [v _colour_to_key `(uc ~T0 @X0 1 ef2`*S2016`*S2015 ]
-"318
-[; ;color.c: 318: {
+"322
+[; ;color.c: 322: {
 {
 [e :U _colour_to_key ]
-"317
-[; ;color.c: 317: unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2)
+"321
+[; ;color.c: 321: unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2)
 [v _p1 `*S2016 ~T0 @X0 1 r1 ]
 [v _p2 `*S2015 ~T0 @X0 1 r2 ]
-"318
-[; ;color.c: 318: {
+"322
+[; ;color.c: 322: {
 [f ]
-"319
-[; ;color.c: 319:     unsigned char key = 0;
+"323
+[; ;color.c: 323:     unsigned char key = 0;
 [v _key `uc ~T0 @X0 1 a ]
 [e = _key -> -> 0 `i `uc ]
-"320
-[; ;color.c: 320:     if ( ((293 <= p1->H) && (p1->H <= 360)) &&
+"324
+[; ;color.c: 324:     if ( ((293 <= p1->H) && (p1->H <= 360)) &&
 [e $ ! && && <= -> -> 293 `i `ui . *U _p1 0 <= . *U _p1 0 -> -> 360 `i `ui && <= -> -> 46 `i `ui . *U _p1 1 <= . *U _p1 1 -> -> 90 `i `ui 2056  ]
-"321
-[; ;color.c: 321:          ((46 <= p1->S) && (p1->S <= 90))) {
+"325
+[; ;color.c: 325:          ((46 <= p1->S) && (p1->S <= 90))) {
 {
-"322
-[; ;color.c: 322:         key = 1;
+"326
+[; ;color.c: 326:         key = 1;
 [e = _key -> -> 1 `i `uc ]
-"323
-[; ;color.c: 323:     }
+"327
+[; ;color.c: 327:     }
 }
 [e :U 2056 ]
-"325
-[; ;color.c: 325:     if ( ((113 <= p1->H) && (p1->H <= 153)) &&
+"329
+[; ;color.c: 329:     if ( ((113 <= p1->H) && (p1->H <= 153)) &&
 [e $ ! && && <= -> -> 113 `i `ui . *U _p1 0 <= . *U _p1 0 -> -> 153 `i `ui && <= -> -> 31 `i `ui . *U _p1 1 <= . *U _p1 1 -> -> 43 `i `ui 2057  ]
-"326
-[; ;color.c: 326:          ((31 <= p1->S) && (p1->S <= 43))) {
+"330
+[; ;color.c: 330:          ((31 <= p1->S) && (p1->S <= 43))) {
 {
-"327
-[; ;color.c: 327:         key = 2;
+"331
+[; ;color.c: 331:         key = 2;
 [e = _key -> -> 2 `i `uc ]
-"328
-[; ;color.c: 328:     }
+"332
+[; ;color.c: 332:     }
 }
 [e :U 2057 ]
-"330
-[; ;color.c: 330:     if ( ((180 <= p1->H) && (p1->H <= 244)) &&
+"334
+[; ;color.c: 334:     if ( ((180 <= p1->H) && (p1->H <= 244)) &&
 [e $ ! && && <= -> -> 180 `i `ui . *U _p1 0 <= . *U _p1 0 -> -> 244 `i `ui && <= -> -> 42 `i `ui . *U _p1 1 <= . *U _p1 1 -> -> 56 `i `ui 2058  ]
-"331
-[; ;color.c: 331:          ((42 <= p1->S) && (p1->S <= 56))) {
+"335
+[; ;color.c: 335:          ((42 <= p1->S) && (p1->S <= 56))) {
 {
-"332
-[; ;color.c: 332:         key = 3;
+"336
+[; ;color.c: 336:         key = 3;
 [e = _key -> -> 3 `i `uc ]
-"333
-[; ;color.c: 333:     }
+"337
+[; ;color.c: 337:     }
 }
 [e :U 2058 ]
-"335
-[; ;color.c: 335:     if ( ((10 <= p1->H) && (p1->H <= 31)) &&
+"339
+[; ;color.c: 339:     if ( ((10 <= p1->H) && (p1->H <= 31)) &&
 [e $ ! && && <= -> -> 10 `i `ui . *U _p1 0 <= . *U _p1 0 -> -> 31 `i `ui && <= -> -> 17 `i `ui . *U _p1 1 <= . *U _p1 1 -> -> 32 `i `ui 2059  ]
-"336
-[; ;color.c: 336:          ((17 <= p1->S) && (p1->S <= 32))) {
+"340
+[; ;color.c: 340:          ((17 <= p1->S) && (p1->S <= 32))) {
 {
-"337
-[; ;color.c: 337:         key = 4;
+"341
+[; ;color.c: 341:         key = 4;
 [e = _key -> -> 4 `i `uc ]
-"338
-[; ;color.c: 338:     }
+"342
+[; ;color.c: 342:     }
 }
 [e :U 2059 ]
-"340
-[; ;color.c: 340:     if ( ((279 <= p1->H) && (p1->H <= 377)) &&
+"344
+[; ;color.c: 344:     if ( ((279 <= p1->H) && (p1->H <= 377)) &&
 [e $ ! && && <= -> -> 279 `i `ui . *U _p1 0 <= . *U _p1 0 -> -> 377 `i `ui && <= -> -> 11 `i `ui . *U _p1 1 <= . *U _p1 1 -> -> 15 `i `ui 2060  ]
-"341
-[; ;color.c: 341:          ((11 <= p1->S) && (p1->S <= 15))) {
+"345
+[; ;color.c: 345:          ((11 <= p1->S) && (p1->S <= 15))) {
 {
-"342
-[; ;color.c: 342:         key = 5;
+"346
+[; ;color.c: 346:         key = 5;
 [e = _key -> -> 5 `i `uc ]
-"343
-[; ;color.c: 343:     }
+"347
+[; ;color.c: 347:     }
 }
 [e :U 2060 ]
-"345
-[; ;color.c: 345:     if ( ((298 <= p1->H) && (p1->H <= 360)) &&
+"349
+[; ;color.c: 349:     if ( ((298 <= p1->H) && (p1->H <= 360)) &&
 [e $ ! && && <= -> -> 298 `i `ui . *U _p1 0 <= . *U _p1 0 -> -> 360 `i `ui && <= -> -> 20 `i `ui . *U _p1 1 <= . *U _p1 1 -> -> 45 `i `ui 2061  ]
-"346
-[; ;color.c: 346:          ((20 <= p1->S) && (p1->S <= 45))) {
+"350
+[; ;color.c: 350:          ((20 <= p1->S) && (p1->S <= 45))) {
 {
-"347
-[; ;color.c: 347:         key = 6;
+"351
+[; ;color.c: 351:         key = 6;
 [e = _key -> -> 6 `i `uc ]
-"348
-[; ;color.c: 348:     }
+"352
+[; ;color.c: 352:     }
 }
 [e :U 2061 ]
-"350
-[; ;color.c: 350:     if ( ((153 <= p1->H) && (p1->H <= 207)) &&
+"354
+[; ;color.c: 354:     if ( ((153 <= p1->H) && (p1->H <= 207)) &&
 [e $ ! && && <= -> -> 153 `i `ui . *U _p1 0 <= . *U _p1 0 -> -> 207 `i `ui && <= -> -> 33 `i `ui . *U _p1 1 <= . *U _p1 1 -> -> 45 `i `ui 2062  ]
-"351
-[; ;color.c: 351:          ((33 <= p1->S) && (p1->S <= 45))) {
+"355
+[; ;color.c: 355:          ((33 <= p1->S) && (p1->S <= 45))) {
 {
-"352
-[; ;color.c: 352:         key = 7;
+"356
+[; ;color.c: 356:         key = 7;
 [e = _key -> -> 7 `i `uc ]
-"353
-[; ;color.c: 353:     }
+"357
+[; ;color.c: 357:     }
 }
 [e :U 2062 ]
-"355
-[; ;color.c: 355:     if ( ((3000 <= p2->C) && (p2->C <= 40000)) &&
+"359
+[; ;color.c: 359:     if ( ((3000 <= p2->C) && (p2->C <= 40000)) &&
 [e $ ! && && <= -> -> 3000 `i `ui . *U _p2 3 <= -> . *U _p2 3 `l -> 40000 `l <= . *U _p1 1 -> -> 10 `i `ui 2063  ]
-"356
-[; ;color.c: 356:          ((p1->S <= 10))) {
+"360
+[; ;color.c: 360:          ((p1->S <= 10))) {
 {
-"357
-[; ;color.c: 357:         key = 8;
+"361
+[; ;color.c: 361:         key = 8;
 [e = _key -> -> 8 `i `uc ]
-"358
-[; ;color.c: 358:     }
+"362
+[; ;color.c: 362:     }
 }
 [e :U 2063 ]
-"360
-[; ;color.c: 360:     if ( ((1000 <= p2->C) && (p2->C <= 2600)) &&
+"364
+[; ;color.c: 364:     if ( ((1000 <= p2->C) && (p2->C <= 2600)) &&
 [e $ ! && && <= -> -> 1000 `i `ui . *U _p2 3 <= . *U _p2 3 -> -> 2600 `i `ui <= . *U _p1 1 -> -> 12 `i `ui 2064  ]
-"361
-[; ;color.c: 361:          ((p1->S <= 12))) {
+"365
+[; ;color.c: 365:          ((p1->S <= 12))) {
 {
-"362
-[; ;color.c: 362:         key = 9;
+"366
+[; ;color.c: 366:         key = 9;
 [e = _key -> -> 9 `i `uc ]
-"363
-[; ;color.c: 363:     }
+"367
+[; ;color.c: 367:     }
 }
 [e :U 2064 ]
-"365
-[; ;color.c: 365:     return key;
+"369
+[; ;color.c: 369:     return key;
 [e ) _key ]
 [e $UE 2055  ]
-"366
-[; ;color.c: 366: }
+"370
+[; ;color.c: 370: }
 [e :UE 2055 ]
 }

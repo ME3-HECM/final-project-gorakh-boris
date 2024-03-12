@@ -24392,7 +24392,7 @@ void main(void) {
     LATHbits.LATH3 = !LATHbits.LATH3;
     toggle_tricolour_LED();
 
-
+    forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
 
     while (1) {
         average_RGBC(&RGBC_colour);
