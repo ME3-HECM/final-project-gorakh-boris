@@ -36,8 +36,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9 ./serial.h
 [; ;./serial.h: 9: void initUSART4(void);
 [v _initUSART4 `(v ~T0 @X0 0 ef ]
-"40 ./timers.h
-[; ;./timers.h: 40: void Timer0_init(void);
+"41 ./timers.h
+[; ;./timers.h: 41: void Timer0_init(void);
 [v _Timer0_init `(v ~T0 @X0 0 ef ]
 "29383 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 29383:     struct {
@@ -129,9 +129,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12319
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic18f67k40.h: 12319: extern volatile ANSELFbits_t ANSELFbits __attribute__((address(0xEB4)));
 [v _ANSELFbits `VS567 ~T0 @X0 0 e@3764 ]
-"13 ./buggy_lights.h
-[; ;./buggy_lights.h: 13: void toggle_tricolour_LED(void);
-[v _toggle_tricolour_LED `(v ~T0 @X0 0 ef ]
+"53 ./timers.h
+[; ;./timers.h: 53: void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2);
+[v _forward_navigation `(v ~T0 @X0 0 ef4`*S2015`*S2015`*S2017`*S2016 ]
 "35 ./color.h
 [; ;./color.h: 35: void average_RGBC(struct RGBC_val *p);
 [v _average_RGBC `(v ~T0 @X0 0 ef1`*S2016 ]
@@ -2212,31 +2212,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 20 `i `uc
 ]
 "10
-[; ;./color.h: 10: unsigned int wall_threshold = 300;
-[v _wall_threshold `ui ~T0 @X0 1 e ]
-[i _wall_threshold
--> -> 300 `i `ui
+[; ;./color.h: 10: unsigned int wall_threshold_blue = 30;
+[v _wall_threshold_blue `ui ~T0 @X0 1 e ]
+[i _wall_threshold_blue
+-> -> 30 `i `ui
 ]
-"11 ./timers.h
-[; ;./timers.h: 11: unsigned char returning = 0;
+"12 ./timers.h
+[; ;./timers.h: 12: unsigned char returning = 0;
 [v _returning `uc ~T0 @X0 1 e ]
 [i _returning
 -> -> 0 `i `uc
 ]
-"12
-[; ;./timers.h: 12: unsigned char return_flag = 0;
+"13
+[; ;./timers.h: 13: unsigned char return_flag = 0;
 [v _return_flag `uc ~T0 @X0 1 e ]
 [i _return_flag
 -> -> 0 `i `uc
 ]
-"13
-[; ;./timers.h: 13: unsigned char lost_flag = 0;
+"14
+[; ;./timers.h: 14: unsigned char lost_flag = 0;
 [v _lost_flag `uc ~T0 @X0 1 e ]
 [i _lost_flag
 -> -> 0 `i `uc
 ]
-"23
-[; ;./timers.h: 23: unsigned char trail_timer_high[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+"24
+[; ;./timers.h: 24: unsigned char trail_timer_high[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 [v _trail_timer_high `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_timer_high
 :U ..
@@ -2262,8 +2262,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"24
-[; ;./timers.h: 24: unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+"25
+[; ;./timers.h: 25: unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 [v _trail_timer_low `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_timer_low
 :U ..
@@ -2289,8 +2289,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"25
-[; ;./timers.h: 25: unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+"26
+[; ;./timers.h: 26: unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 [v _trail_manoeuvre `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_manoeuvre
 :U ..
@@ -2316,26 +2316,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"35
-[; ;./timers.h: 35: unsigned char *timer_high_pointer = &trail_timer_high[0];
+"36
+[; ;./timers.h: 36: unsigned char *timer_high_pointer = &trail_timer_high[0];
 [v _timer_high_pointer `*uc ~T0 @X0 1 e ]
 [i _timer_high_pointer
 &U *U + &U _trail_timer_high * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_timer_high `ui `ux
 ]
-"36
-[; ;./timers.h: 36: unsigned char *timer_low_pointer = &trail_timer_low[0];
+"37
+[; ;./timers.h: 37: unsigned char *timer_low_pointer = &trail_timer_low[0];
 [v _timer_low_pointer `*uc ~T0 @X0 1 e ]
 [i _timer_low_pointer
 &U *U + &U _trail_timer_low * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_timer_low `ui `ux
 ]
-"37
-[; ;./timers.h: 37: unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
+"38
+[; ;./timers.h: 38: unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
 [v _manoeuvre_pointer `*uc ~T0 @X0 1 e ]
 [i _manoeuvre_pointer
 &U *U + &U _trail_manoeuvre * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_manoeuvre `ui `ux
 ]
-"38
-[; ;./timers.h: 38: unsigned char manoeuvre_count = 0;
+"39
+[; ;./timers.h: 39: unsigned char manoeuvre_count = 0;
 [v _manoeuvre_count `uc ~T0 @X0 1 e ]
 [i _manoeuvre_count
 -> -> 0 `i `uc
@@ -2463,45 +2463,45 @@ Version 4.0 HI-TECH Software Intermediate Code
 "81
 [; ;main.c: 81:     LATHbits.LATH3 = !LATHbits.LATH3;
 [e = . . _LATHbits 0 3 -> -> ! != -> . . _LATHbits 0 3 `i -> 0 `i `i `uc ]
-"82
-[; ;main.c: 82:     toggle_tricolour_LED();
-[e ( _toggle_tricolour_LED ..  ]
-"86
-[; ;main.c: 86:     while (1) {
+"83
+[; ;main.c: 83:     forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
+[e ( _forward_navigation (4 , , , &U _motorL &U _motorR &U _HSV_colour &U _RGBC_colour ]
+"85
+[; ;main.c: 85:     while (1) {
 [e :U 2020 ]
 {
-"87
-[; ;main.c: 87:         average_RGBC(&RGBC_colour);
+"86
+[; ;main.c: 86:         average_RGBC(&RGBC_colour);
 [e ( _average_RGBC (1 &U _RGBC_colour ]
-"88
-[; ;main.c: 88:         scale_RGB(&RGBC_colour);
+"87
+[; ;main.c: 87:         scale_RGB(&RGBC_colour);
 [e ( _scale_RGB (1 &U _RGBC_colour ]
-"89
-[; ;main.c: 89:         convert_HSV(&HSV_colour, &RGBC_colour);
+"88
+[; ;main.c: 88:         convert_HSV(&HSV_colour, &RGBC_colour);
 [e ( _convert_HSV (2 , &U _HSV_colour &U _RGBC_colour ]
-"91
-[; ;main.c: 91:         unsigned char k = colour_to_key(&HSV_colour, &RGBC_colour);
+"90
+[; ;main.c: 90:         unsigned char k = colour_to_key(&HSV_colour, &RGBC_colour);
 [v _k `uc ~T0 @X0 1 a ]
 [e = _k ( _colour_to_key (2 , &U _HSV_colour &U _RGBC_colour ]
-"93
-[; ;main.c: 93:         sendRGBCvalSerial4(&RGBC_colour);
+"92
+[; ;main.c: 92:         sendRGBCvalSerial4(&RGBC_colour);
 [e ( _sendRGBCvalSerial4 (1 &U _RGBC_colour ]
-"94
-[; ;main.c: 94:         sendHSVvalSerial4(&HSV_colour);
+"93
+[; ;main.c: 93:         sendHSVvalSerial4(&HSV_colour);
 [e ( _sendHSVvalSerial4 (1 &U _HSV_colour ]
-"95
-[; ;main.c: 95:         sendIntSerial4((int)k);
+"94
+[; ;main.c: 94:         sendIntSerial4((int)k);
 [e ( _sendIntSerial4 (1 -> _k `i ]
-"97
-[; ;main.c: 97:         _delay((unsigned long)((500)*(64000000/4000.0)));
+"96
+[; ;main.c: 96:         _delay((unsigned long)((500)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"98
-[; ;main.c: 98:     }
+"97
+[; ;main.c: 97:     }
 }
 [e :U 2019 ]
 [e $U 2020  ]
 [e :U 2021 ]
-"99
-[; ;main.c: 99: }
+"98
+[; ;main.c: 98: }
 [e :UE 2018 ]
 }

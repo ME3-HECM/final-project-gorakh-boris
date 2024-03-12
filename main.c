@@ -79,9 +79,8 @@ void main(void) {
     //while (PORTFbits.RF3);
     LATDbits.LATD7 = !LATDbits.LATD7;
     LATHbits.LATH3 = !LATHbits.LATH3;
-    toggle_tricolour_LED();
     
-    //forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
+    forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
     
     while (1) {
         average_RGBC(&RGBC_colour);

@@ -18,9 +18,26 @@ void Timer0_init(void)
     reset_timer();              //set timer register to zero
     T0CON0bits.T0EN=1;          //start the timer
     
+    start_timer();
     PIE0bits.TMR0IE = 1;        //initialise timer0 interrupt
     INTCONbits.PEIE = 1;        //initialise peripheral interrupt
     INTCONbits.GIE = 1;         //sets global interrupt
+}
+
+/*******************************************************************************
+ * Function to start the timer
+*******************************************************************************/
+void start_timer(void)
+{
+    T0CON0bits.T0EN=1;          //start the timer
+}
+
+/*******************************************************************************
+ * Function to stop the timer
+*******************************************************************************/
+void stop_timer(void)
+{
+    T0CON0bits.T0EN=0;          //stop the timer
 }
 
 /*******************************************************************************
@@ -104,18 +121,26 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
         unsigned char mann = 0;         //temporary manoeuvre variable
         
         reset_timer();
+        start_timer();
         //fullSpeedAhead(mL, mR);         //go forward continuously
         
-        wait_for_wall(p2, lost_flag);  //wait until wall detected or lost flag
+        wait_for_wall(p2, lost_flag);   //wait until wall detected or lost flag
         
         read_timer(&timerH, &timerL);
+        stop_timer();
         stop(mL, mR);                   //stop motors
+        
+        toggle_tricolour_LED();         //turn on tricolour LED
+        __delay_ms(200);
         
         average_RGBC(p2);
         scale_RGB(p2);
 
         convert_HSV(p1, p2);
         mann = colour_to_key(p1, p2);
+        
+        toggle_tricolour_LED();         //turn off tricolour LED
+        __delay_ms(200);
         
         /***************************************************************
          * By the time the read_timer above is performed, the timer
@@ -146,9 +171,6 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
         sendArrayCharSerial4(trail_timer_high);
         sendArrayCharSerial4(trail_timer_low);
         sendArrayCharSerial4(trail_manoeuvre);
-        
-        break;
-        //__delay_ms(2000);
     }
 }
 
@@ -171,11 +193,13 @@ void return_to_sender(DC_motor *mL, DC_motor *mR)
         }
         
         write_timer(0b11111111 - timerH, 0b11111111 - timerL);
+        start_timer();
         fullSpeedAhead(mL, mR);         //go forward continuously
         
         while (!return_flag);           //wait until timer overflows
         
         stop(mL, mR);                   //stop motors
+        stop_timer();
         return_flag = 0;                //reset return flag
     }
 }

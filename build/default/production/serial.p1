@@ -2053,10 +2053,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 20 `i `uc
 ]
 "10
-[; ;./color.h: 10: unsigned int wall_threshold = 300;
-[v _wall_threshold `ui ~T0 @X0 1 e ]
-[i _wall_threshold
--> -> 300 `i `ui
+[; ;./color.h: 10: unsigned int wall_threshold_blue = 30;
+[v _wall_threshold_blue `ui ~T0 @X0 1 e ]
+[i _wall_threshold_blue
+-> -> 30 `i `ui
 ]
 "8 serial.c
 [; ;serial.c: 8: void initUSART4(void) {

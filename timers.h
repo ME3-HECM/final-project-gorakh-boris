@@ -5,6 +5,7 @@
 #include "manoeuvres.h"
 #include "serial.h"
 #include "color.h"
+#include "buggy_lights.h"
 
 #define _XTAL_FREQ 64000000
 
@@ -38,6 +39,9 @@ unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];         //set to 0 or 20
 unsigned char manoeuvre_count = 0;                              //set to 0 to 20
 
 void Timer0_init(void);
+
+void start_timer(void);
+void stop_timer(void);
 
 void read_timer(unsigned char *tH, unsigned char *tL);
 void write_timer(unsigned char tH, unsigned char tL);

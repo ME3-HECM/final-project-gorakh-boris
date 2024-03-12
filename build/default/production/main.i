@@ -24237,7 +24237,7 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 
 
 unsigned char sample_count = 20;
-unsigned int wall_threshold = 300;
+unsigned int wall_threshold_blue = 30;
 
 
 typedef struct RGBC_val {
@@ -24291,21 +24291,24 @@ void sendHSVvalSerial4(HSV_val *col_val);
 # 21 "main.c" 2
 
 # 1 "./timers.h" 1
-# 11 "./timers.h"
+# 12 "./timers.h"
 unsigned char returning = 0;
 unsigned char return_flag = 0;
 unsigned char lost_flag = 0;
-# 23 "./timers.h"
+# 24 "./timers.h"
 unsigned char trail_timer_high[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-# 35 "./timers.h"
+# 36 "./timers.h"
 unsigned char *timer_high_pointer = &trail_timer_high[0];
 unsigned char *timer_low_pointer = &trail_timer_low[0];
 unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
 unsigned char manoeuvre_count = 0;
 
 void Timer0_init(void);
+
+void start_timer(void);
+void stop_timer(void);
 
 void read_timer(unsigned char *tH, unsigned char *tL);
 void write_timer(unsigned char tH, unsigned char tL);
@@ -24390,9 +24393,8 @@ void main(void) {
 
     LATDbits.LATD7 = !LATDbits.LATD7;
     LATHbits.LATH3 = !LATHbits.LATH3;
-    toggle_tricolour_LED();
 
-
+    forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
 
     while (1) {
         average_RGBC(&RGBC_colour);

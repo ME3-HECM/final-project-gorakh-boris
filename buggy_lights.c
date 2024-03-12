@@ -21,7 +21,7 @@ void buggy_lights_init(void)
         LATHbits.LATH0 = 0;                 //TURN R pin
     
     //initialise the tricolour LED on the colour click
-        //colour click mounted on mikroBUS1 on buggy
+        //colour click mounted on mikroBUS2 on buggy
             //set up TRIS registers (0 for output)
             TRISGbits.TRISG1 = 0;               //red LED pin
             TRISAbits.TRISA4 = 0;               //green LED pin
@@ -31,7 +31,7 @@ void buggy_lights_init(void)
             LATAbits.LATA4 = 0;                 //green LED pin
             LATFbits.LATF7 = 0;                 //blue LED pin
 
-        //colour click mounted on mikroBUS2 on buggy
+        //colour click mounted on mikroBUS1 on buggy
             //set up TRIS registers (0 for output)
             TRISGbits.TRISG0 = 0;               //red LED pin
             TRISEbits.TRISE7 = 0;               //green LED pin
@@ -84,12 +84,12 @@ void toggle_right_indicators(void)
 void toggle_tricolour_LED(void)
 {
     //toggle the LAT values
-        //colour click mounted on mikroBUS1 on buggy
+        //colour click mounted on mikroBUS2 on buggy
         LATGbits.LATG1 = !LATGbits.LATG1;                 //red LED pin
         LATAbits.LATA4 = !LATAbits.LATA4;                 //green LED pin
         LATFbits.LATF7 = !LATFbits.LATF7;                 //blue LED pin
 
-        //colour click mounted on mikroBUS2 on buggy
+        //colour click mounted on mikroBUS1 on buggy
         LATGbits.LATG0 = !LATGbits.LATG0;                 //red LED pin
         LATEbits.LATE7 = !LATEbits.LATE7;                 //green LED pin
         LATAbits.LATA3 = !LATAbits.LATA3;                 //blue LED pin

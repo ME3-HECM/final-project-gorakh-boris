@@ -2013,10 +2013,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 20 `i `uc
 ]
 "10
-[; ;./color.h: 10: unsigned int wall_threshold = 300;
-[v _wall_threshold `ui ~T0 @X0 1 e ]
-[i _wall_threshold
--> -> 300 `i `ui
+[; ;./color.h: 10: unsigned int wall_threshold_blue = 30;
+[v _wall_threshold_blue `ui ~T0 @X0 1 e ]
+[i _wall_threshold_blue
+-> -> 30 `i `ui
 ]
 "7 color.c
 [; ;color.c: 7: void color_click_init(void)
@@ -2384,8 +2384,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;color.c: 165:         getRGBCval(p);
 [e ( _getRGBCval (1 _p ]
 "166
-[; ;color.c: 166:         if (p->C < wall_threshold) {
-[e $ ! < . *U _p 3 _wall_threshold 2033  ]
+[; ;color.c: 166:         if (p->B < wall_threshold_blue) {
+[e $ ! < . *U _p 2 _wall_threshold_blue 2033  ]
 {
 "167
 [; ;color.c: 167:             break;
