@@ -24128,78 +24128,11 @@ void I2C_2_Master_Write(unsigned char data_byte);
 unsigned char I2C_2_Master_Read(unsigned char ack);
 # 5 "./color.h" 2
 
-# 1 "./manoeuvres.h" 1
-# 11 "./manoeuvres.h"
-# 1 "./dc_motor.h" 1
 
 
 
-
-
-
-
-typedef struct DC_motor {
-    char power;
-    char direction;
-    char brakemode;
-    unsigned int PWMperiod;
-    unsigned char *posDutyHighByte;
-    unsigned char *negDutyHighByte;
-} DC_motor;
-
-unsigned char rampDelay = 8;
-
-unsigned char topGearLeft = 20;
-unsigned char topGearRight = 20;
-
-unsigned char turningGear = 42;
-
-unsigned int turnLeft90Delay = 175;
-unsigned int turnRight90Delay = 175;
-unsigned int turnLeft135Delay = 300;
-unsigned int turnRight135Delay = 300;
-unsigned int turn180Delay = 510;
-
-unsigned int headbuttDelay = 70;
-unsigned int squareDelay = 300;
-
-
-void initDCmotorsPWM(unsigned int PWMperiod);
-void setMotorPWM(DC_motor *m);
-
-void stop(DC_motor *mL, DC_motor *mR);
-void turnLeft(DC_motor *mL, DC_motor *mR);
-void turnRight(DC_motor *mL, DC_motor *mR);
-void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
-void fullSpeedReverse(DC_motor *mL, DC_motor *mR);
-
-void turnLeft90(DC_motor *mL, DC_motor *mR);
-void turnRight90(DC_motor *mL, DC_motor *mR);
-void turnLeft135(DC_motor *mL, DC_motor *mR);
-void turnRight135(DC_motor *mL, DC_motor *mR);
-void UTurn(DC_motor *mL, DC_motor *mR);
-void headbuttReverse(DC_motor *mL, DC_motor *mR);
-void squareReverse(DC_motor *mL, DC_motor *mR);
-# 11 "./manoeuvres.h" 2
-
-
-void card_red(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void card_green(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void card_blue(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void card_yellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void card_pink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void card_orange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void card_cyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
-void card_white(DC_motor *mL, DC_motor *mR);
-
-
-void pick_card(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
-# 6 "./color.h" 2
-
-
-
-
-unsigned int wall_threshold = 300;
+unsigned char sample_count = 20;
+unsigned int wall_threshold_blue = 30;
 
 
 typedef struct RGBC_val {
@@ -24216,64 +24149,25 @@ typedef struct HSV_val {
     unsigned int V;
 } HSV_val;
 
-
-
-
 void color_click_init(void);
-
-
-
-
-
-
 void color_writetoaddr(char address, char value);
-
-
-
-
-
 unsigned int color_read_Red(void);
-
-
-
-
-
 unsigned int color_read_Green(void);
-
-
-
-
-
 unsigned int color_read_Blue(void);
-
-
-
-
-
 unsigned int color_read_Clear(void);
-
-
-
-
-
 void getRGBCval(struct RGBC_val *p);
 
-void wait_for_wall(struct RGBC_val *p);
-
-unsigned int max(unsigned int a, unsigned int b);
-
-unsigned int min(unsigned int a, unsigned int b);
-
-unsigned int maxRGB(struct RGBC_val *p);
-
-unsigned int minRGB(struct RGBC_val *p);
-
-void scaleRGB(struct RGBC_val *p);
-
-void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
-
-void RGBC2colourcard(struct RGBC_val *p);
+void average_RGBC(struct RGBC_val *p);
+void wait_for_wall(struct RGBC_val *p, unsigned char loss);
+unsigned int max_RGB(struct RGBC_val *p);
+unsigned int min_RGB(struct RGBC_val *p);
+void scale_RGB(struct RGBC_val *p);
+void convert_HSV(struct HSV_val *p1, struct RGBC_val *p2);
+unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2);
 # 2 "color.c" 2
+
+
+
 
 
 void color_click_init(void)
@@ -24282,7 +24176,7 @@ void color_click_init(void)
     I2C_2_Master_Init();
 
 
-  color_writetoaddr(0x00, 0x01);
+ color_writetoaddr(0x00, 0x01);
     _delay((unsigned long)((3)*(64000000/4000.0)));
 
 
@@ -24292,6 +24186,11 @@ void color_click_init(void)
  color_writetoaddr(0x01, 0xD5);
 }
 
+
+
+
+
+
 void color_writetoaddr(char address, char value){
     I2C_2_Master_Start();
     I2C_2_Master_Write(0x52 | 0x00);
@@ -24299,6 +24198,10 @@ void color_writetoaddr(char address, char value){
     I2C_2_Master_Write(value);
     I2C_2_Master_Stop();
 }
+
+
+
+
 
 unsigned int color_read_Red(void)
 {
@@ -24314,6 +24217,10 @@ unsigned int color_read_Red(void)
  return tmp;
 }
 
+
+
+
+
 unsigned int color_read_Green(void)
 {
     unsigned int tmp;
@@ -24327,6 +24234,10 @@ unsigned int color_read_Green(void)
  I2C_2_Master_Stop();
  return tmp;
 }
+
+
+
+
 
 unsigned int color_read_Blue(void)
 {
@@ -24342,6 +24253,10 @@ unsigned int color_read_Blue(void)
  return tmp;
 }
 
+
+
+
+
 unsigned int color_read_Clear(void)
 {
     unsigned int tmp;
@@ -24356,6 +24271,10 @@ unsigned int color_read_Clear(void)
  return tmp;
 }
 
+
+
+
+
 void getRGBCval(struct RGBC_val *p)
 {
     p->R = color_read_Red();
@@ -24365,42 +24284,83 @@ void getRGBCval(struct RGBC_val *p)
 
 }
 
-void wait_for_wall(struct RGBC_val *p)
+
+
+
+void average_RGBC(struct RGBC_val *p)
 {
-    while (1) {
+
+    unsigned long temp_R = 0;
+    unsigned long temp_G = 0;
+    unsigned long temp_B = 0;
+    unsigned long temp_C = 0;
+
+
+
+
+
+    for (unsigned char i = 0; i < sample_count; i++) {
+
         getRGBCval(p);
-        if (p->C < wall_threshold) {
+
+        temp_R += (unsigned long)p->R;
+        temp_G += (unsigned long)p->G;
+        temp_B += (unsigned long)p->B;
+        temp_C += (unsigned long)p->C;
+    }
+
+
+    temp_R /= (unsigned long)sample_count;
+    temp_G /= (unsigned long)sample_count;
+    temp_B /= (unsigned long)sample_count;
+    temp_C /= (unsigned long)sample_count;
+
+
+    p->R = (unsigned int)temp_R;
+    p->G = (unsigned int)temp_G;
+    p->B = (unsigned int)temp_B;
+    p->C = (unsigned int)temp_C;
+}
+
+
+
+
+void wait_for_wall(struct RGBC_val *p, unsigned char loss)
+{
+    while (!loss) {
+        getRGBCval(p);
+        if (p->B < wall_threshold_blue) {
             break;
         }
     }
-    LATDbits.LATD7 = !LATDbits.LATD7;
 }
 
-unsigned int max(unsigned int a, unsigned int b)
+
+
+
+unsigned int max_RGB(struct RGBC_val *p)
 {
-    unsigned int max_val = b;
-    if (a > b) {max_val = a;}
+    unsigned int max_val = p->R;
+    if (p->G > max_val) {max_val = p->G;}
+    if (p->B > max_val) {max_val = p->B;}
     return max_val;
 }
 
-unsigned int min(unsigned int a, unsigned int b)
+
+
+
+unsigned int min_RGB(struct RGBC_val *p)
 {
-    unsigned int min_val = b;
-    if (a < b) {min_val = a;}
+    unsigned int min_val = p->R;
+    if (p->G < min_val) {min_val = p->G;}
+    if (p->B < min_val) {min_val = p->B;}
     return min_val;
 }
 
-unsigned int maxRGB(struct RGBC_val *p)
-{
-    return(max(max(p->R,p->G),p->B));
-}
 
-unsigned int minRGB(struct RGBC_val *p)
-{
-    return(min(min(p->R,p->G),p->B));
-}
 
-void scaleRGB(struct RGBC_val *p)
+
+void scale_RGB(struct RGBC_val *p)
 {
     p->R *= 0.5;
     p->G *= 0.7;
@@ -24408,20 +24368,25 @@ void scaleRGB(struct RGBC_val *p)
 }
 
 
-void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
-{
-    unsigned int Hz = 60;
-    unsigned int Sz = 100;
-    unsigned int H = 0;
-    unsigned int S = 0;
 
-    unsigned int M = maxRGB(p2);
-    unsigned int m = minRGB(p2);
+
+
+
+void convert_HSV(struct HSV_val *p1,struct RGBC_val *p2)
+{
+    unsigned int hue = 0;
+    unsigned int sat = 0;
+    unsigned int hue_scale = 60;
+    unsigned int sat_scale = 100;
+
+    unsigned int M = max_RGB(p2);
+    unsigned int m = min_RGB(p2);
     unsigned int C = M - m;
 
     if (C == 0) {
-        H = 0;
+        hue = 0;
     } else {
+# 232 "color.c"
         if (M == p2->R) {
             if (p2->G >= p2->B) {
 
@@ -24429,18 +24394,18 @@ void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
                 temp = (unsigned long)C;
                 temp *= 0;
                 temp += (unsigned long)(p2->G - p2->B);
-                temp *= (unsigned long)Hz;
+                temp *= (unsigned long)hue_scale;
                 temp /= (unsigned long)C;
-                H = (unsigned int)temp;
+                hue = (unsigned int)temp;
             } else {
 
                 unsigned long temp;
                 temp = (unsigned long)C;
                 temp *= 6;
                 temp -= (unsigned long)(p2->B - p2->G);
-                temp *= (unsigned long)Hz;
+                temp *= (unsigned long)hue_scale;
                 temp /= (unsigned long)C;
-                H = (unsigned int)temp;
+                hue = (unsigned int)temp;
             }
         }
         if (M == p2->G) {
@@ -24450,18 +24415,18 @@ void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
                 temp = (unsigned long)C;
                 temp *= 2;
                 temp += (unsigned long)(p2->B - p2->R);
-                temp *= (unsigned long)Hz;
+                temp *= (unsigned long)hue_scale;
                 temp /= (unsigned long)C;
-                H = (unsigned int)temp;
+                hue = (unsigned int)temp;
             } else {
 
                 unsigned long temp;
                 temp = (unsigned long)C;
                 temp *= 2;
                 temp -= (unsigned long)(p2->R - p2->B);
-                temp *= (unsigned long)Hz;
+                temp *= (unsigned long)hue_scale;
                 temp /= (unsigned long)C;
-                H = (unsigned int)temp;
+                hue = (unsigned int)temp;
             }
         }
         if (M == p2->B) {
@@ -24471,61 +24436,85 @@ void getHSVval(struct HSV_val *p1,struct RGBC_val *p2)
                 temp = (unsigned long)C;
                 temp *= 4;
                 temp += (unsigned long)(p2->R - p2->G);
-                temp *= (unsigned long)Hz;
+                temp *= (unsigned long)hue_scale;
                 temp /= (unsigned long)C;
-                H = (unsigned int)temp;
+                hue = (unsigned int)temp;
             } else {
 
                 unsigned long temp;
                 temp = (unsigned long)C;
                 temp *= 4;
                 temp -= (unsigned long)(p2->G - p2->R);
-                temp *= (unsigned long)Hz;
+                temp *= (unsigned long)hue_scale;
                 temp /= (unsigned long)C;
-                H = (unsigned int)temp;
+                hue = (unsigned int)temp;
             }
         }
     }
 
     if (M == 0) {
-        S = 0;
+        sat = 0;
     } else {
 
         unsigned long temp;
         temp = (unsigned long)C;
-        temp *= (unsigned long)Sz;
+        temp *= (unsigned long)sat_scale;
         temp /= (unsigned long)M;
-        S = (unsigned int)temp;
+        sat = (unsigned int)temp;
     }
 
-    p1->H = H;
-    p1->S = S;
+    p1->H = hue;
+    p1->S = sat;
     p1->V = M;
 }
-# 239 "color.c"
-void RGBC2colourcard(struct RGBC_val *p)
+# 321 "color.c"
+unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2)
 {
-    unsigned int PWMcycle = 99;
-    struct DC_motor motorL, motorR;
-        motorL.power = 0;
-        motorL.direction = 1;
-        motorL.brakemode = 1;
-        motorL.PWMperiod = PWMcycle;
-        motorL.posDutyHighByte = (unsigned char *)(&CCPR1H);
-        motorL.negDutyHighByte = (unsigned char *)(&CCPR2H);
-        motorR.power = 0;
-        motorR.direction = 1;
-        motorR.brakemode = 1;
-        motorR.PWMperiod = PWMcycle;
-        motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
-        motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
-
-
-    if (((p->R >= 2850)&&(p->R <= 3855)) && ((p->G >= 602)&&(p->G <= 814)) && ((p->B >= 1144)&&(p->B <= 1548))) {
-        LATDbits.LATD7 = !LATDbits.LATD7;
-        _delay((unsigned long)((500)*(64000000/4000.0)));
-        LATDbits.LATD7 = !LATDbits.LATD7;
-
+    unsigned char key = 0;
+    if ( ((293 <= p1->H) && (p1->H <= 360)) &&
+         ((46 <= p1->S) && (p1->S <= 90))) {
+        key = 1;
     }
-# 305 "color.c"
+
+    if ( ((113 <= p1->H) && (p1->H <= 153)) &&
+         ((13 <= p1->S) && (p1->S <= 43))) {
+        key = 2;
+    }
+
+    if ( ((180 <= p1->H) && (p1->H <= 244)) &&
+         ((13 <= p1->S) && (p1->S <= 56))) {
+        key = 3;
+    }
+
+    if ( ((10 <= p1->H) && (p1->H <= 31)) &&
+         ((17 <= p1->S) && (p1->S <= 32))) {
+        key = 4;
+    }
+
+    if ( ((279 <= p1->H) && (p1->H <= 360)) &&
+         ((11 <= p1->S) && (p1->S <= 15))) {
+        key = 5;
+    }
+
+    if ( ((298 <= p1->H) && (p1->H <= 360)) &&
+         ((20 <= p1->S) && (p1->S <= 45))) {
+        key = 6;
+    }
+
+    if ( ((154 <= p1->H) && (p1->H <= 207)) &&
+         ((13 <= p1->S) && (p1->S <= 45))) {
+        key = 7;
+    }
+
+    if ( ((3000 <= p2->C) && (p2->C <= 40000)) &&
+         ((p1->S <= 10))) {
+        key = 8;
+    }
+
+    if ( ((1000 <= p2->C) && (p2->C <= 2600)) &&
+         ((p1->S <= 12))) {
+        key = 9;
+    }
+
+    return key;
 }

@@ -24089,7 +24089,10 @@ unsigned char __t3rd16on(void);
 # 1 "manoeuvres.c" 2
 
 # 1 "./manoeuvres.h" 1
-# 11 "./manoeuvres.h"
+
+
+
+
 # 1 "./dc_motor.h" 1
 
 
@@ -24123,7 +24126,6 @@ unsigned int turn180Delay = 510;
 unsigned int headbuttDelay = 70;
 unsigned int squareDelay = 300;
 
-
 void initDCmotorsPWM(unsigned int PWMperiod);
 void setMotorPWM(DC_motor *m);
 
@@ -24140,7 +24142,9 @@ void turnRight135(DC_motor *mL, DC_motor *mR);
 void UTurn(DC_motor *mL, DC_motor *mR);
 void headbuttReverse(DC_motor *mL, DC_motor *mR);
 void squareReverse(DC_motor *mL, DC_motor *mR);
-# 11 "./manoeuvres.h" 2
+# 5 "./manoeuvres.h" 2
+
+
 
 
 void card_red(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
@@ -24151,10 +24155,11 @@ void card_pink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void card_orange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void card_cyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void card_white(DC_motor *mL, DC_motor *mR);
-
-
 void pick_card(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
 # 2 "manoeuvres.c" 2
+
+
+
 
 
 void card_red(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
@@ -24171,6 +24176,9 @@ void card_red(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
     }
 }
 
+
+
+
 void card_green(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 {
     switch (backtrack) {
@@ -24185,6 +24193,9 @@ void card_green(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
     }
 }
 
+
+
+
 void card_blue(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 {
     switch (backtrack) {
@@ -24198,6 +24209,9 @@ void card_blue(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
             break;
     }
 }
+
+
+
 
 void card_yellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 {
@@ -24215,6 +24229,9 @@ void card_yellow(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
     }
 }
 
+
+
+
 void card_pink(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 {
     switch (backtrack) {
@@ -24231,6 +24248,9 @@ void card_pink(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
     }
 }
 
+
+
+
 void card_orange(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 {
     switch (backtrack) {
@@ -24244,6 +24264,9 @@ void card_orange(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
             break;
     }
 }
+
+
+
 
 void card_cyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
 {
@@ -24259,12 +24282,19 @@ void card_cyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
     }
 }
 
+
+
+
+
 void card_white(DC_motor *mL, DC_motor *mR)
 {
     headbuttReverse(mL, mR);
     UTurn(mL, mR);
     headbuttReverse(mL, mR);
 }
+
+
+
 
 void pick_card(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key)
 {

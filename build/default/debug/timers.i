@@ -24094,7 +24094,10 @@ unsigned char __t3rd16on(void);
 
 
 # 1 "./manoeuvres.h" 1
-# 11 "./manoeuvres.h"
+
+
+
+
 # 1 "./dc_motor.h" 1
 
 
@@ -24128,7 +24131,6 @@ unsigned int turn180Delay = 510;
 unsigned int headbuttDelay = 70;
 unsigned int squareDelay = 300;
 
-
 void initDCmotorsPWM(unsigned int PWMperiod);
 void setMotorPWM(DC_motor *m);
 
@@ -24145,7 +24147,9 @@ void turnRight135(DC_motor *mL, DC_motor *mR);
 void UTurn(DC_motor *mL, DC_motor *mR);
 void headbuttReverse(DC_motor *mL, DC_motor *mR);
 void squareReverse(DC_motor *mL, DC_motor *mR);
-# 11 "./manoeuvres.h" 2
+# 5 "./manoeuvres.h" 2
+
+
 
 
 void card_red(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
@@ -24156,8 +24160,6 @@ void card_pink(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void card_orange(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void card_cyan(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 void card_white(DC_motor *mL, DC_motor *mR);
-
-
 void pick_card(DC_motor *mL, DC_motor *mR, unsigned char backtrack, unsigned char key);
 # 5 "./timers.h" 2
 
@@ -24209,8 +24211,8 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 
 
 
-
-unsigned int wall_threshold = 300;
+unsigned char sample_count = 20;
+unsigned int wall_threshold_blue = 30;
 
 
 typedef struct RGBC_val {
@@ -24227,65 +24229,22 @@ typedef struct HSV_val {
     unsigned int V;
 } HSV_val;
 
-
-
-
 void color_click_init(void);
-
-
-
-
-
-
 void color_writetoaddr(char address, char value);
-
-
-
-
-
 unsigned int color_read_Red(void);
-
-
-
-
-
 unsigned int color_read_Green(void);
-
-
-
-
-
 unsigned int color_read_Blue(void);
-
-
-
-
-
 unsigned int color_read_Clear(void);
-
-
-
-
-
 void getRGBCval(struct RGBC_val *p);
 
-void wait_for_wall(struct RGBC_val *p);
-
-unsigned int max(unsigned int a, unsigned int b);
-
-unsigned int min(unsigned int a, unsigned int b);
-
-unsigned int maxRGB(struct RGBC_val *p);
-
-unsigned int minRGB(struct RGBC_val *p);
-
-void scaleRGB(struct RGBC_val *p);
-
-void getHSVval(struct HSV_val *p1, struct RGBC_val *p2);
-
-void RGBC2colourcard(struct RGBC_val *p);
+void average_RGBC(struct RGBC_val *p);
+void wait_for_wall(struct RGBC_val *p, unsigned char loss);
+unsigned int max_RGB(struct RGBC_val *p);
+unsigned int min_RGB(struct RGBC_val *p);
+void scale_RGB(struct RGBC_val *p);
+void convert_HSV(struct HSV_val *p1, struct RGBC_val *p2);
+unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2);
 # 5 "./serial.h" 2
-
 
 
 
@@ -24301,34 +24260,42 @@ void sendHSVvalSerial4(HSV_val *col_val);
 # 6 "./timers.h" 2
 
 
+# 1 "./buggy_lights.h" 1
+
+
+
+
+
+
+
+void buggy_lights_init(void);
+void toggle_brake_lights(void);
+void toggle_main_beam(void);
+void toggle_left_indicators(void);
+void toggle_right_indicators(void);
+void toggle_tricolour_LED(void);
+# 8 "./timers.h" 2
+
 
 
 
 unsigned char returning = 0;
 unsigned char return_flag = 0;
-
-
-
-
-
-
-
+unsigned char lost_flag = 0;
+# 24 "./timers.h"
 unsigned char trail_timer_high[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-
-
-
-
-
-
-
+# 36 "./timers.h"
 unsigned char *timer_high_pointer = &trail_timer_high[0];
 unsigned char *timer_low_pointer = &trail_timer_low[0];
 unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
 unsigned char manoeuvre_count = 0;
 
 void Timer0_init(void);
+
+void start_timer(void);
+void stop_timer(void);
 
 void read_timer(unsigned char *tH, unsigned char *tL);
 void write_timer(unsigned char tH, unsigned char tL);
@@ -24337,7 +24304,7 @@ void reset_timer(void);
 void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man);
 void write_trail(unsigned char tH, unsigned char tL, unsigned char man);
 
-void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col);
+void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2);
 void return_to_sender(DC_motor *mL, DC_motor *mR);
 
 void __attribute__((picinterrupt(("")))) ISR();
@@ -24361,10 +24328,30 @@ void Timer0_init(void)
     reset_timer();
     T0CON0bits.T0EN=1;
 
+    start_timer();
     PIE0bits.TMR0IE = 1;
     INTCONbits.PEIE = 1;
     INTCONbits.GIE = 1;
 }
+
+
+
+
+void start_timer(void)
+{
+    T0CON0bits.T0EN=1;
+}
+
+
+
+
+void stop_timer(void)
+{
+    T0CON0bits.T0EN=0;
+}
+
+
+
 
 void read_timer(unsigned char *tH, unsigned char *tL)
 {
@@ -24375,6 +24362,9 @@ void read_timer(unsigned char *tH, unsigned char *tL)
     *tH = TMR0H;
 }
 
+
+
+
 void write_timer(unsigned char tH, unsigned char tL)
 {
 
@@ -24384,10 +24374,19 @@ void write_timer(unsigned char tH, unsigned char tL)
     TMR0L = tL;
 }
 
+
+
+
 void reset_timer(void)
 {
     write_timer(0, 0);
 }
+
+
+
+
+
+
 
 void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man)
 {
@@ -24395,12 +24394,18 @@ void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man)
     timer_low_pointer --;
     manoeuvre_pointer --;
 
+    manoeuvre_count --;
+
     *tH = *timer_high_pointer;
     *tL = *timer_low_pointer;
     *man = *manoeuvre_pointer;
-
-    manoeuvre_count --;
 }
+
+
+
+
+
+
 
 void write_trail(unsigned char tH, unsigned char tL, unsigned char man)
 {
@@ -24415,24 +24420,65 @@ void write_trail(unsigned char tH, unsigned char tL, unsigned char man)
     manoeuvre_count ++;
 }
 
-void forward_navigation(DC_motor *mL, DC_motor *mR, RGBC_val *col)
+
+
+
+void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
 {
-    unsigned char timerH = 0;
-    unsigned char timerL = 0;
-    unsigned char mann = 0;
-    reset_timer();
+    while (!returning) {
+        unsigned char timerH = 0;
+        unsigned char timerL = 0;
+        unsigned char mann = 0;
 
-    wait_for_wall(col);
-    read_timer(&timerH, &timerL);
-
-
+        reset_timer();
+        start_timer();
 
 
-    write_trail(timerH, timerL, mann);
-    sendArrayCharSerial4(trail_timer_high);
-    sendArrayCharSerial4(trail_timer_low);
-    sendArrayCharSerial4(trail_manoeuvre);
+        wait_for_wall(p2, lost_flag);
+
+        read_timer(&timerH, &timerL);
+        stop_timer();
+        stop(mL, mR);
+
+        toggle_tricolour_LED();
+        _delay((unsigned long)((200)*(64000000/4000.0)));
+
+        average_RGBC(p2);
+        scale_RGB(p2);
+
+        convert_HSV(p1, p2);
+        mann = colour_to_key(p1, p2);
+
+        toggle_tricolour_LED();
+        _delay((unsigned long)((200)*(64000000/4000.0)));
+# 152 "timers.c"
+        if (lost_flag) {
+            timerH = 0b11111111;
+            timerL = 0b11111111;
+            mann = 8;
+        }
+
+        if (manoeuvre_count == 19) {
+            mann = 8;
+        }
+
+        write_trail(timerH, timerL, mann);
+
+
+        if (mann == 8) {
+            returning = 1;
+        }
+
+        sendRGBCvalSerial4(p2);
+        sendHSVvalSerial4(p1);
+        sendArrayCharSerial4(trail_timer_high);
+        sendArrayCharSerial4(trail_timer_low);
+        sendArrayCharSerial4(trail_manoeuvre);
+    }
 }
+
+
+
 
 void return_to_sender(DC_motor *mL, DC_motor *mR)
 {
@@ -24440,32 +24486,38 @@ void return_to_sender(DC_motor *mL, DC_motor *mR)
         unsigned char timerH = 0;
         unsigned char timerL = 0;
         unsigned char mann = 0;
+
         read_trail(&timerH, &timerL, &mann);
-
-
-
+        sendIntSerial4(timerH);
+        sendIntSerial4(timerL);
+        sendIntSerial4(mann);
         if (mann != 8) {
             pick_card(mL, mR, returning, mann);
         }
+
         write_timer(0b11111111 - timerH, 0b11111111 - timerL);
+        start_timer();
         fullSpeedAhead(mL, mR);
+
         while (!return_flag);
+
         stop(mL, mR);
+        stop_timer();
         return_flag = 0;
     }
-
 }
+
+
+
 
 void __attribute__((picinterrupt(("")))) ISR()
 {
-
     if (PIR0bits.TMR0IF) {
         if (returning) {
             return_flag = 1;
         } else {
-
+            lost_flag = 1;
         }
-
         PIR0bits.TMR0IF = 0;
     }
 }

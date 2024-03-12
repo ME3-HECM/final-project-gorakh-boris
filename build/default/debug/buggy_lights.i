@@ -24089,16 +24089,23 @@ unsigned char __t3rd16on(void);
 # 1 "buggy_lights.c" 2
 
 # 1 "./buggy_lights.h" 1
-# 15 "./buggy_lights.h"
-void buggy_lights_init(void);
 
+
+
+
+
+
+
+void buggy_lights_init(void);
 void toggle_brake_lights(void);
 void toggle_main_beam(void);
 void toggle_left_indicators(void);
 void toggle_right_indicators(void);
-
 void toggle_tricolour_LED(void);
 # 2 "buggy_lights.c" 2
+
+
+
 
 
 void buggy_lights_init(void)
@@ -24120,7 +24127,6 @@ void buggy_lights_init(void)
 
 
 
-
             TRISGbits.TRISG1 = 0;
             TRISAbits.TRISA4 = 0;
             TRISFbits.TRISF7 = 0;
@@ -24138,42 +24144,57 @@ void buggy_lights_init(void)
             LATGbits.LATG0 = 0;
             LATEbits.LATE7 = 0;
             LATAbits.LATA3 = 0;
-# 64 "buggy_lights.c"
 }
+
+
+
 
 void toggle_brake_lights(void)
 {
+
     LATDbits.LATD4 = !LATDbits.LATD4;
 }
 
+
+
+
 void toggle_main_beam(void)
 {
+
     LATDbits.LATD3 = !LATDbits.LATD3;
 }
 
+
+
+
 void toggle_left_indicators(void)
 {
+
     LATFbits.LATF0 = !LATFbits.LATF0;
 }
 
+
+
+
 void toggle_right_indicators(void)
 {
+
     LATHbits.LATH0 = !LATHbits.LATH0;
 }
+
+
+
 
 void toggle_tricolour_LED(void)
 {
 
 
-
-            LATGbits.LATG1 = !LATGbits.LATG1;
-            LATAbits.LATA4 = !LATAbits.LATA4;
-            LATFbits.LATF7 = !LATFbits.LATF7;
-
+        LATGbits.LATG1 = !LATGbits.LATG1;
+        LATAbits.LATA4 = !LATAbits.LATA4;
+        LATFbits.LATF7 = !LATFbits.LATF7;
 
 
-            LATGbits.LATG0 = !LATGbits.LATG0;
-            LATEbits.LATE7 = !LATEbits.LATE7;
-            LATAbits.LATA3 = !LATAbits.LATA3;
-# 115 "buggy_lights.c"
+        LATGbits.LATG0 = !LATGbits.LATG0;
+        LATEbits.LATE7 = !LATEbits.LATE7;
+        LATAbits.LATA3 = !LATAbits.LATA3;
 }

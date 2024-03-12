@@ -5,4 +5,5 @@ manoeuvres.h  \
 dc_motor.h  \
 serial.h  \
 color.h  \
-i2c.h 
+i2c.h  \
+buggy_lights.h 

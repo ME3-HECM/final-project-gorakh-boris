@@ -23,6 +23,7 @@
 #include "calibration.h"
 
 #define _XTAL_FREQ 64000000         //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
+#define COLOURTEST 0      //testing code and sending to serial
 
 void main(void) {
     struct RGBC_val RGBC_colour;
@@ -82,6 +83,7 @@ void main(void) {
     
     forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
     
+#if COLOURTEST   
     while (1) {
         average_RGBC(&RGBC_colour);
         scale_RGB(&RGBC_colour);
@@ -95,4 +97,5 @@ void main(void) {
         
         __delay_ms(500);
     }
+#endif
 }
