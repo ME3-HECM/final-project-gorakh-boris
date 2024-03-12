@@ -84,11 +84,16 @@ void main(void) {
     //forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
     
     while (1) {
-        average_RGBC(&RGBC_colour); //a bit buggy, check github commit comments
+        average_RGBC(&RGBC_colour);
         scale_RGB(&RGBC_colour);
         convert_HSV(&HSV_colour, &RGBC_colour);
+        
+        unsigned char k = colour_to_key(&HSV_colour, &RGBC_colour);
+        
         sendRGBCvalSerial4(&RGBC_colour);
         sendHSVvalSerial4(&HSV_colour);
+        sendIntSerial4((int)k);
+        
         __delay_ms(500);
     }
 }

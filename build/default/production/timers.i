@@ -24397,29 +24397,31 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
         unsigned char mann = 0;
 
         reset_timer();
-        fullSpeedAhead(mL, mR);
+
 
         wait_for_wall(p2, lost_flag);
 
         read_timer(&timerH, &timerL);
         stop(mL, mR);
-# 121 "timers.c"
+
+        average_RGBC(p2);
+        scale_RGB(p2);
+
+        convert_HSV(p1, p2);
+        mann = colour_to_key(p1, p2);
+# 127 "timers.c"
         if (lost_flag) {
             timerH = 0b11111111;
             timerL = 0b11111111;
             mann = 8;
-        } else if (manoeuvre_count == 19) {
-            mann = 8;
-        } else {
-            average_RGBC(p2);
-            scale_RGB(p2);
+        }
 
-            convert_HSV(p1, p2);
-            mann = colour_to_key(p1, p2);
+        if (manoeuvre_count == 19) {
+            mann = 8;
         }
 
         write_trail(timerH, timerL, mann);
-        pick_card(mL, mR, returning, mann);
+
 
         if (mann == 8) {
             returning = 1;
@@ -24429,7 +24431,10 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
         sendHSVvalSerial4(p1);
         sendArrayCharSerial4(trail_timer_high);
         sendArrayCharSerial4(trail_timer_low);
-        sendArrayCharSerial4(trail_manoeuvre); break;
+        sendArrayCharSerial4(trail_manoeuvre);
+
+        break;
+
     }
 }
 

@@ -129,9 +129,13 @@ void average_RGBC(struct RGBC_val *p)
     unsigned long temp_B = 0;
     unsigned long temp_C = 0;
     
-    //for some reason this for loop doesn't happen when called in timer.c
-    for (unsigned char i; i < sample_count; i++) {  //repeat sample_count times
-        getRGBCval(p);                              //take colour measurement
+    /***********************************************************************
+     * for some reason this for loop doesn't happen all the time
+     * fixed by assigning zero to variable i
+    ***********************************************************************/
+    for (unsigned char i = 0; i < sample_count; i++) {
+        //take colour measurement
+        getRGBCval(p);
         //add colour measurement to temporary variables
         temp_R += (unsigned long)p->R;
         temp_G += (unsigned long)p->G;
@@ -323,12 +327,12 @@ unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2)
     }
     
     if ( ((113 <= p1->H) && (p1->H <= 153)) && 
-         ((31 <= p1->S) && (p1->S <= 43))) {
+         ((13 <= p1->S) && (p1->S <= 43))) {
         key = 2; //green
     }
 
     if ( ((180 <= p1->H) && (p1->H <= 244)) && 
-         ((42 <= p1->S) && (p1->S <= 56))) {
+         ((13 <= p1->S) && (p1->S <= 56))) {
         key = 3; //blue
     }
 
@@ -337,7 +341,7 @@ unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2)
         key = 4; //yellow
     }
 
-    if ( ((279 <= p1->H) && (p1->H <= 377)) && 
+    if ( ((279 <= p1->H) && (p1->H <= 360)) && 
          ((11 <= p1->S) && (p1->S <= 15))) {
         key = 5; //pink
     }
@@ -347,8 +351,8 @@ unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2)
         key = 6; //orange
     }
 
-    if ( ((153 <= p1->H) && (p1->H <= 207)) && 
-         ((33 <= p1->S) && (p1->S <= 45))) {
+    if ( ((154 <= p1->H) && (p1->H <= 207)) && 
+         ((13 <= p1->S) && (p1->S <= 45))) {
         key = 7; //cyan
     }
 

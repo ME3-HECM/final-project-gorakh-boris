@@ -141,12 +141,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40
 [; ;./color.h: 40: void convert_HSV(struct HSV_val *p1, struct RGBC_val *p2);
 [v _convert_HSV `(v ~T0 @X0 0 ef2`*S2017`*S2016 ]
+"41
+[; ;./color.h: 41: unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2);
+[v _colour_to_key `(uc ~T0 @X0 0 ef2`*S2017`*S2016 ]
 "15 ./serial.h
 [; ;./serial.h: 15: void sendRGBCvalSerial4(RGBC_val *col_val);
 [v _sendRGBCvalSerial4 `(v ~T0 @X0 0 ef1`*S2016 ]
 "16
 [; ;./serial.h: 16: void sendHSVvalSerial4(HSV_val *col_val);
 [v _sendHSVvalSerial4 `(v ~T0 @X0 0 ef1`*S2017 ]
+"13
+[; ;./serial.h: 13: void sendIntSerial4(int integer);
+[v _sendIntSerial4 `(v ~T0 @X0 0 ef1`i ]
 [v F205 `(v ~T0 @X0 1 tf1`ul ]
 "20 C:\Program Files\Microchip\xc8\v2.45\pic\include\builtins.h
 [v __delay `JF205 ~T0 @X0 0 e ]
@@ -2473,22 +2479,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 "89
 [; ;main.c: 89:         convert_HSV(&HSV_colour, &RGBC_colour);
 [e ( _convert_HSV (2 , &U _HSV_colour &U _RGBC_colour ]
-"90
-[; ;main.c: 90:         sendRGBCvalSerial4(&RGBC_colour);
-[e ( _sendRGBCvalSerial4 (1 &U _RGBC_colour ]
 "91
-[; ;main.c: 91:         sendHSVvalSerial4(&HSV_colour);
-[e ( _sendHSVvalSerial4 (1 &U _HSV_colour ]
-"92
-[; ;main.c: 92:         _delay((unsigned long)((500)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;main.c: 91:         unsigned char k = colour_to_key(&HSV_colour, &RGBC_colour);
+[v _k `uc ~T0 @X0 1 a ]
+[e = _k ( _colour_to_key (2 , &U _HSV_colour &U _RGBC_colour ]
 "93
-[; ;main.c: 93:     }
+[; ;main.c: 93:         sendRGBCvalSerial4(&RGBC_colour);
+[e ( _sendRGBCvalSerial4 (1 &U _RGBC_colour ]
+"94
+[; ;main.c: 94:         sendHSVvalSerial4(&HSV_colour);
+[e ( _sendHSVvalSerial4 (1 &U _HSV_colour ]
+"95
+[; ;main.c: 95:         sendIntSerial4((int)k);
+[e ( _sendIntSerial4 (1 -> _k `i ]
+"97
+[; ;main.c: 97:         _delay((unsigned long)((500)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"98
+[; ;main.c: 98:     }
 }
 [e :U 2019 ]
 [e $U 2020  ]
 [e :U 2021 ]
-"94
-[; ;main.c: 94: }
+"99
+[; ;main.c: 99: }
 [e :UE 2018 ]
 }

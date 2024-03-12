@@ -24398,8 +24398,13 @@ void main(void) {
         average_RGBC(&RGBC_colour);
         scale_RGB(&RGBC_colour);
         convert_HSV(&HSV_colour, &RGBC_colour);
+
+        unsigned char k = colour_to_key(&HSV_colour, &RGBC_colour);
+
         sendRGBCvalSerial4(&RGBC_colour);
         sendHSVvalSerial4(&HSV_colour);
+        sendIntSerial4((int)k);
+
         _delay((unsigned long)((500)*(64000000/4000.0)));
     }
 }

@@ -24298,7 +24298,11 @@ void average_RGBC(struct RGBC_val *p)
     unsigned long temp_C = 0;
 
 
-    for (unsigned char i; i < sample_count; i++) {
+
+
+
+    for (unsigned char i = 0; i < sample_count; i++) {
+
         getRGBCval(p);
 
         temp_R += (unsigned long)p->R;
@@ -24384,7 +24388,7 @@ void convert_HSV(struct HSV_val *p1,struct RGBC_val *p2)
     if (C == 0) {
         hue = 0;
     } else {
-# 228 "color.c"
+# 232 "color.c"
         if (M == p2->R) {
             if (p2->G >= p2->B) {
 
@@ -24465,7 +24469,7 @@ void convert_HSV(struct HSV_val *p1,struct RGBC_val *p2)
     p1->S = sat;
     p1->V = M;
 }
-# 317 "color.c"
+# 321 "color.c"
 unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2)
 {
     unsigned char key = 0;
@@ -24475,12 +24479,12 @@ unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2)
     }
 
     if ( ((113 <= p1->H) && (p1->H <= 153)) &&
-         ((31 <= p1->S) && (p1->S <= 43))) {
+         ((13 <= p1->S) && (p1->S <= 43))) {
         key = 2;
     }
 
     if ( ((180 <= p1->H) && (p1->H <= 244)) &&
-         ((42 <= p1->S) && (p1->S <= 56))) {
+         ((13 <= p1->S) && (p1->S <= 56))) {
         key = 3;
     }
 
@@ -24489,7 +24493,7 @@ unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2)
         key = 4;
     }
 
-    if ( ((279 <= p1->H) && (p1->H <= 377)) &&
+    if ( ((279 <= p1->H) && (p1->H <= 360)) &&
          ((11 <= p1->S) && (p1->S <= 15))) {
         key = 5;
     }
@@ -24499,8 +24503,8 @@ unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2)
         key = 6;
     }
 
-    if ( ((153 <= p1->H) && (p1->H <= 207)) &&
-         ((33 <= p1->S) && (p1->S <= 45))) {
+    if ( ((154 <= p1->H) && (p1->H <= 207)) &&
+         ((13 <= p1->S) && (p1->S <= 45))) {
         key = 7;
     }
 
