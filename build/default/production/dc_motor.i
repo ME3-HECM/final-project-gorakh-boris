@@ -24093,6 +24093,22 @@ unsigned char __t3rd16on(void);
 
 
 
+# 1 "./buggy_lights.h" 1
+
+
+
+
+
+
+
+void buggy_lights_init(void);
+void toggle_brake_lights(void);
+void toggle_main_beam(void);
+void toggle_left_indicators(void);
+void toggle_right_indicators(void);
+void toggle_tricolour_LED(void);
+# 5 "./dc_motor.h" 2
+
 
 
 
@@ -24322,9 +24338,13 @@ void fullSpeedReverse(DC_motor *mL, DC_motor *mR)
 
 void turnLeft90(DC_motor *mL, DC_motor *mR)
 {
+    toggle_left_indicators();
+
     turnLeft(mL, mR);
     _delay((unsigned long)((turnLeft90Delay)*(64000000/4000.0)));
     stop(mL, mR);
+
+    toggle_left_indicators();
 }
 
 
@@ -24332,9 +24352,13 @@ void turnLeft90(DC_motor *mL, DC_motor *mR)
 
 void turnRight90(DC_motor *mL, DC_motor *mR)
 {
+    toggle_right_indicators();
+
     turnRight(mL, mR);
     _delay((unsigned long)((turnRight90Delay)*(64000000/4000.0)));
     stop(mL, mR);
+
+    toggle_right_indicators();
 }
 
 
@@ -24342,9 +24366,13 @@ void turnRight90(DC_motor *mL, DC_motor *mR)
 
 void turnLeft135(DC_motor *mL, DC_motor *mR)
 {
+    toggle_left_indicators();
+
     turnLeft(mL, mR);
     _delay((unsigned long)((turnLeft135Delay)*(64000000/4000.0)));
     stop(mL, mR);
+
+    toggle_left_indicators();
 }
 
 
@@ -24352,9 +24380,13 @@ void turnLeft135(DC_motor *mL, DC_motor *mR)
 
 void turnRight135(DC_motor *mL, DC_motor *mR)
 {
+    toggle_right_indicators();
+
     turnRight(mL, mR);
     _delay((unsigned long)((turnRight135Delay)*(64000000/4000.0)));
     stop(mL, mR);
+
+    toggle_right_indicators();
 }
 
 
@@ -24362,9 +24394,15 @@ void turnRight135(DC_motor *mL, DC_motor *mR)
 
 void UTurn(DC_motor *mL, DC_motor *mR)
 {
+    toggle_left_indicators();
+    toggle_right_indicators();
+
     turnLeft(mL, mR);
     _delay((unsigned long)((turn180Delay)*(64000000/4000.0)));
     stop(mL, mR);
+
+    toggle_left_indicators();
+    toggle_right_indicators();
 }
 
 
@@ -24372,9 +24410,13 @@ void UTurn(DC_motor *mL, DC_motor *mR)
 
 void headbuttReverse(DC_motor *mL, DC_motor *mR)
 {
+    toggle_brake_lights();
+
     fullSpeedReverse(mL, mR);
     _delay((unsigned long)((headbuttDelay)*(64000000/4000.0)));
     stop(mL, mR);
+
+    toggle_brake_lights();
 }
 
 
@@ -24382,7 +24424,11 @@ void headbuttReverse(DC_motor *mL, DC_motor *mR)
 
 void squareReverse(DC_motor *mL, DC_motor *mR)
 {
+    toggle_brake_lights();
+
     fullSpeedReverse(mL, mR);
     _delay((unsigned long)((squareDelay)*(64000000/4000.0)));
     stop(mL, mR);
+
+    toggle_brake_lights();
 }

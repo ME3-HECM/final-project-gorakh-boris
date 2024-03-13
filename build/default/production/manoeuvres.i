@@ -24098,6 +24098,22 @@ unsigned char __t3rd16on(void);
 
 
 
+# 1 "./buggy_lights.h" 1
+
+
+
+
+
+
+
+void buggy_lights_init(void);
+void toggle_brake_lights(void);
+void toggle_main_beam(void);
+void toggle_left_indicators(void);
+void toggle_right_indicators(void);
+void toggle_tricolour_LED(void);
+# 5 "./dc_motor.h" 2
+
 
 
 

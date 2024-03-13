@@ -24109,6 +24109,22 @@ unsigned char __t3rd16on(void);
 
 
 
+# 1 "./buggy_lights.h" 1
+
+
+
+
+
+
+
+void buggy_lights_init(void);
+void toggle_brake_lights(void);
+void toggle_main_beam(void);
+void toggle_left_indicators(void);
+void toggle_right_indicators(void);
+void toggle_tricolour_LED(void);
+# 5 "./dc_motor.h" 2
+
 
 
 
@@ -24160,21 +24176,6 @@ void headbuttReverse(DC_motor *mL, DC_motor *mR);
 void squareReverse(DC_motor *mL, DC_motor *mR);
 # 17 "main.c" 2
 
-# 1 "./buggy_lights.h" 1
-
-
-
-
-
-
-
-void buggy_lights_init(void);
-void toggle_brake_lights(void);
-void toggle_main_beam(void);
-void toggle_left_indicators(void);
-void toggle_right_indicators(void);
-void toggle_tricolour_LED(void);
-# 18 "main.c" 2
 
 # 1 "./manoeuvres.h" 1
 
@@ -24390,13 +24391,5 @@ void main(void) {
 
     forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
     return_to_sender(&motorL, &motorR);
-# 118 "main.c"
-    for (unsigned char i = 0; i < 4; i++) {
-
-
-
-
-
-    }
-
+# 127 "main.c"
 }

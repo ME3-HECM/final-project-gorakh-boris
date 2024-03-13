@@ -5,6 +5,14 @@
 [d frameptr 4065 ]
 "7 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
 [v _buggy_lights_init buggy_lights_init `(v  1 e 1 0 ]
+"48
+[v _toggle_brake_lights toggle_brake_lights `(v  1 e 1 0 ]
+"57
+[v _toggle_main_beam toggle_main_beam `(v  1 e 1 0 ]
+"66
+[v _toggle_left_indicators toggle_left_indicators `(v  1 e 1 0 ]
+"75
+[v _toggle_right_indicators toggle_right_indicators `(v  1 e 1 0 ]
 "84
 [v _toggle_tricolour_LED toggle_tricolour_LED `(v  1 e 1 0 ]
 "7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\__lldiv.c
@@ -107,17 +115,17 @@
 [v _fullSpeedReverse fullSpeedReverse `(v  1 e 1 0 ]
 "179
 [v _turnLeft90 turnLeft90 `(v  1 e 1 0 ]
-"189
+"193
 [v _turnRight90 turnRight90 `(v  1 e 1 0 ]
-"199
+"207
 [v _turnLeft135 turnLeft135 `(v  1 e 1 0 ]
-"209
+"221
 [v _turnRight135 turnRight135 `(v  1 e 1 0 ]
-"219
+"235
 [v _UTurn UTurn `(v  1 e 1 0 ]
-"229
+"251
 [v _headbuttReverse headbuttReverse `(v  1 e 1 0 ]
-"239
+"265
 [v _squareReverse squareReverse `(v  1 e 1 0 ]
 "4 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\i2c.c
 [v _I2C_2_Master_Init I2C_2_Master_Init `(v  1 e 1 0 ]
@@ -187,7 +195,7 @@
 [v _forward_navigation forward_navigation `(v  1 e 1 0 ]
 "182
 [v _return_to_sender return_to_sender `(v  1 e 1 0 ]
-"212
+"214
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 "12 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X/timers.h
 [v _returning returning `uc  1 e 1 0 ]
@@ -215,7 +223,7 @@
 [v _SSP2CLKPPS SSP2CLKPPS `VEuc  1 e 1 @3612 ]
 "3862
 [v _SSP2DATPPS SSP2DATPPS `VEuc  1 e 1 @3613 ]
-[s S2132 . 1 `uc 1 INT0IE 1 0 :1:0 
+[s S2137 . 1 `uc 1 INT0IE 1 0 :1:0 
 `uc 1 INT1IE 1 0 :1:1 
 `uc 1 INT2IE 1 0 :1:2 
 `uc 1 INT3IE 1 0 :1:3 
@@ -223,9 +231,9 @@
 `uc 1 TMR0IE 1 0 :1:5 
 ]
 "4557
-[u S2139 . 1 `S2132 1 . 1 0 ]
-[v _PIE0bits PIE0bits `VES2139  1 e 1 @3625 ]
-[s S2273 . 1 `uc 1 INT0IF 1 0 :1:0 
+[u S2144 . 1 `S2137 1 . 1 0 ]
+[v _PIE0bits PIE0bits `VES2144  1 e 1 @3625 ]
+[s S2279 . 1 `uc 1 INT0IF 1 0 :1:0 
 `uc 1 INT1IF 1 0 :1:1 
 `uc 1 INT2IF 1 0 :1:2 
 `uc 1 INT3IF 1 0 :1:3 
@@ -233,9 +241,9 @@
 `uc 1 TMR0IF 1 0 :1:5 
 ]
 "5102
-[u S2280 . 1 `S2273 1 . 1 0 ]
-[v _PIR0bits PIR0bits `VES2280  1 e 1 @3635 ]
-[s S1874 . 1 `uc 1 TX3IF 1 0 :1:0 
+[u S2286 . 1 `S2279 1 . 1 0 ]
+[v _PIR0bits PIR0bits `VES2286  1 e 1 @3635 ]
+[s S1879 . 1 `uc 1 TX3IF 1 0 :1:0 
 `uc 1 RC3IF 1 0 :1:1 
 `uc 1 TX4IF 1 0 :1:2 
 `uc 1 RC4IF 1 0 :1:3 
@@ -243,8 +251,8 @@
 `uc 1 RC5IF 1 0 :1:5 
 ]
 "5332
-[u S1881 . 1 `S1874 1 . 1 0 ]
-[v _PIR4bits PIR4bits `VES1881  1 e 1 @3639 ]
+[u S1886 . 1 `S1879 1 . 1 0 ]
+[v _PIR4bits PIR4bits `VES1886  1 e 1 @3639 ]
 "7858
 [v _RC0PPS RC0PPS `VEuc  1 e 1 @3682 ]
 "8208
@@ -259,7 +267,7 @@
 [v _RE4PPS RE4PPS `VEuc  1 e 1 @3702 ]
 "9708
 [v _RG6PPS RG6PPS `VEuc  1 e 1 @3720 ]
-[s S1413 . 1 `uc 1 ANSELD0 1 0 :1:0 
+[s S1419 . 1 `uc 1 ANSELD0 1 0 :1:0 
 `uc 1 ANSELD1 1 0 :1:1 
 `uc 1 ANSELD2 1 0 :1:2 
 `uc 1 ANSELD3 1 0 :1:3 
@@ -269,9 +277,9 @@
 `uc 1 ANSELD7 1 0 :1:7 
 ]
 "11513
-[u S1422 . 1 `S1413 1 . 1 0 ]
-[v _ANSELDbits ANSELDbits `VES1422  1 e 1 @3751 ]
-[s S1665 . 1 `uc 1 ANSELF0 1 0 :1:0 
+[u S1428 . 1 `S1419 1 . 1 0 ]
+[v _ANSELDbits ANSELDbits `VES1428  1 e 1 @3751 ]
+[s S1671 . 1 `uc 1 ANSELF0 1 0 :1:0 
 `uc 1 ANSELF1 1 0 :1:1 
 `uc 1 ANSELF2 1 0 :1:2 
 `uc 1 ANSELF3 1 0 :1:3 
@@ -281,27 +289,27 @@
 `uc 1 ANSELF7 1 0 :1:7 
 ]
 "12319
-[u S1674 . 1 `S1665 1 . 1 0 ]
-[v _ANSELFbits ANSELFbits `VES1674  1 e 1 @3764 ]
+[u S1680 . 1 `S1671 1 . 1 0 ]
+[v _ANSELFbits ANSELFbits `VES1680  1 e 1 @3764 ]
 "14100
 [v _SSP2BUF SSP2BUF `VEuc  1 e 1 @3797 ]
 "14120
 [v _SSP2ADD SSP2ADD `VEuc  1 e 1 @3798 ]
 "14310
 [v _SSP2STAT SSP2STAT `VEuc  1 e 1 @3800 ]
-[s S1355 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S1361 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "14794
-[s S1361 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S1367 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[s S1366 . 1 `uc 1 SSPM02 1 0 :1:0 
+[s S1372 . 1 `uc 1 SSPM02 1 0 :1:0 
 `uc 1 SSPM12 1 0 :1:1 
 `uc 1 SSPM22 1 0 :1:2 
 `uc 1 SSPM32 1 0 :1:3 
@@ -310,11 +318,11 @@
 `uc 1 SSPOV2 1 0 :1:6 
 `uc 1 WCOL2 1 0 :1:7 
 ]
-[u S1375 . 1 `S1355 1 . 1 0 `S1361 1 . 1 0 `S1366 1 . 1 0 ]
-[v _SSP2CON1bits SSP2CON1bits `VES1375  1 e 1 @3801 ]
+[u S1381 . 1 `S1361 1 . 1 0 `S1367 1 . 1 0 `S1372 1 . 1 0 ]
+[v _SSP2CON1bits SSP2CON1bits `VES1381  1 e 1 @3801 ]
 "14884
 [v _SSP2CON2 SSP2CON2 `VEuc  1 e 1 @3802 ]
-[s S1440 . 1 `uc 1 SEN 1 0 :1:0 
+[s S1446 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -324,17 +332,17 @@
 `uc 1 GCEN 1 0 :1:7 
 ]
 "14931
-[s S1449 . 1 `uc 1 . 1 0 :1:0 
+[s S1455 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADMSK 1 0 :5:1 
 ]
-[s S1452 . 1 `uc 1 . 1 0 :1:0 
+[s S1458 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADMSK1 1 0 :1:1 
 `uc 1 ADMSK2 1 0 :1:2 
 `uc 1 ADMSK3 1 0 :1:3 
 `uc 1 ADMSK4 1 0 :1:4 
 `uc 1 ADMSK5 1 0 :1:5 
 ]
-[s S1459 . 1 `uc 1 SEN2 1 0 :1:0 
+[s S1465 . 1 `uc 1 SEN2 1 0 :1:0 
 `uc 1 ADMSK12 1 0 :1:1 
 `uc 1 ADMSK22 1 0 :1:2 
 `uc 1 ADMSK32 1 0 :1:3 
@@ -343,22 +351,22 @@
 `uc 1 ACKSTAT2 1 0 :1:6 
 `uc 1 GCEN2 1 0 :1:7 
 ]
-[s S1468 . 1 `uc 1 . 1 0 :1:0 
+[s S1474 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RSEN2 1 0 :1:1 
 `uc 1 PEN2 1 0 :1:2 
 `uc 1 RCEN2 1 0 :1:3 
 `uc 1 ADMSK42 1 0 :1:4 
 `uc 1 ADMSK52 1 0 :1:5 
 ]
-[u S1475 . 1 `S1440 1 . 1 0 `S1449 1 . 1 0 `S1452 1 . 1 0 `S1459 1 . 1 0 `S1468 1 . 1 0 ]
-[v _SSP2CON2bits SSP2CON2bits `VES1475  1 e 1 @3802 ]
+[u S1481 . 1 `S1446 1 . 1 0 `S1455 1 . 1 0 `S1458 1 . 1 0 `S1465 1 . 1 0 `S1474 1 . 1 0 ]
+[v _SSP2CON2bits SSP2CON2bits `VES1481  1 e 1 @3802 ]
 "15724
 [v _TX4REG TX4REG `VEuc  1 e 1 @3812 ]
 "15769
 [v _SP4BRGL SP4BRGL `VEuc  1 e 1 @3813 ]
 "15807
 [v _SP4BRGH SP4BRGH `VEuc  1 e 1 @3814 ]
-[s S1853 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S1858 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -368,9 +376,9 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "15867
-[u S1862 . 1 `S1853 1 . 1 0 ]
-[v _RC4STAbits RC4STAbits `VES1862  1 e 1 @3815 ]
-[s S1830 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S1867 . 1 `S1858 1 . 1 0 ]
+[v _RC4STAbits RC4STAbits `VES1867  1 e 1 @3815 ]
+[s S1835 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -380,9 +388,9 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "15989
-[u S1839 . 1 `S1830 1 . 1 0 ]
-[v _TX4STAbits TX4STAbits `VES1839  1 e 1 @3816 ]
-[s S1809 . 1 `uc 1 ABDEN 1 0 :1:0 
+[u S1844 . 1 `S1835 1 . 1 0 ]
+[v _TX4STAbits TX4STAbits `VES1844  1 e 1 @3816 ]
+[s S1814 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -392,8 +400,8 @@
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "16115
-[u S1818 . 1 `S1809 1 . 1 0 ]
-[v _BAUD4CONbits BAUD4CONbits `VES1818  1 e 1 @3817 ]
+[u S1823 . 1 `S1814 1 . 1 0 ]
+[v _BAUD4CONbits BAUD4CONbits `VES1823  1 e 1 @3817 ]
 "20738
 [v _CCPR4H CCPR4H `VEuc  1 e 1 @3873 ]
 [s S1043 . 1 `uc 1 MODE 1 0 :4:0 
@@ -665,7 +673,7 @@
 "29748
 [u S50 . 1 `S45 1 . 1 0 ]
 [v _TRISHbits TRISHbits `VES50  1 e 1 @3976 ]
-[s S1686 . 1 `uc 1 RF0 1 0 :1:0 
+[s S1692 . 1 `uc 1 RF0 1 0 :1:0 
 `uc 1 RF1 1 0 :1:1 
 `uc 1 RF2 1 0 :1:2 
 `uc 1 RF3 1 0 :1:3 
@@ -675,12 +683,12 @@
 `uc 1 RF7 1 0 :1:7 
 ]
 "30278
-[s S1695 . 1 `uc 1 . 1 0 :1:0 
+[s S1701 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 C2OUTF 1 0 :1:1 
 `uc 1 C1OUTF 1 0 :1:2 
 ]
-[u S1699 . 1 `S1686 1 . 1 0 `S1695 1 . 1 0 ]
-[v _PORTFbits PORTFbits `VES1699  1 e 1 @3982 ]
+[u S1705 . 1 `S1692 1 . 1 0 `S1701 1 . 1 0 ]
+[v _PORTFbits PORTFbits `VES1705  1 e 1 @3982 ]
 "33876
 [v _CCPR2H CCPR2H `VEuc  1 e 1 @4006 ]
 [s S936 . 1 `uc 1 MODE 1 0 :4:0 
@@ -844,29 +852,29 @@
 [v _TMR0L TMR0L `VEuc  1 e 1 @4051 ]
 "39003
 [v _TMR0H TMR0H `VEuc  1 e 1 @4052 ]
-[s S2098 . 1 `uc 1 T0OUTPS 1 0 :4:0 
+[s S2103 . 1 `uc 1 T0OUTPS 1 0 :4:0 
 `uc 1 T016BIT 1 0 :1:4 
 `uc 1 T0OUT 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 T0EN 1 0 :1:7 
 ]
 "39277
-[s S2104 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
+[s S2109 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
 `uc 1 T0OUTPS1 1 0 :1:1 
 `uc 1 T0OUTPS2 1 0 :1:2 
 `uc 1 T0OUTPS3 1 0 :1:3 
 ]
 "39277
-[u S2109 . 1 `S2098 1 . 1 0 `S2104 1 . 1 0 ]
+[u S2114 . 1 `S2103 1 . 1 0 `S2109 1 . 1 0 ]
 "39277
 "39277
-[v _T0CON0bits T0CON0bits `VES2109  1 e 1 @4053 ]
-[s S2052 . 1 `uc 1 T0CKPS 1 0 :4:0 
+[v _T0CON0bits T0CON0bits `VES2114  1 e 1 @4053 ]
+[s S2057 . 1 `uc 1 T0CKPS 1 0 :4:0 
 `uc 1 T0ASYNC 1 0 :1:4 
 `uc 1 T0CS 1 0 :3:5 
 ]
 "39353
-[s S2056 . 1 `uc 1 T0CKPS0 1 0 :1:0 
+[s S2061 . 1 `uc 1 T0CKPS0 1 0 :1:0 
 `uc 1 T0CKPS1 1 0 :1:1 
 `uc 1 T0CKPS2 1 0 :1:2 
 `uc 1 T0CKPS3 1 0 :1:3 
@@ -876,20 +884,20 @@
 `uc 1 T0CS2 1 0 :1:7 
 ]
 "39353
-[s S2065 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S2070 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 `uc 1 T0PS3 1 0 :1:3 
 ]
 "39353
-[s S2070 . 1 `uc 1 T0PS 1 0 :4:0 
+[s S2075 . 1 `uc 1 T0PS 1 0 :4:0 
 ]
 "39353
-[u S2072 . 1 `S2052 1 . 1 0 `S2056 1 . 1 0 `S2065 1 . 1 0 `S2070 1 . 1 0 ]
+[u S2077 . 1 `S2057 1 . 1 0 `S2061 1 . 1 0 `S2070 1 . 1 0 `S2075 1 . 1 0 ]
 "39353
 "39353
-[v _T0CON1bits T0CON1bits `VES2072  1 e 1 @4054 ]
-[s S2149 . 1 `uc 1 INT0EDG 1 0 :1:0 
+[v _T0CON1bits T0CON1bits `VES2077  1 e 1 @4054 ]
+[s S2154 . 1 `uc 1 INT0EDG 1 0 :1:0 
 `uc 1 INT1EDG 1 0 :1:1 
 `uc 1 INT2EDG 1 0 :1:2 
 `uc 1 INT3EDG 1 0 :1:3 
@@ -899,20 +907,20 @@
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "40176
-[s S2158 . 1 `uc 1 . 1 0 :6:0 
+[s S2163 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
 "40176
-[s S2162 . 1 `uc 1 . 1 0 :6:0 
+[s S2167 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
 "40176
-[u S2166 . 1 `S2149 1 . 1 0 `S2158 1 . 1 0 `S2162 1 . 1 0 ]
+[u S2171 . 1 `S2154 1 . 1 0 `S2163 1 . 1 0 `S2167 1 . 1 0 ]
 "40176
 "40176
-[v _INTCONbits INTCONbits `VES2166  1 e 1 @4082 ]
+[v _INTCONbits INTCONbits `VES2171  1 e 1 @4082 ]
 "153 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
 [v _prec prec `i  1 s 2 prec ]
 [v _width width `i  1 s 2 width ]
@@ -925,19 +933,17 @@
 "29 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"118
-[v main@i i `uc  1 a 1 2 ]
 [s S1143 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 "42
-[v main@motorR motorR `S1143  1 a 9 18 ]
-[v main@motorL motorL `S1143  1 a 9 9 ]
+[v main@motorR motorR `S1143  1 a 9 17 ]
+[v main@motorL motorL `S1143  1 a 9 8 ]
 [s S520 RGBC_val 8 `ui 1 R 2 0 `ui 1 G 2 2 `ui 1 B 2 4 `ui 1 C 2 6 ]
 "30
-[v main@RGBC_colour RGBC_colour `S520  1 a 8 27 ]
+[v main@RGBC_colour RGBC_colour `S520  1 a 8 26 ]
 [s S525 HSV_val 6 `ui 1 H 2 0 `ui 1 S 2 2 `ui 1 V 2 4 ]
 "36
-[v main@HSV_colour HSV_colour `S525  1 a 6 3 ]
-"126
+[v main@HSV_colour HSV_colour `S525  1 a 6 2 ]
+"127
 } 0
 "182 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
 [v _return_to_sender return_to_sender `(v  1 e 1 0 ]
@@ -952,7 +958,12 @@
 "182
 [v return_to_sender@mL mL `*.30S1143  1 p 1 76 ]
 [v return_to_sender@mR mR `*.30S1143  1 p 1 77 ]
-"207
+"209
+} 0
+"57 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+[v _toggle_main_beam toggle_main_beam `(v  1 e 1 0 ]
+{
+"61
 } 0
 "43 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
 [v _sendIntSerial4 sendIntSerial4 `(v  1 e 1 0 ]
@@ -1066,10 +1077,10 @@
 "9 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[u S2830 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[u S2837 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
 "13
-[s S2833 _IO_FILE 12 `S2830 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v sprintf@f f `S2833  1 a 12 45 ]
+[s S2840 _IO_FILE 12 `S2837 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v sprintf@f f `S2840  1 a 12 45 ]
 "11
 [v sprintf@ret ret `i  1 a 2 42 ]
 "12
@@ -1084,9 +1095,9 @@
 {
 "1820
 [v vfprintf@cfmt cfmt `*.31uc  1 a 1 30 ]
-[s S2865 _IO_FILE 0 ]
+[s S2872 _IO_FILE 0 ]
 "1817
-[v vfprintf@fp fp `*.30S2865  1 p 1 27 ]
+[v vfprintf@fp fp `*.30S2872  1 p 1 27 ]
 [v vfprintf@fmt fmt `*.31Cuc  1 p 1 28 ]
 [v vfprintf@ap ap `*.30*.30v  1 p 1 29 ]
 "1840
@@ -1094,9 +1105,9 @@
 "1177
 [v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
 {
-[u S2883 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
+[u S2890 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
 "1188
-[v vfpfcnvrt@convarg convarg `S2883  1 a 4 22 ]
+[v vfpfcnvrt@convarg convarg `S2890  1 a 4 22 ]
 "1191
 [v vfpfcnvrt@cnt cnt `i  1 a 2 19 ]
 "1179
@@ -1104,9 +1115,9 @@
 [v vfpfcnvrt@cp cp `*.31uc  1 a 1 21 ]
 "1180
 [v vfpfcnvrt@done done `a  1 a 1 18 ]
-[s S2865 _IO_FILE 0 ]
+[s S2872 _IO_FILE 0 ]
 "1177
-[v vfpfcnvrt@fp fp `*.30S2865  1 p 1 13 ]
+[v vfpfcnvrt@fp fp `*.30S2872  1 p 1 13 ]
 [v vfpfcnvrt@fmt fmt `*.30*.31uc  1 p 1 14 ]
 [v vfpfcnvrt@ap ap `*.30*.30v  1 p 1 15 ]
 "1814
@@ -1115,9 +1126,9 @@
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 0 ]
-[u S2830 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S2833 _IO_FILE 12 `S2830 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v fputc@fp fp `*.30S2833  1 p 1 2 ]
+[u S2837 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S2840 _IO_FILE 12 `S2837 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v fputc@fp fp `*.30S2840  1 p 1 2 ]
 "24
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\putch.c
@@ -1214,17 +1225,17 @@
 "8 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S2695 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S2702 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S2700 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S2703 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2695 1 fAsBytes 4 0 `S2700 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S2703  1 a 4 33 ]
+[s S2707 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S2710 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2702 1 fAsBytes 4 0 `S2707 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S2710  1 a 4 33 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 27 ]
-[s S2771 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S2778 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S2774 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2771 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S2774  1 a 2 37 ]
+[u S2781 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2778 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S2781  1 a 2 37 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 32 ]
 "11
@@ -1288,13 +1299,13 @@
 [v card_pink@backtrack backtrack `uc  1 p 1 29 ]
 "91
 } 0
-"239 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+"265 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
 [v _squareReverse squareReverse `(v  1 e 1 0 ]
 {
 [s S1143 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v squareReverse@mL mL `*.30S1143  1 p 1 23 ]
 [v squareReverse@mR mR `*.30S1143  1 p 1 24 ]
-"244
+"274
 } 0
 "96 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\manoeuvres.c
 [v _card_orange card_orange `(v  1 e 1 0 ]
@@ -1314,13 +1325,13 @@
 [v card_green@backtrack backtrack `uc  1 p 1 29 ]
 "36
 } 0
-"189 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+"193 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
 [v _turnRight90 turnRight90 `(v  1 e 1 0 ]
 {
 [s S1143 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v turnRight90@mL mL `*.30S1143  1 p 1 23 ]
 [v turnRight90@mR mR `*.30S1143  1 p 1 24 ]
-"194
+"202
 } 0
 "179
 [v _turnLeft90 turnLeft90 `(v  1 e 1 0 ]
@@ -1328,7 +1339,7 @@
 [s S1143 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v turnLeft90@mL mL `*.30S1143  1 p 1 23 ]
 [v turnLeft90@mR mR `*.30S1143  1 p 1 24 ]
-"184
+"188
 } 0
 "113 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\manoeuvres.c
 [v _card_cyan card_cyan `(v  1 e 1 0 ]
@@ -1339,13 +1350,13 @@
 [v card_cyan@backtrack backtrack `uc  1 p 1 29 ]
 "125
 } 0
-"209 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+"221 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
 [v _turnRight135 turnRight135 `(v  1 e 1 0 ]
 {
 [s S1143 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v turnRight135@mL mL `*.30S1143  1 p 1 23 ]
 [v turnRight135@mR mR `*.30S1143  1 p 1 24 ]
-"214
+"230
 } 0
 "125
 [v _turnRight turnRight `(v  1 e 1 0 ]
@@ -1360,13 +1371,13 @@
 [v turnRight@mR mR `*.30S1143  1 p 1 19 ]
 "138
 } 0
-"199
+"207
 [v _turnLeft135 turnLeft135 `(v  1 e 1 0 ]
 {
 [s S1143 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v turnLeft135@mL mL `*.30S1143  1 p 1 23 ]
 [v turnLeft135@mR mR `*.30S1143  1 p 1 24 ]
-"204
+"216
 } 0
 "41 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\manoeuvres.c
 [v _card_blue card_blue `(v  1 e 1 0 ]
@@ -1377,15 +1388,20 @@
 [v card_blue@backtrack backtrack `uc  1 p 1 29 ]
 "53
 } 0
-"229 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
+"251 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
 [v _headbuttReverse headbuttReverse `(v  1 e 1 0 ]
 {
 [s S1143 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v headbuttReverse@mL mL `*.30S1143  1 p 1 23 ]
 [v headbuttReverse@mR mR `*.30S1143  1 p 1 24 ]
-"234
+"260
 } 0
-"161
+"48 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+[v _toggle_brake_lights toggle_brake_lights `(v  1 e 1 0 ]
+{
+"52
+} 0
+"161 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
 [v _fullSpeedReverse fullSpeedReverse `(v  1 e 1 0 ]
 {
 "164
@@ -1398,13 +1414,13 @@
 [v fullSpeedReverse@mR mR `*.30S1143  1 p 1 19 ]
 "174
 } 0
-"219
+"235
 [v _UTurn UTurn `(v  1 e 1 0 ]
 {
 [s S1143 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 [v UTurn@mL mL `*.30S1143  1 p 1 23 ]
 [v UTurn@mR mR `*.30S1143  1 p 1 24 ]
-"224
+"246
 } 0
 "107
 [v _turnLeft turnLeft `(v  1 e 1 0 ]
@@ -1419,7 +1435,17 @@
 [v turnLeft@mR mR `*.30S1143  1 p 1 19 ]
 "120
 } 0
-"93
+"75 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
+[v _toggle_right_indicators toggle_right_indicators `(v  1 e 1 0 ]
+{
+"79
+} 0
+"66
+[v _toggle_left_indicators toggle_left_indicators `(v  1 e 1 0 ]
+{
+"70
+} 0
+"93 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\dc_motor.c
 [v _stop stop `(v  1 e 1 0 ]
 {
 [s S1143 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
@@ -1708,8 +1734,8 @@
 [v write_timer@tH tH `uc  1 a 1 1 ]
 "65
 } 0
-"212
+"214
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 {
-"222
+"224
 } 0

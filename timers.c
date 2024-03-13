@@ -194,6 +194,7 @@ void return_to_sender(DC_motor *mL, DC_motor *mR)
             pick_card(mL, mR, returning, mann); //perform manoeuvre
         }
         
+        toggle_main_beam();
         write_timer(0b11111111 - timerH, 0b11111111 - timerL);
         start_timer();
         fullSpeedAhead(mL, mR);         //go forward continuously
@@ -203,6 +204,7 @@ void return_to_sender(DC_motor *mL, DC_motor *mR)
         stop(mL, mR);                   //stop motors
         stop_timer();
         return_flag = 0;                //reset return flag
+        toggle_main_beam();
     }
 }
 

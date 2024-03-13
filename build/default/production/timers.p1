@@ -79,8 +79,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "39003
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 39003: extern volatile unsigned char TMR0H __attribute__((address(0xFD4)));
 [v _TMR0H `Vuc ~T0 @X0 0 e@4052 ]
-"8 ./dc_motor.h
-[; ;./dc_motor.h: 8: typedef struct DC_motor {
+"9 ./dc_motor.h
+[; ;./dc_motor.h: 9: typedef struct DC_motor {
 [s S2015 `uc 1 `uc 1 `uc 1 `ui 1 `*uc 1 `*uc 1 ]
 [n S2015 DC_motor power direction brakemode PWMperiod posDutyHighByte negDutyHighByte ]
 "21 ./color.h
@@ -91,14 +91,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./color.h: 13: typedef struct RGBC_val {
 [s S2016 `ui 1 `ui 1 `ui 1 `ui 1 ]
 [n S2016 RGBC_val R G B C ]
-"44 ./dc_motor.h
-[; ;./dc_motor.h: 44: void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
+"45 ./dc_motor.h
+[; ;./dc_motor.h: 45: void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
 [v _fullSpeedAhead `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "36 ./color.h
 [; ;./color.h: 36: void wait_for_wall(struct RGBC_val *p, unsigned char loss);
 [v _wait_for_wall `(v ~T0 @X0 0 ef2`*S2016`uc ]
-"41 ./dc_motor.h
-[; ;./dc_motor.h: 41: void stop(DC_motor *mL, DC_motor *mR);
+"42 ./dc_motor.h
+[; ;./dc_motor.h: 42: void stop(DC_motor *mL, DC_motor *mR);
 [v _stop `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "13 ./buggy_lights.h
 [; ;./buggy_lights.h: 13: void toggle_tricolour_LED(void);
@@ -180,6 +180,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12
 [; ;./serial.h: 12: void sendIntSerial4(int integer);
 [v _sendIntSerial4 `(v ~T0 @X0 0 ef1`i ]
+"10 ./buggy_lights.h
+[; ;./buggy_lights.h: 10: void toggle_main_beam(void);
+[v _toggle_main_beam `(v ~T0 @X0 0 ef ]
 [t ~ __interrupt . k ]
 [t T2 __interrupt ]
 "5093 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
@@ -2167,86 +2170,86 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40592
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 40592: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"17 ./dc_motor.h
-[; ;./dc_motor.h: 17: unsigned char rampDelay = 8;
+"18 ./dc_motor.h
+[; ;./dc_motor.h: 18: unsigned char rampDelay = 8;
 [v _rampDelay `uc ~T0 @X0 1 e ]
 [i _rampDelay
 -> -> 8 `i `uc
 ]
-"19
-[; ;./dc_motor.h: 19: unsigned char topGearLeft = 20;
+"20
+[; ;./dc_motor.h: 20: unsigned char topGearLeft = 20;
 [v _topGearLeft `uc ~T0 @X0 1 e ]
 [i _topGearLeft
 -> -> 20 `i `uc
 ]
-"20
-[; ;./dc_motor.h: 20: unsigned char topGearRight = 20;
+"21
+[; ;./dc_motor.h: 21: unsigned char topGearRight = 20;
 [v _topGearRight `uc ~T0 @X0 1 e ]
 [i _topGearRight
 -> -> 20 `i `uc
 ]
-"22
-[; ;./dc_motor.h: 22: unsigned char bottomGearLeft = 20;
+"23
+[; ;./dc_motor.h: 23: unsigned char bottomGearLeft = 20;
 [v _bottomGearLeft `uc ~T0 @X0 1 e ]
 [i _bottomGearLeft
 -> -> 20 `i `uc
 ]
-"23
-[; ;./dc_motor.h: 23: unsigned char bottomGearRight = 21;
+"24
+[; ;./dc_motor.h: 24: unsigned char bottomGearRight = 21;
 [v _bottomGearRight `uc ~T0 @X0 1 e ]
 [i _bottomGearRight
 -> -> 21 `i `uc
 ]
-"25
-[; ;./dc_motor.h: 25: unsigned char turningLeftGear = 40;
+"26
+[; ;./dc_motor.h: 26: unsigned char turningLeftGear = 40;
 [v _turningLeftGear `uc ~T0 @X0 1 e ]
 [i _turningLeftGear
 -> -> 40 `i `uc
 ]
-"26
-[; ;./dc_motor.h: 26: unsigned char turningRightGear = 40;
+"27
+[; ;./dc_motor.h: 27: unsigned char turningRightGear = 40;
 [v _turningRightGear `uc ~T0 @X0 1 e ]
 [i _turningRightGear
 -> -> 40 `i `uc
 ]
-"29
-[; ;./dc_motor.h: 29: unsigned int turnLeft90Delay = 84;
+"30
+[; ;./dc_motor.h: 30: unsigned int turnLeft90Delay = 84;
 [v _turnLeft90Delay `ui ~T0 @X0 1 e ]
 [i _turnLeft90Delay
 -> -> 84 `i `ui
 ]
-"30
-[; ;./dc_motor.h: 30: unsigned int turnRight90Delay = 108;
+"31
+[; ;./dc_motor.h: 31: unsigned int turnRight90Delay = 108;
 [v _turnRight90Delay `ui ~T0 @X0 1 e ]
 [i _turnRight90Delay
 -> -> 108 `i `ui
 ]
-"31
-[; ;./dc_motor.h: 31: unsigned int turnLeft135Delay = 250;
+"32
+[; ;./dc_motor.h: 32: unsigned int turnLeft135Delay = 250;
 [v _turnLeft135Delay `ui ~T0 @X0 1 e ]
 [i _turnLeft135Delay
 -> -> 250 `i `ui
 ]
-"32
-[; ;./dc_motor.h: 32: unsigned int turnRight135Delay = 262;
+"33
+[; ;./dc_motor.h: 33: unsigned int turnRight135Delay = 262;
 [v _turnRight135Delay `ui ~T0 @X0 1 e ]
 [i _turnRight135Delay
 -> -> 262 `i `ui
 ]
-"33
-[; ;./dc_motor.h: 33: unsigned int turn180Delay = 400;
+"34
+[; ;./dc_motor.h: 34: unsigned int turn180Delay = 400;
 [v _turn180Delay `ui ~T0 @X0 1 e ]
 [i _turn180Delay
 -> -> 400 `i `ui
 ]
-"35
-[; ;./dc_motor.h: 35: unsigned int headbuttDelay = 820;
+"36
+[; ;./dc_motor.h: 36: unsigned int headbuttDelay = 820;
 [v _headbuttDelay `ui ~T0 @X0 1 e ]
 [i _headbuttDelay
 -> -> 820 `i `ui
 ]
-"36
-[; ;./dc_motor.h: 36: unsigned int squareDelay = 2440;
+"37
+[; ;./dc_motor.h: 37: unsigned int squareDelay = 2440;
 [v _squareDelay `ui ~T0 @X0 1 e ]
 [i _squareDelay
 -> -> 2440 `i `ui
@@ -2812,83 +2815,89 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2037 ]
 "197
-[; ;timers.c: 197:         write_timer(0b11111111 - timerH, 0b11111111 - timerL);
-[e ( _write_timer (2 , -> - -> 255 `i -> _timerH `i `uc -> - -> 255 `i -> _timerL `i `uc ]
+[; ;timers.c: 197:         toggle_main_beam();
+[e ( _toggle_main_beam ..  ]
 "198
-[; ;timers.c: 198:         start_timer();
-[e ( _start_timer ..  ]
+[; ;timers.c: 198:         write_timer(0b11111111 - timerH, 0b11111111 - timerL);
+[e ( _write_timer (2 , -> - -> 255 `i -> _timerH `i `uc -> - -> 255 `i -> _timerL `i `uc ]
 "199
-[; ;timers.c: 199:         fullSpeedAhead(mL, mR);
+[; ;timers.c: 199:         start_timer();
+[e ( _start_timer ..  ]
+"200
+[; ;timers.c: 200:         fullSpeedAhead(mL, mR);
 [e ( _fullSpeedAhead (2 , _mL _mR ]
-"201
-[; ;timers.c: 201:         while (!return_flag);
+"202
+[; ;timers.c: 202:         while (!return_flag);
 [e $U 2038  ]
 [e :U 2039 ]
 [e :U 2038 ]
 [e $ ! != -> _return_flag `i -> 0 `i 2039  ]
 [e :U 2040 ]
-"203
-[; ;timers.c: 203:         stop(mL, mR);
-[e ( _stop (2 , _mL _mR ]
 "204
-[; ;timers.c: 204:         stop_timer();
-[e ( _stop_timer ..  ]
+[; ;timers.c: 204:         stop(mL, mR);
+[e ( _stop (2 , _mL _mR ]
 "205
-[; ;timers.c: 205:         return_flag = 0;
-[e = _return_flag -> -> 0 `i `uc ]
+[; ;timers.c: 205:         stop_timer();
+[e ( _stop_timer ..  ]
 "206
-[; ;timers.c: 206:     }
+[; ;timers.c: 206:         return_flag = 0;
+[e = _return_flag -> -> 0 `i `uc ]
+"207
+[; ;timers.c: 207:         toggle_main_beam();
+[e ( _toggle_main_beam ..  ]
+"208
+[; ;timers.c: 208:     }
 }
 [e :U 2034 ]
 "184
 [; ;timers.c: 184:     while (manoeuvre_count != 0) {
 [e $ != -> _manoeuvre_count `i -> 0 `i 2035  ]
 [e :U 2036 ]
-"207
-[; ;timers.c: 207: }
+"209
+[; ;timers.c: 209: }
 [e :UE 2033 ]
 }
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"212
-[; ;timers.c: 212: void __attribute__((picinterrupt(("")))) ISR()
+"214
+[; ;timers.c: 214: void __attribute__((picinterrupt(("")))) ISR()
 [v _ISR `(v ~T2 @X0 1 ef ]
-"213
-[; ;timers.c: 213: {
+"215
+[; ;timers.c: 215: {
 {
 [e :U _ISR ]
 [f ]
-"214
-[; ;timers.c: 214:     if (PIR0bits.TMR0IF) {
+"216
+[; ;timers.c: 216:     if (PIR0bits.TMR0IF) {
 [e $ ! != -> . . _PIR0bits 0 5 `i -> 0 `i 2042  ]
 {
-"215
-[; ;timers.c: 215:         if (returning) {
+"217
+[; ;timers.c: 217:         if (returning) {
 [e $ ! != -> _returning `i -> 0 `i 2043  ]
 {
-"216
-[; ;timers.c: 216:             return_flag = 1;
+"218
+[; ;timers.c: 218:             return_flag = 1;
 [e = _return_flag -> -> 1 `i `uc ]
-"217
-[; ;timers.c: 217:         } else {
+"219
+[; ;timers.c: 219:         } else {
 }
 [e $U 2044  ]
 [e :U 2043 ]
 {
-"218
-[; ;timers.c: 218:             lost_flag = 1;
+"220
+[; ;timers.c: 220:             lost_flag = 1;
 [e = _lost_flag -> -> 1 `i `uc ]
-"219
-[; ;timers.c: 219:         }
+"221
+[; ;timers.c: 221:         }
 }
 [e :U 2044 ]
-"220
-[; ;timers.c: 220:         PIR0bits.TMR0IF = 0;
+"222
+[; ;timers.c: 222:         PIR0bits.TMR0IF = 0;
 [e = . . _PIR0bits 0 5 -> -> 0 `i `uc ]
-"221
-[; ;timers.c: 221:     }
+"223
+[; ;timers.c: 223:     }
 }
 [e :U 2042 ]
-"222
-[; ;timers.c: 222: }
+"224
+[; ;timers.c: 224: }
 [e :UE 2041 ]
 }

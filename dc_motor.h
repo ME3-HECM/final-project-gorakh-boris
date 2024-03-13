@@ -2,6 +2,7 @@
 #define _DC_MOTOR_H
 
 #include <xc.h>
+#include "buggy_lights.h"
 
 #define _XTAL_FREQ 64000000
 

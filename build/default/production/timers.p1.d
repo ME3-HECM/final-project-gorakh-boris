@@ -3,7 +3,7 @@ timers.c  \
 timers.h  \
 manoeuvres.h  \
 dc_motor.h  \
+buggy_lights.h  \
 serial.h  \
 color.h  \
-i2c.h  \
-buggy_lights.h 
+i2c.h 

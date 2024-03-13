@@ -24103,6 +24103,22 @@ unsigned char __t3rd16on(void);
 
 
 
+# 1 "./buggy_lights.h" 1
+
+
+
+
+
+
+
+void buggy_lights_init(void);
+void toggle_brake_lights(void);
+void toggle_main_beam(void);
+void toggle_left_indicators(void);
+void toggle_right_indicators(void);
+void toggle_tricolour_LED(void);
+# 5 "./dc_motor.h" 2
+
 
 
 
@@ -24264,21 +24280,6 @@ void sendHSVvalSerial4(HSV_val *col_val);
 # 6 "./timers.h" 2
 
 
-# 1 "./buggy_lights.h" 1
-
-
-
-
-
-
-
-void buggy_lights_init(void);
-void toggle_brake_lights(void);
-void toggle_main_beam(void);
-void toggle_left_indicators(void);
-void toggle_right_indicators(void);
-void toggle_tricolour_LED(void);
-# 8 "./timers.h" 2
 
 
 
@@ -24501,6 +24502,7 @@ void return_to_sender(DC_motor *mL, DC_motor *mR)
             pick_card(mL, mR, returning, mann);
         }
 
+        toggle_main_beam();
         write_timer(0b11111111 - timerH, 0b11111111 - timerL);
         start_timer();
         fullSpeedAhead(mL, mR);
@@ -24510,6 +24512,7 @@ void return_to_sender(DC_motor *mL, DC_motor *mR)
         stop(mL, mR);
         stop_timer();
         return_flag = 0;
+        toggle_main_beam();
     }
 }
 

@@ -178,9 +178,13 @@ void fullSpeedReverse(DC_motor *mL, DC_motor *mR)
 *******************************************************************************/
 void turnLeft90(DC_motor *mL, DC_motor *mR)
 {
+    toggle_left_indicators();
+    
     turnLeft(mL, mR);                   //set motors to continuously turn left
     __delay_ms(turnLeft90Delay);        //adjust delay until 90 degrees
     stop(mL, mR);                       //stop motors
+    
+    toggle_left_indicators();
 }
 
 /*******************************************************************************
@@ -188,9 +192,13 @@ void turnLeft90(DC_motor *mL, DC_motor *mR)
 *******************************************************************************/
 void turnRight90(DC_motor *mL, DC_motor *mR)
 {
+    toggle_right_indicators();
+    
     turnRight(mL, mR);                  //set motors to continuously turn right
     __delay_ms(turnRight90Delay);       //adjust delay until 90 degrees
     stop(mL, mR);                       //stop motors
+    
+    toggle_right_indicators();
 }
 
 /*******************************************************************************
@@ -198,9 +206,13 @@ void turnRight90(DC_motor *mL, DC_motor *mR)
 *******************************************************************************/
 void turnLeft135(DC_motor *mL, DC_motor *mR)
 {
+    toggle_left_indicators();
+    
     turnLeft(mL, mR);                   //set motors to continuously turn left
     __delay_ms(turnLeft135Delay);       //adjust delay until 135 degrees
     stop(mL, mR);                       //stop motors
+    
+    toggle_left_indicators();
 }
 
 /*******************************************************************************
@@ -208,9 +220,13 @@ void turnLeft135(DC_motor *mL, DC_motor *mR)
 *******************************************************************************/
 void turnRight135(DC_motor *mL, DC_motor *mR)
 {
+    toggle_right_indicators();
+    
     turnRight(mL, mR);                  //set motors to continuously turn right
     __delay_ms(turnRight135Delay);      //adjust delay until 135 degrees
     stop(mL, mR);                       //stop motors
+    
+    toggle_right_indicators();
 }
 
 /*******************************************************************************
@@ -218,9 +234,15 @@ void turnRight135(DC_motor *mL, DC_motor *mR)
 *******************************************************************************/
 void UTurn(DC_motor *mL, DC_motor *mR)
 {
+    toggle_left_indicators();
+    toggle_right_indicators();
+    
     turnLeft(mL, mR);                   //set motors to continuously turn left
     __delay_ms(turn180Delay);           //adjust delay until 180 degrees
     stop(mL, mR);                       //stop motors
+    
+    toggle_left_indicators();
+    toggle_right_indicators();
 }
 
 /*******************************************************************************
@@ -228,9 +250,13 @@ void UTurn(DC_motor *mL, DC_motor *mR)
 *******************************************************************************/
 void headbuttReverse(DC_motor *mL, DC_motor *mR)
 {
+    toggle_brake_lights();
+    
     fullSpeedReverse(mL, mR);           //set motors to continuously go reverse
     __delay_ms(headbuttDelay);          //adjust delay until centre of square
     stop(mL, mR);                       //stop motors
+    
+    toggle_brake_lights();
 }
 
 /*******************************************************************************
@@ -238,7 +264,11 @@ void headbuttReverse(DC_motor *mL, DC_motor *mR)
 *******************************************************************************/
 void squareReverse(DC_motor *mL, DC_motor *mR)
 {
+    toggle_brake_lights();
+    
     fullSpeedReverse(mL, mR);           //set motors to continuously go reverse
     __delay_ms(squareDelay);            //adjust delay until 1 square length
     stop(mL, mR);                       //stop motors
+    
+    toggle_brake_lights();
 }
