@@ -19,17 +19,21 @@ unsigned char rampDelay = 8;                //delay in ms
 unsigned char topGearLeft = 20;             //power from 0 to 100
 unsigned char topGearRight = 20;            //power from 0 to 100
 
-unsigned char turningLeftGear = 40;             //power from 0 to 100
-unsigned char turningRightGear = 40;
+unsigned char bottomGearLeft = 20;          //power from 0 to 100
+unsigned char bottomGearRight = 21;         //power from 0 to 100
 
+unsigned char turningLeftGear = 40;         //power from 0 to 100
+unsigned char turningRightGear = 40;        //power from 0 to 100
+
+//maximum value for __delay_ms(); is 3153
 unsigned int turnLeft90Delay = 84;         //delay in ms
 unsigned int turnRight90Delay = 108;        //delay in ms
 unsigned int turnLeft135Delay = 250;        //delay in ms
 unsigned int turnRight135Delay = 262;       //delay in ms
 unsigned int turn180Delay = 400;            //delay in ms
 
-unsigned int headbuttDelay = 70;            //delay in ms
-unsigned int squareDelay = 300;             //delay in ms
+unsigned int headbuttDelay = 820;            //delay in ms
+unsigned int squareDelay = 2440;             //delay in ms
 
 void initDCmotorsPWM(unsigned int PWMperiod);
 void setMotorPWM(DC_motor *m);

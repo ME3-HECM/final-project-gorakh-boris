@@ -3,26 +3,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./dc_motor.h: 8: typedef struct DC_motor {
 [s S2015 `uc 1 `uc 1 `uc 1 `ui 1 `*uc 1 `*uc 1 ]
 [n S2015 DC_motor power direction brakemode PWMperiod posDutyHighByte negDutyHighByte ]
-"48
-[; ;./dc_motor.h: 48: void headbuttReverse(DC_motor *mL, DC_motor *mR);
+"52
+[; ;./dc_motor.h: 52: void headbuttReverse(DC_motor *mL, DC_motor *mR);
 [v _headbuttReverse `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"44
-[; ;./dc_motor.h: 44: void turnRight90(DC_motor *mL, DC_motor *mR);
+"48
+[; ;./dc_motor.h: 48: void turnRight90(DC_motor *mL, DC_motor *mR);
 [v _turnRight90 `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"43
-[; ;./dc_motor.h: 43: void turnLeft90(DC_motor *mL, DC_motor *mR);
-[v _turnLeft90 `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "47
-[; ;./dc_motor.h: 47: void UTurn(DC_motor *mL, DC_motor *mR);
+[; ;./dc_motor.h: 47: void turnLeft90(DC_motor *mL, DC_motor *mR);
+[v _turnLeft90 `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"51
+[; ;./dc_motor.h: 51: void UTurn(DC_motor *mL, DC_motor *mR);
 [v _UTurn `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"49
-[; ;./dc_motor.h: 49: void squareReverse(DC_motor *mL, DC_motor *mR);
+"53
+[; ;./dc_motor.h: 53: void squareReverse(DC_motor *mL, DC_motor *mR);
 [v _squareReverse `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"46
-[; ;./dc_motor.h: 46: void turnRight135(DC_motor *mL, DC_motor *mR);
+"50
+[; ;./dc_motor.h: 50: void turnRight135(DC_motor *mL, DC_motor *mR);
 [v _turnRight135 `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"45
-[; ;./dc_motor.h: 45: void turnLeft135(DC_motor *mL, DC_motor *mR);
+"49
+[; ;./dc_motor.h: 49: void turnLeft135(DC_motor *mL, DC_motor *mR);
 [v _turnLeft135 `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
@@ -2017,58 +2017,70 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 20 `i `uc
 ]
 "22
-[; ;./dc_motor.h: 22: unsigned char turningLeftGear = 40;
+[; ;./dc_motor.h: 22: unsigned char bottomGearLeft = 20;
+[v _bottomGearLeft `uc ~T0 @X0 1 e ]
+[i _bottomGearLeft
+-> -> 20 `i `uc
+]
+"23
+[; ;./dc_motor.h: 23: unsigned char bottomGearRight = 21;
+[v _bottomGearRight `uc ~T0 @X0 1 e ]
+[i _bottomGearRight
+-> -> 21 `i `uc
+]
+"25
+[; ;./dc_motor.h: 25: unsigned char turningLeftGear = 40;
 [v _turningLeftGear `uc ~T0 @X0 1 e ]
 [i _turningLeftGear
 -> -> 40 `i `uc
 ]
-"23
-[; ;./dc_motor.h: 23: unsigned char turningRightGear = 40;
+"26
+[; ;./dc_motor.h: 26: unsigned char turningRightGear = 40;
 [v _turningRightGear `uc ~T0 @X0 1 e ]
 [i _turningRightGear
 -> -> 40 `i `uc
 ]
-"25
-[; ;./dc_motor.h: 25: unsigned int turnLeft90Delay = 84;
+"29
+[; ;./dc_motor.h: 29: unsigned int turnLeft90Delay = 84;
 [v _turnLeft90Delay `ui ~T0 @X0 1 e ]
 [i _turnLeft90Delay
 -> -> 84 `i `ui
 ]
-"26
-[; ;./dc_motor.h: 26: unsigned int turnRight90Delay = 108;
+"30
+[; ;./dc_motor.h: 30: unsigned int turnRight90Delay = 108;
 [v _turnRight90Delay `ui ~T0 @X0 1 e ]
 [i _turnRight90Delay
 -> -> 108 `i `ui
 ]
-"27
-[; ;./dc_motor.h: 27: unsigned int turnLeft135Delay = 250;
+"31
+[; ;./dc_motor.h: 31: unsigned int turnLeft135Delay = 250;
 [v _turnLeft135Delay `ui ~T0 @X0 1 e ]
 [i _turnLeft135Delay
 -> -> 250 `i `ui
 ]
-"28
-[; ;./dc_motor.h: 28: unsigned int turnRight135Delay = 262;
+"32
+[; ;./dc_motor.h: 32: unsigned int turnRight135Delay = 262;
 [v _turnRight135Delay `ui ~T0 @X0 1 e ]
 [i _turnRight135Delay
 -> -> 262 `i `ui
 ]
-"29
-[; ;./dc_motor.h: 29: unsigned int turn180Delay = 400;
+"33
+[; ;./dc_motor.h: 33: unsigned int turn180Delay = 400;
 [v _turn180Delay `ui ~T0 @X0 1 e ]
 [i _turn180Delay
 -> -> 400 `i `ui
 ]
-"31
-[; ;./dc_motor.h: 31: unsigned int headbuttDelay = 70;
+"35
+[; ;./dc_motor.h: 35: unsigned int headbuttDelay = 820;
 [v _headbuttDelay `ui ~T0 @X0 1 e ]
 [i _headbuttDelay
--> -> 70 `i `ui
+-> -> 820 `i `ui
 ]
-"32
-[; ;./dc_motor.h: 32: unsigned int squareDelay = 300;
+"36
+[; ;./dc_motor.h: 36: unsigned int squareDelay = 2440;
 [v _squareDelay `ui ~T0 @X0 1 e ]
 [i _squareDelay
--> -> 300 `i `ui
+-> -> 2440 `i `ui
 ]
 "7 manoeuvres.c
 [; ;manoeuvres.c: 7: void card_red(DC_motor *mL, DC_motor *mR, unsigned char backtrack)

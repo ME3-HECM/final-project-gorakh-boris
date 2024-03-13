@@ -160,8 +160,8 @@ void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
 *******************************************************************************/
 void fullSpeedReverse(DC_motor *mL, DC_motor *mR)
 {
-    unsigned char leftGear = topGearLeft;   //set target power of left motor
-    unsigned char rightGear = topGearRight; //set target power of right motor
+    unsigned char leftGear = bottomGearLeft;   //set target power of left motor
+    unsigned char rightGear = bottomGearRight; //set target power of right motor
     (mL->direction) = 0;                //set reverse direction of left motor
     (mR->direction) = 0;                //set reverse direction of right motor
     while ((mL->power<leftGear) || (mR->power<rightGear)){

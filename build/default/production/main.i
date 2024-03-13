@@ -24126,8 +24126,12 @@ unsigned char rampDelay = 8;
 unsigned char topGearLeft = 20;
 unsigned char topGearRight = 20;
 
+unsigned char bottomGearLeft = 20;
+unsigned char bottomGearRight = 21;
+
 unsigned char turningLeftGear = 40;
 unsigned char turningRightGear = 40;
+
 
 unsigned int turnLeft90Delay = 84;
 unsigned int turnRight90Delay = 108;
@@ -24135,8 +24139,8 @@ unsigned int turnLeft135Delay = 250;
 unsigned int turnRight135Delay = 262;
 unsigned int turn180Delay = 400;
 
-unsigned int headbuttDelay = 70;
-unsigned int squareDelay = 300;
+unsigned int headbuttDelay = 820;
+unsigned int squareDelay = 2440;
 
 void initDCmotorsPWM(unsigned int PWMperiod);
 void setMotorPWM(DC_motor *m);
@@ -24389,20 +24393,23 @@ void main(void) {
         ANSELFbits.ANSELF2 = 0;
         ANSELFbits.ANSELF3 = 0;
 
-
-
     while (PORTFbits.RF3);
     LATDbits.LATD7 = !LATDbits.LATD7;
     LATHbits.LATH3 = !LATHbits.LATH3;
-# 107 "main.c"
-    int i;
-# 116 "main.c"
      _delay((unsigned long)((1000)*(64000000/4000.0)));
-    for (i=0; i < 4; i++) {
-# 126 "main.c"
-        UTurn(&motorL, &motorR);
+# 110 "main.c"
+    headbuttReverse(&motorL, &motorR);
+    squareReverse(&motorL, &motorR);
+
+
+
+    for (unsigned char i = 0; i < 4; i++) {
+
+
+
+
+
 
     }
-    stop(&motorL, &motorR);
-# 144 "main.c"
+
 }

@@ -1999,58 +1999,70 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 20 `i `uc
 ]
 "22
-[; ;./dc_motor.h: 22: unsigned char turningLeftGear = 40;
+[; ;./dc_motor.h: 22: unsigned char bottomGearLeft = 20;
+[v _bottomGearLeft `uc ~T0 @X0 1 e ]
+[i _bottomGearLeft
+-> -> 20 `i `uc
+]
+"23
+[; ;./dc_motor.h: 23: unsigned char bottomGearRight = 21;
+[v _bottomGearRight `uc ~T0 @X0 1 e ]
+[i _bottomGearRight
+-> -> 21 `i `uc
+]
+"25
+[; ;./dc_motor.h: 25: unsigned char turningLeftGear = 40;
 [v _turningLeftGear `uc ~T0 @X0 1 e ]
 [i _turningLeftGear
 -> -> 40 `i `uc
 ]
-"23
-[; ;./dc_motor.h: 23: unsigned char turningRightGear = 40;
+"26
+[; ;./dc_motor.h: 26: unsigned char turningRightGear = 40;
 [v _turningRightGear `uc ~T0 @X0 1 e ]
 [i _turningRightGear
 -> -> 40 `i `uc
 ]
-"25
-[; ;./dc_motor.h: 25: unsigned int turnLeft90Delay = 84;
+"29
+[; ;./dc_motor.h: 29: unsigned int turnLeft90Delay = 84;
 [v _turnLeft90Delay `ui ~T0 @X0 1 e ]
 [i _turnLeft90Delay
 -> -> 84 `i `ui
 ]
-"26
-[; ;./dc_motor.h: 26: unsigned int turnRight90Delay = 108;
+"30
+[; ;./dc_motor.h: 30: unsigned int turnRight90Delay = 108;
 [v _turnRight90Delay `ui ~T0 @X0 1 e ]
 [i _turnRight90Delay
 -> -> 108 `i `ui
 ]
-"27
-[; ;./dc_motor.h: 27: unsigned int turnLeft135Delay = 250;
+"31
+[; ;./dc_motor.h: 31: unsigned int turnLeft135Delay = 250;
 [v _turnLeft135Delay `ui ~T0 @X0 1 e ]
 [i _turnLeft135Delay
 -> -> 250 `i `ui
 ]
-"28
-[; ;./dc_motor.h: 28: unsigned int turnRight135Delay = 262;
+"32
+[; ;./dc_motor.h: 32: unsigned int turnRight135Delay = 262;
 [v _turnRight135Delay `ui ~T0 @X0 1 e ]
 [i _turnRight135Delay
 -> -> 262 `i `ui
 ]
-"29
-[; ;./dc_motor.h: 29: unsigned int turn180Delay = 400;
+"33
+[; ;./dc_motor.h: 33: unsigned int turn180Delay = 400;
 [v _turn180Delay `ui ~T0 @X0 1 e ]
 [i _turn180Delay
 -> -> 400 `i `ui
 ]
-"31
-[; ;./dc_motor.h: 31: unsigned int headbuttDelay = 70;
+"35
+[; ;./dc_motor.h: 35: unsigned int headbuttDelay = 820;
 [v _headbuttDelay `ui ~T0 @X0 1 e ]
 [i _headbuttDelay
--> -> 70 `i `ui
+-> -> 820 `i `ui
 ]
-"32
-[; ;./dc_motor.h: 32: unsigned int squareDelay = 300;
+"36
+[; ;./dc_motor.h: 36: unsigned int squareDelay = 2440;
 [v _squareDelay `ui ~T0 @X0 1 e ]
 [i _squareDelay
--> -> 300 `i `ui
+-> -> 2440 `i `ui
 ]
 "7 calibration.c
 [; ;calibration.c: 7: void test_manoeuvres(DC_motor *mL, DC_motor *mR, unsigned char backtrack)

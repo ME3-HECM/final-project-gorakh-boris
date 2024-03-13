@@ -23,8 +23,8 @@
 #include "calibration.h"
 
 #define _XTAL_FREQ 64000000         //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
-#define COLOURTEST 0      //testing code and sending to serial
-#define MOTORTEST 1 //calibrating motor forward and turns.
+#define COLOURTEST 0                //testing code and sending to serial
+#define MOTORTEST 1                 //calibrating motor forward and turns.
 
 void main(void) {
     struct RGBC_val RGBC_colour;
@@ -76,13 +76,13 @@ void main(void) {
         ANSELFbits.ANSELF2 = 0;
         ANSELFbits.ANSELF3 = 0;
     
-    //test_manoeuvres(&motorL, &motorR, returning);
-    
     while (PORTFbits.RF3);
     LATDbits.LATD7 = !LATDbits.LATD7;
     LATHbits.LATH3 = !LATHbits.LATH3;
+     __delay_ms(1000);
     
     //forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
+    //return_to_sender(&motorL, &motorR);
     
 #if COLOURTEST   
     while (1) {
@@ -101,44 +101,24 @@ void main(void) {
 #endif
     
 #if MOTORTEST
-    
-
-
-    int i;
-    
+    //test_manoeuvres(&motorL, &motorR, returning);
+     
     //turnLeft90(&motorL, &motorR);
     //turnLeft135(&motorL, &motorR);
     //turnRight135(&motorL, &motorR);
     //UTurn(&motorL, &motorR);
-    //headbuttReverse(&motorL, &motorR);
-    //squareReverse(&motorL, &motorR);
-    //fullSpeedAhead(&motorL, &motorR);
-     __delay_ms(1000);   
-    for (i=0; i < 4; i++) {
-        
-        //fullSpeedAhead(&motorL, &motorR);
-        //__delay_ms(1000);
-                
+    headbuttReverse(&motorL, &motorR);
+    squareReverse(&motorL, &motorR);
+    
+    //while (1) {fullSpeedAhead(&motorL, &motorR);}
+    
+    for (unsigned char i = 0; i < 4; i++) {
         //turnLeft90(&motorL, &motorR);
         //turnRight90(&motorL, &motorR);
         //turnLeft135(&motorL, &motorR);
         //turnRight135(&motorL, &motorR);
-        UTurn(&motorL, &motorR);
-        
+        //UTurn(&motorL, &motorR);
+        //__delay_ms(1000);)
     }
-    stop(&motorL, &motorR);
-        
-
-    
-        
-        
-        
-        
-        
-        
-        
-       
-    
 #endif
-    
 }

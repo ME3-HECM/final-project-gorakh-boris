@@ -24120,8 +24120,12 @@ unsigned char rampDelay = 8;
 unsigned char topGearLeft = 20;
 unsigned char topGearRight = 20;
 
+unsigned char bottomGearLeft = 20;
+unsigned char bottomGearRight = 21;
+
 unsigned char turningLeftGear = 40;
 unsigned char turningRightGear = 40;
+
 
 unsigned int turnLeft90Delay = 84;
 unsigned int turnRight90Delay = 108;
@@ -24129,8 +24133,8 @@ unsigned int turnLeft135Delay = 250;
 unsigned int turnRight135Delay = 262;
 unsigned int turn180Delay = 400;
 
-unsigned int headbuttDelay = 70;
-unsigned int squareDelay = 300;
+unsigned int headbuttDelay = 820;
+unsigned int squareDelay = 2440;
 
 void initDCmotorsPWM(unsigned int PWMperiod);
 void setMotorPWM(DC_motor *m);
