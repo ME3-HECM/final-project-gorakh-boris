@@ -24217,7 +24217,7 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 
 
 unsigned char sample_count = 20;
-unsigned int wall_threshold_blue = 30;
+unsigned int wall_threshold_clear = 50;
 
 
 typedef struct RGBC_val {
@@ -24255,7 +24255,6 @@ unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2);
 
 
 void initUSART4(void);
-char getCharSerial4(void);
 void sendCharSerial4(char charToSend);
 void sendStringSerial4(char *string);
 void sendIntSerial4(int integer);
@@ -24437,7 +24436,7 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
 
         reset_timer();
         start_timer();
-
+        fullSpeedAhead(mL, mR);
 
         wait_for_wall(p2, lost_flag);
 
@@ -24461,6 +24460,7 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
             timerH = 0b11111111;
             timerL = 0b11111111;
             mann = 8;
+            LATDbits.LATD7 = !LATDbits.LATD7;
         }
 
         if (manoeuvre_count == 19) {
@@ -24468,10 +24468,11 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
         }
 
         write_trail(timerH, timerL, mann);
-
+        pick_card(mL, mR, returning, mann);
 
         if (mann == 8) {
             returning = 1;
+            LATHbits.LATH3 = !LATHbits.LATH3;
         }
 
         sendRGBCvalSerial4(p2);

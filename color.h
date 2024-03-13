@@ -7,7 +7,7 @@
 #define _XTAL_FREQ 64000000
 
 unsigned char sample_count = 20;
-unsigned int wall_threshold_blue = 30;
+unsigned int wall_threshold_clear = 50;
 
 //define RGBC structure
 typedef struct RGBC_val { 

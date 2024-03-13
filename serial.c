@@ -20,14 +20,6 @@ void initUSART4(void) {
 }
 
 /*******************************************************************************
- * Function to wait for a byte to arrive on serial port and read it once it does
-*******************************************************************************/
-char getCharSerial4(void) {
-    while (!PIR4bits.RC4IF);            //wait for the data to arrive
-    return RC4REG;                      //return byte in RCREG
-}
-
-/*******************************************************************************
  * Function to check the TX reg is free and send a byte
 *******************************************************************************/
 void sendCharSerial4(char charToSend) {

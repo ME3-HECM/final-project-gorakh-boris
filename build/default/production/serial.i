@@ -24291,7 +24291,7 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 
 
 unsigned char sample_count = 20;
-unsigned int wall_threshold_blue = 30;
+unsigned int wall_threshold_clear = 50;
 
 
 typedef struct RGBC_val {
@@ -24329,7 +24329,6 @@ unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2);
 
 
 void initUSART4(void);
-char getCharSerial4(void);
 void sendCharSerial4(char charToSend);
 void sendStringSerial4(char *string);
 void sendIntSerial4(int integer);
@@ -24354,14 +24353,6 @@ void initUSART4(void) {
     RC4STAbits.CREN = 1;
     TX4STAbits.TXEN = 1;
     RC4STAbits.SPEN = 1;
-}
-
-
-
-
-char getCharSerial4(void) {
-    while (!PIR4bits.RC4IF);
-    return RC4REG;
 }
 
 

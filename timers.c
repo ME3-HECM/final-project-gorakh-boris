@@ -122,7 +122,7 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
         
         reset_timer();
         start_timer();
-        //fullSpeedAhead(mL, mR);         //go forward continuously
+        fullSpeedAhead(mL, mR);         //go forward continuously
         
         wait_for_wall(p2, lost_flag);   //wait until wall detected or lost flag
         
@@ -153,6 +153,7 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
             timerH = 0b11111111;
             timerL = 0b11111111;
             mann = 8;
+            LATDbits.LATD7 = !LATDbits.LATD7;
         }
         
         if (manoeuvre_count == 19) {        //when counter is at the last memory
@@ -160,10 +161,11 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
         }
         
         write_trail(timerH, timerL, mann);          //write variables to memory
-        //pick_card(mL, mR, returning, mann);         //perform manoeuvre
+        pick_card(mL, mR, returning, mann);         //perform manoeuvre
         
         if (mann == 8) {                            
             returning = 1;
+            LATHbits.LATH3 = !LATHbits.LATH3;
         }
         
         sendRGBCvalSerial4(p2);

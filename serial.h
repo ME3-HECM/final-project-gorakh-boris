@@ -7,7 +7,6 @@
 #define _XTAL_FREQ 64000000
 
 void initUSART4(void);
-char getCharSerial4(void);
 void sendCharSerial4(char charToSend);
 void sendStringSerial4(char *string);
 void sendIntSerial4(int integer);

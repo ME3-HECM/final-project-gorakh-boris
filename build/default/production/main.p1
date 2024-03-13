@@ -148,12 +148,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "20 C:\Program Files\Microchip\xc8\v2.45\pic\include\builtins.h
 [v __delay `JF205 ~T0 @X0 0 e ]
 [p i __delay ]
-"52 ./dc_motor.h
-[; ;./dc_motor.h: 52: void headbuttReverse(DC_motor *mL, DC_motor *mR);
-[v _headbuttReverse `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
-"53
-[; ;./dc_motor.h: 53: void squareReverse(DC_motor *mL, DC_motor *mR);
-[v _squareReverse `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"53 ./timers.h
+[; ;./timers.h: 53: void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2);
+[v _forward_navigation `(v ~T0 @X0 0 ef4`*S2015`*S2015`*S2017`*S2016 ]
+"54
+[; ;./timers.h: 54: void return_to_sender(DC_motor *mL, DC_motor *mR);
+[v _return_to_sender `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 "9 main.c
 [p x FEXTOSC  =  HS          ]
 "10
@@ -2227,10 +2227,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 20 `i `uc
 ]
 "10
-[; ;./color.h: 10: unsigned int wall_threshold_blue = 30;
-[v _wall_threshold_blue `ui ~T0 @X0 1 e ]
-[i _wall_threshold_blue
--> -> 30 `i `ui
+[; ;./color.h: 10: unsigned int wall_threshold_clear = 50;
+[v _wall_threshold_clear `ui ~T0 @X0 1 e ]
+[i _wall_threshold_clear
+-> -> 50 `i `ui
 ]
 "12 ./timers.h
 [; ;./timers.h: 12: unsigned char returning = 0;
@@ -2488,14 +2488,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "82
 [; ;main.c: 82:      _delay((unsigned long)((1000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"110
-[; ;main.c: 110:     headbuttReverse(&motorL, &motorR);
-[e ( _headbuttReverse (2 , &U _motorL &U _motorR ]
-"111
-[; ;main.c: 111:     squareReverse(&motorL, &motorR);
-[e ( _squareReverse (2 , &U _motorL &U _motorR ]
-"115
-[; ;main.c: 115:     for (unsigned char i = 0; i < 4; i++) {
+"84
+[; ;main.c: 84:     forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
+[e ( _forward_navigation (4 , , , &U _motorL &U _motorR &U _HSV_colour &U _RGBC_colour ]
+"85
+[; ;main.c: 85:     return_to_sender(&motorL, &motorR);
+[e ( _return_to_sender (2 , &U _motorL &U _motorR ]
+"118
+[; ;main.c: 118:     for (unsigned char i = 0; i < 4; i++) {
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
@@ -2503,14 +2503,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 2023  ]
 [e :U 2022 ]
 {
-"122
-[; ;main.c: 122:     }
+"124
+[; ;main.c: 124:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 4 `i 2022  ]
 [e :U 2023 ]
 }
-"124
-[; ;main.c: 124: }
+"126
+[; ;main.c: 126: }
 [e :UE 2018 ]
 }

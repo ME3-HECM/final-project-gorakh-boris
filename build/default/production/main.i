@@ -24240,7 +24240,7 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 
 
 unsigned char sample_count = 20;
-unsigned int wall_threshold_blue = 30;
+unsigned int wall_threshold_clear = 50;
 
 
 typedef struct RGBC_val {
@@ -24284,7 +24284,6 @@ unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2);
 
 
 void initUSART4(void);
-char getCharSerial4(void);
 void sendCharSerial4(char charToSend);
 void sendStringSerial4(char *string);
 void sendIntSerial4(int integer);
@@ -24327,15 +24326,6 @@ void __attribute__((picinterrupt(("")))) ISR();
 # 22 "main.c" 2
 
 # 1 "./calibration.h" 1
-
-
-
-
-
-
-
-
-void test_manoeuvres(DC_motor *mL, DC_motor *mR, unsigned char backtrack);
 # 23 "main.c" 2
 
 
@@ -24397,14 +24387,11 @@ void main(void) {
     LATDbits.LATD7 = !LATDbits.LATD7;
     LATHbits.LATH3 = !LATHbits.LATH3;
      _delay((unsigned long)((1000)*(64000000/4000.0)));
-# 110 "main.c"
-    headbuttReverse(&motorL, &motorR);
-    squareReverse(&motorL, &motorR);
 
-
-
+    forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
+    return_to_sender(&motorL, &motorR);
+# 118 "main.c"
     for (unsigned char i = 0; i < 4; i++) {
-
 
 
 

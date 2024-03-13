@@ -81,8 +81,8 @@ void main(void) {
     LATHbits.LATH3 = !LATHbits.LATH3;
      __delay_ms(1000);
     
-    //forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
-    //return_to_sender(&motorL, &motorR);
+    forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
+    return_to_sender(&motorL, &motorR);
     
 #if COLOURTEST   
     while (1) {
@@ -101,14 +101,17 @@ void main(void) {
 #endif
     
 #if MOTORTEST
-    //test_manoeuvres(&motorL, &motorR, returning);
-     
-    //turnLeft90(&motorL, &motorR);
-    //turnLeft135(&motorL, &motorR);
-    //turnRight135(&motorL, &motorR);
-    //UTurn(&motorL, &motorR);
-    headbuttReverse(&motorL, &motorR);
-    squareReverse(&motorL, &motorR);
+    //pick_card(&motorL, &motorR, returning, 1);        //red
+    //pick_card(&motorL, &motorR, returning, 2);        //green
+    //pick_card(&motorL, &motorR, returning, 3);        //blue
+    //pick_card(&motorL, &motorR, returning, 4);        //yellow
+    //pick_card(&motorL, &motorR, returning, 5);        //pink
+    //pick_card(&motorL, &motorR, returning, 6);        //orange
+    //pick_card(&motorL, &motorR, returning, 7);        //cyan
+    //pick_card(&motorL, &motorR, returning, 8);        //white
+    
+    //headbuttReverse(&motorL, &motorR);
+    //squareReverse(&motorL, &motorR);
     
     //while (1) {fullSpeedAhead(&motorL, &motorR);}
     
@@ -118,7 +121,6 @@ void main(void) {
         //turnLeft135(&motorL, &motorR);
         //turnRight135(&motorL, &motorR);
         //UTurn(&motorL, &motorR);
-        //__delay_ms(1000);)
     }
 #endif
 }

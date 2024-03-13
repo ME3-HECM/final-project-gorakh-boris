@@ -163,7 +163,7 @@ void wait_for_wall(struct RGBC_val *p, unsigned char loss)
 {
     while (!loss) {                     //loop while lost flag isn't raised
         getRGBCval(p);                  //read RGBC values from colour click
-        if (p->B < wall_threshold_blue) {    //if clear channel drops below threshold
+        if (p->C < wall_threshold_clear) {    //if clear channel drops below threshold
             break;                      //break loop and proceed
         }
     }
