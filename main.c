@@ -25,7 +25,7 @@
 #define _XTAL_FREQ 64000000         //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 #define COLOURTEST 0                //testing code and sending to serial
 #define MOTORTEST 0                 //calibrating motor forward and turns
-#define TIMERTEST 1                 //testing timer and memory functions
+#define TIMERTEST 0                 //testing timer and memory functions
 
 void main(void) {
     struct RGBC_val RGBC_colour;
@@ -82,8 +82,8 @@ void main(void) {
     LATHbits.LATH3 = !LATHbits.LATH3;
      __delay_ms(1000);
     
-    //forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
-    //return_to_sender(&motorL, &motorR);
+    forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
+    return_to_sender(&motorL, &motorR);
     
 #if COLOURTEST   
     while (1) {

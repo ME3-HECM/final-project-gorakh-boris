@@ -24389,46 +24389,8 @@ void main(void) {
     LATDbits.LATD7 = !LATDbits.LATD7;
     LATHbits.LATH3 = !LATHbits.LATH3;
      _delay((unsigned long)((1000)*(64000000/4000.0)));
-# 130 "main.c"
-    unsigned char timerH = 0;
-    unsigned char timerL = 0;
-    unsigned char mann = 0;
 
-    reset_timer();
-    start_timer();
-    fullSpeedAhead(&motorL, &motorR);
-
-    _delay((unsigned long)((3153)*(64000000/4000.0)));
-
-    read_timer(&timerH, &timerL);
-    stop_timer();
-    stop(&motorL, &motorR);
-
-    sendIntSerial4(timerH);
-    sendIntSerial4(timerL);
-
-    write_trail(timerH, timerL, mann);
-
-
-    returning = 1;
-
-    while (PORTFbits.RF3);
-    _delay((unsigned long)((1000)*(64000000/4000.0)));
-
-
-    read_trail(&timerH, &timerL, &mann);
-
-    sendIntSerial4(timerH);
-    sendIntSerial4(timerL);
-
-    write_timer(0b11111111 - timerH, 0b11111111 - timerL);
-    start_timer();
-    fullSpeedAhead(&motorL, &motorR);
-
-    while (!return_flag);
-# 175 "main.c"
-    stop(&motorL, &motorR);
-    stop_timer();
-    return_flag = 0;
-
+    forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
+    return_to_sender(&motorL, &motorR);
+# 179 "main.c"
 }
