@@ -148,12 +148,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 "20 C:\Program Files\Microchip\xc8\v2.45\pic\include\builtins.h
 [v __delay `JF205 ~T0 @X0 0 e ]
 [p i __delay ]
-"53 ./timers.h
-[; ;./timers.h: 53: void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2);
-[v _forward_navigation `(v ~T0 @X0 0 ef4`*S2015`*S2015`*S2017`*S2016 ]
-"54
-[; ;./timers.h: 54: void return_to_sender(DC_motor *mL, DC_motor *mR);
-[v _return_to_sender `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"48 ./timers.h
+[; ;./timers.h: 48: void reset_timer(void);
+[v _reset_timer `(v ~T0 @X0 0 ef ]
+"43
+[; ;./timers.h: 43: void start_timer(void);
+[v _start_timer `(v ~T0 @X0 0 ef ]
+"45 ./dc_motor.h
+[; ;./dc_motor.h: 45: void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
+[v _fullSpeedAhead `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"46 ./timers.h
+[; ;./timers.h: 46: void read_timer(unsigned char *tH, unsigned char *tL);
+[v _read_timer `(v ~T0 @X0 0 ef2`*uc`*uc ]
+"44
+[; ;./timers.h: 44: void stop_timer(void);
+[v _stop_timer `(v ~T0 @X0 0 ef ]
+"42 ./dc_motor.h
+[; ;./dc_motor.h: 42: void stop(DC_motor *mL, DC_motor *mR);
+[v _stop `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
+"12 ./serial.h
+[; ;./serial.h: 12: void sendIntSerial4(int integer);
+[v _sendIntSerial4 `(v ~T0 @X0 0 ef1`i ]
+"51 ./timers.h
+[; ;./timers.h: 51: void write_trail(unsigned char tH, unsigned char tL, unsigned char man);
+[v _write_trail `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"50
+[; ;./timers.h: 50: void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man);
+[v _read_trail `(v ~T0 @X0 0 ef3`*uc`*uc`*uc ]
+"47
+[; ;./timers.h: 47: void write_timer(unsigned char tH, unsigned char tL);
+[v _write_timer `(v ~T0 @X0 0 ef2`uc`uc ]
 "9 main.c
 [p x FEXTOSC  =  HS          ]
 "10
@@ -2356,145 +2380,228 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"29 main.c
-[; ;main.c: 29: void main(void) {
+"30 main.c
+[; ;main.c: 30: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"30
-[; ;main.c: 30:     struct RGBC_val RGBC_colour;
-[v _RGBC_colour `S2016 ~T0 @X0 1 a ]
 "31
-[; ;main.c: 31:         RGBC_colour.R = 0;
-[e = . _RGBC_colour 0 -> -> 0 `i `ui ]
+[; ;main.c: 31:     struct RGBC_val RGBC_colour;
+[v _RGBC_colour `S2016 ~T0 @X0 1 a ]
 "32
-[; ;main.c: 32:         RGBC_colour.G = 0;
-[e = . _RGBC_colour 1 -> -> 0 `i `ui ]
+[; ;main.c: 32:         RGBC_colour.R = 0;
+[e = . _RGBC_colour 0 -> -> 0 `i `ui ]
 "33
-[; ;main.c: 33:         RGBC_colour.B = 0;
-[e = . _RGBC_colour 2 -> -> 0 `i `ui ]
+[; ;main.c: 33:         RGBC_colour.G = 0;
+[e = . _RGBC_colour 1 -> -> 0 `i `ui ]
 "34
-[; ;main.c: 34:         RGBC_colour.C = 0;
+[; ;main.c: 34:         RGBC_colour.B = 0;
+[e = . _RGBC_colour 2 -> -> 0 `i `ui ]
+"35
+[; ;main.c: 35:         RGBC_colour.C = 0;
 [e = . _RGBC_colour 3 -> -> 0 `i `ui ]
-"36
-[; ;main.c: 36:     struct HSV_val HSV_colour;
-[v _HSV_colour `S2017 ~T0 @X0 1 a ]
 "37
-[; ;main.c: 37:         HSV_colour.H = 0;
-[e = . _HSV_colour 0 -> -> 0 `i `ui ]
+[; ;main.c: 37:     struct HSV_val HSV_colour;
+[v _HSV_colour `S2017 ~T0 @X0 1 a ]
 "38
-[; ;main.c: 38:         HSV_colour.S = 0;
-[e = . _HSV_colour 1 -> -> 0 `i `ui ]
+[; ;main.c: 38:         HSV_colour.H = 0;
+[e = . _HSV_colour 0 -> -> 0 `i `ui ]
 "39
-[; ;main.c: 39:         HSV_colour.V = 0;
+[; ;main.c: 39:         HSV_colour.S = 0;
+[e = . _HSV_colour 1 -> -> 0 `i `ui ]
+"40
+[; ;main.c: 40:         HSV_colour.V = 0;
 [e = . _HSV_colour 2 -> -> 0 `i `ui ]
-"41
-[; ;main.c: 41:     unsigned int PWMcycle = 99;
+"42
+[; ;main.c: 42:     unsigned int PWMcycle = 99;
 [v _PWMcycle `ui ~T0 @X0 1 a ]
 [e = _PWMcycle -> -> 99 `i `ui ]
-"42
-[; ;main.c: 42:     struct DC_motor motorL, motorR;
+"43
+[; ;main.c: 43:     struct DC_motor motorL, motorR;
 [v _motorL `S2015 ~T0 @X0 1 a ]
 [v _motorR `S2015 ~T0 @X0 1 a ]
-"43
-[; ;main.c: 43:         motorL.power = 0;
-[e = . _motorL 0 -> -> 0 `i `uc ]
 "44
-[; ;main.c: 44:         motorL.direction = 1;
-[e = . _motorL 1 -> -> 1 `i `uc ]
+[; ;main.c: 44:         motorL.power = 0;
+[e = . _motorL 0 -> -> 0 `i `uc ]
 "45
-[; ;main.c: 45:         motorL.brakemode = 1;
-[e = . _motorL 2 -> -> 1 `i `uc ]
+[; ;main.c: 45:         motorL.direction = 1;
+[e = . _motorL 1 -> -> 1 `i `uc ]
 "46
-[; ;main.c: 46:         motorL.PWMperiod = PWMcycle;
-[e = . _motorL 3 _PWMcycle ]
+[; ;main.c: 46:         motorL.brakemode = 1;
+[e = . _motorL 2 -> -> 1 `i `uc ]
 "47
-[; ;main.c: 47:         motorL.posDutyHighByte = (unsigned char *)(&CCPR1H);
-[e = . _motorL 4 -> &U _CCPR1H `*uc ]
+[; ;main.c: 47:         motorL.PWMperiod = PWMcycle;
+[e = . _motorL 3 _PWMcycle ]
 "48
-[; ;main.c: 48:         motorL.negDutyHighByte = (unsigned char *)(&CCPR2H);
-[e = . _motorL 5 -> &U _CCPR2H `*uc ]
+[; ;main.c: 48:         motorL.posDutyHighByte = (unsigned char *)(&CCPR1H);
+[e = . _motorL 4 -> &U _CCPR1H `*uc ]
 "49
-[; ;main.c: 49:         motorR.power = 0;
-[e = . _motorR 0 -> -> 0 `i `uc ]
+[; ;main.c: 49:         motorL.negDutyHighByte = (unsigned char *)(&CCPR2H);
+[e = . _motorL 5 -> &U _CCPR2H `*uc ]
 "50
-[; ;main.c: 50:         motorR.direction = 1;
-[e = . _motorR 1 -> -> 1 `i `uc ]
+[; ;main.c: 50:         motorR.power = 0;
+[e = . _motorR 0 -> -> 0 `i `uc ]
 "51
-[; ;main.c: 51:         motorR.brakemode = 1;
-[e = . _motorR 2 -> -> 1 `i `uc ]
+[; ;main.c: 51:         motorR.direction = 1;
+[e = . _motorR 1 -> -> 1 `i `uc ]
 "52
-[; ;main.c: 52:         motorR.PWMperiod = PWMcycle;
-[e = . _motorR 3 _PWMcycle ]
+[; ;main.c: 52:         motorR.brakemode = 1;
+[e = . _motorR 2 -> -> 1 `i `uc ]
 "53
-[; ;main.c: 53:         motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
-[e = . _motorR 4 -> &U _CCPR3H `*uc ]
+[; ;main.c: 53:         motorR.PWMperiod = PWMcycle;
+[e = . _motorR 3 _PWMcycle ]
 "54
-[; ;main.c: 54:         motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
+[; ;main.c: 54:         motorR.posDutyHighByte = (unsigned char *)(&CCPR3H);
+[e = . _motorR 4 -> &U _CCPR3H `*uc ]
+"55
+[; ;main.c: 55:         motorR.negDutyHighByte = (unsigned char *)(&CCPR4H);
 [e = . _motorR 5 -> &U _CCPR4H `*uc ]
-"57
-[; ;main.c: 57:     initDCmotorsPWM(PWMcycle);
-[e ( _initDCmotorsPWM (1 _PWMcycle ]
 "58
-[; ;main.c: 58:     buggy_lights_init();
-[e ( _buggy_lights_init ..  ]
+[; ;main.c: 58:     initDCmotorsPWM(PWMcycle);
+[e ( _initDCmotorsPWM (1 _PWMcycle ]
 "59
-[; ;main.c: 59:     color_click_init();
-[e ( _color_click_init ..  ]
+[; ;main.c: 59:     buggy_lights_init();
+[e ( _buggy_lights_init ..  ]
 "60
-[; ;main.c: 60:     initUSART4();
-[e ( _initUSART4 ..  ]
+[; ;main.c: 60:     color_click_init();
+[e ( _color_click_init ..  ]
 "61
-[; ;main.c: 61:     Timer0_init();
+[; ;main.c: 61:     initUSART4();
+[e ( _initUSART4 ..  ]
+"62
+[; ;main.c: 62:     Timer0_init();
 [e ( _Timer0_init ..  ]
-"65
-[; ;main.c: 65:         TRISDbits.TRISD7 = 0;
-[e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
 "66
-[; ;main.c: 66:         TRISHbits.TRISH3 = 0;
+[; ;main.c: 66:         TRISDbits.TRISD7 = 0;
+[e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
+"67
+[; ;main.c: 67:         TRISHbits.TRISH3 = 0;
 [e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
-"68
-[; ;main.c: 68:         LATDbits.LATD7 = 0;
-[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
 "69
-[; ;main.c: 69:         LATHbits.LATH3 = 0;
+[; ;main.c: 69:         LATDbits.LATD7 = 0;
+[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
+"70
+[; ;main.c: 70:         LATHbits.LATH3 = 0;
 [e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
-"73
-[; ;main.c: 73:         TRISFbits.TRISF2 = 1;
-[e = . . _TRISFbits 0 2 -> -> 1 `i `uc ]
 "74
-[; ;main.c: 74:         TRISFbits.TRISF3 = 1;
+[; ;main.c: 74:         TRISFbits.TRISF2 = 1;
+[e = . . _TRISFbits 0 2 -> -> 1 `i `uc ]
+"75
+[; ;main.c: 75:         TRISFbits.TRISF3 = 1;
 [e = . . _TRISFbits 0 3 -> -> 1 `i `uc ]
-"76
-[; ;main.c: 76:         ANSELFbits.ANSELF2 = 0;
-[e = . . _ANSELFbits 0 2 -> -> 0 `i `uc ]
 "77
-[; ;main.c: 77:         ANSELFbits.ANSELF3 = 0;
+[; ;main.c: 77:         ANSELFbits.ANSELF2 = 0;
+[e = . . _ANSELFbits 0 2 -> -> 0 `i `uc ]
+"78
+[; ;main.c: 78:         ANSELFbits.ANSELF3 = 0;
 [e = . . _ANSELFbits 0 3 -> -> 0 `i `uc ]
-"79
-[; ;main.c: 79:     while (PORTFbits.RF3);
+"80
+[; ;main.c: 80:     while (PORTFbits.RF3);
 [e $U 2019  ]
 [e :U 2020 ]
 [e :U 2019 ]
 [e $ != -> . . _PORTFbits 0 3 `i -> 0 `i 2020  ]
 [e :U 2021 ]
-"80
-[; ;main.c: 80:     LATDbits.LATD7 = !LATDbits.LATD7;
-[e = . . _LATDbits 0 7 -> -> ! != -> . . _LATDbits 0 7 `i -> 0 `i `i `uc ]
 "81
-[; ;main.c: 81:     LATHbits.LATH3 = !LATHbits.LATH3;
-[e = . . _LATHbits 0 3 -> -> ! != -> . . _LATHbits 0 3 `i -> 0 `i `i `uc ]
+[; ;main.c: 81:     LATDbits.LATD7 = !LATDbits.LATD7;
+[e = . . _LATDbits 0 7 -> -> ! != -> . . _LATDbits 0 7 `i -> 0 `i `i `uc ]
 "82
-[; ;main.c: 82:      _delay((unsigned long)((1000)*(64000000/4000.0)));
+[; ;main.c: 82:     LATHbits.LATH3 = !LATHbits.LATH3;
+[e = . . _LATHbits 0 3 -> -> ! != -> . . _LATHbits 0 3 `i -> 0 `i `i `uc ]
+"83
+[; ;main.c: 83:      _delay((unsigned long)((1000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"84
-[; ;main.c: 84:     forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
-[e ( _forward_navigation (4 , , , &U _motorL &U _motorR &U _HSV_colour &U _RGBC_colour ]
-"85
-[; ;main.c: 85:     return_to_sender(&motorL, &motorR);
-[e ( _return_to_sender (2 , &U _motorL &U _motorR ]
-"127
-[; ;main.c: 127: }
+"130
+[; ;main.c: 130:     unsigned char timerH = 0;
+[v _timerH `uc ~T0 @X0 1 a ]
+[e = _timerH -> -> 0 `i `uc ]
+"131
+[; ;main.c: 131:     unsigned char timerL = 0;
+[v _timerL `uc ~T0 @X0 1 a ]
+[e = _timerL -> -> 0 `i `uc ]
+"132
+[; ;main.c: 132:     unsigned char mann = 0;
+[v _mann `uc ~T0 @X0 1 a ]
+[e = _mann -> -> 0 `i `uc ]
+"134
+[; ;main.c: 134:     reset_timer();
+[e ( _reset_timer ..  ]
+"135
+[; ;main.c: 135:     start_timer();
+[e ( _start_timer ..  ]
+"136
+[; ;main.c: 136:     fullSpeedAhead(&motorL, &motorR);
+[e ( _fullSpeedAhead (2 , &U _motorL &U _motorR ]
+"138
+[; ;main.c: 138:     _delay((unsigned long)((3153)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 3153 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"140
+[; ;main.c: 140:     read_timer(&timerH, &timerL);
+[e ( _read_timer (2 , &U _timerH &U _timerL ]
+"141
+[; ;main.c: 141:     stop_timer();
+[e ( _stop_timer ..  ]
+"142
+[; ;main.c: 142:     stop(&motorL, &motorR);
+[e ( _stop (2 , &U _motorL &U _motorR ]
+"144
+[; ;main.c: 144:     sendIntSerial4(timerH);
+[e ( _sendIntSerial4 (1 -> _timerH `i ]
+"145
+[; ;main.c: 145:     sendIntSerial4(timerL);
+[e ( _sendIntSerial4 (1 -> _timerL `i ]
+"147
+[; ;main.c: 147:     write_trail(timerH, timerL, mann);
+[e ( _write_trail (3 , , _timerH _timerL _mann ]
+"150
+[; ;main.c: 150:     returning = 1;
+[e = _returning -> -> 1 `i `uc ]
+"152
+[; ;main.c: 152:     while (PORTFbits.RF3);
+[e $U 2022  ]
+[e :U 2023 ]
+[e :U 2022 ]
+[e $ != -> . . _PORTFbits 0 3 `i -> 0 `i 2023  ]
+[e :U 2024 ]
+"153
+[; ;main.c: 153:     _delay((unsigned long)((1000)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"156
+[; ;main.c: 156:     read_trail(&timerH, &timerL, &mann);
+[e ( _read_trail (3 , , &U _timerH &U _timerL &U _mann ]
+"158
+[; ;main.c: 158:     sendIntSerial4(timerH);
+[e ( _sendIntSerial4 (1 -> _timerH `i ]
+"159
+[; ;main.c: 159:     sendIntSerial4(timerL);
+[e ( _sendIntSerial4 (1 -> _timerL `i ]
+"161
+[; ;main.c: 161:     write_timer(0b11111111 - timerH, 0b11111111 - timerL);
+[e ( _write_timer (2 , -> - -> 255 `i -> _timerH `i `uc -> - -> 255 `i -> _timerL `i `uc ]
+"162
+[; ;main.c: 162:     start_timer();
+[e ( _start_timer ..  ]
+"163
+[; ;main.c: 163:     fullSpeedAhead(&motorL, &motorR);
+[e ( _fullSpeedAhead (2 , &U _motorL &U _motorR ]
+"165
+[; ;main.c: 165:     while (!return_flag);
+[e $U 2025  ]
+[e :U 2026 ]
+[e :U 2025 ]
+[e $ ! != -> _return_flag `i -> 0 `i 2026  ]
+[e :U 2027 ]
+"175
+[; ;main.c: 175:     stop(&motorL, &motorR);
+[e ( _stop (2 , &U _motorL &U _motorR ]
+"176
+[; ;main.c: 176:     stop_timer();
+[e ( _stop_timer ..  ]
+"177
+[; ;main.c: 177:     return_flag = 0;
+[e = _return_flag -> -> 0 `i `uc ]
+"179
+[; ;main.c: 179: }
 [e :UE 2018 ]
 }
