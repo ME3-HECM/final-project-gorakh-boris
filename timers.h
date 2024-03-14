@@ -8,6 +8,7 @@
 #include "buggy_lights.h"
 
 #define _XTAL_FREQ 64000000
+#define SERIAL_FEEDBACK 0
 
 unsigned char returning = 0;
 unsigned char return_flag = 0;

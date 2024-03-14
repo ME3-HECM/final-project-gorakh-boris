@@ -52,6 +52,15 @@ void toggle_brake_lights(void)
 }
 
 /*******************************************************************************
+ * Function to toggle the headlamps
+*******************************************************************************/
+void toggle_headlamps(void)
+{
+    //toggle the LAT value
+    LATHbits.LATH1 = !LATHbits.LATH1;
+}
+
+/*******************************************************************************
  * Function to toggle the main beam
 *******************************************************************************/
 void toggle_main_beam(void)

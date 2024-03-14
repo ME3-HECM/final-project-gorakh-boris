@@ -142,6 +142,11 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
         toggle_tricolour_LED();         //turn off tricolour LED
         __delay_ms(200);
         
+#if SERIAL_FEEDBACK
+        sendRGBCvalSerial4(p2);
+        sendHSVvalSerial4(p1);
+#endif
+        
         /***************************************************************
          * By the time the read_timer above is performed, the timer
          * registers will have already overflowed
@@ -167,10 +172,11 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
             returning = 1;
             LATHbits.LATH3 = !LATHbits.LATH3;
         }
-        
-        //sendArrayCharSerial4(trail_timer_high);
-        //sendArrayCharSerial4(trail_timer_low);
-        //sendArrayCharSerial4(trail_manoeuvre);
+#if SERIAL_FEEDBACK
+        sendArrayCharSerial4(trail_timer_high);
+        sendArrayCharSerial4(trail_timer_low);
+        sendArrayCharSerial4(trail_manoeuvre);
+#endif
     }
 }
 
@@ -185,9 +191,11 @@ void return_to_sender(DC_motor *mL, DC_motor *mR)
         unsigned char mann = 0;         //temporary manoeuvre variable
         
         read_trail(&timerH, &timerL, &mann);    //read variables from memory
-        //sendIntSerial4(timerH);                 //send to serial for debugging
-        //sendIntSerial4(timerL);                 //send to serial for debugging
-        //sendIntSerial4(mann);                   //send to serial for debugging
+#if SERIAL_FEEDBACK
+        sendIntSerial4(timerH);                 //send to serial for debugging
+        sendIntSerial4(timerL);                 //send to serial for debugging
+        sendIntSerial4(mann);                   //send to serial for debugging
+#endif
         if (mann != 8) {                        //ignore white card instruction
             pick_card(mL, mR, returning, mann); //perform manoeuvre
         }

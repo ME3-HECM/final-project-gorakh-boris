@@ -24,9 +24,9 @@
 
 #define _XTAL_FREQ 64000000         //note intrinsic _delay function is 62.5ns at 64,000,000Hz
 #define DRIVE 1                     //normal operation, not testing anything
-#define COLOURTEST 0                //testing code and sending to serial
-#define MOTORTEST 0                 //calibrating motor forward and turns
-#define TIMERTEST 0                 //testing timer and memory functions
+#define COLOUR_TEST 0                //testing code and sending to serial
+#define MOTOR_TEST 0                 //calibrating motor forward and turns
+#define TIMER_TEST 0                 //testing timer and memory functions
 
 void main(void) {
     struct RGBC_val RGBC_colour;
@@ -88,7 +88,7 @@ void main(void) {
     return_to_sender(&motorL, &motorR);
 #endif
     
-#if COLOURTEST   
+#if COLOUR_TEST   
     while (1) {
         average_RGBC(&RGBC_colour);
         scale_RGB(&RGBC_colour);
@@ -104,7 +104,7 @@ void main(void) {
     }
 #endif
     
-#if MOTORTEST
+#if MOTOR_TEST
     //pick_card(&motorL, &motorR, returning, 1);        //red
     //pick_card(&motorL, &motorR, returning, 2);        //green
     //pick_card(&motorL, &motorR, returning, 3);        //blue
@@ -129,7 +129,7 @@ void main(void) {
     }
 #endif
 
-#if TIMERTEST
+#if TIMER_TEST
     unsigned char timerH = 0;       //temporary timer high variable
     unsigned char timerL = 0;       //temporary timer low variable
     unsigned char mann = 0;         //temporary manoeuvre variable

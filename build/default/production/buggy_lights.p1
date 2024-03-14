@@ -2239,77 +2239,92 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2016 ]
 }
 "57
-[; ;buggy_lights.c: 57: void toggle_main_beam(void)
-[v _toggle_main_beam `(v ~T0 @X0 1 ef ]
+[; ;buggy_lights.c: 57: void toggle_headlamps(void)
+[v _toggle_headlamps `(v ~T0 @X0 1 ef ]
 "58
 [; ;buggy_lights.c: 58: {
 {
-[e :U _toggle_main_beam ]
+[e :U _toggle_headlamps ]
 [f ]
 "60
-[; ;buggy_lights.c: 60:     LATDbits.LATD3 = !LATDbits.LATD3;
-[e = . . _LATDbits 0 3 -> -> ! != -> . . _LATDbits 0 3 `i -> 0 `i `i `uc ]
+[; ;buggy_lights.c: 60:     LATHbits.LATH1 = !LATHbits.LATH1;
+[e = . . _LATHbits 0 1 -> -> ! != -> . . _LATHbits 0 1 `i -> 0 `i `i `uc ]
 "61
 [; ;buggy_lights.c: 61: }
 [e :UE 2017 ]
 }
 "66
-[; ;buggy_lights.c: 66: void toggle_left_indicators(void)
-[v _toggle_left_indicators `(v ~T0 @X0 1 ef ]
+[; ;buggy_lights.c: 66: void toggle_main_beam(void)
+[v _toggle_main_beam `(v ~T0 @X0 1 ef ]
 "67
 [; ;buggy_lights.c: 67: {
 {
-[e :U _toggle_left_indicators ]
+[e :U _toggle_main_beam ]
 [f ]
 "69
-[; ;buggy_lights.c: 69:     LATFbits.LATF0 = !LATFbits.LATF0;
-[e = . . _LATFbits 0 0 -> -> ! != -> . . _LATFbits 0 0 `i -> 0 `i `i `uc ]
+[; ;buggy_lights.c: 69:     LATDbits.LATD3 = !LATDbits.LATD3;
+[e = . . _LATDbits 0 3 -> -> ! != -> . . _LATDbits 0 3 `i -> 0 `i `i `uc ]
 "70
 [; ;buggy_lights.c: 70: }
 [e :UE 2018 ]
 }
 "75
-[; ;buggy_lights.c: 75: void toggle_right_indicators(void)
-[v _toggle_right_indicators `(v ~T0 @X0 1 ef ]
+[; ;buggy_lights.c: 75: void toggle_left_indicators(void)
+[v _toggle_left_indicators `(v ~T0 @X0 1 ef ]
 "76
 [; ;buggy_lights.c: 76: {
 {
-[e :U _toggle_right_indicators ]
+[e :U _toggle_left_indicators ]
 [f ]
 "78
-[; ;buggy_lights.c: 78:     LATHbits.LATH0 = !LATHbits.LATH0;
-[e = . . _LATHbits 0 0 -> -> ! != -> . . _LATHbits 0 0 `i -> 0 `i `i `uc ]
+[; ;buggy_lights.c: 78:     LATFbits.LATF0 = !LATFbits.LATF0;
+[e = . . _LATFbits 0 0 -> -> ! != -> . . _LATFbits 0 0 `i -> 0 `i `i `uc ]
 "79
 [; ;buggy_lights.c: 79: }
 [e :UE 2019 ]
 }
 "84
-[; ;buggy_lights.c: 84: void toggle_tricolour_LED(void)
-[v _toggle_tricolour_LED `(v ~T0 @X0 1 ef ]
+[; ;buggy_lights.c: 84: void toggle_right_indicators(void)
+[v _toggle_right_indicators `(v ~T0 @X0 1 ef ]
 "85
 [; ;buggy_lights.c: 85: {
 {
+[e :U _toggle_right_indicators ]
+[f ]
+"87
+[; ;buggy_lights.c: 87:     LATHbits.LATH0 = !LATHbits.LATH0;
+[e = . . _LATHbits 0 0 -> -> ! != -> . . _LATHbits 0 0 `i -> 0 `i `i `uc ]
+"88
+[; ;buggy_lights.c: 88: }
+[e :UE 2020 ]
+}
+"93
+[; ;buggy_lights.c: 93: void toggle_tricolour_LED(void)
+[v _toggle_tricolour_LED `(v ~T0 @X0 1 ef ]
+"94
+[; ;buggy_lights.c: 94: {
+{
 [e :U _toggle_tricolour_LED ]
 [f ]
-"88
-[; ;buggy_lights.c: 88:         LATGbits.LATG1 = !LATGbits.LATG1;
+"97
+[; ;buggy_lights.c: 97:         LATGbits.LATG1 = !LATGbits.LATG1;
 [e = . . _LATGbits 0 1 -> -> ! != -> . . _LATGbits 0 1 `i -> 0 `i `i `uc ]
-"89
-[; ;buggy_lights.c: 89:         LATAbits.LATA4 = !LATAbits.LATA4;
+"98
+[; ;buggy_lights.c: 98:         LATAbits.LATA4 = !LATAbits.LATA4;
 [e = . . _LATAbits 0 4 -> -> ! != -> . . _LATAbits 0 4 `i -> 0 `i `i `uc ]
-"90
-[; ;buggy_lights.c: 90:         LATFbits.LATF7 = !LATFbits.LATF7;
+"99
+[; ;buggy_lights.c: 99:         LATFbits.LATF7 = !LATFbits.LATF7;
 [e = . . _LATFbits 0 7 -> -> ! != -> . . _LATFbits 0 7 `i -> 0 `i `i `uc ]
-"93
-[; ;buggy_lights.c: 93:         LATGbits.LATG0 = !LATGbits.LATG0;
+"102
+[; ;buggy_lights.c: 102:         LATGbits.LATG0 = !LATGbits.LATG0;
 [e = . . _LATGbits 0 0 -> -> ! != -> . . _LATGbits 0 0 `i -> 0 `i `i `uc ]
-"94
-[; ;buggy_lights.c: 94:         LATEbits.LATE7 = !LATEbits.LATE7;
+"103
+[; ;buggy_lights.c: 103:         LATEbits.LATE7 = !LATEbits.LATE7;
 [e = . . _LATEbits 0 7 -> -> ! != -> . . _LATEbits 0 7 `i -> 0 `i `i `uc ]
-"95
-[; ;buggy_lights.c: 95:         LATAbits.LATA3 = !LATAbits.LATA3;
+"104
+[; ;buggy_lights.c: 104:         LATAbits.LATA3 = !LATAbits.LATA3;
 [e = . . _LATAbits 0 3 -> -> ! != -> . . _LATAbits 0 3 `i -> 0 `i `i `uc ]
-"96
-[; ;buggy_lights.c: 96: }
-[e :UE 2020 ]
+"105
+[; ;buggy_lights.c: 105: }
+[e :UE 2021 ]
 }

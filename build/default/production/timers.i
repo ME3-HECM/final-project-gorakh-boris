@@ -24113,6 +24113,7 @@ unsigned char __t3rd16on(void);
 
 void buggy_lights_init(void);
 void toggle_brake_lights(void);
+void toggle_headlamps(void);
 void toggle_main_beam(void);
 void toggle_left_indicators(void);
 void toggle_right_indicators(void);
@@ -24284,14 +24285,15 @@ void sendHSVvalSerial4(HSV_val *col_val);
 
 
 
+
 unsigned char returning = 0;
 unsigned char return_flag = 0;
 unsigned char lost_flag = 0;
-# 24 "./timers.h"
+# 25 "./timers.h"
 unsigned char trail_timer_high[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-# 36 "./timers.h"
+# 37 "./timers.h"
 unsigned char *timer_high_pointer = &trail_timer_high[0];
 unsigned char *timer_low_pointer = &trail_timer_low[0];
 unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
@@ -24456,7 +24458,7 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
 
         toggle_tricolour_LED();
         _delay((unsigned long)((200)*(64000000/4000.0)));
-# 152 "timers.c"
+# 157 "timers.c"
         if (lost_flag) {
             timerH = 0b11111111;
             timerL = 0b11111111;
@@ -24479,6 +24481,7 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
 
 
 
+
     }
 }
 
@@ -24493,6 +24496,8 @@ void return_to_sender(DC_motor *mL, DC_motor *mR)
         unsigned char mann = 0;
 
         read_trail(&timerH, &timerL, &mann);
+
+
 
 
 
