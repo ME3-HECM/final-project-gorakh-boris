@@ -11,7 +11,8 @@
 
 
 ## 1. Overall Program Flow
-[Drawing3.pdf](https://github.com/ME3-HECM/final-project-gorakh-boris/files/14604898/Drawing3.pdf)
+![Drawing3 (2)](https://github.com/ME3-HECM/final-project-gorakh-boris/assets/77344223/d994f559-40c7-46be-b57f-13373ad3dadd)
+
 
 ## 6. Challenge brief
 
