@@ -1,7 +1,15 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/c8ng1gdc)
 # Course project - Mine navigation search and rescue
 
-## Challenge brief
+### Contents
+1. Challenge brief
+2. Overall Program Flow
+3. Colour reading and navigation functions
+4. Backtracking functions
+5. Different Test Modes
+6. Test Maze 
+
+## 1. Challenge brief
 
 Your task is to develop an autonomous robot that can navigate a "mine" using a series of instructions coded in coloured cards and return to its starting position.  Your robot must be able to perform the following: 
 
@@ -166,3 +174,6 @@ Instead of separate functions for each channel you may want to create a structur
 	};
 
 This concludes the basics of I2C and communication with the colour sensor. Best of luck! 
+
+
+## 2. Overall program flow
