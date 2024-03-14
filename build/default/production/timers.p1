@@ -168,18 +168,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28941
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 28941: extern volatile LATHbits_t LATHbits __attribute__((address(0xF80)));
 [v _LATHbits `VS1360 ~T0 @X0 0 e@3968 ]
-"14 ./serial.h
-[; ;./serial.h: 14: void sendRGBCvalSerial4(RGBC_val *col_val);
-[v _sendRGBCvalSerial4 `(v ~T0 @X0 0 ef1`*S2016 ]
-"15
-[; ;./serial.h: 15: void sendHSVvalSerial4(HSV_val *col_val);
-[v _sendHSVvalSerial4 `(v ~T0 @X0 0 ef1`*S2017 ]
-"13
-[; ;./serial.h: 13: void sendArrayCharSerial4(unsigned char *arr);
-[v _sendArrayCharSerial4 `(v ~T0 @X0 0 ef1`*uc ]
-"12
-[; ;./serial.h: 12: void sendIntSerial4(int integer);
-[v _sendIntSerial4 `(v ~T0 @X0 0 ef1`i ]
 "10 ./buggy_lights.h
 [; ;./buggy_lights.h: 10: void toggle_main_beam(void);
 [v _toggle_main_beam `(v ~T0 @X0 0 ef ]
@@ -2733,171 +2721,147 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;timers.c: 169:         }
 }
 [e :U 2032 ]
-"171
-[; ;timers.c: 171:         sendRGBCvalSerial4(p2);
-[e ( _sendRGBCvalSerial4 (1 _p2 ]
-"172
-[; ;timers.c: 172:         sendHSVvalSerial4(p1);
-[e ( _sendHSVvalSerial4 (1 _p1 ]
-"173
-[; ;timers.c: 173:         sendArrayCharSerial4(trail_timer_high);
-[e ( _sendArrayCharSerial4 (1 &U _trail_timer_high ]
 "174
-[; ;timers.c: 174:         sendArrayCharSerial4(trail_timer_low);
-[e ( _sendArrayCharSerial4 (1 &U _trail_timer_low ]
-"175
-[; ;timers.c: 175:         sendArrayCharSerial4(trail_manoeuvre);
-[e ( _sendArrayCharSerial4 (1 &U _trail_manoeuvre ]
-"176
-[; ;timers.c: 176:     }
+[; ;timers.c: 174:     }
 }
 [e :U 2027 ]
 "118
 [; ;timers.c: 118:     while (!returning) {
 [e $ ! != -> _returning `i -> 0 `i 2028  ]
 [e :U 2029 ]
-"177
-[; ;timers.c: 177: }
+"175
+[; ;timers.c: 175: }
 [e :UE 2026 ]
 }
-"182
-[; ;timers.c: 182: void return_to_sender(DC_motor *mL, DC_motor *mR)
+"180
+[; ;timers.c: 180: void return_to_sender(DC_motor *mL, DC_motor *mR)
 [v _return_to_sender `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
-"183
-[; ;timers.c: 183: {
+"181
+[; ;timers.c: 181: {
 {
 [e :U _return_to_sender ]
-"182
-[; ;timers.c: 182: void return_to_sender(DC_motor *mL, DC_motor *mR)
+"180
+[; ;timers.c: 180: void return_to_sender(DC_motor *mL, DC_motor *mR)
 [v _mL `*S2015 ~T0 @X0 1 r1 ]
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
-"183
-[; ;timers.c: 183: {
+"181
+[; ;timers.c: 181: {
 [f ]
-"184
-[; ;timers.c: 184:     while (manoeuvre_count != 0) {
+"182
+[; ;timers.c: 182:     while (manoeuvre_count != 0) {
 [e $U 2034  ]
 [e :U 2035 ]
 {
-"185
-[; ;timers.c: 185:         unsigned char timerH = 0;
+"183
+[; ;timers.c: 183:         unsigned char timerH = 0;
 [v _timerH `uc ~T0 @X0 1 a ]
 [e = _timerH -> -> 0 `i `uc ]
-"186
-[; ;timers.c: 186:         unsigned char timerL = 0;
+"184
+[; ;timers.c: 184:         unsigned char timerL = 0;
 [v _timerL `uc ~T0 @X0 1 a ]
 [e = _timerL -> -> 0 `i `uc ]
-"187
-[; ;timers.c: 187:         unsigned char mann = 0;
+"185
+[; ;timers.c: 185:         unsigned char mann = 0;
 [v _mann `uc ~T0 @X0 1 a ]
 [e = _mann -> -> 0 `i `uc ]
-"189
-[; ;timers.c: 189:         read_trail(&timerH, &timerL, &mann);
+"187
+[; ;timers.c: 187:         read_trail(&timerH, &timerL, &mann);
 [e ( _read_trail (3 , , &U _timerH &U _timerL &U _mann ]
-"190
-[; ;timers.c: 190:         sendIntSerial4(timerH);
-[e ( _sendIntSerial4 (1 -> _timerH `i ]
 "191
-[; ;timers.c: 191:         sendIntSerial4(timerL);
-[e ( _sendIntSerial4 (1 -> _timerL `i ]
-"192
-[; ;timers.c: 192:         sendIntSerial4(mann);
-[e ( _sendIntSerial4 (1 -> _mann `i ]
-"193
-[; ;timers.c: 193:         if (mann != 8) {
+[; ;timers.c: 191:         if (mann != 8) {
 [e $ ! != -> _mann `i -> 8 `i 2037  ]
 {
-"194
-[; ;timers.c: 194:             pick_card(mL, mR, returning, mann);
+"192
+[; ;timers.c: 192:             pick_card(mL, mR, returning, mann);
 [e ( _pick_card (4 , , , _mL _mR _returning _mann ]
-"195
-[; ;timers.c: 195:         }
+"193
+[; ;timers.c: 193:         }
 }
 [e :U 2037 ]
-"197
-[; ;timers.c: 197:         toggle_main_beam();
+"195
+[; ;timers.c: 195:         toggle_main_beam();
 [e ( _toggle_main_beam ..  ]
-"198
-[; ;timers.c: 198:         write_timer(0b11111111 - timerH, 0b11111111 - timerL);
+"196
+[; ;timers.c: 196:         write_timer(0b11111111 - timerH, 0b11111111 - timerL);
 [e ( _write_timer (2 , -> - -> 255 `i -> _timerH `i `uc -> - -> 255 `i -> _timerL `i `uc ]
-"199
-[; ;timers.c: 199:         start_timer();
+"197
+[; ;timers.c: 197:         start_timer();
 [e ( _start_timer ..  ]
-"200
-[; ;timers.c: 200:         fullSpeedAhead(mL, mR);
+"198
+[; ;timers.c: 198:         fullSpeedAhead(mL, mR);
 [e ( _fullSpeedAhead (2 , _mL _mR ]
-"202
-[; ;timers.c: 202:         while (!return_flag);
+"200
+[; ;timers.c: 200:         while (!return_flag);
 [e $U 2038  ]
 [e :U 2039 ]
 [e :U 2038 ]
 [e $ ! != -> _return_flag `i -> 0 `i 2039  ]
 [e :U 2040 ]
-"204
-[; ;timers.c: 204:         stop(mL, mR);
+"202
+[; ;timers.c: 202:         stop(mL, mR);
 [e ( _stop (2 , _mL _mR ]
-"205
-[; ;timers.c: 205:         stop_timer();
+"203
+[; ;timers.c: 203:         stop_timer();
 [e ( _stop_timer ..  ]
-"206
-[; ;timers.c: 206:         return_flag = 0;
+"204
+[; ;timers.c: 204:         return_flag = 0;
 [e = _return_flag -> -> 0 `i `uc ]
-"207
-[; ;timers.c: 207:         toggle_main_beam();
+"205
+[; ;timers.c: 205:         toggle_main_beam();
 [e ( _toggle_main_beam ..  ]
-"208
-[; ;timers.c: 208:     }
+"206
+[; ;timers.c: 206:     }
 }
 [e :U 2034 ]
-"184
-[; ;timers.c: 184:     while (manoeuvre_count != 0) {
+"182
+[; ;timers.c: 182:     while (manoeuvre_count != 0) {
 [e $ != -> _manoeuvre_count `i -> 0 `i 2035  ]
 [e :U 2036 ]
-"209
-[; ;timers.c: 209: }
+"207
+[; ;timers.c: 207: }
 [e :UE 2033 ]
 }
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"214
-[; ;timers.c: 214: void __attribute__((picinterrupt(("")))) ISR()
+"212
+[; ;timers.c: 212: void __attribute__((picinterrupt(("")))) ISR()
 [v _ISR `(v ~T2 @X0 1 ef ]
-"215
-[; ;timers.c: 215: {
+"213
+[; ;timers.c: 213: {
 {
 [e :U _ISR ]
 [f ]
-"216
-[; ;timers.c: 216:     if (PIR0bits.TMR0IF) {
+"214
+[; ;timers.c: 214:     if (PIR0bits.TMR0IF) {
 [e $ ! != -> . . _PIR0bits 0 5 `i -> 0 `i 2042  ]
 {
-"217
-[; ;timers.c: 217:         if (returning) {
+"215
+[; ;timers.c: 215:         if (returning) {
 [e $ ! != -> _returning `i -> 0 `i 2043  ]
 {
-"218
-[; ;timers.c: 218:             return_flag = 1;
+"216
+[; ;timers.c: 216:             return_flag = 1;
 [e = _return_flag -> -> 1 `i `uc ]
-"219
-[; ;timers.c: 219:         } else {
+"217
+[; ;timers.c: 217:         } else {
 }
 [e $U 2044  ]
 [e :U 2043 ]
 {
-"220
-[; ;timers.c: 220:             lost_flag = 1;
+"218
+[; ;timers.c: 218:             lost_flag = 1;
 [e = _lost_flag -> -> 1 `i `uc ]
-"221
-[; ;timers.c: 221:         }
+"219
+[; ;timers.c: 219:         }
 }
 [e :U 2044 ]
-"222
-[; ;timers.c: 222:         PIR0bits.TMR0IF = 0;
+"220
+[; ;timers.c: 220:         PIR0bits.TMR0IF = 0;
 [e = . . _PIR0bits 0 5 -> -> 0 `i `uc ]
-"223
-[; ;timers.c: 223:     }
+"221
+[; ;timers.c: 221:     }
 }
 [e :U 2042 ]
-"224
-[; ;timers.c: 224: }
+"222
+[; ;timers.c: 222: }
 [e :UE 2041 ]
 }

@@ -22,7 +22,8 @@
 #include "timers.h"
 #include "calibration.h"
 
-#define _XTAL_FREQ 64000000         //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
+#define _XTAL_FREQ 64000000         //note intrinsic _delay function is 62.5ns at 64,000,000Hz
+#define DRIVE 1                     //normal operation, not testing anything
 #define COLOURTEST 0                //testing code and sending to serial
 #define MOTORTEST 0                 //calibrating motor forward and turns
 #define TIMERTEST 0                 //testing timer and memory functions
@@ -82,8 +83,10 @@ void main(void) {
     LATHbits.LATH3 = !LATHbits.LATH3;
      __delay_ms(1000);
     
+#if DRIVE
     forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
     return_to_sender(&motorL, &motorR);
+#endif
     
 #if COLOURTEST   
     while (1) {
@@ -135,7 +138,7 @@ void main(void) {
     start_timer();
     fullSpeedAhead(&motorL, &motorR);         //go forward continuously
     
-    __delay_ms(3153);
+    __delay_ms(2000);
     
     read_timer(&timerH, &timerL);
     stop_timer();
@@ -161,17 +164,9 @@ void main(void) {
     write_timer(0b11111111 - timerH, 0b11111111 - timerL);
     start_timer();
     fullSpeedAhead(&motorL, &motorR);         //go forward continuously
-        
+    
     while (!return_flag);           //wait until timer overflows
-    /***********************************************************************
-     * There is a slight mismatch between the distance travelled forward
-     * versus when going back
-     * 
-     * One reason might be the lack of resolution in the timer increments
-     * and overflow timing system
-     * 
-     * Another might be inherent delays in the functions
-    ***********************************************************************/
+    
     stop(&motorL, &motorR);                   //stop motors
     stop_timer();
     return_flag = 0;                //reset return flag

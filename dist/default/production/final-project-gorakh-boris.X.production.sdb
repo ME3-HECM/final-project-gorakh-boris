@@ -17,16 +17,6 @@
 [v _toggle_tricolour_LED toggle_tricolour_LED `(v  1 e 1 0 ]
 "7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
-"1 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\abs.c
-[v _abs abs `(i  1 e 2 0 ]
-"7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-[v ___awdiv __awdiv `(i  1 e 2 0 ]
-"7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
-[v ___awmod __awmod `(i  1 e 2 0 ]
-"1177 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
-[v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
-"1817
-[v _vfprintf vfprintf `(i  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\float.c
@@ -43,16 +33,8 @@
 [v ___ftsub __ftsub `(f  1 e 4 0 ]
 "7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
-"7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwmod.c
-[v ___lwmod __lwmod `(ui  1 e 2 0 ]
-"8 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputc.c
-[v _fputc fputc `(i  1 e 2 0 ]
-"8 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputs.c
-[v _fputs fputs `(i  1 e 2 0 ]
 "9 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
-"7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\putch.c
-[v _putch putch `(v  1 e 1 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "245
@@ -61,8 +43,6 @@
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
 "8 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
-"5 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\strlen.c
-[v _strlen strlen `(ui  1 e 2 0 ]
 "15 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul32.c
@@ -141,7 +121,7 @@
 [v _I2C_2_Master_Write I2C_2_Master_Write `(v  1 e 1 0 ]
 "51
 [v _I2C_2_Master_Read I2C_2_Master_Read `(uc  1 e 1 0 ]
-"30 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
+"31 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
 [v _main main `(v  1 e 1 0 ]
 "7 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\manoeuvres.c
 [v _card_red card_red `(v  1 e 1 0 ]
@@ -167,14 +147,6 @@
 [v _sendCharSerial4 sendCharSerial4 `(v  1 e 1 0 ]
 "33
 [v _sendStringSerial4 sendStringSerial4 `(v  1 e 1 0 ]
-"43
-[v _sendIntSerial4 sendIntSerial4 `(v  1 e 1 0 ]
-"53
-[v _sendArrayCharSerial4 sendArrayCharSerial4 `(v  1 e 1 0 ]
-"67
-[v _sendRGBCvalSerial4 sendRGBCvalSerial4 `(v  1 e 1 0 ]
-"77
-[v _sendHSVvalSerial4 sendHSVvalSerial4 `(v  1 e 1 0 ]
 "7 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
 [v _Timer0_init Timer0_init `(v  1 e 1 0 ]
 "30
@@ -193,9 +165,9 @@
 [v _write_trail write_trail `(v  1 e 1 0 ]
 "116
 [v _forward_navigation forward_navigation `(v  1 e 1 0 ]
-"182
+"180
 [v _return_to_sender return_to_sender `(v  1 e 1 0 ]
-"214
+"212
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 "12 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X/timers.h
 [v _returning returning `uc  1 e 1 0 ]
@@ -210,11 +182,11 @@
 "26
 [v _trail_manoeuvre trail_manoeuvre `[20]uc  1 e 20 0 ]
 "36
-[v _timer_high_pointer timer_high_pointer `*.39uc  1 e 2 0 ]
+[v _timer_high_pointer timer_high_pointer `*.30uc  1 e 1 0 ]
 "37
-[v _timer_low_pointer timer_low_pointer `*.39uc  1 e 2 0 ]
+[v _timer_low_pointer timer_low_pointer `*.30uc  1 e 1 0 ]
 "38
-[v _manoeuvre_pointer manoeuvre_pointer `*.39uc  1 e 2 0 ]
+[v _manoeuvre_pointer manoeuvre_pointer `*.30uc  1 e 1 0 ]
 "39
 [v _manoeuvre_count manoeuvre_count `uc  1 e 1 0 ]
 "3182 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
@@ -233,7 +205,7 @@
 "4557
 [u S2144 . 1 `S2137 1 . 1 0 ]
 [v _PIE0bits PIE0bits `VES2144  1 e 1 @3625 ]
-[s S2279 . 1 `uc 1 INT0IF 1 0 :1:0 
+[s S2275 . 1 `uc 1 INT0IF 1 0 :1:0 
 `uc 1 INT1IF 1 0 :1:1 
 `uc 1 INT2IF 1 0 :1:2 
 `uc 1 INT3IF 1 0 :1:3 
@@ -241,8 +213,8 @@
 `uc 1 TMR0IF 1 0 :1:5 
 ]
 "5102
-[u S2286 . 1 `S2279 1 . 1 0 ]
-[v _PIR0bits PIR0bits `VES2286  1 e 1 @3635 ]
+[u S2282 . 1 `S2275 1 . 1 0 ]
+[v _PIR0bits PIR0bits `VES2282  1 e 1 @3635 ]
 [s S1879 . 1 `uc 1 TX3IF 1 0 :1:0 
 `uc 1 RC3IF 1 0 :1:1 
 `uc 1 TX4IF 1 0 :1:2 
@@ -921,58 +893,40 @@
 "40176
 "40176
 [v _INTCONbits INTCONbits `VES2171  1 e 1 @4082 ]
-"153 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
-[v _prec prec `i  1 s 2 prec ]
-[v _width width `i  1 s 2 width ]
-"154
-[v _flags flags `uc  1 s 1 flags ]
-"185
-[v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
-"189
-[v _nout nout `i  1 s 2 nout ]
-"30 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
+"31 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
 [s S1143 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
-"43
-[v main@motorR motorR `S1143  1 a 9 17 ]
-[v main@motorL motorL `S1143  1 a 9 8 ]
+"44
+[v main@motorR motorR `S1143  1 a 9 15 ]
+[v main@motorL motorL `S1143  1 a 9 6 ]
 [s S520 RGBC_val 8 `ui 1 R 2 0 `ui 1 G 2 2 `ui 1 B 2 4 `ui 1 C 2 6 ]
-"31
-[v main@RGBC_colour RGBC_colour `S520  1 a 8 26 ]
+"32
+[v main@RGBC_colour RGBC_colour `S520  1 a 8 24 ]
 [s S525 HSV_val 6 `ui 1 H 2 0 `ui 1 S 2 2 `ui 1 V 2 4 ]
-"37
-[v main@HSV_colour HSV_colour `S525  1 a 6 2 ]
-"179
+"38
+[v main@HSV_colour HSV_colour `S525  1 a 6 0 ]
+"174
 } 0
-"182 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
+"180 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
 [v _return_to_sender return_to_sender `(v  1 e 1 0 ]
 {
-"187
-[v return_to_sender@mann mann `uc  1 a 1 80 ]
-"186
-[v return_to_sender@timerL timerL `uc  1 a 1 79 ]
 "185
-[v return_to_sender@timerH timerH `uc  1 a 1 78 ]
+[v return_to_sender@mann mann `uc  1 a 1 42 ]
+"184
+[v return_to_sender@timerL timerL `uc  1 a 1 41 ]
+"183
+[v return_to_sender@timerH timerH `uc  1 a 1 40 ]
 [s S1143 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
-"182
-[v return_to_sender@mL mL `*.30S1143  1 p 1 76 ]
-[v return_to_sender@mR mR `*.30S1143  1 p 1 77 ]
-"209
+"180
+[v return_to_sender@mL mL `*.30S1143  1 p 1 38 ]
+[v return_to_sender@mR mR `*.30S1143  1 p 1 39 ]
+"207
 } 0
 "57 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\buggy_lights.c
 [v _toggle_main_beam toggle_main_beam `(v  1 e 1 0 ]
 {
 "61
-} 0
-"43 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-[v _sendIntSerial4 sendIntSerial4 `(v  1 e 1 0 ]
-{
-"45
-[v sendIntSerial4@string string `[17]uc  1 a 17 59 ]
-"43
-[v sendIntSerial4@integer integer `i  1 p 2 57 ]
-"48
 } 0
 "81 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
 [v _read_trail read_trail `(v  1 e 1 0 ]
@@ -997,20 +951,20 @@
 [v _forward_navigation forward_navigation `(v  1 e 1 0 ]
 {
 "121
-[v forward_navigation@mann mann `uc  1 a 1 92 ]
+[v forward_navigation@mann mann `uc  1 a 1 73 ]
 "120
-[v forward_navigation@timerL timerL `uc  1 a 1 91 ]
+[v forward_navigation@timerL timerL `uc  1 a 1 72 ]
 "119
-[v forward_navigation@timerH timerH `uc  1 a 1 90 ]
+[v forward_navigation@timerH timerH `uc  1 a 1 71 ]
 [s S1143 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 "116
-[v forward_navigation@mL mL `*.30S1143  1 p 1 84 ]
-[v forward_navigation@mR mR `*.30S1143  1 p 1 85 ]
+[v forward_navigation@mL mL `*.30S1143  1 p 1 65 ]
+[v forward_navigation@mR mR `*.30S1143  1 p 1 66 ]
 [s S525 HSV_val 6 `ui 1 H 2 0 `ui 1 S 2 2 `ui 1 V 2 4 ]
-[v forward_navigation@p1 p1 `*.30S525  1 p 1 86 ]
+[v forward_navigation@p1 p1 `*.30S525  1 p 1 67 ]
 [s S520 RGBC_val 8 `ui 1 R 2 0 `ui 1 G 2 2 `ui 1 B 2 4 `ui 1 C 2 6 ]
-[v forward_navigation@p2 p2 `*.30S520  1 p 1 87 ]
-"177
+[v forward_navigation@p2 p2 `*.30S520  1 p 1 68 ]
+"175
 } 0
 "100
 [v _write_trail write_trail `(v  1 e 1 0 ]
@@ -1040,155 +994,6 @@
 [v _stop_timer stop_timer `(v  1 e 1 0 ]
 {
 "41
-} 0
-"67 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-[v _sendRGBCvalSerial4 sendRGBCvalSerial4 `(v  1 e 1 0 ]
-{
-"68
-[v sendRGBCvalSerial4@tempStr tempStr `[26]uc  1 a 26 58 ]
-[s S520 RGBC_val 8 `ui 1 R 2 0 `ui 1 G 2 2 `ui 1 B 2 4 `ui 1 C 2 6 ]
-"67
-[v sendRGBCvalSerial4@col_val col_val `*.30S520  1 p 1 57 ]
-"72
-} 0
-"77
-[v _sendHSVvalSerial4 sendHSVvalSerial4 `(v  1 e 1 0 ]
-{
-"78
-[v sendHSVvalSerial4@tempStr tempStr `[21]uc  1 a 21 58 ]
-[s S525 HSV_val 6 `ui 1 H 2 0 `ui 1 S 2 2 `ui 1 V 2 4 ]
-"77
-[v sendHSVvalSerial4@col_val col_val `*.30S525  1 p 1 57 ]
-"82
-} 0
-"53
-[v _sendArrayCharSerial4 sendArrayCharSerial4 `(v  1 e 1 0 ]
-{
-"57
-[v sendArrayCharSerial4@i i `ui  1 a 2 162 ]
-"56
-[v sendArrayCharSerial4@tempStr tempStr `[161]uc  1 a 161 0 ]
-"55
-[v sendArrayCharSerial4@index index `uc  1 a 1 161 ]
-"53
-[v sendArrayCharSerial4@arr arr `*.39uc  1 p 2 57 ]
-"62
-} 0
-"9 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
-[v _sprintf sprintf `(i  1 e 2 0 ]
-{
-[u S2837 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-"13
-[s S2840 _IO_FILE 12 `S2837 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v sprintf@f f `S2840  1 a 12 45 ]
-"11
-[v sprintf@ret ret `i  1 a 2 42 ]
-"12
-[v sprintf@ap ap `[1]*.30v  1 a 1 44 ]
-"9
-[v sprintf@s s `*.39uc  1 p 2 31 ]
-[v sprintf@fmt fmt `*.31Cuc  1 p 1 33 ]
-"23
-} 0
-"1817 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
-[v _vfprintf vfprintf `(i  1 e 2 0 ]
-{
-"1820
-[v vfprintf@cfmt cfmt `*.31uc  1 a 1 30 ]
-[s S2872 _IO_FILE 0 ]
-"1817
-[v vfprintf@fp fp `*.30S2872  1 p 1 27 ]
-[v vfprintf@fmt fmt `*.31Cuc  1 p 1 28 ]
-[v vfprintf@ap ap `*.30*.30v  1 p 1 29 ]
-"1840
-} 0
-"1177
-[v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
-{
-[u S2890 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
-"1188
-[v vfpfcnvrt@convarg convarg `S2890  1 a 4 22 ]
-"1191
-[v vfpfcnvrt@cnt cnt `i  1 a 2 19 ]
-"1179
-[v vfpfcnvrt@c c `uc  1 a 1 26 ]
-[v vfpfcnvrt@cp cp `*.31uc  1 a 1 21 ]
-"1180
-[v vfpfcnvrt@done done `a  1 a 1 18 ]
-[s S2872 _IO_FILE 0 ]
-"1177
-[v vfpfcnvrt@fp fp `*.30S2872  1 p 1 13 ]
-[v vfpfcnvrt@fmt fmt `*.30*.31uc  1 p 1 14 ]
-[v vfpfcnvrt@ap ap `*.30*.30v  1 p 1 15 ]
-"1814
-} 0
-"8 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputc.c
-[v _fputc fputc `(i  1 e 2 0 ]
-{
-[v fputc@c c `i  1 p 2 0 ]
-[u S2837 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S2840 _IO_FILE 12 `S2837 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v fputc@fp fp `*.30S2840  1 p 1 2 ]
-"24
-} 0
-"7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\putch.c
-[v _putch putch `(v  1 e 1 0 ]
-{
-"9
-} 0
-"1 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\abs.c
-[v _abs abs `(i  1 e 2 0 ]
-{
-[v abs@a a `i  1 p 2 6 ]
-"4
-} 0
-"7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lwmod.c
-[v ___lwmod __lwmod `(ui  1 e 2 0 ]
-{
-"10
-[v ___lwmod@counter counter `uc  1 a 1 4 ]
-"7
-[v ___lwmod@dividend dividend `ui  1 p 2 0 ]
-[v ___lwmod@divisor divisor `ui  1 p 2 2 ]
-"25
-} 0
-"7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awmod.c
-[v ___awmod __awmod `(i  1 e 2 0 ]
-{
-"10
-[v ___awmod@sign sign `uc  1 a 1 5 ]
-[v ___awmod@counter counter `uc  1 a 1 4 ]
-"7
-[v ___awmod@dividend dividend `i  1 p 2 0 ]
-[v ___awmod@divisor divisor `i  1 p 2 2 ]
-"34
-} 0
-"7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\awdiv.c
-[v ___awdiv __awdiv `(i  1 e 2 0 ]
-{
-"10
-[v ___awdiv@quotient quotient `i  1 a 2 6 ]
-"11
-[v ___awdiv@sign sign `uc  1 a 1 5 ]
-[v ___awdiv@counter counter `uc  1 a 1 4 ]
-"7
-[v ___awdiv@dividend dividend `i  1 p 2 0 ]
-[v ___awdiv@divisor divisor `i  1 p 2 2 ]
-"41
-} 0
-"33 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\serial.c
-[v _sendStringSerial4 sendStringSerial4 `(v  1 e 1 0 ]
-{
-[v sendStringSerial4@string string `*.34uc  1 p 2 1 ]
-"38
-} 0
-"25
-[v _sendCharSerial4 sendCharSerial4 `(v  1 e 1 0 ]
-{
-[v sendCharSerial4@charToSend charToSend `uc  1 a 1 wreg ]
-[v sendCharSerial4@charToSend charToSend `uc  1 a 1 wreg ]
-[v sendCharSerial4@charToSend charToSend `uc  1 a 1 0 ]
-"28
 } 0
 "197 C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\color.c
 [v _scale_RGB scale_RGB `(v  1 e 1 0 ]
@@ -1225,17 +1030,17 @@
 "8 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S2702 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S2694 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S2707 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S2710 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2702 1 fAsBytes 4 0 `S2707 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S2710  1 a 4 33 ]
+[s S2699 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S2702 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2694 1 fAsBytes 4 0 `S2699 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S2702  1 a 4 33 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 27 ]
-[s S2778 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S2770 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S2781 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2778 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S2781  1 a 2 37 ]
+[u S2773 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2770 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S2773  1 a 2 37 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 32 ]
 "11
@@ -1734,8 +1539,8 @@
 [v write_timer@tH tH `uc  1 a 1 1 ]
 "65
 } 0
-"214
+"212
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 {
-"224
+"222
 } 0

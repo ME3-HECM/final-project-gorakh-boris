@@ -168,11 +168,9 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
             LATHbits.LATH3 = !LATHbits.LATH3;
         }
         
-        sendRGBCvalSerial4(p2);
-        sendHSVvalSerial4(p1);
-        sendArrayCharSerial4(trail_timer_high);
-        sendArrayCharSerial4(trail_timer_low);
-        sendArrayCharSerial4(trail_manoeuvre);
+        //sendArrayCharSerial4(trail_timer_high);
+        //sendArrayCharSerial4(trail_timer_low);
+        //sendArrayCharSerial4(trail_manoeuvre);
     }
 }
 
@@ -187,9 +185,9 @@ void return_to_sender(DC_motor *mL, DC_motor *mR)
         unsigned char mann = 0;         //temporary manoeuvre variable
         
         read_trail(&timerH, &timerL, &mann);    //read variables from memory
-        sendIntSerial4(timerH);                 //send to serial for debugging
-        sendIntSerial4(timerL);                 //send to serial for debugging
-        sendIntSerial4(mann);                   //send to serial for debugging
+        //sendIntSerial4(timerH);                 //send to serial for debugging
+        //sendIntSerial4(timerL);                 //send to serial for debugging
+        //sendIntSerial4(mann);                   //send to serial for debugging
         if (mann != 8) {                        //ignore white card instruction
             pick_card(mL, mR, returning, mann); //perform manoeuvre
         }

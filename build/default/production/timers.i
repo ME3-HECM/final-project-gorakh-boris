@@ -24476,11 +24476,9 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
             LATHbits.LATH3 = !LATHbits.LATH3;
         }
 
-        sendRGBCvalSerial4(p2);
-        sendHSVvalSerial4(p1);
-        sendArrayCharSerial4(trail_timer_high);
-        sendArrayCharSerial4(trail_timer_low);
-        sendArrayCharSerial4(trail_manoeuvre);
+
+
+
     }
 }
 
@@ -24495,9 +24493,9 @@ void return_to_sender(DC_motor *mL, DC_motor *mR)
         unsigned char mann = 0;
 
         read_trail(&timerH, &timerL, &mann);
-        sendIntSerial4(timerH);
-        sendIntSerial4(timerL);
-        sendIntSerial4(mann);
+
+
+
         if (mann != 8) {
             pick_card(mL, mR, returning, mann);
         }
