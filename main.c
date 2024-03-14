@@ -143,15 +143,15 @@ void main(void) {
     //set timer to zero, start timer and drive forward
     reset_timer();
     start_timer();
-    fullSpeedAhead(mL, mR);
+    fullSpeedAhead(&motorL, &motorR);
 
-    //wait until a wall is detected or lost flag
-    wait_for_wall(p2, lost_flag);
+    //wait a while
+    __delay_ms(2000);
 
     //stop timer, read the timer registers and stop driving
     stop_timer();
     read_timer(&timerH, &timerL);
-    stop(mL, mR);
+    stop(&motorL, &motorR);
     
     //send to serial for debugging
     sendIntSerial4(timerH);
@@ -176,13 +176,13 @@ void main(void) {
     //write timer, start timer and drive forwards
     write_timer(0b11111111 - timerH, 0b11111111 - timerL);
     start_timer();
-    fullSpeedAhead(mL, mR);
+    fullSpeedAhead(&motorL, &motorR);
 
     //wait until timer overflow raises return flag
     while (!return_flag);
 
     //stop driving, stop timer and lower return flag
-    stop(mL, mR);
+    stop(&motorL, &motorR);
     stop_timer();
     return_flag = 0;
 #endif

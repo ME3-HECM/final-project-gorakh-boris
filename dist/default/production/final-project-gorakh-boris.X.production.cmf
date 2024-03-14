@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
+$C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
 idloc IDLOC 5 200000 200000 10 1 1
 init CODE 0 3C 3C 4 1 2
 reset_vec CODE 0 0 0 4 1 2
@@ -154,7 +154,7 @@ MEDIUMCONST 10E00-1FFFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\final-project-gorakh-boris.X.production.o
-8 intcode CODE >25701:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
+8 intcode CODE >25701:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
 8 intcode CODE >254:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
 A intcode CODE >257:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
 1A intcode CODE >258:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\timers.c
@@ -1071,52 +1071,52 @@ FC4 text44 CODE >249:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-
 251E text0 CODE >92:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
 2532 text0 CODE >93:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
 253E text0 CODE >189:C:\Users\boris\Desktop\University\Year 3\ECM\final-project-gorakh-boris.X\main.c
-3304 cinit CODE >12366:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3304 cinit CODE >12368:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3304 cinit CODE >12371:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3304 cinit CODE >12523:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3306 cinit CODE >12524:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3308 cinit CODE >12525:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-330A cinit CODE >12526:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-330C cinit CODE >12527:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-330E cinit CODE >12528:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3310 cinit CODE >12529:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3314 cinit CODE >12530:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3318 cinit CODE >12531:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3318 cinit CODE >12532:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-331A cinit CODE >12533:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-331E cinit CODE >12534:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3320 cinit CODE >12535:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3322 cinit CODE >12536:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3324 cinit CODE >12540:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3326 cinit CODE >12541:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3328 cinit CODE >12542:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-332A cinit CODE >12543:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-332C cinit CODE >12544:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-332E cinit CODE >12545:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3330 cinit CODE >12546:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3334 cinit CODE >12547:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3338 cinit CODE >12548:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3338 cinit CODE >12549:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-333A cinit CODE >12550:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-333E cinit CODE >12551:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3340 cinit CODE >12552:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3342 cinit CODE >12553:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3344 cinit CODE >12557:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3348 cinit CODE >12558:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-334A cinit CODE >12559:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-334A cinit CODE >12560:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-334C cinit CODE >12561:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-334E cinit CODE >12562:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3350 cinit CODE >12565:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3352 cinit CODE >12566:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3354 cinit CODE >12567:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3356 cinit CODE >12568:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3358 cinit CODE >12574:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-3358 cinit CODE >12576:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-335A cinit CODE >12577:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-335C cinit CODE >12578:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
-335E cinit CODE >12579:C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_1.s
+3304 cinit CODE >12366:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3304 cinit CODE >12368:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3304 cinit CODE >12371:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3304 cinit CODE >12523:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3306 cinit CODE >12524:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3308 cinit CODE >12525:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+330A cinit CODE >12526:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+330C cinit CODE >12527:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+330E cinit CODE >12528:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3310 cinit CODE >12529:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3314 cinit CODE >12530:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3318 cinit CODE >12531:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3318 cinit CODE >12532:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+331A cinit CODE >12533:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+331E cinit CODE >12534:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3320 cinit CODE >12535:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3322 cinit CODE >12536:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3324 cinit CODE >12540:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3326 cinit CODE >12541:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3328 cinit CODE >12542:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+332A cinit CODE >12543:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+332C cinit CODE >12544:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+332E cinit CODE >12545:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3330 cinit CODE >12546:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3334 cinit CODE >12547:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3338 cinit CODE >12548:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3338 cinit CODE >12549:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+333A cinit CODE >12550:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+333E cinit CODE >12551:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3340 cinit CODE >12552:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3342 cinit CODE >12553:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3344 cinit CODE >12557:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3348 cinit CODE >12558:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+334A cinit CODE >12559:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+334A cinit CODE >12560:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+334C cinit CODE >12561:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+334E cinit CODE >12562:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3350 cinit CODE >12565:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3352 cinit CODE >12566:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3354 cinit CODE >12567:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3356 cinit CODE >12568:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3358 cinit CODE >12574:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+3358 cinit CODE >12576:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+335A cinit CODE >12577:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+335C cinit CODE >12578:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
+335E cinit CODE >12579:C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_1.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -1140,7 +1140,7 @@ __HidataBANK0 0 0 ABS 0 idataBANK0 dist/default/production\final-project-gorakh-
 _sample_count 59 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 _stop_timer 39D6 0 CODE 0 text10 dist/default/production\final-project-gorakh-boris.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\final-project-gorakh-boris.X.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
 _toggle_right_indicators 38E4 0 CODE 0 text37 dist/default/production\final-project-gorakh-boris.X.production.o
 _manoeuvre_pointer 4F 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 convert_HSV@temp_610 38 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
@@ -1159,13 +1159,13 @@ __L__absolute__ 0 0 ABS 0 __absolute__ dist/default/production\final-project-gor
 __Lsmallconst E00 0 SMALLCONST 0 smallconst dist/default/production\final-project-gorakh-boris.X.production.o
 _bottomGearLeft 56 0 COMRAM 1 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 _T2PR FBC 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
+___sp 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
 _main 2402 0 CODE 0 text0 dist/default/production\final-project-gorakh-boris.X.production.o
 _stop 2D98 0 CODE 0 text39 dist/default/production\final-project-gorakh-boris.X.production.o
 btemp 5E 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
-___stack_hi 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
-___stack_lo 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
-start 3C 0 CODE 0 init C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
+___stack_hi 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
+___stack_lo 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
+start 3C 0 CODE 0 init C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
 ___flmul@aexp 20 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 ___flmul@bexp 21 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 ___flmul@prod 22 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
@@ -1190,11 +1190,11 @@ ttemp5 5F 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.p
 ttemp6 62 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
 ttemp7 66 0 COMRAM 1 temp dist/default/production\final-project-gorakh-boris.X.production.o
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-__accesstop 60 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
-intlevel0 0 0 CODE 0 text C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
-intlevel1 0 0 CODE 0 text C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
-intlevel2 0 0 CODE 0 text C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
-intlevel3 0 0 CODE 0 text C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
+__accesstop 60 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
+intlevel0 0 0 CODE 0 text C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
+intlevel1 0 0 CODE 0 text C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
+intlevel2 0 0 CODE 0 text C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
+intlevel3 0 0 CODE 0 text C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\final-project-gorakh-boris.X.production.o
 card_green@mL 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
@@ -1212,8 +1212,8 @@ ___wmul@multiplicand 3 0 COMRAM 1 cstackCOMRAM dist/default/production\final-pro
 card_yellow@mL 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 card_yellow@mR 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 _manoeuvre_count 5A 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
 _turnLeft135Delay C4 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
 I2C_2_Master_Read@ack 3 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 I2C_2_Master_Read@tmp 4 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
@@ -1297,7 +1297,7 @@ __end_of_turnLeft135 36A8 0 CODE 0 text30 dist/default/production\final-project-
 _turn180Delay C0 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
 turnRight@rightGear 17 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 I2C_2_Master_Write@data_byte 2 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-isa$xinst 0 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
+isa$xinst 0 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
 _card_orange 3164 0 CODE 0 text23 dist/default/production\final-project-gorakh-boris.X.production.o
 turnLeft@mL 13 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 turnLeft@mR 14 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
@@ -1350,7 +1350,7 @@ __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\final-project-gorakh-boris
 __Hbigram 0 0 ABS 0 bigram dist/default/production\final-project-gorakh-boris.X.production.o
 __Hbigsfr 0 0 ABS 0 bigsfr dist/default/production\final-project-gorakh-boris.X.production.o
 __end_of_card_white 387A 0 CODE 0 text19 dist/default/production\final-project-gorakh-boris.X.production.o
-__smallconst E00 0 SMALLCONST 0 smallconst C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
+__smallconst E00 0 SMALLCONST 0 smallconst C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
 _forward_navigation 2124 0 CODE 0 text6 dist/default/production\final-project-gorakh-boris.X.production.o
 ___xxtofl@arg B 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 ___xxtofl@exp A 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
@@ -1664,17 +1664,17 @@ _read_timer 3962 0 CODE 0 text16 dist/default/production\final-project-gorakh-bo
 _read_trail 35C0 0 CODE 0 text3 dist/default/production\final-project-gorakh-boris.X.production.o
 _turnRight135Delay C2 0 BANK0 1 dataBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\final-project-gorakh-boris.X.production.o
-___inthi_stack_hi 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
-___inthi_stack_lo 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
+___inthi_stack_hi 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
+___inthi_stack_lo 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
 ___lwdiv@divisor 9 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 ?_color_read_Red 5 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 read_RGBC@p C 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\final-project-gorakh-boris.X.production.o
-isa$std 1 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
+isa$std 1 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
 read_trail@tH 1 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 read_trail@tL 2 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-stackhi 0 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
-stacklo 0 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
+stackhi 0 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
+stacklo 0 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
 card_cyan@mL 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 card_cyan@mR 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 stop@mL 13 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
@@ -1817,7 +1817,7 @@ __end_of_read_timer 3978 0 CODE 0 text16 dist/default/production\final-project-g
 __end_of_read_trail 35FA 0 CODE 0 text3 dist/default/production\final-project-gorakh-boris.X.production.o
 __end_of_color_writetoaddr 3944 0 CODE 0 text59 dist/default/production\final-project-gorakh-boris.X.production.o
 fullSpeedReverse@leftGear 16 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
-__ramtop E00 0 RAM 0 ramtop C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
+__ramtop E00 0 RAM 0 ramtop C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
 _trail_manoeuvre 60 0 BANK0 1 bssBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
 main@motorL A2 0 BANK0 1 cstackBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
 main@motorR AB 0 BANK0 1 cstackBANK0 dist/default/production\final-project-gorakh-boris.X.production.o
@@ -1842,8 +1842,8 @@ setMotorPWM@negDuty 12 0 COMRAM 1 cstackCOMRAM dist/default/production\final-pro
 colour_to_key@key 5 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 _I2C_2_Master_RepStart 39B8 0 CODE 0 text55 dist/default/production\final-project-gorakh-boris.X.production.o
 _CCP3CONbits F26 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-___heap_hi 0 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
-___heap_lo 0 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
+___heap_hi 0 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
+___heap_lo 0 0 ABS 0 - C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
 _I2C_2_Master_Idle 3806 0 CODE 0 text63 dist/default/production\final-project-gorakh-boris.X.production.o
 _I2C_2_Master_Init 37DC 0 CODE 0 text64 dist/default/production\final-project-gorakh-boris.X.production.o
 _I2C_2_Master_Read 357E 0 CODE 0 text56 dist/default/production\final-project-gorakh-boris.X.production.o
@@ -1851,8 +1851,8 @@ _I2C_2_Master_Stop 39C2 0 CODE 0 text61 dist/default/production\final-project-go
 ___fltol@f1 28 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __end_of_initUSART4 3962 0 CODE 0 text4 dist/default/production\final-project-gorakh-boris.X.production.o
 ___param_bank 0 0 ABS 0 - dist/default/production\final-project-gorakh-boris.X.production.o
-___intlo_stack_hi 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
-___intlo_stack_lo 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsdf4.\driver_tmp_9.o
+___intlo_stack_hi 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
+___intlo_stack_lo 0 0 STACK 2 stack C:\Users\boris\AppData\Local\Temp\xcAsa18.\driver_tmp_9.o
 return_to_sender@timerH 29 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 return_to_sender@timerL 2A 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-gorakh-boris.X.production.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\final-project-gorakh-boris.X.production.o
