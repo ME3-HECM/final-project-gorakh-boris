@@ -24112,7 +24112,6 @@ unsigned char __t3rd16on(void);
 
 
 void buggy_lights_init(void);
-
 void toggle_brake_lights(void);
 void toggle_headlamps(void);
 void toggle_main_beam(void);
@@ -24293,31 +24292,26 @@ void sendHSVvalSerial4(HSV_val *col_val);
 unsigned char returning = 0;
 unsigned char return_flag = 0;
 unsigned char lost_flag = 0;
-# 25 "./timers.h"
-unsigned char trail_timer_high[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-# 37 "./timers.h"
+# 26 "./timers.h"
+unsigned char trail_timer_high[20] = {0};
+unsigned char trail_timer_low[20] = {0};
+unsigned char trail_manoeuvre[20] = {0};
+# 41 "./timers.h"
 unsigned char *timer_high_pointer = &trail_timer_high[0];
 unsigned char *timer_low_pointer = &trail_timer_low[0];
 unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
 unsigned char manoeuvre_count = 0;
 
 void Timer0_init(void);
-
 void start_timer(void);
 void stop_timer(void);
-
 void read_timer(unsigned char *tH, unsigned char *tL);
 void write_timer(unsigned char tH, unsigned char tL);
 void reset_timer(void);
-
 void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man);
 void write_trail(unsigned char tH, unsigned char tL, unsigned char man);
-
 void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2);
 void return_to_sender(DC_motor *mL, DC_motor *mR);
-
 void __attribute__((picinterrupt(("")))) ISR();
 # 2 "timers.c" 2
 
@@ -24327,19 +24321,19 @@ void __attribute__((picinterrupt(("")))) ISR();
 
 void Timer0_init(void)
 {
-    T0CON1bits.T0CS=0b010;
-    T0CON1bits.T0ASYNC=1;
-    T0CON0bits.T016BIT=1;
+    T0CON1bits.T0CS = 0b010;
+    T0CON1bits.T0ASYNC = 1;
 
-    T0CON1bits.T0CKPS=0b1110;
+
+
+    T0CON0bits.T016BIT = 1;
+    T0CON1bits.T0CKPS = 0b1110;
 
 
 
 
     reset_timer();
-    T0CON0bits.T0EN=1;
 
-    start_timer();
     PIE0bits.TMR0IE = 1;
     INTCONbits.PEIE = 1;
     INTCONbits.GIE = 1;
@@ -24350,7 +24344,7 @@ void Timer0_init(void)
 
 void start_timer(void)
 {
-    T0CON0bits.T0EN=1;
+    T0CON0bits.T0EN = 1;
 }
 
 
@@ -24358,7 +24352,7 @@ void start_timer(void)
 
 void stop_timer(void)
 {
-    T0CON0bits.T0EN=0;
+    T0CON0bits.T0EN = 0;
 }
 
 
@@ -24436,56 +24430,81 @@ void write_trail(unsigned char tH, unsigned char tL, unsigned char man)
 
 void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
 {
+
     while (!returning) {
+
+
         unsigned char timerH = 0;
         unsigned char timerL = 0;
         unsigned char mann = 0;
+
 
         reset_timer();
         start_timer();
         fullSpeedAhead(mL, mR);
 
+
         wait_for_wall(p2, lost_flag);
 
-        read_timer(&timerH, &timerL);
+
         stop_timer();
+        read_timer(&timerH, &timerL);
         stop(mL, mR);
+
 
         toggle_tricolour_LED();
         _delay((unsigned long)((200)*(64000000/4000.0)));
+
 
         average_RGBC(p2);
         scale_RGB(p2);
-
         convert_HSV(p1, p2);
         mann = colour_to_key(p1, p2);
 
+
         toggle_tricolour_LED();
         _delay((unsigned long)((200)*(64000000/4000.0)));
-# 157 "timers.c"
+
+
         if (lost_flag) {
+
+
             timerH = 0b11111111;
             timerL = 0b11111111;
+
+
             mann = 8;
+
+
             LATDbits.LATD7 = !LATDbits.LATD7;
         }
 
+
         if (manoeuvre_count == 19) {
+
+
             mann = 8;
+
+
+            LATDbits.LATD7 = !LATDbits.LATD7;
         }
+
 
         write_trail(timerH, timerL, mann);
+
+
         pick_card(mL, mR, returning, mann);
 
+
         if (mann == 8) {
+
+
             returning = 1;
+
+
             LATHbits.LATH3 = !LATHbits.LATH3;
         }
-
-
-
-
-
+# 200 "timers.c"
     }
 }
 
@@ -24494,32 +24513,46 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
 
 void return_to_sender(DC_motor *mL, DC_motor *mR)
 {
+
     while (manoeuvre_count != 0) {
+
+
         unsigned char timerH = 0;
         unsigned char timerL = 0;
         unsigned char mann = 0;
 
+
         read_trail(&timerH, &timerL, &mann);
-
-
-
 
 
         if (mann != 8) {
             pick_card(mL, mR, returning, mann);
         }
 
+
         toggle_main_beam();
+
+
         write_timer(0b11111111 - timerH, 0b11111111 - timerL);
         start_timer();
         fullSpeedAhead(mL, mR);
 
+
         while (!return_flag);
+
 
         stop(mL, mR);
         stop_timer();
         return_flag = 0;
+
+
         toggle_main_beam();
+
+
+
+
+
+
     }
 }
 
@@ -24528,12 +24561,17 @@ void return_to_sender(DC_motor *mL, DC_motor *mR)
 
 void __attribute__((picinterrupt(("")))) ISR()
 {
+
     if (PIR0bits.TMR0IF) {
         if (returning) {
+
             return_flag = 1;
         } else {
+
             lost_flag = 1;
         }
+
+
         PIR0bits.TMR0IF = 0;
     }
 }

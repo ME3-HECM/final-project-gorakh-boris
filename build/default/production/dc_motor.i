@@ -24102,7 +24102,6 @@ unsigned char __t3rd16on(void);
 
 
 void buggy_lights_init(void);
-
 void toggle_brake_lights(void);
 void toggle_headlamps(void);
 void toggle_main_beam(void);

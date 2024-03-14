@@ -36,8 +36,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9 ./serial.h
 [; ;./serial.h: 9: void initUSART4(void);
 [v _initUSART4 `(v ~T0 @X0 0 ef ]
-"42 ./timers.h
-[; ;./timers.h: 42: void Timer0_init(void);
+"46 ./timers.h
+[; ;./timers.h: 46: void Timer0_init(void);
 [v _Timer0_init `(v ~T0 @X0 0 ef ]
 "29383 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 29383:     struct {
@@ -2250,107 +2250,50 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _lost_flag
 -> -> 0 `i `uc
 ]
-"25
-[; ;./timers.h: 25: unsigned char trail_timer_high[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+"26
+[; ;./timers.h: 26: unsigned char trail_timer_high[20] = {0};
 [v _trail_timer_high `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_timer_high
 :U ..
 -> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
 ..
 ]
-"26
-[; ;./timers.h: 26: unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+"27
+[; ;./timers.h: 27: unsigned char trail_timer_low[20] = {0};
 [v _trail_timer_low `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_timer_low
 :U ..
 -> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
 ..
 ]
-"27
-[; ;./timers.h: 27: unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+"28
+[; ;./timers.h: 28: unsigned char trail_manoeuvre[20] = {0};
 [v _trail_manoeuvre `uc ~T0 @X0 -> 20 `i e ]
 [i _trail_manoeuvre
 :U ..
 -> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
 ..
 ]
-"37
-[; ;./timers.h: 37: unsigned char *timer_high_pointer = &trail_timer_high[0];
+"41
+[; ;./timers.h: 41: unsigned char *timer_high_pointer = &trail_timer_high[0];
 [v _timer_high_pointer `*uc ~T0 @X0 1 e ]
 [i _timer_high_pointer
 &U *U + &U _trail_timer_high * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_timer_high `ui `ux
 ]
-"38
-[; ;./timers.h: 38: unsigned char *timer_low_pointer = &trail_timer_low[0];
+"42
+[; ;./timers.h: 42: unsigned char *timer_low_pointer = &trail_timer_low[0];
 [v _timer_low_pointer `*uc ~T0 @X0 1 e ]
 [i _timer_low_pointer
 &U *U + &U _trail_timer_low * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_timer_low `ui `ux
 ]
-"39
-[; ;./timers.h: 39: unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
+"43
+[; ;./timers.h: 43: unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
 [v _manoeuvre_pointer `*uc ~T0 @X0 1 e ]
 [i _manoeuvre_pointer
 &U *U + &U _trail_manoeuvre * -> -> -> 0 `i `ui `ux -> -> # *U &U _trail_manoeuvre `ui `ux
 ]
-"40
-[; ;./timers.h: 40: unsigned char manoeuvre_count = 0;
+"44
+[; ;./timers.h: 44: unsigned char manoeuvre_count = 0;
 [v _manoeuvre_count `uc ~T0 @X0 1 e ]
 [i _manoeuvre_count
 -> -> 0 `i `uc
@@ -2472,29 +2415,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 "79
 [; ;main.c: 79:         ANSELFbits.ANSELF3 = 0;
 [e = . . _ANSELFbits 0 3 -> -> 0 `i `uc ]
-"81
-[; ;main.c: 81:     while (PORTFbits.RF3);
+"82
+[; ;main.c: 82:     while (PORTFbits.RF3);
 [e $U 2019  ]
 [e :U 2020 ]
 [e :U 2019 ]
 [e $ != -> . . _PORTFbits 0 3 `i -> 0 `i 2020  ]
 [e :U 2021 ]
-"82
-[; ;main.c: 82:     LATDbits.LATD7 = !LATDbits.LATD7;
+"85
+[; ;main.c: 85:     LATDbits.LATD7 = !LATDbits.LATD7;
 [e = . . _LATDbits 0 7 -> -> ! != -> . . _LATDbits 0 7 `i -> 0 `i `i `uc ]
-"83
-[; ;main.c: 83:     LATHbits.LATH3 = !LATHbits.LATH3;
+"86
+[; ;main.c: 86:     LATHbits.LATH3 = !LATHbits.LATH3;
 [e = . . _LATHbits 0 3 -> -> ! != -> . . _LATHbits 0 3 `i -> 0 `i `i `uc ]
-"84
-[; ;main.c: 84:     _delay((unsigned long)((1000)*(64000000/4000.0)));
+"89
+[; ;main.c: 89:     _delay((unsigned long)((1000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"87
-[; ;main.c: 87:     forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
+"92
+[; ;main.c: 92:     forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
 [e ( _forward_navigation (4 , , , &U _motorL &U _motorR &U _HSV_colour &U _RGBC_colour ]
-"88
-[; ;main.c: 88:     return_to_sender(&motorL, &motorR);
+"93
+[; ;main.c: 93:     return_to_sender(&motorL, &motorR);
 [e ( _return_to_sender (2 , &U _motorL &U _motorR ]
-"174
-[; ;main.c: 174: }
+"189
+[; ;main.c: 189: }
 [e :UE 2018 ]
 }

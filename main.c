@@ -62,7 +62,7 @@ void main(void) {
     initUSART4();
     Timer0_init();
     
-    //initialise the two LEDs on the clicker board
+    /* initialise the two LEDs on the clicker board */
         //set up TRIS registers (0 for output)
         TRISDbits.TRISD7 = 0;
         TRISHbits.TRISH3 = 0;
@@ -70,7 +70,7 @@ void main(void) {
         LATDbits.LATD7 = 0;
         LATHbits.LATH3 = 0;
     
-    //initialise the two push buttons on clicker board
+    /* initialise the two push buttons on clicker board */
         //set up TRIS registers (1 for input)
         TRISFbits.TRISF2 = 1;
         TRISFbits.TRISF3 = 1;
@@ -78,9 +78,14 @@ void main(void) {
         ANSELFbits.ANSELF2 = 0;
         ANSELFbits.ANSELF3 = 0;
     
+    //wait until RF3 button is pressed
     while (PORTFbits.RF3);
+    
+    //toggle both LEDS
     LATDbits.LATD7 = !LATDbits.LATD7;
     LATHbits.LATH3 = !LATHbits.LATH3;
+    
+    //wait a sec
     __delay_ms(1000);
     
 #if DRIVE
@@ -130,24 +135,30 @@ void main(void) {
 #endif
 
 #if TIMER_TEST
-    unsigned char timerH = 0;       //temporary timer high variable
-    unsigned char timerL = 0;       //temporary timer low variable
-    unsigned char mann = 0;         //temporary manoeuvre variable
-    
+    //temporary timer and manoeuvre variables
+    unsigned char timerH = 0;
+    unsigned char timerL = 0;
+    unsigned char mann = 0;
+
+    //set timer to zero, start timer and drive forward
     reset_timer();
     start_timer();
-    fullSpeedAhead(&motorL, &motorR);         //go forward continuously
-    
-    __delay_ms(2000);
-    
-    read_timer(&timerH, &timerL);
+    fullSpeedAhead(mL, mR);
+
+    //wait until a wall is detected or lost flag
+    wait_for_wall(p2, lost_flag);
+
+    //stop timer, read the timer registers and stop driving
     stop_timer();
-    stop(&motorL, &motorR);                   //stop motors
+    read_timer(&timerH, &timerL);
+    stop(mL, mR);
     
-    sendIntSerial4(timerH);                 //send to serial for debugging
-    sendIntSerial4(timerL);                 //send to serial for debugging
+    //send to serial for debugging
+    sendIntSerial4(timerH);
+    sendIntSerial4(timerL);
     
-    write_trail(timerH, timerL, mann);          //write variables to memory
+    //write variables to memory
+    write_trail(timerH, timerL, mann);
     
     ////////////////////////////////////////////////////////////////////////
     returning = 1;
@@ -156,19 +167,23 @@ void main(void) {
     __delay_ms(1000);
     ////////////////////////////////////////////////////////////////////////
     
-    read_trail(&timerH, &timerL, &mann);    //read variables from memory
+    //read variables from memory
+    read_trail(&timerH, &timerL, &mann);
     
     sendIntSerial4(timerH);                 //send to serial for debugging
     sendIntSerial4(timerL);                 //send to serial for debugging
     
+    //write timer, start timer and drive forwards
     write_timer(0b11111111 - timerH, 0b11111111 - timerL);
     start_timer();
-    fullSpeedAhead(&motorL, &motorR);         //go forward continuously
-    
-    while (!return_flag);           //wait until timer overflows
-    
-    stop(&motorL, &motorR);                   //stop motors
+    fullSpeedAhead(mL, mR);
+
+    //wait until timer overflow raises return flag
+    while (!return_flag);
+
+    //stop driving, stop timer and lower return flag
+    stop(mL, mR);
     stop_timer();
-    return_flag = 0;                //reset return flag
+    return_flag = 0;
 #endif
 }

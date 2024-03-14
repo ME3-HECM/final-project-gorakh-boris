@@ -6,22 +6,22 @@
 *******************************************************************************/
 void Timer0_init(void)
 {
-    T0CON1bits.T0CS=0b010;      //Fosc/4
-    T0CON1bits.T0ASYNC=1;       //see datasheet errata - needed to ensure correct operation when Fosc/4 used as clock source
-    T0CON0bits.T016BIT=1;       //16-bit mode
+    T0CON1bits.T0CS = 0b010;        //Fosc/4
+    T0CON1bits.T0ASYNC = 1;         //see datasheet errata - needed to ensure 
+                                    //correct operation when Fosc/4 used 
+                                    //as clock source
     
-    T0CON1bits.T0CKPS=0b1110;   //prescaler 1:16384
-                                //1.024 millisecond timer increment period
-                                //976.5625 increments per second
-                                //67.108864 seconds before overflow
+    T0CON0bits.T016BIT = 1;         //16-bit mode
+    T0CON1bits.T0CKPS = 0b1110;     //prescaler 1:16384
+                                    //1.024 millisecond timer increment period
+                                    //976.5625 increments per second
+                                    //67.108864 seconds before overflow
     
-    reset_timer();              //set timer register to zero
-    T0CON0bits.T0EN=1;          //start the timer
+    reset_timer();                  //set timer register to zero
     
-    start_timer();
-    PIE0bits.TMR0IE = 1;        //initialise timer0 interrupt
-    INTCONbits.PEIE = 1;        //initialise peripheral interrupt
-    INTCONbits.GIE = 1;         //sets global interrupt
+    PIE0bits.TMR0IE = 1;            //initialise timer0 interrupt
+    INTCONbits.PEIE = 1;            //initialise peripheral interrupt
+    INTCONbits.GIE = 1;             //sets global interrupt
 }
 
 /*******************************************************************************
@@ -29,7 +29,7 @@ void Timer0_init(void)
 *******************************************************************************/
 void start_timer(void)
 {
-    T0CON0bits.T0EN=1;          //start the timer
+    T0CON0bits.T0EN = 1;            //start the timer
 }
 
 /*******************************************************************************
@@ -37,7 +37,7 @@ void start_timer(void)
 *******************************************************************************/
 void stop_timer(void)
 {
-    T0CON0bits.T0EN=0;          //stop the timer
+    T0CON0bits.T0EN = 0;            //stop the timer
 }
 
 /*******************************************************************************
@@ -115,64 +115,84 @@ void write_trail(unsigned char tH, unsigned char tL, unsigned char man)
 *******************************************************************************/
 void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
 {
-    while (!returning) {                //loop while not returning to start
-        unsigned char timerH = 0;       //temporary timer high variable
-        unsigned char timerL = 0;       //temporary timer low variable
-        unsigned char mann = 0;         //temporary manoeuvre variable
+    //loop while not returning to start
+    while (!returning) {
         
+        //temporary timer and manoeuvre variables
+        unsigned char timerH = 0;
+        unsigned char timerL = 0;
+        unsigned char mann = 0;
+        
+        //set timer to zero, start timer and drive forward
         reset_timer();
         start_timer();
-        fullSpeedAhead(mL, mR);         //go forward continuously
+        fullSpeedAhead(mL, mR);
         
-        wait_for_wall(p2, lost_flag);   //wait until wall detected or lost flag
+        //wait until a wall is detected or lost flag
+        wait_for_wall(p2, lost_flag);
         
-        read_timer(&timerH, &timerL);
+        //stop timer, read the timer registers and stop driving
         stop_timer();
-        stop(mL, mR);                   //stop motors
+        read_timer(&timerH, &timerL);
+        stop(mL, mR);
         
-        toggle_tricolour_LED();         //turn on tricolour LED
+        //turn on tricolour LED and wait a moment
+        toggle_tricolour_LED();
         __delay_ms(200);
         
+        //sample RGBC, apply scaling, convert to HSV and obtain a manoeuvre key
         average_RGBC(p2);
         scale_RGB(p2);
-
         convert_HSV(p1, p2);
         mann = colour_to_key(p1, p2);
         
-        toggle_tricolour_LED();         //turn off tricolour LED
+        //turn off tricolour LED and wait a moment
+        toggle_tricolour_LED();
         __delay_ms(200);
+        
+        //if lost flag raised from timer overflow
+        if (lost_flag) {
+            
+            //write maximum 16-bit value to timer variables
+            timerH = 0b11111111;
+            timerL = 0b11111111;
+            
+            //white card manoeuvre allows buggy to U turn
+            mann = 8;
+            
+            //toggle LED corresponding to lost condition
+            LATDbits.LATD7 = !LATDbits.LATD7;
+        }
+        
+        //if lost condition triggered due to memory end reached
+        if (manoeuvre_count == 19) {
+            
+            //white card manoeuvre allows buggy to U turn
+            mann = 8;
+            
+            //toggle LED corresponding to lost condition
+            LATDbits.LATD7 = !LATDbits.LATD7;
+        }
+        
+        //write temporary variables to memory
+        write_trail(timerH, timerL, mann);
+        
+        //perform manoeuvre based on manoeuvre key
+        pick_card(mL, mR, returning, mann);
+        
+        //if white card detected or lost condition triggered
+        if (mann == 8) {
+            
+            //trigger returning condition
+            returning = 1;
+            
+            //toggle LED corresponding to returning condition
+            LATHbits.LATH3 = !LATHbits.LATH3;
+        }
         
 #if SERIAL_FEEDBACK
         sendRGBCvalSerial4(p2);
         sendHSVvalSerial4(p1);
-#endif
-        
-        /***************************************************************
-         * By the time the read_timer above is performed, the timer
-         * registers will have already overflowed
-         * 
-         * The if-statement below writes the maximum 8-bit values to
-         * the temporary variables instead
-        ***************************************************************/
-        if (lost_flag) {                    //if lost
-            timerH = 0b11111111;
-            timerL = 0b11111111;
-            mann = 8;
-            LATDbits.LATD7 = !LATDbits.LATD7;
-        }
-        
-        if (manoeuvre_count == 19) {        //when counter is at the last memory
-            mann = 8;
-        }
-        
-        write_trail(timerH, timerL, mann);          //write variables to memory
-        pick_card(mL, mR, returning, mann);         //perform manoeuvre
-        
-        if (mann == 8) {                            
-            returning = 1;
-            LATHbits.LATH3 = !LATHbits.LATH3;
-        }
-#if SERIAL_FEEDBACK
         sendArrayCharSerial4(trail_timer_high);
         sendArrayCharSerial4(trail_timer_low);
         sendArrayCharSerial4(trail_manoeuvre);
@@ -185,32 +205,46 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
 *******************************************************************************/
 void return_to_sender(DC_motor *mL, DC_motor *mR)
 {
-    while (manoeuvre_count != 0) {      //loop until all manoeuvres performed
-        unsigned char timerH = 0;       //temporary timer high variable
-        unsigned char timerL = 0;       //temporary timer low variable
-        unsigned char mann = 0;         //temporary manoeuvre variable
+    //loop until all manoeuvres performed
+    while (manoeuvre_count != 0) {
         
-        read_trail(&timerH, &timerL, &mann);    //read variables from memory
+        //temporary timer and manoeuvre variables
+        unsigned char timerH = 0;
+        unsigned char timerL = 0;
+        unsigned char mann = 0;
+        
+        //read variables from memory
+        read_trail(&timerH, &timerL, &mann);
+        
+        //perform manoeuvre but ignore white card instruction
+        if (mann != 8) {
+            pick_card(mL, mR, returning, mann);
+        }
+        
+        //toggle main beam for road safety
+        toggle_main_beam();
+        
+        //write timer, start timer and drive forwards
+        write_timer(0b11111111 - timerH, 0b11111111 - timerL);
+        start_timer();
+        fullSpeedAhead(mL, mR);
+        
+        //wait until timer overflow raises return flag
+        while (!return_flag);
+        
+        //stop driving, stop timer and lower return flag
+        stop(mL, mR);
+        stop_timer();
+        return_flag = 0;
+        
+        //toggle main beam for road safety
+        toggle_main_beam();
+        
 #if SERIAL_FEEDBACK
         sendIntSerial4(timerH);                 //send to serial for debugging
         sendIntSerial4(timerL);                 //send to serial for debugging
         sendIntSerial4(mann);                   //send to serial for debugging
 #endif
-        if (mann != 8) {                        //ignore white card instruction
-            pick_card(mL, mR, returning, mann); //perform manoeuvre
-        }
-        
-        toggle_main_beam();
-        write_timer(0b11111111 - timerH, 0b11111111 - timerL);
-        start_timer();
-        fullSpeedAhead(mL, mR);         //go forward continuously
-        
-        while (!return_flag);           //wait until timer overflows
-        
-        stop(mL, mR);                   //stop motors
-        stop_timer();
-        return_flag = 0;                //reset return flag
-        toggle_main_beam();
     }
 }
 
@@ -219,12 +253,17 @@ void return_to_sender(DC_motor *mL, DC_motor *mR)
 *******************************************************************************/
 void __interrupt() ISR()
 {
-    if (PIR0bits.TMR0IF) {              //when timer interrupt flag is raised
-        if (returning) {                //is backtracking
-            return_flag = 1;            //raise return flag
-        } else {                        //is not backtracking
-            lost_flag = 1;              //raise lost flag
+    //when timer interrupt flag is raised
+    if (PIR0bits.TMR0IF) {
+        if (returning) {
+            //raise return flag if buggy is returning to start
+            return_flag = 1;
+        } else {
+            //raise lost flag is buggy is not returning to start
+            lost_flag = 1;
         }
-        PIR0bits.TMR0IF = 0;            //reset timer interrupt flag
+        
+        //lower timer interrupt flag
+        PIR0bits.TMR0IF = 0;
     }
 }

@@ -24118,7 +24118,6 @@ unsigned char __t3rd16on(void);
 
 
 void buggy_lights_init(void);
-
 void toggle_brake_lights(void);
 void toggle_headlamps(void);
 void toggle_main_beam(void);
@@ -24303,31 +24302,26 @@ void sendHSVvalSerial4(HSV_val *col_val);
 unsigned char returning = 0;
 unsigned char return_flag = 0;
 unsigned char lost_flag = 0;
-# 25 "./timers.h"
-unsigned char trail_timer_high[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-unsigned char trail_timer_low[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-unsigned char trail_manoeuvre[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-# 37 "./timers.h"
+# 26 "./timers.h"
+unsigned char trail_timer_high[20] = {0};
+unsigned char trail_timer_low[20] = {0};
+unsigned char trail_manoeuvre[20] = {0};
+# 41 "./timers.h"
 unsigned char *timer_high_pointer = &trail_timer_high[0];
 unsigned char *timer_low_pointer = &trail_timer_low[0];
 unsigned char *manoeuvre_pointer = &trail_manoeuvre[0];
 unsigned char manoeuvre_count = 0;
 
 void Timer0_init(void);
-
 void start_timer(void);
 void stop_timer(void);
-
 void read_timer(unsigned char *tH, unsigned char *tL);
 void write_timer(unsigned char tH, unsigned char tL);
 void reset_timer(void);
-
 void read_trail(unsigned char *tH, unsigned char *tL, unsigned char *man);
 void write_trail(unsigned char tH, unsigned char tL, unsigned char man);
-
 void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2);
 void return_to_sender(DC_motor *mL, DC_motor *mR);
-
 void __attribute__((picinterrupt(("")))) ISR();
 # 22 "main.c" 2
 
@@ -24391,13 +24385,18 @@ void main(void) {
         ANSELFbits.ANSELF2 = 0;
         ANSELFbits.ANSELF3 = 0;
 
+
     while (PORTFbits.RF3);
+
+
     LATDbits.LATD7 = !LATDbits.LATD7;
     LATHbits.LATH3 = !LATHbits.LATH3;
+
+
     _delay((unsigned long)((1000)*(64000000/4000.0)));
 
 
     forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
     return_to_sender(&motorL, &motorR);
-# 174 "main.c"
+# 189 "main.c"
 }

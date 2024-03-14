@@ -292,14 +292,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "20 C:\Program Files\Microchip\xc8\v2.45\pic\include\builtins.h
 [v __delay `JF205 ~T0 @X0 0 e ]
 [p i __delay ]
-"13 ./buggy_lights.h
-[; ;./buggy_lights.h: 13: void toggle_left_indicators(void);
+"12 ./buggy_lights.h
+[; ;./buggy_lights.h: 12: void toggle_left_indicators(void);
 [v _toggle_left_indicators `(v ~T0 @X0 0 ef ]
-"14
-[; ;./buggy_lights.h: 14: void toggle_right_indicators(void);
+"13
+[; ;./buggy_lights.h: 13: void toggle_right_indicators(void);
 [v _toggle_right_indicators `(v ~T0 @X0 0 ef ]
-"10
-[; ;./buggy_lights.h: 10: void toggle_brake_lights(void);
+"9
+[; ;./buggy_lights.h: 9: void toggle_brake_lights(void);
 [v _toggle_brake_lights `(v ~T0 @X0 0 ef ]
 "54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
