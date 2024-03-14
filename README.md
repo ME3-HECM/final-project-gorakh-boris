@@ -2,14 +2,18 @@
 # Course project - Mine navigation search and rescue
 
 ### Contents
-1. Challenge brief
-2. Overall Program Flow
-3. Colour reading and navigation functions
-4. Backtracking functions
-5. Different Test Modes
-6. Test Maze 
+1. Overall Program Flow
+2. Colour reading and navigation functions
+3. Backtracking functions
+4. Different Test Modes
+5. Test Maze
+6. Challenge brief
 
-## 1. Challenge brief
+
+## 1. Overall Program Flow
+[Drawing3.pdf](https://github.com/ME3-HECM/final-project-gorakh-boris/files/14604898/Drawing3.pdf)
+
+## 6. Challenge brief
 
 Your task is to develop an autonomous robot that can navigate a "mine" using a series of instructions coded in coloured cards and return to its starting position.  Your robot must be able to perform the following: 
 
