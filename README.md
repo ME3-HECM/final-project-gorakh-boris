@@ -3,7 +3,7 @@
 
 ### Contents
 1. Overall Program Flow
-2. Colour reading and navigation functions
+2. Colour reading and manoeuvre functions
 3. Backtracking functions
 4. Different Test Modes
 5. Test Maze
@@ -25,14 +25,25 @@ When returing, before the buggy moves forward the timer values is set to the max
 
 We only use one ISR and it is only triggered when the timer interrupts. The timer interrupt is used for two cases: 
 1) returning is 0
-   When returning is 0, the buggy is executing the forward_navigation code. As a result, 
-   the interrupt will be due to the buggy moving forward for a time longer than roughly 67 
-   seconds. This means that the buggy is no longer able to store the correct time for 
-   moving forward. As a result, if this happens, then the lost flag is raised to 1.
-2) returning is 1
-   Here, the interrupt is used to set the return_flag to 1 which then causes the buggy to 
-   stop and reset the whole return_to_sender loop.
 
+When returning is 0, the buggy is executing the forward_navigation code. As a result, 
+the interrupt will be due to the buggy moving forward for a time longer than roughly 67 
+seconds. This means that the buggy is no longer able to store the correct time for 
+moving forward. As a result, if this happens, then the lost flag is raised to 1.
+
+
+2) returning is 1
+
+Here, the interrupt is used to set the return_flag to 1 which then causes the buggy to 
+stop and reset the whole return_to_sender loop.
+
+
+## Colour reading and manoeuvre functions
+
+
+To read the colour card given to us, first we read the values from the TCS colour sensor which gave a 16-bit number for red, green, blue and clear colour values of whatever the sensor the reads and sent that data to serial. The data from serial was stored and the RGB values (still in 16-bit ie values ranging from 0 - 65535) for the different colours were stored. However, we realised that as we moved the buggy slightly away from the colour cards then the values would drop noticeably. 
+We then decided to convert RGB to HSV (Hue, Saturation and Value). The hue and saturation were found to be less sensitve to distance from the colour card compared to RGB values. 
+![image](https://github.com/ME3-HECM/final-project-gorakh-boris/assets/77344223/d0363b22-7716-4718-a7b0-73658fe12174)
 
 
 
