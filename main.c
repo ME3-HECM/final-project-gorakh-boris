@@ -125,12 +125,12 @@ void main(void) {
     //while (1) {fullSpeedAhead(&motorL, &motorR);}
     
     for (unsigned char i = 0; i < 4; i++) {
-        turnLeft90(&motorL, &motorR);
-        turnRight90(&motorL, &motorR);
-        turnLeft135(&motorL, &motorR);
-        turnRight135(&motorL, &motorR);
+        //turnLeft90(&motorL, &motorR);
+        //turnRight90(&motorL, &motorR);
+        //turnLeft135(&motorL, &motorR);
+        //turnRight135(&motorL, &motorR);
         UTurn(&motorL, &motorR);
-        break;
+        //break;
     }
 #endif
 

@@ -24146,10 +24146,10 @@ unsigned char turningRightGear = 40;
 unsigned char rampDelay = 8;
 
 unsigned int turnLeft90Delay = 84;
-unsigned int turnRight90Delay = 108;
+unsigned int turnRight90Delay = 92;
 unsigned int turnLeft135Delay = 250;
 unsigned int turnRight135Delay = 262;
-unsigned int turn180Delay = 400;
+unsigned int turn180Delay = 380;
 
 unsigned int headbuttDelay = 820;
 unsigned int squareDelay = 2440;
@@ -24480,7 +24480,8 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
         }
 
 
-        if (manoeuvre_count == 19 || mann == 9) {
+
+        if (manoeuvre_count == 19 || mann == 9 || mann == 0) {
 
 
             mann = 8;
@@ -24504,7 +24505,7 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
 
             LATHbits.LATH3 = !LATHbits.LATH3;
         }
-# 200 "timers.c"
+# 201 "timers.c"
     }
 }
 

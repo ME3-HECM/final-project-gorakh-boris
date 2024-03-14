@@ -2324,10 +2324,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 84 `i `ui
 ]
 "32
-[; ;./dc_motor.h: 32: unsigned int turnRight90Delay = 108;
+[; ;./dc_motor.h: 32: unsigned int turnRight90Delay = 92;
 [v _turnRight90Delay `ui ~T0 @X0 1 e ]
 [i _turnRight90Delay
--> -> 108 `i `ui
+-> -> 92 `i `ui
 ]
 "33
 [; ;./dc_motor.h: 33: unsigned int turnLeft135Delay = 250;
@@ -2342,10 +2342,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 262 `i `ui
 ]
 "35
-[; ;./dc_motor.h: 35: unsigned int turn180Delay = 400;
+[; ;./dc_motor.h: 35: unsigned int turn180Delay = 380;
 [v _turn180Delay `ui ~T0 @X0 1 e ]
 [i _turn180Delay
--> -> 400 `i `ui
+-> -> 380 `i `ui
 ]
 "37
 [; ;./dc_motor.h: 37: unsigned int headbuttDelay = 820;

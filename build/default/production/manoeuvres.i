@@ -24141,10 +24141,10 @@ unsigned char turningRightGear = 40;
 unsigned char rampDelay = 8;
 
 unsigned int turnLeft90Delay = 84;
-unsigned int turnRight90Delay = 108;
+unsigned int turnRight90Delay = 92;
 unsigned int turnLeft135Delay = 250;
 unsigned int turnRight135Delay = 262;
-unsigned int turn180Delay = 400;
+unsigned int turn180Delay = 380;
 
 unsigned int headbuttDelay = 820;
 unsigned int squareDelay = 2440;

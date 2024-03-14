@@ -29,10 +29,10 @@ unsigned char turningRightGear = 40;        //power from 0 to 100
 unsigned char rampDelay = 8;                //delay in ms
 
 unsigned int turnLeft90Delay = 84;         //delay in ms
-unsigned int turnRight90Delay = 108;        //delay in ms
+unsigned int turnRight90Delay = 92;        //delay in ms
 unsigned int turnLeft135Delay = 250;        //delay in ms
 unsigned int turnRight135Delay = 262;       //delay in ms
-unsigned int turn180Delay = 400;            //delay in ms
+unsigned int turn180Delay = 380;            //delay in ms
 
 unsigned int headbuttDelay = 820;            //delay in ms
 unsigned int squareDelay = 2440;             //delay in ms
