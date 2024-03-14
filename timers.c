@@ -164,8 +164,8 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
             LATDbits.LATD7 = !LATDbits.LATD7;
         }
         
-        //if lost condition triggered due to memory end reached
-        if (manoeuvre_count == 19) {
+        //if lost condition triggered due to memory end reached or black card
+        if (manoeuvre_count == 19 || mann == 9) {
             
             //white card manoeuvre allows buggy to U turn
             mann = 8;

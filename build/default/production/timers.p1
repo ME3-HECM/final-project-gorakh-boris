@@ -2625,8 +2625,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2030 ]
 "168
-[; ;timers.c: 168:         if (manoeuvre_count == 19) {
-[e $ ! == -> _manoeuvre_count `i -> 19 `i 2031  ]
+[; ;timers.c: 168:         if (manoeuvre_count == 19 || mann == 9) {
+[e $ ! || == -> _manoeuvre_count `i -> 19 `i == -> _mann `i -> 9 `i 2031  ]
 {
 "171
 [; ;timers.c: 171:             mann = 8;

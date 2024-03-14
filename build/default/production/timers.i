@@ -24480,7 +24480,7 @@ void forward_navigation(DC_motor *mL, DC_motor *mR, HSV_val *p1, RGBC_val *p2)
         }
 
 
-        if (manoeuvre_count == 19) {
+        if (manoeuvre_count == 19 || mann == 9) {
 
 
             mann = 8;
