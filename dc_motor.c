@@ -25,13 +25,14 @@ void initDCmotorsPWM(unsigned int PWMperiod){
     T2CONbits.CKPS=0b100; // 1:16 prescaler
     T2HLTbits.MODE=0b00000; // Free Running Mode, software gate only
     T2CLKCONbits.CS=0b0001; // Fosc/4
-
-    // Tpwm*(Fosc/4)/prescaler - 1 = PTPER
-    // 0.0001s*16MHz/16 -1 = 99
+    /***********************************************************************
+     * Tpwm*(Fosc/4)/prescaler - 1 = PTPER
+     * 0.0001s*16MHz/16 -1 = 99
+    ***********************************************************************/
     T2PR=(unsigned char)PWMperiod; //Period reg 10kHz base period
     T2CONbits.ON=1;
     
-    //setup CCP modules to output PMW signals
+    /* setup CCP modules to output PMW signals */
         //initial duty cycles 
         CCPR1H=0; 
         CCPR2H=0; 
@@ -92,12 +93,21 @@ void setMotorPWM(DC_motor *m)
 *******************************************************************************/
 void stop(DC_motor *mL, DC_motor *mR)
 {
-    while ((mL->power>0) || (mR->power>0)){ //loop until both powers are 0
-        if (mL->power>0) {mL->power--;}     //only reduce left power if above 0
-        if (mR->power>0) {mR->power--;}     //only reduce right power if above 0
+    //loop until both motor powers are 0
+    while ((mL->power > 0) || (mR->power > 0)){
+        
+        //only reduce left power if above 0
+        if (mL->power > 0) {mL->power--;}
+        
+        //only reduce right power if above 0
+        if (mR->power > 0) {mR->power--;}
+        
+        //set motor parameters
         setMotorPWM(mL);
         setMotorPWM(mR);
-        __delay_ms(rampDelay);          //delay allows for smooth deceleration
+        
+        //delay allows for smooth deceleration
+        __delay_ms(rampDelay);
     }
 }
 
@@ -106,16 +116,29 @@ void stop(DC_motor *mL, DC_motor *mR)
 *******************************************************************************/
 void turnLeft(DC_motor *mL, DC_motor *mR)
 {
-    unsigned char leftGear = turningLeftGear;   //set target power of left motor
-    unsigned char rightGear = turningLeftGear;  //set target power of right motor
-    (mL->direction) = 0;                //set backward direction of left motor
-    (mR->direction) = 1;                //set forward direction of right motor
-    while ((mL->power<leftGear) || (mR->power<rightGear)){
-        if (mL->power<leftGear) {mL->power++;}
-        if (mR->power<rightGear) {mR->power++;}
+    //assign motor power targets
+    unsigned char leftGear = turningLeftGear;                   //left motor
+    unsigned char rightGear = turningLeftGear;                  //right motor
+    
+    //assign motor directions
+    (mL->direction) = 0;                                        //left motor
+    (mR->direction) = 1;                                        //right motor
+    
+    //loop until both motor powers reach targets
+    while ((mL->power < leftGear) || (mR->power < rightGear)){
+        
+        //only increase left power if less than target
+        if (mL->power < leftGear) {mL->power++;}
+        
+        //only increase right power if less than target
+        if (mR->power < rightGear) {mR->power++;}
+        
+        //set motor parameters
         setMotorPWM(mL);
         setMotorPWM(mR);
-        __delay_ms(rampDelay);          //delay allows for smooth deceleration
+        
+        //delay allows for smooth acceleration
+        __delay_ms(rampDelay);
     }
 }
 
@@ -124,16 +147,29 @@ void turnLeft(DC_motor *mL, DC_motor *mR)
 *******************************************************************************/
 void turnRight(DC_motor *mL, DC_motor *mR)
 {
-    unsigned char leftGear = turningRightGear;   //set target power of left motor
-    unsigned char rightGear = turningRightGear;  //set target power of right motor
-    (mL->direction) = 1;                //set forward direction of left motor
-    (mR->direction) = 0;                //set backward direction of right motor
-    while ((mL->power<leftGear) || (mR->power<rightGear)){
-        if (mL->power<leftGear) {mL->power++;}
-        if (mR->power<rightGear) {mR->power++;}
+    //assign motor power targets
+    unsigned char leftGear = turningRightGear;                  //left motor
+    unsigned char rightGear = turningRightGear;                 //right motor
+    
+    //assign motor directions
+    (mL->direction) = 1;                                        //left motor
+    (mR->direction) = 0;                                        //right motor
+    
+    //loop until both motor powers reach targets
+    while ((mL->power < leftGear) || (mR->power < rightGear)){
+        
+        //only increase left power if less than target
+        if (mL->power < leftGear) {mL->power++;}
+        
+        //only increase right power if less than target
+        if (mR->power < rightGear) {mR->power++;}
+        
+        //set motor parameters
         setMotorPWM(mL);
         setMotorPWM(mR);
-        __delay_ms(rampDelay);          //delay allows for smooth deceleration
+        
+        //delay allows for smooth acceleration
+        __delay_ms(rampDelay);
     }
 }
 
@@ -141,17 +177,30 @@ void turnRight(DC_motor *mL, DC_motor *mR)
  * Function to make the robot go straight continuously
 *******************************************************************************/
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
-{    
-    unsigned char leftGear = topGearLeft;   //set target power of left motor
-    unsigned char rightGear = topGearRight; //set target power of right motor
-    (mL->direction) = 1;                //set forward direction of left motor
-    (mR->direction) = 1;                //set forward direction of right motor
-    while ((mL->power<leftGear) || (mR->power<rightGear)){
-        if (mL->power<leftGear) {mL->power++;}
-        if (mR->power<rightGear) {mR->power++;}
+{
+    //assign motor power targets
+    unsigned char leftGear = topGearLeft;                       //left motor
+    unsigned char rightGear = topGearRight;                     //right motor
+    
+    //assign motor directions
+    (mL->direction) = 1;                                        //left motor
+    (mR->direction) = 1;                                        //right motor
+    
+    //loop until both motor powers reach targets
+    while ((mL->power < leftGear) || (mR->power < rightGear)){
+        
+        //only increase left power if less than target
+        if (mL->power < leftGear) {mL->power++;}
+        
+        //only increase right power if less than target
+        if (mR->power < rightGear) {mR->power++;}
+        
+        //set motor parameters
         setMotorPWM(mL);
         setMotorPWM(mR);
-        __delay_ms(rampDelay);          //delay allows for smooth deceleration
+        
+        //delay allows for smooth acceleration
+        __delay_ms(rampDelay);
     }
 }
 
@@ -160,16 +209,29 @@ void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
 *******************************************************************************/
 void fullSpeedReverse(DC_motor *mL, DC_motor *mR)
 {
-    unsigned char leftGear = bottomGearLeft;   //set target power of left motor
-    unsigned char rightGear = bottomGearRight; //set target power of right motor
-    (mL->direction) = 0;                //set reverse direction of left motor
-    (mR->direction) = 0;                //set reverse direction of right motor
-    while ((mL->power<leftGear) || (mR->power<rightGear)){
-        if (mL->power<leftGear) {mL->power++;}
-        if (mR->power<rightGear) {mR->power++;}
+    //assign motor power targets
+    unsigned char leftGear = bottomGearLeft;                    //left motor
+    unsigned char rightGear = bottomGearRight;                  //right motor
+    
+    //assign motor directions
+    (mL->direction) = 0;                                        //left motor
+    (mR->direction) = 0;                                        //right motor
+    
+    //loop until both motor powers reach targets
+    while ((mL->power < leftGear) || (mR->power < rightGear)){
+        
+        //only increase left power if less than target
+        if (mL->power < leftGear) {mL->power++;}
+        
+        //only increase right power if less than target
+        if (mR->power < rightGear) {mR->power++;}
+        
+        //set motor parameters
         setMotorPWM(mL);
         setMotorPWM(mR);
-        __delay_ms(rampDelay);          //delay allows for smooth deceleration
+        
+        //delay allows for smooth acceleration
+        __delay_ms(rampDelay);
     }
 }
 
@@ -178,13 +240,11 @@ void fullSpeedReverse(DC_motor *mL, DC_motor *mR)
 *******************************************************************************/
 void turnLeft90(DC_motor *mL, DC_motor *mR)
 {
-    toggle_left_indicators();
-    
+    toggle_left_indicators();           //indicate left for road safety
     turnLeft(mL, mR);                   //set motors to continuously turn left
     __delay_ms(turnLeft90Delay);        //adjust delay until 90 degrees
     stop(mL, mR);                       //stop motors
-    
-    toggle_left_indicators();
+    toggle_left_indicators();           //indicate left for road safety
 }
 
 /*******************************************************************************
@@ -192,13 +252,11 @@ void turnLeft90(DC_motor *mL, DC_motor *mR)
 *******************************************************************************/
 void turnRight90(DC_motor *mL, DC_motor *mR)
 {
-    toggle_right_indicators();
-    
+    toggle_right_indicators();          //indicate right for road safety
     turnRight(mL, mR);                  //set motors to continuously turn right
     __delay_ms(turnRight90Delay);       //adjust delay until 90 degrees
     stop(mL, mR);                       //stop motors
-    
-    toggle_right_indicators();
+    toggle_right_indicators();          //indicate right for road safety
 }
 
 /*******************************************************************************
@@ -206,13 +264,11 @@ void turnRight90(DC_motor *mL, DC_motor *mR)
 *******************************************************************************/
 void turnLeft135(DC_motor *mL, DC_motor *mR)
 {
-    toggle_left_indicators();
-    
+    toggle_left_indicators();           //indicate left for road safety
     turnLeft(mL, mR);                   //set motors to continuously turn left
     __delay_ms(turnLeft135Delay);       //adjust delay until 135 degrees
     stop(mL, mR);                       //stop motors
-    
-    toggle_left_indicators();
+    toggle_left_indicators();           //indicate left for road safety
 }
 
 /*******************************************************************************
@@ -220,13 +276,11 @@ void turnLeft135(DC_motor *mL, DC_motor *mR)
 *******************************************************************************/
 void turnRight135(DC_motor *mL, DC_motor *mR)
 {
-    toggle_right_indicators();
-    
+    toggle_right_indicators();          //indicate right for road safety
     turnRight(mL, mR);                  //set motors to continuously turn right
     __delay_ms(turnRight135Delay);      //adjust delay until 135 degrees
     stop(mL, mR);                       //stop motors
-    
-    toggle_right_indicators();
+    toggle_right_indicators();          //indicate right for road safety
 }
 
 /*******************************************************************************
@@ -234,15 +288,13 @@ void turnRight135(DC_motor *mL, DC_motor *mR)
 *******************************************************************************/
 void UTurn(DC_motor *mL, DC_motor *mR)
 {
-    toggle_left_indicators();
-    toggle_right_indicators();
-    
+    toggle_left_indicators();           //hazard warning lights for road safety
+    toggle_right_indicators();          //hazard warning lights for road safety
     turnLeft(mL, mR);                   //set motors to continuously turn left
     __delay_ms(turn180Delay);           //adjust delay until 180 degrees
     stop(mL, mR);                       //stop motors
-    
-    toggle_left_indicators();
-    toggle_right_indicators();
+    toggle_left_indicators();           //hazard warning lights for road safety
+    toggle_right_indicators();          //hazard warning lights for road safety
 }
 
 /*******************************************************************************
@@ -250,13 +302,11 @@ void UTurn(DC_motor *mL, DC_motor *mR)
 *******************************************************************************/
 void headbuttReverse(DC_motor *mL, DC_motor *mR)
 {
-    toggle_brake_lights();
-    
+    toggle_brake_lights();              //reversing lights for road safety
     fullSpeedReverse(mL, mR);           //set motors to continuously go reverse
     __delay_ms(headbuttDelay);          //adjust delay until centre of square
     stop(mL, mR);                       //stop motors
-    
-    toggle_brake_lights();
+    toggle_brake_lights();              //reversing lights for road safety
 }
 
 /*******************************************************************************
@@ -264,11 +314,9 @@ void headbuttReverse(DC_motor *mL, DC_motor *mR)
 *******************************************************************************/
 void squareReverse(DC_motor *mL, DC_motor *mR)
 {
-    toggle_brake_lights();
-    
+    toggle_brake_lights();              //reversing lights for road safety
     fullSpeedReverse(mL, mR);           //set motors to continuously go reverse
     __delay_ms(squareDelay);            //adjust delay until 1 square length
     stop(mL, mR);                       //stop motors
-    
-    toggle_brake_lights();
+    toggle_brake_lights();              //reversing lights for road safety
 }

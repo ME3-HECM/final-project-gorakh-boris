@@ -6,7 +6,8 @@
 
 #define _XTAL_FREQ 64000000
 
-typedef struct DC_motor {               //definition of DC_motor structure
+//define DC_motor structure
+typedef struct DC_motor {
     char power;                         //motor power: out of 100
     char direction;                     //motor direction: forward(1), reverse(0)
     char brakemode;                     //short or fast decay (brake or coast)
@@ -14,8 +15,6 @@ typedef struct DC_motor {               //definition of DC_motor structure
     unsigned char *posDutyHighByte;     //PWM duty address for motor +ve side
     unsigned char *negDutyHighByte;     //PWM duty address for motor -ve side
 } DC_motor;
-
-unsigned char rampDelay = 8;                //delay in ms
 
 unsigned char topGearLeft = 20;             //power from 0 to 100
 unsigned char topGearRight = 20;            //power from 0 to 100
@@ -27,6 +26,8 @@ unsigned char turningLeftGear = 40;         //power from 0 to 100
 unsigned char turningRightGear = 40;        //power from 0 to 100
 
 //maximum value for __delay_ms(); is 3153
+unsigned char rampDelay = 8;                //delay in ms
+
 unsigned int turnLeft90Delay = 84;         //delay in ms
 unsigned int turnRight90Delay = 108;        //delay in ms
 unsigned int turnLeft135Delay = 250;        //delay in ms

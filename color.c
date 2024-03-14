@@ -22,8 +22,8 @@ void color_click_init(void)
 
 /*******************************************************************************
  * Function to write to the colour click module
- * address is the register within the colour click to write to
- * value is the value that will be written to that address
+ * Address is the register within the colour click to write to
+ * Value is the value that will be written to that address
 *******************************************************************************/
 void color_writetoaddr(char address, char value){
     I2C_2_Master_Start();                   //Start condition
@@ -109,17 +109,17 @@ unsigned int color_read_Clear(void)
  * Function to update structure variables (RGBC) in RGBCval
  * Updates variables R, G, B, C with the values read
 *******************************************************************************/
-void getRGBCval(struct RGBC_val *p)
+void read_RGBC(struct RGBC_val *p)
 {
-    p->R = color_read_Red();                //value of p = color_read_Red(), stored in RBGC_val variable R
-    p->G = color_read_Green();              //value of p = color_read_Green(), stored in RBGC_val variable G
-    p->B = color_read_Blue();               //value of p = color_read_Blue(), stored in RBGC_val variable B
-    p->C = color_read_Clear();              //value of p = color_read_Clear(), stored in RBGC_val variable C
+    p->R = color_read_Red();
+    p->G = color_read_Green();
+    p->B = color_read_Blue();
+    p->C = color_read_Clear();
     
 }
 
 /*******************************************************************************
- * Function to sample RGBC values X number of times and take an average
+ * Function to sample RGBC values multiple times and take an average
 *******************************************************************************/
 void average_RGBC(struct RGBC_val *p)
 {
@@ -129,13 +129,12 @@ void average_RGBC(struct RGBC_val *p)
     unsigned long temp_B = 0;
     unsigned long temp_C = 0;
     
-    /***********************************************************************
-     * for some reason this for loop doesn't happen all the time
-     * fixed by assigning zero to variable i
-    ***********************************************************************/
+    //loop sample_count times
     for (unsigned char i = 0; i < sample_count; i++) {
+        
         //take colour measurement
-        getRGBCval(p);
+        read_RGBC(p);
+        
         //add colour measurement to temporary variables
         temp_R += (unsigned long)p->R;
         temp_G += (unsigned long)p->G;
@@ -161,11 +160,14 @@ void average_RGBC(struct RGBC_val *p)
 *******************************************************************************/
 void wait_for_wall(struct RGBC_val *p, unsigned char loss)
 {
-    while (!loss) {                     //loop while lost flag isn't raised
-        getRGBCval(p);                  //read RGBC values from colour click
-        if (p->C < wall_threshold_clear) {    //if clear channel drops below threshold
-            break;                      //break loop and proceed
-        }
+    //loop until lost_flag raised
+    while (!loss) {
+        
+        //read RGBC values from colour click
+        read_RGBC(p);
+        
+        //when clear channel drops below threshold, break loop and proceed
+        if (p->C < wall_threshold_clear) {break;}
     }
 }
 
@@ -206,7 +208,7 @@ void scale_RGB(struct RGBC_val *p)
  * https://en.wikipedia.org/wiki/HSL_and_HSV
  * https://www.rapidtables.com/convert/color/rgb-to-hsv.html
 *******************************************************************************/
-void convert_HSV(struct HSV_val *p1,struct RGBC_val *p2)
+void convert_HSV(struct HSV_val *p1, struct RGBC_val *p2)
 {
     unsigned int hue = 0;                   //hue value
     unsigned int sat = 0;                   //saturation value
@@ -217,15 +219,15 @@ void convert_HSV(struct HSV_val *p1,struct RGBC_val *p2)
     unsigned int m = min_RGB(p2);            //minimum value within RGB
     unsigned int C = M - m;                 //range of RGB (maximum - minimum)
     
-    if (C == 0) {                   //C = 0 when grey scale
-        hue = 0;                    //h = 0 is arbitrary, prevents zero division
+    if (C == 0) {
+        hue = 0;
     } else {
         /***************************************************************
          * For each of the six cases below, the commented line shows the
          * actual equation to calculate the hue value
          * 
          * The lines of code underneath is written to calculate the hue
-         * value using a temporary long integer to prevent overflow bugs
+         * value using a temporary long integer to prevent overflow
          * 
          * Refer to README for how the equations were determined
         ***************************************************************/
@@ -294,7 +296,7 @@ void convert_HSV(struct HSV_val *p1,struct RGBC_val *p2)
         }
     }
     
-    if (M == 0) {                       //M = 0 when colour is completely black
+    if (M == 0) {
         sat = 0;
     } else {
         //sat = sat_scale * C / M;
@@ -307,63 +309,71 @@ void convert_HSV(struct HSV_val *p1,struct RGBC_val *p2)
     
     p1->H = hue;                            //assign hue
     p1->S = sat;                            //assign saturation
-    p1->V = M;                              //assign value = maximum RGB value
+    p1->V = M;                              //assign value = maximum RGB
 }
 
 /*******************************************************************************
- * Function that matches RGB values to a colour
- * It takes in a pointer that points to the RGBC_val 
- * The function compares the reading to a set of upperbound and lowerbound readings in this function
- * the upperbound and lowerbound readings are + or - 15% of the recorded reading from 1114-777.
- * Then if it matches any of th upperbound and lowerbound readings then it outputs a colour that the reading corresponds to
- * NOTE: the colour is outputted as a number from 1 - 8 as shown in the pick-card function above 
+ * Function that matches RGBC and HSV values to a colour
+ * The function compares the readings to a set of upper and lower bound readings
+ * Colour is outputted as a number from 1 - 9
 *******************************************************************************/
 unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2)
 {
+    //initial zero value for output
     unsigned char key = 0;
+    
+    //red (1)
     if ( ((293 <= p1->H) && (p1->H <= 360)) && 
          ((46 <= p1->S) && (p1->S <= 90))) { 
-        key = 1; //red 
+        key = 1;
     }
     
+    //green (2)
     if ( ((113 <= p1->H) && (p1->H <= 153)) && 
          ((13 <= p1->S) && (p1->S <= 43))) {
-        key = 2; //green
+        key = 2;
     }
 
+    //blue (3)
     if ( ((180 <= p1->H) && (p1->H <= 244)) && 
          ((13 <= p1->S) && (p1->S <= 56))) {
-        key = 3; //blue
+        key = 3;
     }
 
+    //yellow (4)
     if ( ((10 <= p1->H) && (p1->H <= 31)) && 
          ((17 <= p1->S) && (p1->S <= 32))) {
-        key = 4; //yellow
+        key = 4;
     }
 
+    //pink (5)
     if ( ((279 <= p1->H) && (p1->H <= 360)) && 
          ((11 <= p1->S) && (p1->S <= 15))) {
-        key = 5; //pink
+        key = 5;
     }
 
+    //orange (6)
     if ( ((298 <= p1->H) && (p1->H <= 360)) && 
          ((20 <= p1->S) && (p1->S <= 45))) {
-        key = 6; //orange
+        key = 6;
     }
 
+    //cyan (7)
     if ( ((154 <= p1->H) && (p1->H <= 207)) && 
          ((13 <= p1->S) && (p1->S <= 45))) {
-        key = 7; //cyan
+        key = 7;
     }
 
+    //white (8)
     if ( ((3000 <= p2->C) && (p2->C <= 40000)) && 
          ((p1->S <= 10))) {
-        key = 8; //white
+        key = 8;
     }
 
+    //black (9)
     if ( ((1000 <= p2->C) && (p2->C <= 2600)) && 
          ((p1->S <= 12))) {
-        key = 9; //black
+        key = 9;
     }
     
     return key;

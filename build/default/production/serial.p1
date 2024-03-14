@@ -61,12 +61,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "121 C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\stdio.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\stdio.h: 121: int sprintf(char *restrict, const char *restrict, ...);
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"13 ./color.h
-[; ;./color.h: 13: typedef struct RGBC_val {
+"16 ./color.h
+[; ;./color.h: 16: typedef struct RGBC_val {
 [s S2017 `ui 1 `ui 1 `ui 1 `ui 1 ]
 [n S2017 RGBC_val R G B C ]
-"21
-[; ;./color.h: 21: typedef struct HSV_val {
+"24
+[; ;./color.h: 24: typedef struct HSV_val {
 [s S2018 `ui 1 `ui 1 `ui 1 ]
 [n S2018 HSV_val H S V ]
 "54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
@@ -2043,14 +2043,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40592
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 40592: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"9 ./color.h
-[; ;./color.h: 9: unsigned char sample_count = 20;
+"10 ./color.h
+[; ;./color.h: 10: unsigned char sample_count = 20;
 [v _sample_count `uc ~T0 @X0 1 e ]
 [i _sample_count
 -> -> 20 `i `uc
 ]
-"10
-[; ;./color.h: 10: unsigned int wall_threshold_clear = 50;
+"13
+[; ;./color.h: 13: unsigned int wall_threshold_clear = 50;
 [v _wall_threshold_clear `ui ~T0 @X0 1 e ]
 [i _wall_threshold_clear
 -> -> 50 `i `ui

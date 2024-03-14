@@ -24118,6 +24118,7 @@ unsigned char __t3rd16on(void);
 
 
 void buggy_lights_init(void);
+
 void toggle_brake_lights(void);
 void toggle_headlamps(void);
 void toggle_main_beam(void);
@@ -24125,6 +24126,7 @@ void toggle_left_indicators(void);
 void toggle_right_indicators(void);
 void toggle_tricolour_LED(void);
 # 5 "./dc_motor.h" 2
+
 
 
 
@@ -24138,8 +24140,6 @@ typedef struct DC_motor {
     unsigned char *negDutyHighByte;
 } DC_motor;
 
-unsigned char rampDelay = 8;
-
 unsigned char topGearLeft = 20;
 unsigned char topGearRight = 20;
 
@@ -24149,6 +24149,8 @@ unsigned char bottomGearRight = 21;
 unsigned char turningLeftGear = 40;
 unsigned char turningRightGear = 40;
 
+
+unsigned char rampDelay = 8;
 
 unsigned int turnLeft90Delay = 84;
 unsigned int turnRight90Delay = 108;
@@ -24241,7 +24243,10 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 
 
 
+
 unsigned char sample_count = 20;
+
+
 unsigned int wall_threshold_clear = 50;
 
 
@@ -24265,8 +24270,7 @@ unsigned int color_read_Red(void);
 unsigned int color_read_Green(void);
 unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
-void getRGBCval(struct RGBC_val *p);
-
+void read_RGBC(struct RGBC_val *p);
 void average_RGBC(struct RGBC_val *p);
 void wait_for_wall(struct RGBC_val *p, unsigned char loss);
 unsigned int max_RGB(struct RGBC_val *p);
@@ -24390,7 +24394,7 @@ void main(void) {
     while (PORTFbits.RF3);
     LATDbits.LATD7 = !LATDbits.LATD7;
     LATHbits.LATH3 = !LATHbits.LATH3;
-     _delay((unsigned long)((1000)*(64000000/4000.0)));
+    _delay((unsigned long)((1000)*(64000000/4000.0)));
 
 
     forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);

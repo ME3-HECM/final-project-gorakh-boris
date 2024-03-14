@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.45 build 20230818022343 
-                                                                                               Thu Mar 14 11:44:57 2024
+                                                                                               Thu Mar 14 12:45:48 2024
 
 Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1 
      1                           	processor	18F67K40
@@ -153,26 +153,26 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    139                           ;initializer for _timer_high_pointer
    140   00396E  88                 	db	low _trail_timer_high
    141                           
-   142                           ;initializer for _turningRightGear
-   143   00396F  28                 	db	40
+   142                           ;initializer for _rampDelay
+   143   00396F  08                 	db	8
    144                           
-   145                           ;initializer for _turningLeftGear
+   145                           ;initializer for _turningRightGear
    146   003970  28                 	db	40
    147                           
-   148                           ;initializer for _bottomGearRight
-   149   003971  15                 	db	21
+   148                           ;initializer for _turningLeftGear
+   149   003971  28                 	db	40
    150                           
-   151                           ;initializer for _bottomGearLeft
-   152   003972  14                 	db	20
+   151                           ;initializer for _bottomGearRight
+   152   003972  15                 	db	21
    153                           
-   154                           ;initializer for _topGearRight
+   154                           ;initializer for _bottomGearLeft
    155   003973  14                 	db	20
    156                           
-   157                           ;initializer for _topGearLeft
+   157                           ;initializer for _topGearRight
    158   003974  14                 	db	20
    159                           
-   160                           ;initializer for _rampDelay
-   161   003975  08                 	db	8
+   160                           ;initializer for _topGearLeft
+   161   003975  14                 	db	20
    162                           
    163                           ;initializer for _sample_count
    164   003976  14                 	db	20
@@ -205,8 +205,8 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    191   000000                     _RC4STAbits	set	3815
    192   000000                     _SP4BRGH	set	3814
    193   000000                     _LATEbits	set	3965
-   194   000000                     _TRISEbits	set	3973
-   195   000000                     _LATGbits	set	3967
+   194   000000                     _LATGbits	set	3967
+   195   000000                     _TRISEbits	set	3973
    196   000000                     _TRISGbits	set	3975
    197   000000                     _LATFbits	set	3966
    198   000000                     _LATHbits	set	3968
@@ -397,25 +397,25 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    383   000051                     _timer_high_pointer:
    384                           	callstack 0
    385   000051                     	ds	1
-   386   000052                     _turningRightGear:
+   386   000052                     _rampDelay:
    387                           	callstack 0
    388   000052                     	ds	1
-   389   000053                     _turningLeftGear:
+   389   000053                     _turningRightGear:
    390                           	callstack 0
    391   000053                     	ds	1
-   392   000054                     _bottomGearRight:
+   392   000054                     _turningLeftGear:
    393                           	callstack 0
    394   000054                     	ds	1
-   395   000055                     _bottomGearLeft:
+   395   000055                     _bottomGearRight:
    396                           	callstack 0
    397   000055                     	ds	1
-   398   000056                     _topGearRight:
+   398   000056                     _bottomGearLeft:
    399                           	callstack 0
    400   000056                     	ds	1
-   401   000057                     _topGearLeft:
+   401   000057                     _topGearRight:
    402                           	callstack 0
    403   000057                     	ds	1
-   404   000058                     _rampDelay:
+   404   000058                     _topGearLeft:
    405                           	callstack 0
    406   000058                     	ds	1
    407   000059                     _sample_count:
@@ -635,7 +635,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    621                           
    622                           ; 4 bytes @ 0xA
    623   00000B                     	ds	1
-   624   00000C                     getRGBCval@p:
+   624   00000C                     read_RGBC@p:
    625                           	callstack 0
    626                           
    627                           ; 1 bytes @ 0xB
@@ -1301,7 +1301,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1282   0024E0  184B               	xorwf	??_main^0,w,c
   1283   0024E2  6E80               	movwf	128,c	;volatile
   1284   0024E4                     
-  1285                           ;main.c: 84:      _delay((unsigned long)((1000)*(64000000/4000.0)));
+  1285                           ;main.c: 84:     _delay((unsigned long)((1000)*(64000000/4000.0)));
   1286   0024E4  0E52               	movlw	82
   1287   0024E6  6E4C               	movwf	(??_main+1)^0,c
   1288   0024E8  0E2B               	movlw	43
@@ -1824,100 +1824,100 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1778   002D1A  6EBF               	movwf	191,c	;volatile
   1779   002D1C                     
   1780                           ; BSR set to: 14
-  1781                           ;dc_motor.c: 31:     T2PR=(unsigned char)PWMperiod;
+  1781                           ;dc_motor.c: 32:     T2PR=(unsigned char)PWMperiod;
   1782   002D1C  C001  FFBC         	movff	initDCmotorsPWM@PWMperiod,4028	;volatile
   1783   002D20                     
   1784                           ; BSR set to: 14
-  1785                           ;dc_motor.c: 32:     T2CONbits.ON=1;
+  1785                           ;dc_motor.c: 33:     T2CONbits.ON=1;
   1786   002D20  8EBD               	bsf	189,7,c	;volatile
   1787                           
-  1788                           ;dc_motor.c: 36:         CCPR1H=0;
+  1788                           ;dc_motor.c: 37:         CCPR1H=0;
   1789   002D22  0E00               	movlw	0
   1790   002D24  6EAA               	movwf	170,c	;volatile
   1791                           
-  1792                           ;dc_motor.c: 37:         CCPR2H=0;
+  1792                           ;dc_motor.c: 38:         CCPR2H=0;
   1793   002D26  0E00               	movlw	0
   1794   002D28  6EA6               	movwf	166,c	;volatile
   1795                           
-  1796                           ;dc_motor.c: 38:         CCPR3H=0;
+  1796                           ;dc_motor.c: 39:         CCPR3H=0;
   1797   002D2A  0E00               	movlw	0
   1798   002D2C  010F               	movlb	15	; () banked
   1799   002D2E  6F25               	movwf	37,b	;volatile
   1800                           
-  1801                           ;dc_motor.c: 39:         CCPR4H=0;
+  1801                           ;dc_motor.c: 40:         CCPR4H=0;
   1802   002D30  0E00               	movlw	0
   1803   002D32  6F21               	movwf	33,b	;volatile
   1804                           
-  1805                           ;dc_motor.c: 42:         CCPTMRS0bits.C1TSEL=0;
+  1805                           ;dc_motor.c: 43:         CCPTMRS0bits.C1TSEL=0;
   1806   002D34  0EFC               	movlw	-4
   1807   002D36  16AD               	andwf	173,f,c	;volatile
   1808                           
-  1809                           ;dc_motor.c: 43:         CCPTMRS0bits.C2TSEL=0;
+  1809                           ;dc_motor.c: 44:         CCPTMRS0bits.C2TSEL=0;
   1810   002D38  0EF3               	movlw	-13
   1811   002D3A  16AD               	andwf	173,f,c	;volatile
   1812                           
-  1813                           ;dc_motor.c: 44:         CCPTMRS0bits.C3TSEL=0;
+  1813                           ;dc_motor.c: 45:         CCPTMRS0bits.C3TSEL=0;
   1814   002D3C  0ECF               	movlw	-49
   1815   002D3E  16AD               	andwf	173,f,c	;volatile
   1816                           
-  1817                           ;dc_motor.c: 45:         CCPTMRS0bits.C4TSEL=0;
+  1817                           ;dc_motor.c: 46:         CCPTMRS0bits.C4TSEL=0;
   1818   002D40  0E3F               	movlw	-193
   1819   002D42  16AD               	andwf	173,f,c	;volatile
   1820   002D44                     
   1821                           ; BSR set to: 15
-  1822                           ;dc_motor.c: 48:         CCP1CONbits.FMT=1;
+  1822                           ;dc_motor.c: 49:         CCP1CONbits.FMT=1;
   1823   002D44  88AB               	bsf	171,4,c	;volatile
   1824                           
-  1825                           ;dc_motor.c: 49:         CCP1CONbits.CCP1MODE=0b1100;
+  1825                           ;dc_motor.c: 50:         CCP1CONbits.CCP1MODE=0b1100;
   1826   002D46  50AB               	movf	171,w,c	;volatile
   1827   002D48  0BF0               	andlw	-16
   1828   002D4A  090C               	iorlw	12
   1829   002D4C  6EAB               	movwf	171,c	;volatile
   1830   002D4E                     
   1831                           ; BSR set to: 15
-  1832                           ;dc_motor.c: 50:         CCP1CONbits.EN=1;
+  1832                           ;dc_motor.c: 51:         CCP1CONbits.EN=1;
   1833   002D4E  8EAB               	bsf	171,7,c	;volatile
   1834   002D50                     
   1835                           ; BSR set to: 15
-  1836                           ;dc_motor.c: 52:         CCP2CONbits.FMT=1;
+  1836                           ;dc_motor.c: 53:         CCP2CONbits.FMT=1;
   1837   002D50  88A7               	bsf	167,4,c	;volatile
   1838                           
-  1839                           ;dc_motor.c: 53:         CCP2CONbits.CCP2MODE=0b1100;
+  1839                           ;dc_motor.c: 54:         CCP2CONbits.CCP2MODE=0b1100;
   1840   002D52  50A7               	movf	167,w,c	;volatile
   1841   002D54  0BF0               	andlw	-16
   1842   002D56  090C               	iorlw	12
   1843   002D58  6EA7               	movwf	167,c	;volatile
   1844   002D5A                     
   1845                           ; BSR set to: 15
-  1846                           ;dc_motor.c: 54:         CCP2CONbits.EN=1;
+  1846                           ;dc_motor.c: 55:         CCP2CONbits.EN=1;
   1847   002D5A  8EA7               	bsf	167,7,c	;volatile
   1848   002D5C                     
   1849                           ; BSR set to: 15
-  1850                           ;dc_motor.c: 56:         CCP3CONbits.FMT=1;
+  1850                           ;dc_motor.c: 57:         CCP3CONbits.FMT=1;
   1851   002D5C  8926               	bsf	38,4,b	;volatile
   1852                           
-  1853                           ;dc_motor.c: 57:         CCP3CONbits.CCP3MODE=0b1100;
+  1853                           ;dc_motor.c: 58:         CCP3CONbits.CCP3MODE=0b1100;
   1854   002D5E  5126               	movf	38,w,b	;volatile
   1855   002D60  0BF0               	andlw	-16
   1856   002D62  090C               	iorlw	12
   1857   002D64  6F26               	movwf	38,b	;volatile
   1858   002D66                     
   1859                           ; BSR set to: 15
-  1860                           ;dc_motor.c: 58:         CCP3CONbits.EN=1;
+  1860                           ;dc_motor.c: 59:         CCP3CONbits.EN=1;
   1861   002D66  8F26               	bsf	38,7,b	;volatile
   1862   002D68                     
   1863                           ; BSR set to: 15
-  1864                           ;dc_motor.c: 60:         CCP4CONbits.FMT=1;
+  1864                           ;dc_motor.c: 61:         CCP4CONbits.FMT=1;
   1865   002D68  8922               	bsf	34,4,b	;volatile
   1866                           
-  1867                           ;dc_motor.c: 61:         CCP4CONbits.CCP4MODE=0b1100;
+  1867                           ;dc_motor.c: 62:         CCP4CONbits.CCP4MODE=0b1100;
   1868   002D6A  5122               	movf	34,w,b	;volatile
   1869   002D6C  0BF0               	andlw	-16
   1870   002D6E  090C               	iorlw	12
   1871   002D70  6F22               	movwf	34,b	;volatile
   1872   002D72                     
   1873                           ; BSR set to: 15
-  1874                           ;dc_motor.c: 62:         CCP4CONbits.EN=1;
+  1874                           ;dc_motor.c: 63:         CCP4CONbits.EN=1;
   1875   002D72  8F22               	bsf	34,7,b	;volatile
   1876   002D74                     
   1877                           ; BSR set to: 15
@@ -2284,7 +2284,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2226                           
   2227 ;; *************** function _wait_for_wall *****************
   2228 ;; Defined at:
-  2229 ;;		line 162 in file "color.c"
+  2229 ;;		line 161 in file "color.c"
   2230 ;; Parameters:    Size  Location     Type
   2231 ;;  p               1   12[COMRAM] PTR struct RGBC_val
   2232 ;;		 -> main@RGBC_colour(8), 
@@ -2313,7 +2313,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2250 ;; Hardware stack levels used: 1
   2251 ;; Hardware stack levels required when called: 5
   2252 ;; This function calls:
-  2253 ;;		_getRGBCval
+  2253 ;;		_read_RGBC
   2254 ;; This function is called by:
   2255 ;;		_forward_navigation
   2256 ;; This function uses a non-reentrant model
@@ -2325,14 +2325,14 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2262   0034D6                     _wait_for_wall:
   2263                           	callstack 24
   2264   0034D6                     
-  2265                           ;color.c: 162: void wait_for_wall(struct RGBC_val *p, unsigned char loss);color.c: 163: 
+  2265                           ;color.c: 161: void wait_for_wall(struct RGBC_val *p, unsigned char loss);color.c: 162: 
       +                          {;color.c: 164:     while (!loss) {
   2266   0034D6  EF84  F01A         	goto	l3515
   2267   0034DA                     l3509:
   2268                           
-  2269                           ;color.c: 165:         getRGBCval(p);
-  2270   0034DA  C00D  F00C         	movff	wait_for_wall@p,getRGBCval@p
-  2271   0034DE  ECA0  F019         	call	_getRGBCval	;wreg free
+  2269                           ;color.c: 167:         read_RGBC(p);
+  2270   0034DA  C00D  F00C         	movff	wait_for_wall@p,read_RGBC@p
+  2271   0034DE  ECA0  F019         	call	_read_RGBC	;wreg free
   2272   0034E2  500D               	movf	wait_for_wall@p^0,w,c
   2273   0034E4  6ED9               	movwf	fsr2l,c
   2274   0034E6  6ADA               	clrf	fsr2h,c
@@ -2406,8 +2406,8 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2337   0027F8                     _toggle_tricolour_LED:
   2338                           	callstack 28
   2339   0027F8                     
-  2340                           ;buggy_lights.c: 97:         LATGbits.LATG1 = !LATGbits.LATG1;
-  2341   0027F8  A27F               	btfss	127,1,c	;volatile
+  2340                           ;buggy_lights.c: 97:         LATGbits.LATG0 = !LATGbits.LATG0;
+  2341   0027F8  A07F               	btfss	127,0,c	;volatile
   2342   0027FA  EF01  F014         	goto	u2451
   2343   0027FE  EF05  F014         	goto	u2450
   2344   002802                     u2451:
@@ -2417,33 +2417,33 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2348   00280A                     u2450:
   2349   00280A  6A01               	clrf	??_toggle_tricolour_LED^0,c
   2350   00280C                     u2468:
-  2351   00280C  4601               	rlncf	??_toggle_tricolour_LED^0,f,c
-  2352   00280E  507F               	movf	127,w,c	;volatile
-  2353   002810  1801               	xorwf	??_toggle_tricolour_LED^0,w,c
-  2354   002812  0BFD               	andlw	-3
-  2355   002814  1801               	xorwf	??_toggle_tricolour_LED^0,w,c
-  2356   002816  6E7F               	movwf	127,c	;volatile
-  2357                           
-  2358                           ;buggy_lights.c: 98:         LATAbits.LATA4 = !LATAbits.LATA4;
-  2359   002818  A879               	btfss	121,4,c	;volatile
-  2360   00281A  EF11  F014         	goto	u2471
-  2361   00281E  EF15  F014         	goto	u2470
-  2362   002822                     u2471:
-  2363   002822  6A01               	clrf	??_toggle_tricolour_LED^0,c
-  2364   002824  2A01               	incf	??_toggle_tricolour_LED^0,f,c
-  2365   002826  EF16  F014         	goto	u2488
-  2366   00282A                     u2470:
-  2367   00282A  6A01               	clrf	??_toggle_tricolour_LED^0,c
-  2368   00282C                     u2488:
-  2369   00282C  3A01               	swapf	??_toggle_tricolour_LED^0,f,c
-  2370   00282E  5079               	movf	121,w,c	;volatile
+  2351   00280C  507F               	movf	127,w,c	;volatile
+  2352   00280E  1801               	xorwf	??_toggle_tricolour_LED^0,w,c
+  2353   002810  0BFE               	andlw	-2
+  2354   002812  1801               	xorwf	??_toggle_tricolour_LED^0,w,c
+  2355   002814  6E7F               	movwf	127,c	;volatile
+  2356                           
+  2357                           ;buggy_lights.c: 98:         LATEbits.LATE7 = !LATEbits.LATE7;
+  2358   002816  AE7D               	btfss	125,7,c	;volatile
+  2359   002818  EF10  F014         	goto	u2471
+  2360   00281C  EF14  F014         	goto	u2470
+  2361   002820                     u2471:
+  2362   002820  6A01               	clrf	??_toggle_tricolour_LED^0,c
+  2363   002822  2A01               	incf	??_toggle_tricolour_LED^0,f,c
+  2364   002824  EF15  F014         	goto	u2488
+  2365   002828                     u2470:
+  2366   002828  6A01               	clrf	??_toggle_tricolour_LED^0,c
+  2367   00282A                     u2488:
+  2368   00282A  3201               	rrcf	??_toggle_tricolour_LED^0,f,c
+  2369   00282C  3201               	rrcf	??_toggle_tricolour_LED^0,f,c
+  2370   00282E  507D               	movf	125,w,c	;volatile
   2371   002830  1801               	xorwf	??_toggle_tricolour_LED^0,w,c
-  2372   002832  0BEF               	andlw	-17
+  2372   002832  0B7F               	andlw	-129
   2373   002834  1801               	xorwf	??_toggle_tricolour_LED^0,w,c
-  2374   002836  6E79               	movwf	121,c	;volatile
+  2374   002836  6E7D               	movwf	125,c	;volatile
   2375                           
-  2376                           ;buggy_lights.c: 99:         LATFbits.LATF7 = !LATFbits.LATF7;
-  2377   002838  AE7E               	btfss	126,7,c	;volatile
+  2376                           ;buggy_lights.c: 99:         LATAbits.LATA3 = !LATAbits.LATA3;
+  2377   002838  A679               	btfss	121,3,c	;volatile
   2378   00283A  EF21  F014         	goto	u2491
   2379   00283E  EF25  F014         	goto	u2490
   2380   002842                     u2491:
@@ -2453,69 +2453,69 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2384   00284A                     u2490:
   2385   00284A  6A01               	clrf	??_toggle_tricolour_LED^0,c
   2386   00284C                     u2508:
-  2387   00284C  3201               	rrcf	??_toggle_tricolour_LED^0,f,c
-  2388   00284E  3201               	rrcf	??_toggle_tricolour_LED^0,f,c
-  2389   002850  507E               	movf	126,w,c	;volatile
-  2390   002852  1801               	xorwf	??_toggle_tricolour_LED^0,w,c
-  2391   002854  0B7F               	andlw	-129
-  2392   002856  1801               	xorwf	??_toggle_tricolour_LED^0,w,c
-  2393   002858  6E7E               	movwf	126,c	;volatile
-  2394                           
-  2395                           ;buggy_lights.c: 102:         LATGbits.LATG0 = !LATGbits.LATG0;
-  2396   00285A  A07F               	btfss	127,0,c	;volatile
-  2397   00285C  EF32  F014         	goto	u2511
-  2398   002860  EF36  F014         	goto	u2510
-  2399   002864                     u2511:
-  2400   002864  6A01               	clrf	??_toggle_tricolour_LED^0,c
-  2401   002866  2A01               	incf	??_toggle_tricolour_LED^0,f,c
-  2402   002868  EF37  F014         	goto	u2528
-  2403   00286C                     u2510:
-  2404   00286C  6A01               	clrf	??_toggle_tricolour_LED^0,c
-  2405   00286E                     u2528:
-  2406   00286E  507F               	movf	127,w,c	;volatile
-  2407   002870  1801               	xorwf	??_toggle_tricolour_LED^0,w,c
-  2408   002872  0BFE               	andlw	-2
+  2387   00284C  4601               	rlncf	??_toggle_tricolour_LED^0,f,c
+  2388   00284E  4601               	rlncf	??_toggle_tricolour_LED^0,f,c
+  2389   002850  4601               	rlncf	??_toggle_tricolour_LED^0,f,c
+  2390   002852  5079               	movf	121,w,c	;volatile
+  2391   002854  1801               	xorwf	??_toggle_tricolour_LED^0,w,c
+  2392   002856  0BF7               	andlw	-9
+  2393   002858  1801               	xorwf	??_toggle_tricolour_LED^0,w,c
+  2394   00285A  6E79               	movwf	121,c	;volatile
+  2395                           
+  2396                           ;buggy_lights.c: 103:         LATGbits.LATG1 = !LATGbits.LATG1;
+  2397   00285C  A27F               	btfss	127,1,c	;volatile
+  2398   00285E  EF33  F014         	goto	u2511
+  2399   002862  EF37  F014         	goto	u2510
+  2400   002866                     u2511:
+  2401   002866  6A01               	clrf	??_toggle_tricolour_LED^0,c
+  2402   002868  2A01               	incf	??_toggle_tricolour_LED^0,f,c
+  2403   00286A  EF38  F014         	goto	u2528
+  2404   00286E                     u2510:
+  2405   00286E  6A01               	clrf	??_toggle_tricolour_LED^0,c
+  2406   002870                     u2528:
+  2407   002870  4601               	rlncf	??_toggle_tricolour_LED^0,f,c
+  2408   002872  507F               	movf	127,w,c	;volatile
   2409   002874  1801               	xorwf	??_toggle_tricolour_LED^0,w,c
-  2410   002876  6E7F               	movwf	127,c	;volatile
-  2411                           
-  2412                           ;buggy_lights.c: 103:         LATEbits.LATE7 = !LATEbits.LATE7;
-  2413   002878  AE7D               	btfss	125,7,c	;volatile
-  2414   00287A  EF41  F014         	goto	u2531
-  2415   00287E  EF45  F014         	goto	u2530
-  2416   002882                     u2531:
-  2417   002882  6A01               	clrf	??_toggle_tricolour_LED^0,c
-  2418   002884  2A01               	incf	??_toggle_tricolour_LED^0,f,c
-  2419   002886  EF46  F014         	goto	u2548
-  2420   00288A                     u2530:
-  2421   00288A  6A01               	clrf	??_toggle_tricolour_LED^0,c
-  2422   00288C                     u2548:
-  2423   00288C  3201               	rrcf	??_toggle_tricolour_LED^0,f,c
-  2424   00288E  3201               	rrcf	??_toggle_tricolour_LED^0,f,c
-  2425   002890  507D               	movf	125,w,c	;volatile
-  2426   002892  1801               	xorwf	??_toggle_tricolour_LED^0,w,c
-  2427   002894  0B7F               	andlw	-129
-  2428   002896  1801               	xorwf	??_toggle_tricolour_LED^0,w,c
-  2429   002898  6E7D               	movwf	125,c	;volatile
-  2430                           
-  2431                           ;buggy_lights.c: 104:         LATAbits.LATA3 = !LATAbits.LATA3;
-  2432   00289A  A679               	btfss	121,3,c	;volatile
-  2433   00289C  EF52  F014         	goto	u2551
-  2434   0028A0  EF56  F014         	goto	u2550
-  2435   0028A4                     u2551:
-  2436   0028A4  6A01               	clrf	??_toggle_tricolour_LED^0,c
-  2437   0028A6  2A01               	incf	??_toggle_tricolour_LED^0,f,c
-  2438   0028A8  EF57  F014         	goto	u2568
-  2439   0028AC                     u2550:
-  2440   0028AC  6A01               	clrf	??_toggle_tricolour_LED^0,c
-  2441   0028AE                     u2568:
-  2442   0028AE  4601               	rlncf	??_toggle_tricolour_LED^0,f,c
-  2443   0028B0  4601               	rlncf	??_toggle_tricolour_LED^0,f,c
-  2444   0028B2  4601               	rlncf	??_toggle_tricolour_LED^0,f,c
-  2445   0028B4  5079               	movf	121,w,c	;volatile
+  2410   002876  0BFD               	andlw	-3
+  2411   002878  1801               	xorwf	??_toggle_tricolour_LED^0,w,c
+  2412   00287A  6E7F               	movwf	127,c	;volatile
+  2413                           
+  2414                           ;buggy_lights.c: 104:         LATAbits.LATA4 = !LATAbits.LATA4;
+  2415   00287C  A879               	btfss	121,4,c	;volatile
+  2416   00287E  EF43  F014         	goto	u2531
+  2417   002882  EF47  F014         	goto	u2530
+  2418   002886                     u2531:
+  2419   002886  6A01               	clrf	??_toggle_tricolour_LED^0,c
+  2420   002888  2A01               	incf	??_toggle_tricolour_LED^0,f,c
+  2421   00288A  EF48  F014         	goto	u2548
+  2422   00288E                     u2530:
+  2423   00288E  6A01               	clrf	??_toggle_tricolour_LED^0,c
+  2424   002890                     u2548:
+  2425   002890  3A01               	swapf	??_toggle_tricolour_LED^0,f,c
+  2426   002892  5079               	movf	121,w,c	;volatile
+  2427   002894  1801               	xorwf	??_toggle_tricolour_LED^0,w,c
+  2428   002896  0BEF               	andlw	-17
+  2429   002898  1801               	xorwf	??_toggle_tricolour_LED^0,w,c
+  2430   00289A  6E79               	movwf	121,c	;volatile
+  2431                           
+  2432                           ;buggy_lights.c: 105:         LATFbits.LATF7 = !LATFbits.LATF7;
+  2433   00289C  AE7E               	btfss	126,7,c	;volatile
+  2434   00289E  EF53  F014         	goto	u2551
+  2435   0028A2  EF57  F014         	goto	u2550
+  2436   0028A6                     u2551:
+  2437   0028A6  6A01               	clrf	??_toggle_tricolour_LED^0,c
+  2438   0028A8  2A01               	incf	??_toggle_tricolour_LED^0,f,c
+  2439   0028AA  EF58  F014         	goto	u2568
+  2440   0028AE                     u2550:
+  2441   0028AE  6A01               	clrf	??_toggle_tricolour_LED^0,c
+  2442   0028B0                     u2568:
+  2443   0028B0  3201               	rrcf	??_toggle_tricolour_LED^0,f,c
+  2444   0028B2  3201               	rrcf	??_toggle_tricolour_LED^0,f,c
+  2445   0028B4  507E               	movf	126,w,c	;volatile
   2446   0028B6  1801               	xorwf	??_toggle_tricolour_LED^0,w,c
-  2447   0028B8  0BF7               	andlw	-9
+  2447   0028B8  0B7F               	andlw	-129
   2448   0028BA  1801               	xorwf	??_toggle_tricolour_LED^0,w,c
-  2449   0028BC  6E79               	movwf	121,c	;volatile
+  2449   0028BC  6E7E               	movwf	126,c	;volatile
   2450   0028BE  0012               	return		;funcret
   2451   0028C0                     __end_of_toggle_tricolour_LED:
   2452                           	callstack 0
@@ -2570,7 +2570,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2496                           
   2497 ;; *************** function _scale_RGB *****************
   2498 ;; Defined at:
-  2499 ;;		line 197 in file "color.c"
+  2499 ;;		line 199 in file "color.c"
   2500 ;; Parameters:    Size  Location     Type
   2501 ;;  p               1   49[COMRAM] PTR struct RGBC_val
   2502 ;;		 -> main@RGBC_colour(8), 
@@ -2612,7 +2612,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2533   002722                     _scale_RGB:
   2534                           	callstack 27
   2535   002722                     
-  2536                           ;color.c: 197: void scale_RGB(struct RGBC_val *p);color.c: 198: {;color.c: 199:     p->R
+  2536                           ;color.c: 199: void scale_RGB(struct RGBC_val *p);color.c: 200: {;color.c: 201:     p->R
       +                           *= 0.5;
   2537   002722  0E00               	movlw	0
   2538   002724  6E13               	movwf	___flmul@a^0,c
@@ -2649,7 +2649,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2569   002780  C028  FFDE         	movff	?___fltol,postinc2
   2570   002784  C029  FFDD         	movff	?___fltol+1,postdec2
   2571                           
-  2572                           ;color.c: 200:     p->G *= 0.7;
+  2572                           ;color.c: 202:     p->G *= 0.7;
   2573   002788  0E33               	movlw	51
   2574   00278A  6E13               	movwf	___flmul@a^0,c
   2575   00278C  0E33               	movlw	51
@@ -4360,7 +4360,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4225                           
   4226 ;; *************** function _squareReverse *****************
   4227 ;; Defined at:
-  4228 ;;		line 265 in file "dc_motor.c"
+  4228 ;;		line 315 in file "dc_motor.c"
   4229 ;; Parameters:    Size  Location     Type
   4230 ;;  mL              1   23[COMRAM] PTR struct DC_motor
   4231 ;;		 -> main@motorL(9), 
@@ -4405,16 +4405,16 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4265   0035D8                     _squareReverse:
   4266                           	callstack 23
   4267   0035D8                     
-  4268                           ;dc_motor.c: 265: void squareReverse(DC_motor *mL, DC_motor *mR);dc_motor.c: 266: {;dc_m
-      +                          otor.c: 267:     toggle_brake_lights();
+  4268                           ;dc_motor.c: 315: void squareReverse(DC_motor *mL, DC_motor *mR);dc_motor.c: 316: {;dc_m
+      +                          otor.c: 317:     toggle_brake_lights();
   4269   0035D8  EC53  F01C         	call	_toggle_brake_lights	;wreg free
   4270   0035DC                     
-  4271                           ;dc_motor.c: 269:     fullSpeedReverse(mL, mR);
+  4271                           ;dc_motor.c: 318:     fullSpeedReverse(mL, mR);
   4272   0035DC  C018  F013         	movff	squareReverse@mL,fullSpeedReverse@mL
   4273   0035E0  C019  F014         	movff	squareReverse@mR,fullSpeedReverse@mR
   4274   0035E4  EC75  F015         	call	_fullSpeedReverse	;wreg free
   4275   0035E8                     
-  4276                           ;dc_motor.c: 270:     _delay((unsigned long)((squareDelay)*(64000000/4000.0)));
+  4276                           ;dc_motor.c: 319:     _delay((unsigned long)((squareDelay)*(64000000/4000.0)));
   4277   0035E8  0EC7               	movlw	199
   4278   0035EA  6E1B               	movwf	(??_squareReverse+1)^0,c
   4279   0035EC  0E0D               	movlw	13
@@ -4429,12 +4429,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4288   0035FC  D7FA               	bra	u3277
   4289   0035FE  D000               	nop2	
   4290   003600                     
-  4291                           ;dc_motor.c: 271:     stop(mL, mR);
+  4291                           ;dc_motor.c: 320:     stop(mL, mR);
   4292   003600  C018  F013         	movff	squareReverse@mL,stop@mL
   4293   003604  C019  F014         	movff	squareReverse@mR,stop@mR
   4294   003608  ECBB  F016         	call	_stop	;wreg free
   4295   00360C                     
-  4296                           ;dc_motor.c: 273:     toggle_brake_lights();
+  4296                           ;dc_motor.c: 321:     toggle_brake_lights();
   4297   00360C  EC53  F01C         	call	_toggle_brake_lights	;wreg free
   4298   003610  0012               	return		;funcret
   4299   003612                     __end_of_squareReverse:
@@ -4676,7 +4676,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4521                           
   4522 ;; *************** function _turnRight90 *****************
   4523 ;; Defined at:
-  4524 ;;		line 193 in file "dc_motor.c"
+  4524 ;;		line 253 in file "dc_motor.c"
   4525 ;; Parameters:    Size  Location     Type
   4526 ;;  mL              1   23[COMRAM] PTR struct DC_motor
   4527 ;;		 -> main@motorL(9), 
@@ -4723,16 +4723,16 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4563   003686                     _turnRight90:
   4564                           	callstack 23
   4565   003686                     
-  4566                           ;dc_motor.c: 193: void turnRight90(DC_motor *mL, DC_motor *mR);dc_motor.c: 194: {;dc_mot
-      +                          or.c: 195:     toggle_right_indicators();
+  4566                           ;dc_motor.c: 253: void turnRight90(DC_motor *mL, DC_motor *mR);dc_motor.c: 254: {;dc_mot
+      +                          or.c: 255:     toggle_right_indicators();
   4567   003686  EC64  F01C         	call	_toggle_right_indicators	;wreg free
   4568   00368A                     
-  4569                           ;dc_motor.c: 197:     turnRight(mL, mR);
+  4569                           ;dc_motor.c: 256:     turnRight(mL, mR);
   4570   00368A  C018  F013         	movff	turnRight90@mL,turnRight@mL
   4571   00368E  C019  F014         	movff	turnRight90@mR,turnRight@mR
   4572   003692  ECBD  F014         	call	_turnRight	;wreg free
   4573   003696                     
-  4574                           ;dc_motor.c: 198:     _delay((unsigned long)((turnRight90Delay)*(64000000/4000.0)));
+  4574                           ;dc_motor.c: 257:     _delay((unsigned long)((turnRight90Delay)*(64000000/4000.0)));
   4575   003696  0E09               	movlw	9
   4576   003698  6E1B               	movwf	(??_turnRight90+1)^0,c
   4577   00369A  0EC5               	movlw	197
@@ -4746,12 +4746,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4585   0036A8  2E1B               	decfsz	(??_turnRight90+1)^0,f,c
   4586   0036AA  D7FA               	bra	u3287
   4587   0036AC                     
-  4588                           ;dc_motor.c: 199:     stop(mL, mR);
+  4588                           ;dc_motor.c: 258:     stop(mL, mR);
   4589   0036AC  C018  F013         	movff	turnRight90@mL,stop@mL
   4590   0036B0  C019  F014         	movff	turnRight90@mR,stop@mR
   4591   0036B4  ECBB  F016         	call	_stop	;wreg free
   4592   0036B8                     
-  4593                           ;dc_motor.c: 201:     toggle_right_indicators();
+  4593                           ;dc_motor.c: 259:     toggle_right_indicators();
   4594   0036B8  EC64  F01C         	call	_toggle_right_indicators	;wreg free
   4595   0036BC  0012               	return		;funcret
   4596   0036BE                     __end_of_turnRight90:
@@ -4759,7 +4759,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4598                           
   4599 ;; *************** function _turnLeft90 *****************
   4600 ;; Defined at:
-  4601 ;;		line 179 in file "dc_motor.c"
+  4601 ;;		line 241 in file "dc_motor.c"
   4602 ;; Parameters:    Size  Location     Type
   4603 ;;  mL              1   23[COMRAM] PTR struct DC_motor
   4604 ;;		 -> main@motorL(9), 
@@ -4806,16 +4806,16 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4640   0036BE                     _turnLeft90:
   4641                           	callstack 23
   4642   0036BE                     
-  4643                           ;dc_motor.c: 179: void turnLeft90(DC_motor *mL, DC_motor *mR);dc_motor.c: 180: {;dc_moto
-      +                          r.c: 181:     toggle_left_indicators();
+  4643                           ;dc_motor.c: 241: void turnLeft90(DC_motor *mL, DC_motor *mR);dc_motor.c: 242: {;dc_moto
+      +                          r.c: 243:     toggle_left_indicators();
   4644   0036BE  EC74  F01C         	call	_toggle_left_indicators	;wreg free
   4645   0036C2                     
-  4646                           ;dc_motor.c: 183:     turnLeft(mL, mR);
+  4646                           ;dc_motor.c: 244:     turnLeft(mL, mR);
   4647   0036C2  C018  F013         	movff	turnLeft90@mL,turnLeft@mL
   4648   0036C6  C019  F014         	movff	turnLeft90@mR,turnLeft@mR
   4649   0036CA  EC19  F015         	call	_turnLeft	;wreg free
   4650   0036CE                     
-  4651                           ;dc_motor.c: 184:     _delay((unsigned long)((turnLeft90Delay)*(64000000/4000.0)));
+  4651                           ;dc_motor.c: 245:     _delay((unsigned long)((turnLeft90Delay)*(64000000/4000.0)));
   4652   0036CE  0E07               	movlw	7
   4653   0036D0  6E1B               	movwf	(??_turnLeft90+1)^0,c
   4654   0036D2  0ED2               	movlw	210
@@ -4829,12 +4829,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4662   0036E0  2E1B               	decfsz	(??_turnLeft90+1)^0,f,c
   4663   0036E2  D7FA               	bra	u3297
   4664   0036E4                     
-  4665                           ;dc_motor.c: 185:     stop(mL, mR);
+  4665                           ;dc_motor.c: 246:     stop(mL, mR);
   4666   0036E4  C018  F013         	movff	turnLeft90@mL,stop@mL
   4667   0036E8  C019  F014         	movff	turnLeft90@mR,stop@mR
   4668   0036EC  ECBB  F016         	call	_stop	;wreg free
   4669   0036F0                     
-  4670                           ;dc_motor.c: 187:     toggle_left_indicators();
+  4670                           ;dc_motor.c: 247:     toggle_left_indicators();
   4671   0036F0  EC74  F01C         	call	_toggle_left_indicators	;wreg free
   4672   0036F4  0012               	return		;funcret
   4673   0036F6                     __end_of_turnLeft90:
@@ -4959,7 +4959,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4785                           
   4786 ;; *************** function _turnRight135 *****************
   4787 ;; Defined at:
-  4788 ;;		line 221 in file "dc_motor.c"
+  4788 ;;		line 277 in file "dc_motor.c"
   4789 ;; Parameters:    Size  Location     Type
   4790 ;;  mL              1   23[COMRAM] PTR struct DC_motor
   4791 ;;		 -> main@motorL(9), 
@@ -5004,16 +5004,16 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4825   003612                     _turnRight135:
   4826                           	callstack 23
   4827   003612                     
-  4828                           ;dc_motor.c: 221: void turnRight135(DC_motor *mL, DC_motor *mR);dc_motor.c: 222: {;dc_mo
-      +                          tor.c: 223:     toggle_right_indicators();
+  4828                           ;dc_motor.c: 277: void turnRight135(DC_motor *mL, DC_motor *mR);dc_motor.c: 278: {;dc_mo
+      +                          tor.c: 279:     toggle_right_indicators();
   4829   003612  EC64  F01C         	call	_toggle_right_indicators	;wreg free
   4830   003616                     
-  4831                           ;dc_motor.c: 225:     turnRight(mL, mR);
+  4831                           ;dc_motor.c: 280:     turnRight(mL, mR);
   4832   003616  C018  F013         	movff	turnRight135@mL,turnRight@mL
   4833   00361A  C019  F014         	movff	turnRight135@mR,turnRight@mR
   4834   00361E  ECBD  F014         	call	_turnRight	;wreg free
   4835   003622                     
-  4836                           ;dc_motor.c: 226:     _delay((unsigned long)((turnRight135Delay)*(64000000/4000.0)));
+  4836                           ;dc_motor.c: 281:     _delay((unsigned long)((turnRight135Delay)*(64000000/4000.0)));
   4837   003622  0E16               	movlw	22
   4838   003624  6E1B               	movwf	(??_turnRight135+1)^0,c
   4839   003626  0E45               	movlw	69
@@ -5028,12 +5028,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4848   003636  D7FA               	bra	u3307
   4849   003638  0000               	nop	
   4850   00363A                     
-  4851                           ;dc_motor.c: 227:     stop(mL, mR);
+  4851                           ;dc_motor.c: 282:     stop(mL, mR);
   4852   00363A  C018  F013         	movff	turnRight135@mL,stop@mL
   4853   00363E  C019  F014         	movff	turnRight135@mR,stop@mR
   4854   003642  ECBB  F016         	call	_stop	;wreg free
   4855   003646                     
-  4856                           ;dc_motor.c: 229:     toggle_right_indicators();
+  4856                           ;dc_motor.c: 283:     toggle_right_indicators();
   4857   003646  EC64  F01C         	call	_toggle_right_indicators	;wreg free
   4858   00364A  0012               	return		;funcret
   4859   00364C                     __end_of_turnRight135:
@@ -5041,7 +5041,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4861                           
   4862 ;; *************** function _turnRight *****************
   4863 ;; Defined at:
-  4864 ;;		line 125 in file "dc_motor.c"
+  4864 ;;		line 148 in file "dc_motor.c"
   4865 ;; Parameters:    Size  Location     Type
   4866 ;;  mL              1   18[COMRAM] PTR struct DC_motor
   4867 ;;		 -> main@motorL(9), 
@@ -5089,7 +5089,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4904   00297E  0E28               	movlw	40
   4905   002980  6E17               	movwf	turnRight@rightGear^0,c
   4906   002982                     
-  4907                           ;dc_motor.c: 129:     (mL->direction) = 1;
+  4907                           ;dc_motor.c: 155:     (mL->direction) = 1;
   4908   002982  5013               	movf	turnRight@mL^0,w,c
   4909   002984  6ED9               	movwf	fsr2l,c
   4910   002986  6ADA               	clrf	fsr2h,c
@@ -5098,7 +5098,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4913   00298C  0E01               	movlw	1
   4914   00298E  6EDF               	movwf	indf2,c
   4915   002990                     
-  4916                           ;dc_motor.c: 130:     (mR->direction) = 0;
+  4916                           ;dc_motor.c: 156:     (mR->direction) = 0;
   4917   002990  5014               	movf	turnRight@mR^0,w,c
   4918   002992  6ED9               	movwf	fsr2l,c
   4919   002994  6ADA               	clrf	fsr2h,c
@@ -5106,11 +5106,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4921   002998  26D9               	addwf	fsr2l,f,c
   4922   00299A  6ADF               	clrf	indf2,c
   4923                           
-  4924                           ;dc_motor.c: 131:     while ((mL->power<leftGear) || (mR->power<rightGear)){
+  4924                           ;dc_motor.c: 159:     while ((mL->power < leftGear) || (mR->power < rightGear)){
   4925   00299C  EF00  F015         	goto	l2959
   4926   0029A0                     l2947:
   4927                           
-  4928                           ;dc_motor.c: 132:         if (mL->power<leftGear) {mL->power++;}
+  4928                           ;dc_motor.c: 162:         if (mL->power < leftGear) {mL->power++;}
   4929   0029A0  5013               	movf	turnRight@mL^0,w,c
   4930   0029A2  6ED9               	movwf	fsr2l,c
   4931   0029A4  6ADA               	clrf	fsr2h,c
@@ -5128,7 +5128,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4943   0029BE  2ADF               	incf	indf2,f,c
   4944   0029C0                     l253:
   4945                           
-  4946                           ;dc_motor.c: 133:         if (mR->power<rightGear) {mR->power++;}
+  4946                           ;dc_motor.c: 165:         if (mR->power < rightGear) {mR->power++;}
   4947   0029C0  5014               	movf	turnRight@mR^0,w,c
   4948   0029C2  6ED9               	movwf	fsr2l,c
   4949   0029C4  6ADA               	clrf	fsr2h,c
@@ -5146,15 +5146,15 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4961   0029DE  2ADF               	incf	indf2,f,c
   4962   0029E0                     l2953:
   4963                           
-  4964                           ;dc_motor.c: 134:         setMotorPWM(mL);
+  4964                           ;dc_motor.c: 168:         setMotorPWM(mL);
   4965   0029E0  C013  F00E         	movff	turnRight@mL,setMotorPWM@m
   4966   0029E4  EC46  F011         	call	_setMotorPWM	;wreg free
   4967   0029E8                     
-  4968                           ;dc_motor.c: 135:         setMotorPWM(mR);
+  4968                           ;dc_motor.c: 169:         setMotorPWM(mR);
   4969   0029E8  C014  F00E         	movff	turnRight@mR,setMotorPWM@m
   4970   0029EC  EC46  F011         	call	_setMotorPWM	;wreg free
   4971   0029F0                     
-  4972                           ;dc_motor.c: 136:         _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
+  4972                           ;dc_motor.c: 172:         _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
   4973   0029F0  0EA7               	movlw	167
   4974   0029F2  6E15               	movwf	??_turnRight^0,c
   4975   0029F4  0E3A               	movlw	58
@@ -5166,7 +5166,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   4981   0029FE  D000               	nop2	
   4982   002A00                     l2959:
   4983                           
-  4984                           ;dc_motor.c: 131:     while ((mL->power<leftGear) || (mR->power<rightGear)){
+  4984                           ;dc_motor.c: 159:     while ((mL->power < leftGear) || (mR->power < rightGear)){
   4985   002A00  5013               	movf	turnRight@mL^0,w,c
   4986   002A02  6ED9               	movwf	fsr2l,c
   4987   002A04  6ADA               	clrf	fsr2h,c
@@ -5195,7 +5195,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5010                           
   5011 ;; *************** function _turnLeft135 *****************
   5012 ;; Defined at:
-  5013 ;;		line 207 in file "dc_motor.c"
+  5013 ;;		line 265 in file "dc_motor.c"
   5014 ;; Parameters:    Size  Location     Type
   5015 ;;  mL              1   23[COMRAM] PTR struct DC_motor
   5016 ;;		 -> main@motorL(9), 
@@ -5240,16 +5240,16 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5050   00364C                     _turnLeft135:
   5051                           	callstack 23
   5052   00364C                     
-  5053                           ;dc_motor.c: 207: void turnLeft135(DC_motor *mL, DC_motor *mR);dc_motor.c: 208: {;dc_mot
-      +                          or.c: 209:     toggle_left_indicators();
+  5053                           ;dc_motor.c: 265: void turnLeft135(DC_motor *mL, DC_motor *mR);dc_motor.c: 266: {;dc_mot
+      +                          or.c: 267:     toggle_left_indicators();
   5054   00364C  EC74  F01C         	call	_toggle_left_indicators	;wreg free
   5055   003650                     
-  5056                           ;dc_motor.c: 211:     turnLeft(mL, mR);
+  5056                           ;dc_motor.c: 268:     turnLeft(mL, mR);
   5057   003650  C018  F013         	movff	turnLeft135@mL,turnLeft@mL
   5058   003654  C019  F014         	movff	turnLeft135@mR,turnLeft@mR
   5059   003658  EC19  F015         	call	_turnLeft	;wreg free
   5060   00365C                     
-  5061                           ;dc_motor.c: 212:     _delay((unsigned long)((turnLeft135Delay)*(64000000/4000.0)));
+  5061                           ;dc_motor.c: 269:     _delay((unsigned long)((turnLeft135Delay)*(64000000/4000.0)));
   5062   00365C  0E15               	movlw	21
   5063   00365E  6E1B               	movwf	(??_turnLeft135+1)^0,c
   5064   003660  0E4B               	movlw	75
@@ -5264,12 +5264,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5073   003670  D7FA               	bra	u3327
   5074   003672  D000               	nop2	
   5075   003674                     
-  5076                           ;dc_motor.c: 213:     stop(mL, mR);
+  5076                           ;dc_motor.c: 270:     stop(mL, mR);
   5077   003674  C018  F013         	movff	turnLeft135@mL,stop@mL
   5078   003678  C019  F014         	movff	turnLeft135@mR,stop@mR
   5079   00367C  ECBB  F016         	call	_stop	;wreg free
   5080   003680                     
-  5081                           ;dc_motor.c: 215:     toggle_left_indicators();
+  5081                           ;dc_motor.c: 271:     toggle_left_indicators();
   5082   003680  EC74  F01C         	call	_toggle_left_indicators	;wreg free
   5083   003684  0012               	return		;funcret
   5084   003686                     __end_of_turnLeft135:
@@ -5393,7 +5393,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5195                           
   5196 ;; *************** function _headbuttReverse *****************
   5197 ;; Defined at:
-  5198 ;;		line 251 in file "dc_motor.c"
+  5198 ;;		line 303 in file "dc_motor.c"
   5199 ;; Parameters:    Size  Location     Type
   5200 ;;  mL              1   23[COMRAM] PTR struct DC_motor
   5201 ;;		 -> main@motorL(9), 
@@ -5444,16 +5444,16 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5241   0036F6                     _headbuttReverse:
   5242                           	callstack 23
   5243   0036F6                     
-  5244                           ;dc_motor.c: 251: void headbuttReverse(DC_motor *mL, DC_motor *mR);dc_motor.c: 252: {;dc
-      +                          _motor.c: 253:     toggle_brake_lights();
+  5244                           ;dc_motor.c: 303: void headbuttReverse(DC_motor *mL, DC_motor *mR);dc_motor.c: 304: {;dc
+      +                          _motor.c: 305:     toggle_brake_lights();
   5245   0036F6  EC53  F01C         	call	_toggle_brake_lights	;wreg free
   5246   0036FA                     
-  5247                           ;dc_motor.c: 255:     fullSpeedReverse(mL, mR);
+  5247                           ;dc_motor.c: 306:     fullSpeedReverse(mL, mR);
   5248   0036FA  C018  F013         	movff	headbuttReverse@mL,fullSpeedReverse@mL
   5249   0036FE  C019  F014         	movff	headbuttReverse@mR,fullSpeedReverse@mR
   5250   003702  EC75  F015         	call	_fullSpeedReverse	;wreg free
   5251   003706                     
-  5252                           ;dc_motor.c: 256:     _delay((unsigned long)((headbuttDelay)*(64000000/4000.0)));
+  5252                           ;dc_motor.c: 307:     _delay((unsigned long)((headbuttDelay)*(64000000/4000.0)));
   5253   003706  0E43               	movlw	67
   5254   003708  6E1B               	movwf	(??_headbuttReverse+1)^0,c
   5255   00370A  0E8F               	movlw	143
@@ -5467,12 +5467,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5263   003718  2E1B               	decfsz	(??_headbuttReverse+1)^0,f,c
   5264   00371A  D7FA               	bra	u3337
   5265   00371C                     
-  5266                           ;dc_motor.c: 257:     stop(mL, mR);
+  5266                           ;dc_motor.c: 308:     stop(mL, mR);
   5267   00371C  C018  F013         	movff	headbuttReverse@mL,stop@mL
   5268   003720  C019  F014         	movff	headbuttReverse@mR,stop@mR
   5269   003724  ECBB  F016         	call	_stop	;wreg free
   5270   003728                     
-  5271                           ;dc_motor.c: 259:     toggle_brake_lights();
+  5271                           ;dc_motor.c: 309:     toggle_brake_lights();
   5272   003728  EC53  F01C         	call	_toggle_brake_lights	;wreg free
   5273   00372C  0012               	return		;funcret
   5274   00372E                     __end_of_headbuttReverse:
@@ -5543,7 +5543,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5334                           
   5335 ;; *************** function _fullSpeedReverse *****************
   5336 ;; Defined at:
-  5337 ;;		line 161 in file "dc_motor.c"
+  5337 ;;		line 210 in file "dc_motor.c"
   5338 ;; Parameters:    Size  Location     Type
   5339 ;;  mL              1   18[COMRAM] PTR struct DC_motor
   5340 ;;		 -> main@motorL(9), 
@@ -5591,7 +5591,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5377   002AEE  0E15               	movlw	21
   5378   002AF0  6E17               	movwf	fullSpeedReverse@rightGear^0,c
   5379   002AF2                     
-  5380                           ;dc_motor.c: 165:     (mL->direction) = 0;
+  5380                           ;dc_motor.c: 217:     (mL->direction) = 0;
   5381   002AF2  5013               	movf	fullSpeedReverse@mL^0,w,c
   5382   002AF4  6ED9               	movwf	fsr2l,c
   5383   002AF6  6ADA               	clrf	fsr2h,c
@@ -5599,7 +5599,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5385   002AFA  26D9               	addwf	fsr2l,f,c
   5386   002AFC  6ADF               	clrf	indf2,c
   5387   002AFE                     
-  5388                           ;dc_motor.c: 166:     (mR->direction) = 0;
+  5388                           ;dc_motor.c: 218:     (mR->direction) = 0;
   5389   002AFE  5014               	movf	fullSpeedReverse@mR^0,w,c
   5390   002B00  6ED9               	movwf	fsr2l,c
   5391   002B02  6ADA               	clrf	fsr2h,c
@@ -5607,11 +5607,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5393   002B06  26D9               	addwf	fsr2l,f,c
   5394   002B08  6ADF               	clrf	indf2,c
   5395                           
-  5396                           ;dc_motor.c: 167:     while ((mL->power<leftGear) || (mR->power<rightGear)){
+  5396                           ;dc_motor.c: 221:     while ((mL->power < leftGear) || (mR->power < rightGear)){
   5397   002B0A  EFB7  F015         	goto	l2981
   5398   002B0E                     l2969:
   5399                           
-  5400                           ;dc_motor.c: 168:         if (mL->power<leftGear) {mL->power++;}
+  5400                           ;dc_motor.c: 224:         if (mL->power < leftGear) {mL->power++;}
   5401   002B0E  5013               	movf	fullSpeedReverse@mL^0,w,c
   5402   002B10  6ED9               	movwf	fsr2l,c
   5403   002B12  6ADA               	clrf	fsr2h,c
@@ -5629,7 +5629,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5415   002B2C  2ADF               	incf	indf2,f,c
   5416   002B2E                     l269:
   5417                           
-  5418                           ;dc_motor.c: 169:         if (mR->power<rightGear) {mR->power++;}
+  5418                           ;dc_motor.c: 227:         if (mR->power < rightGear) {mR->power++;}
   5419   002B2E  5014               	movf	fullSpeedReverse@mR^0,w,c
   5420   002B30  6ED9               	movwf	fsr2l,c
   5421   002B32  6ADA               	clrf	fsr2h,c
@@ -5647,15 +5647,15 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5433   002B4C  2ADF               	incf	indf2,f,c
   5434   002B4E                     l2975:
   5435                           
-  5436                           ;dc_motor.c: 170:         setMotorPWM(mL);
+  5436                           ;dc_motor.c: 230:         setMotorPWM(mL);
   5437   002B4E  C013  F00E         	movff	fullSpeedReverse@mL,setMotorPWM@m
   5438   002B52  EC46  F011         	call	_setMotorPWM	;wreg free
   5439   002B56                     
-  5440                           ;dc_motor.c: 171:         setMotorPWM(mR);
+  5440                           ;dc_motor.c: 231:         setMotorPWM(mR);
   5441   002B56  C014  F00E         	movff	fullSpeedReverse@mR,setMotorPWM@m
   5442   002B5A  EC46  F011         	call	_setMotorPWM	;wreg free
   5443   002B5E                     
-  5444                           ;dc_motor.c: 172:         _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
+  5444                           ;dc_motor.c: 234:         _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
   5445   002B5E  0EA7               	movlw	167
   5446   002B60  6E15               	movwf	??_fullSpeedReverse^0,c
   5447   002B62  0E3A               	movlw	58
@@ -5667,7 +5667,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5453   002B6C  D000               	nop2	
   5454   002B6E                     l2981:
   5455                           
-  5456                           ;dc_motor.c: 167:     while ((mL->power<leftGear) || (mR->power<rightGear)){
+  5456                           ;dc_motor.c: 221:     while ((mL->power < leftGear) || (mR->power < rightGear)){
   5457   002B6E  5013               	movf	fullSpeedReverse@mL^0,w,c
   5458   002B70  6ED9               	movwf	fsr2l,c
   5459   002B72  6ADA               	clrf	fsr2h,c
@@ -5696,7 +5696,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5482                           
   5483 ;; *************** function _UTurn *****************
   5484 ;; Defined at:
-  5485 ;;		line 235 in file "dc_motor.c"
+  5485 ;;		line 289 in file "dc_motor.c"
   5486 ;; Parameters:    Size  Location     Type
   5487 ;;  mL              1   23[COMRAM] PTR struct DC_motor
   5488 ;;		 -> main@motorL(9), 
@@ -5742,19 +5742,19 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5523   00351A                     _UTurn:
   5524                           	callstack 23
   5525   00351A                     
-  5526                           ;dc_motor.c: 235: void UTurn(DC_motor *mL, DC_motor *mR);dc_motor.c: 236: {;dc_motor.c: 
-      +                          237:     toggle_left_indicators();
+  5526                           ;dc_motor.c: 289: void UTurn(DC_motor *mL, DC_motor *mR);dc_motor.c: 290: {;dc_motor.c: 
+      +                          291:     toggle_left_indicators();
   5527   00351A  EC74  F01C         	call	_toggle_left_indicators	;wreg free
   5528                           
-  5529                           ;dc_motor.c: 238:     toggle_right_indicators();
+  5529                           ;dc_motor.c: 292:     toggle_right_indicators();
   5530   00351E  EC64  F01C         	call	_toggle_right_indicators	;wreg free
   5531   003522                     
-  5532                           ;dc_motor.c: 240:     turnLeft(mL, mR);
+  5532                           ;dc_motor.c: 293:     turnLeft(mL, mR);
   5533   003522  C018  F013         	movff	UTurn@mL,turnLeft@mL
   5534   003526  C019  F014         	movff	UTurn@mR,turnLeft@mR
   5535   00352A  EC19  F015         	call	_turnLeft	;wreg free
   5536   00352E                     
-  5537                           ;dc_motor.c: 241:     _delay((unsigned long)((turn180Delay)*(64000000/4000.0)));
+  5537                           ;dc_motor.c: 294:     _delay((unsigned long)((turn180Delay)*(64000000/4000.0)));
   5538   00352E  0E21               	movlw	33
   5539   003530  6E1B               	movwf	(??_UTurn+1)^0,c
   5540   003532  0E78               	movlw	120
@@ -5769,15 +5769,15 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5549   003542  D7FA               	bra	u3357
   5550   003544  D000               	nop2	
   5551   003546                     
-  5552                           ;dc_motor.c: 242:     stop(mL, mR);
+  5552                           ;dc_motor.c: 295:     stop(mL, mR);
   5553   003546  C018  F013         	movff	UTurn@mL,stop@mL
   5554   00354A  C019  F014         	movff	UTurn@mR,stop@mR
   5555   00354E  ECBB  F016         	call	_stop	;wreg free
   5556   003552                     
-  5557                           ;dc_motor.c: 244:     toggle_left_indicators();
+  5557                           ;dc_motor.c: 296:     toggle_left_indicators();
   5558   003552  EC74  F01C         	call	_toggle_left_indicators	;wreg free
   5559   003556                     
-  5560                           ;dc_motor.c: 245:     toggle_right_indicators();
+  5560                           ;dc_motor.c: 297:     toggle_right_indicators();
   5561   003556  EC64  F01C         	call	_toggle_right_indicators	;wreg free
   5562   00355A  0012               	return		;funcret
   5563   00355C                     __end_of_UTurn:
@@ -5785,7 +5785,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5565                           
   5566 ;; *************** function _turnLeft *****************
   5567 ;; Defined at:
-  5568 ;;		line 107 in file "dc_motor.c"
+  5568 ;;		line 117 in file "dc_motor.c"
   5569 ;; Parameters:    Size  Location     Type
   5570 ;;  mL              1   18[COMRAM] PTR struct DC_motor
   5571 ;;		 -> main@motorL(9), 
@@ -5834,7 +5834,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5609   002A36  0E28               	movlw	40
   5610   002A38  6E17               	movwf	turnLeft@rightGear^0,c
   5611   002A3A                     
-  5612                           ;dc_motor.c: 111:     (mL->direction) = 0;
+  5612                           ;dc_motor.c: 124:     (mL->direction) = 0;
   5613   002A3A  5013               	movf	turnLeft@mL^0,w,c
   5614   002A3C  6ED9               	movwf	fsr2l,c
   5615   002A3E  6ADA               	clrf	fsr2h,c
@@ -5842,7 +5842,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5617   002A42  26D9               	addwf	fsr2l,f,c
   5618   002A44  6ADF               	clrf	indf2,c
   5619   002A46                     
-  5620                           ;dc_motor.c: 112:     (mR->direction) = 1;
+  5620                           ;dc_motor.c: 125:     (mR->direction) = 1;
   5621   002A46  5014               	movf	turnLeft@mR^0,w,c
   5622   002A48  6ED9               	movwf	fsr2l,c
   5623   002A4A  6ADA               	clrf	fsr2h,c
@@ -5851,11 +5851,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5626   002A50  0E01               	movlw	1
   5627   002A52  6EDF               	movwf	indf2,c
   5628                           
-  5629                           ;dc_motor.c: 113:     while ((mL->power<leftGear) || (mR->power<rightGear)){
+  5629                           ;dc_motor.c: 128:     while ((mL->power < leftGear) || (mR->power < rightGear)){
   5630   002A54  EF5C  F015         	goto	l2937
   5631   002A58                     l2925:
   5632                           
-  5633                           ;dc_motor.c: 114:         if (mL->power<leftGear) {mL->power++;}
+  5633                           ;dc_motor.c: 131:         if (mL->power < leftGear) {mL->power++;}
   5634   002A58  5013               	movf	turnLeft@mL^0,w,c
   5635   002A5A  6ED9               	movwf	fsr2l,c
   5636   002A5C  6ADA               	clrf	fsr2h,c
@@ -5873,7 +5873,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5648   002A76  2ADF               	incf	indf2,f,c
   5649   002A78                     l245:
   5650                           
-  5651                           ;dc_motor.c: 115:         if (mR->power<rightGear) {mR->power++;}
+  5651                           ;dc_motor.c: 134:         if (mR->power < rightGear) {mR->power++;}
   5652   002A78  5014               	movf	turnLeft@mR^0,w,c
   5653   002A7A  6ED9               	movwf	fsr2l,c
   5654   002A7C  6ADA               	clrf	fsr2h,c
@@ -5891,15 +5891,15 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5666   002A96  2ADF               	incf	indf2,f,c
   5667   002A98                     l2931:
   5668                           
-  5669                           ;dc_motor.c: 116:         setMotorPWM(mL);
+  5669                           ;dc_motor.c: 137:         setMotorPWM(mL);
   5670   002A98  C013  F00E         	movff	turnLeft@mL,setMotorPWM@m
   5671   002A9C  EC46  F011         	call	_setMotorPWM	;wreg free
   5672   002AA0                     
-  5673                           ;dc_motor.c: 117:         setMotorPWM(mR);
+  5673                           ;dc_motor.c: 138:         setMotorPWM(mR);
   5674   002AA0  C014  F00E         	movff	turnLeft@mR,setMotorPWM@m
   5675   002AA4  EC46  F011         	call	_setMotorPWM	;wreg free
   5676   002AA8                     
-  5677                           ;dc_motor.c: 118:         _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
+  5677                           ;dc_motor.c: 141:         _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
   5678   002AA8  0EA7               	movlw	167
   5679   002AAA  6E15               	movwf	??_turnLeft^0,c
   5680   002AAC  0E3A               	movlw	58
@@ -5911,7 +5911,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5686   002AB6  D000               	nop2	
   5687   002AB8                     l2937:
   5688                           
-  5689                           ;dc_motor.c: 113:     while ((mL->power<leftGear) || (mR->power<rightGear)){
+  5689                           ;dc_motor.c: 128:     while ((mL->power < leftGear) || (mR->power < rightGear)){
   5690   002AB8  5013               	movf	turnLeft@mL^0,w,c
   5691   002ABA  6ED9               	movwf	fsr2l,c
   5692   002ABC  6ADA               	clrf	fsr2h,c
@@ -6066,7 +6066,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5831                           
   5832 ;; *************** function _stop *****************
   5833 ;; Defined at:
-  5834 ;;		line 93 in file "dc_motor.c"
+  5834 ;;		line 94 in file "dc_motor.c"
   5835 ;; Parameters:    Size  Location     Type
   5836 ;;  mL              1   18[COMRAM] PTR struct DC_motor
   5837 ;;		 -> main@motorL(9), 
@@ -6116,12 +6116,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5876   002D76                     _stop:
   5877                           	callstack 26
   5878   002D76                     
-  5879                           ;dc_motor.c: 93: void stop(DC_motor *mL, DC_motor *mR);dc_motor.c: 94: {;dc_motor.c: 95:
-      +                               while ((mL->power>0) || (mR->power>0)){
+  5879                           ;dc_motor.c: 94: void stop(DC_motor *mL, DC_motor *mR);dc_motor.c: 95: {;dc_motor.c: 97:
+      +                               while ((mL->power > 0) || (mR->power > 0)){
   5880   002D76  EFEB  F016         	goto	l2915
   5881   002D7A                     l2901:
   5882                           
-  5883                           ;dc_motor.c: 96:         if (mL->power>0) {mL->power--;}
+  5883                           ;dc_motor.c: 100:         if (mL->power > 0) {mL->power--;}
   5884   002D7A  5013               	movf	stop@mL^0,w,c
   5885   002D7C  6ED9               	movwf	fsr2l,c
   5886   002D7E  6ADA               	clrf	fsr2h,c
@@ -6138,7 +6138,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5897   002D96  06DF               	decf	indf2,f,c
   5898   002D98                     l2905:
   5899                           
-  5900                           ;dc_motor.c: 97:         if (mR->power>0) {mR->power--;}
+  5900                           ;dc_motor.c: 103:         if (mR->power > 0) {mR->power--;}
   5901   002D98  5014               	movf	stop@mR^0,w,c
   5902   002D9A  6ED9               	movwf	fsr2l,c
   5903   002D9C  6ADA               	clrf	fsr2h,c
@@ -6155,15 +6155,15 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5914   002DB4  06DF               	decf	indf2,f,c
   5915   002DB6                     l2909:
   5916                           
-  5917                           ;dc_motor.c: 98:         setMotorPWM(mL);
+  5917                           ;dc_motor.c: 106:         setMotorPWM(mL);
   5918   002DB6  C013  F00E         	movff	stop@mL,setMotorPWM@m
   5919   002DBA  EC46  F011         	call	_setMotorPWM	;wreg free
   5920   002DBE                     
-  5921                           ;dc_motor.c: 99:         setMotorPWM(mR);
+  5921                           ;dc_motor.c: 107:         setMotorPWM(mR);
   5922   002DBE  C014  F00E         	movff	stop@mR,setMotorPWM@m
   5923   002DC2  EC46  F011         	call	_setMotorPWM	;wreg free
   5924   002DC6                     
-  5925                           ;dc_motor.c: 100:         _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
+  5925                           ;dc_motor.c: 110:         _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
   5926   002DC6  0EA7               	movlw	167
   5927   002DC8  6E15               	movwf	??_stop^0,c
   5928   002DCA  0E3A               	movlw	58
@@ -6175,7 +6175,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5934   002DD4  D000               	nop2	
   5935   002DD6                     l2915:
   5936                           
-  5937                           ;dc_motor.c: 95:     while ((mL->power>0) || (mR->power>0)){
+  5937                           ;dc_motor.c: 97:     while ((mL->power > 0) || (mR->power > 0)){
   5938   002DD6  5013               	movf	stop@mL^0,w,c
   5939   002DD8  6ED9               	movwf	fsr2l,c
   5940   002DDA  6ADA               	clrf	fsr2h,c
@@ -6202,7 +6202,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   5961                           
   5962 ;; *************** function _fullSpeedAhead *****************
   5963 ;; Defined at:
-  5964 ;;		line 143 in file "dc_motor.c"
+  5964 ;;		line 179 in file "dc_motor.c"
   5965 ;; Parameters:    Size  Location     Type
   5966 ;;  mL              1   18[COMRAM] PTR struct DC_motor
   5967 ;;		 -> main@motorL(9), 
@@ -6250,7 +6250,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6004   0028C4  0E14               	movlw	20
   6005   0028C6  6E17               	movwf	fullSpeedAhead@rightGear^0,c
   6006   0028C8                     
-  6007                           ;dc_motor.c: 147:     (mL->direction) = 1;
+  6007                           ;dc_motor.c: 186:     (mL->direction) = 1;
   6008   0028C8  5013               	movf	fullSpeedAhead@mL^0,w,c
   6009   0028CA  6ED9               	movwf	fsr2l,c
   6010   0028CC  6ADA               	clrf	fsr2h,c
@@ -6259,7 +6259,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6013   0028D2  0E01               	movlw	1
   6014   0028D4  6EDF               	movwf	indf2,c
   6015   0028D6                     
-  6016                           ;dc_motor.c: 148:     (mR->direction) = 1;
+  6016                           ;dc_motor.c: 187:     (mR->direction) = 1;
   6017   0028D6  5014               	movf	fullSpeedAhead@mR^0,w,c
   6018   0028D8  6ED9               	movwf	fsr2l,c
   6019   0028DA  6ADA               	clrf	fsr2h,c
@@ -6268,11 +6268,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6022   0028E0  0E01               	movlw	1
   6023   0028E2  6EDF               	movwf	indf2,c
   6024                           
-  6025                           ;dc_motor.c: 149:     while ((mL->power<leftGear) || (mR->power<rightGear)){
+  6025                           ;dc_motor.c: 190:     while ((mL->power < leftGear) || (mR->power < rightGear)){
   6026   0028E4  EFA4  F014         	goto	l3741
   6027   0028E8                     l3729:
   6028                           
-  6029                           ;dc_motor.c: 150:         if (mL->power<leftGear) {mL->power++;}
+  6029                           ;dc_motor.c: 193:         if (mL->power < leftGear) {mL->power++;}
   6030   0028E8  5013               	movf	fullSpeedAhead@mL^0,w,c
   6031   0028EA  6ED9               	movwf	fsr2l,c
   6032   0028EC  6ADA               	clrf	fsr2h,c
@@ -6290,7 +6290,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6044   002906  2ADF               	incf	indf2,f,c
   6045   002908                     l261:
   6046                           
-  6047                           ;dc_motor.c: 151:         if (mR->power<rightGear) {mR->power++;}
+  6047                           ;dc_motor.c: 196:         if (mR->power < rightGear) {mR->power++;}
   6048   002908  5014               	movf	fullSpeedAhead@mR^0,w,c
   6049   00290A  6ED9               	movwf	fsr2l,c
   6050   00290C  6ADA               	clrf	fsr2h,c
@@ -6308,15 +6308,15 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6062   002926  2ADF               	incf	indf2,f,c
   6063   002928                     l3735:
   6064                           
-  6065                           ;dc_motor.c: 152:         setMotorPWM(mL);
+  6065                           ;dc_motor.c: 199:         setMotorPWM(mL);
   6066   002928  C013  F00E         	movff	fullSpeedAhead@mL,setMotorPWM@m
   6067   00292C  EC46  F011         	call	_setMotorPWM	;wreg free
   6068   002930                     
-  6069                           ;dc_motor.c: 153:         setMotorPWM(mR);
+  6069                           ;dc_motor.c: 200:         setMotorPWM(mR);
   6070   002930  C014  F00E         	movff	fullSpeedAhead@mR,setMotorPWM@m
   6071   002934  EC46  F011         	call	_setMotorPWM	;wreg free
   6072   002938                     
-  6073                           ;dc_motor.c: 154:         _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
+  6073                           ;dc_motor.c: 203:         _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
   6074   002938  0EA7               	movlw	167
   6075   00293A  6E15               	movwf	??_fullSpeedAhead^0,c
   6076   00293C  0E3A               	movlw	58
@@ -6328,7 +6328,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6082   002946  D000               	nop2	
   6083   002948                     l3741:
   6084                           
-  6085                           ;dc_motor.c: 149:     while ((mL->power<leftGear) || (mR->power<rightGear)){
+  6085                           ;dc_motor.c: 190:     while ((mL->power < leftGear) || (mR->power < rightGear)){
   6086   002948  5013               	movf	fullSpeedAhead@mL^0,w,c
   6087   00294A  6ED9               	movwf	fsr2l,c
   6088   00294C  6ADA               	clrf	fsr2h,c
@@ -6357,7 +6357,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6111                           
   6112 ;; *************** function _setMotorPWM *****************
   6113 ;; Defined at:
-  6114 ;;		line 68 in file "dc_motor.c"
+  6114 ;;		line 69 in file "dc_motor.c"
   6115 ;; Parameters:    Size  Location     Type
   6116 ;;  m               1   13[COMRAM] PTR struct DC_motor
   6117 ;;		 -> main@motorR(9), main@motorL(9), 
@@ -6403,8 +6403,8 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6152   00228C                     _setMotorPWM:
   6153                           	callstack 26
   6154   00228C                     
-  6155                           ;dc_motor.c: 68: void setMotorPWM(DC_motor *m);dc_motor.c: 69: {;dc_motor.c: 70:     uns
-      +                          igned char posDuty, negDuty;;dc_motor.c: 72:     if(m->brakemode) {
+  6155                           ;dc_motor.c: 69: void setMotorPWM(DC_motor *m);dc_motor.c: 70: {;dc_motor.c: 71:     uns
+      +                          igned char posDuty, negDuty;;dc_motor.c: 73:     if(m->brakemode) {
   6156   00228C  500E               	movf	setMotorPWM@m^0,w,c
   6157   00228E  6ED9               	movwf	fsr2l,c
   6158   002290  6ADA               	clrf	fsr2h,c
@@ -6418,7 +6418,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6166   0022A2  EF83  F011         	goto	l2849
   6167   0022A6                     u1700:
   6168   0022A6                     
-  6169                           ;dc_motor.c: 73:         posDuty=(unsigned char)(m->PWMperiod - ((unsigned int)(m->power
+  6169                           ;dc_motor.c: 74:         posDuty=(unsigned char)(m->PWMperiod - ((unsigned int)(m->power
       +                          )*(m->PWMperiod))/100);
   6170   0022A6  500E               	movf	setMotorPWM@m^0,w,c
   6171   0022A8  6ED9               	movwf	fsr2l,c
@@ -6454,7 +6454,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6201   0022F0  5C10               	subwf	(??_setMotorPWM+1)^0,w,c
   6202   0022F2  6E11               	movwf	setMotorPWM@posDuty^0,c
   6203   0022F4                     
-  6204                           ;dc_motor.c: 74:         negDuty=(unsigned char)(m->PWMperiod);
+  6204                           ;dc_motor.c: 75:         negDuty=(unsigned char)(m->PWMperiod);
   6205   0022F4  500E               	movf	setMotorPWM@m^0,w,c
   6206   0022F6  6ED9               	movwf	fsr2l,c
   6207   0022F8  6ADA               	clrf	fsr2h,c
@@ -6463,15 +6463,15 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6210   0022FE  50DF               	movf	indf2,w,c
   6211   002300  6E12               	movwf	setMotorPWM@negDuty^0,c
   6212                           
-  6213                           ;dc_motor.c: 75:     }
+  6213                           ;dc_motor.c: 76:     }
   6214   002302  EFA4  F011         	goto	l2853
   6215   002306                     l2849:
   6216                           
-  6217                           ;dc_motor.c: 77:         posDuty=0;
+  6217                           ;dc_motor.c: 78:         posDuty=0;
   6218   002306  0E00               	movlw	0
   6219   002308  6E11               	movwf	setMotorPWM@posDuty^0,c
   6220   00230A                     
-  6221                           ;dc_motor.c: 78:   negDuty=(unsigned char)(((unsigned int)(m->power)*(m->PWMperiod))/100
+  6221                           ;dc_motor.c: 79:   negDuty=(unsigned char)(((unsigned int)(m->power)*(m->PWMperiod))/100
       +                          );
   6222   00230A  500E               	movf	setMotorPWM@m^0,w,c
   6223   00230C  6ED9               	movwf	fsr2l,c
@@ -6500,7 +6500,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6246   002346  6E12               	movwf	setMotorPWM@negDuty^0,c
   6247   002348                     l2853:
   6248                           
-  6249                           ;dc_motor.c: 81:     if (m->direction) {
+  6249                           ;dc_motor.c: 82:     if (m->direction) {
   6250   002348  500E               	movf	setMotorPWM@m^0,w,c
   6251   00234A  6ED9               	movwf	fsr2l,c
   6252   00234C  6ADA               	clrf	fsr2h,c
@@ -6514,7 +6514,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6260   00235E  EFD1  F011         	goto	l2857
   6261   002362                     u1710:
   6262   002362                     
-  6263                           ;dc_motor.c: 82:         *(m->posDutyHighByte)=posDuty;
+  6263                           ;dc_motor.c: 83:         *(m->posDutyHighByte)=posDuty;
   6264   002362  500E               	movf	setMotorPWM@m^0,w,c
   6265   002364  6ED9               	movwf	fsr2l,c
   6266   002366  6ADA               	clrf	fsr2h,c
@@ -6526,7 +6526,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6272   002378  C010  FFDA         	movff	??_setMotorPWM+1,fsr2h
   6273   00237C  C011  FFDF         	movff	setMotorPWM@posDuty,indf2
   6274                           
-  6275                           ;dc_motor.c: 83:         *(m->negDutyHighByte)=negDuty;
+  6275                           ;dc_motor.c: 84:         *(m->negDutyHighByte)=negDuty;
   6276   002380  500E               	movf	setMotorPWM@m^0,w,c
   6277   002382  6ED9               	movwf	fsr2l,c
   6278   002384  6ADA               	clrf	fsr2h,c
@@ -6538,11 +6538,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6284   002396  C010  FFDA         	movff	??_setMotorPWM+1,fsr2h
   6285   00239A  C012  FFDF         	movff	setMotorPWM@negDuty,indf2
   6286                           
-  6287                           ;dc_motor.c: 84:     } else {
+  6287                           ;dc_motor.c: 85:     } else {
   6288   00239E  EFEF  F011         	goto	l232
   6289   0023A2                     l2857:
   6290                           
-  6291                           ;dc_motor.c: 85:         *(m->posDutyHighByte)=negDuty;
+  6291                           ;dc_motor.c: 86:         *(m->posDutyHighByte)=negDuty;
   6292   0023A2  500E               	movf	setMotorPWM@m^0,w,c
   6293   0023A4  6ED9               	movwf	fsr2l,c
   6294   0023A6  6ADA               	clrf	fsr2h,c
@@ -6554,7 +6554,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6300   0023B8  C010  FFDA         	movff	??_setMotorPWM+1,fsr2h
   6301   0023BC  C012  FFDF         	movff	setMotorPWM@negDuty,indf2
   6302                           
-  6303                           ;dc_motor.c: 86:         *(m->negDutyHighByte)=posDuty;
+  6303                           ;dc_motor.c: 87:         *(m->negDutyHighByte)=posDuty;
   6304   0023C0  500E               	movf	setMotorPWM@m^0,w,c
   6305   0023C2  6ED9               	movwf	fsr2l,c
   6306   0023C4  6ADA               	clrf	fsr2h,c
@@ -6732,7 +6732,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6468                           
   6469 ;; *************** function _convert_HSV *****************
   6470 ;; Defined at:
-  6471 ;;		line 209 in file "color.c"
+  6471 ;;		line 211 in file "color.c"
   6472 ;; Parameters:    Size  Location     Type
   6473 ;;  p1              1   13[COMRAM] PTR struct HSV_val
   6474 ;;		 -> main@HSV_colour(6), 
@@ -6790,38 +6790,38 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6521   000E1A                     _convert_HSV:
   6522                           	callstack 27
   6523   000E1A                     
-  6524                           ;color.c: 209: void convert_HSV(struct HSV_val *p1,struct RGBC_val *p2);color.c: 210: {;
-      +                          color.c: 211:     unsigned int hue = 0;
+  6524                           ;color.c: 211: void convert_HSV(struct HSV_val *p1, struct RGBC_val *p2);color.c: 212: {
+      +                          ;color.c: 213:     unsigned int hue = 0;
   6525   000E1A  0E00               	movlw	0
   6526   000E1C  6E1F               	movwf	(convert_HSV@hue+1)^0,c
   6527   000E1E  0E00               	movlw	0
   6528   000E20  6E1E               	movwf	convert_HSV@hue^0,c
   6529                           
-  6530                           ;color.c: 213:     unsigned int hue_scale = 60;
+  6530                           ;color.c: 215:     unsigned int hue_scale = 60;
   6531   000E22  0E00               	movlw	0
   6532   000E24  6E3D               	movwf	(convert_HSV@hue_scale+1)^0,c
   6533   000E26  0E3C               	movlw	60
   6534   000E28  6E3C               	movwf	convert_HSV@hue_scale^0,c
   6535                           
-  6536                           ;color.c: 214:     unsigned int sat_scale = 100;
+  6536                           ;color.c: 216:     unsigned int sat_scale = 100;
   6537   000E2A  0E00               	movlw	0
   6538   000E2C  6E19               	movwf	(convert_HSV@sat_scale+1)^0,c
   6539   000E2E  0E64               	movlw	100
   6540   000E30  6E18               	movwf	convert_HSV@sat_scale^0,c
   6541   000E32                     
-  6542                           ;color.c: 216:     unsigned int M = max_RGB(p2);
+  6542                           ;color.c: 218:     unsigned int M = max_RGB(p2);
   6543   000E32  C00F  F001         	movff	convert_HSV@p2,max_RGB@p
   6544   000E36  ECC0  F017         	call	_max_RGB	;wreg free
   6545   000E3A  C001  F03E         	movff	?_max_RGB,convert_HSV@M
   6546   000E3E  C002  F03F         	movff	?_max_RGB+1,convert_HSV@M+1
   6547   000E42                     
-  6548                           ;color.c: 217:     unsigned int m = min_RGB(p2);
+  6548                           ;color.c: 219:     unsigned int m = min_RGB(p2);
   6549   000E42  C00F  F001         	movff	convert_HSV@p2,min_RGB@p
   6550   000E46  EC82  F017         	call	_min_RGB	;wreg free
   6551   000E4A  C001  F01A         	movff	?_min_RGB,convert_HSV@m
   6552   000E4E  C002  F01B         	movff	?_min_RGB+1,convert_HSV@m+1
   6553   000E52                     
-  6554                           ;color.c: 218:     unsigned int C = M - m;
+  6554                           ;color.c: 220:     unsigned int C = M - m;
   6555   000E52  501A               	movf	convert_HSV@m^0,w,c
   6556   000E54  5C3E               	subwf	convert_HSV@M^0,w,c
   6557   000E56  6E40               	movwf	convert_HSV@C^0,c
@@ -6829,7 +6829,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6559   000E5A  583F               	subwfb	(convert_HSV@M+1)^0,w,c
   6560   000E5C  6E41               	movwf	(convert_HSV@C+1)^0,c
   6561   000E5E                     
-  6562                           ;color.c: 220:     if (C == 0) {
+  6562                           ;color.c: 222:     if (C == 0) {
   6563   000E5E  5040               	movf	convert_HSV@C^0,w,c
   6564   000E60  1041               	iorwf	(convert_HSV@C+1)^0,w,c
   6565   000E62  A4D8               	btfss	status,2,c
@@ -6839,17 +6839,17 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6569   000E6C  EF3E  F007         	goto	l3531
   6570   000E70                     u2600:
   6571   000E70                     
-  6572                           ;color.c: 221:         hue = 0;
+  6572                           ;color.c: 223:         hue = 0;
   6573   000E70  0E00               	movlw	0
   6574   000E72  6E1F               	movwf	(convert_HSV@hue+1)^0,c
   6575   000E74  0E00               	movlw	0
   6576   000E76  6E1E               	movwf	convert_HSV@hue^0,c
   6577                           
-  6578                           ;color.c: 222:     } else {
+  6578                           ;color.c: 224:     } else {
   6579   000E78  EF0E  F00A         	goto	l3615
   6580   000E7C                     l3531:
   6581                           
-  6582                           ;color.c: 232:         if (M == p2->R) {
+  6582                           ;color.c: 234:         if (M == p2->R) {
   6583   000E7C  500F               	movf	convert_HSV@p2^0,w,c
   6584   000E7E  6ED9               	movwf	fsr2l,c
   6585   000E80  6ADA               	clrf	fsr2h,c
@@ -6865,7 +6865,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6595   000E96  EF3A  F008         	goto	l3559
   6596   000E9A                     u2610:
   6597   000E9A                     
-  6598                           ;color.c: 233:             if (p2->G >= p2->B) {
+  6598                           ;color.c: 235:             if (p2->G >= p2->B) {
   6599   000E9A  500F               	movf	convert_HSV@p2^0,w,c
   6600   000E9C  6ED9               	movwf	fsr2l,c
   6601   000E9E  6ADA               	clrf	fsr2h,c
@@ -6887,7 +6887,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6617   000EC0  EFC2  F007         	goto	l3547
   6618   000EC4                     u2620:
   6619   000EC4                     
-  6620                           ;color.c: 237:                 temp *= 0;
+  6620                           ;color.c: 239:                 temp *= 0;
   6621   000EC4  0E00               	movlw	0
   6622   000EC6  6E24               	movwf	convert_HSV@temp^0,c
   6623   000EC8  0E00               	movlw	0
@@ -6897,7 +6897,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6627   000ED0  0E00               	movlw	0
   6628   000ED2  6E27               	movwf	(convert_HSV@temp+3)^0,c
   6629   000ED4                     
-  6630                           ;color.c: 238:                 temp += (unsigned long)(p2->G - p2->B);
+  6630                           ;color.c: 240:                 temp += (unsigned long)(p2->G - p2->B);
   6631   000ED4  500F               	movf	convert_HSV@p2^0,w,c
   6632   000ED6  6ED9               	movwf	fsr2l,c
   6633   000ED8  6ADA               	clrf	fsr2h,c
@@ -6927,7 +6927,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6657   000F10  0E00               	movlw	0
   6658   000F12  2227               	addwfc	(convert_HSV@temp+3)^0,f,c
   6659   000F14                     
-  6660                           ;color.c: 239:                 temp *= (unsigned long)hue_scale;
+  6660                           ;color.c: 241:                 temp *= (unsigned long)hue_scale;
   6661   000F14  C024  F001         	movff	convert_HSV@temp,___lmul@multiplier
   6662   000F18  C025  F002         	movff	convert_HSV@temp+1,___lmul@multiplier+1
   6663   000F1C  C026  F003         	movff	convert_HSV@temp+2,___lmul@multiplier+2
@@ -6946,7 +6946,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6676   000F40  C003  F026         	movff	?___lmul+2,convert_HSV@temp+2
   6677   000F44  C004  F027         	movff	?___lmul+3,convert_HSV@temp+3
   6678   000F48                     
-  6679                           ;color.c: 240:                 temp /= (unsigned long)C;
+  6679                           ;color.c: 242:                 temp /= (unsigned long)C;
   6680   000F48  C024  F001         	movff	convert_HSV@temp,___lldiv@dividend
   6681   000F4C  C025  F002         	movff	convert_HSV@temp+1,___lldiv@dividend+1
   6682   000F50  C026  F003         	movff	convert_HSV@temp+2,___lldiv@dividend+2
@@ -6961,22 +6961,22 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6691   000F70  C003  F026         	movff	?___lldiv+2,convert_HSV@temp+2
   6692   000F74  C004  F027         	movff	?___lldiv+3,convert_HSV@temp+3
   6693   000F78                     
-  6694                           ;color.c: 241:                 hue = (unsigned int)temp;
+  6694                           ;color.c: 243:                 hue = (unsigned int)temp;
   6695   000F78  C024  F01E         	movff	convert_HSV@temp,convert_HSV@hue
   6696   000F7C  C025  F01F         	movff	convert_HSV@temp+1,convert_HSV@hue+1
   6697                           
-  6698                           ;color.c: 242:             } else {
+  6698                           ;color.c: 244:             } else {
   6699   000F80  EF3A  F008         	goto	l3559
   6700   000F84                     l3547:
   6701                           
-  6702                           ;color.c: 244:                 unsigned long temp;;color.c: 245:                 temp = 
+  6702                           ;color.c: 246:                 unsigned long temp;;color.c: 247:                 temp = 
       +                          (unsigned long)C;
   6703   000F84  C040  F038         	movff	convert_HSV@C,convert_HSV@temp_610
   6704   000F88  C041  F039         	movff	convert_HSV@C+1,convert_HSV@temp_610+1
   6705   000F8C  6A3A               	clrf	(convert_HSV@temp_610+2)^0,c
   6706   000F8E  6A3B               	clrf	(convert_HSV@temp_610+3)^0,c
   6707   000F90                     
-  6708                           ;color.c: 246:                 temp *= 6;
+  6708                           ;color.c: 248:                 temp *= 6;
   6709   000F90  C038  F001         	movff	convert_HSV@temp_610,___lmul@multiplier
   6710   000F94  C039  F002         	movff	convert_HSV@temp_610+1,___lmul@multiplier+1
   6711   000F98  C03A  F003         	movff	convert_HSV@temp_610+2,___lmul@multiplier+2
@@ -6995,7 +6995,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6724   000FBC  C003  F03A         	movff	?___lmul+2,convert_HSV@temp_610+2
   6725   000FC0  C004  F03B         	movff	?___lmul+3,convert_HSV@temp_610+3
   6726   000FC4                     
-  6727                           ;color.c: 247:                 temp -= (unsigned long)(p2->B - p2->G);
+  6727                           ;color.c: 249:                 temp -= (unsigned long)(p2->B - p2->G);
   6728   000FC4  500F               	movf	convert_HSV@p2^0,w,c
   6729   000FC6  6ED9               	movwf	fsr2l,c
   6730   000FC8  6ADA               	clrf	fsr2h,c
@@ -7027,7 +7027,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6756   001004  5017               	movf	(??_convert_HSV+7)^0,w,c
   6757   001006  5A3B               	subwfb	(convert_HSV@temp_610+3)^0,f,c
   6758   001008                     
-  6759                           ;color.c: 248:                 temp *= (unsigned long)hue_scale;
+  6759                           ;color.c: 250:                 temp *= (unsigned long)hue_scale;
   6760   001008  C038  F001         	movff	convert_HSV@temp_610,___lmul@multiplier
   6761   00100C  C039  F002         	movff	convert_HSV@temp_610+1,___lmul@multiplier+1
   6762   001010  C03A  F003         	movff	convert_HSV@temp_610+2,___lmul@multiplier+2
@@ -7046,7 +7046,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6775   001034  C003  F03A         	movff	?___lmul+2,convert_HSV@temp_610+2
   6776   001038  C004  F03B         	movff	?___lmul+3,convert_HSV@temp_610+3
   6777   00103C                     
-  6778                           ;color.c: 249:                 temp /= (unsigned long)C;
+  6778                           ;color.c: 251:                 temp /= (unsigned long)C;
   6779   00103C  C038  F001         	movff	convert_HSV@temp_610,___lldiv@dividend
   6780   001040  C039  F002         	movff	convert_HSV@temp_610+1,___lldiv@dividend+1
   6781   001044  C03A  F003         	movff	convert_HSV@temp_610+2,___lldiv@dividend+2
@@ -7061,12 +7061,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6790   001064  C003  F03A         	movff	?___lldiv+2,convert_HSV@temp_610+2
   6791   001068  C004  F03B         	movff	?___lldiv+3,convert_HSV@temp_610+3
   6792   00106C                     
-  6793                           ;color.c: 250:                 hue = (unsigned int)temp;
+  6793                           ;color.c: 252:                 hue = (unsigned int)temp;
   6794   00106C  C038  F01E         	movff	convert_HSV@temp_610,convert_HSV@hue
   6795   001070  C039  F01F         	movff	convert_HSV@temp_610+1,convert_HSV@hue+1
   6796   001074                     l3559:
   6797                           
-  6798                           ;color.c: 253:         if (M == p2->G) {
+  6798                           ;color.c: 255:         if (M == p2->G) {
   6799   001074  500F               	movf	convert_HSV@p2^0,w,c
   6800   001076  6ED9               	movwf	fsr2l,c
   6801   001078  6ADA               	clrf	fsr2h,c
@@ -7084,7 +7084,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6813   001092  EF20  F009         	goto	l3587
   6814   001096                     u2630:
   6815   001096                     
-  6816                           ;color.c: 254:             if (p2->B >= p2->R) {
+  6816                           ;color.c: 256:             if (p2->B >= p2->R) {
   6817   001096  500F               	movf	convert_HSV@p2^0,w,c
   6818   001098  6ED9               	movwf	fsr2l,c
   6819   00109A  6ADA               	clrf	fsr2h,c
@@ -7104,21 +7104,21 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6833   0010B8  EFBF  F008         	goto	l3575
   6834   0010BC                     u2640:
   6835   0010BC                     
-  6836                           ;color.c: 256:                 unsigned long temp;;color.c: 257:                 temp = 
+  6836                           ;color.c: 258:                 unsigned long temp;;color.c: 259:                 temp = 
       +                          (unsigned long)C;
   6837   0010BC  C040  F028         	movff	convert_HSV@C,convert_HSV@temp_611
   6838   0010C0  C041  F029         	movff	convert_HSV@C+1,convert_HSV@temp_611+1
   6839   0010C4  6A2A               	clrf	(convert_HSV@temp_611+2)^0,c
   6840   0010C6  6A2B               	clrf	(convert_HSV@temp_611+3)^0,c
   6841   0010C8                     
-  6842                           ;color.c: 258:                 temp *= 2;
+  6842                           ;color.c: 260:                 temp *= 2;
   6843   0010C8  90D8               	bcf	status,0,c
   6844   0010CA  3628               	rlcf	convert_HSV@temp_611^0,f,c
   6845   0010CC  3629               	rlcf	(convert_HSV@temp_611+1)^0,f,c
   6846   0010CE  362A               	rlcf	(convert_HSV@temp_611+2)^0,f,c
   6847   0010D0  362B               	rlcf	(convert_HSV@temp_611+3)^0,f,c
   6848   0010D2                     
-  6849                           ;color.c: 259:                 temp += (unsigned long)(p2->B - p2->R);
+  6849                           ;color.c: 261:                 temp += (unsigned long)(p2->B - p2->R);
   6850   0010D2  500F               	movf	convert_HSV@p2^0,w,c
   6851   0010D4  6ED9               	movwf	fsr2l,c
   6852   0010D6  6ADA               	clrf	fsr2h,c
@@ -7146,7 +7146,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6874   00110A  0E00               	movlw	0
   6875   00110C  222B               	addwfc	(convert_HSV@temp_611+3)^0,f,c
   6876   00110E                     
-  6877                           ;color.c: 260:                 temp *= (unsigned long)hue_scale;
+  6877                           ;color.c: 262:                 temp *= (unsigned long)hue_scale;
   6878   00110E  C028  F001         	movff	convert_HSV@temp_611,___lmul@multiplier
   6879   001112  C029  F002         	movff	convert_HSV@temp_611+1,___lmul@multiplier+1
   6880   001116  C02A  F003         	movff	convert_HSV@temp_611+2,___lmul@multiplier+2
@@ -7165,7 +7165,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6893   00113A  C003  F02A         	movff	?___lmul+2,convert_HSV@temp_611+2
   6894   00113E  C004  F02B         	movff	?___lmul+3,convert_HSV@temp_611+3
   6895   001142                     
-  6896                           ;color.c: 261:                 temp /= (unsigned long)C;
+  6896                           ;color.c: 263:                 temp /= (unsigned long)C;
   6897   001142  C028  F001         	movff	convert_HSV@temp_611,___lldiv@dividend
   6898   001146  C029  F002         	movff	convert_HSV@temp_611+1,___lldiv@dividend+1
   6899   00114A  C02A  F003         	movff	convert_HSV@temp_611+2,___lldiv@dividend+2
@@ -7180,29 +7180,29 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6908   00116A  C003  F02A         	movff	?___lldiv+2,convert_HSV@temp_611+2
   6909   00116E  C004  F02B         	movff	?___lldiv+3,convert_HSV@temp_611+3
   6910   001172                     
-  6911                           ;color.c: 262:                 hue = (unsigned int)temp;
+  6911                           ;color.c: 264:                 hue = (unsigned int)temp;
   6912   001172  C028  F01E         	movff	convert_HSV@temp_611,convert_HSV@hue
   6913   001176  C029  F01F         	movff	convert_HSV@temp_611+1,convert_HSV@hue+1
   6914                           
-  6915                           ;color.c: 263:             } else {
+  6915                           ;color.c: 265:             } else {
   6916   00117A  EF20  F009         	goto	l3587
   6917   00117E                     l3575:
   6918                           
-  6919                           ;color.c: 265:                 unsigned long temp;;color.c: 266:                 temp = 
+  6919                           ;color.c: 267:                 unsigned long temp;;color.c: 268:                 temp = 
       +                          (unsigned long)C;
   6920   00117E  C040  F02C         	movff	convert_HSV@C,convert_HSV@temp_612
   6921   001182  C041  F02D         	movff	convert_HSV@C+1,convert_HSV@temp_612+1
   6922   001186  6A2E               	clrf	(convert_HSV@temp_612+2)^0,c
   6923   001188  6A2F               	clrf	(convert_HSV@temp_612+3)^0,c
   6924   00118A                     
-  6925                           ;color.c: 267:                 temp *= 2;
+  6925                           ;color.c: 269:                 temp *= 2;
   6926   00118A  90D8               	bcf	status,0,c
   6927   00118C  362C               	rlcf	convert_HSV@temp_612^0,f,c
   6928   00118E  362D               	rlcf	(convert_HSV@temp_612+1)^0,f,c
   6929   001190  362E               	rlcf	(convert_HSV@temp_612+2)^0,f,c
   6930   001192  362F               	rlcf	(convert_HSV@temp_612+3)^0,f,c
   6931   001194                     
-  6932                           ;color.c: 268:                 temp -= (unsigned long)(p2->R - p2->B);
+  6932                           ;color.c: 270:                 temp -= (unsigned long)(p2->R - p2->B);
   6933   001194  500F               	movf	convert_HSV@p2^0,w,c
   6934   001196  6ED9               	movwf	fsr2l,c
   6935   001198  6ADA               	clrf	fsr2h,c
@@ -7232,7 +7232,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6959   0011D0  5017               	movf	(??_convert_HSV+7)^0,w,c
   6960   0011D2  5A2F               	subwfb	(convert_HSV@temp_612+3)^0,f,c
   6961   0011D4                     
-  6962                           ;color.c: 269:                 temp *= (unsigned long)hue_scale;
+  6962                           ;color.c: 271:                 temp *= (unsigned long)hue_scale;
   6963   0011D4  C02C  F001         	movff	convert_HSV@temp_612,___lmul@multiplier
   6964   0011D8  C02D  F002         	movff	convert_HSV@temp_612+1,___lmul@multiplier+1
   6965   0011DC  C02E  F003         	movff	convert_HSV@temp_612+2,___lmul@multiplier+2
@@ -7251,7 +7251,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6978   001200  C003  F02E         	movff	?___lmul+2,convert_HSV@temp_612+2
   6979   001204  C004  F02F         	movff	?___lmul+3,convert_HSV@temp_612+3
   6980   001208                     
-  6981                           ;color.c: 270:                 temp /= (unsigned long)C;
+  6981                           ;color.c: 272:                 temp /= (unsigned long)C;
   6982   001208  C02C  F001         	movff	convert_HSV@temp_612,___lldiv@dividend
   6983   00120C  C02D  F002         	movff	convert_HSV@temp_612+1,___lldiv@dividend+1
   6984   001210  C02E  F003         	movff	convert_HSV@temp_612+2,___lldiv@dividend+2
@@ -7266,12 +7266,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   6993   001230  C003  F02E         	movff	?___lldiv+2,convert_HSV@temp_612+2
   6994   001234  C004  F02F         	movff	?___lldiv+3,convert_HSV@temp_612+3
   6995   001238                     
-  6996                           ;color.c: 271:                 hue = (unsigned int)temp;
+  6996                           ;color.c: 273:                 hue = (unsigned int)temp;
   6997   001238  C02C  F01E         	movff	convert_HSV@temp_612,convert_HSV@hue
   6998   00123C  C02D  F01F         	movff	convert_HSV@temp_612+1,convert_HSV@hue+1
   6999   001240                     l3587:
   7000                           
-  7001                           ;color.c: 274:         if (M == p2->B) {
+  7001                           ;color.c: 276:         if (M == p2->B) {
   7002   001240  500F               	movf	convert_HSV@p2^0,w,c
   7003   001242  6ED9               	movwf	fsr2l,c
   7004   001244  6ADA               	clrf	fsr2h,c
@@ -7289,7 +7289,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7016   00125E  EF0E  F00A         	goto	l3615
   7017   001262                     u2650:
   7018   001262                     
-  7019                           ;color.c: 275:             if (p2->R >= p2->G) {
+  7019                           ;color.c: 277:             if (p2->R >= p2->G) {
   7020   001262  500F               	movf	convert_HSV@p2^0,w,c
   7021   001264  6ED9               	movwf	fsr2l,c
   7022   001266  6ADA               	clrf	fsr2h,c
@@ -7309,14 +7309,14 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7036   001284  EFA9  F009         	goto	l3603
   7037   001288                     u2660:
   7038   001288                     
-  7039                           ;color.c: 277:                 unsigned long temp;;color.c: 278:                 temp = 
+  7039                           ;color.c: 279:                 unsigned long temp;;color.c: 280:                 temp = 
       +                          (unsigned long)C;
   7040   001288  C040  F030         	movff	convert_HSV@C,convert_HSV@temp_613
   7041   00128C  C041  F031         	movff	convert_HSV@C+1,convert_HSV@temp_613+1
   7042   001290  6A32               	clrf	(convert_HSV@temp_613+2)^0,c
   7043   001292  6A33               	clrf	(convert_HSV@temp_613+3)^0,c
   7044   001294                     
-  7045                           ;color.c: 279:                 temp *= 4;
+  7045                           ;color.c: 281:                 temp *= 4;
   7046   001294  0E02               	movlw	2
   7047   001296                     u2675:
   7048   001296  90D8               	bcf	status,0,c
@@ -7327,7 +7327,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7053   0012A0  2EE8               	decfsz	wreg,f,c
   7054   0012A2  EF4B  F009         	goto	u2675
   7055   0012A6                     
-  7056                           ;color.c: 280:                 temp += (unsigned long)(p2->R - p2->G);
+  7056                           ;color.c: 282:                 temp += (unsigned long)(p2->R - p2->G);
   7057   0012A6  500F               	movf	convert_HSV@p2^0,w,c
   7058   0012A8  6ED9               	movwf	fsr2l,c
   7059   0012AA  6ADA               	clrf	fsr2h,c
@@ -7355,7 +7355,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7081   0012DE  0E00               	movlw	0
   7082   0012E0  2233               	addwfc	(convert_HSV@temp_613+3)^0,f,c
   7083   0012E2                     
-  7084                           ;color.c: 281:                 temp *= (unsigned long)hue_scale;
+  7084                           ;color.c: 283:                 temp *= (unsigned long)hue_scale;
   7085   0012E2  C030  F001         	movff	convert_HSV@temp_613,___lmul@multiplier
   7086   0012E6  C031  F002         	movff	convert_HSV@temp_613+1,___lmul@multiplier+1
   7087   0012EA  C032  F003         	movff	convert_HSV@temp_613+2,___lmul@multiplier+2
@@ -7374,7 +7374,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7100   00130E  C003  F032         	movff	?___lmul+2,convert_HSV@temp_613+2
   7101   001312  C004  F033         	movff	?___lmul+3,convert_HSV@temp_613+3
   7102   001316                     
-  7103                           ;color.c: 282:                 temp /= (unsigned long)C;
+  7103                           ;color.c: 284:                 temp /= (unsigned long)C;
   7104   001316  C030  F001         	movff	convert_HSV@temp_613,___lldiv@dividend
   7105   00131A  C031  F002         	movff	convert_HSV@temp_613+1,___lldiv@dividend+1
   7106   00131E  C032  F003         	movff	convert_HSV@temp_613+2,___lldiv@dividend+2
@@ -7389,22 +7389,22 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7115   00133E  C003  F032         	movff	?___lldiv+2,convert_HSV@temp_613+2
   7116   001342  C004  F033         	movff	?___lldiv+3,convert_HSV@temp_613+3
   7117   001346                     
-  7118                           ;color.c: 283:                 hue = (unsigned int)temp;
+  7118                           ;color.c: 285:                 hue = (unsigned int)temp;
   7119   001346  C030  F01E         	movff	convert_HSV@temp_613,convert_HSV@hue
   7120   00134A  C031  F01F         	movff	convert_HSV@temp_613+1,convert_HSV@hue+1
   7121                           
-  7122                           ;color.c: 284:             } else {
+  7122                           ;color.c: 286:             } else {
   7123   00134E  EF0E  F00A         	goto	l3615
   7124   001352                     l3603:
   7125                           
-  7126                           ;color.c: 286:                 unsigned long temp;;color.c: 287:                 temp = 
+  7126                           ;color.c: 288:                 unsigned long temp;;color.c: 289:                 temp = 
       +                          (unsigned long)C;
   7127   001352  C040  F034         	movff	convert_HSV@C,convert_HSV@temp_614
   7128   001356  C041  F035         	movff	convert_HSV@C+1,convert_HSV@temp_614+1
   7129   00135A  6A36               	clrf	(convert_HSV@temp_614+2)^0,c
   7130   00135C  6A37               	clrf	(convert_HSV@temp_614+3)^0,c
   7131   00135E                     
-  7132                           ;color.c: 288:                 temp *= 4;
+  7132                           ;color.c: 290:                 temp *= 4;
   7133   00135E  0E02               	movlw	2
   7134   001360                     u2685:
   7135   001360  90D8               	bcf	status,0,c
@@ -7415,7 +7415,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7140   00136A  2EE8               	decfsz	wreg,f,c
   7141   00136C  EFB0  F009         	goto	u2685
   7142   001370                     
-  7143                           ;color.c: 289:                 temp -= (unsigned long)(p2->G - p2->R);
+  7143                           ;color.c: 291:                 temp -= (unsigned long)(p2->G - p2->R);
   7144   001370  500F               	movf	convert_HSV@p2^0,w,c
   7145   001372  6ED9               	movwf	fsr2l,c
   7146   001374  6ADA               	clrf	fsr2h,c
@@ -7445,7 +7445,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7170   0013AC  5017               	movf	(??_convert_HSV+7)^0,w,c
   7171   0013AE  5A37               	subwfb	(convert_HSV@temp_614+3)^0,f,c
   7172   0013B0                     
-  7173                           ;color.c: 290:                 temp *= (unsigned long)hue_scale;
+  7173                           ;color.c: 292:                 temp *= (unsigned long)hue_scale;
   7174   0013B0  C034  F001         	movff	convert_HSV@temp_614,___lmul@multiplier
   7175   0013B4  C035  F002         	movff	convert_HSV@temp_614+1,___lmul@multiplier+1
   7176   0013B8  C036  F003         	movff	convert_HSV@temp_614+2,___lmul@multiplier+2
@@ -7464,7 +7464,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7189   0013DC  C003  F036         	movff	?___lmul+2,convert_HSV@temp_614+2
   7190   0013E0  C004  F037         	movff	?___lmul+3,convert_HSV@temp_614+3
   7191   0013E4                     
-  7192                           ;color.c: 291:                 temp /= (unsigned long)C;
+  7192                           ;color.c: 293:                 temp /= (unsigned long)C;
   7193   0013E4  C034  F001         	movff	convert_HSV@temp_614,___lldiv@dividend
   7194   0013E8  C035  F002         	movff	convert_HSV@temp_614+1,___lldiv@dividend+1
   7195   0013EC  C036  F003         	movff	convert_HSV@temp_614+2,___lldiv@dividend+2
@@ -7479,12 +7479,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7204   00140C  C003  F036         	movff	?___lldiv+2,convert_HSV@temp_614+2
   7205   001410  C004  F037         	movff	?___lldiv+3,convert_HSV@temp_614+3
   7206   001414                     
-  7207                           ;color.c: 292:                 hue = (unsigned int)temp;
+  7207                           ;color.c: 294:                 hue = (unsigned int)temp;
   7208   001414  C034  F01E         	movff	convert_HSV@temp_614,convert_HSV@hue
   7209   001418  C035  F01F         	movff	convert_HSV@temp_614+1,convert_HSV@hue+1
   7210   00141C                     l3615:
   7211                           
-  7212                           ;color.c: 297:     if (M == 0) {
+  7212                           ;color.c: 299:     if (M == 0) {
   7213   00141C  503E               	movf	convert_HSV@M^0,w,c
   7214   00141E  103F               	iorwf	(convert_HSV@M+1)^0,w,c
   7215   001420  A4D8               	btfss	status,2,c
@@ -7494,24 +7494,24 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7219   00142A  EF1D  F00A         	goto	l3619
   7220   00142E                     u2690:
   7221   00142E                     
-  7222                           ;color.c: 298:         sat = 0;
+  7222                           ;color.c: 300:         sat = 0;
   7223   00142E  0E00               	movlw	0
   7224   001430  6E1D               	movwf	(convert_HSV@sat+1)^0,c
   7225   001432  0E00               	movlw	0
   7226   001434  6E1C               	movwf	convert_HSV@sat^0,c
   7227                           
-  7228                           ;color.c: 299:     } else {
+  7228                           ;color.c: 301:     } else {
   7229   001436  EF59  F00A         	goto	l3627
   7230   00143A                     l3619:
   7231                           
-  7232                           ;color.c: 301:         unsigned long temp;;color.c: 302:         temp = (unsigned long)C
+  7232                           ;color.c: 303:         unsigned long temp;;color.c: 304:         temp = (unsigned long)C
       +                          ;
   7233   00143A  C040  F020         	movff	convert_HSV@C,convert_HSV@temp_615
   7234   00143E  C041  F021         	movff	convert_HSV@C+1,convert_HSV@temp_615+1
   7235   001442  6A22               	clrf	(convert_HSV@temp_615+2)^0,c
   7236   001444  6A23               	clrf	(convert_HSV@temp_615+3)^0,c
   7237   001446                     
-  7238                           ;color.c: 303:         temp *= (unsigned long)sat_scale;
+  7238                           ;color.c: 305:         temp *= (unsigned long)sat_scale;
   7239   001446  C020  F001         	movff	convert_HSV@temp_615,___lmul@multiplier
   7240   00144A  C021  F002         	movff	convert_HSV@temp_615+1,___lmul@multiplier+1
   7241   00144E  C022  F003         	movff	convert_HSV@temp_615+2,___lmul@multiplier+2
@@ -7530,7 +7530,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7254   001472  C003  F022         	movff	?___lmul+2,convert_HSV@temp_615+2
   7255   001476  C004  F023         	movff	?___lmul+3,convert_HSV@temp_615+3
   7256   00147A                     
-  7257                           ;color.c: 304:         temp /= (unsigned long)M;
+  7257                           ;color.c: 306:         temp /= (unsigned long)M;
   7258   00147A  C020  F001         	movff	convert_HSV@temp_615,___lldiv@dividend
   7259   00147E  C021  F002         	movff	convert_HSV@temp_615+1,___lldiv@dividend+1
   7260   001482  C022  F003         	movff	convert_HSV@temp_615+2,___lldiv@dividend+2
@@ -7545,19 +7545,19 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7269   0014A2  C003  F022         	movff	?___lldiv+2,convert_HSV@temp_615+2
   7270   0014A6  C004  F023         	movff	?___lldiv+3,convert_HSV@temp_615+3
   7271   0014AA                     
-  7272                           ;color.c: 305:         sat = (unsigned int)temp;
+  7272                           ;color.c: 307:         sat = (unsigned int)temp;
   7273   0014AA  C020  F01C         	movff	convert_HSV@temp_615,convert_HSV@sat
   7274   0014AE  C021  F01D         	movff	convert_HSV@temp_615+1,convert_HSV@sat+1
   7275   0014B2                     l3627:
   7276                           
-  7277                           ;color.c: 308:     p1->H = hue;
+  7277                           ;color.c: 310:     p1->H = hue;
   7278   0014B2  500E               	movf	convert_HSV@p1^0,w,c
   7279   0014B4  6ED9               	movwf	fsr2l,c
   7280   0014B6  6ADA               	clrf	fsr2h,c
   7281   0014B8  C01E  FFDE         	movff	convert_HSV@hue,postinc2
   7282   0014BC  C01F  FFDD         	movff	convert_HSV@hue+1,postdec2
   7283   0014C0                     
-  7284                           ;color.c: 309:     p1->S = sat;
+  7284                           ;color.c: 311:     p1->S = sat;
   7285   0014C0  500E               	movf	convert_HSV@p1^0,w,c
   7286   0014C2  6ED9               	movwf	fsr2l,c
   7287   0014C4  6ADA               	clrf	fsr2h,c
@@ -7566,7 +7566,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7290   0014CA  C01C  FFDE         	movff	convert_HSV@sat,postinc2
   7291   0014CE  C01D  FFDD         	movff	convert_HSV@sat+1,postdec2
   7292   0014D2                     
-  7293                           ;color.c: 310:     p1->V = M;
+  7293                           ;color.c: 312:     p1->V = M;
   7294   0014D2  500E               	movf	convert_HSV@p1^0,w,c
   7295   0014D4  6ED9               	movwf	fsr2l,c
   7296   0014D6  6ADA               	clrf	fsr2h,c
@@ -7580,7 +7580,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7304                           
   7305 ;; *************** function _min_RGB *****************
   7306 ;; Defined at:
-  7307 ;;		line 186 in file "color.c"
+  7307 ;;		line 188 in file "color.c"
   7308 ;; Parameters:    Size  Location     Type
   7309 ;;  p               1    0[COMRAM] PTR struct RGBC_val
   7310 ;;		 -> main@RGBC_colour(8), 
@@ -7620,7 +7620,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7339   002F04                     _min_RGB:
   7340                           	callstack 27
   7341   002F04                     
-  7342                           ;color.c: 186: unsigned int min_RGB(struct RGBC_val *p);color.c: 187: {;color.c: 188:   
+  7342                           ;color.c: 188: unsigned int min_RGB(struct RGBC_val *p);color.c: 189: {;color.c: 190:   
       +                            unsigned int min_val = p->R;
   7343   002F04  5001               	movf	min_RGB@p^0,w,c
   7344   002F06  6ED9               	movwf	fsr2l,c
@@ -7628,7 +7628,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7346   002F0A  CFDE F005          	movff	postinc2,min_RGB@min_val
   7347   002F0E  CFDD F006          	movff	postdec2,min_RGB@min_val+1
   7348   002F12                     
-  7349                           ;color.c: 189:     if (p->G < min_val) {min_val = p->G;}
+  7349                           ;color.c: 191:     if (p->G < min_val) {min_val = p->G;}
   7350   002F12  5001               	movf	min_RGB@p^0,w,c
   7351   002F14  6ED9               	movwf	fsr2l,c
   7352   002F16  6ADA               	clrf	fsr2h,c
@@ -7653,7 +7653,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7371   002F40  CFDD F006          	movff	postdec2,min_RGB@min_val+1
   7372   002F44                     l107:
   7373                           
-  7374                           ;color.c: 190:     if (p->B < min_val) {min_val = p->B;}
+  7374                           ;color.c: 192:     if (p->B < min_val) {min_val = p->B;}
   7375   002F44  5001               	movf	min_RGB@p^0,w,c
   7376   002F46  6ED9               	movwf	fsr2l,c
   7377   002F48  6ADA               	clrf	fsr2h,c
@@ -7678,7 +7678,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7396   002F72  CFDD F006          	movff	postdec2,min_RGB@min_val+1
   7397   002F76                     l3103:
   7398                           
-  7399                           ;color.c: 191:     return min_val;
+  7399                           ;color.c: 193:     return min_val;
   7400   002F76  C005  F001         	movff	min_RGB@min_val,?_min_RGB
   7401   002F7A  C006  F002         	movff	min_RGB@min_val+1,?_min_RGB+1
   7402   002F7E  0012               	return		;funcret
@@ -7687,7 +7687,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7405                           
   7406 ;; *************** function _max_RGB *****************
   7407 ;; Defined at:
-  7408 ;;		line 175 in file "color.c"
+  7408 ;;		line 177 in file "color.c"
   7409 ;; Parameters:    Size  Location     Type
   7410 ;;  p               1    0[COMRAM] PTR struct RGBC_val
   7411 ;;		 -> main@RGBC_colour(8), 
@@ -7727,7 +7727,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7440   002F80                     _max_RGB:
   7441                           	callstack 27
   7442   002F80                     
-  7443                           ;color.c: 175: unsigned int max_RGB(struct RGBC_val *p);color.c: 176: {;color.c: 177:   
+  7443                           ;color.c: 177: unsigned int max_RGB(struct RGBC_val *p);color.c: 178: {;color.c: 179:   
       +                            unsigned int max_val = p->R;
   7444   002F80  5001               	movf	max_RGB@p^0,w,c
   7445   002F82  6ED9               	movwf	fsr2l,c
@@ -7735,7 +7735,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7447   002F86  CFDE F005          	movff	postinc2,max_RGB@max_val
   7448   002F8A  CFDD F006          	movff	postdec2,max_RGB@max_val+1
   7449   002F8E                     
-  7450                           ;color.c: 178:     if (p->G > max_val) {max_val = p->G;}
+  7450                           ;color.c: 180:     if (p->G > max_val) {max_val = p->G;}
   7451   002F8E  5001               	movf	max_RGB@p^0,w,c
   7452   002F90  6ED9               	movwf	fsr2l,c
   7453   002F92  6ADA               	clrf	fsr2h,c
@@ -7760,7 +7760,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7472   002FBC  CFDD F006          	movff	postdec2,max_RGB@max_val+1
   7473   002FC0                     l102:
   7474                           
-  7475                           ;color.c: 179:     if (p->B > max_val) {max_val = p->B;}
+  7475                           ;color.c: 181:     if (p->B > max_val) {max_val = p->B;}
   7476   002FC0  5001               	movf	max_RGB@p^0,w,c
   7477   002FC2  6ED9               	movwf	fsr2l,c
   7478   002FC4  6ADA               	clrf	fsr2h,c
@@ -7785,7 +7785,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7497   002FEE  CFDD F006          	movff	postdec2,max_RGB@max_val+1
   7498   002FF2                     l3091:
   7499                           
-  7500                           ;color.c: 180:     return max_val;
+  7500                           ;color.c: 182:     return max_val;
   7501   002FF2  C005  F001         	movff	max_RGB@max_val,?_max_RGB
   7502   002FF6  C006  F002         	movff	max_RGB@max_val+1,?_max_RGB+1
   7503   002FFA  0012               	return		;funcret
@@ -7887,7 +7887,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7594                           
   7595 ;; *************** function _colour_to_key *****************
   7596 ;; Defined at:
-  7597 ;;		line 321 in file "color.c"
+  7597 ;;		line 320 in file "color.c"
   7598 ;; Parameters:    Size  Location     Type
   7599 ;;  p1              1    0[COMRAM] PTR struct HSV_val
   7600 ;;		 -> main@HSV_colour(6), 
@@ -7929,12 +7929,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7631   0014E6                     _colour_to_key:
   7632                           	callstack 28
   7633   0014E6                     
-  7634                           ;color.c: 321: unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2);colo
-      +                          r.c: 322: {;color.c: 323:     unsigned char key = 0;
+  7634                           ;color.c: 320: unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2);colo
+      +                          r.c: 321: {;color.c: 323:     unsigned char key = 0;
   7635   0014E6  0E00               	movlw	0
   7636   0014E8  6E05               	movwf	colour_to_key@key^0,c
   7637   0014EA                     
-  7638                           ;color.c: 324:     if ( ((293 <= p1->H) && (p1->H <= 360)) &&
+  7638                           ;color.c: 326:     if ( ((293 <= p1->H) && (p1->H <= 360)) &&
   7639   0014EA  5001               	movf	colour_to_key@p1^0,w,c
   7640   0014EC  6ED9               	movwf	fsr2l,c
   7641   0014EE  6ADA               	clrf	fsr2h,c
@@ -7994,13 +7994,13 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7695   001562  EFB5  F00A         	goto	l3645
   7696   001566                     u2730:
   7697   001566                     
-  7698                           ;color.c: 325:          ((46 <= p1->S) && (p1->S <= 90))) {;color.c: 326:         key = 
+  7698                           ;color.c: 327:          ((46 <= p1->S) && (p1->S <= 90))) {;color.c: 328:         key = 
       +                          1;
   7699   001566  0E01               	movlw	1
   7700   001568  6E05               	movwf	colour_to_key@key^0,c
   7701   00156A                     l3645:
   7702                           
-  7703                           ;color.c: 329:     if ( ((113 <= p1->H) && (p1->H <= 153)) &&
+  7703                           ;color.c: 332:     if ( ((113 <= p1->H) && (p1->H <= 153)) &&
   7704   00156A  5001               	movf	colour_to_key@p1^0,w,c
   7705   00156C  6ED9               	movwf	fsr2l,c
   7706   00156E  6ADA               	clrf	fsr2h,c
@@ -8062,13 +8062,13 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7762   0015E6  EFF7  F00A         	goto	l3655
   7763   0015EA                     u2770:
   7764   0015EA                     
-  7765                           ;color.c: 330:          ((13 <= p1->S) && (p1->S <= 43))) {;color.c: 331:         key = 
+  7765                           ;color.c: 333:          ((13 <= p1->S) && (p1->S <= 43))) {;color.c: 334:         key = 
       +                          2;
   7766   0015EA  0E02               	movlw	2
   7767   0015EC  6E05               	movwf	colour_to_key@key^0,c
   7768   0015EE                     l3655:
   7769                           
-  7770                           ;color.c: 334:     if ( ((180 <= p1->H) && (p1->H <= 244)) &&
+  7770                           ;color.c: 338:     if ( ((180 <= p1->H) && (p1->H <= 244)) &&
   7771   0015EE  5001               	movf	colour_to_key@p1^0,w,c
   7772   0015F0  6ED9               	movwf	fsr2l,c
   7773   0015F2  6ADA               	clrf	fsr2h,c
@@ -8130,13 +8130,13 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7829   00166A  EF39  F00B         	goto	l3665
   7830   00166E                     u2810:
   7831   00166E                     
-  7832                           ;color.c: 335:          ((13 <= p1->S) && (p1->S <= 56))) {;color.c: 336:         key = 
+  7832                           ;color.c: 339:          ((13 <= p1->S) && (p1->S <= 56))) {;color.c: 340:         key = 
       +                          3;
   7833   00166E  0E03               	movlw	3
   7834   001670  6E05               	movwf	colour_to_key@key^0,c
   7835   001672                     l3665:
   7836                           
-  7837                           ;color.c: 339:     if ( ((10 <= p1->H) && (p1->H <= 31)) &&
+  7837                           ;color.c: 344:     if ( ((10 <= p1->H) && (p1->H <= 31)) &&
   7838   001672  5001               	movf	colour_to_key@p1^0,w,c
   7839   001674  6ED9               	movwf	fsr2l,c
   7840   001676  6ADA               	clrf	fsr2h,c
@@ -8198,13 +8198,13 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7896   0016EE  EF7B  F00B         	goto	l3675
   7897   0016F2                     u2850:
   7898   0016F2                     
-  7899                           ;color.c: 340:          ((17 <= p1->S) && (p1->S <= 32))) {;color.c: 341:         key = 
+  7899                           ;color.c: 345:          ((17 <= p1->S) && (p1->S <= 32))) {;color.c: 346:         key = 
       +                          4;
   7900   0016F2  0E04               	movlw	4
   7901   0016F4  6E05               	movwf	colour_to_key@key^0,c
   7902   0016F6                     l3675:
   7903                           
-  7904                           ;color.c: 344:     if ( ((279 <= p1->H) && (p1->H <= 360)) &&
+  7904                           ;color.c: 350:     if ( ((279 <= p1->H) && (p1->H <= 360)) &&
   7905   0016F6  5001               	movf	colour_to_key@p1^0,w,c
   7906   0016F8  6ED9               	movwf	fsr2l,c
   7907   0016FA  6ADA               	clrf	fsr2h,c
@@ -8264,13 +8264,13 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   7961   00176E  EFBB  F00B         	goto	l3685
   7962   001772                     u2890:
   7963   001772                     
-  7964                           ;color.c: 345:          ((11 <= p1->S) && (p1->S <= 15))) {;color.c: 346:         key = 
+  7964                           ;color.c: 351:          ((11 <= p1->S) && (p1->S <= 15))) {;color.c: 352:         key = 
       +                          5;
   7965   001772  0E05               	movlw	5
   7966   001774  6E05               	movwf	colour_to_key@key^0,c
   7967   001776                     l3685:
   7968                           
-  7969                           ;color.c: 349:     if ( ((298 <= p1->H) && (p1->H <= 360)) &&
+  7969                           ;color.c: 356:     if ( ((298 <= p1->H) && (p1->H <= 360)) &&
   7970   001776  5001               	movf	colour_to_key@p1^0,w,c
   7971   001778  6ED9               	movwf	fsr2l,c
   7972   00177A  6ADA               	clrf	fsr2h,c
@@ -8330,13 +8330,13 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8026   0017EE  EFFB  F00B         	goto	l3695
   8027   0017F2                     u2930:
   8028   0017F2                     
-  8029                           ;color.c: 350:          ((20 <= p1->S) && (p1->S <= 45))) {;color.c: 351:         key = 
+  8029                           ;color.c: 357:          ((20 <= p1->S) && (p1->S <= 45))) {;color.c: 358:         key = 
       +                          6;
   8030   0017F2  0E06               	movlw	6
   8031   0017F4  6E05               	movwf	colour_to_key@key^0,c
   8032   0017F6                     l3695:
   8033                           
-  8034                           ;color.c: 354:     if ( ((154 <= p1->H) && (p1->H <= 207)) &&
+  8034                           ;color.c: 362:     if ( ((154 <= p1->H) && (p1->H <= 207)) &&
   8035   0017F6  5001               	movf	colour_to_key@p1^0,w,c
   8036   0017F8  6ED9               	movwf	fsr2l,c
   8037   0017FA  6ADA               	clrf	fsr2h,c
@@ -8398,13 +8398,13 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8093   001872  EF3D  F00C         	goto	l3705
   8094   001876                     u2970:
   8095   001876                     
-  8096                           ;color.c: 355:          ((13 <= p1->S) && (p1->S <= 45))) {;color.c: 356:         key = 
+  8096                           ;color.c: 363:          ((13 <= p1->S) && (p1->S <= 45))) {;color.c: 364:         key = 
       +                          7;
   8097   001876  0E07               	movlw	7
   8098   001878  6E05               	movwf	colour_to_key@key^0,c
   8099   00187A                     l3705:
   8100                           
-  8101                           ;color.c: 359:     if ( ((3000 <= p2->C) && (p2->C <= 40000)) &&
+  8101                           ;color.c: 368:     if ( ((3000 <= p2->C) && (p2->C <= 40000)) &&
   8102   00187A  5002               	movf	colour_to_key@p2^0,w,c
   8103   00187C  6ED9               	movwf	fsr2l,c
   8104   00187E  6ADA               	clrf	fsr2h,c
@@ -8452,12 +8452,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8146   0018D8  EF70  F00C         	goto	l3713
   8147   0018DC                     u3000:
   8148   0018DC                     
-  8149                           ;color.c: 360:          ((p1->S <= 10))) {;color.c: 361:         key = 8;
+  8149                           ;color.c: 369:          ((p1->S <= 10))) {;color.c: 370:         key = 8;
   8150   0018DC  0E08               	movlw	8
   8151   0018DE  6E05               	movwf	colour_to_key@key^0,c
   8152   0018E0                     l3713:
   8153                           
-  8154                           ;color.c: 364:     if ( ((1000 <= p2->C) && (p2->C <= 2600)) &&
+  8154                           ;color.c: 374:     if ( ((1000 <= p2->C) && (p2->C <= 2600)) &&
   8155   0018E0  5002               	movf	colour_to_key@p2^0,w,c
   8156   0018E2  6ED9               	movwf	fsr2l,c
   8157   0018E4  6ADA               	clrf	fsr2h,c
@@ -8505,12 +8505,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8199   00193E  EFA3  F00C         	goto	l139
   8200   001942                     u3030:
   8201   001942                     
-  8202                           ;color.c: 365:          ((p1->S <= 12))) {;color.c: 366:         key = 9;
+  8202                           ;color.c: 375:          ((p1->S <= 12))) {;color.c: 376:         key = 9;
   8203   001942  0E09               	movlw	9
   8204   001944  6E05               	movwf	colour_to_key@key^0,c
   8205   001946                     l139:
   8206                           
-  8207                           ;color.c: 369:     return key;
+  8207                           ;color.c: 379:     return key;
   8208   001946  5005               	movf	colour_to_key@key^0,w,c
   8209   001948  0012               	return		;funcret
   8210   00194A                     __end_of_colour_to_key:
@@ -8551,7 +8551,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8240 ;; Hardware stack levels required when called: 5
   8241 ;; This function calls:
   8242 ;;		___lldiv
-  8243 ;;		_getRGBCval
+  8243 ;;		_read_RGBC
   8244 ;; This function is called by:
   8245 ;;		_forward_navigation
   8246 ;; This function uses a non-reentrant model
@@ -8604,17 +8604,17 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8292   001DB0  0E00               	movlw	0
   8293   001DB2  6E21               	movwf	(average_RGBC@temp_C+3)^0,c
   8294                           
-  8295                           ;color.c: 136:     for (unsigned char i = 0; i < sample_count; i++) {
+  8295                           ;color.c: 133:     for (unsigned char i = 0; i < sample_count; i++) {
   8296   001DB4  0E00               	movlw	0
   8297   001DB6  6E11               	movwf	average_RGBC@i^0,c
   8298   001DB8  EF25  F00F         	goto	l3495
   8299   001DBC                     l3483:
   8300                           
-  8301                           ;color.c: 138:         getRGBCval(p);
-  8302   001DBC  C00E  F00C         	movff	average_RGBC@p,getRGBCval@p
-  8303   001DC0  ECA0  F019         	call	_getRGBCval	;wreg free
+  8301                           ;color.c: 136:         read_RGBC(p);
+  8302   001DBC  C00E  F00C         	movff	average_RGBC@p,read_RGBC@p
+  8303   001DC0  ECA0  F019         	call	_read_RGBC	;wreg free
   8304   001DC4                     
-  8305                           ;color.c: 140:         temp_R += (unsigned long)p->R;
+  8305                           ;color.c: 139:         temp_R += (unsigned long)p->R;
   8306   001DC4  500E               	movf	average_RGBC@p^0,w,c
   8307   001DC6  6ED9               	movwf	fsr2l,c
   8308   001DC8  6ADA               	clrf	fsr2h,c
@@ -8629,7 +8629,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8317   001DDE  0E00               	movlw	0
   8318   001DE0  2215               	addwfc	(average_RGBC@temp_R+3)^0,f,c
   8319   001DE2                     
-  8320                           ;color.c: 141:         temp_G += (unsigned long)p->G;
+  8320                           ;color.c: 140:         temp_G += (unsigned long)p->G;
   8321   001DE2  500E               	movf	average_RGBC@p^0,w,c
   8322   001DE4  6ED9               	movwf	fsr2l,c
   8323   001DE6  6ADA               	clrf	fsr2h,c
@@ -8646,7 +8646,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8334   001E00  0E00               	movlw	0
   8335   001E02  2219               	addwfc	(average_RGBC@temp_G+3)^0,f,c
   8336   001E04                     
-  8337                           ;color.c: 142:         temp_B += (unsigned long)p->B;
+  8337                           ;color.c: 141:         temp_B += (unsigned long)p->B;
   8338   001E04  500E               	movf	average_RGBC@p^0,w,c
   8339   001E06  6ED9               	movwf	fsr2l,c
   8340   001E08  6ADA               	clrf	fsr2h,c
@@ -8663,7 +8663,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8351   001E22  0E00               	movlw	0
   8352   001E24  221D               	addwfc	(average_RGBC@temp_B+3)^0,f,c
   8353   001E26                     
-  8354                           ;color.c: 143:         temp_C += (unsigned long)p->C;
+  8354                           ;color.c: 142:         temp_C += (unsigned long)p->C;
   8355   001E26  500E               	movf	average_RGBC@p^0,w,c
   8356   001E28  6ED9               	movwf	fsr2l,c
   8357   001E2A  6ADA               	clrf	fsr2h,c
@@ -8680,7 +8680,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8368   001E44  0E00               	movlw	0
   8369   001E46  2221               	addwfc	(average_RGBC@temp_C+3)^0,f,c
   8370   001E48                     
-  8371                           ;color.c: 144:     }
+  8371                           ;color.c: 143:     }
   8372   001E48  2A11               	incf	average_RGBC@i^0,f,c
   8373   001E4A                     l3495:
   8374   001E4A  0E13               	movlw	19
@@ -8759,14 +8759,14 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8447   001F22  C003  F020         	movff	?___lldiv+2,average_RGBC@temp_C+2
   8448   001F26  C004  F021         	movff	?___lldiv+3,average_RGBC@temp_C+3
   8449   001F2A                     
-  8450                           ;color.c: 153:     p->R = (unsigned int)temp_R;
+  8450                           ;color.c: 152:     p->R = (unsigned int)temp_R;
   8451   001F2A  500E               	movf	average_RGBC@p^0,w,c
   8452   001F2C  6ED9               	movwf	fsr2l,c
   8453   001F2E  6ADA               	clrf	fsr2h,c
   8454   001F30  C012  FFDE         	movff	average_RGBC@temp_R,postinc2
   8455   001F34  C013  FFDD         	movff	average_RGBC@temp_R+1,postdec2
   8456   001F38                     
-  8457                           ;color.c: 154:     p->G = (unsigned int)temp_G;
+  8457                           ;color.c: 153:     p->G = (unsigned int)temp_G;
   8458   001F38  500E               	movf	average_RGBC@p^0,w,c
   8459   001F3A  6ED9               	movwf	fsr2l,c
   8460   001F3C  6ADA               	clrf	fsr2h,c
@@ -8775,7 +8775,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8463   001F42  C016  FFDE         	movff	average_RGBC@temp_G,postinc2
   8464   001F46  C017  FFDD         	movff	average_RGBC@temp_G+1,postdec2
   8465   001F4A                     
-  8466                           ;color.c: 155:     p->B = (unsigned int)temp_B;
+  8466                           ;color.c: 154:     p->B = (unsigned int)temp_B;
   8467   001F4A  500E               	movf	average_RGBC@p^0,w,c
   8468   001F4C  6ED9               	movwf	fsr2l,c
   8469   001F4E  6ADA               	clrf	fsr2h,c
@@ -8784,7 +8784,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8472   001F54  C01A  FFDE         	movff	average_RGBC@temp_B,postinc2
   8473   001F58  C01B  FFDD         	movff	average_RGBC@temp_B+1,postdec2
   8474   001F5C                     
-  8475                           ;color.c: 156:     p->C = (unsigned int)temp_C;
+  8475                           ;color.c: 155:     p->C = (unsigned int)temp_C;
   8476   001F5C  500E               	movf	average_RGBC@p^0,w,c
   8477   001F5E  6ED9               	movwf	fsr2l,c
   8478   001F60  6ADA               	clrf	fsr2h,c
@@ -8796,7 +8796,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8484   001F70                     __end_of_average_RGBC:
   8485                           	callstack 0
   8486                           
-  8487 ;; *************** function _getRGBCval *****************
+  8487 ;; *************** function _read_RGBC *****************
   8488 ;; Defined at:
   8489 ;;		line 112 in file "color.c"
   8490 ;; Parameters:    Size  Location     Type
@@ -8839,13 +8839,13 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8522                           	psect	text49
   8523   003340                     __ptext49:
   8524                           	callstack 0
-  8525   003340                     _getRGBCval:
+  8525   003340                     _read_RGBC:
   8526                           	callstack 24
   8527   003340                     
-  8528                           ;color.c: 112: void getRGBCval(struct RGBC_val *p);color.c: 113: {;color.c: 114:     p->
-      +                          R = color_read_Red();
+  8528                           ;color.c: 112: void read_RGBC(struct RGBC_val *p);color.c: 113: {;color.c: 114:     p->R
+      +                           = color_read_Red();
   8529   003340  ECCB  F019         	call	_color_read_Red	;wreg free
-  8530   003344  500C               	movf	getRGBCval@p^0,w,c
+  8530   003344  500C               	movf	read_RGBC@p^0,w,c
   8531   003346  6ED9               	movwf	fsr2l,c
   8532   003348  6ADA               	clrf	fsr2h,c
   8533   00334A  C005  FFDE         	movff	?_color_read_Red,postinc2
@@ -8853,7 +8853,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8535                           
   8536                           ;color.c: 115:     p->G = color_read_Green();
   8537   003352  ECF3  F019         	call	_color_read_Green	;wreg free
-  8538   003356  500C               	movf	getRGBCval@p^0,w,c
+  8538   003356  500C               	movf	read_RGBC@p^0,w,c
   8539   003358  6ED9               	movwf	fsr2l,c
   8540   00335A  6ADA               	clrf	fsr2h,c
   8541   00335C  0E02               	movlw	2
@@ -8863,7 +8863,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8545                           
   8546                           ;color.c: 116:     p->B = color_read_Blue();
   8547   003368  EC43  F01A         	call	_color_read_Blue	;wreg free
-  8548   00336C  500C               	movf	getRGBCval@p^0,w,c
+  8548   00336C  500C               	movf	read_RGBC@p^0,w,c
   8549   00336E  6ED9               	movwf	fsr2l,c
   8550   003370  6ADA               	clrf	fsr2h,c
   8551   003372  0E04               	movlw	4
@@ -8873,7 +8873,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8555                           
   8556                           ;color.c: 117:     p->C = color_read_Clear();
   8557   00337E  EC1B  F01A         	call	_color_read_Clear	;wreg free
-  8558   003382  500C               	movf	getRGBCval@p^0,w,c
+  8558   003382  500C               	movf	read_RGBC@p^0,w,c
   8559   003384  6ED9               	movwf	fsr2l,c
   8560   003386  6ADA               	clrf	fsr2h,c
   8561   003388  0E06               	movlw	6
@@ -8881,7 +8881,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8563   00338C  C005  FFDE         	movff	?_color_read_Clear,postinc2
   8564   003390  C006  FFDD         	movff	?_color_read_Clear+1,postdec2
   8565   003394  0012               	return		;funcret
-  8566   003396                     __end_of_getRGBCval:
+  8566   003396                     __end_of_read_RGBC:
   8567                           	callstack 0
   8568                           
   8569 ;; *************** function _color_read_Red *****************
@@ -8919,7 +8919,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8596 ;;		_I2C_2_Master_Stop
   8597 ;;		_I2C_2_Master_Write
   8598 ;; This function is called by:
-  8599 ;;		_getRGBCval
+  8599 ;;		_read_RGBC
   8600 ;; This function uses a non-reentrant model
   8601 ;;
   8602                           
@@ -9014,7 +9014,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8686 ;;		_I2C_2_Master_Stop
   8687 ;;		_I2C_2_Master_Write
   8688 ;; This function is called by:
-  8689 ;;		_getRGBCval
+  8689 ;;		_read_RGBC
   8690 ;; This function uses a non-reentrant model
   8691 ;;
   8692                           
@@ -9109,7 +9109,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8776 ;;		_I2C_2_Master_Stop
   8777 ;;		_I2C_2_Master_Write
   8778 ;; This function is called by:
-  8779 ;;		_getRGBCval
+  8779 ;;		_read_RGBC
   8780 ;; This function uses a non-reentrant model
   8781 ;;
   8782                           
@@ -9204,7 +9204,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8866 ;;		_I2C_2_Master_Stop
   8867 ;;		_I2C_2_Master_Write
   8868 ;; This function is called by:
-  8869 ;;		_getRGBCval
+  8869 ;;		_read_RGBC
   8870 ;; This function uses a non-reentrant model
   8871 ;;
   8872                           
@@ -10098,41 +10098,41 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   9703                           ;buggy_lights.c: 21:         LATHbits.LATH0 = 0;
   9704   003774  9080               	bcf	128,0,c	;volatile
   9705                           
-  9706                           ;buggy_lights.c: 26:             TRISGbits.TRISG1 = 0;
-  9707   003776  9287               	bcf	135,1,c	;volatile
+  9706                           ;buggy_lights.c: 26:             TRISGbits.TRISG0 = 0;
+  9707   003776  9087               	bcf	135,0,c	;volatile
   9708                           
-  9709                           ;buggy_lights.c: 27:             TRISAbits.TRISA4 = 0;
-  9710   003778  9881               	bcf	129,4,c	;volatile
+  9709                           ;buggy_lights.c: 27:             TRISEbits.TRISE7 = 0;
+  9710   003778  9E85               	bcf	133,7,c	;volatile
   9711                           
-  9712                           ;buggy_lights.c: 28:             TRISFbits.TRISF7 = 0;
-  9713   00377A  9E86               	bcf	134,7,c	;volatile
+  9712                           ;buggy_lights.c: 28:             TRISAbits.TRISA3 = 0;
+  9713   00377A  9681               	bcf	129,3,c	;volatile
   9714                           
-  9715                           ;buggy_lights.c: 30:             LATGbits.LATG1 = 0;
-  9716   00377C  927F               	bcf	127,1,c	;volatile
+  9715                           ;buggy_lights.c: 30:             LATGbits.LATG0 = 0;
+  9716   00377C  907F               	bcf	127,0,c	;volatile
   9717                           
-  9718                           ;buggy_lights.c: 31:             LATAbits.LATA4 = 0;
-  9719   00377E  9879               	bcf	121,4,c	;volatile
+  9718                           ;buggy_lights.c: 31:             LATEbits.LATE7 = 0;
+  9719   00377E  9E7D               	bcf	125,7,c	;volatile
   9720                           
-  9721                           ;buggy_lights.c: 32:             LATFbits.LATF7 = 0;
-  9722   003780  9E7E               	bcf	126,7,c	;volatile
+  9721                           ;buggy_lights.c: 32:             LATAbits.LATA3 = 0;
+  9722   003780  9679               	bcf	121,3,c	;volatile
   9723                           
-  9724                           ;buggy_lights.c: 36:             TRISGbits.TRISG0 = 0;
-  9725   003782  9087               	bcf	135,0,c	;volatile
+  9724                           ;buggy_lights.c: 36:             TRISGbits.TRISG1 = 0;
+  9725   003782  9287               	bcf	135,1,c	;volatile
   9726                           
-  9727                           ;buggy_lights.c: 37:             TRISEbits.TRISE7 = 0;
-  9728   003784  9E85               	bcf	133,7,c	;volatile
+  9727                           ;buggy_lights.c: 37:             TRISAbits.TRISA4 = 0;
+  9728   003784  9881               	bcf	129,4,c	;volatile
   9729                           
-  9730                           ;buggy_lights.c: 38:             TRISAbits.TRISA3 = 0;
-  9731   003786  9681               	bcf	129,3,c	;volatile
+  9730                           ;buggy_lights.c: 38:             TRISFbits.TRISF7 = 0;
+  9731   003786  9E86               	bcf	134,7,c	;volatile
   9732                           
-  9733                           ;buggy_lights.c: 40:             LATGbits.LATG0 = 0;
-  9734   003788  907F               	bcf	127,0,c	;volatile
+  9733                           ;buggy_lights.c: 40:             LATGbits.LATG1 = 0;
+  9734   003788  927F               	bcf	127,1,c	;volatile
   9735                           
-  9736                           ;buggy_lights.c: 41:             LATEbits.LATE7 = 0;
-  9737   00378A  9E7D               	bcf	125,7,c	;volatile
+  9736                           ;buggy_lights.c: 41:             LATAbits.LATA4 = 0;
+  9737   00378A  9879               	bcf	121,4,c	;volatile
   9738                           
-  9739                           ;buggy_lights.c: 42:             LATAbits.LATA3 = 0;
-  9740   00378C  9679               	bcf	121,3,c	;volatile
+  9739                           ;buggy_lights.c: 42:             LATFbits.LATF7 = 0;
+  9740   00378C  9E7E               	bcf	126,7,c	;volatile
   9741   00378E  0012               	return		;funcret
   9742   003790                     __end_of_buggy_lights_init:
   9743                           	callstack 0
@@ -10848,9 +10848,6 @@ Pointer List with Targets:
     fullSpeedReverse@mR$posDutyHighByte	PTR unsigned char  size(2) Largest target is 1
 		 -> CCPR1H(BITBIGSFRhhllll[1]), CCPR3H(BITBIGSFRlllhhhlllll[1]), 
 
-    getRGBCval@p	PTR struct RGBC_val size(1) Largest target is 8
-		 -> main@RGBC_colour(BANK0[8]), 
-
     headbuttReverse@mL	PTR struct DC_motor size(1) Largest target is 11
 		 -> main@motorL(BANK0[9]), 
 
@@ -10883,6 +10880,9 @@ Pointer List with Targets:
 
     pick_card@mR	PTR struct DC_motor size(1) Largest target is 11
 		 -> main@motorR(BANK0[9]), 
+
+    read_RGBC@p	PTR struct RGBC_val size(1) Largest target is 8
+		 -> main@RGBC_colour(BANK0[8]), 
 
     read_timer@tH	PTR unsigned char  size(1) Largest target is 1
 		 -> forward_navigation@timerH(COMRAM[1]), 
@@ -11041,7 +11041,7 @@ Critical Paths under _main in COMRAM
     _main->_forward_navigation
     _return_to_sender->_pick_card
     _forward_navigation->_convert_HSV
-    _wait_for_wall->_getRGBCval
+    _wait_for_wall->_read_RGBC
     _scale_RGB->___fltol
     ___fltol->___flmul
     ___flmul->___xxtofl
@@ -11092,10 +11092,10 @@ Critical Paths under _main in COMRAM
     ___lwdiv->___wmul
     _convert_HSV->___lldiv
     _average_RGBC->___lldiv
-    _getRGBCval->_color_read_Blue
-    _getRGBCval->_color_read_Clear
-    _getRGBCval->_color_read_Green
-    _getRGBCval->_color_read_Red
+    _read_RGBC->_color_read_Blue
+    _read_RGBC->_color_read_Clear
+    _read_RGBC->_color_read_Green
+    _read_RGBC->_color_read_Red
     _color_read_Red->_I2C_2_Master_Read
     _color_read_Green->_I2C_2_Master_Read
     _color_read_Clear->_I2C_2_Master_Read
@@ -11285,7 +11285,7 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (2) _wait_for_wall                                        4     2      2     910
                                              12 COMRAM     4     2      2
-                         _getRGBCval
+                          _read_RGBC
  ---------------------------------------------------------------------------------
  (2) _toggle_tricolour_LED                                 1     1      0       0
                                               0 COMRAM     1     1      0
@@ -11478,9 +11478,9 @@ Call Graph Tables:
  (2) _average_RGBC                                        20    19      1    3012
                                              13 COMRAM    20    19      1
                             ___lldiv
-                         _getRGBCval
+                          _read_RGBC
  ---------------------------------------------------------------------------------
- (3) _getRGBCval                                           1     0      1     692
+ (3) _read_RGBC                                            1     0      1     692
                                              11 COMRAM     1     0      1
                     _color_read_Blue
                    _color_read_Clear
@@ -11598,7 +11598,7 @@ Call Graph Tables:
    _forward_navigation
      _average_RGBC
        ___lldiv
-       _getRGBCval
+       _read_RGBC
          _color_read_Blue
            _I2C_2_Master_Read
              _I2C_2_Master_Idle
@@ -11709,7 +11709,7 @@ Call Graph Tables:
      _stop_timer
      _toggle_tricolour_LED
      _wait_for_wall
-       _getRGBCval
+       _read_RGBC
      _write_trail
    _initDCmotorsPWM
    _initUSART4
@@ -11805,7 +11805,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.45 build 20230818022343 
-Symbol Table                                                                                   Thu Mar 14 11:44:57 2024
+Symbol Table                                                                                   Thu Mar 14 12:45:48 2024
 
                    _turn180Delay 00C0                  ??_wait_for_wall 000F                   _color_read_Red 3396  
                 _color_read_Blue 3486                  _trail_timer_low 0074              card_green@backtrack 001E  
@@ -12063,20 +12063,20 @@ Symbol Table                                                                    
                            u2181 1C30                             u2261 2532                             u2421 210C  
                            u2341 1F8C                             u3221 24CA                             u1710 2362  
                            u3070 2978                             u2190 1C62                             u2270 256A  
-                           u2350 1FEC                             u2510 286C                             u3150 228A  
+                           u2350 1FEC                             u2510 286E                             u3150 228A  
                            u2430 3846                             u1711 235E                             u3071 2974  
-                           u2191 1C5E                             u2351 1FE8                             u2511 2864  
+                           u2191 1C5E                             u2351 1FE8                             u2511 2866  
                            u3151 2286                             u2431 383E                             u1720 37F4  
                            u1800 3586                             u2600 0E70                             u2280 2598  
                            u2360 2042                             u3080 21DE                             u3160 2C76  
                            u1721 37F0                             u1801 357E                             u2601 0E6C  
                            u2281 2594                             u2361 203E                             u3081 21DA  
                            u3161 2C72                             u1730 380A                             u2610 0E9A  
-                           u2290 25AC                             u2370 208C                             u2530 288A  
+                           u2290 25AC                             u2370 208C                             u2530 288E  
                            u2450 280A                             u3090 21F8                             u3170 2CBC  
                            u3218 24B2                             _T2PR 0FBC                             u1731 3806  
                            u2611 0E96                             u3307 362C                             u2291 25A8  
-                           u2275 2560                             u2371 2088                             u2531 2882  
+                           u2275 2560                             u2371 2088                             u2531 2886  
                            u2451 2802                             u3091 21F0                             u3171 2CB8  
                            u2700 1506                             u2620 0EC4                             u1820 2D90  
                            u1740 38B8                             u1900 29B8                             u2380 20AA  
@@ -12085,15 +12085,15 @@ Symbol Table                                                                    
                            u1741 38B0                             u3317 29F6                             u1901 29B4  
                            u2381 20A6                             u3181 2CE0                             u2710 1522  
                            u2630 1096                             u1670 3016                             u1830 2DAE  
-                           u1910 29D8                             u2390 20BA                             u2550 28AC  
-                           u2470 282A                             u3238 24D4                             u3190 249E  
+                           u1910 29D8                             u2390 20BA                             u2550 28AE  
+                           u2470 2828                             u3238 24D4                             u3190 249E  
                            u2711 151E                             u2631 1092                             u1671 3012  
                            u1831 2DAA                             u3327 3666                             u1911 29D4  
-                           u2391 20B6                             u2551 28A4                             u2471 2822  
+                           u2391 20B6                             u2551 28A6                             u2471 2820  
                            u3247 24EE                             u3191 249A                             u2800 164C  
                            u2720 1544                             u2640 10BC                             u1680 3034  
                            u1840 2DEC                             u1760 38FA                             u1920 2A18  
-                           u2528 286E                             u2448 3848                             u2801 1648  
+                           u2528 2870                             u2448 3848                             u2801 1648  
                            u2721 1540                             u2641 10B8                             u1681 3030  
                            u1841 2DE8                             u1761 38F2                             u3337 3710  
                            u1921 2A14                             u3257 217A                             u1818 3588  
@@ -12105,7 +12105,7 @@ Symbol Table                                                                    
                            u1931 2A2C                             u2491 2842                             u3267 21C0  
                            u2900 1792                             u2820 1690                             u2740 1588  
                            u2660 1288                             u1780 38DA                             u1860 2A70  
-                           u1940 2B26                             u2548 288C                             u2468 280C  
+                           u1940 2B26                             u2548 2890                             u2468 280C  
                            u2580 3504                             u2901 178E                             u2821 168C  
                            u2741 1584                             u2661 1284                             u1781 38D2  
                            u1861 2A6C                             u3357 3538                             u1941 2B22  
@@ -12116,7 +12116,7 @@ Symbol Table                                                                    
                            u3367 2AAE                             u1871 2A8C                             u1951 2B42  
                            u3287 36A0                             u2591 3514                             u2920 17D0  
                            u2840 16D0                             u2760 15C8                             u1880 2AD0  
-                           u1960 2B86                             u2568 28AE                             u2488 282C  
+                           u1960 2B86                             u2568 28B0                             u2488 282A  
                            u2921 17CC                             u2841 16CC                             u2761 15C4  
                            u3377 2DCC                             u1881 2ACC                             u1961 2B82  
                            u3297 36D8                             u2930 17F2                             u2850 16F2  
@@ -12159,7 +12159,7 @@ Symbol Table                                                                    
           _I2C_2_Master_RepStart 399C                  ?_color_read_Red 0005                  __initialization 32E2  
                    __end_of_main 2520                     __end_of_stop 2E04                           ??_main 004B  
                          ??_stop 0015                    __activetblptr 0003                   write_trail@man 0002  
-                   _turnRight135 3612                           ?_UTurn 0018                   _bottomGearLeft 0055  
+                   _turnRight135 3612                           ?_UTurn 0018                   _bottomGearLeft 0056  
                    ?_setMotorPWM 000E                           _CCPR1H 0FAA                           _CCPR2H 0FA6  
                          _CCPR3H 0F25                           _CCPR4H 0F21                    _squareReverse 35D8  
                          _RC0PPS 0E62                           _RE2PPS 0E74                           _RD5PPS 0E6F  
@@ -12196,60 +12196,60 @@ Symbol Table                                                                    
                    ?_start_timer 0001                          ??_UTurn 001A                ?_toggle_main_beam 0001  
 __end_of_toggle_right_indicators 38E8        __end_of_buggy_lights_init 3790                       _card_green 31AA  
              ??_toggle_main_beam 0001                       __pbssBANK0 0060                       _card_white 385A  
-                     _getRGBCval 3340                _color_writetoaddr 3908                     _T2CLKCONbits 0FBF  
-          ??_toggle_brake_lights 0001                     ?_turnLeft135 0018               ?_color_writetoaddr 0003  
-                        ?___lmul 0001        fullSpeedReverse@rightGear 0017             card_yellow@backtrack 001E  
-                        ?___wmul 0001                  _bottomGearRight 0054            __end_of_wait_for_wall 351A  
-                   ?_turnRight90 0018                   ___lmul@product 0009              ??_color_writetoaddr 0004  
-       __end_of_return_to_sender 2CE6                        ?_card_red 001C                        ?___xxtofl 0001  
-                ??_squareReverse 001A                          _SP4BRGH 0EE6                          _SP4BRGL 0EE5  
-                   ?_write_timer 0001                     ?_write_trail 0001                          _SSP2ADD 0ED6  
-                        _SSP2BUF 0ED5                __end_of_card_blue 32E2                __end_of_card_cyan 327A  
-              __end_of_card_pink 2F04           color_writetoaddr@value 0003                 ??_color_read_Red 0007  
-                        UTurn@mL 0018                          UTurn@mR 0019        __end_of_color_writetoaddr 3928  
-             _I2C_2_Master_Start 39B0                       _initUSART4 3928               _I2C_2_Master_Write 3978  
-                        __Hparam 0000                          __Lparam 0000                color_read_Red@tmp 000A  
-                    _Timer0_init 380C                       card_red@mL 001C                       card_red@mR 001D  
-               _turningRightGear 0052                          ___flmul 194A                          ___fltol 2520  
-                        ___lldiv 2BA0                    convert_HSV@p1 000E              ?_I2C_2_Master_Start 0001  
-                  convert_HSV@p2 000F                          ___lwdiv 2FFC              ?_I2C_2_Master_Write 0001  
-              wait_for_wall@loss 000E                     __psmallconst 0E00                     turnLeft90@mL 0018  
-                   turnLeft90@mR 0019                          __pcinit 32E2                          __ramtop 0E00  
-                      ?_turnLeft 0013                          __ptext0 23E0                          __ptext1 2C44  
-                        __ptext2 3834                          __ptext3 359E                          __ptext4 3928  
-                        __ptext5 2CE6                          __ptext6 2124                          __ptext7 3790  
-                        __ptext8 34D6                          __ptext9 27F8                       _read_timer 3946  
-                  ??_card_orange 001F                       _read_trail 359E                          _max_RGB 2F80  
+              _color_writetoaddr 3908                     _T2CLKCONbits 0FBF            ??_toggle_brake_lights 0001  
+                   ?_turnLeft135 0018               ?_color_writetoaddr 0003                          ?___lmul 0001  
+      fullSpeedReverse@rightGear 0017             card_yellow@backtrack 001E                          ?___wmul 0001  
+                _bottomGearRight 0055            __end_of_wait_for_wall 351A                     ?_turnRight90 0018  
+                 ___lmul@product 0009              ??_color_writetoaddr 0004         __end_of_return_to_sender 2CE6  
+                      ?_card_red 001C                        ?___xxtofl 0001                  ??_squareReverse 001A  
+                        _SP4BRGH 0EE6                          _SP4BRGL 0EE5                     ?_write_timer 0001  
+                   ?_write_trail 0001                          _SSP2ADD 0ED6                          _SSP2BUF 0ED5  
+              __end_of_card_blue 32E2                __end_of_card_cyan 327A                __end_of_card_pink 2F04  
+         color_writetoaddr@value 0003                 ??_color_read_Red 0007                          UTurn@mL 0018  
+                        UTurn@mR 0019        __end_of_color_writetoaddr 3928               _I2C_2_Master_Start 39B0  
+                     _initUSART4 3928               _I2C_2_Master_Write 3978                          __Hparam 0000  
+                        __Lparam 0000                color_read_Red@tmp 000A                      _Timer0_init 380C  
+                     card_red@mL 001C                       card_red@mR 001D                 _turningRightGear 0053  
+                        ___flmul 194A                          ___fltol 2520                          ___lldiv 2BA0  
+                  convert_HSV@p1 000E              ?_I2C_2_Master_Start 0001                    convert_HSV@p2 000F  
+                        ___lwdiv 2FFC              ?_I2C_2_Master_Write 0001                wait_for_wall@loss 000E  
+                   __psmallconst 0E00                     turnLeft90@mL 0018                     turnLeft90@mR 0019  
+                        __pcinit 32E2                          __ramtop 0E00                        ?_turnLeft 0013  
+                        __ptext0 23E0                          __ptext1 2C44                          __ptext2 3834  
+                        __ptext3 359E                          __ptext4 3928                          __ptext5 2CE6  
+                        __ptext6 2124                          __ptext7 3790                          __ptext8 34D6  
+                        __ptext9 27F8                       _read_timer 3946                    ??_card_orange 001F  
+                     _read_trail 359E                __end_of_read_RGBC 3396                          _max_RGB 2F80  
                         _min_RGB 2F04                    ??_card_yellow 001F                        _T2CONbits 0FBD  
                      ??_card_red 001F                       ??___xxtofl 0005                __end_of_scale_RGB 27F8  
        __end_of_fullSpeedReverse 2BA0                        _T2HLTbits 0FBE                __end_of_pick_card 2722  
          fullSpeedAhead@leftGear 0016             ??_I2C_2_Master_Start 0002             ??_I2C_2_Master_Write 0002  
                     ?_card_green 001C             end_of_initialization 3336                      ?_card_white 001C  
          _toggle_left_indicators 38E8         forward_navigation@timerH 0048         forward_navigation@timerL 0049  
-                    ?_getRGBCval 000C                ?_color_click_init 0001                  ___lldiv@divisor 0005  
-                colour_to_key@p1 0001                  colour_to_key@p2 0002               ??_color_click_init 0005  
-                ___lldiv@counter 000D                     _average_RGBC 1D74             convert_HSV@hue_scale 003C  
-                        postdec1 0FE5                          postdec2 0FDD                  squareReverse@mL 0018  
-                squareReverse@mR 0019                          postinc0 0FEE                          postinc1 0FE6  
-                        postinc2 0FDE                  _initDCmotorsPWM 2CE6                       ??_turnLeft 0015  
-                      _PORTFbits 0F8E               setMotorPWM@negDuty 0012                __end_of_turnRight 2A32  
-           convert_HSV@sat_scale 0018                     read_timer@tH 0001                     read_timer@tL 0002  
-                  ___xxtofl@sign 0009                        _TRISAbits 0F81               setMotorPWM@posDuty 0011  
-                   read_trail@tH 0001                     read_trail@tL 0002                        _TRISCbits 0F83  
-                      _TRISDbits 0F84                        _TRISEbits 0F85                        _TRISFbits 0F86  
-                      _TRISGbits 0F87                        _TRISHbits 0F88              __end_of_card_orange 31AA  
-               fullSpeedAhead@mL 0013                card_red@backtrack 001E                 fullSpeedAhead@mR 0014  
-       color_writetoaddr@address 0004              __end_of_card_yellow 2E84          ??_I2C_2_Master_RepStart 0002  
-           card_orange@backtrack 001E                      ___flmul@grs 001C                      _CCP1CONbits 0FAB  
-              ?_color_read_Clear 0005                      _CCP2CONbits 0FA7                ?_color_read_Green 0005  
-                    _CCP3CONbits 0F26                      ?_initUSART4 0001                      _CCP4CONbits 0F22  
-                     main@motorL 00A2                       main@motorR 00AB               ??_color_read_Clear 0007  
-             ??_color_read_Green 0007                       _stop_timer 39BA                       _turnLeft90 36BE  
-                   pick_card@key 0024                   _fullSpeedAhead 28C0                   __end_of___lmul 30DA  
-                 __end_of___wmul 38A6                    __pidataCOMRAM 396A                      ?_read_timer 0001  
-                    ?_read_trail 0001             return_to_sender@mann 002B              color_read_Clear@tmp 000A  
-            start_initialization 32E2                    ??_convert_HSV 0010                      __end_of_ISR 003C  
-               _turnRight90Delay 00C6            __end_of_colour_to_key 194A               _forward_navigation 2124  
+              ?_color_click_init 0001                  ___lldiv@divisor 0005                  colour_to_key@p1 0001  
+                colour_to_key@p2 0002               ??_color_click_init 0005                  ___lldiv@counter 000D  
+                   _average_RGBC 1D74             convert_HSV@hue_scale 003C                          postdec1 0FE5  
+                        postdec2 0FDD                  squareReverse@mL 0018                  squareReverse@mR 0019  
+                        postinc0 0FEE                          postinc1 0FE6                          postinc2 0FDE  
+                _initDCmotorsPWM 2CE6                       ??_turnLeft 0015                        _PORTFbits 0F8E  
+             setMotorPWM@negDuty 0012                __end_of_turnRight 2A32             convert_HSV@sat_scale 0018  
+                   read_timer@tH 0001                     read_timer@tL 0002                    ___xxtofl@sign 0009  
+                      _TRISAbits 0F81               setMotorPWM@posDuty 0011                     read_trail@tH 0001  
+                   read_trail@tL 0002                        _TRISCbits 0F83                        _TRISDbits 0F84  
+                      _TRISEbits 0F85                        _TRISFbits 0F86                        _TRISGbits 0F87  
+                      _TRISHbits 0F88              __end_of_card_orange 31AA                 fullSpeedAhead@mL 0013  
+              card_red@backtrack 001E                 fullSpeedAhead@mR 0014         color_writetoaddr@address 0004  
+            __end_of_card_yellow 2E84          ??_I2C_2_Master_RepStart 0002             card_orange@backtrack 001E  
+                    ___flmul@grs 001C                      _CCP1CONbits 0FAB                ?_color_read_Clear 0005  
+                    _CCP2CONbits 0FA7                ?_color_read_Green 0005                      _CCP3CONbits 0F26  
+                    ?_initUSART4 0001                      _CCP4CONbits 0F22                       main@motorL 00A2  
+                     main@motorR 00AB               ??_color_read_Clear 0007               ??_color_read_Green 0007  
+                     _stop_timer 39BA                       _turnLeft90 36BE                     pick_card@key 0024  
+                 _fullSpeedAhead 28C0                   __end_of___lmul 30DA                   __end_of___wmul 38A6  
+                  __pidataCOMRAM 396A                      ?_read_timer 0001                      ?_read_trail 0001  
+           return_to_sender@mann 002B              color_read_Clear@tmp 000A              start_initialization 32E2  
+                  ??_convert_HSV 0010                      __end_of_ISR 003C                 _turnRight90Delay 00C6  
+          __end_of_colour_to_key 194A               _forward_navigation 2124                       read_RGBC@p 000C  
             color_read_Green@tmp 000A         ?_toggle_right_indicators 0001              ?_forward_navigation 0042  
               ??_headbuttReverse 001A          __end_of_initDCmotorsPWM 2D76           __end_of_fullSpeedAhead 297A  
                        ??___lmul 0009                         ??___wmul 0005                     card_green@mL 001C  
@@ -12265,17 +12265,17 @@ __end_of_toggle_right_indicators 38E8        __end_of_buggy_lights_init 3790    
                    ?_Timer0_init 0001                      ?_stop_timer 0001                      ?_turnLeft90 0018  
                 ?_fullSpeedAhead 0013                        __pintcode 0008                         ?___flmul 000F  
                        ?___fltol 0028                         ?___lldiv 0001                         ?___lwdiv 0007  
-                _turningLeftGear 0053             I2C_2_Master_Read@ack 0003             I2C_2_Master_Read@tmp 0004  
+                _turningLeftGear 0054             I2C_2_Master_Read@ack 0003             I2C_2_Master_Read@tmp 0004  
                        ?_max_RGB 0001                         ?_min_RGB 0001                      __smallconst 0E00  
                   ?_turnRight135 0018                _I2C_2_Master_Idle 37E4                _I2C_2_Master_Init 37BA  
               _I2C_2_Master_Read 355C                _I2C_2_Master_Stop 39A6                ?_fullSpeedReverse 0013  
-             ?_I2C_2_Master_Idle 0001          ?_toggle_left_indicators 0001               ?_I2C_2_Master_Init 0001  
-             ?_I2C_2_Master_Read 0001                    ??_setMotorPWM 000F            __end_of_squareReverse 3612  
-             ?_I2C_2_Master_Stop 0001                 ___lwdiv@quotient 000B               pick_card@backtrack 0023  
-                  _headbuttDelay 00BE         initDCmotorsPWM@PWMperiod 0001                     ??_card_green 001F  
-             ??_fullSpeedReverse 0015                        _scale_RGB 2722                        _rampDelay 0058  
-                   ??_card_white 001E                        _pick_card 2626               card_cyan@backtrack 001E  
-                   ??_getRGBCval 000D              ??_I2C_2_Master_Idle 0001              ??_I2C_2_Master_Init 0001  
+                      _read_RGBC 3340               ?_I2C_2_Master_Idle 0001          ?_toggle_left_indicators 0001  
+             ?_I2C_2_Master_Init 0001               ?_I2C_2_Master_Read 0001                    ??_setMotorPWM 000F  
+          __end_of_squareReverse 3612               ?_I2C_2_Master_Stop 0001                 ___lwdiv@quotient 000B  
+             pick_card@backtrack 0023                    _headbuttDelay 00BE         initDCmotorsPWM@PWMperiod 0001  
+                   ??_card_green 001F               ??_fullSpeedReverse 0015                        _scale_RGB 2722  
+                      _rampDelay 0052                     ??_card_white 001E                        _pick_card 2626  
+             card_cyan@backtrack 001E              ??_I2C_2_Master_Idle 0001              ??_I2C_2_Master_Init 0001  
             ??_I2C_2_Master_Read 0002                   ___wmul@product 0005                         _LATAbits 0F79  
                      ?_card_blue 001C              ??_I2C_2_Master_Stop 0002                         _LATCbits 0F7B  
                      ?_card_cyan 001C                         _LATDbits 0F7C                         _LATEbits 0F7D  
@@ -12288,8 +12288,8 @@ __end_of_toggle_right_indicators 38E8        __end_of_buggy_lights_init 3790    
                       _returning 005D               __end_of_card_green 3212        __end_of_I2C_2_Master_Idle 380C  
       __end_of_I2C_2_Master_Init 37E4        __end_of_I2C_2_Master_Read 359E                ___wmul@multiplier 0001  
              __end_of_card_white 3880                   ??_turnRight135 001A        __end_of_I2C_2_Master_Stop 39B0  
-                   setMotorPWM@m 000E      I2C_2_Master_Write@data_byte 0002               __end_of_getRGBCval 3396  
- __end_of_toggle_left_indicators 3908                ??_color_read_Blue 0007                      _convert_HSV 0E1A  
+                   setMotorPWM@m 000E      I2C_2_Master_Write@data_byte 0002   __end_of_toggle_left_indicators 3908  
+              ??_color_read_Blue 0007                      _convert_HSV 0E1A                       ?_read_RGBC 000C  
                 main@RGBC_colour 00B4                        _turnRight 297A                ___lmul@multiplier 0001  
                       copy_data0 32F6                        copy_data1 3316                       ?_scale_RGB 0032  
                      ?_pick_card 0021               card_pink@backtrack 001E    __end_of_I2C_2_Master_RepStart 39A6  
@@ -12325,23 +12325,23 @@ __end_of_toggle_right_indicators 38E8        __end_of_buggy_lights_init 3790    
                        __ptext56 2BA0                         __ptext48 1D74                         __ptext65 380C  
                        __ptext57 372E                         __ptext49 3340                         __ptext66 39BE  
                        __ptext58 3908                         __ptext67 3984                         __ptext59 3978  
-                       __ptext68 3990                      getRGBCval@p 000C                     _SSP2CON1bits 0ED9  
-                _headbuttReverse 36F6                     _SSP2CON2bits 0EDA                      ??_card_blue 001F  
-                    ??_card_cyan 001F                      ??_card_pink 001F         fullSpeedReverse@leftGear 0016  
-                     turnLeft@mL 0013                       turnLeft@mR 0014           forward_navigation@mann 004A  
-             __end_of_read_timer 395C               __end_of_read_trail 35D8                    ??_turnLeft135 001A  
-                       isa$xinst 0000                       _RC4STAbits 0EE7                         int$flags 005E  
-                  ??_turnRight90 001A                   ?_wait_for_wall 000D                         _turnLeft 2A32  
-                       max_RGB@p 0001                     ?_card_orange 001C                         min_RGB@p 0001  
-                   ?_card_yellow 001C                       _INTCONbits 0FF2            ?_toggle_tricolour_LED 0001  
-                  ??_write_timer 0002                    ??_write_trail 0003                      _setMotorPWM 228C  
+                       __ptext68 3990                     _SSP2CON1bits 0ED9                  _headbuttReverse 36F6  
+                   _SSP2CON2bits 0EDA                      ??_card_blue 001F                      ??_card_cyan 001F  
+                    ??_card_pink 001F         fullSpeedReverse@leftGear 0016                       turnLeft@mL 0013  
+                     turnLeft@mR 0014           forward_navigation@mann 004A               __end_of_read_timer 395C  
+             __end_of_read_trail 35D8                    ??_turnLeft135 001A                         isa$xinst 0000  
+                     _RC4STAbits 0EE7                         int$flags 005E                    ??_turnRight90 001A  
+                 ?_wait_for_wall 000D                         _turnLeft 2A32                         max_RGB@p 0001  
+                   ?_card_orange 001C                         min_RGB@p 0001                     ?_card_yellow 001C  
+                     _INTCONbits 0FF2            ?_toggle_tricolour_LED 0001                    ??_write_timer 0002  
+                  ??_write_trail 0003                      ??_read_RGBC 000D                      _setMotorPWM 228C  
                     ??_scale_RGB 0033              __end_of_start_timer 39C2                         intlevel2 0000  
                   turnRight90@mL 0018                    turnRight90@mR 0019                      ??_pick_card 0025  
-        fullSpeedAhead@rightGear 0017                     _topGearRight 0056                _manoeuvre_pointer 004F  
+        fullSpeedAhead@rightGear 0017                     _topGearRight 0057                _manoeuvre_pointer 004F  
                ___lldiv@dividend 0001                 ??_fullSpeedAhead 0015             __end_of_turnRight135 364C  
                colour_to_key@key 0005                   main@HSV_colour 009C                      _reset_timer 3984  
                    ??_stop_timer 0001                     ??_turnLeft90 001A                 _color_click_init 372E  
-            __end_of_turnLeft135 3686                      _topGearLeft 0057                       _SSP2DATPPS 0E1D  
+            __end_of_turnLeft135 3686                      _topGearLeft 0058                       _SSP2DATPPS 0E1D  
                ___lldiv@quotient 0009          __end_of_headbuttReverse 372E                       _SSP2CLKPPS 0E1C  
             __end_of_turnRight90 36BE                  _trail_manoeuvre 0060                      ??_turnRight 0015  
                     _return_flag 005C               __end_of_stop_timer 39BE               __end_of_turnLeft90 36F6  

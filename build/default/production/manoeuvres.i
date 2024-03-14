@@ -24107,6 +24107,7 @@ unsigned char __t3rd16on(void);
 
 
 void buggy_lights_init(void);
+
 void toggle_brake_lights(void);
 void toggle_headlamps(void);
 void toggle_main_beam(void);
@@ -24114,6 +24115,7 @@ void toggle_left_indicators(void);
 void toggle_right_indicators(void);
 void toggle_tricolour_LED(void);
 # 5 "./dc_motor.h" 2
+
 
 
 
@@ -24127,8 +24129,6 @@ typedef struct DC_motor {
     unsigned char *negDutyHighByte;
 } DC_motor;
 
-unsigned char rampDelay = 8;
-
 unsigned char topGearLeft = 20;
 unsigned char topGearRight = 20;
 
@@ -24138,6 +24138,8 @@ unsigned char bottomGearRight = 21;
 unsigned char turningLeftGear = 40;
 unsigned char turningRightGear = 40;
 
+
+unsigned char rampDelay = 8;
 
 unsigned int turnLeft90Delay = 84;
 unsigned int turnRight90Delay = 108;

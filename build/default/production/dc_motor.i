@@ -24102,6 +24102,7 @@ unsigned char __t3rd16on(void);
 
 
 void buggy_lights_init(void);
+
 void toggle_brake_lights(void);
 void toggle_headlamps(void);
 void toggle_main_beam(void);
@@ -24109,6 +24110,7 @@ void toggle_left_indicators(void);
 void toggle_right_indicators(void);
 void toggle_tricolour_LED(void);
 # 5 "./dc_motor.h" 2
+
 
 
 
@@ -24122,8 +24124,6 @@ typedef struct DC_motor {
     unsigned char *negDutyHighByte;
 } DC_motor;
 
-unsigned char rampDelay = 8;
-
 unsigned char topGearLeft = 20;
 unsigned char topGearRight = 20;
 
@@ -24133,6 +24133,8 @@ unsigned char bottomGearRight = 21;
 unsigned char turningLeftGear = 40;
 unsigned char turningRightGear = 40;
 
+
+unsigned char rampDelay = 8;
 
 unsigned int turnLeft90Delay = 84;
 unsigned int turnRight90Delay = 108;
@@ -24186,6 +24188,7 @@ void initDCmotorsPWM(unsigned int PWMperiod){
     T2CONbits.CKPS=0b100;
     T2HLTbits.MODE=0b00000;
     T2CLKCONbits.CS=0b0001;
+
 
 
 
@@ -24253,11 +24256,20 @@ void setMotorPWM(DC_motor *m)
 
 void stop(DC_motor *mL, DC_motor *mR)
 {
-    while ((mL->power>0) || (mR->power>0)){
-        if (mL->power>0) {mL->power--;}
-        if (mR->power>0) {mR->power--;}
+
+    while ((mL->power > 0) || (mR->power > 0)){
+
+
+        if (mL->power > 0) {mL->power--;}
+
+
+        if (mR->power > 0) {mR->power--;}
+
+
         setMotorPWM(mL);
         setMotorPWM(mR);
+
+
         _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
     }
 }
@@ -24267,15 +24279,28 @@ void stop(DC_motor *mL, DC_motor *mR)
 
 void turnLeft(DC_motor *mL, DC_motor *mR)
 {
+
     unsigned char leftGear = turningLeftGear;
     unsigned char rightGear = turningLeftGear;
+
+
     (mL->direction) = 0;
     (mR->direction) = 1;
-    while ((mL->power<leftGear) || (mR->power<rightGear)){
-        if (mL->power<leftGear) {mL->power++;}
-        if (mR->power<rightGear) {mR->power++;}
+
+
+    while ((mL->power < leftGear) || (mR->power < rightGear)){
+
+
+        if (mL->power < leftGear) {mL->power++;}
+
+
+        if (mR->power < rightGear) {mR->power++;}
+
+
         setMotorPWM(mL);
         setMotorPWM(mR);
+
+
         _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
     }
 }
@@ -24285,15 +24310,28 @@ void turnLeft(DC_motor *mL, DC_motor *mR)
 
 void turnRight(DC_motor *mL, DC_motor *mR)
 {
+
     unsigned char leftGear = turningRightGear;
     unsigned char rightGear = turningRightGear;
+
+
     (mL->direction) = 1;
     (mR->direction) = 0;
-    while ((mL->power<leftGear) || (mR->power<rightGear)){
-        if (mL->power<leftGear) {mL->power++;}
-        if (mR->power<rightGear) {mR->power++;}
+
+
+    while ((mL->power < leftGear) || (mR->power < rightGear)){
+
+
+        if (mL->power < leftGear) {mL->power++;}
+
+
+        if (mR->power < rightGear) {mR->power++;}
+
+
         setMotorPWM(mL);
         setMotorPWM(mR);
+
+
         _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
     }
 }
@@ -24303,15 +24341,28 @@ void turnRight(DC_motor *mL, DC_motor *mR)
 
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
 {
+
     unsigned char leftGear = topGearLeft;
     unsigned char rightGear = topGearRight;
+
+
     (mL->direction) = 1;
     (mR->direction) = 1;
-    while ((mL->power<leftGear) || (mR->power<rightGear)){
-        if (mL->power<leftGear) {mL->power++;}
-        if (mR->power<rightGear) {mR->power++;}
+
+
+    while ((mL->power < leftGear) || (mR->power < rightGear)){
+
+
+        if (mL->power < leftGear) {mL->power++;}
+
+
+        if (mR->power < rightGear) {mR->power++;}
+
+
         setMotorPWM(mL);
         setMotorPWM(mR);
+
+
         _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
     }
 }
@@ -24321,15 +24372,28 @@ void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
 
 void fullSpeedReverse(DC_motor *mL, DC_motor *mR)
 {
+
     unsigned char leftGear = bottomGearLeft;
     unsigned char rightGear = bottomGearRight;
+
+
     (mL->direction) = 0;
     (mR->direction) = 0;
-    while ((mL->power<leftGear) || (mR->power<rightGear)){
-        if (mL->power<leftGear) {mL->power++;}
-        if (mR->power<rightGear) {mR->power++;}
+
+
+    while ((mL->power < leftGear) || (mR->power < rightGear)){
+
+
+        if (mL->power < leftGear) {mL->power++;}
+
+
+        if (mR->power < rightGear) {mR->power++;}
+
+
         setMotorPWM(mL);
         setMotorPWM(mR);
+
+
         _delay((unsigned long)((rampDelay)*(64000000/4000.0)));
     }
 }
@@ -24340,11 +24404,9 @@ void fullSpeedReverse(DC_motor *mL, DC_motor *mR)
 void turnLeft90(DC_motor *mL, DC_motor *mR)
 {
     toggle_left_indicators();
-
     turnLeft(mL, mR);
     _delay((unsigned long)((turnLeft90Delay)*(64000000/4000.0)));
     stop(mL, mR);
-
     toggle_left_indicators();
 }
 
@@ -24354,11 +24416,9 @@ void turnLeft90(DC_motor *mL, DC_motor *mR)
 void turnRight90(DC_motor *mL, DC_motor *mR)
 {
     toggle_right_indicators();
-
     turnRight(mL, mR);
     _delay((unsigned long)((turnRight90Delay)*(64000000/4000.0)));
     stop(mL, mR);
-
     toggle_right_indicators();
 }
 
@@ -24368,11 +24428,9 @@ void turnRight90(DC_motor *mL, DC_motor *mR)
 void turnLeft135(DC_motor *mL, DC_motor *mR)
 {
     toggle_left_indicators();
-
     turnLeft(mL, mR);
     _delay((unsigned long)((turnLeft135Delay)*(64000000/4000.0)));
     stop(mL, mR);
-
     toggle_left_indicators();
 }
 
@@ -24382,11 +24440,9 @@ void turnLeft135(DC_motor *mL, DC_motor *mR)
 void turnRight135(DC_motor *mL, DC_motor *mR)
 {
     toggle_right_indicators();
-
     turnRight(mL, mR);
     _delay((unsigned long)((turnRight135Delay)*(64000000/4000.0)));
     stop(mL, mR);
-
     toggle_right_indicators();
 }
 
@@ -24397,11 +24453,9 @@ void UTurn(DC_motor *mL, DC_motor *mR)
 {
     toggle_left_indicators();
     toggle_right_indicators();
-
     turnLeft(mL, mR);
     _delay((unsigned long)((turn180Delay)*(64000000/4000.0)));
     stop(mL, mR);
-
     toggle_left_indicators();
     toggle_right_indicators();
 }
@@ -24412,11 +24466,9 @@ void UTurn(DC_motor *mL, DC_motor *mR)
 void headbuttReverse(DC_motor *mL, DC_motor *mR)
 {
     toggle_brake_lights();
-
     fullSpeedReverse(mL, mR);
     _delay((unsigned long)((headbuttDelay)*(64000000/4000.0)));
     stop(mL, mR);
-
     toggle_brake_lights();
 }
 
@@ -24426,10 +24478,8 @@ void headbuttReverse(DC_motor *mL, DC_motor *mR)
 void squareReverse(DC_motor *mL, DC_motor *mR)
 {
     toggle_brake_lights();
-
     fullSpeedReverse(mL, mR);
     _delay((unsigned long)((squareDelay)*(64000000/4000.0)));
     stop(mL, mR);
-
     toggle_brake_lights();
 }

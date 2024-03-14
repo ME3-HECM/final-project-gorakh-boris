@@ -24290,7 +24290,10 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 
 
 
+
 unsigned char sample_count = 20;
+
+
 unsigned int wall_threshold_clear = 50;
 
 
@@ -24314,8 +24317,7 @@ unsigned int color_read_Red(void);
 unsigned int color_read_Green(void);
 unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
-void getRGBCval(struct RGBC_val *p);
-
+void read_RGBC(struct RGBC_val *p);
 void average_RGBC(struct RGBC_val *p);
 void wait_for_wall(struct RGBC_val *p, unsigned char loss);
 unsigned int max_RGB(struct RGBC_val *p);

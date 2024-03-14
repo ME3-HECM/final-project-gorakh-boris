@@ -7,10 +7,11 @@ Linker command line:
   -cn \
   -h+dist/default/production\final-project-gorakh-boris.X.production.sym \
   --cmf=dist/default/production\final-project-gorakh-boris.X.production.cmf \
-  -z -Q18F67K40 -oC:\Users\boris\AppData\Local\Temp\xcAs9k8.\driver_tmp_3.o \
+  -z -Q18F67K40 \
+  -oC:\Users\boris\AppData\Local\Temp\xcBsdo0.1\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/final-project-gorakh-boris.X.production.map \
-  --md=C:\Users\boris\AppData\Local\Temp\xcAs9k8.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\boris\AppData\Local\Temp\xcBsdo0.1\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh \
   -ASMALLCONST=0E00h-0EFFhx498 -AMEDIUMCONST=0E00h-0FFFFh,010E00h-01FFFFh \
   -ACOMRAM=01h-05Fh -AABS1=00h-0DE9h -ABIGRAM=01h-0DE9h \
@@ -30,7 +31,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\boris\AppData\Local\Temp\xcAs9k8.\driver_tmp_9.o \
+  C:\Users\boris\AppData\Local\Temp\xcBsdo0.1\driver_tmp_9.o \
   dist/default/production\final-project-gorakh-boris.X.production.o 
 
 Object code version is 3.11
@@ -40,7 +41,7 @@ Machine type is 18F67K40
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\boris\AppData\Local\Temp\xcAs9k8.\driver_tmp_9.o
+C:\Users\boris\AppData\Local\Temp\xcBsdo0.1\driver_tmp_9.o
                 idloc                            200000   200000       10        0       5
                 config                           300000   300000        C        0       4
                 init                                 3C       3C        4        4       0
@@ -799,7 +800,6 @@ __end_of_convert_HSV             text43       0014E6
 __end_of_forward_navigation      text6        00228C
 __end_of_fullSpeedAhead          text39       00297A
 __end_of_fullSpeedReverse        text33       002BA0
-__end_of_getRGBCval              text49       003396
 __end_of_headbuttReverse         text31       00372E
 __end_of_initDCmotorsPWM         text5        002D76
 __end_of_initUSART4              text4        003946
@@ -807,6 +807,7 @@ __end_of_main                    text0        002520
 __end_of_max_RGB                 text45       002FFC
 __end_of_min_RGB                 text44       002F80
 __end_of_pick_card               text16       002722
+__end_of_read_RGBC               text49       003396
 __end_of_read_timer              text15       00395C
 __end_of_read_trail              text3        0035D8
 __end_of_reset_timer             text67       003990
@@ -916,8 +917,8 @@ __ptext9                         text9        0027F8
 __ramtop                         ramtop       000E00
 __smallconst                     smallconst   000E00
 _average_RGBC                    text48       001D74
-_bottomGearLeft                  dataCOMRAM   000055
-_bottomGearRight                 dataCOMRAM   000054
+_bottomGearLeft                  dataCOMRAM   000056
+_bottomGearRight                 dataCOMRAM   000055
 _buggy_lights_init               text64       003762
 _card_blue                       text30       00327A
 _card_cyan                       text26       003212
@@ -938,7 +939,6 @@ _convert_HSV                     text43       000E1A
 _forward_navigation              text6        002124
 _fullSpeedAhead                  text39       0028C0
 _fullSpeedReverse                text33       002AEA
-_getRGBCval                      text49       003340
 _headbuttDelay                   dataBANK0    0000BE
 _headbuttReverse                 text31       0036F6
 _initDCmotorsPWM                 text5        002CE6
@@ -950,7 +950,8 @@ _manoeuvre_pointer               dataCOMRAM   00004F
 _max_RGB                         text45       002F80
 _min_RGB                         text44       002F04
 _pick_card                       text16       002626
-_rampDelay                       dataCOMRAM   000058
+_rampDelay                       dataCOMRAM   000052
+_read_RGBC                       text49       003340
 _read_timer                      text15       003946
 _read_trail                      text3        00359E
 _reset_timer                     text67       003984
@@ -972,8 +973,8 @@ _toggle_left_indicators          text37       0038E8
 _toggle_main_beam                text2        003834
 _toggle_right_indicators         text36       0038C8
 _toggle_tricolour_LED            text9        0027F8
-_topGearLeft                     dataCOMRAM   000057
-_topGearRight                    dataCOMRAM   000056
+_topGearLeft                     dataCOMRAM   000058
+_topGearRight                    dataCOMRAM   000057
 _trail_manoeuvre                 bssBANK0     000060
 _trail_timer_high                bssBANK0     000088
 _trail_timer_low                 bssBANK0     000074
@@ -988,8 +989,8 @@ _turnRight135                    text27       003612
 _turnRight135Delay               dataBANK0    0000C2
 _turnRight90                     text24       003686
 _turnRight90Delay                dataBANK0    0000C6
-_turningLeftGear                 dataCOMRAM   000053
-_turningRightGear                dataCOMRAM   000052
+_turningLeftGear                 dataCOMRAM   000054
+_turningRightGear                dataCOMRAM   000053
 _wait_for_wall                   text8        0034D6
 _wall_threshold_clear            dataCOMRAM   00004D
 _write_timer                     text68       003990
@@ -1065,7 +1066,6 @@ fullSpeedReverse@leftGear        cstackCOMRAM 000016
 fullSpeedReverse@mL              cstackCOMRAM 000013
 fullSpeedReverse@mR              cstackCOMRAM 000014
 fullSpeedReverse@rightGear       cstackCOMRAM 000017
-getRGBCval@p                     cstackCOMRAM 00000C
 headbuttReverse@mL               cstackCOMRAM 000018
 headbuttReverse@mR               cstackCOMRAM 000019
 initDCmotorsPWM@PWMperiod        cstackCOMRAM 000001
@@ -1088,6 +1088,7 @@ pick_card@backtrack              cstackCOMRAM 000023
 pick_card@key                    cstackCOMRAM 000024
 pick_card@mL                     cstackCOMRAM 000021
 pick_card@mR                     cstackCOMRAM 000022
+read_RGBC@p                      cstackCOMRAM 00000C
 read_timer@tH                    cstackCOMRAM 000001
 read_timer@tL                    cstackCOMRAM 000002
 read_trail@man                   cstackCOMRAM 000003
@@ -1172,12 +1173,12 @@ color.c
 		_color_click_init		CODE           	372E	0000	52
 		_min_RGB       		CODE           	2F04	0000	124
 		_scale_RGB     		CODE           	2722	0000	214
-		_getRGBCval    		CODE           	3340	0000	86
 		_average_RGBC  		CODE           	1D74	0000	508
 		_colour_to_key 		CODE           	14E6	0000	1124
 		_color_read_Green		CODE           	33E6	0000	80
 		_color_read_Clear		CODE           	3436	0000	80
 		_max_RGB       		CODE           	2F80	0000	124
+		_read_RGBC     		CODE           	3340	0000	86
 		_color_read_Red		CODE           	3396	0000	80
 		_convert_HSV   		CODE           	0E1A	0000	1740
 		_wait_for_wall 		CODE           	34D6	0000	68

@@ -24131,7 +24131,10 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 
 
 
+
 unsigned char sample_count = 20;
+
+
 unsigned int wall_threshold_clear = 50;
 
 
@@ -24155,8 +24158,7 @@ unsigned int color_read_Red(void);
 unsigned int color_read_Green(void);
 unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
-void getRGBCval(struct RGBC_val *p);
-
+void read_RGBC(struct RGBC_val *p);
 void average_RGBC(struct RGBC_val *p);
 void wait_for_wall(struct RGBC_val *p, unsigned char loss);
 unsigned int max_RGB(struct RGBC_val *p);
@@ -24275,7 +24277,7 @@ unsigned int color_read_Clear(void)
 
 
 
-void getRGBCval(struct RGBC_val *p)
+void read_RGBC(struct RGBC_val *p)
 {
     p->R = color_read_Red();
     p->G = color_read_Green();
@@ -24296,12 +24298,11 @@ void average_RGBC(struct RGBC_val *p)
     unsigned long temp_C = 0;
 
 
-
-
-
     for (unsigned char i = 0; i < sample_count; i++) {
 
-        getRGBCval(p);
+
+        read_RGBC(p);
+
 
         temp_R += (unsigned long)p->R;
         temp_G += (unsigned long)p->G;
@@ -24327,11 +24328,14 @@ void average_RGBC(struct RGBC_val *p)
 
 void wait_for_wall(struct RGBC_val *p, unsigned char loss)
 {
+
     while (!loss) {
-        getRGBCval(p);
-        if (p->C < wall_threshold_clear) {
-            break;
-        }
+
+
+        read_RGBC(p);
+
+
+        if (p->C < wall_threshold_clear) {break;}
     }
 }
 
@@ -24372,7 +24376,7 @@ void scale_RGB(struct RGBC_val *p)
 
 
 
-void convert_HSV(struct HSV_val *p1,struct RGBC_val *p2)
+void convert_HSV(struct HSV_val *p1, struct RGBC_val *p2)
 {
     unsigned int hue = 0;
     unsigned int sat = 0;
@@ -24386,7 +24390,7 @@ void convert_HSV(struct HSV_val *p1,struct RGBC_val *p2)
     if (C == 0) {
         hue = 0;
     } else {
-# 232 "color.c"
+# 234 "color.c"
         if (M == p2->R) {
             if (p2->G >= p2->B) {
 
@@ -24467,49 +24471,65 @@ void convert_HSV(struct HSV_val *p1,struct RGBC_val *p2)
     p1->S = sat;
     p1->V = M;
 }
-# 321 "color.c"
+
+
+
+
+
+
 unsigned char colour_to_key(struct HSV_val *p1, struct RGBC_val *p2)
 {
+
     unsigned char key = 0;
+
+
     if ( ((293 <= p1->H) && (p1->H <= 360)) &&
          ((46 <= p1->S) && (p1->S <= 90))) {
         key = 1;
     }
+
 
     if ( ((113 <= p1->H) && (p1->H <= 153)) &&
          ((13 <= p1->S) && (p1->S <= 43))) {
         key = 2;
     }
 
+
     if ( ((180 <= p1->H) && (p1->H <= 244)) &&
          ((13 <= p1->S) && (p1->S <= 56))) {
         key = 3;
     }
+
 
     if ( ((10 <= p1->H) && (p1->H <= 31)) &&
          ((17 <= p1->S) && (p1->S <= 32))) {
         key = 4;
     }
 
+
     if ( ((279 <= p1->H) && (p1->H <= 360)) &&
          ((11 <= p1->S) && (p1->S <= 15))) {
         key = 5;
     }
+
 
     if ( ((298 <= p1->H) && (p1->H <= 360)) &&
          ((20 <= p1->S) && (p1->S <= 45))) {
         key = 6;
     }
 
+
     if ( ((154 <= p1->H) && (p1->H <= 207)) &&
          ((13 <= p1->S) && (p1->S <= 45))) {
         key = 7;
     }
 
+
     if ( ((3000 <= p2->C) && (p2->C <= 40000)) &&
          ((p1->S <= 10))) {
         key = 8;
     }
+
 
     if ( ((1000 <= p2->C) && (p2->C <= 2600)) &&
          ((p1->S <= 12))) {

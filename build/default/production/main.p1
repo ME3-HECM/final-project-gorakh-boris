@@ -1,15 +1,15 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"13 ./color.h
-[; ;./color.h: 13: typedef struct RGBC_val {
+"16 ./color.h
+[; ;./color.h: 16: typedef struct RGBC_val {
 [s S2016 `ui 1 `ui 1 `ui 1 `ui 1 ]
 [n S2016 RGBC_val R G B C ]
-"21
-[; ;./color.h: 21: typedef struct HSV_val {
+"24
+[; ;./color.h: 24: typedef struct HSV_val {
 [s S2017 `ui 1 `ui 1 `ui 1 ]
 [n S2017 HSV_val H S V ]
-"9 ./dc_motor.h
-[; ;./dc_motor.h: 9: typedef struct DC_motor {
+"10 ./dc_motor.h
+[; ;./dc_motor.h: 10: typedef struct DC_motor {
 [s S2015 `uc 1 `uc 1 `uc 1 `ui 1 `*uc 1 `*uc 1 ]
 [n S2015 DC_motor power direction brakemode PWMperiod posDutyHighByte negDutyHighByte ]
 "34097 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h
@@ -24,14 +24,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "20738
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 20738: extern volatile unsigned char CCPR4H __attribute__((address(0xF21)));
 [v _CCPR4H `Vuc ~T0 @X0 0 e@3873 ]
-"39 ./dc_motor.h
-[; ;./dc_motor.h: 39: void initDCmotorsPWM(unsigned int PWMperiod);
+"40 ./dc_motor.h
+[; ;./dc_motor.h: 40: void initDCmotorsPWM(unsigned int PWMperiod);
 [v _initDCmotorsPWM `(v ~T0 @X0 0 ef1`ui ]
 "8 ./buggy_lights.h
 [; ;./buggy_lights.h: 8: void buggy_lights_init(void);
 [v _buggy_lights_init `(v ~T0 @X0 0 ef ]
-"27 ./color.h
-[; ;./color.h: 27: void color_click_init(void);
+"30 ./color.h
+[; ;./color.h: 30: void color_click_init(void);
 [v _color_click_init `(v ~T0 @X0 0 ef ]
 "9 ./serial.h
 [; ;./serial.h: 9: void initUSART4(void);
@@ -2136,98 +2136,98 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40592
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f67k40.h: 40592: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"18 ./dc_motor.h
-[; ;./dc_motor.h: 18: unsigned char rampDelay = 8;
-[v _rampDelay `uc ~T0 @X0 1 e ]
-[i _rampDelay
--> -> 8 `i `uc
-]
-"20
-[; ;./dc_motor.h: 20: unsigned char topGearLeft = 20;
+"19 ./dc_motor.h
+[; ;./dc_motor.h: 19: unsigned char topGearLeft = 20;
 [v _topGearLeft `uc ~T0 @X0 1 e ]
 [i _topGearLeft
 -> -> 20 `i `uc
 ]
-"21
-[; ;./dc_motor.h: 21: unsigned char topGearRight = 20;
+"20
+[; ;./dc_motor.h: 20: unsigned char topGearRight = 20;
 [v _topGearRight `uc ~T0 @X0 1 e ]
 [i _topGearRight
 -> -> 20 `i `uc
 ]
-"23
-[; ;./dc_motor.h: 23: unsigned char bottomGearLeft = 20;
+"22
+[; ;./dc_motor.h: 22: unsigned char bottomGearLeft = 20;
 [v _bottomGearLeft `uc ~T0 @X0 1 e ]
 [i _bottomGearLeft
 -> -> 20 `i `uc
 ]
-"24
-[; ;./dc_motor.h: 24: unsigned char bottomGearRight = 21;
+"23
+[; ;./dc_motor.h: 23: unsigned char bottomGearRight = 21;
 [v _bottomGearRight `uc ~T0 @X0 1 e ]
 [i _bottomGearRight
 -> -> 21 `i `uc
 ]
-"26
-[; ;./dc_motor.h: 26: unsigned char turningLeftGear = 40;
+"25
+[; ;./dc_motor.h: 25: unsigned char turningLeftGear = 40;
 [v _turningLeftGear `uc ~T0 @X0 1 e ]
 [i _turningLeftGear
 -> -> 40 `i `uc
 ]
-"27
-[; ;./dc_motor.h: 27: unsigned char turningRightGear = 40;
+"26
+[; ;./dc_motor.h: 26: unsigned char turningRightGear = 40;
 [v _turningRightGear `uc ~T0 @X0 1 e ]
 [i _turningRightGear
 -> -> 40 `i `uc
 ]
-"30
-[; ;./dc_motor.h: 30: unsigned int turnLeft90Delay = 84;
+"29
+[; ;./dc_motor.h: 29: unsigned char rampDelay = 8;
+[v _rampDelay `uc ~T0 @X0 1 e ]
+[i _rampDelay
+-> -> 8 `i `uc
+]
+"31
+[; ;./dc_motor.h: 31: unsigned int turnLeft90Delay = 84;
 [v _turnLeft90Delay `ui ~T0 @X0 1 e ]
 [i _turnLeft90Delay
 -> -> 84 `i `ui
 ]
-"31
-[; ;./dc_motor.h: 31: unsigned int turnRight90Delay = 108;
+"32
+[; ;./dc_motor.h: 32: unsigned int turnRight90Delay = 108;
 [v _turnRight90Delay `ui ~T0 @X0 1 e ]
 [i _turnRight90Delay
 -> -> 108 `i `ui
 ]
-"32
-[; ;./dc_motor.h: 32: unsigned int turnLeft135Delay = 250;
+"33
+[; ;./dc_motor.h: 33: unsigned int turnLeft135Delay = 250;
 [v _turnLeft135Delay `ui ~T0 @X0 1 e ]
 [i _turnLeft135Delay
 -> -> 250 `i `ui
 ]
-"33
-[; ;./dc_motor.h: 33: unsigned int turnRight135Delay = 262;
+"34
+[; ;./dc_motor.h: 34: unsigned int turnRight135Delay = 262;
 [v _turnRight135Delay `ui ~T0 @X0 1 e ]
 [i _turnRight135Delay
 -> -> 262 `i `ui
 ]
-"34
-[; ;./dc_motor.h: 34: unsigned int turn180Delay = 400;
+"35
+[; ;./dc_motor.h: 35: unsigned int turn180Delay = 400;
 [v _turn180Delay `ui ~T0 @X0 1 e ]
 [i _turn180Delay
 -> -> 400 `i `ui
 ]
-"36
-[; ;./dc_motor.h: 36: unsigned int headbuttDelay = 820;
+"37
+[; ;./dc_motor.h: 37: unsigned int headbuttDelay = 820;
 [v _headbuttDelay `ui ~T0 @X0 1 e ]
 [i _headbuttDelay
 -> -> 820 `i `ui
 ]
-"37
-[; ;./dc_motor.h: 37: unsigned int squareDelay = 2440;
+"38
+[; ;./dc_motor.h: 38: unsigned int squareDelay = 2440;
 [v _squareDelay `ui ~T0 @X0 1 e ]
 [i _squareDelay
 -> -> 2440 `i `ui
 ]
-"9 ./color.h
-[; ;./color.h: 9: unsigned char sample_count = 20;
+"10 ./color.h
+[; ;./color.h: 10: unsigned char sample_count = 20;
 [v _sample_count `uc ~T0 @X0 1 e ]
 [i _sample_count
 -> -> 20 `i `uc
 ]
-"10
-[; ;./color.h: 10: unsigned int wall_threshold_clear = 50;
+"13
+[; ;./color.h: 13: unsigned int wall_threshold_clear = 50;
 [v _wall_threshold_clear `ui ~T0 @X0 1 e ]
 [i _wall_threshold_clear
 -> -> 50 `i `ui
@@ -2486,7 +2486,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 83:     LATHbits.LATH3 = !LATHbits.LATH3;
 [e = . . _LATHbits 0 3 -> -> ! != -> . . _LATHbits 0 3 `i -> 0 `i `i `uc ]
 "84
-[; ;main.c: 84:      _delay((unsigned long)((1000)*(64000000/4000.0)));
+[; ;main.c: 84:     _delay((unsigned long)((1000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "87
 [; ;main.c: 87:     forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
