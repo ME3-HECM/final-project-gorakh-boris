@@ -11,7 +11,30 @@
 
 
 ## 1. Overall Program Flow
+
+The overall program flow is as the following: 
+
 ![Drawing3 (2)](https://github.com/ME3-HECM/final-project-gorakh-boris/assets/77344223/d994f559-40c7-46be-b57f-13373ad3dadd)
+
+
+Everything inside the while returning is 0 loop is inside the forward_navigation function. Once returning is 0, this function is no longer active and moves to the return_to_sender function which includes the rest of the program flow when returning is set to 1.
+
+To navigate back to the start point, we use 3 sets of arrays: trail_manoeuvre, trail_timer_low, trail_timer_high. trail_manoeuvre stores every instruction that the buggy reads and executes from the colour cards (which it will then do a reverse version of when returning) and the trail_timer_low and trail_timer_high functions stores the timer count for the duration of time the buggy is moving forward between manoeuvres. 
+
+When returing, before the buggy moves forward the timer values is set to the max (11111111, 11111111) minus the stored timer values in the timer_trail arrays. This is done so that the time it takes to interrupt matches the stored length of time that it took to move forward when it was not re-navigating to the start. Then the timer starts and the buggy moves forward. 
+
+We only use one ISR and it is only triggered when the timer interrupts. The timer interrupt is used for two cases: 
+1) returning is 0
+   When returning is 0, the buggy is executing the forward_navigation code. As a result, 
+   the interrupt will be due to the buggy moving forward for a time longer than roughly 67 
+   seconds. This means that the buggy is no longer able to store the correct time for 
+   moving forward. As a result, if this happens, then the lost flag is raised to 1.
+2) returning is 1
+   Here, the interrupt is used to set the return_flag to 1 which then causes the buggy to 
+   stop and reset the whole return_to_sender loop.
+
+
+
 
 
 ## 6. Challenge brief
