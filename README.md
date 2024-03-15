@@ -183,8 +183,12 @@ TIMER_TEST is used to test the recorded timer values for the backtracking functi
 
 
 ## 5. Test Maze 
+
     
- 
+https://github.com/ME3-HECM/final-project-gorakh-boris/assets/77344223/b01a8ea1-db25-41db-b1b5-26119c3499cf
+
+
+Here, we have added a video showing our buggy perform in a test maze. We had to nudge the buggy a few times because our turns were calibrated to a different surface than this one. But it can be observed that the buggy can read the colours and perform the right manoeuvres as well as performing the renavigation back to the start position.
 
 ## 6. Challenge brief
 
