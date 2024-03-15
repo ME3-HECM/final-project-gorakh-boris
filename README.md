@@ -56,13 +56,39 @@ https://en.wikipedia.org/wiki/HSL_and_HSV#:~:text=HSV%20stands%20for%20hue%2C%20
 
 First we determined M and m using our min and max functions. Then we determined C as shown below. Since the equations to determine Hue and saturation results in fractions, we decided to scale our values up using hue_scale and sat_scale.
 
-
-![image](https://github.com/ME3-HECM/final-project-gorakh-boris/assets/77344223/2edc0135-6937-410a-bf02-feee65bc3bae)
+    unsigned int hue = 0;                   //hue value
+    unsigned int sat = 0;                   //saturation value
+    unsigned int hue_scale = 60;            //scaling factor for hue
+    unsigned int sat_scale = 100;           //scaling factor for saturation
+    
+    unsigned int M = max_RGB(p2);            //maximum value within RGB
+    unsigned int m = min_RGB(p2);            //minimum value within RGB
+    unsigned int C = M - m;                 //range of RGB (maximum - minimum)
 
 
 Furthermore, we realised that since we were not scaling down our RGBC values which was in 16bit, if we multiplied it by our scale, it would overflow and so we decided to convert it into long int. Furthermore, the original equations had the potential of dealing with negative numbers. For example if when the max reading was red, blue was > than green. As a result we split the equation into two cases, where blue was > green and where green was > blue and modified the equations accordingly so we didn't deal with negative numbers. An example for determing the hue when red is the greatest reading is shown below.
 
-![image](https://github.com/ME3-HECM/final-project-gorakh-boris/assets/77344223/0e3f1e50-85e6-4e35-b329-1bec465cedf3)
+        if (M == p2->R) {
+            if (p2->G >= p2->B) {
+                //hue = (hue_scale * (0 * C + (p2->G - p2->B))) / C;
+                unsigned long temp;
+                temp = (unsigned long)C;
+                temp *= 0;
+                temp += (unsigned long)(p2->G - p2->B);
+                temp *= (unsigned long)hue_scale;
+                temp /= (unsigned long)C;
+                hue = (unsigned int)temp;
+            } else {
+                //hue = (hue_scale * (6 * C - (p2->B - p2->G))) / C;
+                unsigned long temp;
+                temp = (unsigned long)C;
+                temp *= 6;
+                temp -= (unsigned long)(p2->B - p2->G);
+                temp *= (unsigned long)hue_scale;
+                temp /= (unsigned long)C;
+                hue = (unsigned int)temp;
+            }
+        }
 
 
 The hue and saturation were found to be less sensitve to distance from the colour card compared to RGB values. We recorded the readings when the buggy was right up to the colour card in both RGBC (Red, Green Blue, Clear) and HSV. Note, the individual reading for RGBC displayed below are an average of 20 readings against the wall. 
