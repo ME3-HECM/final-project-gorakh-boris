@@ -96,10 +96,33 @@ The hue and saturation were found to be less sensitve to distance from the colou
 ![image](https://github.com/ME3-HECM/final-project-gorakh-boris/assets/77344223/7ae27ba0-5294-4924-b961-069c2226bd56)
 
 We then created upperbound and lowerbound threshold hue and saturation values that would be + or - 15% of the value recorded above. We then tested the cards at lengths up to 4cm away from the buggy and tweaked the thresholds so that it would read the right colour. When doing this however, it was noticed that the black and white colour cards where not as accurate on hue and saturation alone and would read as other colour cards. As a result, we decided to use the clear readings along with saturation to help determine white and black. Furthermore, we noticed that the red colour sensor reading was a lot greater and this was due to the red light in the tri-colour LED being much brighter. As a result, in our code we scaled the red reading down by 50% - this ended up helping with colour reading performance. 
+This was all done in the colour.h file as the structure for RGBC is stored there.
 
 ### 2.2 Determining manoeuvre from colour readings
 
+After getting the readings, depending on the threshold values, a number from 1 to 9 (represents the 9 colours) is returned using the colour_to_key function. This function is also stored in the colour.h file. Then the function pick_card is used to determine which manoeuvre to execute after reading the colour values and comparing it to the thresholds, this function is stored in the manoeuvres.h file. 
+The manoeuvres for the different colour cards are also stored in the manoeuvres.h file.
 
+An example for the manoeuvre code for red is shown below: 
+
+	void card_red(DC_motor *mL, DC_motor *mR, unsigned char backtrack)
+	{
+    	switch (backtrack) {
+        	case 0:         //forward operation
+            	headbuttReverse(mL, mR);
+            	turnRight90(mL, mR);
+            	break;
+        	case 1:         //backtracking operation
+            	turnLeft90(mL, mR);
+            	headbuttReverse(mL, mR);
+            	break;
+		}
+	}
+
+The inputs DC_motor *mL, DC_motor *mR will be the pointers that point to the DC motor structure which will be used to set the correct motor settings for the turns. The input backtrack is used to determine if the buggy is backtracking. If it is backtracking then the backward operation of that instruction will be performed. If it isn't then the forward operation will be performed.
+
+
+## 3. Backtracking functions
 
 
 ## 6. Challenge brief
