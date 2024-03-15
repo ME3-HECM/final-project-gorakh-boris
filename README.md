@@ -38,12 +38,40 @@ Here, the interrupt is used to set the return_flag to 1 which then causes the bu
 stop and reset the whole return_to_sender loop.
 
 
-## Colour reading and manoeuvre functions
+## 2. Colour reading and manoeuvre functions
+
+### 2.1 Colour calibration
+To read the colour card given to us, first we read the values from the TCS colour sensor which gave a 16-bit number for red, green, blue and clear colour values of whatever the sensor the reads and sent that data over serial to the computer. The data from serial was stored and the RGB values (still in 16-bit ie values ranging from 0 - 65535) for the different colours were stored. However, we realised that as we moved the buggy slightly away from the colour cards then the values would drop noticeably). 
+
+We then decided to convert RGB to HSV (Hue, Saturation and Value). This was done using the equation obtained from:
+
+https://en.wikipedia.org/wiki/HSL_and_HSV#:~:text=HSV%20stands%20for%20hue%2C%20saturation,hue%2C%20saturation%2C%20and%20intensity.
+
+![image](https://github.com/ME3-HECM/final-project-gorakh-boris/assets/77344223/5e3f86ec-053b-4f5e-ae05-4f48c2e2517e)
+
+![image](https://github.com/ME3-HECM/final-project-gorakh-boris/assets/77344223/d5e32713-ff8c-423d-b5cd-e0a260d1dd99)
+
+![image](https://github.com/ME3-HECM/final-project-gorakh-boris/assets/77344223/53334b98-8d74-4356-bf61-c75b0d1aa18b)
 
 
-To read the colour card given to us, first we read the values from the TCS colour sensor which gave a 16-bit number for red, green, blue and clear colour values of whatever the sensor the reads and sent that data to serial. The data from serial was stored and the RGB values (still in 16-bit ie values ranging from 0 - 65535) for the different colours were stored. However, we realised that as we moved the buggy slightly away from the colour cards then the values would drop noticeably. 
-We then decided to convert RGB to HSV (Hue, Saturation and Value). The hue and saturation were found to be less sensitve to distance from the colour card compared to RGB values. 
-![image](https://github.com/ME3-HECM/final-project-gorakh-boris/assets/77344223/d0363b22-7716-4718-a7b0-73658fe12174)
+First we determined M and m using our min and max functions. Then we determined C as shown below. Since the equations to determine Hue and saturation results in fractions, we decided to scale our values up using hue_scale and sat_scale.
+
+
+![image](https://github.com/ME3-HECM/final-project-gorakh-boris/assets/77344223/2edc0135-6937-410a-bf02-feee65bc3bae)
+
+
+Furthermore, we realised that since we were not scaling down our RGBC values which was in 16bit, if we multiplied it by our scale, it would overflow and so we decided to convert it into long int. Furthermore, the original equations had the potential of dealing with negative numbers. For example if when the max reading was red, blue was > than green. As a result we split the equation into two cases, where blue was > green and where green was > blue and modified the equations accordingly so we didn't deal with negative numbers. An example for determing the hue when red is the greatest reading is shown below.
+
+![image](https://github.com/ME3-HECM/final-project-gorakh-boris/assets/77344223/0e3f1e50-85e6-4e35-b329-1bec465cedf3)
+
+
+The hue and saturation were found to be less sensitve to distance from the colour card compared to RGB values. We recorded the readings when the buggy was right up to the colour card in both RGBC (Red, Green Blue, Clear) and HSV. Note, the individual reading for RGBC displayed below are an average of 20 readings against the wall. 
+
+![image](https://github.com/ME3-HECM/final-project-gorakh-boris/assets/77344223/7ae27ba0-5294-4924-b961-069c2226bd56)
+
+We then created upperbound and lowerbound threshold hue and saturation values that would be + or - 15% of the value recorded above. We then tested the cards at lengths up to 4cm away from the buggy and tweaked the thresholds so that it would read the right colour. When doing this however, it was noticed that the black and white colour cards where not as accurate on hue and saturation alone and would read as other colour cards. As a result, we decided to use the clear readings along with saturation to help determine white and black. Furthermore, we noticed that the red colour sensor reading was a lot greater and this was due to the red light in the tri-colour LED being much brighter. As a result, in our code we scaled the red reading down by 50% - this ended up helping with colour reading performance. 
+
+### 2.2 Determining manoeuvre from colour readings
 
 
 
