@@ -124,6 +124,16 @@ The inputs DC_motor *mL, DC_motor *mR will be the pointers that point to the DC 
 
 ## 3. Backtracking functions
 
+## 4. Test Cases
+
+In our code we have 4 test cases which are: 
+
+	#define DRIVE 1                     //normal operation, not testing anything
+	#define COLOUR_TEST 0               //testing code and sending to serial
+	#define MOTOR_TEST 0                //calibrating motor forward and turns
+	#define TIMER_TEST 0                //testing timer and memory functions
+
+ Drive 1 is the normal operation and the funcions
 
 ## 6. Challenge brief
 
