@@ -124,6 +124,49 @@ The inputs DC_motor *mL, DC_motor *mR will be the pointers that point to the DC 
 
 ## 3. Backtracking functions
 
+	//temporary timer and manoeuvre variables
+        unsigned char timerH = 0;
+        unsigned char timerL = 0;
+        unsigned char mann = 0;
+        
+        //read variables from memory
+        read_trail(&timerH, &timerL, &mann);
+
+The backtracking function first reads timer high and low, and a manoeuvre variable from the memory trail. The read_trail function moves the array pointers back 1 slot, then reads the values being pointed to and writes it to the input addresses. The read_trail function also decrements the manoeuvre_count counter by 1, which is used to end the entire backtracking function when it reaches 0.
+
+	//perform manoeuvre but ignore white card instruction
+        if (mann != 8) {
+            pick_card(mL, mR, returning, mann);
+        }
+
+The manoeuvre key 8 is written to memory at the end of the forward_navigation function. The U-turn associated with the white card only needs to be performed once, and is already performed at the end of forward_navigation. Therefore, this if statements prevents duplication of the U turn.
+
+	//perform manoeuvre but ignore white card instruction
+        if (mann != 8) {
+            pick_card(mL, mR, returning, mann);
+        }
+	
+	//toggle main beam for road safety
+        toggle_main_beam();
+        
+        //write timer, start timer and drive forwards
+        write_timer(0b11111111 - timerH, 0b11111111 - timerL);
+        start_timer();
+        fullSpeedAhead(mL, mR);
+        
+        //wait until timer overflow raises return flag
+        while (!return_flag);
+        
+        //stop driving, stop timer and lower return flag
+        stop(mL, mR);
+        stop_timer();
+        return_flag = 0;
+        
+        //toggle main beam for road safety
+        toggle_main_beam();
+
+The backtracking function first performs the turns associated with the stored card colours, then drives in a straight line for a "remembered" duration. The remembered duration is timed using Timer0 and its overflow interrupt feature: The timer registers are written such that the timer overflows when the time elapsed correlates to timerH and timerL. The timer starts when the car begins driving forward, then when the timer overflows and the return_flag is raised, the car stops.
+
 ## 4. Test Cases
 
 In our code we have 4 test cases which are: 
