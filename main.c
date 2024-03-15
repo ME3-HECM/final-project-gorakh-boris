@@ -89,7 +89,20 @@ void main(void) {
     __delay_ms(1000);
     
 #if DRIVE
+    /***********************************************************************
+     * Go forward in the maze, function loops until buggy has reached the
+     * end or is lost due to an exception
+    ***********************************************************************/
     forward_navigation(&motorL, &motorR, &HSV_colour, &RGBC_colour);
+    
+    /***********************************************************************
+     * Return to the start of the maze, function loops until buggy has
+     * performed all manoeuvres stored in memory (where it hopefully has
+     * reached the end)
+     * 
+     * RH3 LED turns off if buggy is returning without being lost
+     * Both RD7 and RH3 LEDs turn off if buggy is lost and returning
+    ***********************************************************************/
     return_to_sender(&motorL, &motorR);
 #endif
     
