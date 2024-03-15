@@ -176,7 +176,15 @@ In our code we have 4 test cases which are:
 	#define MOTOR_TEST 0                //calibrating motor forward and turns
 	#define TIMER_TEST 0                //testing timer and memory functions
 
- Drive 1 is the normal operation and the funcions
+DRIVE 1 is the normal operation and here the functions forward_navigation and return_to_sender are called only.
+COLOUR_TEST is used to send the RGBC and HSV values over serial to the computer.
+MOTOR_TEST is used to calibrate the buggy's turns and forward movement.
+TIMER_TEST is used to test the recorded timer values for the backtracking function. The way this test is performed is we make the buggy go forward for a predetermined time and we store the timer readings (and display on to the computer via serial). Then the buggy stops, and we rotate the buggy (manually) and then see if it goes back to the starting position.
+
+
+## 5. Test Maze 
+    
+ 
 
 ## 6. Challenge brief
 
